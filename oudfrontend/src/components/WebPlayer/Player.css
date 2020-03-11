@@ -25,3 +25,19 @@
   flex-direction: column;
   align-items: center;
 }
+.now-playing-bar .content {
+  width: 100%;
+}
+.player-controls .control-buttons {
+  margin: 0 auto;
+  display: table;
+}
+.control-button {
+  background-color: transparent;
+  border: none;
+  vertical-align: middle;
+}
+.control-button img {
+  width: 20px;
+  height: 20px;
+}
