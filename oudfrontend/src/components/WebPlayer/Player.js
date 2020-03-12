@@ -43,6 +43,15 @@ class WebPlayer extends Component {
                   <img src={Repeat} alt="Repeat" />
                 </button>
               </div>
+              <div className="playback-bar">
+                <span className="progress-time current">0.00</span>
+                <div className="progress-bar">
+                  <div className="progress-bar-bg">
+                    <div className="progress"></div>
+                  </div>
+                </div>
+                <span className="progress-time remaining">0.00</span>
+              </div>
             </div>
           </div>
           <div className="now-playing-bar-right"></div>
