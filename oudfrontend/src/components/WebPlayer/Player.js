@@ -4,11 +4,12 @@ import Pause from "../../assets/images/icons/pause.png";
 import Play from "../../assets/images/icons/play.png";
 import Previous from "../../assets/images/icons/previous.png";
 import Repeat from "../../assets/images/icons/repeat.png";
-import RepeatEnabled from "../../assets/images/icons/repeat-enable.png";
+// import RepeatEnabled from "../../assets/images/icons/repeat-enable.png";
 import Shuffle from "../../assets/images/icons/shuffle.png";
-import ShuffleEnabled from "../../assets/images/icons/shuffle-enable.png";
-import Volume from "../../assets/images/icons/volume.png";
-import VolumeMuted from "../../assets/images/icons/volume-mute.png";
+// import ShuffleEnabled from "../../assets/images/icons/shuffle-enable.png";
+// import Volume from "../../assets/images/icons/volume.png";
+import art from "../../assets/images/icons/album.jpg";
+// import VolumeMuted from "../../assets/images/icons/volume-mute.png";
 import "./Player.css";
 class WebPlayer extends Component {
   state = {};
@@ -16,7 +17,18 @@ class WebPlayer extends Component {
     return (
       <div className="now-playing-bar-container">
         <div className="now-playing-bar">
-          <div className="now-playing-bar-left"></div>
+          <div className="now-playing-bar-left">
+            <div className="content">
+              <span className="ablum-link">
+                <img src={art} className="album-art-work" alt="Album Art" />
+              </span>
+
+              <div className="track-info">
+                <strong className="track-name">Mob Pcycho 2</strong>
+                <strong className="artist-name">Mob</strong>
+              </div>
+            </div>
+          </div>
           <div className="now-playing-bar-center">
             <div className="content player-controls">
               <div className="control-buttons">
