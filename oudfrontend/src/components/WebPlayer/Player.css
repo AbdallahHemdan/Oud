@@ -18,6 +18,10 @@
   width: 30%;
   min-width: 180px;
 }
+.now-playing-bar-right {
+  position: relative;
+  margin-top: 16px;
+}
 .now-playing-bar-center {
   width: 40%;
   max-width: 700px;
@@ -97,4 +101,12 @@
 .now-playing-bar-left .track-info .artist-name {
   font-size: 12px;
   color: #a0a0a0;
+}
+.volume-bar {
+  width: 180px;
+  position: absolute;
+  right: 0;
+}
+.volume-bar .progress-bar {
+  width: 125px;
 }

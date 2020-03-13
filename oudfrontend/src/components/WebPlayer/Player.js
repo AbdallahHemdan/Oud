@@ -7,7 +7,7 @@ import Repeat from "../../assets/images/icons/repeat.png";
 // import RepeatEnabled from "../../assets/images/icons/repeat-enable.png";
 import Shuffle from "../../assets/images/icons/shuffle.png";
 // import ShuffleEnabled from "../../assets/images/icons/shuffle-enable.png";
-// import Volume from "../../assets/images/icons/volume.png";
+import Volume from "../../assets/images/icons/volume.png";
 import art from "../../assets/images/icons/album.jpg";
 // import VolumeMuted from "../../assets/images/icons/volume-mute.png";
 import "./Player.css";
@@ -66,7 +66,18 @@ class WebPlayer extends Component {
               </div>
             </div>
           </div>
-          <div className="now-playing-bar-right"></div>
+          <div className="now-playing-bar-right">
+            <div className="volume-bar">
+              <button className="control-button volume" title="Volume">
+                <img src={Volume} alt="Volume" />
+              </button>
+              <div className="progress-bar">
+                <div className="progress-bar-bg">
+                  <div className="progress"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
