@@ -22,39 +22,46 @@ class WebPlayer extends Component {
               <span className="ablum-link">
                 <img src={art} className="album-art-work" alt="Album Art" />
               </span>
-
-              <div className="track-info">
-                <strong className="track-name">Mob Pcycho 2</strong>
-                <strong className="artist-name">Mob</strong>
+              <div className="player-controls">
+                <div className="control-buttons">
+                  <button className="control-button previous" title="Previous">
+                    <img src={Previous} alt="Previous" />
+                  </button>
+                  <button className="control-button play" title="Play">
+                    <img src={Play} alt="Play" />
+                  </button>
+                  <button
+                    className="control-button pause"
+                    title="Pause"
+                    style={{ display: "none" }}
+                  >
+                    <img src={Pause} alt="Pause" />
+                  </button>
+                  <button className="control-button next" title="Next">
+                    <img src={Next} alt="Next" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           <div className="now-playing-bar-center">
             <div className="content player-controls">
-              <div className="control-buttons">
-                <button className="control-button shuffle" title="Shuffle">
-                  <img src={Shuffle} alt="Shuffle" />
-                </button>
-                <button className="control-button previous" title="Previous">
-                  <img src={Previous} alt="Previous" />
-                </button>
-                <button className="control-button play" title="Play">
-                  <img src={Play} alt="Play" />
-                </button>
-                <button
-                  className="control-button pause"
-                  title="Pause"
-                  style={{ display: "none" }}
-                >
-                  <img src={Pause} alt="Pause" />
-                </button>
-                <button className="control-button next" title="Next">
-                  <img src={Next} alt="Next" />
-                </button>
-                <button className="control-button repeat" title="Repeat">
-                  <img src={Repeat} alt="Repeat" />
-                </button>
+              <div className="track-controls">
+                <div className="track-info">
+                  <strong className="track-name">Mob Pcycho 2</strong>
+                  <strong className="artist-name">Mob</strong>
+                </div>
+
+                <div className="control-buttons">
+                  <button className="control-button shuffle" title="Shuffle">
+                    <img src={Shuffle} alt="Shuffle" />
+                  </button>
+                  <button className="control-button repeat" title="Repeat">
+                    <img src={Repeat} alt="Repeat" />
+                  </button>
+                </div>
               </div>
+
               <div className="playback-bar">
                 <span className="progress-time current">0.00</span>
                 <div className="progress-bar">
