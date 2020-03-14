@@ -52,14 +52,7 @@ class WebPlayer extends Component {
                   <strong className="artist-name">Mob</strong>
                 </div>
 
-                <div className="control-buttons">
-                  <button className="control-button shuffle" title="Shuffle">
-                    <img src={Shuffle} alt="Shuffle" />
-                  </button>
-                  <button className="control-button repeat" title="Repeat">
-                    <img src={Repeat} alt="Repeat" />
-                  </button>
-                </div>
+                <div className="control-buttons"></div>
               </div>
 
               <div className="playback-bar">
@@ -75,6 +68,12 @@ class WebPlayer extends Component {
           </div>
           <div className="now-playing-bar-right">
             <div className="volume-bar">
+              <button className="control-button shuffle" title="Shuffle">
+                <img src={Shuffle} alt="Shuffle" />
+              </button>
+              <button className="control-button repeat" title="Repeat">
+                <img src={Repeat} alt="Repeat" />
+              </button>
               <button className="control-button volume" title="Volume">
                 <img src={Volume} alt="Volume" />
               </button>

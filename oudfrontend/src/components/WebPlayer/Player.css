@@ -119,6 +119,9 @@
   width: 180px;
   position: absolute;
   right: 0;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
 }
 .volume-bar .progress-bar {
   width: 125px;
