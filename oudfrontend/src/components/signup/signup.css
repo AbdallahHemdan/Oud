@@ -1,0 +1,141 @@
+body {
+  min-width: 300px;
+}
+
+.main-center {
+  text-align: center;
+}
+
+.oud-title {
+  font-size: 25px;
+  top: 30px;
+}
+
+.navbar-brand {
+  font-family: "Lobster", cursive;
+  font-size: 3.5rem;
+  color: #ef6c00;
+}
+
+.navbar-brand:hover {
+  color: #ef6c00;
+}
+
+.navbar-brand:active {
+  color: #ef6c00;
+}
+
+.main-brand {
+  border-bottom: 0.1px solid rgb(182, 182, 182);
+  text-align: center;
+}
+
+.hint-text {
+  color: #999;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.social-icons {
+  font-size: 2.5em;
+}
+
+.main-form {
+  max-width: 400px;
+  min-width: 30vw;
+  text-align: justify;
+}
+
+.or-seperator,
+.or-seperator-2 {
+  width: 30%;
+  margin: 20px auto 10px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+.or-seperator i {
+  padding: 0 10px;
+  background: #ffffff;
+  position: relative;
+  top: -11px;
+  z-index: 1;
+}
+
+.rc-captcha {
+  margin: 0 auto;
+  margin-bottom: 15px;
+  width: 302px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.back {
+  margin-bottom: 45px;
+}
+
+.or-seperator-2 {
+  width: 50%;
+}
+
+button.btn.btn-primary.btn-block {
+  color: #ffffff;
+  background-color: #ef6c00;
+}
+
+button.btn.btn-primary.btn-block:active {
+  color: #ffffff;
+  background-color: #ef6c00;
+}
+
+button.btn.btn-primary.btn-block:hover {
+  background-color: #ee732cfa;
+}
+
+.error {
+  font-size: 15px;
+}
+
+input.form-control.custom-select {
+  background-color: #ffffff;
+  border-color: #ccc;
+}
+
+input.form-control {
+  border-color: #ccc;
+}
+
+select.form-control.form-col.custom-select {
+  border-color: #ccc;
+}
+
+.custom-select.is-invalid,
+.was-validated .custom-select:invalid {
+  border-color: #ccc;
+}
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  border-color: #ccc;
+}
+
+.invalid-feedback {
+  display: inline;
+}
+
+input.form-control.custom-select {
+  height: 50px;
+}
+
+input.form-control {
+  height: 50px;
+}
+
+select.form-control.form-col.custom-select {
+  height: 50px;
+}
+
+button.btn.btn-primary.btn-block {
+  height: 50px;
+}
