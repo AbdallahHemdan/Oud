@@ -1,0 +1,9 @@
+.song{
+    
+    height:64px;
+    width: 100%;
+}
+
+.song :hover{
+    background-color: rgba(50,60,60, .5);
+}
