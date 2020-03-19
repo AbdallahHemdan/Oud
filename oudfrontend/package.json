@@ -1,15 +1,22 @@
 {
-  "name": "oudfrontend",
+  "name": "signup",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "bootstrap": "^4.4.1",
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "firebase": "^7.11.0",
+    "json-server": "^0.16.1",
+    "postcss-preset-env": "^6.7.0",
     "react": "^16.13.0",
-    "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.0",
+    "react-facebook-login": "^4.1.1",
+    "react-firebaseui": "^4.1.0",
+    "react-google-login": "^5.1.2",
+    "react-recaptcha": "^2.3.10",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0"
@@ -18,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "json:server": "json-server --watch db.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,5 +42,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
