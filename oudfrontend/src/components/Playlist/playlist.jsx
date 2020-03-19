@@ -2,7 +2,6 @@ import React from 'react';
 import './playlist.css';
 import Song from '../song/song'
 import axios from 'axios';
-
 class Playlist extends React.Component{
     constructor(props){
         super(props);
@@ -36,10 +35,10 @@ class Playlist extends React.Component{
                     <div className='row'>
                         <div className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
                             <div className='playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
-                                <img src={require("./Wegz.jpg")} className='playlistImage' alt='play'/>
+                                <img src={this.props.image} className='playlistImage' alt='play'/>
                                 <div className='overlayer'>
                                    <h2>ahmed</h2> 
-                                   <i class="fa fa-play-circle"></i>
+                                   <i class="fa fa-play-circle"></i>  {/*Not Working Favicon*/}
                                 </div>
                             </div>            
                             <div className='playlistHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8'>
