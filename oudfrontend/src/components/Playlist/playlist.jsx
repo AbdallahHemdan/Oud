@@ -8,23 +8,31 @@ class Playlist extends React.Component{
         this.state = {
             tracks : [],
             recieved:false,
-            numerOfSongs:0
+            playlist:{}
+            
         };
+        
     }
 
 
     componentDidMount(){
-         axios.get(`http://localhost:3000/tracks`)
+        const url = `http://localhost:3000/${this.props.id.id}`; 
+         axios.get(`${url}`)
         .then((response)=> {
-            const tracks = response.data;
-            this.setState({tracks:tracks});
+            const playlist = response.data;
+            this.setState({tracks:playlist.tracks});
             this.setState({recieved:true})
-            this.setState({numberOfSongs:tracks.length})
-            console.log(this.state.tracks);
+            this.setState({playlist:playlist})
+            console.log(this.props.id);
         })
         .catch((error)=> {
             console.log(error);
+            console.log(this.props.id);
+
         });
+
+
+        
     }
 
 
@@ -35,24 +43,24 @@ class Playlist extends React.Component{
                     <div className='row'>
                         <div className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
                             <div className='playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
-                                <img src={this.props.image} className='playlistImage' alt='play'/>
+                                <img src={this.state.playlist.image} className='playlistImage' alt='playlist img'/>
                                 <div className='overlayer'>
-                                   <h2>ahmed</h2> 
-                                   <i class="fa fa-play-circle"></i>  {/*Not Working Favicon*/}
+                                    
+                                   <i className="fa fa-play-circle"></i>  {/*Not Working Favicon*/}
                                 </div>
                             </div>            
                             <div className='playlistHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8'>
     
                                 <div className='playlistHeaderBodyTop'>
                                     <h2 className='whiteText'>Today's Top Egyptian Hits</h2>
-                                    <a className='playlistAnchor' href='www.facebook.com'>{this.props.Creator}Spotify</a>
+                                    <a className='playlistAnchor' href='www.facebook.com'>{this.state.playlist.owner}</a>
                                 </div>
                                 
                                 <div className='playlistHeaderBodyBottom'>
                                     <button className="playButton" variant="outline-success">
                                             PLAY
                                     </button>
-                                    <p>{this.state.numberOfSongs} {this.state.numberOfSongs > 1? 'songs':'song'}</p>
+                                    <p>{this.state.tracks.length} {this.state.tracks.length > 1? 'songs':'song'}</p>
                                 </div>
                             </div>
                         </div>
