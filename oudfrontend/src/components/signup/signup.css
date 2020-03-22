@@ -1,5 +1,29 @@
+* {
+  color: #f9b835;
+}
+.btn-outline-dark {
+  background-color: white;
+  border-color: #f9b835;
+  box-shadow: white;
+}
+
+.btn-outline-dark:hover {
+  background-color: #f9b835;
+  border-color: #f9b835;
+  box-shadow: none;
+}
+
+.btn-outline-dark:not(:hover) {
+  box-shadow: none;
+}
+
+hr {
+  color: #f9b835;
+}
+
 body {
   min-width: 300px;
+  color: #f9b835;
 }
 
 .main-center {
@@ -12,26 +36,24 @@ body {
 }
 
 .navbar-brand {
-  font-family: "Lobster", cursive;
+  font-family: 'Lobster', cursive;
   font-size: 3.5rem;
-  color: #ef6c00;
+  color: #f9b835;
 }
-
 .navbar-brand:hover {
-  color: #ef6c00;
+  color: #f9b835;
 }
-
 .navbar-brand:active {
-  color: #ef6c00;
+  color: #f9b835;
 }
 
 .main-brand {
-  border-bottom: 0.1px solid rgb(182, 182, 182);
+  border-bottom: 0.1px solid #f9b835;
   text-align: center;
 }
 
 .hint-text {
-  color: #999;
+  color: #f9b835;
   text-align: center;
   margin-bottom: 20px;
   margin-top: 15px;
@@ -52,12 +74,12 @@ body {
   width: 30%;
   margin: 20px auto 10px;
   text-align: center;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #f9b835;
 }
 
 .or-seperator i {
   padding: 0 10px;
-  background: #ffffff;
+  background: #f9b835;
   position: relative;
   top: -11px;
   z-index: 1;
@@ -81,16 +103,16 @@ body {
 
 button.btn.btn-primary.btn-block {
   color: #ffffff;
-  background-color: #ef6c00;
+  background-color: #f9b835;
 }
 
 button.btn.btn-primary.btn-block:active {
   color: #ffffff;
-  background-color: #ef6c00;
+  background-color: #f9b835;
 }
 
 button.btn.btn-primary.btn-block:hover {
-  background-color: #ee732cfa;
+  background-color: #f9b835;
 }
 
 .error {
@@ -99,25 +121,25 @@ button.btn.btn-primary.btn-block:hover {
 
 input.form-control.custom-select {
   background-color: #ffffff;
-  border-color: #ccc;
+  border-color: #f9b835;
 }
 
 input.form-control {
-  border-color: #ccc;
+  border-color: #f9b835;
 }
 
 select.form-control.form-col.custom-select {
-  border-color: #ccc;
+  border-color: #f9b835;
 }
 
 .custom-select.is-invalid,
 .was-validated .custom-select:invalid {
-  border-color: #ccc;
+  border-color: #f9b835;
 }
 
 .form-control.is-invalid,
 .was-validated .form-control:invalid {
-  border-color: #ccc;
+  border-color: #f9b835;
 }
 
 .invalid-feedback {

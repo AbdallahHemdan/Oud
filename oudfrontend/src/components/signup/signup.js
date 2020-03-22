@@ -13,8 +13,6 @@ class signup extends Component {
     this.state = {
       name: '',
       email: '',
-      password: '',
-      confirmPassword: '',
       gender: '',
       year: '',
       month: '',
@@ -24,8 +22,11 @@ class signup extends Component {
       showText: 'show',
       isVerified: true,
       agreeTerms: true,
+      PASSWORD: '',
+      CONFIRMPASSWORD: '',
     };
   }
+
   handleShowPassword = (e) => {
     e.preventDefault();
     this.setState({
@@ -34,8 +35,9 @@ class signup extends Component {
     });
     return false;
   };
+  //eslint give your warrining  when u add logs
   hasSamePassword = () => {
-    if (this.state.password === this.state.confirmPassword) {
+    if (this.state.PASSWORD === this.state.CONFIRMPASSWORD) {
       return true;
     } else {
       return false;

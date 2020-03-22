@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Facebook from '../signin/Facebook';
+import renderer from 'react-test-renderer';
 
 class SocialIcons extends Component {
   render() {
@@ -7,19 +9,7 @@ class SocialIcons extends Component {
       <React.Fragment>
         <h6 className="hint-text">Sign Up with your social media account</h6>
         <section className="social-icons">
-          <Link to="/">
-            <img
-              src="https://img.icons8.com/color/60/000000/google-logo.png"
-              alt=""
-            />
-          </Link>
-          {' | '}
-          <Link to="/">
-            <img
-              src="https://img.icons8.com/color/60/000000/facebook-circled.png"
-              alt=""
-            />
-          </Link>
+          <Facebook />
         </section>
         <section className="or-seperator">
           <i>OR</i>
