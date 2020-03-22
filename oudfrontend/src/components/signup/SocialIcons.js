@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import Facebook from '../signin/Facebook';
-import renderer from 'react-test-renderer';
+
 
 class SocialIcons extends Component {
   render() {

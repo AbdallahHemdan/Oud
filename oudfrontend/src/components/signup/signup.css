@@ -104,6 +104,7 @@ body {
 button.btn.btn-primary.btn-block {
   color: #ffffff;
   background-color: #f9b835;
+  border-radius: 50px;
 }
 
 button.btn.btn-primary.btn-block:active {
@@ -161,3 +162,4 @@ select.form-control.form-col.custom-select {
 button.btn.btn-primary.btn-block {
   height: 50px;
 }
+

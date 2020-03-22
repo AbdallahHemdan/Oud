@@ -7,7 +7,7 @@ import SocialIcons from './SocialIcons';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
 
-class signup extends Component {
+class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -353,4 +353,4 @@ class signup extends Component {
   }
 }
 
-export default signup;
+export default Signup;
