@@ -1,7 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import Playlist from './components/Playlist/playlist';
+import Playlist from './components/playlist/playlist';
 import { BrowserRouter as Router, Route, Switch, useParams, Link,useRouteMatch } from 'react-router-dom';
 
 
@@ -11,17 +11,12 @@ function App() {
   
   return (
     <Router>
-      <div className="App">
-        <body>
-        
-        
+      <div className="App">  
         <Switch>
-          <Route path={`${url}/:id`} component={<Playlist/>}>
+          <Route path={`${url}/:id`} Component={<Playlist/>}>
             <PlaylistRender/>
-          </Route>
-          
-        </Switch>
-        </body>
+          </Route> 
+        </Switch> 
       </div>
     </Router>
   );

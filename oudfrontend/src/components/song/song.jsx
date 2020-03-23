@@ -23,7 +23,7 @@ class Song extends Component{
                     <img src={this.state.hover? require('./play.png'):require('./musicIcon.png')} width='12' height='14' alt='play music icon'/>
                 </div>
 
-                <div className='songInfo col-8'>    
+                <div className='songInfo songChild col-8'>    
                     <span className='whiteText'>{this.state.track.name}</span>
                     <p>
                    <span>{
@@ -32,10 +32,8 @@ class Song extends Component{
                             <a className='playlistAnchor' href="">{artist.name}</a>
                             <span>, </span>
                             </span>
-                            
-                        );
-                   
-                    }
+                            );
+                        }
                    )
                    }
                     </span>
@@ -44,11 +42,11 @@ class Song extends Component{
                     </p>
                 </div>
 
-                <div  className='songOptions col-1'>
+                <div  className='songChild col-1'>
                     {this.state.hover?<h2>...</h2>:<span></span>}
                 </div>
 
-                <div className='songTime col-2'>
+                <div className='songChild col-2'>
                     <p>{this.props.songTime}3:34</p>
                 </div>
                 
