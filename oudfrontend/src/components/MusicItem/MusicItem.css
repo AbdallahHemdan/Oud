@@ -1,0 +1,19 @@
+.module {
+  margin-top: 40px;
+}
+.wrapper {
+  margin-top: 10px;
+}
+.wrapper_section_2 {
+  margin-top: 10px;
+}
+.wrapper h1 {
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
