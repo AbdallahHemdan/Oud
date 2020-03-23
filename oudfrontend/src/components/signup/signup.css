@@ -1,6 +1,26 @@
-* {
-  color: #f9b835;
+.google_button {
+  width: 20rem;
+  border-radius: 50px;
+  padding: 5px 5px 11px;
+  color: white;
+  text-align: center;
+  background-color: #4285f4;
+  border: 2px solid #4285f4;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+
 }
+
+.googlepic {
+  width: 10%;
+  background-color: white;
+  border-radius: 100%;
+  margin: auto 10px auto -10px;
+}
+
+
+
 .btn-outline-dark {
   background-color: white;
   border-color: #f9b835;
@@ -40,9 +60,11 @@ body {
   font-size: 3.5rem;
   color: #f9b835;
 }
+
 .navbar-brand:hover {
   color: #f9b835;
 }
+
 .navbar-brand:active {
   color: #f9b835;
 }
@@ -162,4 +184,3 @@ select.form-control.form-col.custom-select {
 button.btn.btn-primary.btn-block {
   height: 50px;
 }
-

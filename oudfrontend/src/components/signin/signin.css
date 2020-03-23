@@ -1,6 +1,7 @@
 body {
   min-width: 300px;
 }
+
 .g-signin2 {
   text-align: center;
   align-items: center;
@@ -8,6 +9,7 @@ body {
   margin: auto;
   font-family: Helvetica, sans-serif;
 }
+
 .abcRioButtonContentWrapper {
   display: inline-block;
   text-align: center;
@@ -17,6 +19,7 @@ body {
   border-radius: 50px;
   white-space: unset;
 }
+
 .googlebtn:hover {
   cursor: pointer;
 }
@@ -26,6 +29,13 @@ body {
 .kep-login-facebook.medium {
   width: 20rem;
   border-radius: 50px;
+}
+
+.facebookicon {
+  width: 10%;
+  background-color: white;
+  border-radius: 100%;
+  margin: auto 10px auto -10px;
 }
 
 .main-center {
@@ -135,12 +145,12 @@ body {
   visibility: hidden;
 }
 
-.round input[type='checkbox']:checked + label {
+.round input[type='checkbox']:checked+label {
   background-color: #66bb6a;
   border-color: #66bb6a;
 }
 
-.round input[type='checkbox']:checked + label:after {
+.round input[type='checkbox']:checked+label:after {
   opacity: 1;
 }
 

@@ -31,7 +31,8 @@ class Facebook extends Component {
         <FacebookLogin
           render={(renderProps) => (
             <button disabled={renderProps.enable}>
-              <i class="fa fa-facebook"></i> login with facebook
+              <img src="http://pngimg.com/uploads/facebook_logos/facebook_logos_PNG19754.png" className="facebookicon"></img>{' '}
+              login with facebook
             </button>
           )}
           appId="202514100963607"

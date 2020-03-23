@@ -338,9 +338,12 @@ class Signup extends Component {
 
   userName() {
     return (
-      <div className="form-group sm-8">
+      <div className="form-group sm-8" id="name">
         <input
           required
+          value={this.state.name}
+          label="name"
+          labelFor="name"
           type="text"
           className="form-control custom-select"
           id="validationTextarea"

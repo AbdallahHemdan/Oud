@@ -7,6 +7,7 @@ class MainBrand extends Component {
       <section className="main-brand">
         <Link className="navbar-brand" to="/">
           <img
+            id="OudImage"
             src="https://img.icons8.com/color/100/000000/middle-east-music.png"
             width="80"
             height="80"
