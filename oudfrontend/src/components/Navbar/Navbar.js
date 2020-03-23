@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class Navbar extends Component {
+  handleClickOnSearch = () => {
+    this.props.history.replace('search');
+  }
   render() {
     return (
       <div>
@@ -16,7 +19,14 @@ class Navbar extends Component {
                 <i className="fa fa-angle-right fa-2x"></i>
               </Link>
             </div>
-            <input type="search" className="search-input empty" id="iconified" placeholder="&#xF002; Search for Artists, Songs" aria-label="Search" />
+            <input
+              type="search"
+              className="search-input empty"
+              id="iconified"
+              placeholder="&#xF002; Search for Artists, Songs"
+              aria-label="Search"
+              onClick={this.handleClickOnSearch}
+            />
           </form>
           <button
             className="navbar-toggler"
@@ -53,4 +63,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);
