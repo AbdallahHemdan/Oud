@@ -43,7 +43,7 @@ class Playlist extends React.Component{
     render(){
         return(
             <div className='playlist'>
-                <div>
+                
                     <div className='row'>
                         <div className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
                             <div className='playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
@@ -65,12 +65,10 @@ class Playlist extends React.Component{
                                     <i className="fa fa-heart"></i> {/*font awseome*/}
                                     <button className="likeIcon"><FontAwesomeIcon icon={faHeart}/> </button> {/*font awseome react */}
                                     <p>{this.state.tracks.length} {this.state.tracks.length > 1? 'songs':'song'}</p>
-                                    <div>
                                     
-                                        
                                 </div>
                             </div>
-                        </div>
+                          </div>  
                         <div className='col-xs-8 col-md-6 col-lg-8 col-xl-8'>
                             {this.state.recieved?
                                 
@@ -84,7 +82,7 @@ class Playlist extends React.Component{
                             }
                                 
                         </div>
-                    </div>
+                    
                 </div>
             </div>
         );
