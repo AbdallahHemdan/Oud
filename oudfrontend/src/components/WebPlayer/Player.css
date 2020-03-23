@@ -88,14 +88,24 @@
   margin: 0 auto;
   vertical-align: middle;
 }
+.now-playing-bar-center .track-info .track-name {
+  color: #ffce00;
+  text-decoration: none;
+}
 .now-playing-bar-center .track-info .track-name::after {
   content: "  .  ";
 }
 .now-playing-bar-center .track-info .artist-name {
   font-size: 12px;
   color: #a0a0a0;
+  text-decoration: none;
 }
-
+a:hover {
+  text-decoration: none;
+}
+button:focus {
+  outline: none;
+}
 .volume-bar {
   width: 180px;
   position: absolute;

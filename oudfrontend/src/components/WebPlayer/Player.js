@@ -5,23 +5,27 @@ import Pause from "../../assets/images/icons/pause.png";
 import Play from "../../assets/images/icons/play.png";
 import Previous from "../../assets/images/icons/previous.png";
 import Repeat from "../../assets/images/icons/repeat.png";
-// import RepeatEnabled from "../../assets/images/icons/repeat-enable.png";
+import RepeatEnabled from "../../assets/images/icons/repeat-enable.png";
 import Shuffle from "../../assets/images/icons/shuffle.png";
-// import ShuffleEnabled from "../../assets/images/icons/shuffle-enable.png";
+import ShuffleEnabled from "../../assets/images/icons/shuffle-enable.png";
 import Volume from "../../assets/images/icons/volume.png";
 import art from "../../assets/images/icons/album.jpg";
 import Extend from "../../assets/images/icons/extend.png";
-// import VolumeMuted from "../../assets/images/icons/volume-mute.png";
+import VolumeMuted from "../../assets/images/icons/volume-mute.png";
 import "./Player.css";
 import socketIOClient from "socket.io-client";
 import { Howl } from "howler";
+import { Router, Link } from "react-router-dom";
+
 const ss = require("socket.io-stream");
 const axios = require("axios");
 const endpoint = "http://localhost:8080/";
 const socket = socketIOClient(endpoint);
+const history = require("history").createBrowserHistory();
 let sound,
   queue = [],
   index = 0;
+
 class WebPlayer extends Component {
   constructor(props) {
     super(props);
@@ -32,12 +36,17 @@ class WebPlayer extends Component {
       progress: 0,
       playing: false,
       current: "0.00",
-      shuffle: false,
-      repeat: false,
       trackName: "",
       artistName: "",
       duration: "0.00",
-      mouseDown: false
+      mouseDown: false,
+      shuffleButton: Shuffle,
+      shuffleState: false,
+      repeatButton: Repeat,
+      repeatState: false,
+      volume: 1.0,
+      volumeButton: Volume,
+      muteState: false
     };
   }
 
@@ -45,6 +54,7 @@ class WebPlayer extends Component {
     const progress = (sound.seek() / sound.duration()) * 100;
     return progress;
   };
+
   componentDidMount() {
     this.fetchTrackInfo();
     socket.on("start", data => {
@@ -83,13 +93,20 @@ class WebPlayer extends Component {
             deviceId: data["device"]["id"],
             progress: data["progressMs"],
             playing: data["isPlaying"],
-            shuffle: data["shuffleState"],
-            repeat: data["repeatState"],
+            shuffleState: data["shuffleState"],
+            shuffleButton: data["shuffleState"] ? ShuffleEnabled : Shuffle,
+            repeatState: data["repeatState"] === "off" ? false : true,
+            repeatButton:
+              data["repeatState"] === "off" ? Repeat : RepeatEnabled,
             trackName: data["item"]["name"],
             artistName: data["item"]["artists"][0]["name"],
-            duration: data["item"]["duartion"]
+            duration: data["item"]["duartion"],
+            volume: data["device"]["volumePercent"],
+            volumeButton:
+              data["device"]["volumePercent"] > 0 ? Volume : VolumeMuted,
+            fetched: true
           });
-          this.setState({ fetched: true });
+          console.log("state: " + this.state.repeatState);
         }
       })
       .catch(function(error) {
@@ -100,6 +117,9 @@ class WebPlayer extends Component {
 
   playTrack = () => {
     if (queue.length === 0) return;
+    const mute = this.state.muteState,
+      repeat = this.state.repeatState;
+    console.log("re: " + repeat);
     let src = [];
     for (let i = 0; i < queue.length; i += 1)
       src.push(URL.createObjectURL(queue[i]));
@@ -108,8 +128,9 @@ class WebPlayer extends Component {
     sound = new Howl({
       src: src[index],
       autoplay: false,
-      loop: false,
-      volume: 1.0,
+      loop: repeat,
+      volume: Number(this.state.volume / 100).toFixed(2),
+      mute: mute,
       html5: true,
       onplay: () => {
         this.setState({
@@ -119,7 +140,12 @@ class WebPlayer extends Component {
         console.log("duration: " + this.state.duration);
       },
       format: ["mp3", "mp3", "mp3", "mp3", "mp3"],
-      onend: function() {
+      onend: () => {
+        this.setState({
+          playing: false,
+          progress: 0,
+          current: "0.00"
+        });
         console.log("Finished!");
       }
     });
@@ -127,6 +153,7 @@ class WebPlayer extends Component {
   };
 
   pause = () => {
+    //To be modified after backend integration due to put request issues
     let deviceId = this.state.deviceId;
     axios
       .post("http://localhost:3000/me/player/pause?deviceId=" + deviceId, {
@@ -144,6 +171,7 @@ class WebPlayer extends Component {
   };
 
   resume = () => {
+    //To be modified after backend integration due to put request issues
     let deviceId = this.state.deviceId;
     let position = sound.seek();
     axios
@@ -161,6 +189,7 @@ class WebPlayer extends Component {
   };
 
   play = () => {
+    //To be modified after backend integration due to put request issues
     let deviceId = this.state.deviceId;
     axios
       .post("http://localhost:3000/me/player/pause?deviceId=" + deviceId)
@@ -175,6 +204,8 @@ class WebPlayer extends Component {
 
   handlePlayPause = () => {
     if (sound) {
+      sound.mute(this.state.muteState);
+      sound.loop(this.state.repeatState);
       if (sound.playing()) {
         this.pause();
       } else if (sound.state() === "loaded") {
@@ -220,16 +251,147 @@ class WebPlayer extends Component {
     // const offsetWidth = e.nativeEvent.target.offsetWidth;
     const percent = offsetX / width;
     const position = percent * this.state.duration * 60;
+
+    //To be modified after backend integration due to put request issues
+    // let deviceId = this.state.deviceId;
+    // axios
+    //   .post("http://localhost:3000/me/player/seek?deviceId=" + deviceId + "&positionMs=" + position*1000)
+    //   .then(response => {
+    //     sound.seek(position);
+    //     this.setState({
+    //       progress: this.getSoundProgress()
+    //     });
+    //   })
+    //   .catch(function(error) {
+    //     console.log(error);
+    //   });
+
+    //
     sound.seek(position);
     this.setState({
       progress: this.getSoundProgress()
     });
   };
+
   setMouseDown = cond => {
     this.setState({
       mouseDown: cond
     });
   };
+
+  handleShuffleState = () => {
+    //To be modified after backend integration due to put request issues
+    // let deviceId = this.state.deviceId;
+    // axios
+    //   .post("http://localhost:3000/me/player/shuffle?deviceId=" + deviceId + "&state=" + !this.state.shuffleState)
+    //   .then(response => {
+    // this.setState({
+    //   shuffleState: !this.state.shuffleState,
+    //   shuffleButton: !this.state.shuffleState ? ShuffleEnabled : Shuffle
+    // });
+    // console.log(response);
+    //   })
+    //   .catch(function(error) {
+    //     console.log(error);
+    //   });
+
+    //Will be replaced
+    this.setState({
+      shuffleState: !this.state.shuffleState,
+      shuffleButton: !this.state.shuffleState ? ShuffleEnabled : Shuffle
+    });
+  };
+
+  handleRepeatState = () => {
+    //To be modified after backend integration due to put request issues
+    // let deviceId = this.state.deviceId;
+    // axios
+    //   .post("http://localhost:3000/me/player/repeat?deviceId=" + deviceId + "&state=" + !this.state.repeatState)
+    //   .then(response => {
+    // const loop = !this.state.repeatState;
+    // console.log("re1: " + loop);
+    // this.setState({
+    //   repeatState: loop,
+    //   repeatButton: loop ? RepeatEnabled : Repeat
+    // });
+    // if (sound) sound.loop(loop);
+    // console.log(response);
+    //   })
+    //   .catch(function(error) {
+    //     console.log(error);
+    //   });
+
+    //Will be replaced
+    const loop = !this.state.repeatState;
+    console.log("re1: " + loop);
+    this.setState({
+      repeatState: loop,
+      repeatButton: loop ? RepeatEnabled : Repeat
+    });
+    if (sound) sound.loop(loop);
+  };
+
+  handleMuteState = () => {
+    const mute = !this.state.muteState;
+
+    //To be modified after backend integration due to put request issues
+    // let deviceId = this.state.deviceId;
+    // const volumePercent = mute ? 0 : this.state.volume;
+    // axios
+    //   .post("http://localhost:3000/me/player/shuffle?deviceId=" + deviceId + "&volumePercent=" + volumePercent)
+    //   .then(response => {
+    // this.setState({
+    //   shuffleState: !this.state.shuffleState,
+    //   shuffleButton: !this.state.shuffleState ? ShuffleEnabled : Shuffle
+    // });
+    // console.log(response);
+    //   })
+    //   .catch(function(error) {
+    //     console.log(error);
+    //   });
+
+    //Will be replaced
+    this.setState({
+      muteState: mute,
+      volumeButton: mute ? VolumeMuted : Volume
+    });
+    if (sound) sound.mute(mute);
+    console.log(this.state.muteState);
+  };
+
+  onVolumeClick = e => {
+    // e.preventDefault();
+    if (!this.state.mouseDown || !sound) return;
+    const width = document.getElementById("volume-width").clientWidth;
+    const offsetX = e.nativeEvent.offsetX;
+    // const offsetWidth = e.nativeEvent.target.offsetWidth;
+    const percent = offsetX / width;
+    const volume = parseInt(percent * 100);
+
+    //To be modified after backend integration due to put request issues
+    // let deviceId = this.state.deviceId;
+    // const volumePercent = mute ? 0 : this.state.volume;
+    // axios
+    //   .post("http://localhost:3000/me/player/shuffle?deviceId=" + deviceId + "&volumePercent=" + volume)
+    //   .then(response => {
+    // sound.volume(volume / 100);
+    // this.setState({
+    //   volume: volume,
+    //   volumeButton: volume > 0 ? Volume : VolumeMuted
+    // });
+    // console.log(response);
+    //   })
+    //   .catch(function(error) {
+    //     console.log(error);
+    //   });
+
+    sound.volume(volume / 100);
+    this.setState({
+      volume: volume,
+      volumeButton: volume > 0 ? Volume : VolumeMuted
+    });
+  };
+
   render() {
     return (
       <Fragment>
@@ -289,16 +451,23 @@ class WebPlayer extends Component {
                 </div>
               </div>
             </div>
+
             <div className="now-playing-bar-center">
               <div className="content player-controls">
                 <div className="track-controls">
                   <div className="track-info">
-                    <strong className="track-name">
-                      {this.state.trackName}
-                    </strong>
-                    <strong className="artist-name">
-                      {this.state.artistName}
-                    </strong>
+                    <Router history={history}>
+                      <Link to="/">
+                        <strong className="track-name">
+                          {this.state.trackName}
+                        </strong>
+                      </Link>
+                      <Link to="/">
+                        <strong className="artist-name">
+                          {this.state.artistName}
+                        </strong>
+                      </Link>
+                    </Router>
                   </div>
 
                   <div className="control-buttons"></div>
@@ -334,33 +503,73 @@ class WebPlayer extends Component {
                     {this.state.duration}
                   </span>
                 </div>
-                {/* <Progress
-                  volume={false}
-                  progress={this.state.progress}
-                  current={this.state.current}
-                  duration={this.state.duration}
-                  onClick={e => {
-                    this.onProgressClick(e);
-                  }}
-                /> */}
               </div>
             </div>
+
             <div className="now-playing-bar-right">
               <div className="volume-bar">
-                <button className="control-button shuffle" title="Shuffle">
-                  <img src={Shuffle} alt="Shuffle" />
+                <button
+                  className="control-button shuffle"
+                  title="Shuffle"
+                  onClick={this.handleShuffleState}
+                >
+                  <img src={this.state.shuffleButton} alt="Shuffle" />
                 </button>
-                <button className="control-button repeat" title="Repeat">
-                  <img src={Repeat} alt="Repeat" />
+                <button
+                  className="control-button repeat"
+                  title="Repeat"
+                  onClick={this.handleRepeatState}
+                >
+                  <img src={this.state.repeatButton} alt="Repeat" />
                 </button>
-                <button className="control-button volume" title="Volume">
-                  <img src={Volume} alt="Volume" />
+                <button
+                  className="control-button volume"
+                  title="Volume"
+                  onClick={this.handleMuteState}
+                >
+                  <img src={this.state.volumeButton} alt="Volume" />
                 </button>
-                <Progress volume={true} progress="0" />
+
+                {/* onMouseDown={() => this.setMouseDown(true)}
+                  onMouseMove={e => this.onProgressClick(e)}
+                  onMouseUp={e => {
+                    this.onProgressClick(e);
+                    document.addEventListener(
+                      "mouseup",
+                      this.setState({
+                        mouseDown: false
+                      })
+                    );
+                  }} */}
+
+                <div
+                  className="progress-bar"
+                  id="volume-width"
+                  style={{ width: "125px" }}
+                  onMouseDown={() => this.setMouseDown(true)}
+                  onMouseMove={e => this.onVolumeClick(e)}
+                  onMouseUp={e => {
+                    this.onVolumeClick(e);
+                    document.addEventListener(
+                      "mouseup",
+                      this.setState({
+                        mouseDown: false
+                      })
+                    );
+                  }}
+                >
+                  <div className="progress-bar-bg">
+                    <div
+                      className="progress"
+                      style={{ width: this.state.volume + "%" }}
+                    ></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        {/* <PlayerRouter /> */}
       </Fragment>
     );
   }
