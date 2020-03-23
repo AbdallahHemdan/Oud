@@ -78,7 +78,6 @@
   padding: 2em 1em 1em 1em;
 }
 .card-middle .more {
-  font-family: Open Sans;
   font-weight: 400;
 }
 
@@ -124,16 +123,6 @@
   transform: rotate(45deg);
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  font-family: Work Sans;
-}
 .text-center {
   text-align: center;
 }
