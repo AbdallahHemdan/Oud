@@ -1,0 +1,7 @@
+{
+  "/me/player": "/player",
+  "me/player/currently-playing": "/currently-playing",
+  "me/player/next?deviceId=74ASZWbe4lXaubB36ztrGX": "/next",
+  "me/player/previous?deviceId=74ASZWbe4lXaubB36ztrGX": "/previous",
+  "me/player/pause?deviceId=74ASZWbe4lXaubB36ztrGX": "/pause"
+}

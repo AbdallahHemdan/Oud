@@ -1,3 +1,14 @@
+.img-thumbnail {
+  /* max-width: 20%; */
+  height: auto;
+  /* /* z-index: 4; */
+  /* width: 20%; */
+  height: 50%;
+  bottom: 100px;
+  position: fixed;
+  padding: 0;
+  border: 0;
+}
 .now-playing-bar-container {
   width: 100%;
   background-color: #383838;
@@ -61,43 +72,13 @@
   height: 32px;
   cursor: pointer;
 }
-.playback-bar {
-  display: flex;
-}
-.progress-time {
-  color: #a0a0a0;
-  font-size: 11px;
-  min-width: 40px;
-  text-align: center;
-}
-.progress-bar {
-  width: 100%;
-  height: 12px;
-  display: inline-flex;
-  cursor: pointer;
-  background-color: transparent;
-}
-.progress-bar-bg {
-  background-color: #404040;
-  height: 4px;
-  width: 100%;
-  border-radius: 2px;
-}
-.progress {
-  background-color: #ffce00;
-  height: 4px;
-  width: 0;
-  border-radius: 2px;
-}
-.playback-bar .progress-bar {
-  margin-top: 3px;
-}
 .now-playing-bar-left .album-art-work {
-  height: 100%;
-  max-width: 57px;
+  max-width: 66px;
   margin-right: 15px;
   float: left;
   background-size: cover;
+  height: 57px;
+  width: 66px;
 }
 .track-controls {
   display: flex;
@@ -123,8 +104,79 @@
   align-items: center;
   vertical-align: middle;
 }
-.volume-bar .progress-bar {
-  width: 125px;
+.ablum-link {
+  width: 40%;
+  display: block;
+}
+/* .left-control {
+  width: 60%;
+  display: flex;
+} */
+.extended-card-button {
+  position: absolute;
+  left: 54px;
+  top: 18px;
+  background: transparent;
+  z-index: 1;
+  padding: 0;
+  display: inline;
+  justify-content: center;
+  border: 0;
+  /* opacity: 0; */
+}
+.extend-img {
+  opacity: 1;
+}
+.extend-img:hover {
+  opacity: 1;
+}
+.expanded-img {
+  width: 20%;
+  display: none;
+}
+.expanded-img-btn {
+  position: relative;
+  left: 54px;
+  top: 18px;
+  background: transparent;
+  z-index: 4;
+  padding: 0;
+  display: inline;
+  justify-content: center;
+  border: 0;
+}
+.playback-bar {
+  display: flex;
+}
+.progress-time {
+  color: #a0a0a0;
+  font-size: 11px;
+  min-width: 40px;
+  text-align: center;
+}
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  display: inline-flex;
+  cursor: pointer;
+  background-color: transparent;
+}
+.playback-bar .progress-bar {
+  margin-top: 3px;
+}
+.progress-bar-bg {
+  background-color: #404040;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+}
+.progress {
+  background-color: #ffce00;
+  height: 4px;
+  width: 0;
+  border-radius: 2px;
+  transition: 0.1s linear;
+  transition-property: width, background-color;
 }
 
 @media only screen and (max-width: 615px) {

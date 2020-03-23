@@ -1,0 +1,60 @@
+{
+  "currently-playing": {
+    "device": {
+      "id": "74ASZWbe4lXaubB36ztrGX",
+      "isActive": true,
+      "isPrivateSession": false,
+      "name": "Oud test device",
+      "type": "Laptop",
+      "volumePercent": 65
+    },
+    "progressMs": 0,
+    "isPlaying": false,
+    "shuffleState": false,
+    "repeatState": "off",
+    "currentlyPlayingType": "unknown",
+    "item": {
+      "_id": "3256",
+      "name": "Dorak gai",
+      "artists": [
+        {
+          "_id": "21",
+          "name": "Wegz",
+          "type": "string",
+          "image": "string"
+        }
+      ],
+      "albumId": "50",
+      "type": "track",
+      "audioUrl": "/dorak-gai",
+      "duartion": 4.27,
+      "views": 100000
+    },
+    "actions": {
+      "interrupting_playback": true,
+      "pausing": false,
+      "resuming": false,
+      "seeking": false,
+      "skipping_next": false,
+      "skipping_prev": false,
+      "toggling_repeat_context": false,
+      "toggling_shuffle": false,
+      "toggling_repeat_track": false,
+      "transferring_playback": false
+    },
+    "context": {
+      "type": "playlist",
+      "id": "53"
+    }
+  },
+  "next": {
+    "meId": "player"
+  },
+  "previous": {
+    "meId": "player"
+  },
+  "pause": {
+    "first_name": "Ashraf",
+    "meId": "player"
+  }
+}
