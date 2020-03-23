@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import Progress from "./ProgressBar/Progress";
 import Next from "../../assets/images/icons/next.png";
 import Pause from "../../assets/images/icons/pause.png";
 import Play from "../../assets/images/icons/play.png";

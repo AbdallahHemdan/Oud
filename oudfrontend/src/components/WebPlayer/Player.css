@@ -193,19 +193,28 @@ button:focus {
   .now-playing-bar-container {
     min-width: 320px;
   }
-  .now-playing-bar-left,
+  .ablum-link,
+  .previous,
+  .next,
   .now-playing-bar-right {
-    width: 0;
-    min-width: 0;
+    display: none;
+  }
+  .play {
+    float: left;
     position: absolute;
+    left: 80%;
+    bottom: 59%;
   }
   .now-playing-bar-center {
     width: 100%;
   }
-  .now-playing-bar-left .album-art-work {
-    max-width: 0;
+  .now-playing-bar-left {
+    min-width: 0;
+    width: 24px;
+    height: 24px;
+    float: right;
   }
-  .now-playing-bar-left .track-info {
-    display: none;
+  .now-playing-bar-left .content .player-controls {
+    margin: 0;
   }
 }
