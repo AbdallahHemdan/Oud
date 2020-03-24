@@ -7,11 +7,9 @@ class ForgotPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      UsernameOrEmail: '',
       code: '',
-      error: {
-        email: '',
-      },
+      error: {},
     };
   }
   handleShowPassword = (e) => {
@@ -36,6 +34,17 @@ class ForgotPassword extends Component {
       .catch((error) => {});
     console.log(this.state);
   };
+  EmailHandel = (event) => {
+    this.setState({email: event.target.value});
+    const emailRegex = RegExp(
+      /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
+    );
+    let formErrors = {...this.state.formErrors};
+    formErrors.EmailErorr = emailRegex.test(event.target.value)
+      ? ''
+      : 'invalid email address';
+    this.setState({formErrors});
+  };
 
   render() {
     return (
@@ -54,8 +63,16 @@ class ForgotPassword extends Component {
                   required
                   type="email"
                   className="form-control"
-                  placeholder="email@address.com"
+                  placeholder="enter your email or username"
+                  onChange={this.EmailHandel}
                 />
+                <button
+                  type="button"
+                  className="btn btn-outline-linkF"
+                  onClick=""
+                >
+                  Send code
+                </button>
               </div>
               <section className="or-seperator-2"></section>
               <section className="container main-center">

@@ -6,14 +6,15 @@ class MainBrand extends Component {
     return (
       <section className="main-brand">
         <Link className="navbar-brand" to="/">
-          <img
-            src="https://img.icons8.com/color/100/000000/middle-east-music.png"
-            width="80"
-            height="80"
-            className="d-inline-block align-top"
-            alt=""
-          />
-          Oud
+          <span>
+            <img
+              id="OudImage"
+              src="https://cdn.discordapp.com/attachments/691413676934299668/691744414204166164/Oud.png"
+              className="d-inline-block align-top"
+              alt="logo imag"
+            />
+            <p className="Oud">Oud</p>
+          </span>
         </Link>
       </section>
     );

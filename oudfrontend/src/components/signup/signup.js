@@ -1,12 +1,36 @@
 import React, {Component} from 'react';
 import './signup.css';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import _ from 'lodash';
 import MainBrand from './MainBrand';
 import SocialIcons from './SocialIcons';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
 
+function checkPassword(Password) {
+  let [isUppercase, isLowercase, isSpecialChar, isNumber] = [
+    false,
+    false,
+    false,
+    false,
+  ];
+  let str = Password + '0';
+  let patt1 = /[0-9]/g;
+  isNumber = str.match(patt1).length > 1;
+
+  patt1 = /[!@#$%^&*(),.?":{}_|<>]/g;
+  str = Password + '@';
+  isSpecialChar = str.match(patt1).length > 1;
+
+  for (let i = 0; i < Password.length; i++) {
+    if (Password[i] === Password[i].toUpperCase()) {
+      isUppercase = true;
+    } else if (Password[i] === Password[i].toLowerCase()) {
+      isLowercase = true;
+    }
+  }
+  return isSpecialChar && isNumber && isUppercase && isLowercase;
+}
 class Signup extends Component {
   constructor(props) {
     super(props);
@@ -18,29 +42,115 @@ class Signup extends Component {
       month: '',
       day: '',
       roll: 'free',
-      passwordType: 'password',
+      PasswordType: 'Password',
       showText: 'show',
       isVerified: true,
       agreeTerms: true,
-      PASSWORD: '',
-      CONFIRMPASSWORD: '',
+      Password: '',
+      ConfirmPassword: '',
+      formErrors: {
+        ConfirmPasswordErorr: '',
+        PasswordErorr: '',
+        EmailErorr: '',
+      },
+      redirect: false,
     };
   }
 
-  handleShowPassword = (e) => {
-    e.preventDefault();
-    this.setState({
-      passwordType: this.state.passwordType === 'text' ? 'password' : 'text',
-      showText: this.state.showText === 'show' ? 'hide' : 'show',
-    });
-    return false;
+  EmailHandel = (event) => {
+    this.setState({email: event.target.value});
+    const emailRegex = RegExp(
+      /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
+    );
+    let formErrors = {...this.state.formErrors};
+    formErrors.EmailErorr = emailRegex.test(event.target.value)
+      ? ''
+      : 'invalid email address';
+    this.setState({formErrors});
   };
-  //eslint give your warrining  when u add logs
-  hasSamePassword = () => {
-    if (this.state.PASSWORD === this.state.CONFIRMPASSWORD) {
-      return true;
+
+  PasswordHandel = (event) => {
+    this.setState({Password: event.target.value});
+
+    if (this.state.Password.length === 0) {
+      this.setState({
+        formErrors: {
+          PasswordErorr: 'you must enter a password here',
+          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
+          EmailErorr: this.state.formErrors.EmailErorr,
+        },
+      });
+    } else if (this.state.Password.length < 8) {
+      this.setState({
+        formErrors: {
+          PasswordErorr: 'minimum 8 characaters required',
+          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
+          EmailErorr: this.state.formErrors.EmailErorr,
+        },
+      });
+    } else if (this.state.Password.length > 30) {
+      this.setState({
+        formErrors: {
+          PasswordErorr: 'maximum 30 characaters',
+          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
+          EmailErorr: this.state.formErrors.EmailErorr,
+        },
+      });
+    } else if (!checkPassword(this.state.Password)) {
+      this.setState({
+        formErrors: {
+          PasswordErorr:
+            'Password should contain uppercase,lowercase and a number ',
+          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
+          EmailErorr: this.state.formErrors.EmailErorr,
+        },
+      });
     } else {
+      this.setState({
+        formErrors: {
+          PasswordErorr: '',
+          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
+          EmailErorr: this.state.formErrors.EmailErorr,
+        },
+      });
+    }
+  };
+
+  ConfirmPasswordHandel = (event) => {
+    this.setState({ConfirmPassword: event.target.value});
+
+    if (event.target.value !== this.state.Password) {
+      this.setState({
+        formErrors: {
+          PasswordErorr: this.state.formErrors.PasswordErorr,
+          ConfirmPasswordErorr: 'Invallid  ,Password not matched',
+          EmailErorr: this.state.formErrors.EmailErorr,
+        },
+      });
+    } else {
+      this.setState({
+        formErrors: {
+          PasswordErorr: this.state.formErrors.PasswordErorr,
+          ConfirmPasswordErorr: '',
+          EmailErorr: this.state.formErrors.EmailErorr,
+        },
+      });
+    }
+  };
+
+  hasSamePassword = () => {
+    if (this.state.Password !== this.state.ConfirmPassword) {
       return false;
+    } else {
+      return true;
+    }
+  };
+
+  hasSameEmail = () => {
+    if (this.state.email !== this.state.ConfirmEmail) {
+      return false;
+    } else {
+      return true;
     }
   };
   handelSubmit = (e) => {
@@ -49,21 +159,40 @@ class Signup extends Component {
       let birth =
         this.state.day + '-' + this.state.month + '-' + this.state.year;
       console.log(birth);
-      console.log(this.state);
-    } else if (this.hasSamePassword() === false) {
-      alert('the two passwords should be the same');
-    } else {
-      console.log('check that you are human');
-    }
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/users`, this.state)
-      .then((req) => {})
-      .catch((error) => {
-        console.log(error);
+      this.setState({
+        formErrors: {
+          PasswordErorr: this.state.formErrors.PasswordErorr,
+          ConfirmPasswordErorr: '',
+          EmailErorr: this.state.formErrors.EmailErorr,
+        },
       });
-    console.dir(e.target);
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/users`, this.state)
+        .then((req) => {})
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log(this.state);
+      console.dir(e.target);
+    } else if (this.hasSamePassword() === false) {
+      this.setState({
+        formErrors: {
+          PasswordErorr: this.state.formErrors.PasswordErorr,
+          ConfirmPasswordErorr: 'Invallid  ,Password not matched',
+          EmailErorr: this.state.formErrors.EmailErorr,
+        },
+      });
+    }
   };
 
+  handleShowPassword = (e) => {
+    e.preventDefault();
+    this.setState({
+      PasswordType: this.state.PasswordType === 'text' ? 'Password' : 'text',
+      showText: this.state.showText === 'show' ? 'hide' : 'show',
+    });
+    return false;
+  };
   callback = () => {
     console.log('yaaaaaaaa, captha is loaded');
   };
@@ -98,10 +227,10 @@ class Signup extends Component {
   signupForm() {
     return (
       <section className="main-form container">
-        <form onSubmit={this.handelSubmit} className="was-validated ">
+        <form onSubmit={this.handelSubmit}>
           {this.userName()}
           {this.emailAddress()}
-          {this.password()}
+          {this.Password()}
           {this.confirmPassword()}
           {this.gender()}
           {this.birthDate()}
@@ -112,6 +241,16 @@ class Signup extends Component {
       </section>
     );
   }
+  setRedirect = () => {
+    this.setState({
+      redirect: true,
+    });
+  };
+  toSignIN = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/log-in" />;
+    }
+  };
 
   signUp() {
     return (
@@ -121,12 +260,19 @@ class Signup extends Component {
         </button>
         <section className="or-seperator-2"></section>
         <section className="container main-center">
-          <h6 className="hint-text">
-            Already registered?
-            <button type="button" className="btn btn-link">
-              <Link to="/log-in">SIGN IN</Link>
-            </button>
-          </h6>
+          <span>
+            {this.toSignIN()}
+            <h6 className="hint-text">
+              Already registered?
+              <button
+                type="button"
+                className="btn btn-outline-links"
+                onClick={this.setRedirect}
+              >
+                SignIn
+              </button>
+            </h6>
+          </span>
         </section>
       </React.Fragment>
     );
@@ -149,12 +295,7 @@ class Signup extends Component {
     return (
       <div className="form-group">
         <div className="pretty p-svg p-curve container">
-          <input
-            required
-            type="checkbox"
-            id="gridCheck"
-            className="form-check-input"
-          />
+          <input type="checkbox" id="gridCheck" className="form-check-input" />
           <div className="state p-success">
             <svg className="svg svg-icon" viewBox="0 0 20 20">
               <path
@@ -187,12 +328,12 @@ class Signup extends Component {
     return (
       <div className="form-group col-md-4">
         <select
+          data-testid="register-dob-day"
           id="inputDay"
           className="form-control form-col custom-select"
           defaultValue="Day"
           name="day"
           onChange={this.handleChange}
-          required
         >
           <option value="">Day</option>
           {_.range(1, 32).map((value) => (
@@ -209,12 +350,12 @@ class Signup extends Component {
     return (
       <div className="form-group col-md-4">
         <select
+          data-testid="register-dob-month"
           id="inputMonth"
           className="form-control form-col custom-select"
           defaultValue="Month"
           name="month"
           onChange={this.handleChange}
-          required
         >
           <option value="">Month</option>
           <option value="01">January</option>
@@ -238,12 +379,12 @@ class Signup extends Component {
     return (
       <div className="form-group col-md-4">
         <select
+          data-testid="register-dob-year"
           id="inputYear"
           className="form-control form-col custom-select"
           defaultValue="Year"
           name="year"
           onChange={this.handleChange}
-          required
         >
           <option value="">Year</option>
           {_.range(2018, 1899).map((value) => (
@@ -260,9 +401,9 @@ class Signup extends Component {
     return (
       <div className="form-group">
         <select
+          data-testid="register-male"
           id="inputGender"
           className="form-control form-col custom-select"
-          required
           onChange={this.handleChange}
           name="gender"
         >
@@ -281,34 +422,38 @@ class Signup extends Component {
       <div className="form-group">
         <div className="input-group">
           <input
-            required
-            type={this.state.passwordType}
+            data-testid="register-confirmPassword"
+            type={this.state.PasswordType}
             className="form-control"
-            placeholder={'confirm password'}
-            onChange={this.handleChange}
+            placeholder={'confirm Password'}
+            onChange={(this.handleChange, this.ConfirmPasswordHandel)}
             name="confirmPassword"
+            value={this.setState.ConfirmPassword}
           />
         </div>
-        {this.hasSamePassword() === false ? (
-          <div className="invalid-feedback">
-            Example invalid custom select feedback
-          </div>
-        ) : null}
+        {this.hasSamePassword() === false
+          ? this.state.formErrors.ConfirmPasswordErorr.length > 0 && (
+              <span className="error" for="register-confirmPassword">
+                {this.state.formErrors.ConfirmPasswordErorr}
+              </span>
+            )
+          : null}
       </div>
     );
   }
 
-  password() {
+  Password() {
     return (
       <div className="form-group">
         <div className="input-group">
           <input
-            required
-            type={this.state.passwordType}
+            data-testid="register-password"
+            type={this.state.PasswordType}
             className="form-control"
-            placeholder={'password'}
-            onChange={this.handleChange}
-            name="password"
+            placeholder={'Password'}
+            onChange={(this.handleChange, this.PasswordHandel)}
+            name="Password"
+            value={this.setState.Password}
           />
           <button
             className="btn btn-outline-dark"
@@ -317,6 +462,11 @@ class Signup extends Component {
             {this.state.showText}
           </button>
         </div>
+        {this.state.formErrors.PasswordErorr.length > 0 && (
+          <span className="error" for="register-password">
+            {this.state.formErrors.PasswordErorr}
+          </span>
+        )}
       </div>
     );
   }
@@ -325,25 +475,29 @@ class Signup extends Component {
     return (
       <div className="form-group">
         <input
-          required
+          data-testid="register-email"
           type="email"
           className="form-control custom-select"
           placeholder="email@address.com"
-          onChange={this.handleChange}
+          onChange={(this.handleChange, this.EmailHandel)}
           name="email"
         />
+        {this.state.formErrors.EmailErorr.length > 0 && (
+          <span className="error" for="register-email">
+            {this.state.formErrors.EmailErorr}
+          </span>
+        )}
       </div>
     );
   }
 
   userName() {
     return (
-      <div className="form-group sm-8" id="name">
+      <div className="form-group sm-8">
         <input
-          required
+          data-testid="register-displayname"
           value={this.state.name}
           label="name"
-          labelFor="name"
           type="text"
           className="form-control custom-select"
           id="validationTextarea"

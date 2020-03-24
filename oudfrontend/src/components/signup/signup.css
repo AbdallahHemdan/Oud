@@ -1,15 +1,44 @@
 .google_button {
-  width: 20rem;
+  width: 370px;
   border-radius: 50px;
-  padding: 5px 5px 11px;
+
   color: white;
   text-align: center;
   background-color: #4285f4;
   border: 2px solid #4285f4;
-  font-size: 20px;
+  font-size: 17.2454px;
   font-weight: 700;
   cursor: pointer;
+  height: 48px;
+}
 
+.google_button:hover {
+  background-color: #7aa6ec;
+  border: 2px solid #7aa6ec;
+}
+
+.btn.btn-primary.btn-block:hover {
+  background-color: #ffca60 !important;
+}
+
+.btn.btn-primary.btn-block {
+  border: 0;
+}
+
+.btn.btn-outline-links {
+  background-color: #f9b835;
+  border-radius: 50px;
+  color: white;
+  width: 370px;
+  align-items: center;
+  align-content: center;
+  padding-top: 10px;
+  margin-top: 10px;
+
+}
+
+.error {
+  color: red;
 }
 
 .googlepic {
@@ -17,24 +46,6 @@
   background-color: white;
   border-radius: 100%;
   margin: auto 10px auto -10px;
-}
-
-
-
-.btn-outline-dark {
-  background-color: white;
-  border-color: #f9b835;
-  box-shadow: white;
-}
-
-.btn-outline-dark:hover {
-  background-color: #f9b835;
-  border-color: #f9b835;
-  box-shadow: none;
-}
-
-.btn-outline-dark:not(:hover) {
-  box-shadow: none;
 }
 
 hr {
@@ -55,14 +66,26 @@ body {
   top: 30px;
 }
 
+.navbar-brand img {
+  padding-right: 20px;
+  float: left;
+}
+
 .navbar-brand {
   font-family: 'Lobster', cursive;
   font-size: 3.5rem;
+  width: auto;
   color: #f9b835;
+  padding-bottom: 0;
+  margin-bottom: -5px;
+}
+
+.Oud {
+  padding-top: 20px;
 }
 
 .navbar-brand:hover {
-  color: #f9b835;
+  color: #ffca60;
 }
 
 .navbar-brand:active {
@@ -135,7 +158,7 @@ button.btn.btn-primary.btn-block:active {
 }
 
 button.btn.btn-primary.btn-block:hover {
-  background-color: #f9b835;
+  background-color: #ffca60;
 }
 
 .error {

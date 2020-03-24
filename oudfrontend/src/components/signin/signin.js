@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './signin.css';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import MainBrand from './MainBrand';
 import SocialIcons from './SocialIcons';
 import axios from 'axios';
@@ -15,12 +15,23 @@ class signup extends Component {
       passwordType: 'password',
       showText: 'show',
       rememberMe: false,
-      errors: {
-        email: '',
-        password: '',
+      redirect: false,
+      formErrors: {
+        EmailErorr: '',
       },
     };
   }
+  EmailHandel = (event) => {
+    this.setState({email: event.target.value});
+    const emailRegex = RegExp(
+      /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
+    );
+    let formErrors = {...this.state.formErrors};
+    formErrors.EmailErorr = emailRegex.test(event.target.value)
+      ? ''
+      : 'invalid email address';
+    this.setState({formErrors});
+  };
 
   componentDidMount() {
     console.log(process.env);
@@ -33,6 +44,16 @@ class signup extends Component {
       showText: this.state.showText === 'show' ? 'hide' : 'show',
     });
     return false;
+  };
+  setRedirect = () => {
+    this.setState({
+      redirect: true,
+    });
+  };
+  toSignUp = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
   };
 
   handelSubmit = (e) => {
@@ -72,14 +93,14 @@ class signup extends Component {
           <section className="main-form container">
             <form onSubmit={this.handelSubmit}>
               <div className="form-group sm-8">
-                {this.state.errors.email && <p>{this.state.errors.email}</p>}
+                {/* {this.state.errors.email && <p>{this.state.errors.email}</p>} */}
                 <input
                   required
                   type="email"
                   name="email"
                   className="form-control"
                   placeholder="email@address.com"
-                  onChange={this.handleChange}
+                  onChange={(this.handleChange, this.EmailHandel)}
                 />
               </div>
               <div className="form-group">
@@ -132,12 +153,20 @@ class signup extends Component {
               </button>
               <section className="or-seperator-2"></section>
               <section className="container main-center">
-                <h6 className="hint-text">
-                  Don't have an account?
-                  <button type="button" className="btn btn-outline-link">
-                    <Link to="/">SIGN UP</Link>
-                  </button>
-                </h6>
+                <span>
+                  {this.toSignUp()}
+                  <h6 className="hint-text">
+                    Don't have an account?
+                    <br />
+                    <button
+                      type="button"
+                      className="btn btn-outline-links"
+                      onClick={this.setRedirect}
+                    >
+                      SIGN UP
+                    </button>
+                  </h6>
+                </span>
               </section>
             </form>
           </section>

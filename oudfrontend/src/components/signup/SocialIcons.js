@@ -8,7 +8,11 @@ class SocialIcons extends Component {
         <h6 className="hint-text">Sign Up with your social media account</h6>
         <section className="social-icons">
           <button className="google_button" href="#">
-            <img src="http://pngimg.com/uploads/google/google_PNG19630.png" className="googlepic"></img>{' '}
+            <img
+              alt=""
+              src="http://pngimg.com/uploads/google/google_PNG19630.png"
+              className="googlepic"
+            ></img>{' '}
             continue with Google
           </button>
           <Facebook />

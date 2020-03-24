@@ -2,11 +2,40 @@ body {
   min-width: 300px;
 }
 
+.btn.btn-outline-linkF {
+  background-color: #f9b835;
+  border-radius: 50px;
+  color: white;
+  width: 100%;
+  display: block;
+  margin: auto 0 auto 0;
+  margin-top: 20px;
+}
+
+.btn.btn-outline-linkF:hover {
+  background-color: #ffca60;
+}
+.btn.btn-outline-links:hover {
+  background-color: #ffca60;
+}
+.btn.btn-outline-links {
+  background-color: #f9b835;
+  border-radius: 50px;
+  color: white;
+  align-items: center;
+  align-content: center;
+  padding-top: 10px;
+  margin-top: 20px;
+  display: block;
+  width: 370px !important;
+  margin: auto;
+
+}
+
 .g-signin2 {
   text-align: center;
   align-items: center;
   display: inline-block;
-  margin: auto;
   font-family: Helvetica, sans-serif;
 }
 
@@ -20,19 +49,19 @@ body {
   white-space: unset;
 }
 
-.googlebtn:hover {
-  cursor: pointer;
-}
 
-/**/
 
 .kep-login-facebook.medium {
-  width: 20rem;
+  width: 370px;
   border-radius: 50px;
 }
 
+.kep-login-facebook.medium:hover {
+  background-color: rgb(74, 120, 255);
+}
+
 .facebookicon {
-  width: 10%;
+  width: 370px;
   background-color: white;
   border-radius: 100%;
   margin: auto 10px auto -10px;
@@ -69,7 +98,7 @@ body {
 .hint-text,
 .hint-text-forgot,
 .title-text {
-  color: #999;
+  color: black;
   text-align: center;
   margin-bottom: 20px;
   margin-top: 15px;
@@ -125,6 +154,38 @@ body {
   position: absolute;
   top: 0;
   width: 28px;
+}
+
+.btn-outline-secondary {
+  background-color: white !important;
+  border-color: #f9b835 !important;
+  box-shadow: white !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #ffca60 !important;
+  border-color: #ffca60 !important;
+  box-shadow: none !important;
+}
+
+.btn-outline-secondary:not(:hover) {
+  box-shadow: none !important;
+}
+
+.btn-outline-dark {
+  background-color: white;
+  border-color: #f9b835;
+  box-shadow: white;
+}
+
+.btn-outline-dark:hover {
+  background-color: #ffca60;
+  border-color: #ffca60;
+  box-shadow: none;
+}
+
+.btn-outline-dark:not(:hover) {
+  box-shadow: none;
 }
 
 .round label:after {

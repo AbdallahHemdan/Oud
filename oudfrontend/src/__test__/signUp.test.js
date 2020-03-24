@@ -19,13 +19,13 @@ afterEach(() => {
   container = null;
 });
 
-it('renders with or without a name', () => {
-  act(() => {
-    render(<MainBrand />, container);
-  });
-  expect(container.).toBe('Hey, stranger');
+// it('renders with or without a name', () => {
+//   act(() => {
+//     render(<MainBrand />, container);
+//   });
+//   expect(container.).toBe('Hey, stranger');
 
-});
+// });
 
 describe(Signup, () => {
   //   it('render a text form ', () => {

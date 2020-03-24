@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import FacebookLogin from 'react-facebook-login';
 import '../signin/signin.css';
+import {Link, Router} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 /*local storage of the  chrome*/
 /*store redux*/
 class Facebook extends Component {
@@ -25,13 +27,17 @@ class Facebook extends Component {
     let FBcontant;
 
     if (this.state.islogin) {
-      FBcontant = <div>facebook is loged in {this.state.name}</div>;
+      FBcontant = <Redirect to="/Facebookislogined"></Redirect>;
     } else {
       FBcontant = (
         <FacebookLogin
           render={(renderProps) => (
             <button disabled={renderProps.enable}>
-              <img src="http://pngimg.com/uploads/facebook_logos/facebook_logos_PNG19754.png" className="facebookicon"></img>{' '}
+              <img
+                alt=""
+                src="http://pngimg.com/uploads/facebook_logos/facebook_logos_PNG19754.png"
+                className="facebookicon"
+              ></img>
               login with facebook
             </button>
           )}
