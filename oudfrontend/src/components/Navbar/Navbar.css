@@ -3,10 +3,10 @@
   top: 0;
   right: 0;
   left: 223px;
-  z-index: 1030;
+  z-index: 2;
 }
 .fa-angle-left:before {
-  margin-right: 25px;
+  margin-right: 20px;
 }
 
 .btn {
@@ -55,4 +55,18 @@ input.empty {
 .login-singup {
   margin-left: 10vw;
   overflow: hidden;
+}
+.left-arrow {
+  font-weight: 600;
+}
+.right-arrow {
+  font-weight: 600;
+}
+.left-arrow:hover {
+  color: #f0a91a;
+  cursor: pointer;
+}
+.right-arrow:hover {
+  color: #f0a91a;
+  cursor: pointer;
 }
