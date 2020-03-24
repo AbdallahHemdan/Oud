@@ -14,17 +14,16 @@ import VolumeMuted from "../../assets/images/icons/volume-mute.png";
 import "./Player.css";
 import socketIOClient from "socket.io-client";
 import { Howl } from "howler";
-import { Router, Link } from "react-router-dom";
-
+import PlayingBarLeft from "./PlayingBarLeft";
+import PlayingBarCenter from "./PlayingBarCenter";
+import PlayingBarRight from "./PlayingBarRight";
 const ss = require("socket.io-stream");
 const axios = require("axios");
 const endpoint = "http://localhost:8080/";
 const socket = socketIOClient(endpoint);
-const history = require("history").createBrowserHistory();
 let sound,
   queue = [],
   index = 0;
-
 class WebPlayer extends Component {
   constructor(props) {
     super(props);
@@ -105,20 +104,37 @@ class WebPlayer extends Component {
               data["device"]["volumePercent"] > 0 ? Volume : VolumeMuted,
             fetched: true
           });
-          console.log("state: " + this.state.repeatState);
         }
       })
       .catch(function(error) {
         console.log(error);
       });
-    return true;
+
+    if (!this.state.fetched) {
+      axios
+        .get("http://localhost:3000/me/player/recently-playing?limit=1")
+        .then(response => {
+          if (response["status"] === 200) {
+            let data = response["items"][0]["track"];
+            this.setState({
+              playing: false,
+              trackName: data["name"],
+              artistName: data["artists"][0]["name"],
+              duration: data["duartion"],
+              fetched: true
+            });
+          }
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
   };
 
   playTrack = () => {
     if (queue.length === 0) return;
     const mute = this.state.muteState,
       repeat = this.state.repeatState;
-    console.log("re: " + repeat);
     let src = [];
     for (let i = 0; i < queue.length; i += 1)
       src.push(URL.createObjectURL(queue[i]));
@@ -136,7 +152,6 @@ class WebPlayer extends Component {
           playing: true,
           duration: Number(sound.duration() / 60).toFixed(2)
         });
-        console.log("duration: " + this.state.duration);
       },
       format: ["mp3", "mp3", "mp3", "mp3", "mp3"],
       onend: () => {
@@ -145,7 +160,6 @@ class WebPlayer extends Component {
           progress: 0,
           current: "0.00"
         });
-        console.log("Finished!");
       }
     });
     sound.play();
@@ -402,173 +416,60 @@ class WebPlayer extends Component {
         </div>
         <div className="now-playing-bar-container">
           <div className="now-playing-bar">
-            <div className="now-playing-bar-left">
-              <div className="content">
-                <div className="ablum-link">
-                  <img src={art} className="album-art-work" alt="Album Art" />
-                  <button className="extended-card-button" title="Extend">
-                    <img src={Extend} alt="Extend" className="extend-img" />
-                  </button>
-                </div>
+            <PlayingBarLeft
+              art={art}
+              extend={Extend}
+              prev={Previous}
+              pause={Pause}
+              play={Play}
+              next={Next}
+              playing={this.state.playing}
+              handlePrev={() => this.handlePrev()}
+              handlePlayPause={() => this.handlePlayPause()}
+              handleNext={() => this.handleNext()}
+            />
 
-                <div className="player-controls">
-                  <div className="control-buttons">
-                    <button
-                      className="control-button previous"
-                      title="Previous"
-                      onClick={() => this.handlePrev()}
-                    >
-                      <img src={Previous} alt="Previous" />
-                    </button>
+            <PlayingBarCenter
+              trackName={this.state.trackName}
+              artistName={this.state.artistName}
+              current={this.state.current}
+              progress={this.state.progress}
+              duration={this.state.duration}
+              setMouseDown={() => this.setMouseDown(true)}
+              onProgressClick={e => this.onProgressClick(e)}
+              mouseUp={e => {
+                this.onProgressClick(e);
+                document.addEventListener(
+                  "mouseup",
+                  this.setState({
+                    mouseDown: false
+                  })
+                );
+              }}
+            />
 
-                    {this.state.playing ? (
-                      <button
-                        className="control-button pause"
-                        title="Pause"
-                        onClick={() => this.handlePlayPause()}
-                      >
-                        <img src={Pause} alt="Pause" />
-                      </button>
-                    ) : (
-                      <button
-                        className="control-button play"
-                        title="Play"
-                        onClick={() => this.handlePlayPause()}
-                      >
-                        <img src={Play} alt="Play" />
-                      </button>
-                    )}
-
-                    <button
-                      className="control-button next"
-                      title="Next"
-                      onClick={() => this.handleNext()}
-                    >
-                      <img src={Next} alt="Next" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="now-playing-bar-center">
-              <div className="content player-controls">
-                <div className="track-controls">
-                  <div className="track-info">
-                    <Router history={history}>
-                      <Link to="/">
-                        <strong className="track-name">
-                          {this.state.trackName}
-                        </strong>
-                      </Link>
-                      <Link to="/">
-                        <strong className="artist-name">
-                          {this.state.artistName}
-                        </strong>
-                      </Link>
-                    </Router>
-                  </div>
-
-                  <div className="control-buttons"></div>
-                </div>
-
-                <div
-                  className="playback-bar"
-                  // onClick={this.onProgressClick}
-                  onMouseDown={() => this.setMouseDown(true)}
-                  onMouseMove={e => this.onProgressClick(e)}
-                  onMouseUp={e => {
-                    this.onProgressClick(e);
-                    document.addEventListener(
-                      "mouseup",
-                      this.setState({
-                        mouseDown: false
-                      })
-                    );
-                  }}
-                >
-                  <span className="progress-time current">
-                    {this.state.current}
-                  </span>
-                  <div className="progress-bar" id="progress-width">
-                    <div className="progress-bar-bg">
-                      <div
-                        className="progress"
-                        style={{ width: this.state.progress + "%" }}
-                      ></div>
-                    </div>
-                  </div>
-                  <span className="progress-time remaining">
-                    {this.state.duration}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="now-playing-bar-right">
-              <div className="volume-bar">
-                <button
-                  className="control-button shuffle"
-                  title="Shuffle"
-                  onClick={this.handleShuffleState}
-                >
-                  <img src={this.state.shuffleButton} alt="Shuffle" />
-                </button>
-                <button
-                  className="control-button repeat"
-                  title="Repeat"
-                  onClick={this.handleRepeatState}
-                >
-                  <img src={this.state.repeatButton} alt="Repeat" />
-                </button>
-                <button
-                  className="control-button volume"
-                  title="Volume"
-                  onClick={this.handleMuteState}
-                >
-                  <img src={this.state.volumeButton} alt="Volume" />
-                </button>
-
-                {/* onMouseDown={() => this.setMouseDown(true)}
-                  onMouseMove={e => this.onProgressClick(e)}
-                  onMouseUp={e => {
-                    this.onProgressClick(e);
-                    document.addEventListener(
-                      "mouseup",
-                      this.setState({
-                        mouseDown: false
-                      })
-                    );
-                  }} */}
-
-                <div
-                  className="progress-bar"
-                  id="volume-width"
-                  style={{ width: "125px" }}
-                  onMouseDown={() => this.setMouseDown(true)}
-                  onMouseMove={e => this.onVolumeClick(e)}
-                  onMouseUp={e => {
-                    this.onVolumeClick(e);
-                    document.addEventListener(
-                      "mouseup",
-                      this.setState({
-                        mouseDown: false
-                      })
-                    );
-                  }}
-                >
-                  <div className="progress-bar-bg">
-                    <div
-                      className="progress"
-                      style={{ width: this.state.volume + "%" }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <PlayingBarRight
+              shuffleButton={this.state.shuffleButton}
+              repeatButton={this.state.repeatButton}
+              volumeButton={this.state.volumeButton}
+              volume={this.state.volume}
+              handleShuffleState={this.handleShuffleState}
+              handleRepeatState={this.handleRepeatState}
+              handleMuteState={this.handleMuteState}
+              setMouseDown={() => this.setMouseDown(true)}
+              onVolumeClick={e => this.onVolumeClick(e)}
+              mouseUp={e => {
+                this.onVolumeClick(e);
+                document.addEventListener(
+                  "mouseup",
+                  this.setState({
+                    mouseDown: false
+                  })
+                );
+              }}
+            />
           </div>
         </div>
-        {/* <PlayerRouter /> */}
       </Fragment>
     );
   }
