@@ -1,0 +1,10 @@
+.pageContainer {
+  background-color: #ffffff;
+  height: 100%; /*this should be ratio not pixels ,do not forget to change */
+  display: flex;
+  flex-flow: row wrap;
+  background-color: #f8f8f8;
+}
+.content {
+  width: 73%;
+}
