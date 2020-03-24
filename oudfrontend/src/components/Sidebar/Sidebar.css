@@ -38,11 +38,10 @@
 }
 
 @media (max-width: 698px) {
-  /* .navbar-toggle {
-    width: 100%;
-  } */
-  .login-signup {
-    margin-left: 10vw;
+  .login-signup-btn {
+    width: 100% !important;
+    margin-bottom: 10px !important;
+    display: block;
   }
   #sidebar {
     margin-left: -17rem;

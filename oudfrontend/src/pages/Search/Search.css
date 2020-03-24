@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  margin-top: 10px;
 }
 .main-content {
   margin-left: 16em;
@@ -12,9 +13,9 @@
 }
 
 .module {
-  margin-top: 40px;
+  margin-top: 10px;
 }
 .toto {
   width: 100%;
-  font-size: 40px;
+  font-size: 30px;
 }
