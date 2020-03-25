@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import "./Navbar.css";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import { BeforeLogin, AfterLogin } from "./BeforeAfterLogin"
+
 
 class Navbar extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isLoggedIn: true
+    }
+  }
+
   handleClickOnSearch = () => {
     this.props.history.replace('search');
   }
@@ -10,9 +19,11 @@ class Navbar extends Component {
   handleGoBack = () => {
     this.props.history.goBack();
   }
+
   handleGoForward = () => {
     this.props.history.goForward();
   }
+
   render() {
     return (
       <div>
@@ -50,26 +61,15 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse login-signup" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto"></ul>
             <ul className="navbar-nav mr-auto"></ul>
-            <form className="form-inline my-2 my-lg-0">
-              <button
-                className="btn oud-btn my-2 my-sm-0 mr-3 login-signup-btn signin"
-                type="submit"
-              >
-                <Link to="/signin" className="signup-signin-link">Sign in
-                </Link>
-              </button>
-              <button
-                className="btn oud-btn my-2 my-sm-0 mr-3 login-signup-btn signup"
-                type="submit"
-              >
-                <Link to="/signup" className="signup-signin-link">Sign up</Link>
-              </button>
-            </form>
+            {
+              (this.state.isLoggedIn) ? <AfterLogin /> : <BeforeLogin />
+            }
           </div>
         </nav>
-      </div>
+      </div >
     );
   }
 }
 
 export default withRouter(Navbar);
+
