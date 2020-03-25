@@ -1,7 +1,6 @@
 import React from "react";
 import WebPlayer from "../Player";
-import { cleanup } from "@testing-library/react";
-import { create } from "react-test-renderer";
+import { cleanup, create } from "@testing-library/react";
 import { shallow } from "enzyme";
 import Shuffle from "../../../assets/images/icons/shuffle.png";
 import Volume from "../../../assets/images/icons/volume.png";
@@ -78,7 +77,6 @@ describe("Web Player component", () => {
     expect(wrapper.state()).toMatchObject({
       deviceId: "",
       fetched: false,
-      response: null,
       progress: 0,
       playing: false,
       current: "0.00",
@@ -101,7 +99,6 @@ describe("Web Player component", () => {
     expect(wrapper.state()).toMatchObject({
       deviceId: "74ASZWbe4lXaubB36ztrGX",
       fetched: true,
-      response: null,
       progress: 0,
       playing: false,
       current: "0.00",
@@ -123,17 +120,15 @@ describe("Web Player component", () => {
   test("test play button", async done => {
     //PUT request
     const mock = new MockAdapter(axios);
-    mock
-      .onPost(
-        "http://localhost:3000/me/player/pause?deviceId=74ASZWbe4lXaubB36ztrGX"
-      )
-      .reply(204);
-    const wrapper = shallow(<WebPlayer />);
-    wrapper.find(".play").simulate("click");
+    mock.onPost().reply(204);
+    const wrapper = create(<WebPlayer />);
+    let inst = wrapper.getInstance();
+    expect(inst.state("playing")).toBe(false);
+    inst.play();
     await waitUntil(() => {
-      return _.isEqual(wrapper.state.playing, true);
+      return _.isEqual(inst.state("playing"), true);
     });
-    expect(wrapper.state("playing")).toBe(true);
+    expect(inst.state("playing")).toBe(true);
     done();
   });
 });

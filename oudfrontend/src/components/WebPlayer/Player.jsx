@@ -12,25 +12,28 @@ import art from "../../assets/images/icons/album.jpg";
 import Extend from "../../assets/images/icons/extend.png";
 import VolumeMuted from "../../assets/images/icons/volume-mute.png";
 import "./Player.css";
-import socketIOClient from "socket.io-client";
 import { Howl } from "howler";
 import PlayingBarLeft from "./PlayingBarLeft";
 import PlayingBarCenter from "./PlayingBarCenter";
 import PlayingBarRight from "./PlayingBarRight";
-const ss = require("socket.io-stream");
 const axios = require("axios");
-const endpoint = "http://localhost:8080/";
-const socket = socketIOClient(endpoint);
-let sound,
-  queue = [],
-  index = 0;
+
+//socket stuff
+// import socketIOClient from "socket.io-client";
+// const ss = require("socket.io-stream");
+
+// const endpoint = "http://localhost:8080/";
+// const socket = socketIOClient(endpoint);
+let sound;
+// queue = [],
+// index = 0;
 class WebPlayer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      audioUrl: "",
       deviceId: "",
       fetched: false,
-      response: null,
       progress: 0,
       playing: false,
       current: "0.00",
@@ -55,21 +58,21 @@ class WebPlayer extends Component {
 
   componentDidMount() {
     this.fetchTrackInfo();
-    socket.on("start", data => {
-      socket.emit("stream", { Data: "You can send any data back" });
-      ss(socket).on("audio-stream", (stream, data) => {
-        let parts = [];
-        stream.on("data", chunk => {
-          parts.push(chunk);
-        });
+    // socket.on("start", data => {
+    //   socket.emit("stream", { Data: "You can send any data back" });
+    //   ss(socket).on("audio-stream", (stream, data) => {
+    //     let parts = [];
+    //     stream.on("data", chunk => {
+    //       parts.push(chunk);
+    //     });
 
-        stream.on("end", () => {
-          queue.push(new Blob(parts));
-          this.setState({ response: new Blob(parts) });
-          console.log("track");
-        });
-      });
-    });
+    //     stream.on("end", () => {
+    //       queue.push(new Blob(parts));
+    //       this.setState({ response: new Blob(parts) });
+    //       console.log("track");
+    //     });
+    //   });
+    // });
     setInterval(() => {
       if (sound && this.state.playing) {
         const progress = this.getSoundProgress();
@@ -96,6 +99,7 @@ class WebPlayer extends Component {
             repeatState: data["repeatState"] === "off" ? false : true,
             repeatButton:
               data["repeatState"] === "off" ? Repeat : RepeatEnabled,
+            audioUrl: data["item"]["audioUrl"],
             trackName: data["item"]["name"],
             artistName: data["item"]["artists"][0]["name"],
             duration: data["item"]["duartion"],
@@ -132,28 +136,25 @@ class WebPlayer extends Component {
   };
 
   playTrack = () => {
-    if (queue.length === 0) return;
     const mute = this.state.muteState,
       repeat = this.state.repeatState;
-    let src = [];
-    for (let i = 0; i < queue.length; i += 1)
-      src.push(URL.createObjectURL(queue[i]));
 
     if (sound && sound.state() === "loaded") sound.unload();
     sound = new Howl({
-      src: src[index],
+      src: [this.state.audioUrl],
       autoplay: false,
       loop: repeat,
       volume: Number(this.state.volume / 100).toFixed(2),
       mute: mute,
       html5: true,
       onplay: () => {
+        console.log("I'm inside the fucking on play function");
         this.setState({
           playing: true,
           duration: Number(sound.duration() / 60).toFixed(2)
         });
       },
-      format: ["mp3", "mp3", "mp3", "mp3", "mp3"],
+      format: ["mp3"],
       onend: () => {
         this.setState({
           playing: false,
@@ -176,7 +177,7 @@ class WebPlayer extends Component {
       .then(resp => {
         sound.pause();
         this.setState({ playing: false });
-        console.log(resp);
+        // console.log(resp);
       })
       .catch(error => {
         console.log(error);
@@ -194,7 +195,7 @@ class WebPlayer extends Component {
       .then(resp => {
         this.setState({ playing: true });
         sound.play();
-        console.log(resp);
+        // console.log(resp);
       })
       .catch(error => {
         console.log(error);
@@ -208,7 +209,7 @@ class WebPlayer extends Component {
       .post("http://localhost:3000/me/player/pause?deviceId=" + deviceId)
       .then(resp => {
         this.playTrack();
-        console.log(resp);
+        // console.log(resp);
       })
       .catch(error => {
         console.log(error);
@@ -234,7 +235,6 @@ class WebPlayer extends Component {
     axios
       .post("http://localhost:3000/me/player/next?deviceId=" + deviceId)
       .then(response => {
-        index = (index + 1) % queue.length;
         this.play();
       })
       .catch(function(error) {
@@ -247,8 +247,7 @@ class WebPlayer extends Component {
     axios
       .post("http://localhost:3000/me/player/previous?deviceId=" + deviceId)
       .then(response => {
-        if (!index) return;
-        index = index - 1;
+        // if (!index) return;
         this.play();
       })
       .catch(function(error) {
@@ -369,7 +368,6 @@ class WebPlayer extends Component {
       volumeButton: mute ? VolumeMuted : Volume
     });
     if (sound) sound.mute(mute);
-    console.log(this.state.muteState);
   };
 
   onVolumeClick = e => {
