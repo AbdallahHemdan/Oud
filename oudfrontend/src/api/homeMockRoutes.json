@@ -1,3 +1,4 @@
 {
-  "/browse/categories": "/categories"
+  "/browse/categories": "/categories",
+  "/browse/categories/:id/playlists": "/playlists/:id"
 }

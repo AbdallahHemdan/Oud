@@ -13,19 +13,19 @@
   z-index: 2;
   border-style: solid;
   border-width: 2px;
-  transition: all 0.2s linear;
   width: 150px;
 }
 .oud-btn {
-  color: #f0a91a;
+  /* color: #f0a91a; */
   border: 2px solid #f0a91a;
   border-radius: 80px !important;
   border-radius: 0.85rem;
 }
 .oud-btn:hover {
-  background-color: #fff;
-  color: #f0a91a;
-  font-weight: 700;
+  /* background-color: #fff; */
+  border: 2px solid #ffffff;
+  /* color: #f0a91a; */
+  /* font-weight: 700; */
 }
 .icon_wrap {
   cursor: pointer;
@@ -72,16 +72,18 @@ input.empty {
   cursor: pointer;
 }
 .signup-signin-link {
-  color: #f0a91a;
-}
-.signup-signin-link:hover {
-  color: #f0a91a;
+  color: #ffffff;
 }
 
-.login-signup-btn:hover {
-  color: #fff;
+.login-signup-btn:hover a {
+  color: #f0a91a;
 }
 @media (max-width: 480px) {
+  .dropdown-me {
+    left: 5px !important;
+    top: 50px !important;
+  }
+
   .search-input {
     width: 100%;
     margin-top: -50px;
@@ -101,6 +103,10 @@ input.empty {
 }
 
 @media (max-width: 993px) {
+  .dropdown-me {
+    left: 5px !important;
+    top: 50px !important;
+  }
   .oud-btn {
     width: 100%;
   }
@@ -110,8 +116,46 @@ input.empty {
   button.btn.oud-btn.my-2.my-sm-0.mr-3.login-signup-btn.signin {
     margin-bottom: 10px !important;
   }
+  .profile {
+    margin-top: 5px;
+  }
 }
 
 .bg-darky {
   background: #000;
+}
+
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 30%;
+  /* border: 2px solid #494338; */
+}
+
+.username {
+  font-size: 20px;
+  margin-bottom: 0;
+  font-weight: bold;
+  margin-left: 7px;
+}
+
+.dropdown-me {
+  left: -30px;
+  top: 50px;
+  background: #ca8e15;
+}
+.element {
+  color: #fff;
+  background: #ca8e15;
+  margin-top: 0;
+}
+.element:hover {
+  background: #dd9b18;
+  color: #fff;
+}
+.upgrade {
+  color: #fff;
+}
+.upgrade:hover a {
+  color: #f0a91a;
 }
