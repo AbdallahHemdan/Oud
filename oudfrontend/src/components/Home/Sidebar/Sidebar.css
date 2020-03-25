@@ -39,11 +39,11 @@
 
 @media (max-width: 700px) {
   .login-signup-btn {
-    width: 100% !important;
+    width: 100%;
     display: block;
   }
   .signin {
-    margin-bottom: 10px !important;
+    margin-bottom: 10px;
   }
   #sidebar {
     margin-left: -17rem;
@@ -115,7 +115,6 @@
   border-color: #2c2b2b;
   margin: 15px auto !important;
   width: 90%;
-  /* border-width: 0.04em; */
 }
 
 .active-left-sidebar-ele {

@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import "./MusicItem.css";
 import MusicCard from "../MusicCard/MusicCard"
 import { Link } from "react-router-dom";
-import axios from 'axios';
+
 
 class MusicItem extends Component {
   constructor(props) {
     super(props)
 
     // destructuring item props
-    const { id, name, icon, playlist } = this.props.item;
+    const { id, name, icon } = this.props.item;
 
     this.state = {
       id: id, // id of the category 
