@@ -10,21 +10,22 @@
 }
 
 .btn {
-  z-index: 3;
+  z-index: 2;
   border-style: solid;
   border-width: 2px;
-  border-radius: 80px !important;
-  transition: all 0.4s linear;
+  transition: all 0.2s linear;
   width: 150px;
 }
 .oud-btn {
   color: #f0a91a;
   border: 2px solid #f0a91a;
+  border-radius: 80px !important;
   border-radius: 0.85rem;
 }
 .oud-btn:hover {
-  background-color: #f0a91a;
-  color: #fff;
+  background-color: #fff;
+  color: #f0a91a;
+  font-weight: 700;
 }
 .icon_wrap {
   cursor: pointer;
@@ -69,4 +70,48 @@ input.empty {
 .right-arrow:hover {
   color: #f0a91a;
   cursor: pointer;
+}
+.signup-signin-link {
+  color: #f0a91a;
+}
+.signup-signin-link:hover {
+  color: #f0a91a;
+}
+
+.login-signup-btn:hover {
+  color: #fff;
+}
+@media (max-width: 480px) {
+  .search-input {
+    width: 100%;
+    margin-top: -50px;
+    margin-bottom: 10px;
+  }
+  .navbar-toggler {
+    width: 100% !important;
+  }
+  .form-inline {
+    width: 100%;
+  }
+  .nav-back-forward {
+    visibility: hidden;
+    width: 100%;
+    margin-left: 42% !important;
+  }
+}
+
+@media (max-width: 993px) {
+  .oud-btn {
+    width: 100%;
+  }
+  .signin {
+    margin-bottom: 15px !important;
+  }
+  button.btn.oud-btn.my-2.my-sm-0.mr-3.login-signup-btn.signin {
+    margin-bottom: 10px !important;
+  }
+}
+
+.bg-darky {
+  background: #000;
 }

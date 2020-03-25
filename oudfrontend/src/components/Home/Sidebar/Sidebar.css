@@ -37,11 +37,13 @@
   margin: 0;
 }
 
-@media (max-width: 698px) {
+@media (max-width: 700px) {
   .login-signup-btn {
     width: 100% !important;
-    margin-bottom: 10px !important;
     display: block;
+  }
+  .signin {
+    margin-bottom: 10px !important;
   }
   #sidebar {
     margin-left: -17rem;
@@ -88,13 +90,17 @@
   margin-top: 0px;
 }
 
-.icons {
+.sidebar-icons {
   margin-right: 10px;
   color: #f9b835;
 }
+
 .bg-dark-hover:hover {
   background-color: #242427 !important;
-  border-radius: 0.5em;
+  border-radius: 0.2em;
+}
+.bg-dark-hover:hover.sidebar-icons {
+  color: white;
 }
 .icon-sz {
   font-size: 25px;
@@ -103,11 +109,24 @@
   font-size: 30px;
 }
 
-.Rootlist__divider {
+.divider {
   margin: 8px var(--left-sidebar-padding-right) 8px
     var(--left-sidebar-padding-left);
-  border-color: #302d2d;
+  border-color: #2c2b2b;
   margin: 15px auto !important;
   width: 90%;
-  border-width: 0.04em;
+  /* border-width: 0.04em; */
+}
+
+.active-left-sidebar-ele {
+  border-left: 2px solid transparent;
+}
+
+.active-left-sidebar-ele:hover,
+.active-left-sidebar-ele:focus,
+.active-left-sidebar-ele:active {
+  border-left: 2px solid #f9b835;
+}
+.bg-darky {
+  background: #000;
 }

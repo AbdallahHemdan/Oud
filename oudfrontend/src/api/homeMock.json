@@ -1,0 +1,69 @@
+{
+  "categories": {
+    "items": [
+      {
+        "_id": 1,
+        "name": "Recently played",
+        "icon": "http://lorempixel.com/640/480/cats",
+        "playlist": [1, 2, 3, 4, 5]
+      },
+      {
+        "_id": 2,
+        "name": "Recommended playlists",
+        "icon": "http://lorempixel.com/640/480/cats",
+        "playlist": [1, 2, 3, 4, 5]
+      },
+      {
+        "_id": 3,
+        "name": "New releases",
+        "icon": "http://lorempixel.com/640/480/cats",
+        "playlist": [1, 2, 3, 4, 5]
+      },
+      {
+        "_id": 4,
+        "name": "Arabic Music",
+        "icon": "http://lorempixel.com/640/480/cats",
+        "playlist": [1, 2, 3, 4, 5]
+      },
+      {
+        "_id": 5,
+        "name": "Throwback",
+        "icon": "http://lorempixel.com/640/480/cats",
+        "playlist": [1, 2, 3, 4, 5]
+      },
+      {
+        "_id": 6,
+        "name": "Popular playlists",
+        "icon": "http://lorempixel.com/640/480/cats",
+        "playlist": [1, 2, 3, 4, 5]
+      },
+      {
+        "_id": 7,
+        "name": "Editors' Picks",
+        "icon": "http://lorempixel.com/640/480/cats",
+        "playlist": [1, 2, 3, 4, 5]
+      },
+      {
+        "_id": 8,
+        "name": "Workout",
+        "icon": "http://lorempixel.com/640/480/cats",
+        "playlist": [1, 2, 3, 4, 5]
+      },
+      {
+        "_id": 9,
+        "name": "Mood",
+        "icon": "http://lorempixel.com/640/480/cats",
+        "playlist": [1, 2, 3, 4, 5]
+      },
+      {
+        "_id": 10,
+        "name": "Recommended radio",
+        "icon": "http://lorempixel.com/640/480/cats",
+        "playlist": [1, 2, 3, 4, 5]
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  }
+}
