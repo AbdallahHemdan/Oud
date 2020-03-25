@@ -7,6 +7,22 @@ import axios from "axios"
 
 let fetchCategoriesUrl = "http://localhost:2022/categories?limit=50";
 
+function MainContent({ items }) {
+  return (
+    <section className="main-content">
+      <section className="music-component main">
+        {
+          items.map((item, index) => {
+            return (
+              <MusicItem item={item} key={index} />
+            )
+          })
+        }
+      </section>
+    </section>
+  )
+}
+
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -20,13 +36,13 @@ class Home extends Component {
 
   handleStoringData = ({ items, limit, offset, total }) => {
     this.setState({ items, limit, offset, total });
-    console.log(this.state)
   }
 
   componentDidMount() {
     // get all categories
     axios.get(fetchCategoriesUrl)
       .then((result) => {
+        console.log(result)
         this.handleStoringData(result.data);
       }).catch((err) => {
         console.log(err)
@@ -38,17 +54,7 @@ class Home extends Component {
       <div>
         <Sidebar />
         <Navbar />
-        <section className="main-content">
-          <section className="music-component main">
-            {
-              this.state.items.map((item, index) => {
-                return (
-                  <MusicItem item={item} key={index} />
-                )
-              })
-            }
-          </section>
-        </section>
+        <MainContent items={this.state.items} />
       </div>
     );
   }
