@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Navbar.css";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class Navbar extends Component {
   handleClickOnSearch = () => {
@@ -16,9 +16,9 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-darky fixed-top">
           <form className="form-inline">
-            <div className="back-forward">
+            <div className="back-forward nav-back-forward">
               <div className="navbar-brand" onClick={this.handleGoBack}>
                 <i className="fa fa-angle-left fa-2x left-arrow"></i>
               </div>
@@ -44,7 +44,7 @@ class Navbar extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon toggler"></span>
           </button>
 
           <div className="collapse navbar-collapse login-signup" id="navbarSupportedContent">
@@ -52,16 +52,17 @@ class Navbar extends Component {
             <ul className="navbar-nav mr-auto"></ul>
             <form className="form-inline my-2 my-lg-0">
               <button
-                className="btn oud-btn my-2 my-sm-0 mr-3 login-signup-btn"
+                className="btn oud-btn my-2 my-sm-0 mr-3 login-signup-btn signin"
                 type="submit"
               >
-                Login
+                <Link to="/signin" className="signup-signin-link">Sign in
+                </Link>
               </button>
               <button
-                className="btn oud-btn my-2 my-sm-0 mr-3 login-signup-btn"
+                className="btn oud-btn my-2 my-sm-0 mr-3 login-signup-btn signup"
                 type="submit"
               >
-                Signup
+                <Link to="/signup" className="signup-signin-link">Sign up</Link>
               </button>
             </form>
           </div>

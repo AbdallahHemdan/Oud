@@ -2,9 +2,9 @@
   margin-bottom: 20px;
 }
 .card {
-  width: 190px;
+  width: 10em;
   height: 180px;
-  margin: 15px;
+  margin: 10px;
   position: relative;
   min-width: 190px;
   background: #191922;
@@ -26,7 +26,7 @@
 
 .card .title a {
   top: -175px;
-  color: #fff;
+  color: #cec9c9;
   position: relative;
   font-size: 20px;
   text-decoration: none;
@@ -41,6 +41,7 @@
   background: rgba(0, 0, 0, 0.6);
   text-align: center;
   visibility: hidden;
+  cursor: pointer;
 }
 
 .overlayer .fa-play-circle {
@@ -64,6 +65,7 @@
 .playlist-link {
   text-decoration: none;
   font-size: 25px;
+  color: #cec9c9;
 }
 a:hover {
   text-decoration: none;
@@ -75,8 +77,12 @@ a:hover {
   height: 72.8px;
 }
 .play-btn:hover {
-  background: transparent !important;
+  background: transparent;
 }
+.play-btn:focus {
+  outline: none;
+}
+
 .play-btn:active {
   outline: none;
 }
