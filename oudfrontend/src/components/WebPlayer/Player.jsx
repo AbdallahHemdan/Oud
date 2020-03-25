@@ -110,25 +110,25 @@ class WebPlayer extends Component {
         console.log(error);
       });
 
-    if (!this.state.fetched) {
-      axios
-        .get("http://localhost:3000/me/player/recently-playing?limit=1")
-        .then(response => {
-          if (response["status"] === 200) {
-            let data = response["items"][0]["track"];
-            this.setState({
-              playing: false,
-              trackName: data["name"],
-              artistName: data["artists"][0]["name"],
-              duration: data["duartion"],
-              fetched: true
-            });
-          }
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    }
+    // if (!this.state.fetched) {
+    //   axios
+    //     .get("http://localhost:3000/me/player/recently-playing?limit=1")
+    //     .then(response => {
+    //       if (response["status"] === 200) {
+    //         let data = response["items"][0]["track"];
+    //         this.setState({
+    //           playing: false,
+    //           trackName: data["name"],
+    //           artistName: data["artists"][0]["name"],
+    //           duration: data["duartion"],
+    //           fetched: true
+    //         });
+    //       }
+    //     })
+    //     .catch(function(error) {
+    //       console.log(error);
+    //     });
+    // }
   };
 
   playTrack = () => {
