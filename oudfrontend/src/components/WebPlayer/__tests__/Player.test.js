@@ -1,6 +1,6 @@
 import React from "react";
 import WebPlayer from "../Player";
-import { cleanup, create } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
 import { shallow, mount } from "enzyme";
 import Shuffle from "../../../assets/images/icons/shuffle.png";
 import Volume from "../../../assets/images/icons/volume.png";
@@ -29,9 +29,10 @@ describe("Web Player component", () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  test("snap shot", () => {
-    const wrapper = shallow(<WebPlayer />);
-    expect(wrapper).toMatchSnapshot();
+  it("Snapshot testing for the Web PLayer component", () => {
+    const { asFragment } = render(<WebPlayer />);
+
+    expect(asFragment(<WebPlayer />)).toMatchSnapshot();
   });
 
   test("tests fetch track info to the state", async done => {
