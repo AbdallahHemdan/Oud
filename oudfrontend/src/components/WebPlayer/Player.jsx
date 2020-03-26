@@ -26,8 +26,12 @@ const axios = require("axios");
  * )
  */
 class WebPlayer extends Component {
-  constructor(props) {
-    super(props);
+  /**
+   * Setting things up. It initialize what will be fetched from the API
+   * @returns{void}
+   */
+  constructor() {
+    super();
     this.state = {
       sound: null,
       audioUrl: "",
@@ -49,17 +53,30 @@ class WebPlayer extends Component {
       muteState: false
     };
   }
-
+  /**
+   * Get the sound progress percentage to update the progress bar
+   * @function
+   * @returns{number}. returns the progress percentage
+   */
   getSoundProgress = () => {
     const progress =
       (this.state.sound.seek() / this.state.sound.duration()) * 100;
     return progress;
   };
 
+  /**
+   * Fetching data immediately after the component has been mount to the DOM tree
+   */
   componentDidMount() {
     this.fetchTrackInfo();
   }
 
+  /**
+   * Calling the currently playing endpoint to check if there is a track available to be fetched
+   * if not, then fetch the recently played track
+   * @function
+   * @returns{void}
+   */
   fetchTrackInfo = () => {
     axios
       .get("http://localhost:3000/me/player/currently-playing")
@@ -111,6 +128,16 @@ class WebPlayer extends Component {
     // }
   };
 
+  /**
+   * Setting Howler object up.
+   * While setting Howler up, It updates the state of the instance to be aware of changes in the UI.
+   * Change the playing state to true on playing and false on end of the track
+   * Stores the full duration of the track
+   * Setting an interval function to update the progress bar periodically
+   * On the end of the track return the progress bar to 0
+   * @function
+   * @returns{void}
+   */
   playTrack = () => {
     const mute = this.state.muteState,
       repeat = this.state.repeatState;
@@ -154,6 +181,12 @@ class WebPlayer extends Component {
     this.state.sound.play();
   };
 
+  /**
+   * Handling the pause action. request from the back end to pause, pause the sound in the browser, and update the playing state
+   * to false to be aware of the related UI changes
+   * @function
+   * @returns{void}
+   */
   pause = () => {
     let deviceId = this.state.deviceId;
     axios
@@ -171,6 +204,13 @@ class WebPlayer extends Component {
       });
   };
 
+  /**
+   * Handling the resume action. request from the back end to resume the currently playing track from specific position,
+   * resume the sound in the browser, and update the playing state
+   * to true to be aware of the related UI changes
+   * @function
+   * @returns{void}
+   */
   resume = () => {
     let deviceId = this.state.deviceId;
     let position = this.state.sound.seek();
@@ -188,6 +228,12 @@ class WebPlayer extends Component {
       });
   };
 
+  /**
+   * Handling the play action. request from the back end to play a track from begining, play the sound in the browser, and update the playing state
+   * to true to be aware of the related UI changes
+   * @function
+   * @returns{void}
+   */
   play = () => {
     let deviceId = this.state.deviceId;
     axios
@@ -201,6 +247,12 @@ class WebPlayer extends Component {
       });
   };
 
+  /**
+   * Controlling function for the play, pause, and resume actions. It specifies which action will be called
+   * depending on the plaing state of the currently track
+   * @function
+   * @returns{void}
+   */
   handlePlayPause = () => {
     if (this.state.sound) {
       this.state.sound.mute(this.state.muteState);
@@ -215,6 +267,12 @@ class WebPlayer extends Component {
     }
   };
 
+  /**
+   * Handling the next action.
+   * Request from the server to get the next track then play it
+   * @function
+   * @returns{void}
+   */
   handleNext = () => {
     let deviceId = this.state.deviceId;
     axios
@@ -227,6 +285,12 @@ class WebPlayer extends Component {
       });
   };
 
+  /**
+   * Handling the previous action.
+   * Request from the server to get the previous track then play it
+   * @function
+   * @returns{void}
+   */
   handlePrev = () => {
     let deviceId = this.state.deviceId;
     axios
@@ -240,6 +304,13 @@ class WebPlayer extends Component {
       });
   };
 
+  /**
+   * Handling the event of clicking on the progress bar using the mouse
+   * It gets the mouse click position then normalize it to the width of the bar
+   * then request from the server to progress to the specified position and update the state with new progress
+   * @function
+   * @returns{void}
+   */
   onProgressClick = e => {
     // e.preventDefault();
     if (!this.state.mouseDown || !this.state.sound) return;
@@ -263,12 +334,23 @@ class WebPlayer extends Component {
       });
   };
 
+  /**
+   * Update the mouse down flag to be aware of the mouse click on the progress or volume bar
+   * @function
+   * @returns{void}
+   */
   setMouseDown = cond => {
     this.setState({
       mouseDown: cond
     });
   };
 
+  /**
+   * Handling the shuffle action.
+   * Request from the server to shuffle the current queue then update the shuffle state to render the proper button
+   * @function
+   * @returns{void}
+   */
   handleShuffleState = () => {
     let deviceId = this.state.deviceId;
     axios
@@ -285,6 +367,13 @@ class WebPlayer extends Component {
       });
   };
 
+  /**
+   * Handling the repeat action.
+   * Request from the server to repeat the currently playing track then update the repeat state to render the proper button
+   * then active the repeat state in Howler
+   * @function
+   * @returns{void}
+   */
   handleRepeatState = () => {
     let deviceId = this.state.deviceId;
     axios
@@ -303,6 +392,13 @@ class WebPlayer extends Component {
       });
   };
 
+  /**
+   * Handling the mute action.
+   * Request from the server to mute the currently playing track then update the mute state to render the proper button
+   * then active the mute state in Howler
+   * @function
+   * @returns{void}
+   */
   handleMuteState = () => {
     const mute = !this.state.muteState;
     let deviceId = this.state.deviceId;
@@ -321,6 +417,13 @@ class WebPlayer extends Component {
       });
   };
 
+  /**
+   * Handling the event of clicking on the volume bar using the mouse
+   * It gets the mouse click position then normalize it to the width of the bar
+   * then request from the server to progress to the specified volume and update the state with new volume
+   * @function
+   * @returns{void}
+   */
   onVolumeClick = e => {
     // e.preventDefault();
     if (!this.state.mouseDown || !this.state.sound) return;

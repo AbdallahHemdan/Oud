@@ -1,24 +1,22 @@
 .queue-container {
-  width: 100%;
   background-color: #818181;
   bottom: 100px;
   position: fixed;
-  min-width: 620px;
-  height: 500px;
   z-index: 4;
+  float: right;
 }
 .overlay {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 100px;
   right: 0;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.9);
   overflow: hidden;
-  width: 100%;
+  width: 60%;
+  min-width: 620px;
   height: 0;
   transition: 0.5s ease;
-  z-index: 5;
+  border-top-left-radius: 1em;
 }
 
 .overlay-content {

@@ -11,7 +11,7 @@ class Queue extends Component {
   /* Open */
   openNav = () => {
     this.setState({
-      height: "100%"
+      height: "60%"
     });
   };
 
