@@ -2,15 +2,19 @@ import React, {Component} from 'react';
 import Facebook from './Facebook';
 
 import axios from 'axios';
+/**the social button section */
 class SocialIcons extends Component {
   constructor(props) {
     super(props);
     this.state = {
       Facebook_token: '',
-      Google_token: '',
     };
   }
-
+  /**
+   * the request sender function
+   * @function
+   * @returns {void}
+   */
   handelClickFace() {
     axios
       .post(`${process.env.REACT_APP_API_URL}/users`, this.state.Facebook_token)
@@ -21,12 +25,24 @@ class SocialIcons extends Component {
         console.log(error);
       });
   }
-
+  /**
+   * render and call the buttons
+   * @function
+   * @returns {void}
+   */
   render() {
     return (
       <React.Fragment>
         <h6 className="hint-text">Sign In with your social media account</h6>
         <div className="social-icons">
+          <button className="google_button" href="#">
+            <img
+              alt=""
+              src="http://pngimg.com/uploads/google/google_PNG19630.png"
+              className="googlepic"
+            ></img>{' '}
+            continue with Google
+          </button>
           <Facebook onClick={this.handelClickFace} />
         </div>
         <section className="or-seperator">

@@ -1,7 +1,29 @@
 import React, {Component} from 'react';
 import Facebook from '../signin/Facebook';
+import axios from 'axios';
 
+/**the social button section */
 class SocialIcons extends Component {
+  /**
+   * the request sender function
+   * @function
+   * @returns {void}
+   */
+  handelClickFace() {
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/users`, this.state.Facebook_token)
+      .then((req) => {
+        this.setState({Facebook_token: req.data.accessToken});
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  /**
+   * render and call the buttons
+   * @function
+   * @returns {void}
+   */
   render() {
     return (
       <React.Fragment>

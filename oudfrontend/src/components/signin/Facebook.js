@@ -1,17 +1,24 @@
 import React, {Component} from 'react';
 import FacebookLogin from 'react-facebook-login';
 import '../signin/signin.css';
-import {Link, Router} from 'react-router-dom';
 import {Redirect} from 'react-router-dom';
-/*local storage of the  chrome*/
-/*store redux*/
+/**Facebook class creation */
 class Facebook extends Component {
+  /**
+   * this state
+   *@type {{islogin:boolean,tokenid:string,name:string}}
+   */
   state = {
     islogin: false,
     tokenid: '',
     name: '',
   };
-
+  /**
+   * if it response it is change the state values to login by facebook
+   * @function
+   * @param {object} response
+   * @returns {void}
+   */
   responseFacebook = (response) => {
     console.log(response);
     this.setState({
@@ -21,8 +28,17 @@ class Facebook extends Component {
     });
   };
 
+  /**
+   * to check if the button is clicked
+   * @function
+   * @returns {void}
+   */
   componentClicked = () => console.log('clicked');
-
+  /**
+   * the render of the button and the data that returns
+   * @function
+   * @returns {void}
+   */
   render() {
     let FBcontant;
 

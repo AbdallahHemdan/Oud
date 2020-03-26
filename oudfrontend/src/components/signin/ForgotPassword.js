@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './signin.css';
 import MainBrand from './MainBrand';
 import axios from 'axios';
-
+/** the forget password section  */
 class ForgotPassword extends Component {
   constructor(props) {
     super(props);
@@ -12,14 +12,12 @@ class ForgotPassword extends Component {
       error: {},
     };
   }
-  handleShowPassword = (e) => {
-    e.preventDefault();
-    this.setState({
-      passwordType: this.state.passwordType === 'text' ? 'password' : 'text',
-      showText: this.state.showText === 'show' ? 'hide' : 'show',
-    });
-    return false;
-  };
+  /**
+   * on submit send the email to back end to send the code
+   * @function
+   * @param {object} e
+   * @returns {void}
+   */
   handelSubmit = (e) => {
     e.preventDefault();
     axios
@@ -34,6 +32,13 @@ class ForgotPassword extends Component {
       .catch((error) => {});
     console.log(this.state);
   };
+  /**
+   * Email validation
+   * (check if the email is valid)
+   * @function
+   * @param {object} event -the entered email
+   * @returns {boolean} - return true if the email is valid
+   */
   EmailHandel = (event) => {
     this.setState({email: event.target.value});
     const emailRegex = RegExp(
@@ -45,7 +50,11 @@ class ForgotPassword extends Component {
       : 'invalid email address';
     this.setState({formErrors});
   };
-
+  /**
+   * here i render the text box and the submit button
+   * @function
+   * @function {JSX}
+   */
   render() {
     return (
       <div className="container main-center">

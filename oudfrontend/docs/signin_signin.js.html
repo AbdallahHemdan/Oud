@@ -1,4 +1,32 @@
-import React, {Component} from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: signin/signin.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: signin/signin.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import './signin.css';
 import {Link, Redirect} from 'react-router-dom';
 import MainBrand from './MainBrand';
@@ -31,7 +59,7 @@ class signup extends Component {
   EmailHandel = (event) => {
     this.setState({email: event.target.value});
     const emailRegex = RegExp(
-      /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
+      /^[a-zA-Z0-9.!#$%&amp;’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
     );
     let formErrors = {...this.state.formErrors};
     formErrors.EmailErorr = emailRegex.test(event.target.value)
@@ -73,7 +101,7 @@ class signup extends Component {
    */
   toSignUp = () => {
     if (this.state.redirect) {
-      return <Redirect to="/" />;
+      return &lt;Redirect to="/" />;
     }
   };
 
@@ -122,15 +150,15 @@ class signup extends Component {
    */
   render() {
     return (
-      <div className="container main-center">
-        <MainBrand />
-        <section className="social-form">
-          <SocialIcons />
-          <section className="main-form container">
-            <form onSubmit={this.handelSubmit}>
-              <div className="form-group sm-8">
-                {/* {this.state.errors.email && <p>{this.state.errors.email}</p>} */}
-                <input
+      &lt;div className="container main-center">
+        &lt;MainBrand />
+        &lt;section className="social-form">
+          &lt;SocialIcons />
+          &lt;section className="main-form container">
+            &lt;form onSubmit={this.handelSubmit}>
+              &lt;div className="form-group sm-8">
+                {/* {this.state.errors.email &amp;&amp; &lt;p>{this.state.errors.email}&lt;/p>} */}
+                &lt;input
                   required
                   type="email"
                   name="email"
@@ -139,10 +167,10 @@ class signup extends Component {
                   onChange={(this.handleChange, this.EmailHandel)}
                   data-testid="login-username"
                 />
-              </div>
-              <div className="form-group">
-                <div className="input-group">
-                  <input
+              &lt;/div>
+              &lt;div className="form-group">
+                &lt;div className="input-group">
+                  &lt;input
                     required
                     name="password"
                     type={this.state.passwordType}
@@ -151,68 +179,91 @@ class signup extends Component {
                     onChange={this.handleChange}
                     data-testid="login-password"
                   />
-                  <button
+                  &lt;button
                     className="btn btn-outline-secondary"
                     onClick={this.handleShowPassword}
                     data-testid="login-button "
                   >
                     {this.state.showText}
-                  </button>
-                </div>
-              </div>
-              <div className="form-group">
-                <div className="pretty p-svg p-curve container">
-                  <input
+                  &lt;/button>
+                &lt;/div>
+              &lt;/div>
+              &lt;div className="form-group">
+                &lt;div className="pretty p-svg p-curve container">
+                  &lt;input
                     type="checkbox"
                     id="gridCheck"
                     className="form-check-input"
                     name="rememberMe"
                     onChange={this.handleChange}
                   />
-                  <div className="state p-success">
-                    <svg className="svg svg-icon" viewBox="0 0 20 20">
-                      <path
+                  &lt;div className="state p-success">
+                    &lt;svg className="svg svg-icon" viewBox="0 0 20 20">
+                      &lt;path
                         d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z"
                         style={{stroke: 'white', fill: 'white'}}
-                      ></path>
-                    </svg>
-                    <label htmlFor="gridCheck">Remember me</label>
-                  </div>
-                </div>
-              </div>
-              <section className="container main-center">
-                <h6 className="hint-text-forgot">
-                  <button type="button" className="btn btn-outline-link">
-                    <Link to="/password-reset">Forgot your password?</Link>
-                  </button>
-                </h6>
-              </section>
-              <button type="submit" className="btn btn-primary btn-block">
+                      >&lt;/path>
+                    &lt;/svg>
+                    &lt;label htmlFor="gridCheck">Remember me&lt;/label>
+                  &lt;/div>
+                &lt;/div>
+              &lt;/div>
+              &lt;section className="container main-center">
+                &lt;h6 className="hint-text-forgot">
+                  &lt;button type="button" className="btn btn-outline-link">
+                    &lt;Link to="/password-reset">Forgot your password?&lt;/Link>
+                  &lt;/button>
+                &lt;/h6>
+              &lt;/section>
+              &lt;button type="submit" className="btn btn-primary btn-block">
                 Sign In
-              </button>
-              <section className="or-seperator-2"></section>
-              <section className="container main-center">
-                <span>
+              &lt;/button>
+              &lt;section className="or-seperator-2">&lt;/section>
+              &lt;section className="container main-center">
+                &lt;span>
                   {this.toSignUp()}
-                  <h6 className="hint-text">
+                  &lt;h6 className="hint-text">
                     Don't have an account?
-                    <br />
-                    <button
+                    &lt;br />
+                    &lt;button
                       type="button"
                       className="btn btn-outline-links"
                       onClick={this.setRedirect}
                     >
                       SIGN UP
-                    </button>
-                  </h6>
-                </span>
-              </section>
-            </form>
-          </section>
-        </section>
-      </div>
+                    &lt;/button>
+                  &lt;/h6>
+                &lt;/span>
+              &lt;/section>
+            &lt;/form>
+          &lt;/section>
+        &lt;/section>
+      &lt;/div>
     );
   }
 }
 
 export default signup;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Facebook.html">Facebook</a></li><li><a href="ForgotPassword.html">ForgotPassword</a></li><li><a href="MainBrand.html">MainBrand</a></li><li><a href="signup.html">signup</a></li><li><a href="Signup_.html">Signup</a></li><li><a href="SocialIcons.html">SocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#checkPassword">checkPassword</a></li><li>{JSX}</li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Mar 27 2020 00:55:43 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

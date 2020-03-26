@@ -1,54 +1,24 @@
-import React from 'react';
-import {render, unmountComponentAtNode} from 'react-dom';
-import {act} from 'react-dom/test-utils';
+import React, {Component} from 'react';
+import {shallow} from 'enzyme';
+// import FindByTestAtrr from '../testutilts';
 
 import Signup from '../components/signup/signup';
 import MainBrand from '../components/signup/MainBrand';
 
-let container = null;
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
+const setUP = (props = {}) => {
+  const component = shallow(<MainBrand {...props} />);
+  return component;
+};
 
-afterEach(() => {
-  // cleanup on exiting
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
 
-// it('renders with or without a name', () => {
-//   act(() => {
-//     render(<MainBrand />, container);
-//   });
-//   expect(container.).toBe('Hey, stranger');
+describe('Sign up must be rendered', () => {
+  let component;
+  beforeEach(() => {
+    component = setUP();
+  });
 
-// });
-
-describe(Signup, () => {
-  //   it('render a text form ', () => {
-  //     const name_form = document.createElement('div');
-  //     ReactDOM.render(<input></input>, name_form);
-  //   });
-  //   it('Should capture firstname correctly onChange', function() {
-  //     const name = document.getElementById('name');
-  //     const input = name.document.getElementById('name');
-  //     input.instance().value = 'name';
-  //     input.simulate('change');
-  //     expect(Signup.name).toEqual('abdallah');
-  //   });
-  //   it('Should capture email correctly onChange and change the props accordingly', function() {
-  //     const component = mount(<Signup />);
-  //     const input = component.find('input').at(2);
-  //     input.instance().value = 'mail@hotmail.com';
-  //     input.simulate('change');
-  //     expect(
-  //       component
-  //         .find('input')
-  //         .at(2)
-  //         .props().value
-  //     ).toEqual('mail@hotmail.com');
-  //   });
+  it('logo must be rendered', () => {
+    const logo = component.find(`[(data-test = '$${atrr}')]`);
+    expect(logo.lenght).toBe(1);
+  });
 });

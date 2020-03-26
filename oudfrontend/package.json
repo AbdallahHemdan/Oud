@@ -10,9 +10,11 @@
     "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-15": "^1.4.1",
+    "enzyme-adapter-react-16": "^1.15.2",
     "firebase": "^7.11.0",
     "formik": "^2.1.4",
     "jest-dom": "^4.0.0",
+    "jest-enzyme": "^7.1.2",
     "json-server": "^0.16.1",
     "postcss-preset-env": "^6.7.0",
     "react": "^16.13.0",
@@ -33,7 +35,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "json:server": "json-server --watch db.json"
+    "json:server": "json-server --watch db.json",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build",
+    "jssdoc": "jsdoc -c jsdoc.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,8 +57,11 @@
   },
   "devDependencies": {
     "@testing-library/react": "^10.0.1",
-    "jest": "^25.1.0",
-    "react-test-renderer": "^16.13.1"
+    "jest": "^25.2.1",
+    "jsdoc": "^3.6.3",
+    "react-styleguidist": "^11.0.4",
+    "react-test-renderer": "^16.13.1",
+    "webpack": "^4.42.1"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",

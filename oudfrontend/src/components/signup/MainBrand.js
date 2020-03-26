@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-
+/** header class of the sign up */
 class MainBrand extends Component {
+  /**
+   * here i render the logo and the name of my website
+   * @function
+   * @returns {JSX}
+   */
   render() {
     return (
       <section className="main-brand">
