@@ -8,6 +8,7 @@ function PlayingBarRight(props) {
           className="control-button shuffle"
           title="Shuffle"
           onClick={props.handleShuffleState}
+          data-testid="shuffle-btn"
         >
           <img src={props.shuffleButton} alt="Shuffle" />
         </button>
@@ -15,6 +16,7 @@ function PlayingBarRight(props) {
           className="control-button repeat"
           title="Repeat"
           onClick={props.handleRepeatState}
+          data-testid="repeat-btn"
         >
           <img src={props.repeatButton} alt="Repeat" />
         </button>
@@ -22,6 +24,7 @@ function PlayingBarRight(props) {
           className="control-button volume"
           title="Volume"
           onClick={props.handleMuteState}
+          data-testid="volume-btn"
         >
           <img src={props.volumeButton} alt="Volume" />
         </button>
@@ -33,6 +36,7 @@ function PlayingBarRight(props) {
           onMouseDown={props.setMouseDown}
           onMouseMove={props.onVolumeClick}
           onMouseUp={props.mouseUp}
+          data-testid="volume-click"
         >
           <div className="progress-bar-bg">
             <div

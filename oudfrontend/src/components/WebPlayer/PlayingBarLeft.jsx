@@ -5,8 +5,17 @@ function PlayingBarLeft(props) {
     <div className="now-playing-bar-left">
       <div className="content">
         <div className="ablum-link">
-          <img src={props.art} className="album-art-work" alt="Album Art" />
-          <button className="extended-card-button" title="Extend">
+          <img
+            src={props.art}
+            className="album-art-work"
+            alt="Album Art"
+            data-testid="album-link-img"
+          />
+          <button
+            className="extended-card-button"
+            title="Extend"
+            data-testid="album-link-btn"
+          >
             <img src={props.extend} alt="Extend" className="extend-img" />
           </button>
         </div>
@@ -17,6 +26,7 @@ function PlayingBarLeft(props) {
               className="control-button previous"
               title="Previous"
               onClick={props.handlePrev}
+              data-testid="previous-btn"
             >
               <img src={props.prev} alt="Previous" />
             </button>
@@ -26,6 +36,7 @@ function PlayingBarLeft(props) {
                 className="control-button pause"
                 title="Pause"
                 onClick={props.handlePlayPause}
+                data-testid="pause-btn"
               >
                 <img src={props.pause} alt="Pause" />
               </button>
@@ -34,6 +45,7 @@ function PlayingBarLeft(props) {
                 className="control-button play"
                 title="Play"
                 onClick={props.handlePlayPause}
+                data-testid="play-btn"
               >
                 <img src={props.play} alt="Play" />
               </button>
@@ -43,6 +55,7 @@ function PlayingBarLeft(props) {
               className="control-button next"
               title="Next"
               onClick={props.handleNext}
+              data-testid="next-btn"
             >
               <img src={props.next} alt="Next" />
             </button>

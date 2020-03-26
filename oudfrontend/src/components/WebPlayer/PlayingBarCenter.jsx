@@ -9,10 +9,14 @@ function PlayingBarCenter(props) {
           <div className="track-info">
             <Router history={history}>
               <Link to="/">
-                <strong className="track-name">{props.trackName}</strong>
+                <strong className="track-name" data-testid="track-name-link">
+                  {props.trackName}
+                </strong>
               </Link>
               <Link to="/">
-                <strong className="artist-name">{props.artistName}</strong>
+                <strong className="artist-name" data-testid="artist-name-link">
+                  {props.artistName}
+                </strong>
               </Link>
             </Router>
           </div>
@@ -20,15 +24,18 @@ function PlayingBarCenter(props) {
           <div className="control-buttons"></div>
         </div>
 
-        <div
-          className="playback-bar"
-          // onClick={this.onProgressClick}
-          onMouseDown={props.setMouseDown}
-          onMouseMove={props.onProgressClick}
-          onMouseUp={props.mouseUp}
-        >
-          <span className="progress-time current">{props.current}</span>
-          <div className="progress-bar" id="progress-width">
+        <div className="playback-bar">
+          <span className="progress-time current" data-testid="current-time">
+            {props.current}
+          </span>
+          <div
+            className="progress-bar"
+            id="progress-width"
+            data-testid="progress-click"
+            onMouseDown={props.setMouseDown}
+            onMouseMove={props.onProgressClick}
+            onMouseUp={props.mouseUp}
+          >
             <div className="progress-bar-bg">
               <div
                 className="progress"
@@ -36,7 +43,9 @@ function PlayingBarCenter(props) {
               ></div>
             </div>
           </div>
-          <span className="progress-time remaining">{props.duration}</span>
+          <span className="progress-time remaining" data-testid="duration-time">
+            {props.duration}
+          </span>
         </div>
       </div>
     </div>
