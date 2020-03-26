@@ -1,5 +1,9 @@
 import React from "react";
-
+import PropTypes from "prop-types";
+/**
+ * Component for controling the left part of the player: artist link, and previous, play/pause, and next buttons
+ * @component
+ */
 function PlayingBarLeft(props) {
   return (
     <div className="now-playing-bar-left">
@@ -65,4 +69,48 @@ function PlayingBarLeft(props) {
     </div>
   );
 }
+
+PlayingBarLeft.propTypes = {
+  /**
+   * Artist photo
+   */
+  art: PropTypes.any.isRequired,
+  /**
+   * Extended artist photo
+   */
+  extend: PropTypes.any.isRequired,
+  /**
+   * Previous button icon
+   */
+  prev: PropTypes.any.isRequired,
+  /**
+   * Pause button icon
+   */
+  pause: PropTypes.any.isRequired,
+  /**
+   * Play button icon
+   */
+  play: PropTypes.any.isRequired,
+  /**
+   * Next button icon
+   */
+  next: PropTypes.any.isRequired,
+  /**
+   * Playing state
+   */
+  playing: PropTypes.bool.isRequired,
+  /**
+   * Handle previos action function
+   */
+  handlePrev: PropTypes.func.isRequired,
+  /**
+   * Handle play/pause actions function
+   */
+  handlePlayPause: PropTypes.func.isRequired,
+  /**
+   * Handle next action function
+   */
+  handleNext: PropTypes.func.isRequired
+};
+
 export default PlayingBarLeft;

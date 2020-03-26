@@ -1,6 +1,11 @@
 import React from "react";
 import { Router, Link } from "react-router-dom";
+import PropTypes from "prop-types";
 const history = require("history").createBrowserHistory();
+/**
+ * Component for controling the middle part of the player: progress bar, artist name, track name, remaining time, the total track time.
+ * @component
+ */
 function PlayingBarCenter(props) {
   return (
     <div className="now-playing-bar-center">
@@ -51,4 +56,40 @@ function PlayingBarCenter(props) {
     </div>
   );
 }
+
+PlayingBarCenter.propTypes = {
+  /**
+   * the name of the currently/recently played track
+   */
+  trackName: PropTypes.string.isRequired,
+  /**
+   * the name of the artist of the currently/recently played track
+   */
+  artistName: PropTypes.string.isRequired,
+  /**
+   * the current time in the track in minutes and seconds
+   */
+  current: PropTypes.string.isRequired,
+  /**
+   * the percentage of played duration of the track
+   */
+  progress: PropTypes.string.isRequired,
+  /**
+   * total time of the track
+   */
+  duration: PropTypes.string.isRequired,
+  /**
+   * function to check if the mouse clicked or not
+   */
+  setMouseDown: PropTypes.func.isRequired,
+  /**
+   * function to handle click on the progress bar
+   */
+  onProgressClick: PropTypes.func.isRequired,
+  /**
+   * function to handle whan the mouse is up and click has ended
+   */
+  mouseUp: PropTypes.func.isRequired
+};
+
 export default PlayingBarCenter;
