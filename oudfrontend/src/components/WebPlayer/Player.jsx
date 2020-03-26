@@ -18,15 +18,6 @@ import PlayingBarCenter from "./PlayingBarCenter";
 import PlayingBarRight from "./PlayingBarRight";
 const axios = require("axios");
 
-//socket stuff
-// import socketIOClient from "socket.io-client";
-// const ss = require("socket.io-stream");
-
-// const endpoint = "http://localhost:8080/";
-// const socket = socketIOClient(endpoint);
-// let sound;
-// queue = [],
-// index = 0;
 class WebPlayer extends Component {
   constructor(props) {
     super(props);
@@ -60,30 +51,6 @@ class WebPlayer extends Component {
 
   componentDidMount() {
     this.fetchTrackInfo();
-    // socket.on("start", data => {
-    //   socket.emit("stream", { Data: "You can send any data back" });
-    //   ss(socket).on("audio-stream", (stream, data) => {
-    //     let parts = [];
-    //     stream.on("data", chunk => {
-    //       parts.push(chunk);
-    //     });
-
-    //     stream.on("end", () => {
-    //       queue.push(new Blob(parts));
-    //       this.setState({ response: new Blob(parts) });
-    //       console.log("track");
-    //     });
-    //   });
-    // });
-    setInterval(() => {
-      if (this.state.sound && this.state.playing) {
-        const progress = this.getSoundProgress();
-        this.setState({
-          progress: isNaN(progress) ? 0 : progress,
-          current: Number(this.state.sound.seek() / 60).toFixed(2)
-        });
-      }
-    }, 100);
   }
 
   fetchTrackInfo = () => {
@@ -151,11 +118,19 @@ class WebPlayer extends Component {
       mute: mute,
       html5: true,
       onplay: () => {
-        console.log("I'm inside the fucking on play function");
         this.setState({
           playing: true,
           duration: Number(sound.duration() / 60).toFixed(2)
         });
+        setInterval(() => {
+          if (this.state.sound && this.state.playing) {
+            const progress = this.getSoundProgress();
+            this.setState({
+              progress: isNaN(progress) ? 0 : progress,
+              current: Number(this.state.sound.seek() / 60).toFixed(2)
+            });
+          }
+        }, 100);
       },
       format: ["mp3"],
       onend: () => {
@@ -173,7 +148,6 @@ class WebPlayer extends Component {
   };
 
   pause = () => {
-    //To be modified after backend integration due to put request issues
     let deviceId = this.state.deviceId;
     axios
       .post("http://localhost:3000/me/player/pause?deviceId=" + deviceId, {
@@ -191,7 +165,6 @@ class WebPlayer extends Component {
   };
 
   resume = () => {
-    //To be modified after backend integration due to put request issues
     let deviceId = this.state.deviceId;
     let position = this.state.sound.seek();
     axios
@@ -209,7 +182,6 @@ class WebPlayer extends Component {
   };
 
   play = () => {
-    //To be modified after backend integration due to put request issues
     let deviceId = this.state.deviceId;
     axios
       .post("http://localhost:3000/me/player/pause?deviceId=" + deviceId)
@@ -270,25 +242,18 @@ class WebPlayer extends Component {
     const percent = offsetX / width;
     const position = percent * this.state.duration * 60;
 
-    //To be modified after backend integration due to put request issues
-    // let deviceId = this.state.deviceId;
-    // axios
-    //   .post("http://localhost:3000/me/player/seek?deviceId=" + deviceId + "&positionMs=" + position*1000)
-    //   .then(response => {
-    //     this.state.sound.seek(position);
-    //     this.setState({
-    //       progress: this.getthis.state.soundProgress()
-    //     });
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   });
-
-    //
-    this.state.sound.seek(position);
-    this.setState({
-      progress: this.getSoundProgress()
-    });
+    let deviceId = this.state.deviceId;
+    axios
+      .post("http://localhost:3000/me/player/seek?deviceId=" + deviceId)
+      .then(response => {
+        this.state.sound.seek(position);
+        this.setState({
+          progress: this.getthis.state.soundProgress()
+        });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
 
   setMouseDown = cond => {
@@ -298,82 +263,55 @@ class WebPlayer extends Component {
   };
 
   handleShuffleState = () => {
-    //To be modified after backend integration due to put request issues
-    // let deviceId = this.state.deviceId;
-    // axios
-    //   .post("http://localhost:3000/me/player/shuffle?deviceId=" + deviceId + "&state=" + !this.state.shuffleState)
-    //   .then(response => {
-    // this.setState({
-    //   shuffleState: !this.state.shuffleState,
-    //   shuffleButton: !this.state.shuffleState ? ShuffleEnabled : Shuffle
-    // });
-    // console.log(response);
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   });
-
-    //Will be replaced
-    this.setState({
-      shuffleState: !this.state.shuffleState,
-      shuffleButton: !this.state.shuffleState ? ShuffleEnabled : Shuffle
-    });
+    let deviceId = this.state.deviceId;
+    axios
+      .post("http://localhost:3000/me/player/shuffle?deviceId=" + deviceId)
+      .then(response => {
+        this.setState({
+          shuffleState: !this.state.shuffleState,
+          shuffleButton: !this.state.shuffleState ? ShuffleEnabled : Shuffle
+        });
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
 
   handleRepeatState = () => {
-    //To be modified after backend integration due to put request issues
-    // let deviceId = this.state.deviceId;
-    // axios
-    //   .post("http://localhost:3000/me/player/repeat?deviceId=" + deviceId + "&state=" + !this.state.repeatState)
-    //   .then(response => {
-    // const loop = !this.state.repeatState;
-    // console.log("re1: " + loop);
-    // this.setState({
-    //   repeatState: loop,
-    //   repeatButton: loop ? RepeatEnabled : Repeat
-    // });
-    // if (this.state.sound) this.state.sound.loop(loop);
-    // console.log(response);
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   });
-
-    //Will be replaced
-    const loop = !this.state.repeatState;
-    console.log("re1: " + loop);
-    this.setState({
-      repeatState: loop,
-      repeatButton: loop ? RepeatEnabled : Repeat
-    });
-    if (this.state.sound) this.state.sound.loop(loop);
+    let deviceId = this.state.deviceId;
+    axios
+      .post("http://localhost:3000/me/player/repeat?deviceId=" + deviceId)
+      .then(response => {
+        const loop = !this.state.repeatState;
+        this.setState({
+          repeatState: loop,
+          repeatButton: loop ? RepeatEnabled : Repeat
+        });
+        if (this.state.sound) this.state.sound.loop(loop);
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
 
   handleMuteState = () => {
     const mute = !this.state.muteState;
-
-    //To be modified after backend integration due to put request issues
-    // let deviceId = this.state.deviceId;
-    // const volumePercent = mute ? 0 : this.state.volume;
-    // axios
-    //   .post("http://localhost:3000/me/player/shuffle?deviceId=" + deviceId + "&volumePercent=" + volumePercent)
-    //   .then(response => {
-    // this.setState({
-    //   shuffleState: !this.state.shuffleState,
-    //   shuffleButton: !this.state.shuffleState ? ShuffleEnabled : Shuffle
-    // });
-    // console.log(response);
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   });
-
-    //Will be replaced
-    this.setState({
-      muteState: mute,
-      volumeButton: mute ? VolumeMuted : Volume
-    });
-    if (this.state.sound) this.state.sound.mute(mute);
+    let deviceId = this.state.deviceId;
+    axios
+      .post("http://localhost:3000/me/player/volume?deviceId=" + deviceId)
+      .then(response => {
+        this.setState({
+          muteState: mute,
+          volumeButton: mute ? VolumeMuted : Volume
+        });
+        if (this.state.sound) this.state.sound.mute(mute);
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
 
   onVolumeClick = e => {
@@ -381,32 +319,24 @@ class WebPlayer extends Component {
     if (!this.state.mouseDown || !this.state.sound) return;
     const width = document.getElementById("volume-width").clientWidth;
     const offsetX = e.nativeEvent.offsetX;
-    // const offsetWidth = e.nativeEvent.target.offsetWidth;
     const percent = offsetX / width;
     const volume = parseInt(percent * 100);
 
-    //To be modified after backend integration due to put request issues
-    // let deviceId = this.state.deviceId;
+    let deviceId = this.state.deviceId;
     // const volumePercent = mute ? 0 : this.state.volume;
-    // axios
-    //   .post("http://localhost:3000/me/player/shuffle?deviceId=" + deviceId + "&volumePercent=" + volume)
-    //   .then(response => {
-    // this.state.sound.volume(volume / 100);
-    // this.setState({
-    //   volume: volume,
-    //   volumeButton: volume > 0 ? Volume : VolumeMuted
-    // });
-    // console.log(response);
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   });
-
-    this.state.sound.volume(volume / 100);
-    this.setState({
-      volume: volume,
-      volumeButton: volume > 0 ? Volume : VolumeMuted
-    });
+    axios
+      .post("http://localhost:3000/me/player/volume?deviceId=" + deviceId)
+      .then(response => {
+        this.state.sound.volume(volume / 100);
+        this.setState({
+          volume: volume,
+          volumeButton: volume > 0 ? Volume : VolumeMuted
+        });
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
 
   render() {

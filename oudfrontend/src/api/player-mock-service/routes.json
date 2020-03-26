@@ -1,0 +1,11 @@
+{
+  "/me/player": "/player",
+  "/me/player/currently-playing": "/currently-playing",
+  "/me/player/next?deviceId=74ASZWbe4lXaubB36ztrGX": "/next",
+  "/me/player/previous?deviceId=74ASZWbe4lXaubB36ztrGX": "/previous",
+  "/me/player/pause?deviceId=74ASZWbe4lXaubB36ztrGX": "/pause",
+  "/me/player/seek?deviceId=74ASZWbe4lXaubB36ztrGX": "/seek",
+  "/me/player/shuffle?deviceId=74ASZWbe4lXaubB36ztrGX": "/shuffle",
+  "/me/player/repeat?deviceId=74ASZWbe4lXaubB36ztrGX": "/repeat",
+  "/me/player/volume?deviceId=74ASZWbe4lXaubB36ztrGX": "/volume"
+}
