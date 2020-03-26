@@ -24,13 +24,14 @@ const axios = require("axios");
 
 // const endpoint = "http://localhost:8080/";
 // const socket = socketIOClient(endpoint);
-let sound;
+// let sound;
 // queue = [],
 // index = 0;
 class WebPlayer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      sound: null,
       audioUrl: "",
       deviceId: "",
       fetched: false,
@@ -52,7 +53,8 @@ class WebPlayer extends Component {
   }
 
   getSoundProgress = () => {
-    const progress = (sound.seek() / sound.duration()) * 100;
+    const progress =
+      (this.state.sound.seek() / this.state.sound.duration()) * 100;
     return progress;
   };
 
@@ -74,11 +76,11 @@ class WebPlayer extends Component {
     //   });
     // });
     setInterval(() => {
-      if (sound && this.state.playing) {
+      if (this.state.sound && this.state.playing) {
         const progress = this.getSoundProgress();
         this.setState({
           progress: isNaN(progress) ? 0 : progress,
-          current: Number(sound.seek() / 60).toFixed(2)
+          current: Number(this.state.sound.seek() / 60).toFixed(2)
         });
       }
     }, 100);
@@ -139,8 +141,9 @@ class WebPlayer extends Component {
     const mute = this.state.muteState,
       repeat = this.state.repeatState;
 
-    if (sound && sound.state() === "loaded") sound.unload();
-    sound = new Howl({
+    if (this.state.sound && this.state.sound.state() === "loaded")
+      this.state.sound.unload();
+    let sound = new Howl({
       src: [this.state.audioUrl],
       autoplay: false,
       loop: repeat,
@@ -163,7 +166,10 @@ class WebPlayer extends Component {
         });
       }
     });
-    sound.play();
+    this.setState({
+      sound: sound
+    });
+    this.state.sound.play();
   };
 
   pause = () => {
@@ -175,7 +181,7 @@ class WebPlayer extends Component {
         meId: "player"
       })
       .then(resp => {
-        sound.pause();
+        this.state.sound.pause();
         this.setState({ playing: false });
         // console.log(resp);
       })
@@ -187,14 +193,14 @@ class WebPlayer extends Component {
   resume = () => {
     //To be modified after backend integration due to put request issues
     let deviceId = this.state.deviceId;
-    let position = sound.seek();
+    let position = this.state.sound.seek();
     axios
       .post("http://localhost:3000/me/player/pause?deviceId=" + deviceId, {
         positionMs: position
       })
       .then(resp => {
         this.setState({ playing: true });
-        sound.play();
+        this.state.sound.play();
         // console.log(resp);
       })
       .catch(error => {
@@ -217,12 +223,12 @@ class WebPlayer extends Component {
   };
 
   handlePlayPause = () => {
-    if (sound) {
-      sound.mute(this.state.muteState);
-      sound.loop(this.state.repeatState);
-      if (sound.playing()) {
+    if (this.state.sound) {
+      this.state.sound.mute(this.state.muteState);
+      this.state.sound.loop(this.state.repeatState);
+      if (this.state.sound.playing()) {
         this.pause();
-      } else if (sound.state() === "loaded") {
+      } else if (this.state.sound.state() === "loaded") {
         this.resume();
       }
     } else {
@@ -257,7 +263,7 @@ class WebPlayer extends Component {
 
   onProgressClick = e => {
     // e.preventDefault();
-    if (!this.state.mouseDown || !sound) return;
+    if (!this.state.mouseDown || !this.state.sound) return;
     const width = document.getElementById("progress-width").clientWidth;
     const offsetX = e.nativeEvent.offsetX;
     // const offsetWidth = e.nativeEvent.target.offsetWidth;
@@ -269,9 +275,9 @@ class WebPlayer extends Component {
     // axios
     //   .post("http://localhost:3000/me/player/seek?deviceId=" + deviceId + "&positionMs=" + position*1000)
     //   .then(response => {
-    //     sound.seek(position);
+    //     this.state.sound.seek(position);
     //     this.setState({
-    //       progress: this.getSoundProgress()
+    //       progress: this.getthis.state.soundProgress()
     //     });
     //   })
     //   .catch(function(error) {
@@ -279,7 +285,7 @@ class WebPlayer extends Component {
     //   });
 
     //
-    sound.seek(position);
+    this.state.sound.seek(position);
     this.setState({
       progress: this.getSoundProgress()
     });
@@ -326,7 +332,7 @@ class WebPlayer extends Component {
     //   repeatState: loop,
     //   repeatButton: loop ? RepeatEnabled : Repeat
     // });
-    // if (sound) sound.loop(loop);
+    // if (this.state.sound) this.state.sound.loop(loop);
     // console.log(response);
     //   })
     //   .catch(function(error) {
@@ -340,7 +346,7 @@ class WebPlayer extends Component {
       repeatState: loop,
       repeatButton: loop ? RepeatEnabled : Repeat
     });
-    if (sound) sound.loop(loop);
+    if (this.state.sound) this.state.sound.loop(loop);
   };
 
   handleMuteState = () => {
@@ -367,12 +373,12 @@ class WebPlayer extends Component {
       muteState: mute,
       volumeButton: mute ? VolumeMuted : Volume
     });
-    if (sound) sound.mute(mute);
+    if (this.state.sound) this.state.sound.mute(mute);
   };
 
   onVolumeClick = e => {
     // e.preventDefault();
-    if (!this.state.mouseDown || !sound) return;
+    if (!this.state.mouseDown || !this.state.sound) return;
     const width = document.getElementById("volume-width").clientWidth;
     const offsetX = e.nativeEvent.offsetX;
     // const offsetWidth = e.nativeEvent.target.offsetWidth;
@@ -385,7 +391,7 @@ class WebPlayer extends Component {
     // axios
     //   .post("http://localhost:3000/me/player/shuffle?deviceId=" + deviceId + "&volumePercent=" + volume)
     //   .then(response => {
-    // sound.volume(volume / 100);
+    // this.state.sound.volume(volume / 100);
     // this.setState({
     //   volume: volume,
     //   volumeButton: volume > 0 ? Volume : VolumeMuted
@@ -396,7 +402,7 @@ class WebPlayer extends Component {
     //     console.log(error);
     //   });
 
-    sound.volume(volume / 100);
+    this.state.sound.volume(volume / 100);
     this.setState({
       volume: volume,
       volumeButton: volume > 0 ? Volume : VolumeMuted
