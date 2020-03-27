@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Playlist Component snapshot test for the playlist renders correctly 1`] = `
+<div
+  className="playlist"
+  data-testid="playlist"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4"
+      data-testid="playlistHeader"
+    >
+      <div
+        className="playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4"
+        data-testid="playlistIamgeContainer"
+      >
+        <img
+          alt="playlist img"
+          className="playlistImage"
+          data-testid="playlistIamge"
+        />
+      </div>
+      <div
+        className="playlistHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8"
+        data-testid="playlistHeaderBody"
+      >
+        <div
+          className="playlistHeaderBodyTop"
+          data-testid="HeaderBodyTop"
+        >
+          <h2
+            className="whiteText"
+            data-testid="title"
+          />
+          <span
+            className="whiteText"
+            data-testid="credits"
+          >
+            Crerated By 
+          </span>
+          <a
+            className="playlistAnchor"
+            data-testid="owner"
+            href="/user/undefined"
+            onClick={[Function]}
+          >
+            
+          </a>
+        </div>
+        <div
+          className="playlistHeaderBodyBottom"
+          data-testid="HeaderBodyBottom"
+        >
+          <button
+            className="playButton"
+            data-testid="playButton"
+            onClick={[Function]}
+            variant="outline-success"
+          >
+            PLAY
+          </button>
+          <button
+            className="likeIcon"
+            data-testid="likeIcon"
+            onClick={[Function]}
+          >
+            like
+             
+          </button>
+          <p>
+            <span
+              data-testid="songsNumber"
+            >
+              0
+               
+            </span>
+            <span
+              data-testid="songsLiteral"
+            >
+              song
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-8 col-md-6 col-lg-8 col-xl-8"
+      data-testid="songsList"
+    >
+      <h1
+        data-testid="loading"
+      >
+        LOADING ...
+      </h1>
+    </div>
+  </div>
+</div>
+`;

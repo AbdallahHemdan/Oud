@@ -8,7 +8,7 @@ class LikedSongs extends React.Component{
         this.state = {
             tracks : [],
             recieved:false,
-            playlist:{}
+            likedSongs:{}
             
         };
         
@@ -38,25 +38,22 @@ class LikedSongs extends React.Component{
 
     render(){
         return(
-            <div className='playlist'>
+            <div className='likedSongs'>
                 <div>
                     <div className='row'>
-                        <div className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
-                            <div className='playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
-                                <img src='https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png' className='playlistImage' alt='playlist img'/>
-                                <div className='overlayer'>
-                                    
-                                   <i className="fa fa-play-circle"></i>  {/*Not Working Favicon*/}
-                                </div>
+                        <div className='likedSongsHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
+                            <div className='likedSongsImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
+                                <img src='https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png' className='likedSongsImage' alt='playlist img'/>
+                                
                             </div>            
-                            <div className='playlistHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8'>
+                            <div className='likedSongsHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8'>
     
-                                <div className='playlistHeaderBodyTop'>
+                                <div className='likedSongsHeaderBodyTop'>
                                     <h2 className='whiteText'>Today's Top Egyptian Hits</h2>
-                                    <a className='playlistAnchor' href='www.facebook.com'>{this.state.playlist.owner}</a>
+                                    <a className='likedSongsAnchor' href='www.facebook.com'>{this.state.playlist.owner}</a>
                                 </div>
                                 
-                                <div className='playlistHeaderBodyBottom'>
+                                <div className='likedSongsHeaderBodyBottom'>
                                     <button className="playButton" variant="outline-success">
                                             PLAY
                                     </button>

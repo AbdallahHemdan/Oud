@@ -1,425 +1,406 @@
 {
-  "1":{
+  "playlist": [
+    {
       "id": "1",
       "name": "Jazz",
-      "owner": "Ahmed Walid",
+      "owner": "1",
       "collaborative": true,
       "description": "Best music I have ever listened to",
       "followersCount": 100,
-      "image": "data:image/jpeg;base64,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",
-    "public": true,
-    "type": "trap",
-   
-    "tracks": [
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "12",
-        "name": "واحد وعشرين",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4", 
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-
-        ],
-        "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
-      }
-    ]
-  },
-  "2":{
-    "id": "2",
-      "name": "Jazz",
-      "owner": "Ahmed Walid",
-      "collaborative": true,
-      "description": "Best music I have ever listened to",
-      "followersCount": 100,
-      "image":"https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
+      "image": "https://angartwork.akamaized.net/webp/?id=1096371005&size=296",
       "public": true,
       "type": "trap",
-    
+      "tracks": [
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "12",
+          "name": "واحد وعشرين",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Jazz",
+      "owner": "2",
+      "collaborative": true,
+      "description": "Best music I have ever listened to",
+      "followersCount": 100,
+      "image": "https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
+      "public": true,
+      "type": "trap",
       "tracks": [
         {
           "id": "21",
@@ -437,7 +418,6 @@
               "type": "Shaaby",
               "image": "string"
             }
-
           ],
           "albumId": "1",
           "type": "Jazz",
@@ -454,17 +434,481 @@
               "image": "string"
             },
             {
-              "id": "4", 
+              "id": "4",
               "name": "Amr Diab",
               "type": "farafeery",
               "image": "string"
             }
-
           ],
           "albumId": "1",
           "type": "Trap",
           "audioUrl": "www.facebook.com"
         }
       ]
-  }
+    }
+  ],
+  "queue": {
+    "tracks": [
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "22",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      }
+    ],
+    "total": 2
+  },
+  "user": [
+    {
+      "id": "1",
+      "displayName": "Ahmed",
+      "followersCount": 5,
+      "images": [
+        "string"
+      ],
+      "verified": false,
+      "type": "string"
+    },
+    {
+      "id": "2",
+      "displayName": "Mido",
+      "followersCount": 0,
+      "images": [
+        "string"
+      ],
+      "verified": false,
+      "type": "string"
+    }
+  ],
+  "likedPlaylists": [
+    {
+      "id": "1",
+      "name": "Jazz",
+      "owner": "1",
+      "collaborative": true,
+      "description": "Best music I have ever listened to",
+      "followersCount": 100,
+      "image": "https://angartwork.akamaized.net/webp/?id=1096371005&size=296",
+      "public": true,
+      "type": "trap",
+      "tracks": [
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "12",
+          "name": "واحد وعشرين",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        }
+      ]
+    }
+  ],
+  "likedSongs": {},
+  "album": {}
 }

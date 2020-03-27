@@ -1,4 +1,32 @@
-import React from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: playlist.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: playlist.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
 import './playlist.css';
 import axios from 'axios';
 import HeaderBodyBottom from './components/headerBodyBottom'
@@ -10,29 +38,29 @@ import PropTypes from 'prop-types';
 
 /**
  * @classdesc this is a component that renders playlist page
- * @author Ahmed Walid <ahmedwa1999@gmail.com>
+ * @author Ahmed Walid &lt;ahmedwa1999@gmail.com>
  * @class
  * @param {string} id the Id of the playlist
  * @property {object} state carries the state of the component
  * @property {boolean} state.recived true if the data of the playlist is fetched correctly false otherwise
  * @property {boolean} state.liked true if the playlists is liked by the user (i.e the playlist is in the likedPlaylists table in the database)
  * @property {object} state.playlist carries all the information of the playlist
- * @property {Array.<track>} state.tracks array of all the songs in the playlist
+ * @property {Array.&lt;track>} state.tracks array of all the songs in the playlist
  * 
  * @returns {
- *              <div>
- *               <div classname="playlistHeader">
- *                  <div classname="imageContainer">
- *                      <img/>
- *                  </div>
+ *              &lt;div>
+ *               &lt;div classname="playlistHeader">
+ *                  &lt;div classname="imageContainer">
+ *                      &lt;img/>
+ *                  &lt;/div>
  * 
- *                  <div classname="playlistHeaderBody">
- *                      <HeaderBodyTop/>
- *                      <HeaderBodyBottom/>
- *                  </div>
- *                  <SongList/>
- *               </div>
- *              </div>
+ *                  &lt;div classname="playlistHeaderBody">
+ *                      &lt;HeaderBodyTop/>
+ *                      &lt;HeaderBodyBottom/>
+ *                  &lt;/div>
+ *                  &lt;SongList/>
+ *               &lt;/div>
+ *              &lt;/div>
  *          
  *          }
  */
@@ -133,41 +161,63 @@ class Playlist extends React.Component{
 
     render(){
         return(
-            <div data-testid='playlist' className='playlist'>
+            &lt;div data-testid='playlist' className='playlist'>
                 
-                <div className='row'>
-                    <div data-testid="playlistHeader" className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
-                        <div data-testid="playlistIamgeContainer" className='playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
-                            <img data-testid="playlistIamge" src={this.state.playlist.image} className='playlistImage' alt='playlist img'/>
-                        </div>            
-                        <div data-testid="playlistHeaderBody" className='playlistHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8'>
-                            <HeaderBodyTop 
+                &lt;div className='row'>
+                    &lt;div data-testid="playlistHeader" className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
+                        &lt;div data-testid="playlistIamgeContainer" className='playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
+                            &lt;img data-testid="playlistIamge" src={this.state.playlist.image} className='playlistImage' alt='playlist img'/>
+                        &lt;/div>            
+                        &lt;div data-testid="playlistHeaderBody" className='playlistHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8'>
+                            &lt;HeaderBodyTop 
                                 data-testid="HeaderBodyTop"
                                 title={this.state.playlist.name}
                                 owner={this.state.playlist.owner}
                               />
-                            <HeaderBodyBottom 
+                            &lt;HeaderBodyBottom 
                                 data-testid="HeaderBodyBottom" 
                                 length={this.state.tracks.length} 
                                 playClicked={this.playButtonClicked.bind(this)}
                                 likeClicked={this.likeButtonClicked.bind(this)}
                                 liked={this.state.liked}
                             />
-                        </div>
-                    </div>  
-                    <SongList 
+                        &lt;/div>
+                    &lt;/div>  
+                    &lt;SongList 
                         data-testid="songList"
                         recieved = {this.state.recieved}
                         tracks={this.state.tracks} 
                         className="col-xs-8 col-md-6 col-lg-8 col-xl-8"
                     />
                     
-                </div>
-            </div>
+                &lt;/div>
+            &lt;/div>
         );
     }
 }
 Playlist.propTypes={
     id : PropTypes.objectOf(PropTypes.string)
 };
-export default Playlist;
+export default Playlist;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Playlist.html">Playlist</a></li></ul><h3>Global</h3><ul><li><a href="global.html#HeaderBodyBottom">HeaderBodyBottom</a></li><li><a href="global.html#HeaderBodyTop">HeaderBodyTop</a></li><li><a href="global.html#SongList">SongList</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Mar 27 2020 06:52:25 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

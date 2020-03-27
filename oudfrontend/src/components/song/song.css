@@ -6,9 +6,7 @@
 h2{
     padding:0;
 }
-
-
-.song:hover{
+#song:hover{
     background-color: rgba(50,60,60, .5);
 }
 
