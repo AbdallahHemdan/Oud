@@ -56,7 +56,610 @@
     "offset": 0,
     "total": 0
   },
-  "playlists": {
+  "1": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "2": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "3": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "4": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "5": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "6": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "7": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "8": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "9": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "10": {
     "items": [
       {
         "id": "1",

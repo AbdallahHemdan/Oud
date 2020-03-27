@@ -17,12 +17,87 @@ class MusicCard extends Component {
    * @constructor
    * 
    * @param {object} props - get musicItem (playlist date and props from the MusicItems component)
+   * @param {string} id - The id of the playlist
+   * @param {string} name - The name of the playlist
+   * @param {string} owner - The owner of the playlist
+   * @param {boolean} collaborative - Variable to check if the owner allows other users to modify the playlist.
+   * @param {string} description - The description of the playlist
+   * @param {string} isPublic - The playlist’s public/private status: true the playlist is public, false the playlist is private
+   * @param {string} image - The image of the playlist
+   * @param {string} type - The type of the playlist
    */
   constructor(props) {
     super(props)
+    const
+      {
+        id,
+        name,
+        owner,
+        collaborative,
+        description,
+        isPublic,
+        image,
+        type
+      } = this.props.item;
 
     this.state = {
 
+      /**
+       * The id of the playlist
+       * 
+       * @type {string}
+       */
+      id: id,
+
+      /**
+       * The name of the playlist
+       * 
+       * @type {string}
+       */
+      name: name,
+
+      /**
+       * The owner of the playlist
+       * 
+       * @type {string}
+       */
+      owner: owner,
+
+      /**
+       * Variable to check if the owner allows other users to modify the playlist.
+       * 
+       * @type {boolean}
+       */
+      collaborative: collaborative,
+
+      /**
+       * The description of the playlist
+       * 
+       * @type {string}
+       */
+      description: description,
+
+      /**
+       * The playlist’s public/private status: true the playlist is public,
+       * false the playlist is private
+       * 
+       * @type {boolean}
+       */
+      public: isPublic,
+
+      /**
+       * The image of the playlist
+       * 
+       * @type {string}
+       */
+      image: image,
+
+      /**
+       * 	The object type: “playlist”
+       * 
+       * @type {string}
+       */
+      type: type
     }
   }
 
@@ -73,9 +148,9 @@ class MusicCard extends Component {
               <i className="fa fa-play-circle play-circle">
               </i></button>
           </div>
-          <img src={this.props.img} alt="" />
+          <img src={this.state.image} alt="playlist cover" />
           <div className="title">
-            <Link to="/playlist" className="playlist-link">Hamza Namira</Link>
+            <Link to="/playlist" className="playlist-link">{this.state.name}</Link>
           </div>
         </div>
       </div >

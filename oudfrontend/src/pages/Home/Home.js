@@ -10,7 +10,7 @@ import axios from "axios"
  * a string to store endpoint url of getting List of Categories
  * @type {string}
  */
-let fetchCategoriesUrl = "http://localhost:2022/categories?limit=50";
+let fetchCategoriesUrl = "http://localhost:2022/browse/categories";
 
 /**
  * a function to render main content of the home page (Categories)
@@ -107,12 +107,11 @@ class Home extends Component {
   }
 
   /**
-   * Fetching data immediately after the component has been mount to the DOM tree
+   * Fetching data of all categories immediately after the component has been mount to the DOM tree
    */
   componentDidMount() {
     axios.get(fetchCategoriesUrl) // get all categories
       .then((result) => {
-        console.log(result)
         this.handleStoringData(result.data);
       }).catch((err) => {
         console.log(err)
