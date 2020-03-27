@@ -5,7 +5,31 @@ import { Link } from "react-router-dom";
 import { firstSidebarElements, secondSidebarElements, SidebarElement } from "./SidebarElements"
 
 
+/**
+ * Sidebar component which contains all sidebar stuff
+ * @author Abdallah Hemdan
+ */
 class Sidebar extends Component {
+  /**
+   * @constructor
+   * 
+   * @param {object} props - get props from higher component
+   */
+  constructor(props) {
+    super(props)
+
+    this.state = {
+
+    }
+  }
+
+  /**
+   * @function
+   * @name render
+   * @description Render all sidebar components
+   * @returns {JSX} Component for home
+   */
+
   render() {
     return (
       <div>
