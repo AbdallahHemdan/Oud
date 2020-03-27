@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>MusicCard<span class="signature">(props)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>MusicCard<span class="signature">(props, id, name, owner, collaborative, description, isPublic, image, type)</span><span class="type-signature"></span></h2>
         
             <div class="class-description">Music card component which render and display the playlist card of a specific category</div>
         
@@ -45,7 +45,7 @@
     
 
     
-    <h4 class="name" id="MusicCard"><span class="type-signature"></span>new MusicCard<span class="signature">(props)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="MusicCard"><span class="type-signature"></span>new MusicCard<span class="signature">(props, id, name, owner, collaborative, description, isPublic, image, type)</span><span class="type-signature"></span></h4>
     
 
     
@@ -105,6 +105,190 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the playlist</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The name of the playlist</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>owner</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The owner of the playlist</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>collaborative</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Variable to check if the owner allows other users to modify the playlist.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>description</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The description of the playlist</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isPublic</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The playlist’s public/private status: true the playlist is public, false the playlist is private</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>image</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The image of the playlist</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The type of the playlist</td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -149,7 +333,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Home_MusicCard_MusicCard.js.html">components/Home/MusicCard/MusicCard.js</a>, <a href="components_Home_MusicCard_MusicCard.js.html#line21">line 21</a>
+        <a href="components_Home_MusicCard_MusicCard.js.html">components/Home/MusicCard/MusicCard.js</a>, <a href="components_Home_MusicCard_MusicCard.js.html#line29">line 29</a>
     </li></ul></dd>
     
 
@@ -306,7 +490,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Home_MusicCard_MusicCard.js.html">components/Home/MusicCard/MusicCard.js</a>, <a href="components_Home_MusicCard_MusicCard.js.html#line51">line 51</a>
+        <a href="components_Home_MusicCard_MusicCard.js.html">components/Home/MusicCard/MusicCard.js</a>, <a href="components_Home_MusicCard_MusicCard.js.html#line126">line 126</a>
     </li></ul></dd>
     
 
@@ -394,7 +578,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Home_MusicCard_MusicCard.js.html">components/Home/MusicCard/MusicCard.js</a>, <a href="components_Home_MusicCard_MusicCard.js.html#line38">line 38</a>
+        <a href="components_Home_MusicCard_MusicCard.js.html">components/Home/MusicCard/MusicCard.js</a>, <a href="components_Home_MusicCard_MusicCard.js.html#line113">line 113</a>
     </li></ul></dd>
     
 
@@ -464,7 +648,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Mar 27 2020 02:46:19 GMT+0200 (Eastern European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Mar 27 2020 12:38:00 GMT+0200 (Eastern European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
