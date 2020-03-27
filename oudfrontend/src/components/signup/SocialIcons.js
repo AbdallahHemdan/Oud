@@ -37,7 +37,10 @@ class SocialIcons extends Component {
             ></img>{' '}
             continue with Google
           </button>
-          <Facebook />
+          <Facebook
+            data-testid="FacebookButton"
+            onClick={this.handelClickFace}
+          />
         </section>
         <section className="or-seperator">
           <i>OR</i>

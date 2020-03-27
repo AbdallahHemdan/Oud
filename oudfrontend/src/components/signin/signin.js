@@ -5,7 +5,7 @@ import MainBrand from './MainBrand';
 import SocialIcons from './SocialIcons';
 import axios from 'axios';
 /**the sign up section  */
-class signup extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -153,7 +153,7 @@ class signup extends Component {
                   <button
                     className="btn btn-outline-secondary"
                     onClick={this.handleShowPassword}
-                    data-testid="login-button "
+                    data-testid="login-button"
                   >
                     {this.state.showText}
                   </button>
@@ -163,6 +163,7 @@ class signup extends Component {
                 <div className="pretty p-svg p-curve container">
                   <input
                     type="checkbox"
+                    data-testid="gridCheck"
                     id="gridCheck"
                     className="form-check-input"
                     name="rememberMe"
@@ -181,12 +182,20 @@ class signup extends Component {
               </div>
               <section className="container main-center">
                 <h6 className="hint-text-forgot">
-                  <button type="button" className="btn btn-outline-link">
+                  <button
+                    type="button"
+                    className="btn btn-outline-link"
+                    data-testid="Forgetpass"
+                  >
                     <Link to="/ForgotPassword">Forgot your password?</Link>
                   </button>
                 </h6>
               </section>
-              <button type="submit" className="btn btn-primary btn-block">
+              <button
+                type="submit"
+                className="btn btn-primary btn-block"
+                data-testid="SignInBtn"
+              >
                 Sign In
               </button>
               <section className="or-seperator-2"></section>
@@ -197,6 +206,7 @@ class signup extends Component {
                     Don't have an account?
                     <br />
                     <button
+                      data-testid="SignUpBtn"
                       type="button"
                       className="btn btn-outline-links"
                       onClick={this.setRedirect}
@@ -214,4 +224,4 @@ class signup extends Component {
   }
 }
 
-export default signup;
+export default SignIn;

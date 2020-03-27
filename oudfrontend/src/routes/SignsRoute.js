@@ -1,11 +1,11 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-import SignUp from '../components/signup/signup';
+import SignUp from '../pages/SignUpPage/index';
 import SignIn from '../components/signin/signin';
-import ForgotPassword from '../components/signin/ForgotPassword';
+import ForgotPassword from '../components/ForgetPassword/ForgotPassword';
 import IsEntered from '../components/logined/entered';
-import Code from '../components/signin/code';
-import ResetPassword from '../components/signin/resetPassword';
+import Code from '../components/ForgetPassword/code';
+import ResetPassword from '../components/ForgetPassword/resetPassword';
 function SignRoute() {
   return (
     <React.Fragment>

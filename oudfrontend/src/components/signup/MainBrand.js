@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Oud from '../../assets/images/Oud2.png';
 /** header class of the sign up */
 class MainBrand extends Component {
   /**
@@ -14,11 +15,14 @@ class MainBrand extends Component {
           <span>
             <img
               id="OudImage"
-              src="https://cdn.discordapp.com/attachments/691413676934299668/691744414204166164/Oud.png"
+              data-testid="OudImage"
+              src={Oud}
               className="d-inline-block align-top"
               alt="logo imag"
             />
-            <p className="Oud">Oud</p>
+            <p className="Oud" data-testid="Oud">
+              Oud
+            </p>
           </span>
         </Link>
       </section>

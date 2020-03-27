@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './signin.css';
-import MainBrand from './MainBrand';
+import './forgetPass.css';
+import MainBrand from '../ForgetPassword/MainBrand';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 

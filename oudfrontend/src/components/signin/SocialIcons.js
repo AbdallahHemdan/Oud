@@ -7,7 +7,7 @@ class SocialIcons extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Facebook_token: '',
+      FacebookToken: '',
     };
   }
   /**
@@ -17,9 +17,9 @@ class SocialIcons extends Component {
    */
   handelClickFace() {
     axios
-      .post(`${process.env.REACT_APP_API_URL}/users`, this.state.Facebook_token)
+      .post(`${process.env.REACT_APP_API_URL}/users`, this.state.FacebookToken)
       .then((req) => {
-        this.setState({Facebook_token: req.data.accessToken});
+        this.setState({FacebookToken: req.data.accessToken});
       })
       .catch((error) => {
         console.log(error);
@@ -43,7 +43,10 @@ class SocialIcons extends Component {
             ></img>{' '}
             continue with Google
           </button>
-          <Facebook onClick={this.handelClickFace} />
+          <Facebook
+            onClick={this.handelClickFace}
+            data-testid="FacebookButton"
+          />
         </div>
         <section className="or-seperator">
           <i>OR</i>

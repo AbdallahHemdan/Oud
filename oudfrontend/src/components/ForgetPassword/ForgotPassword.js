@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './signin.css';
+import './forgetPass.css';
 import MainBrand from './MainBrand';
 import axios from 'axios';
 import {object} from 'yup';

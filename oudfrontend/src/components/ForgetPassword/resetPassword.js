@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './signin.css';
+import './forgetPass.css';
 import MainBrand from './MainBrand';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
@@ -178,7 +178,6 @@ class ResetPassword extends Component {
           PasswordError: this.state.formErrors.PasswordError,
           ConfirmPasswordError: '',
         },
-       
       });
       axios
         .put(`${process.env.REACT_APP_API_URL}/users`, toSent)
@@ -186,7 +185,7 @@ class ResetPassword extends Component {
         .catch((error) => {
           console.log(error);
         });
-        this.setRedirect();
+      this.setRedirect();
     } else if (this.hasSamePassword() === false) {
       this.setState({
         formErrors: {
@@ -228,6 +227,7 @@ class ResetPassword extends Component {
 
                 <button
                   type="button"
+                  data-testid="restPass"
                   className="btn btn-outline-linkF"
                   onClick={this.handelSubmit}
                 >
@@ -236,6 +236,7 @@ class ResetPassword extends Component {
                 {this.toLogin()}
                 <button
                   type="button"
+                  data-testid="backToLogin"
                   className="btn btn-outline-linkF"
                   onClick={this.handelSubmit}
                 >
@@ -269,7 +270,7 @@ class ResetPassword extends Component {
       <div className="form-group">
         <div className="input-group">
           <input
-            data-testid="register-confirmPassword"
+            data-testid="registerConfirmPassword"
             type={this.state.PasswordType}
             className="form-control"
             placeholder={'confirm Password'}
@@ -297,7 +298,7 @@ class ResetPassword extends Component {
       <div className="form-group">
         <div className="input-group">
           <input
-            data-testid="register-password"
+            data-testid="registerpassword"
             type={this.state.PasswordType}
             className="form-control"
             placeholder={'Password'}

@@ -244,8 +244,7 @@ class Signup extends Component {
    * @param {object} e
    * @returns {boolean} - if the the button is clicked it is check if i want to show the type is a password or as a text
    */
-  handleShowPassword = (e) => {
-    e.preventDefault();
+  handleShowPassword = () => {
     this.setState({
       PasswordType: this.state.PasswordType === 'text' ? 'Password' : 'text',
       showText: this.state.showText === 'show' ? 'hide' : 'show',
@@ -295,15 +294,7 @@ class Signup extends Component {
    * @returns {JSX}
    */
   render() {
-    return (
-      <div className="container main-center">
-        <MainBrand />
-        <section className="social-form">
-          <SocialIcons />
-          {this.signupForm()}
-        </section>
-      </div>
-    );
+    return <div>{this.signupForm()}</div>;
   }
   /**
    * here i call all the form functions
@@ -359,7 +350,11 @@ class Signup extends Component {
   signUp() {
     return (
       <React.Fragment>
-        <button type="submit" className="btn btn-primary btn-block">
+        <button
+          type="submit"
+          className="btn btn-primary btn-block"
+          data-testid="SignUp-btn"
+        >
           Sign Up
         </button>
         <section className="or-seperator-2"></section>
@@ -369,6 +364,7 @@ class Signup extends Component {
             <h6 className="hint-text">
               Already registered?
               <button
+                data-testid="SignIN-btn"
                 type="button"
                 className="btn btn-outline-links"
                 onClick={this.setRedirect}
@@ -598,6 +594,7 @@ class Signup extends Component {
           />
           <button
             className="btn btn-outline-dark"
+            data-testid="showPass"
             onClick={this.handleShowPassword}
           >
             {this.state.showText}
@@ -618,7 +615,7 @@ class Signup extends Component {
    */
   emailAddress() {
     return (
-      <div className="form-group">
+      <div className="form-group" data-testid="email">
         <input
           data-testid="register-email"
           type="email"
@@ -628,7 +625,11 @@ class Signup extends Component {
           name="email"
         />
         {this.state.formErrors.EmailError.length > 0 && (
-          <span className="error" htmlFor="register-email">
+          <span
+            className="error"
+            htmlFor="register-email"
+            data-testid="EmailError"
+          >
             {this.state.formErrors.EmailError}
           </span>
         )}
