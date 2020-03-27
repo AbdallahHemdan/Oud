@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import OUD from '../../assets/images/Oud2.png';
-/** header class  of the login */
+import Oud from '../../assets/images/Oud2.png';
+/** header class of the sign in*/
 class MainBrand extends Component {
   /**
    * here i render the logo and the name of my website
@@ -10,22 +10,22 @@ class MainBrand extends Component {
    */
   render() {
     return (
-      <header data-test="OudImage" className="mainBrand">
-        <section className="main-brand">
-          <Link className="navbar-brand" to="/">
-            <span>
-              <img
-                id="OudImage"
-                src={OUD}
-                className="d-inline-block align-top "
-                alt="logo imag"
-                data-test="OudImage"
-              />
-              <p className="Oud">Oud</p>
-            </span>
-          </Link>
-        </section>
-      </header>
+      <section className="main-brand">
+        <Link className="navbar-brand" to="/">
+          <span>
+            <img
+              id="OudImage"
+              data-testid="OudImage"
+              src={Oud}
+              className="d-inline-block align-top"
+              alt="logo imag"
+            />
+            <p className="Oud" data-testid="OudText" id="Oud">
+              Oud
+            </p>
+          </span>
+        </Link>
+      </section>
     );
   }
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: signin/ForgotPassword.js</title>
+    <title>JSDoc: Source: signin/code.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: signin/ForgotPassword.js</h1>
+    <h1 class="page-title">Source: signin/code.js</h1>
 
     
 
@@ -30,16 +30,16 @@
 import './signin.css';
 import MainBrand from './MainBrand';
 import axios from 'axios';
-import {object} from 'yup';
+
 /** the forget password section  */
-class ForgotPassword extends Component {
+class Code extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
       code: '',
+      savedcode: '123456',
       formErrors: {
-        EmailError: '',
+        CodeError: '',
       },
     };
   }
@@ -67,24 +67,7 @@ class ForgotPassword extends Component {
       .catch((error) => {});
     console.log(this.state);
   };
-  /**
-   * Email validation
-   * (check if the email is valid)
-   * @function
-   * @param {object} event -the entered email
-   * @returns {boolean} - return true if the email is valid
-   */
-  EmailHandel = (event) => {
-    this.setState({email: event.target.value});
-    const emailRegex = RegExp(
-      /^[a-zA-Z0-9.!#$%&amp;’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
-    );
-    let formErrors = {...this.state.formErrors};
-    formErrors.EmailError = emailRegex.test(event.target.value)
-      ? ''
-      : 'invalid email address';
-    this.setState({formErrors});
-  };
+
   /**
    * this function activate on change
    * @function
@@ -100,6 +83,50 @@ class ForgotPassword extends Component {
     });
   };
   /**
+   * on create the page must be sent a code to it  and assign this value to code
+   * @function
+   * @returns {object} 
+   */
+  componentDidMount = () => {
+    let code;
+    axios.get(`${process.env.REACT_APP_API_URL}/code`).then((req) => {
+      code = {
+        code: this.setState.code,
+      };
+    });
+    return code;
+  };
+  /**
+   * check if the codes are the same
+   * @function
+   * @returns {boolean}
+   */
+  hasSameCode = () => {
+    if (this.state.code !== this.state.savedcode) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  handelSubmit = (e) => {
+    // It prevents a submit button from submitting a form
+    e.preventDefault();
+    if (this.hasSameCode() === true) {
+      this.setState({
+        formErrors: {
+          CodeError: '',
+        },
+      });
+    } else if (this.hasSameCode() === false) {
+      this.setState({
+        formErrors: {
+          CodeError: 'Invalid code , the code is not correct',
+        },
+      });
+    }
+  };
+  /**
    * here i render the text box and the submit button
    * @function
    * @function {JSX}
@@ -109,25 +136,24 @@ class ForgotPassword extends Component {
       &lt;div className="container main-center">
         &lt;MainBrand />
         &lt;section className="social-form">
-          &lt;h2 className="pass-reset">Password Reset&lt;/h2>
+          &lt;h2 className="pass-reset">Reset Code&lt;/h2>
           &lt;h6 className="title-text">
-            Enter your email address that you used to register. We'll send you
-            an email to reset your password.
+            We sent a code to your email write the code here
           &lt;/h6>
           &lt;section className="main-form container">
             &lt;form onSubmit={this.handelSubmit}>
               &lt;div className="form-group sm-8">
                 &lt;input
                   data-testid="register-email"
-                  type="email"
-                  name="email"
+                  type="text"
+                  name="text"
                   className="form-control"
-                  placeholder="enter your email "
-                  onChange={(this.handleChange, this.EmailHandel)}
+                  placeholder="enter your password "
+                  onChange={this.handleChange}
                 />
-                {this.state.formErrors.EmailError.length > 0 &amp;&amp; (
+                {this.state.formErrors.CodeErorr.length > 0 &amp;&amp; (
                   &lt;span className="error" htmlfor="register-email">
-                    {this.state.formErrors.EmailError}
+                    {this.state.formErrors.CodeErorr}
                   &lt;/span>
                 )}
 
@@ -136,7 +162,7 @@ class ForgotPassword extends Component {
                   className="btn btn-outline-linkF"
                   onClick={this.handelSubmit}
                 >
-                  Send code
+                  Verify code
                 &lt;/button>
               &lt;/div>
               &lt;section className="or-seperator-2">&lt;/section>
@@ -158,7 +184,7 @@ class ForgotPassword extends Component {
   }
 }
 
-export default ForgotPassword;
+export default Code;
 </code></pre>
         </article>
     </section>

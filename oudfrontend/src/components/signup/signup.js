@@ -59,9 +59,9 @@ class Signup extends Component {
       Password: '',
       ConfirmPassword: '',
       formErrors: {
-        ConfirmPasswordErorr: '',
-        PasswordErorr: '',
-        EmailErorr: '',
+        ConfirmPasswordError: '',
+        PasswordError: '',
+        EmailError: '',
       },
       redirect: false,
     };
@@ -80,7 +80,7 @@ class Signup extends Component {
       /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
     );
     let formErrors = {...this.state.formErrors};
-    formErrors.EmailErorr = emailRegex.test(event.target.value)
+    formErrors.EmailError = emailRegex.test(event.target.value)
       ? ''
       : 'invalid email address';
     this.setState({formErrors});
@@ -103,42 +103,42 @@ class Signup extends Component {
     if (this.state.Password.length === 0) {
       this.setState({
         formErrors: {
-          PasswordErorr: 'you must enter a password here',
-          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: 'you must enter a password here',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     } else if (this.state.Password.length < 8) {
       this.setState({
         formErrors: {
-          PasswordErorr: 'minimum 8 characaters required',
-          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: 'minimum 8 characaters required',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     } else if (this.state.Password.length > 30) {
       this.setState({
         formErrors: {
-          PasswordErorr: 'maximum 30 characaters',
-          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: 'maximum 30 characaters',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     } else if (!checkPassword(this.state.Password)) {
       this.setState({
         formErrors: {
-          PasswordErorr:
+          PasswordError:
             'Password should contain uppercase,lowercase and a number ',
-          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
-          EmailErorr: this.state.formErrors.EmailErorr,
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     } else {
       this.setState({
         formErrors: {
-          PasswordErorr: '',
-          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: '',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     }
@@ -157,17 +157,17 @@ class Signup extends Component {
     if (event.target.value !== this.state.Password) {
       this.setState({
         formErrors: {
-          PasswordErorr: this.state.formErrors.PasswordErorr,
-          ConfirmPasswordErorr: 'Invallid  ,Password not matched',
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: this.state.formErrors.PasswordError,
+          ConfirmPasswordError: 'Invallid  ,Password not matched',
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     } else {
       this.setState({
         formErrors: {
-          PasswordErorr: this.state.formErrors.PasswordErorr,
-          ConfirmPasswordErorr: '',
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: this.state.formErrors.PasswordError,
+          ConfirmPasswordError: '',
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     }
@@ -195,19 +195,32 @@ class Signup extends Component {
   handelSubmit = (e) => {
     // It prevents a submit button from submitting a form
     e.preventDefault();
+    let tosent = {
+      username: this.state.name,
+      year: this.state.year,
+      month: this.state.month,
+      day: this.state.day,
+      email: this.state.email,
+      password: this.state.Password,
+      confirmpassword: this.state.ConfirmPassword,
+      displayname: this.state.name,
+      role: this.state.roll,
+      country: '',
+      gender: this.state.gender,
+    };
     if (this.state.isVerified && this.hasSamePassword() === true) {
       let birth =
         this.state.day + '-' + this.state.month + '-' + this.state.year;
       console.log(birth);
       this.setState({
         formErrors: {
-          PasswordErorr: this.state.formErrors.PasswordErorr,
-          ConfirmPasswordErorr: '',
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: this.state.formErrors.PasswordError,
+          ConfirmPasswordError: '',
+          EmailError: this.state.formErrors.EmailError,
         },
       });
       axios
-        .post(`${process.env.REACT_APP_API_URL}/users`, this.state)
+        .post(`${process.env.REACT_APP_API_URL}/users`, tosent)
         .then((req) => {})
         .catch((error) => {
           console.log(error);
@@ -217,9 +230,9 @@ class Signup extends Component {
     } else if (this.hasSamePassword() === false) {
       this.setState({
         formErrors: {
-          PasswordErorr: this.state.formErrors.PasswordErorr,
-          ConfirmPasswordErorr: 'Invallid  ,Password not matched',
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: this.state.formErrors.PasswordError,
+          ConfirmPasswordError: 'Invallid  ,Password not matched',
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     }
@@ -556,9 +569,9 @@ class Signup extends Component {
           />
         </div>
         {this.hasSamePassword() === false
-          ? this.state.formErrors.ConfirmPasswordErorr.length > 0 && (
-              <span className="error" for="register-confirmPassword">
-                {this.state.formErrors.ConfirmPasswordErorr}
+          ? this.state.formErrors.ConfirmPasswordError.length > 0 && (
+              <span className="error" htmlFor="register-confirmPassword">
+                {this.state.formErrors.ConfirmPasswordError}
               </span>
             )
           : null}
@@ -590,9 +603,9 @@ class Signup extends Component {
             {this.state.showText}
           </button>
         </div>
-        {this.state.formErrors.PasswordErorr.length > 0 && (
-          <span className="error" for="register-password">
-            {this.state.formErrors.PasswordErorr}
+        {this.state.formErrors.PasswordError.length > 0 && (
+          <span className="error" htmlFor="register-password">
+            {this.state.formErrors.PasswordError}
           </span>
         )}
       </div>
@@ -614,9 +627,9 @@ class Signup extends Component {
           onChange={(this.handleChange, this.EmailHandel)}
           name="email"
         />
-        {this.state.formErrors.EmailErorr.length > 0 && (
-          <span className="error" for="register-email">
-            {this.state.formErrors.EmailErorr}
+        {this.state.formErrors.EmailError.length > 0 && (
+          <span className="error" htmlFor="register-email">
+            {this.state.formErrors.EmailError}
           </span>
         )}
       </div>

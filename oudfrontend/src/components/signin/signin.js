@@ -17,7 +17,7 @@ class signup extends Component {
       rememberMe: false,
       redirect: false,
       formErrors: {
-        EmailErorr: '',
+        EmailError: '',
       },
     };
   }
@@ -34,7 +34,7 @@ class signup extends Component {
       /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
     );
     let formErrors = {...this.state.formErrors};
-    formErrors.EmailErorr = emailRegex.test(event.target.value)
+    formErrors.EmailError = emailRegex.test(event.target.value)
       ? ''
       : 'invalid email address';
     this.setState({formErrors});
@@ -85,14 +85,13 @@ class signup extends Component {
    *   */
   handelSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/users`, {
-        password: this.state.password,
-        email: this.state.email,
-      })
-      .then((res) => {
-        console.log(res.data);
-      });
+    let tosent = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+    axios.post(`${process.env.REACT_APP_API_URL}/login`, tosent).then((res) => {
+      console.log(res.data);
+    });
     axios.get(`${process.env.REACT_APP_API_URL}/users`).then((res) => {
       if (res.status === '200') {
         this.setState.islogin = true;
@@ -183,7 +182,7 @@ class signup extends Component {
               <section className="container main-center">
                 <h6 className="hint-text-forgot">
                   <button type="button" className="btn btn-outline-link">
-                    <Link to="/password-reset">Forgot your password?</Link>
+                    <Link to="/ForgotPassword">Forgot your password?</Link>
                   </button>
                 </h6>
               </section>

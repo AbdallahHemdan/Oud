@@ -75,6 +75,69 @@
         "EmailErorr": "invalid email address"
       },
       "id": 7
+    },
+    {
+      "username": "abdaalsad",
+      "birthDate": {
+        "year": "",
+        "month": "",
+        "day": ""
+      },
+      "email": "asd@asd.coma",
+      "password": "abdaA.ss2",
+      "confirmpassword": "abdaA.ss2",
+      "displayname": "abdaalsad",
+      "role": "free",
+      "country": "",
+      "gender": "1",
+      "id": 8
+    }
+  ],
+  "ForgottenPasswords": [
+    {
+      "id": 1
+    },
+    {
+      "email": "asd@asd.com",
+      "code": "",
+      "formErrors": {
+        "EmailError": ""
+      },
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "email": "asdas@asd.com",
+      "id": 5
+    },
+    {
+      "email": "",
+      "id": 6
+    },
+    {
+      "email": "",
+      "id": 7
+    },
+    {
+      "email": "asd@sad.com",
+      "id": 8
+    },
+    {
+      "email": "asd@sad.com",
+      "id": 9
+    },
+    {
+      "email": "asd@sad.com",
+      "id": 10
+    },
+    {
+      "email": "",
+      "id": 11
     }
   ]
 }

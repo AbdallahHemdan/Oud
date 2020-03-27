@@ -2,16 +2,20 @@ import React, {Component} from 'react';
 import './signin.css';
 import MainBrand from './MainBrand';
 import axios from 'axios';
+import {object} from 'yup';
 /** the forget password section  */
 class ForgotPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      UsernameOrEmail: '',
+      email: '',
       code: '',
-      error: {},
+      formErrors: {
+        EmailError: '',
+      },
     };
   }
+
   /**
    * on submit send the email to back end to send the code
    * @function
@@ -20,14 +24,17 @@ class ForgotPassword extends Component {
    */
   handelSubmit = (e) => {
     e.preventDefault();
+    let tosend = {
+      email: this.state.email,
+    };
     axios
-      .post(`${process.env.REACT_APP_API_URL}/users`, this.state.email)
+      .post(`${process.env.REACT_APP_API_URL}/ForgottenPasswords`, tosend)
       .then((res) => {
-        if (res.status === '200') {
-          /**go the rest password page*/
-        } else if (res.status === '404') {
-          /**go to 404 page*/
-        }
+        // if (res.status === '200') {
+        //   /**go the rest password page*/
+        // } else if (res.status === '404') {
+        //   /**go to 404 page*/
+        // }
       })
       .catch((error) => {});
     console.log(this.state);
@@ -45,10 +52,24 @@ class ForgotPassword extends Component {
       /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
     );
     let formErrors = {...this.state.formErrors};
-    formErrors.EmailErorr = emailRegex.test(event.target.value)
+    formErrors.EmailError = emailRegex.test(event.target.value)
       ? ''
       : 'invalid email address';
     this.setState({formErrors});
+  };
+  /**
+   * this function activate on change
+   * @function
+   * @param {object} a
+   * @returns {void}
+   */
+  handleChange = (e) => {
+    let target = e.target;
+    let value = target.type === 'checkbox' ? target.checked : target.value;
+    let name = target.name;
+    this.setState({
+      [name]: value,
+    });
   };
   /**
    * here i render the text box and the submit button
@@ -69,16 +90,23 @@ class ForgotPassword extends Component {
             <form onSubmit={this.handelSubmit}>
               <div className="form-group sm-8">
                 <input
-                  required
+                  data-testid="register-email"
                   type="email"
+                  name="email"
                   className="form-control"
-                  placeholder="enter your email or username"
-                  onChange={this.EmailHandel}
+                  placeholder="enter your email "
+                  onChange={(this.handleChange, this.EmailHandel)}
                 />
+                {this.state.formErrors.EmailError.length > 0 && (
+                  <span className="error" htmlFor="register-email">
+                    {this.state.formErrors.EmailError}
+                  </span>
+                )}
+
                 <button
                   type="button"
                   className="btn btn-outline-linkF"
-                  onClick=""
+                  onClick={this.handelSubmit}
                 >
                   Send code
                 </button>

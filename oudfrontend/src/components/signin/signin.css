@@ -15,9 +15,11 @@ body {
 .btn.btn-outline-linkF:hover {
   background-color: #ffca60;
 }
+
 .btn.btn-outline-links:hover {
   background-color: #ffca60;
 }
+
 .btn.btn-outline-links {
   background-color: #f9b835;
   border-radius: 50px;
@@ -27,7 +29,7 @@ body {
   padding-top: 10px;
   margin-top: 20px;
   display: block;
-  width: 370px !important;
+  width: 340px !important;
   margin: auto;
 
 }
@@ -154,6 +156,11 @@ body {
   position: absolute;
   top: 0;
   width: 28px;
+}
+
+.error {
+  font-size: 15px;
+  color: red;
 }
 
 .btn-outline-secondary {
