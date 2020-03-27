@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 /**
  * Component for controling the left part of the player: artist link, and previous, play/pause, and next buttons
+ * @author Ahmed Ashraf
  * @component
  */
 function PlayingBarLeft(props) {

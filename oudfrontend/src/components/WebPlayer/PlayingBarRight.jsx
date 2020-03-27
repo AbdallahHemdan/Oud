@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 /**
  * Component for controling the right part of the player: shuffle, repeat, and mute buttons and clicking on the volume bar
+ * @author Ahmed Ashraf
  * @component
  */
 function PlayingBarRight(props) {

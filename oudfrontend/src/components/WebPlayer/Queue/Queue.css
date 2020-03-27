@@ -7,16 +7,17 @@
 }
 .overlay {
   position: fixed;
-  bottom: 100px;
+  bottom: 99px;
   right: 0;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #383838;
+  /* background-color: rgba(0, 0, 0, 0.9); */
   overflow: hidden;
   width: 60%;
   min-width: 620px;
   height: 0;
   transition: 0.5s ease;
   border-top-left-radius: 1em;
+  border-bottom: 2px groove #a0a0a0;
 }
 
 .overlay-content {
@@ -41,13 +42,36 @@
   color: #f1f1f1;
 }
 
-.overlay .closebtn {
+.close-btn {
+  display: flex;
+  background: transparent;
+  border: none;
+  transform: rotateZ(180deg);
+}
+.overlay .close-btn {
   position: absolute;
   top: 20px;
-  right: 45px;
+  right: 0px;
   font-size: 60px;
 }
-
+.tracks-container {
+  overflow: scroll;
+  position: relative;
+  top: 60px;
+}
+.track {
+  background: white;
+  width: 100%;
+  z-index: 5;
+  height: 4.56em;
+  position: relative;
+  top: 60px;
+  display: flex;
+  text-decoration: none;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 1.5em;
+}
 @media screen and (max-height: 450px) {
   .overlay {
     overflow-y: auto;
@@ -55,7 +79,7 @@
   .overlay a {
     font-size: 20px;
   }
-  .overlay .closebtn {
+  .overlay .close-btn {
     font-size: 40px;
     top: 15px;
     right: 35px;

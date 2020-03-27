@@ -19,6 +19,7 @@ import PlayingBarRight from "./PlayingBarRight";
 const axios = require("axios");
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
+ * @author Ahmed Ashraf
  * @component
  * @example
  * return (

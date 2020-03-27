@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 const history = require("history").createBrowserHistory();
 /**
  * Component for controling the middle part of the player: progress bar, artist name, track name, remaining time, the total track time.
+ * @author Ahmed Ashraf
  * @component
  */
 function PlayingBarCenter(props) {
