@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Sidebar from "../../components/Sidebar/Sidebar"
-import Navbar from "../../components/Navbar/Navbar";
-import MusicCard from "../../components/MusicCard/MusicCard"
+import Sidebar from "../../components/Home/Sidebar/Sidebar"
+import Navbar from "../../components/Home/Navbar/Navbar";
+import MusicCard from "../../components/Home/MusicCard/MusicCard"
 import "./Search.css"
 
 class Search extends Component {
