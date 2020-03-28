@@ -52,7 +52,7 @@
 .overlay .close-btn {
   position: absolute;
   top: 20px;
-  right: 0px;
+  right: 2%;
   font-size: 60px;
 }
 .tracks-container {
@@ -154,12 +154,6 @@
   visibility: visible;
 }
 .ellipsis-container {
-  /* float: right;
-  border-radius: 50%;
-  margin: auto;
-  padding: 0.6em;
-  padding-top: 0.8em; */
-
   height: 100%;
   position: relative;
   text-align: center;
@@ -180,14 +174,6 @@
   padding: 0.6em;
   padding-top: 0.8em;
   margin-right: 2%;
-
-  /* cursor: default;
-  height: 100%;
-  position: relative;
-  text-align: center;
-  top: 14px;
-  display: initial;
-  right: -18%; */
 }
 @media screen and (max-width: 1030px) {
   .artist-name,
@@ -257,43 +243,3 @@
     right: -59%;
   }
 }
-/* @media screen and (min-width: 1025px) and (max-width: 1115px) {
-  .ellipsis-container {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 1038px) and (max-width: 1199px) {
-  .track .content .duration {
-    display: none;
-  }
-}
-@media screen and (max-width: 1025px) {
-  .ellipsis-container {
-    /* position: relative;
-    top: -34px;
-    margin: initial;
-    padding: initial; */
-
-/* top: -34px;
-    right: -59%;
-  }
-}
-
-@media screen and (max-width: 1039px) {
-  .track .content .duration {
-    position: relative;
-    top: -34px;
-    margin: initial;
-    padding: initial;
-
-    /* top: -34px;
-    right: -59%; */
-/* }
-}
-@media screen and (max-height: 453px) {
-  .ellipsis-container {
-    left: 58%;
-    position: absolute;
-  }
-}  */

@@ -1,5 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+const repeat = "../../assets/images/icons/repeat.png";
+const repeatEnabled = "../../assets/images/icons/repeat-enable.png";
+const shuffle = "../../assets/images/icons/shuffle.png";
+const shuffleEnabled = "../../assets/images/icons/shuffle-enable.png";
+const volume = "../../assets/images/icons/volume.png";
+const volumeMuted = "../../assets/images/icons/volume-mute.png";
 /**
  * Component for controling the right part of the player: shuffle, repeat, and mute buttons and clicking on the volume bar
  * @author Ahmed Ashraf
@@ -15,7 +21,10 @@ function PlayingBarRight(props) {
           onClick={props.handleShuffleState}
           data-testid="shuffle-btn"
         >
-          <img src={props.shuffleButton} alt="Shuffle" />
+          <img
+            src={props.shuffleState ? shuffleEnabled : shuffle}
+            alt="Shuffle"
+          />
         </button>
         <button
           className="control-button repeat"
@@ -23,7 +32,7 @@ function PlayingBarRight(props) {
           onClick={props.handleRepeatState}
           data-testid="repeat-btn"
         >
-          <img src={props.repeatButton} alt="Repeat" />
+          <img src={props.repeatState ? repeatEnabled : repeat} alt="Repeat" />
         </button>
         <button
           className="control-button volume"
@@ -31,7 +40,7 @@ function PlayingBarRight(props) {
           onClick={props.handleMuteState}
           data-testid="volume-btn"
         >
-          <img src={props.volumeButton} alt="Volume" />
+          <img src={props.volumeState ? volumeMuted : volume} alt="Volume" />
         </button>
 
         <div
@@ -57,17 +66,17 @@ function PlayingBarRight(props) {
 
 PlayingBarRight.propTypes = {
   /**
-   * Shuffle button icon, enabled and disabled
+   * Shuffle button state, enabled and disabled
    */
-  shuffleButton: PropTypes.any.isRequired,
+  shuffleState: PropTypes.bool.isRequired,
   /**
-   * Repeat button icon, enabled and disabled
+   * Repeat button state, enabled and disabled
    */
-  repeatButton: PropTypes.any.isRequired,
+  repeatState: PropTypes.bool.isRequired,
   /**
-   * Volume button icon, enabled and disabled
+   * Volume button state, enabled and disabled
    */
-  volumeButton: PropTypes.any.isRequired,
+  volumeState: PropTypes.bool.isRequired,
   /**
    * volume percentage
    */

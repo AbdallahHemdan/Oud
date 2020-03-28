@@ -1,43 +1,63 @@
 import React from "react";
-import WebPlayer from "../Player";
-import { cleanup, render } from "@testing-library/react";
-import { shallow, mount } from "enzyme";
-import Shuffle from "../../../assets/images/icons/shuffle.png";
-import Volume from "../../../assets/images/icons/volume.png";
-import Repeat from "../../../assets/images/icons/repeat.png";
-import MockAdapter from "axios-mock-adapter";
+import renderer from "react-test-renderer";
+import WebPlayer from "./../Player";
+import PlayingBarLeft from "../PlayingBarLeft";
+import PlayingBarCenter from "../PlayingBarCenter";
+import PlayingBarRight from "../PlayingBarRight";
+import Enzyme, { mount, shallow } from "enzyme";
+import EnzymeAdapter from "enzyme-adapter-react-16";
+import { Howl } from "howler";
+import { cleanup } from "@testing-library/react";
 import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
 import waitUntil from "async-wait-until";
 import _ from "lodash";
-import { Howl } from "howler";
 
-const sound = new Howl({
+jest.mock("axios");
+
+Enzyme.configure({ adapter: new EnzymeAdapter() });
+
+let sound = new Howl({
   src: ["https://cdn1.esm3.com//music/10028/m289005.mp3"],
   autoplay: false,
   loop: false,
   volume: 0.65,
   mute: false,
   html5: true,
-  format: ["mp3"]
+  onplay: () => {},
+  format: ["mp3"],
+  onend: () => {}
 });
 
-afterEach(cleanup);
-
-describe("Web Player component", () => {
-  test("renders", () => {
-    const wrapper = shallow(<WebPlayer />);
-    expect(wrapper.exists()).toBe(true);
+describe("Testing the Web Player Component", () => {
+  afterEach(cleanup);
+  it("snapshot test for the whole web player component", () => {
+    const WebPlayerComponent = renderer.create(<WebPlayer />).toJSON();
+    expect(WebPlayerComponent).toMatchSnapshot();
   });
 
-  it("Snapshot testing for the Web PLayer component", () => {
-    const { asFragment } = render(<WebPlayer />);
-
-    expect(asFragment(<WebPlayer />)).toMatchSnapshot();
+  it("render the web player correctly", () => {
+    const WebPlayerComponent = mount(<WebPlayer />);
+    expect(WebPlayerComponent.exists()).toBe(true);
   });
 
-  test("tests fetch track info to the state", async done => {
-    const mock = new MockAdapter(axios);
-    mock.onGet("http://localhost:3000/me/player/currently-playing").reply(200, {
+  it("test getSoundProgress function", () => {
+    sound.seek(178);
+    const WebPlayerComponent = shallow(<WebPlayer />);
+    const instance = WebPlayerComponent.instance();
+    expect(WebPlayerComponent.state().sound).toBeNull();
+    WebPlayerComponent.setState({
+      sound: sound
+    });
+    expect(WebPlayerComponent.state().sound).toEqual(sound);
+    WebPlayerComponent.state().sound.play();
+    expect(instance.getSoundProgress()).toEqual(
+      (sound.seek() / sound.duration()) * 100
+    );
+  });
+
+  it("test fetchTrack function", async done => {
+    const data = {
       device: {
         id: "74ASZWbe4lXaubB36ztrGX",
         isActive: true,
@@ -64,7 +84,7 @@ describe("Web Player component", () => {
         ],
         albumId: "50",
         type: "track",
-        audioUrl: "/dorak-gai",
+        audioUrl: "https://cdn1.esm3.com//music/10028/m289005.mp3",
         duartion: 4.27,
         views: 100000
       },
@@ -84,10 +104,16 @@ describe("Web Player component", () => {
         type: "playlist",
         id: "53"
       }
-    });
+    };
+    const mock = new MockAdapter(axios);
+    mock
+      .onGet("http://localhost:3000/me/player/currently-playing")
+      .reply(200, data);
 
-    const wrapper = shallow(<WebPlayer />);
-    expect(wrapper.state()).toMatchObject({
+    const WebPlayerComponent = shallow(<WebPlayer />);
+    expect(WebPlayerComponent.state()).toMatchObject({
+      sound: null,
+      audioUrl: "",
       deviceId: "",
       fetched: false,
       progress: 0,
@@ -97,238 +123,208 @@ describe("Web Player component", () => {
       artistName: "",
       duration: "0.00",
       mouseDown: false,
-      shuffleButton: Shuffle,
       shuffleState: false,
-      repeatButton: Repeat,
       repeatState: false,
       volume: 1.0,
-      volumeButton: Volume,
       muteState: false
     });
-    wrapper.instance().fetchTrackInfo();
+    WebPlayerComponent.instance().fetchTrackInfo();
     await waitUntil(() => {
-      return !_.isEqual(wrapper.state.fetched, false);
+      return _.isEqual(WebPlayerComponent.state.fetched, true);
     });
-    expect(wrapper.state()).toMatchObject({
+    expect(WebPlayerComponent.state()).toMatchObject({
       deviceId: "74ASZWbe4lXaubB36ztrGX",
-      fetched: true,
       progress: 0,
       playing: false,
-      current: "0.00",
+      shuffleState: false,
+      repeatState: false,
+      audioUrl: "https://cdn1.esm3.com//music/10028/m289005.mp3",
       trackName: "Dorak gai",
       artistName: "Wegz",
       duration: 4.27,
-      mouseDown: false,
-      shuffleButton: Shuffle,
-      shuffleState: false,
-      repeatButton: Repeat,
-      repeatState: false,
       volume: 65,
-      volumeButton: Volume,
-      muteState: false
+      fetched: true
     });
     done();
   });
 
-  test("test play button", async done => {
-    //PUT request
-    //it is not logical to test howler as it a third-part library and it is difficult to mock it
-    const mock = new MockAdapter(axios);
-    mock.onPost().reply(204);
-    mock.onGet("http://localhost:3000/me/player/currently-playing").reply(200, {
-      device: {
-        id: "74ASZWbe4lXaubB36ztrGX",
-        isActive: true,
-        isPrivateSession: false,
-        name: "Oud test device",
-        type: "Laptop",
-        volumePercent: 65
-      },
-      progressMs: 0,
-      isPlaying: false,
-      shuffleState: false,
-      repeatState: "off",
-      currentlyPlayingType: "unknown",
-      item: {
-        _id: "3256",
-        name: "Dorak gai",
-        artists: [
-          {
-            _id: "21",
-            name: "Wegz",
-            type: "string",
-            image: "string"
-          }
-        ],
-        albumId: "50",
-        type: "track",
-        audioUrl: "https://cdn1.esm3.com//music/10028/m289005.mp3",
-        duartion: 4.27,
-        views: 100000
-      },
-      actions: {
-        interrupting_playback: true,
-        pausing: false,
-        resuming: false,
-        seeking: false,
-        skipping_next: false,
-        skipping_prev: false,
-        toggling_repeat_context: false,
-        toggling_shuffle: false,
-        toggling_repeat_track: false,
-        transferring_playback: false
-      },
-      context: {
-        type: "playlist",
-        id: "53"
-      }
-    });
-    const wrapper = mount(<WebPlayer />);
-    const inst = wrapper.instance();
-    inst.fetchTrackInfo();
-    await waitUntil(() => {
-      return !_.isEqual(wrapper.state("fetched"), false);
-    });
-    expect(wrapper.state("playing")).toBe(false);
-    wrapper.find(".play").simulate("click");
-    // await waitUntil(() => {
-    //   return _.isEqual(wrapper.state("playing"), true);
-    // });
-    expect(wrapper.state("playing")).toBe(false);
-    done();
-  });
+  const defaultProps = {
+      playing: false,
+      handlePrev: () => {},
+      handlePlayPause: () => {},
+      handleNext: () => {}
+    },
+    LeftPlayer = props => (
+      <PlayingBarLeft
+        playing={props.playing}
+        handlePrev={props.handlePrev}
+        handlePlayPause={props.handlePlayPause}
+        handleNext={props.handleNext}
+      />
+    );
 
-  // test("test click on progress bar", async done => {
-  //   const mock = new MockAdapter(axios);
-  //   mock.onPost().reply(204);
-  //   mock.onGet("http://localhost:3000/me/player/currently-playing").reply(200, {
-  //     device: {
-  //       id: "74ASZWbe4lXaubB36ztrGX",
-  //       isActive: true,
-  //       isPrivateSession: false,
-  //       name: "Oud test device",
-  //       type: "Laptop",
-  //       volumePercent: 65
-  //     },
-  //     progressMs: 0,
-  //     isPlaying: false,
-  //     shuffleState: false,
-  //     repeatState: "off",
-  //     currentlyPlayingType: "unknown",
-  //     item: {
-  //       _id: "3256",
-  //       name: "Dorak gai",
-  //       artists: [
-  //         {
-  //           _id: "21",
-  //           name: "Wegz",
-  //           type: "string",
-  //           image: "string"
-  //         }
-  //       ],
-  //       albumId: "50",
-  //       type: "track",
-  //       audioUrl: "https://cdn1.esm3.com//music/10028/m289005.mp3",
-  //       duartion: 4.27,
-  //       views: 100000
-  //     },
-  //     actions: {
-  //       interrupting_playback: true,
-  //       pausing: false,
-  //       resuming: false,
-  //       seeking: false,
-  //       skipping_next: false,
-  //       skipping_prev: false,
-  //       toggling_repeat_context: false,
-  //       toggling_shuffle: false,
-  //       toggling_repeat_track: false,
-  //       transferring_playback: false
-  //     },
-  //     context: {
-  //       type: "playlist",
-  //       id: "53"
-  //     }
-  //   });
-  //   const wrapper = mount(<WebPlayer />);
-  //   const inst = wrapper.instance();
-  //   inst.fetchTrackInfo();
-  //   await waitUntil(() => {
-  //     return !_.isEqual(wrapper.state("fetched"), false);
-  //   });
-  //   inst.setState({
-  //     mouseDown: true,
-  //     sound: sound,
-  //     playing: true,
-  //     duartion: 4.18
-  //   })
-  // })
+  describe("Testing the playing bar left part", () => {
+    it("rendering the play button", () => {
+      const PlayerLeftComponent = mount(LeftPlayer(defaultProps)).find(".play");
+      expect(PlayerLeftComponent.exists()).toEqual(true);
+    });
 
-  test("handleShuffleState", async done => {
-    const mock = new MockAdapter(axios);
-    mock.onPost().reply(204);
-    mock.onGet("http://localhost:3000/me/player/currently-playing").reply(200, {
-      device: {
-        id: "74ASZWbe4lXaubB36ztrGX",
-        isActive: true,
-        isPrivateSession: false,
-        name: "Oud test device",
-        type: "Laptop",
-        volumePercent: 65
-      },
-      progressMs: 0,
-      isPlaying: false,
-      shuffleState: false,
-      repeatState: "off",
-      currentlyPlayingType: "unknown",
-      item: {
-        _id: "3256",
-        name: "Dorak gai",
-        artists: [
-          {
-            _id: "21",
-            name: "Wegz",
-            type: "string",
-            image: "string"
-          }
-        ],
-        albumId: "50",
-        type: "track",
-        audioUrl: "https://cdn1.esm3.com//music/10028/m289005.mp3",
-        duartion: 4.27,
-        views: 100000
-      },
-      actions: {
-        interrupting_playback: true,
-        pausing: false,
-        resuming: false,
-        seeking: false,
-        skipping_next: false,
-        skipping_prev: false,
-        toggling_repeat_context: false,
-        toggling_shuffle: false,
-        toggling_repeat_track: false,
-        transferring_playback: false
-      },
-      context: {
-        type: "playlist",
-        id: "53"
-      }
+    it("rendering the pause button", () => {
+      const PlayerLeftComponent = mount(
+        LeftPlayer({
+          playing: true,
+          handlePrev: () => {},
+          handlePlayPause: () => {},
+          handleNext: () => {}
+        })
+      ).find(".pause");
+      expect(PlayerLeftComponent.exists()).toEqual(true);
     });
-    const wrapper = mount(<WebPlayer />);
-    const inst = wrapper.instance();
-    inst.fetchTrackInfo();
-    await waitUntil(() => {
-      return !_.isEqual(wrapper.state("fetched"), false);
-    });
-    inst.handleShuffleState();
-    const shuffle = wrapper.state("shuffleState");
-    await waitUntil(() => {
-      return _.isEqual(
-        wrapper.state("shuffleState"),
-        !wrapper.state("shuffleState")
+
+    it("test prop types of the left part", () => {
+      const PlayerLeftComponent = mount(LeftPlayer(defaultProps));
+      expect(PlayerLeftComponent.prop("playing")).toEqual(false);
+      expect(PlayerLeftComponent.prop("handlePlayPause")).toBeInstanceOf(
+        Function
       );
+      expect(PlayerLeftComponent.prop("handlePrev")).toBeInstanceOf(Function);
+      expect(PlayerLeftComponent.prop("handleNext")).toBeInstanceOf(Function);
     });
-    expect(wrapper.state("shuffleState")).toBe(!shuffle);
-    done();
+  });
+
+  const RightPlayer = props => <PlayingBarRight {...props} />;
+  describe("Testing the playing bar right part", () => {
+    it("rendering shuffle, mute, and repeat buttons disabled", () => {
+      const PlayerRightComponent = mount(
+        RightPlayer({
+          shuffleState: false,
+          repeatState: false,
+          volumeState: false,
+          volume: 0.65,
+          handleShuffleState: () => {},
+          handleRepeatState: () => {},
+          handleMuteState: () => {},
+          setMouseDown: () => {},
+          onVolumeClick: () => {},
+          mouseUp: () => {}
+        })
+      );
+      expect(PlayerRightComponent.find(".shuffle").exists()).toEqual(true);
+      expect(PlayerRightComponent.find(".repeat").exists()).toEqual(true);
+      expect(PlayerRightComponent.find(".volume").exists()).toEqual(true);
+
+      expect(PlayerRightComponent.prop("shuffleState")).toEqual(false);
+      expect(PlayerRightComponent.prop("repeatState")).toEqual(false);
+      expect(PlayerRightComponent.prop("volumeState")).toEqual(false);
+    });
+
+    it("rendering shuffle, mute, and repeat buttons enabled", () => {
+      const PlayerRightComponent = mount(
+        RightPlayer({
+          shuffleState: true,
+          repeatState: true,
+          volumeState: true,
+          volume: 0.65,
+          handleShuffleState: () => {},
+          handleRepeatState: () => {},
+          handleMuteState: () => {},
+          setMouseDown: () => {},
+          onVolumeClick: () => {},
+          mouseUp: () => {}
+        })
+      );
+      expect(PlayerRightComponent.find(".shuffle").exists()).toEqual(true);
+      expect(PlayerRightComponent.find(".repeat").exists()).toEqual(true);
+      expect(PlayerRightComponent.find(".volume").exists()).toEqual(true);
+
+      expect(PlayerRightComponent.prop("shuffleState")).toEqual(true);
+      expect(PlayerRightComponent.prop("repeatState")).toEqual(true);
+      expect(PlayerRightComponent.prop("volumeState")).toEqual(true);
+    });
+
+    it("rendering right bar props", () => {
+      const PlayerRightComponent = mount(
+        RightPlayer({
+          shuffleState: true,
+          repeatState: true,
+          volumeState: true,
+          volume: 0.65,
+          handleShuffleState: () => {},
+          handleRepeatState: () => {},
+          handleMuteState: () => {},
+          setMouseDown: () => {},
+          onVolumeClick: () => {},
+          mouseUp: () => {}
+        })
+      );
+      expect(PlayerRightComponent.prop("shuffleState")).toEqual(true);
+      expect(PlayerRightComponent.prop("repeatState")).toEqual(true);
+      expect(PlayerRightComponent.prop("volumeState")).toEqual(true);
+      expect(PlayerRightComponent.prop("handleShuffleState")).toBeInstanceOf(
+        Function
+      );
+      expect(PlayerRightComponent.prop("handleRepeatState")).toBeInstanceOf(
+        Function
+      );
+      expect(PlayerRightComponent.prop("handleMuteState")).toBeInstanceOf(
+        Function
+      );
+      expect(PlayerRightComponent.prop("setMouseDown")).toBeInstanceOf(
+        Function
+      );
+      expect(PlayerRightComponent.prop("onVolumeClick")).toBeInstanceOf(
+        Function
+      );
+      expect(PlayerRightComponent.prop("mouseUp")).toBeInstanceOf(Function);
+    });
+  });
+
+  const MiddlePlayer = props => <PlayingBarCenter {...props} />;
+  describe("Testing the playing bar middle part", () => {
+    it("rendering the middle part of the player with default values", () => {
+      const PlayerCenterComponent = mount(
+        MiddlePlayer({
+          trackName: "",
+          artistName: "",
+          current: "",
+          progress: "",
+          duration: "",
+          setMouseDown: () => {},
+          onProgressClick: () => {},
+          mouseUp: () => {}
+        })
+      );
+      expect(PlayerCenterComponent.find(".artist-name").text()).toEqual("");
+      expect(PlayerCenterComponent.find(".track-name").text()).toEqual("");
+      expect(PlayerCenterComponent.find(".remaining").text()).toEqual("");
+      expect(PlayerCenterComponent.find(".current").text()).toEqual("");
+    });
+
+    it("testing middle part props", () => {
+      const PlayerCenterComponent = mount(
+        MiddlePlayer({
+          trackName: "Dorak gai",
+          artistName: "Wegz",
+          current: "2:45",
+          progress: "0.65",
+          duration: "4:18",
+          setMouseDown: () => {},
+          onProgressClick: () => {},
+          mouseUp: () => {}
+        })
+      );
+      expect(PlayerCenterComponent.prop("trackName")).toEqual("Dorak gai");
+      expect(PlayerCenterComponent.prop("artistName")).toEqual("Wegz");
+      expect(PlayerCenterComponent.prop("current")).toEqual("2:45");
+      expect(PlayerCenterComponent.prop("progress")).toEqual("0.65");
+      expect(PlayerCenterComponent.prop("duration")).toEqual("4:18");
+      expect(PlayerCenterComponent.prop("setMouseDown")).toBeInstanceOf(
+        Function
+      );
+      expect(PlayerCenterComponent.prop("onProgressClick")).toBeInstanceOf(
+        Function
+      );
+      expect(PlayerCenterComponent.prop("mouseUp")).toBeInstanceOf(Function);
+    });
   });
 });

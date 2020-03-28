@@ -1,5 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+const art = "../../assets/images/icons/album.jpg";
+const extend = "../../assets/images/icons/extend.png";
+const pause = "../../assets/images/icons/pause.png";
+const play = "../../assets/images/icons/play.png";
+const previous = "../../assets/images/icons/previous.png";
+const next = "../../assets/images/icons/next.png";
+
 /**
  * Component for controling the left part of the player: artist link, and previous, play/pause, and next buttons
  * @author Ahmed Ashraf
@@ -11,7 +18,7 @@ function PlayingBarLeft(props) {
       <div className="content">
         <div className="ablum-link">
           <img
-            src={props.art}
+            src={art}
             className="album-art-work"
             alt="Album Art"
             data-testid="album-link-img"
@@ -21,7 +28,7 @@ function PlayingBarLeft(props) {
             title="Extend"
             data-testid="album-link-btn"
           >
-            <img src={props.extend} alt="Extend" className="extend-img" />
+            <img src={extend} alt="Extend" className="extend-img" />
           </button>
         </div>
 
@@ -33,7 +40,7 @@ function PlayingBarLeft(props) {
               onClick={props.handlePrev}
               data-testid="previous-btn"
             >
-              <img src={props.prev} alt="Previous" />
+              <img src={previous} alt="Previous" />
             </button>
 
             {props.playing ? (
@@ -43,7 +50,7 @@ function PlayingBarLeft(props) {
                 onClick={props.handlePlayPause}
                 data-testid="pause-btn"
               >
-                <img src={props.pause} alt="Pause" />
+                <img src={pause} alt="Pause" />
               </button>
             ) : (
               <button
@@ -52,7 +59,7 @@ function PlayingBarLeft(props) {
                 onClick={props.handlePlayPause}
                 data-testid="play-btn"
               >
-                <img src={props.play} alt="Play" />
+                <img src={play} alt="Play" />
               </button>
             )}
 
@@ -62,7 +69,7 @@ function PlayingBarLeft(props) {
               onClick={props.handleNext}
               data-testid="next-btn"
             >
-              <img src={props.next} alt="Next" />
+              <img src={next} alt="Next" />
             </button>
           </div>
         </div>
@@ -72,33 +79,6 @@ function PlayingBarLeft(props) {
 }
 
 PlayingBarLeft.propTypes = {
-  /**
-   * Artist photo
-   */
-  art: PropTypes.any.isRequired,
-  /**
-   * Extended artist photo
-   */
-  extend: PropTypes.any.isRequired,
-  /**
-   * Previous button icon
-   */
-  prev: PropTypes.any.isRequired,
-  /**
-   * Pause button icon
-   */
-  pause: PropTypes.any.isRequired,
-  /**
-   * Play button icon
-   */
-  play: PropTypes.any.isRequired,
-  /**
-   * Next button icon
-   */
-  next: PropTypes.any.isRequired,
-  /**
-   * Playing state
-   */
   playing: PropTypes.bool.isRequired,
   /**
    * Handle previos action function

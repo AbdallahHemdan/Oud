@@ -1,21 +1,11 @@
 import React, { Component, Fragment } from "react";
-import Next from "../../assets/images/icons/next.png";
-import Pause from "../../assets/images/icons/pause.png";
-import Play from "../../assets/images/icons/play.png";
-import Previous from "../../assets/images/icons/previous.png";
-import Repeat from "../../assets/images/icons/repeat.png";
-import RepeatEnabled from "../../assets/images/icons/repeat-enable.png";
-import Shuffle from "../../assets/images/icons/shuffle.png";
-import ShuffleEnabled from "../../assets/images/icons/shuffle-enable.png";
-import Volume from "../../assets/images/icons/volume.png";
-import art from "../../assets/images/icons/album.jpg";
-import Extend from "../../assets/images/icons/extend.png";
-import VolumeMuted from "../../assets/images/icons/volume-mute.png";
 import "./Player.css";
 import { Howl } from "howler";
 import PlayingBarLeft from "./PlayingBarLeft";
 import PlayingBarCenter from "./PlayingBarCenter";
 import PlayingBarRight from "./PlayingBarRight";
+const art = "../../assets/images/icons/album.jpg";
+const extend = "../../assets/images/icons/extend.png";
 const axios = require("axios");
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
@@ -45,12 +35,9 @@ class WebPlayer extends Component {
       artistName: "",
       duration: "0.00",
       mouseDown: false,
-      shuffleButton: Shuffle,
       shuffleState: false,
-      repeatButton: Repeat,
       repeatState: false,
       volume: 1.0,
-      volumeButton: Volume,
       muteState: false
     };
   }
@@ -89,17 +76,12 @@ class WebPlayer extends Component {
             progress: data["progressMs"],
             playing: data["isPlaying"],
             shuffleState: data["shuffleState"],
-            shuffleButton: data["shuffleState"] ? ShuffleEnabled : Shuffle,
             repeatState: data["repeatState"] === "off" ? false : true,
-            repeatButton:
-              data["repeatState"] === "off" ? Repeat : RepeatEnabled,
             audioUrl: data["item"]["audioUrl"],
             trackName: data["item"]["name"],
             artistName: data["item"]["artists"][0]["name"],
             duration: data["item"]["duartion"],
             volume: data["device"]["volumePercent"],
-            volumeButton:
-              data["device"]["volumePercent"] > 0 ? Volume : VolumeMuted,
             fetched: true
           });
         }
@@ -279,6 +261,7 @@ class WebPlayer extends Component {
     axios
       .post("http://localhost:3000/me/player/next?deviceId=" + deviceId)
       .then(response => {
+        this.fetchTrackInfo();
         this.play();
       })
       .catch(function(error) {
@@ -298,6 +281,7 @@ class WebPlayer extends Component {
       .post("http://localhost:3000/me/player/previous?deviceId=" + deviceId)
       .then(response => {
         // if (!index) return;
+        this.fetchTrackInfo();
         this.play();
       })
       .catch(function(error) {
@@ -327,7 +311,7 @@ class WebPlayer extends Component {
       .then(response => {
         this.state.sound.seek(position);
         this.setState({
-          progress: this.getthis.state.soundProgress()
+          progress: this.getSoundProgress()
         });
       })
       .catch(function(error) {
@@ -358,8 +342,7 @@ class WebPlayer extends Component {
       .post("http://localhost:3000/me/player/shuffle?deviceId=" + deviceId)
       .then(response => {
         this.setState({
-          shuffleState: !this.state.shuffleState,
-          shuffleButton: !this.state.shuffleState ? ShuffleEnabled : Shuffle
+          shuffleState: !this.state.shuffleState
         });
         console.log(response);
       })
@@ -382,8 +365,7 @@ class WebPlayer extends Component {
       .then(response => {
         const loop = !this.state.repeatState;
         this.setState({
-          repeatState: loop,
-          repeatButton: loop ? RepeatEnabled : Repeat
+          repeatState: loop
         });
         if (this.state.sound) this.state.sound.loop(loop);
         console.log(response);
@@ -407,8 +389,7 @@ class WebPlayer extends Component {
       .post("http://localhost:3000/me/player/volume?deviceId=" + deviceId)
       .then(response => {
         this.setState({
-          muteState: mute,
-          volumeButton: mute ? VolumeMuted : Volume
+          muteState: mute
         });
         if (this.state.sound) this.state.sound.mute(mute);
         console.log(response);
@@ -440,8 +421,7 @@ class WebPlayer extends Component {
       .then(response => {
         this.state.sound.volume(volume / 100);
         this.setState({
-          volume: volume,
-          volumeButton: volume > 0 ? Volume : VolumeMuted
+          volume: volume
         });
         console.log(response);
       })
@@ -453,25 +433,24 @@ class WebPlayer extends Component {
   render() {
     return (
       <Fragment>
-        <div className="expanded-img">
+        <div className="expanded-img" data-testid="expaned-album-img">
           <img src={art} className="img-thumbnail" alt="Cinque Terre" />
-          <button className="expanded-img-btn" title="Extend">
-            <img src={Extend} alt="Extend" />
+          <button
+            className="expanded-img-btn"
+            title="Extend"
+            data-testid="expaned-album-btn"
+          >
+            <img src={extend} alt="extend" />
           </button>
         </div>
-        <div className="now-playing-bar-container">
+        <div className="now-playing-bar-container" data-testid="web-palyer">
           <div className="now-playing-bar">
             <PlayingBarLeft
-              art={art}
-              extend={Extend}
-              prev={Previous}
-              pause={Pause}
-              play={Play}
-              next={Next}
               playing={this.state.playing}
               handlePrev={() => this.handlePrev()}
               handlePlayPause={() => this.handlePlayPause()}
               handleNext={() => this.handleNext()}
+              data-testid="web-player-left"
             />
 
             <PlayingBarCenter
@@ -491,12 +470,13 @@ class WebPlayer extends Component {
                   })
                 );
               }}
+              data-testid="web-player-center"
             />
 
             <PlayingBarRight
-              shuffleButton={this.state.shuffleButton}
-              repeatButton={this.state.repeatButton}
-              volumeButton={this.state.volumeButton}
+              shuffleState={this.state.shuffleState}
+              repeatState={this.state.repeatState}
+              volumeState={this.state.volumeState}
               volume={this.state.volume}
               handleShuffleState={this.handleShuffleState}
               handleRepeatState={this.handleRepeatState}
@@ -512,6 +492,7 @@ class WebPlayer extends Component {
                   })
                 );
               }}
+              data-testid="web-player-right"
             />
           </div>
         </div>

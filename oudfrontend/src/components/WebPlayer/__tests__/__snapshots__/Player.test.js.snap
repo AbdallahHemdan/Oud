@@ -1,92 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshot testing for the Web PLayer component 1`] = `
-<DocumentFragment>
+exports[`Testing the Web Player Component snapshot test for the whole web player component 1`] = `
+Array [
   <div
-    class="expanded-img"
+    className="expanded-img"
+    data-testid="expaned-album-img"
   >
     <img
       alt="Cinque Terre"
-      class="img-thumbnail"
-      src="album.jpg"
+      className="img-thumbnail"
+      src="../../assets/images/icons/album.jpg"
     />
     <button
-      class="expanded-img-btn"
+      className="expanded-img-btn"
+      data-testid="expaned-album-btn"
       title="Extend"
     >
       <img
-        alt="Extend"
-        src="extend.png"
+        alt="extend"
+        src="../../assets/images/icons/extend.png"
       />
     </button>
-  </div>
+  </div>,
   <div
-    class="now-playing-bar-container"
+    className="now-playing-bar-container"
+    data-testid="web-palyer"
   >
     <div
-      class="now-playing-bar"
+      className="now-playing-bar"
     >
       <div
-        class="now-playing-bar-left"
+        className="now-playing-bar-left"
       >
         <div
-          class="content"
+          className="content"
         >
           <div
-            class="ablum-link"
+            className="ablum-link"
           >
             <img
               alt="Album Art"
-              class="album-art-work"
+              className="album-art-work"
               data-testid="album-link-img"
-              src="album.jpg"
+              src="../../assets/images/icons/album.jpg"
             />
             <button
-              class="extended-card-button"
+              className="extended-card-button"
               data-testid="album-link-btn"
               title="Extend"
             >
               <img
                 alt="Extend"
-                class="extend-img"
-                src="extend.png"
+                className="extend-img"
+                src="../../assets/images/icons/extend.png"
               />
             </button>
           </div>
           <div
-            class="player-controls"
+            className="player-controls"
           >
             <div
-              class="control-buttons"
+              className="control-buttons"
             >
               <button
-                class="control-button previous"
+                className="control-button previous"
                 data-testid="previous-btn"
+                onClick={[Function]}
                 title="Previous"
               >
                 <img
                   alt="Previous"
-                  src="previous.png"
+                  src="../../assets/images/icons/previous.png"
                 />
               </button>
               <button
-                class="control-button play"
+                className="control-button play"
                 data-testid="play-btn"
+                onClick={[Function]}
                 title="Play"
               >
                 <img
                   alt="Play"
-                  src="play.png"
+                  src="../../assets/images/icons/play.png"
                 />
               </button>
               <button
-                class="control-button next"
+                className="control-button next"
                 data-testid="next-btn"
+                onClick={[Function]}
                 title="Next"
               >
                 <img
                   alt="Next"
-                  src="next.png"
+                  src="../../assets/images/icons/next.png"
                 />
               </button>
             </div>
@@ -94,63 +100,76 @@ exports[`Snapshot testing for the Web PLayer component 1`] = `
         </div>
       </div>
       <div
-        class="now-playing-bar-center"
+        className="now-playing-bar-center"
       >
         <div
-          class="content player-controls"
+          className="content player-controls"
         >
           <div
-            class="track-controls"
+            className="track-controls"
           >
             <div
-              class="track-info"
+              className="track-info"
             >
               <a
                 href="/"
+                onClick={[Function]}
               >
                 <strong
-                  class="track-name"
+                  className="track-name"
                   data-testid="track-name-link"
-                />
+                >
+                  
+                </strong>
               </a>
               <a
                 href="/"
+                onClick={[Function]}
               >
                 <strong
-                  class="artist-name"
+                  className="artist-name"
                   data-testid="artist-name-link"
-                />
+                >
+                  
+                </strong>
               </a>
             </div>
             <div
-              class="control-buttons"
+              className="control-buttons"
             />
           </div>
           <div
-            class="playback-bar"
+            className="playback-bar"
           >
             <span
-              class="progress-time current"
+              className="progress-time current"
               data-testid="current-time"
             >
               0.00
             </span>
             <div
-              class="progress-bar"
+              className="progress-bar"
               data-testid="progress-click"
               id="progress-width"
+              onMouseDown={[Function]}
+              onMouseMove={[Function]}
+              onMouseUp={[Function]}
             >
               <div
-                class="progress-bar-bg"
+                className="progress-bar-bg"
               >
                 <div
-                  class="progress"
-                  style="width: 0%;"
+                  className="progress"
+                  style={
+                    Object {
+                      "width": "0%",
+                    }
+                  }
                 />
               </div>
             </div>
             <span
-              class="progress-time remaining"
+              className="progress-time remaining"
               data-testid="duration-time"
             >
               0.00
@@ -159,275 +178,73 @@ exports[`Snapshot testing for the Web PLayer component 1`] = `
         </div>
       </div>
       <div
-        class="now-playing-bar-right"
+        className="now-playing-bar-right"
       >
         <div
-          class="volume-bar"
+          className="volume-bar"
         >
           <button
-            class="control-button shuffle"
+            className="control-button shuffle"
             data-testid="shuffle-btn"
+            onClick={[Function]}
             title="Shuffle"
           >
             <img
               alt="Shuffle"
-              src="shuffle.png"
+              src="../../assets/images/icons/shuffle.png"
             />
           </button>
           <button
-            class="control-button repeat"
+            className="control-button repeat"
             data-testid="repeat-btn"
+            onClick={[Function]}
             title="Repeat"
           >
             <img
               alt="Repeat"
-              src="repeat.png"
+              src="../../assets/images/icons/repeat.png"
             />
           </button>
           <button
-            class="control-button volume"
+            className="control-button volume"
             data-testid="volume-btn"
+            onClick={[Function]}
             title="Volume"
           >
             <img
               alt="Volume"
-              src="volume.png"
+              src="../../assets/images/icons/volume.png"
             />
           </button>
           <div
-            class="progress-bar"
+            className="progress-bar"
             data-testid="volume-click"
             id="volume-width"
-            style="width: 125px;"
+            onMouseDown={[Function]}
+            onMouseMove={[Function]}
+            onMouseUp={[Function]}
+            style={
+              Object {
+                "width": "125px",
+              }
+            }
           >
             <div
-              class="progress-bar-bg"
+              className="progress-bar-bg"
             >
               <div
-                class="progress"
-                style="width: 1%;"
+                className="progress"
+                style={
+                  Object {
+                    "width": "1%",
+                  }
+                }
               />
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Web Player component Snapshot testing for the Web PLayer component 1`] = `
-<DocumentFragment>
-  <div
-    class="expanded-img"
-  >
-    <img
-      alt="Cinque Terre"
-      class="img-thumbnail"
-      src="album.jpg"
-    />
-    <button
-      class="expanded-img-btn"
-      title="Extend"
-    >
-      <img
-        alt="Extend"
-        src="extend.png"
-      />
-    </button>
-  </div>
-  <div
-    class="now-playing-bar-container"
-  >
-    <div
-      class="now-playing-bar"
-    >
-      <div
-        class="now-playing-bar-left"
-      >
-        <div
-          class="content"
-        >
-          <div
-            class="ablum-link"
-          >
-            <img
-              alt="Album Art"
-              class="album-art-work"
-              data-testid="album-link-img"
-              src="album.jpg"
-            />
-            <button
-              class="extended-card-button"
-              data-testid="album-link-btn"
-              title="Extend"
-            >
-              <img
-                alt="Extend"
-                class="extend-img"
-                src="extend.png"
-              />
-            </button>
-          </div>
-          <div
-            class="player-controls"
-          >
-            <div
-              class="control-buttons"
-            >
-              <button
-                class="control-button previous"
-                data-testid="previous-btn"
-                title="Previous"
-              >
-                <img
-                  alt="Previous"
-                  src="previous.png"
-                />
-              </button>
-              <button
-                class="control-button play"
-                data-testid="play-btn"
-                title="Play"
-              >
-                <img
-                  alt="Play"
-                  src="play.png"
-                />
-              </button>
-              <button
-                class="control-button next"
-                data-testid="next-btn"
-                title="Next"
-              >
-                <img
-                  alt="Next"
-                  src="next.png"
-                />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="now-playing-bar-center"
-      >
-        <div
-          class="content player-controls"
-        >
-          <div
-            class="track-controls"
-          >
-            <div
-              class="track-info"
-            >
-              <a
-                href="/"
-              >
-                <strong
-                  class="track-name"
-                  data-testid="track-name-link"
-                />
-              </a>
-              <a
-                href="/"
-              >
-                <strong
-                  class="artist-name"
-                  data-testid="artist-name-link"
-                />
-              </a>
-            </div>
-            <div
-              class="control-buttons"
-            />
-          </div>
-          <div
-            class="playback-bar"
-          >
-            <span
-              class="progress-time current"
-              data-testid="current-time"
-            >
-              0.00
-            </span>
-            <div
-              class="progress-bar"
-              data-testid="progress-click"
-              id="progress-width"
-            >
-              <div
-                class="progress-bar-bg"
-              >
-                <div
-                  class="progress"
-                  style="width: 0%;"
-                />
-              </div>
-            </div>
-            <span
-              class="progress-time remaining"
-              data-testid="duration-time"
-            >
-              0.00
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="now-playing-bar-right"
-      >
-        <div
-          class="volume-bar"
-        >
-          <button
-            class="control-button shuffle"
-            data-testid="shuffle-btn"
-            title="Shuffle"
-          >
-            <img
-              alt="Shuffle"
-              src="shuffle.png"
-            />
-          </button>
-          <button
-            class="control-button repeat"
-            data-testid="repeat-btn"
-            title="Repeat"
-          >
-            <img
-              alt="Repeat"
-              src="repeat.png"
-            />
-          </button>
-          <button
-            class="control-button volume"
-            data-testid="volume-btn"
-            title="Volume"
-          >
-            <img
-              alt="Volume"
-              src="volume.png"
-            />
-          </button>
-          <div
-            class="progress-bar"
-            data-testid="volume-click"
-            id="volume-width"
-            style="width: 125px;"
-          >
-            <div
-              class="progress-bar-bg"
-            >
-              <div
-                class="progress"
-                style="width: 1%;"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
+  </div>,
+]
 `;
