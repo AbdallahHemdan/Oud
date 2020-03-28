@@ -189,7 +189,7 @@ button:focus {
   transition-property: width, background-color;
 }
 
-@media only screen and (max-width: 615px) {
+@media only screen and (max-width: 665px) {
   .now-playing-bar-container {
     min-width: 320px;
   }

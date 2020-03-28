@@ -2,7 +2,7 @@
   background-color: #818181;
   bottom: 100px;
   position: fixed;
-  z-index: 4;
+  z-index: 3;
   float: right;
 }
 .overlay {
@@ -11,7 +11,8 @@
   right: 0;
   background-color: #383838;
   /* background-color: rgba(0, 0, 0, 0.9); */
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   width: 60%;
   min-width: 620px;
   height: 0;
@@ -60,7 +61,7 @@
   top: 60px;
 }
 .track {
-  background: white;
+  background: #383838;
   width: 100%;
   z-index: 5;
   height: 4.56em;
@@ -70,8 +71,150 @@
   text-decoration: none;
   box-shadow: none;
   border: none;
-  margin-bottom: 1.5em;
+  margin-bottom: 0.5em;
 }
+.track:hover {
+  background: black;
+}
+
+.track-art-work {
+  width: 3.5em;
+  height: 3.5em;
+  vertical-align: middle;
+  position: relative;
+  background-size: cover;
+  border-radius: 0.3em;
+  float: left;
+}
+.track .content {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100%;
+}
+.track-name {
+  /* display: inline-flex; */
+  float: left;
+  max-width: 18rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  max-height: 3.5em;
+}
+.track-name a {
+  display: initial;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: rgb(245, 243, 243);
+  animation: trackmove;
+}
+@keyframes trackmove {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+.artist-name {
+  float: left;
+  max-width: 18rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  max-height: 3em;
+  margin-left: 3.5em;
+  margin-top: 0.95em;
+}
+.artist-name a {
+  display: initial;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 0.9em;
+  color: #a0a0a0;
+}
+.open-nav-btn {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.track .handler {
+  cursor: row-resize;
+  display: inherit;
+  height: 24px;
+  background-size: cover;
+  position: relative;
+  top: 32%;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+.track:hover .ellipsis-icon {
+  visibility: visible;
+}
+.ellipsis-container {
+  /* float: right;
+  border-radius: 50%;
+  margin: auto;
+  padding: 0.6em;
+  padding-top: 0.8em; */
+
+  height: 100%;
+  position: relative;
+  text-align: center;
+  top: 14px;
+  display: initial;
+  right: -18%;
+}
+.ellipsis-icon {
+  background: transparent;
+  border: none;
+  visibility: hidden;
+}
+.track .content .duration {
+  cursor: default;
+  float: right;
+  border-radius: 50%;
+  margin: auto;
+  padding: 0.6em;
+  padding-top: 0.8em;
+  margin-right: 2%;
+
+  /* cursor: default;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  top: 14px;
+  display: initial;
+  right: -18%; */
+}
+@media screen and (max-width: 1030px) {
+  .artist-name,
+  .track-name {
+    float: none;
+  }
+  .artist-name {
+    margin-top: auto;
+  }
+  .track-name a {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .artist-name,
+  .track-name {
+    float: none;
+  }
+  .artist-name {
+    margin-top: auto;
+  }
+  .track-name a {
+    font-size: 18px;
+  }
+}
+
 @media screen and (max-height: 450px) {
   .overlay {
     overflow-y: auto;
@@ -85,7 +228,72 @@
     right: 35px;
   }
 }
-.open-nav-btn {
-  font-size: 30px;
-  cursor: pointer;
+@media screen and (min-width: 1027px) and (max-width: 1131px) {
+  .artist-name {
+    display: none;
+  }
 }
+@media screen and (min-width: 1018px) and (max-width: 1261px) {
+  .track .content .duration {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1261px) {
+  .track .content .duration {
+    margin-top: -11%;
+  }
+}
+
+@media screen and (min-width: 1036px) and (max-width: 1649px) {
+  .ellipsis-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1036px) {
+  .ellipsis-container {
+    top: -33px;
+    right: -59%;
+  }
+}
+/* @media screen and (min-width: 1025px) and (max-width: 1115px) {
+  .ellipsis-container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1038px) and (max-width: 1199px) {
+  .track .content .duration {
+    display: none;
+  }
+}
+@media screen and (max-width: 1025px) {
+  .ellipsis-container {
+    /* position: relative;
+    top: -34px;
+    margin: initial;
+    padding: initial; */
+
+/* top: -34px;
+    right: -59%;
+  }
+}
+
+@media screen and (max-width: 1039px) {
+  .track .content .duration {
+    position: relative;
+    top: -34px;
+    margin: initial;
+    padding: initial;
+
+    /* top: -34px;
+    right: -59%; */
+/* }
+}
+@media screen and (max-height: 453px) {
+  .ellipsis-container {
+    left: 58%;
+    position: absolute;
+  }
+}  */

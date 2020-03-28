@@ -39,6 +39,7 @@ class Queue extends Component {
           <TrackContainer
             tracks={this.state.tracks}
             onSortEnd={this.onSortEnd}
+            useDragHandle={true}
           />
         </div>
         <span onClick={this.openNav} className="open-nav-btn">
