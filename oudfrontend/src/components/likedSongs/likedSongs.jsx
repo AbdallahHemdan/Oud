@@ -1,84 +1,132 @@
 import React from 'react';
-import './playlist.css';
-import Song from '../song/song'
+import SongList from '../songList/songList'
+import HeaderBody from './components/headerBody'
 import axios from 'axios';
+import './likedSongs.css'
+
 class LikedSongs extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             tracks : [],
             recieved:false,
-            likedSongs:{}
-            
+            items:[],
+            playing:false,
+            queued:false
         };
-        
+    }
+    /**
+     * Called Whenever the user clicked on the PLAY button and it adds all the songs of the playlist to the queue by a post request
+     * @func
+     * @returns {void}
+     */
+    playButtonClicked(){
+        //all the three requests should be put requests
+        this.setState({playing:!this.state.playing})
+        if(this.state.queued === false){
+            this.setState({queued:true});
+            const tracks = this.state.tracks
+            const length = this.state.tracks.length
+            axios.post('http://localhost:3000/queue/', {
+                tracks : tracks,
+                total : length
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+        if(this.state.playing === false){
+            axios.post('http://localhost:3000/player/pause',)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+        if(this.state.playing === true){
+            axios.post('http://localhost:3000/player/play',)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+
     }
 
-
+    /**
+     * Called Whenever the user clicked on the like button and it adds the playlist to the likedPlaylists 
+     * if it is not already there otherwise it removes it from there by a delete request
+     * @func
+     * @returns {void}
+     */
+    
+    /**
+     * It fetches the data of the playlist from the database and checks if it exists in the likedPlaylists table
+     * @func
+     * @returns {void}
+     */
     componentDidMount(){
-        const url = `http://localhost:3000/${this.props.id.id}`; 
-         axios.get(`${url}`)
+        axios.get(`http://localhost:3000/likedSongs/`)
         .then((response)=> {
-            const playlist = response.data;
-            this.setState({tracks:playlist.tracks});
+            const items = response.data.items;
             this.setState({recieved:true})
-            this.setState({playlist:playlist})
-            console.log(this.props.id);
+            this.setState({items:items})   
+            this.destructuring(items);
+            console.log(items)
         })
         .catch((error)=> {
             console.log(error);
-            console.log(this.props.id);
-
-        });
-
-
-        
+        }); 
     }
-
+    destructuring(items){
+        var tracks =[]
+        items.map((item)=>{
+            tracks.push(item.track);
+        })
+        console.log(tracks)
+        this.setState({tracks:tracks})
+    }
+    
 
     render(){
         return(
-            <div className='likedSongs'>
-                <div>
-                    <div className='row'>
-                        <div className='likedSongsHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
-                            <div className='likedSongsImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
-                                <img src='https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png' className='likedSongsImage' alt='playlist img'/>
-                                
-                            </div>            
-                            <div className='likedSongsHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8'>
-    
-                                <div className='likedSongsHeaderBodyTop'>
-                                    <h2 className='whiteText'>Today's Top Egyptian Hits</h2>
-                                    <a className='likedSongsAnchor' href='www.facebook.com'>{this.state.playlist.owner}</a>
-                                </div>
-                                
-                                <div className='likedSongsHeaderBodyBottom'>
-                                    <button className="playButton" variant="outline-success">
-                                            PLAY
-                                    </button>
-                                    <p>{this.state.tracks.length} {this.state.tracks.length > 1? 'songs':'song'}</p>
-                                </div>
-                            </div>
+            <div data-testid='likedSongs' className='playlist'>
+                
+                <div className='row'>
+                    <div data-testid="playlistHeader" className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
+                        <div data-testid="playlistIamgeContainer" className='playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
+                            <img 
+                            data-testid="playlistIamge" 
+                            src='https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png' 
+                            className='playlistImage' 
+                            alt='playlist img'/>
+                        </div>            
+                        <div data-testid="playlistHeaderBody" className='playlistHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8'>
+                      
+                            <HeaderBody 
+                                data-testid = "HeaderBodyBottom" 
+                                length = {this.state.tracks.length} 
+                                playClicked = {this.playButtonClicked.bind(this)}
+                                playing = {this.state.playing}
+                            />
                         </div>
-                        <div className='col-xs-8 col-md-6 col-lg-8 col-xl-8'>
-                            {this.state.recieved?
-                                
-                                this.state.tracks.map((track) => {
-                                return(
-                                        <Song
-                                            track={track}
-                                        />
-                                    );
-                                }):<h1>LOADING</h1>
-                            }
-                                
-                        </div>
-                    </div>
+                    </div>  
+                    <SongList 
+                        data-testid="songList"
+                        recieved = {this.state.recieved}
+                        tracks={this.state.tracks} 
+                        className="col-xs-8 col-md-6 col-lg-8 col-xl-8"
+                    />
+                    
                 </div>
             </div>
         );
     }
 }
-
 export default LikedSongs;
