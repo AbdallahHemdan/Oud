@@ -3,7 +3,7 @@ import './playlist.css';
 import axios from 'axios';
 import HeaderBodyBottom from './components/headerBodyBottom'
 import HeaderBodyTop from './components/headerBodyTop'
-import SongList from './components/songList'
+import SongList from '../songList/songList'
 import PropTypes from 'prop-types';
 
 
@@ -18,7 +18,8 @@ import PropTypes from 'prop-types';
  * @property {boolean} state.liked true if the playlists is liked by the user (i.e the playlist is in the likedPlaylists table in the database)
  * @property {object} state.playlist carries all the information of the playlist
  * @property {Array.<track>} state.tracks array of all the songs in the playlist
- * 
+ * @property {boolean} playing true when the playist is playing. Otherwise, it is false
+ * @property {boolean} queued true when the playist is added to queue. Otherwise, it is false
  * @returns {
  *              <div>
  *               <div classname="playlistHeader">
@@ -47,7 +48,9 @@ class Playlist extends React.Component{
             tracks : [],
             recieved:false,
             playlist:{},
-            liked:false
+            liked:false,
+            playing:false,
+            queued:false
         };
         const id = this.props.id;
     }
@@ -57,18 +60,42 @@ class Playlist extends React.Component{
      * @returns {void}
      */
     playButtonClicked(){
-        const tracks = this.state.tracks
-        const length = this.state.tracks.length
-        axios.post('http://localhost:3000/queue/', {
-            tracks : tracks,
-            total : length
-        })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        //all the three requests should be put requests
+        this.setState({playing:!this.state.playing})
+        if(this.state.queued === false){
+            this.setState({queued:true});
+            const tracks = this.state.tracks
+            const length = this.state.tracks.length
+            axios.post('http://localhost:3000/queue/', {
+                tracks : tracks,
+                total : length
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+        if(this.state.playing === false){
+            axios.post('http://localhost:3000/player/pause',)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+        if(this.state.playing === true){
+            axios.post('http://localhost:3000/player/play',)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+
     }
 
     /**
@@ -147,11 +174,12 @@ class Playlist extends React.Component{
                                 owner={this.state.playlist.owner}
                               />
                             <HeaderBodyBottom 
-                                data-testid="HeaderBodyBottom" 
-                                length={this.state.tracks.length} 
-                                playClicked={this.playButtonClicked.bind(this)}
-                                likeClicked={this.likeButtonClicked.bind(this)}
-                                liked={this.state.liked}
+                                data-testid = "HeaderBodyBottom" 
+                                length = {this.state.tracks.length} 
+                                playClicked = {this.playButtonClicked.bind(this)}
+                                likeClicked = {this.likeButtonClicked.bind(this)}
+                                liked = {this.state.liked}
+                                playing = {this.state.playing}
                             />
                         </div>
                     </div>  

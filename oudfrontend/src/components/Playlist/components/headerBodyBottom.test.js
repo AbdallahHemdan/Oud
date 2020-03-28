@@ -3,7 +3,6 @@ import HeaderBodyBottom from './headerBodyBottom';
 import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import checkPropTypes from 'check-prop-types'
-import { mockComponent } from 'react-dom/test-utils';
 Enzyme.configure({adapter: new EnzymeAdapter()});
 
 
@@ -56,18 +55,26 @@ describe('HeaderBodyBottom component', ()=>{
         let propsSingular = {length:1}
         let propsPlural = {length:4}
         let propsNan = {length: NaN};
+        let propsPlaying = {playing:true}
+        let propsNotPlaying = {playing:false}
         
-    
         it("renders correctly with props", ()=>{
             component = setup(propsPlural);
             const wrapper = findByTestAttr(component, "HeaderBodyBottom");
             expect(wrapper.length).toBe(1);
         });
     
-        it("renders play button correctly with props", ()=>{
-            component = setup(propsPlural);
+        it("renders play button correctly with playing = true", ()=>{
+            component = setup(propsPlaying);
             const wrapper = findByTestAttr(component, "playButton");
             expect(wrapper.length).toBe(1);
+            expect(wrapper.text()).toBe('PLAY')
+        });
+        it("renders play button correctly with playing = false", ()=>{
+            component = setup(propsPlaying);
+            const wrapper = findByTestAttr(component, "playButton");
+            expect(wrapper.length).toBe(1);
+            expect(wrapper.text()).toBe('PAUSE')
         });
     
         it("renders like icon correctly with props", ()=>{
@@ -121,6 +128,7 @@ describe('HeaderBodyBottom component', ()=>{
     });
 
     describe('checking propTypes', ()=>{
+        //testing the length prop
         it('should not throw a warning', ()=>{
             const result = checkPropTypes(HeaderBodyBottom.propTypes, {length:1}, 'prop', HeaderBodyBottom.name);
             expect(result).toBeUndefined();
@@ -130,6 +138,8 @@ describe('HeaderBodyBottom component', ()=>{
             console.log(result);
             expect(result).toBeDefined();
         });
+
+        //testing the liked prop
         it('should not throw a warning', ()=>{
             const result = checkPropTypes(HeaderBodyBottom.propTypes, {liked:false}, 'prop', HeaderBodyBottom.name);
             expect(result).toBeUndefined();
@@ -139,6 +149,20 @@ describe('HeaderBodyBottom component', ()=>{
             console.log(result);
             expect(result).toBeDefined();
         });
+
+        //testing the playing prop
+        it('should not throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {playing:false}, 'prop', HeaderBodyBottom.name);
+            expect(result).toBeUndefined();
+        });
+        
+        it('should throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {playing:{}}, 'prop', HeaderBodyBottom.name);
+            console.log(result);
+            expect(result).toBeDefined();
+        });
+
+        //testing the likeClicked prop
         it('should not throw a warning', ()=>{
             const result = checkPropTypes(HeaderBodyBottom.propTypes, {likeClicked:jest.fn()}, 'prop', HeaderBodyBottom.name);
             expect(result).toBeUndefined();
@@ -148,6 +172,8 @@ describe('HeaderBodyBottom component', ()=>{
             console.log(result);
             expect(result).toBeDefined();
         });
+
+        //testing the playClicked prop
         it('should not throw a warning', ()=>{
             const result = checkPropTypes(HeaderBodyBottom.propTypes, {playClicked:jest.fn()}, 'prop', HeaderBodyBottom.name);
             expect(result).toBeUndefined();

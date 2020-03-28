@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
  * @param {func} playClicked a function that is called when the playButtoon is clicked to add the playlists, albums, likedSongs to queue
  * @param {func} likeClicked a function that is called when the likeButtoon is clicked to add the playlists, albums to library
  * @param {boolean} liked used to indicate the state of like icon it is true when the playlist or album is in the library and false otherwise
+ * @param {boolean} playing means that the playlist is playing used to conditionaly render the text of playButton with 'play' or 'pause'
  * @returns {<div>
  * <button></button>
  * <button></button>
@@ -16,11 +17,11 @@ import PropTypes from 'prop-types';
  */
 
 function HeaderBodyBottom(props){
-    const {length, playClicked, likeClicked, liked} = props;
+    const {length, playClicked, likeClicked, liked, playing} = props;
     return(
         <div data-testid="HeaderBodyBottom" className='playlistHeaderBodyBottom'>
             <button onClick={playClicked} data-testid="playButton" className="playButton" variant="outline-success">
-                    PLAY
+                    {playing? 'PAUSE' : 'PLAY'}
             </button>
             
             <button data-testid="likeIcon" className="likeIcon" onClick={likeClicked}>
@@ -38,6 +39,7 @@ function HeaderBodyBottom(props){
 HeaderBodyBottom.propTypes ={
     length : PropTypes.number,
     liked : PropTypes.bool,
+    playing : PropTypes.bool,
     likeClicked : PropTypes.func,
     playClicked : PropTypes.func
 }

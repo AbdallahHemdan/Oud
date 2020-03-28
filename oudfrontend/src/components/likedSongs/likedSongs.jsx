@@ -81,4 +81,4 @@ class LikedSongs extends React.Component{
     }
 }
 
-export default Playlist;
+export default LikedSongs;

@@ -2,7 +2,7 @@ import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import Playlist from './components/playlist/playlist';
-import { BrowserRouter as Router, Route, Switch, useParams, Link,useRouteMatch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, useParams} from 'react-router-dom';
 
 
 function App() {
