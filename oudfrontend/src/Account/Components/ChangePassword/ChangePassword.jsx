@@ -1,9 +1,24 @@
 import React, { Component } from "react";
-import EditProfileTextElement from "./EditProfileTextElement";
-import UserExperinceForm from "./UserExperinceForm";
-import ProfileInfo from "../General/DummyMock";
+import EditProfileTextElement from "../EditProfileTextElement/EditProfileTextElement";
+import UserExperinceForm from "../UserExperinceForm/UserExperinceForm";
+import axios from "axios";
 
-import "../CssFiles/ChangePassword.css";
+import "./ChangePassword.css";
+
+/**
+ * just have a dummy password and should be changed
+ * @type{object}
+ *
+ */
+let ProfileInfo = {
+  password: "7_DummyPassword_5" //this should not sotred in the db you should change this
+};
+
+/**
+ * @type {Function}
+ * @param {*} form errors
+ * @returns {boolean} valid or not valid
+ */
 
 function formValid({ formErrors, ...rest }) {
   let valid = true;
@@ -20,7 +35,11 @@ function formValid({ formErrors, ...rest }) {
 
   return valid;
 }
-
+/**
+ * @type {Function}
+ * @param {password} password
+ * @returns {boolean} valid password or not
+ */
 function checkPassword(password) {
   let [isUppercase, isLowercase, isSpecialChar, isNumber] = [
     false,
@@ -46,6 +65,11 @@ function checkPassword(password) {
   }
   return isSpecialChar && isNumber && isUppercase && isLowercase;
 }
+
+/**
+ * @type {Class}
+ * @returns {HTMLElement} change Password Page
+ */
 
 class ChangePassword extends Component {
   constructor(props) {
@@ -87,6 +111,18 @@ class ChangePassword extends Component {
 
     if (formValid(this.state)) {
       //make a request
+      axios
+        .patch("http://localhost:3002/me/updatePassword", {
+          currentPassword: this.state.oldPassword,
+          password: this.state.password,
+          passwordConfirm: this.state.repeatPassword
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
       this.setState({
         formNotValid: "",
         formSaved: "Password changed successfully"
@@ -130,9 +166,9 @@ class ChangePassword extends Component {
 
   render() {
     return (
-      <div className="accountContainer">
+      <div className="accountContainer" data-test="ChangePassword">
         <h2 className="settingTitle"> Change password </h2>
-        <div className="accountCard">
+        <div className="accountCard" data-test="ChangePassword-Card">
           <form className="editProfileElement" onSubmit={this.handelSubmit}>
             {this.state.formNotValid.length > 0 && (
               <div className="formSubmitErorr">{this.state.formNotValid}</div>
@@ -143,6 +179,7 @@ class ChangePassword extends Component {
 
             <EditProfileTextElement
               id="current password"
+              data-test="current-password"
               metaData="Current password"
               class="editInput"
               type="password"
@@ -155,6 +192,7 @@ class ChangePassword extends Component {
             )}
             <EditProfileTextElement
               id="new password"
+              data-test="new-password"
               metaData="New password"
               class="editInput"
               type="password"
@@ -167,6 +205,7 @@ class ChangePassword extends Component {
             )}
             <EditProfileTextElement
               id="repeat new password"
+              data-test="repeat-new-password"
               metaData="Repeat new password"
               class="editInput"
               type="password"
@@ -183,6 +222,7 @@ class ChangePassword extends Component {
                 id="cancel"
                 type="button"
                 className="btn btn-light cancle"
+                data-test="cancle"
               >
                 Cancle
               </button>
@@ -191,11 +231,12 @@ class ChangePassword extends Component {
                 className="btn btn-warning submit"
                 type="submit"
                 value="Set new password"
+                data-test="submit"
               />
             </div>
           </form>
         </div>
-        <UserExperinceForm />
+        <UserExperinceForm data-test="UserExperinceForm" />
       </div>
     );
   }

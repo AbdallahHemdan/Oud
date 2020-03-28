@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Sidebar.css";
-import oudIcon from "../../assets/images/logo.svg"
+import oudIcon from "../../assets/images/logo.svg";
 import { Link } from "react-router-dom";
 class Sidebar extends Component {
   render() {
@@ -11,7 +11,12 @@ class Sidebar extends Component {
             <Link to="/">
               <div className="media-body">
                 <h2 className="font-weight-white mb-0">
-                  <img src={oudIcon} width="100%" height="100%" alt="oud logo" />
+                  <img
+                    src={oudIcon}
+                    width="100%"
+                    height="100%"
+                    alt="oud logo"
+                  />
                 </h2>
               </div>
             </Link>
@@ -19,20 +24,34 @@ class Sidebar extends Component {
           <ul className="nav flex-column bg-dark mb-0 ml-2">
             <li className="nav-item">
               <Link to="/" className="nav-link text-light bg-dark-hover">
-                <i className="fa fa-home mr-3 icon-sz icons"></i>
+                <i className="fa fa-home mr-3 icon-sz icons-home"></i>
                 Home
               </Link>
             </li>
 
             <li className="nav-item">
               <Link to="/search" className="nav-link text-light bg-dark-hover">
-                <i className="fa fa-search mr-3 fa-lg icons"></i>
+                <i className="fa fa-search mr-3 fa-lg icons-home"></i>
                 Search
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/your-library" className="nav-link text-light bg-dark-hover">
-                <svg className="icons" viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M311.873 77.46l166.349 373.587-39.111 17.27-166.349-373.587zM64 463.746v-384h42.666v384h-42.666zM170.667 463.746v-384h42.667v384h-42.666z" fill="currentColor"></path></svg>
+              <Link
+                to="/your-library"
+                className="nav-link text-light bg-dark-hover"
+              >
+                <svg
+                  className="icons-home"
+                  viewBox="0 0 512 512"
+                  width="24"
+                  height="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M311.873 77.46l166.349 373.587-39.111 17.27-166.349-373.587zM64 463.746v-384h42.666v384h-42.666zM170.667 463.746v-384h42.667v384h-42.666z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
                 Your Library
               </Link>
             </li>
@@ -47,13 +66,16 @@ class Sidebar extends Component {
                 to="/create-playlist"
                 className="nav-link text-light bg-dark-hover"
               >
-                <i className="fa fa-plus-square mr-3  fa-lg icons"></i>
+                <i className="fa fa-plus-square mr-3  fa-lg icons-home"></i>
                 Create Playlist
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/liked-songs" className="nav-link text-light bg-dark-hover">
-                <i className="fa fa-heart mr-3 fa-lg icons"></i>
+              <Link
+                to="/liked-songs"
+                className="nav-link text-light bg-dark-hover"
+              >
+                <i className="fa fa-heart mr-3 fa-lg icons-home"></i>
                 Liked Songs
               </Link>
             </li>

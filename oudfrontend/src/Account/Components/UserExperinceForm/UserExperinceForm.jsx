@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import "../CssFiles/UserExperienceForm.css";
+import "./UserExperienceForm.css";
 
-/*may be i will restructure it */
+/**
+ * @type {Function}
+ * @param {*} props
+ * @returns {HTMLElement} Help us form
+ */
 function HelpUs(props) {
   return (
     <div>
@@ -22,6 +26,11 @@ function HelpUs(props) {
     </div>
   );
 }
+/**
+ * @type {Function}
+ * @param {*} props
+ * @returns {HTMLElement} thank you let us know more form
+ */
 function ThankYou(props) {
   return (
     <div>
@@ -40,6 +49,10 @@ function ThankYou(props) {
     </div>
   );
 }
+/**
+ * @type {Function}
+ * @returns {HTMLElement} Thanks for your feedback!
+ */
 function FeedBack() {
   return (
     <div className="feedBack">
@@ -47,7 +60,13 @@ function FeedBack() {
     </div>
   );
 }
-
+/**
+ * @type {Function}
+ * @returns {HTMLElement} User Experience Form
+ * @property 0-help us
+ * @property 1-let us know more
+ * @property 2-thanks for your feedback
+ */
 class UserExperienceForm extends Component {
   constructor(props) {
     super(props);
@@ -65,11 +84,11 @@ class UserExperienceForm extends Component {
     const isClicked = this.state.count;
     let theForm;
     if (isClicked === 0) {
-      theForm = <HelpUs handeler={this.handelChange} />;
+      theForm = <HelpUs handeler={this.handelChange} data-test="theForm" />;
     } else if (isClicked === 1) {
-      theForm = <ThankYou handeler={this.handelChange} />;
+      theForm = <ThankYou handeler={this.handelChange} data-test="theForm" />;
     } else if (isClicked === 2) {
-      theForm = <FeedBack />;
+      theForm = <FeedBack data-test="theForm" />;
     }
     return <div className="accountCard">{theForm} </div>;
   }

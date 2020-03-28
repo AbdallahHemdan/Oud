@@ -6,7 +6,7 @@ function Country(props) {
       id="country"
       name="country"
       className={props.class}
-      defaultValue={props.default}
+      value={props.default}
       onChange={props.handeler}
     >
       <option value="Afghanistan">Afghanistan</option>

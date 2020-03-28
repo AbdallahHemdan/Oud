@@ -16,7 +16,7 @@ const SideBarElements = [
   {
     id: "ChangePassword",
     key: "3",
-    name: "Change password",
+    name: " Change password",
     icon: "fas fa-lock ",
     route: "/changePassword"
   }

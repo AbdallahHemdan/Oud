@@ -1,11 +1,33 @@
 import React, { Component } from "react";
-import ProfileInfo from "../General/DummyMock";
-import Country from "../General/Country";
-import UserExperinceForm from "./UserExperinceForm";
-import EditProfileTextElement from "./EditProfileTextElement";
+import Country from "../../General/Country";
+import UserExperinceForm from "../UserExperinceForm/UserExperinceForm";
+import EditProfileTextElement from "../EditProfileTextElement/EditProfileTextElement";
+import axios from "axios";
 
-import "../CssFiles/EditProfile.css";
+import "./EditProfile.css";
 
+/**
+ * @type {object}
+ * @property {string} email
+ * @property {string} birthDate
+ * @property {string} country
+ * @property {string} gender
+ * @property {string} displayName
+ * @property {password} password and should not to be here
+ */
+let ProfileInfo = {
+  email: "",
+  birthDate: "",
+  country: "",
+  gender: "",
+  displayName: "",
+  password: "7_DummyPassword_5" //this should not sotred in the db you should change this
+};
+/**
+ * @type {Function}
+ * @param {*} props
+ * @returns {HTMLElement} Edit country feild
+ */
 function EditCountry(props) {
   return (
     <div id={props.id} className="EditProfileDropElement">
@@ -18,6 +40,11 @@ function EditCountry(props) {
     </div>
   );
 }
+/**
+ * @type {Function}
+ * @param {*} props
+ * @returns {HTMLElement} Edit gender feild
+ */
 function EditGendr(props) {
   return (
     <div className="EditProfileDropElement">
@@ -25,16 +52,20 @@ function EditGendr(props) {
       <select
         id={props.id}
         className={props.class}
-        defaultValue={props.value}
+        value={props.value}
         onChange={props.handeler}
       >
-        <option value="Male">Male</option>
-        <option value="female">Female</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
       </select>
     </div>
   );
 }
-
+/**
+ * check if the form is valid
+ * @type {Function}
+ * @returns {boolean} valid or not
+ */
 function formValid({ formErrors, ...rest }) {
   let valid = true;
 
@@ -51,15 +82,21 @@ function formValid({ formErrors, ...rest }) {
   return valid;
 }
 
+/**
+ * Edit Profile
+ * @type {Class}
+ * @returns {HTMLElement} Edit Profile Page
+ */
+
 class EditProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: ProfileInfo.email,
-      gender: ProfileInfo.Gender,
-      dateOfBirth: ProfileInfo.birthDate,
-      country: ProfileInfo.country,
-      displayName: ProfileInfo.displayName,
+      email: "",
+      gender: "",
+      dateOfBirth: "",
+      country: "",
+      displayName: "",
       password: "",
       formNotValid: "",
       formSaved: "",
@@ -69,6 +106,7 @@ class EditProfile extends Component {
         passwordErorr: ""
       }
     };
+
     this.emailHandelChange = this.emailHandelChange.bind(this);
     this.genderHandelChange = this.genderHandelChange.bind(this);
     this.dateOfBirthHandelChange = this.dateOfBirthHandelChange.bind(this);
@@ -78,6 +116,28 @@ class EditProfile extends Component {
     this.handelSubmit = this.handelSubmit.bind(this);
   }
 
+  componentDidMount() {
+    axios
+      .get("http://localhost:3002/me")
+      .then(response => {
+        ProfileInfo.displayName = response.data.displayName;
+        ProfileInfo.email = response.data.email;
+        ProfileInfo.gender = response.data.gender;
+        ProfileInfo.birthDate = response.data.birthDate;
+        ProfileInfo.country = response.data.country;
+
+        this.setState({
+          email: response.data.email,
+          gender: response.data.gender,
+          dateOfBirth: response.data.birthDate,
+          displayName: response.data.displayName,
+          country: response.data.country
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   emailHandelChange(event) {
     this.setState({ email: event.target.value });
     const emailRegex = RegExp(
@@ -127,7 +187,23 @@ class EditProfile extends Component {
     if (disablePassword) {
       this.setState({ formValid: "", password: "" });
     } else if (formValid(this.state)) {
-      //make a request
+      //make a update request
+      axios
+        .put("http://localhost:3002/me/profile", {
+          email: this.state.email,
+          passwordConfirm: ProfileInfo.password,
+          gender: this.state.gender,
+          birthDate: this.state.dateOfBirth,
+          country: this.state.country,
+          displayName: this.state.displayName
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+
       this.setState({
         formNotValid: "",
         formSaved: "Profile saved successfully"
@@ -143,15 +219,15 @@ class EditProfile extends Component {
   render() {
     const disablePassword =
       ProfileInfo.email === this.state.email &&
-      ProfileInfo.Gender === this.state.gender &&
+      ProfileInfo.gender === this.state.gender &&
       ProfileInfo.displayName === this.state.displayName &&
       ProfileInfo.country === this.state.country &&
       ProfileInfo.birthDate === this.state.dateOfBirth;
     return (
-      <div className="accountContainer">
+      <div className="accountContainer" data-test="EditProfile">
         <h2 className="settingTitle"> Edit profile </h2>
 
-        <div className="accountCard">
+        <div className="accountCard" data-test="EditProfile-accountCard">
           <form className="editProfileElement" onSubmit={this.handelSubmit}>
             {this.state.formNotValid.length > 0 && (
               <div className="formSubmitErorr">{this.state.formNotValid}</div>
@@ -161,8 +237,9 @@ class EditProfile extends Component {
             )}
             <EditProfileTextElement
               id="displayName"
+              data-test="displyName"
               metaData="Display Name"
-              value={ProfileInfo.displayName}
+              value={this.state.displayName}
               class="editInput"
               type="text"
               handeler={this.displayNameHandelChange}
@@ -174,8 +251,9 @@ class EditProfile extends Component {
             )}
             <EditProfileTextElement
               id="email"
+              data-test="email"
               metaData="Email"
-              value={ProfileInfo.email}
+              value={this.state.email}
               class="editInput"
               type="text"
               handeler={this.emailHandelChange}
@@ -185,27 +263,31 @@ class EditProfile extends Component {
             )}
             <EditGendr
               id="gender"
+              data-test="gender"
               metaData="Gender"
-              value={ProfileInfo.Gender}
+              value={this.state.gender}
               class="editInput"
               handeler={this.genderHandelChange}
             />
             <EditProfileTextElement
               id="dateOfBirth"
+              data-test="dateOfBirth"
               metaData="Date of birth"
-              value={ProfileInfo.birthDate}
+              value={this.state.dateOfBirth}
               class="editInput"
               type="date"
               handeler={this.dateOfBirthHandelChange}
             />
             <EditCountry
               id="editCountrty"
+              data-test="country"
               class="editInput"
-              default={ProfileInfo.country}
+              default={this.state.country}
               handeler={this.countryHandelChange}
             />
             <EditProfileTextElement
               id="confirimPassword"
+              data-test="password"
               metaData="Confirm password"
               class="editInput"
               type="password"
@@ -222,19 +304,24 @@ class EditProfile extends Component {
               Oud keeps your information alawys secret !
             </p>
             <div className="rightSaveProfile">
-              <button type="button" className="btn btn-light cancle">
+              <button
+                type="button"
+                className="btn btn-light cancle"
+                data-test="cancle"
+              >
                 CANCLE
               </button>
               <input
                 className="btn btn-warning submit"
                 type="submit"
                 value="SAVE PROFILE"
+                data-test="submit"
               />
             </div>
           </form>
         </div>
 
-        <UserExperinceForm />
+        <UserExperinceForm data-test="UserExperinceForm" />
       </div>
     );
   }

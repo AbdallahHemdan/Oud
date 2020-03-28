@@ -17,9 +17,8 @@ header {
 }
 p {
   font-weight: 550;
-  color: #212529;
+  color: #000000;
 }
-
 button a:hover,
 button a:focus,
 button a:active,
@@ -41,9 +40,6 @@ h2 {
   padding: 20px;
   text-align: left;
   height: 95%;
-}
-.accountContainer h1 {
-  color: #212529;
 }
 .settingTitle {
   width: 90%;
@@ -198,8 +194,9 @@ input[type="text"]:focus {
     background-color: #fff;
   }
   .cancle {
-    visibility: hidden;
-    height: 0px;
+    text-align: center;
+
+    width: 175px;
   }
 }
 @media only screen and (max-width: 767px) {

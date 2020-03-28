@@ -10,17 +10,17 @@
 }
 
 .btn {
+}
+.oud-btn {
+  color: #f0a91a;
+  border: 2px solid #f0a91a;
+  border-radius: 0.85rem;
   z-index: 3;
   border-style: solid;
   border-width: 2px;
   border-radius: 80px !important;
   transition: all 0.4s linear;
   width: 150px;
-}
-.oud-btn {
-  color: #f0a91a;
-  border: 2px solid #f0a91a;
-  border-radius: 0.85rem;
 }
 .oud-btn:hover {
   background-color: #f0a91a;

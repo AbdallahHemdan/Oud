@@ -1,15 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
-import SideBarElements from "../General/SideBarElements";
+import SideBarElements from "../../General/SideBarElements";
 
-import { Link, useRouteMatch, useLocation } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
-import "../CssFiles/HiddenSideBar.css";
-
-let buttonName = "";
+import "./HiddenSideBar.css";
+/**
+ * side bar Element
+ * @type {Function}
+ * @param {*} props
+ * @returns {HTMLElement} element such that change Password , Edit Profile , Account Overview
+ */
 function SideBarElement(props) {
   let { url, path } = useRouteMatch();
   return (
@@ -23,17 +27,29 @@ function SideBarElement(props) {
     </Dropdown.Item>
   );
 }
-
+/**
+ * @type {Function}
+ * @returns {HTMLElement} Hidden navigation Bar  (change Password , Edit Profile , Account Overview)
+ */
 function HiddenSideBar() {
   return (
-    <div className="hiddenSideBar">
+    <div className="hiddenSideBar" data-test="hiddenSideBar">
       <Dropdown className="dropDownGroupForHiddenSideBar" as={ButtonGroup}>
-        <Button className="dropdownButtonSideBar" variant="">
+        <Button
+          className="dropdownButtonSideBar"
+          variant=""
+          data-test="hiddenButton"
+        >
           Oud
         </Button>
-        <Dropdown.Toggle split variant="Warning" id="dropdown-basic" />
+        <Dropdown.Toggle
+          split
+          variant="Warning"
+          id="dropdown-basic"
+          data-test="hiddenToggle"
+        />
 
-        <Dropdown.Menu className="menuHiddenSideBar ">
+        <Dropdown.Menu className="menuHiddenSideBar " data-test="hiddenMenu">
           {SideBarElements.map(element => (
             <SideBarElement
               id={element.id}

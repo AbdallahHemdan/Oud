@@ -4,15 +4,15 @@ import { withRouter } from "react-router-dom";
 
 class Navbar extends Component {
   handleClickOnSearch = () => {
-    this.props.history.replace('search');
-  }
+    this.props.history.replace("search");
+  };
 
   handleGoBack = () => {
     this.props.history.goBack();
-  }
+  };
   handleGoForward = () => {
     this.props.history.goForward();
-  }
+  };
   render() {
     return (
       <div>
@@ -47,7 +47,10 @@ class Navbar extends Component {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse login-signup" id="navbarSupportedContent">
+          <div
+            className="collapse navbar-collapse login-signup"
+            id="navbarSupportedContent"
+          >
             <ul className="navbar-nav mr-auto"></ul>
             <ul className="navbar-nav mr-auto"></ul>
             <form className="form-inline my-2 my-lg-0">
