@@ -1,0 +1,70 @@
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 223px;
+  z-index: 2;
+}
+.fa-angle-left:before {
+  margin-right: 20px;
+}
+
+.oud-btn {
+  color: #f0a91a;
+  border: 2px solid #f0a91a;
+  border-radius: 0.85rem;
+  z-index: 3;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 80px !important;
+  transition: all 0.4s linear;
+  width: 150px;
+}
+.oud-btn:hover {
+  background-color: #f0a91a;
+  color: #fff;
+}
+.icon_wrap {
+  cursor: pointer;
+}
+.form-control {
+  width: auto;
+}
+.search-input {
+  color: #000;
+  padding: 6px 20px;
+  height: 40px;
+  margin-right: 3px;
+  line-height: 40px;
+  width: 290px;
+  border: 0;
+  border-radius: 500px;
+  text-overflow: ellipsis;
+  outline: none;
+}
+input.empty {
+  font-size: 18px;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+}
+
+.login-singup {
+  margin-left: 10vw;
+  overflow: hidden;
+}
+.left-arrow {
+  font-weight: 600;
+}
+.right-arrow {
+  font-weight: 600;
+}
+.left-arrow:hover {
+  color: #f0a91a;
+  cursor: pointer;
+}
+.right-arrow:hover {
+  color: #f0a91a;
+  cursor: pointer;
+}

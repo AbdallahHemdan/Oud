@@ -1,0 +1,94 @@
+.profileData {
+  display: inline-block;
+  width: 50%;
+}
+.metaData {
+  color: #9e9e9e;
+}
+.profileElement {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 10px;
+}
+
+.btn.btn-warning.focus,
+.btn.btn-warning:focus,
+.btn.btn-warning.active,
+.btn.btn-warning:active,
+.btn.btn-warning.active.focus,
+.btn.btn-warning.active:focus,
+.btn.btn-warning.active:hover,
+.btn.btn-warning:active.focus,
+.btn.btn-warning:active:focus,
+.btn.btn-warning:active:hover {
+  background-color: #ffffff;
+  border: #f9b835;
+  border-color: #f9b835;
+
+  color: #f9b835;
+  outline: none;
+  box-shadow: none;
+}
+
+.overviewButton {
+  background-color: #ffffff;
+  color: #f9b835;
+  border-radius: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  width: 200px;
+  margin: 20px 0 10px;
+  padding: 10px;
+  align-self: flex-start;
+  transition: transform 0.2s;
+}
+
+.overviewButton:hover {
+  transform: scale(1.05);
+  background-color: #ffffff;
+  color: #f9b835;
+}
+.overviewButton:focus {
+  background-color: #ffffff;
+  color: #f9b835;
+}
+.oudFree {
+  background-color: #ffce00;
+  background-image: linear-gradient(#ffce00, #8c6747);
+  color: #ffffff;
+  padding: 70px 25px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.oudFree h2 {
+  color: #ffffff;
+  font-weight: 650;
+  font-size: 35px;
+}
+
+.line {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.playMusic {
+  padding: 25px 10px 10px;
+
+  width: 95%;
+  margin: auto;
+}
+.plan {
+  padding: 25px 10px 10px;
+  background-color: #f8f8f8;
+  margin: auto;
+  border: 1px solid #d9dadc;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.plan p {
+  width: 95%;
+}
+.note {
+  background-color: #f8f8f8;
+  border: 1px solid #d9dadc;
+  border-radius: 8px;
+  padding: 10px 10px 0px;
+}
