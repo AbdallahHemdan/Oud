@@ -34,16 +34,25 @@ class Sidebar extends Component {
     return (
       <div>
         <div className="vertical-nav bg-darky" id="sidebar">
-          <div className="py-4 px-3 bg-darky">
-            <Link to="/">
+          <div className="py-4 px-3 bg-darky" data-testid="oud-logo-component">
+            <Link to="/" data-testid="oud-logo-link">
               <div className="media-body">
                 <h2 className="font-weight-white mb-0">
-                  <img src={oudIcon} width="100%" height="100%" alt="oud logo" />
+                  <img
+                    src={oudIcon}
+                    width="100%"
+                    height="100%"
+                    alt="oud logo"
+                    data-testid="oud-logo-img"
+                  />
                 </h2>
               </div>
             </Link>
           </div>
-          <ul className="nav flex-column bg-dark mb-0 ml-2">
+          <ul
+            className="nav flex-column bg-dark mb-0 ml-2"
+            data-testid="first-sidebar-elements"
+          >
             {
               firstSidebarElements.map(({ route, iconClasses, name }, index) => {
                 return (
@@ -52,15 +61,22 @@ class Sidebar extends Component {
                     iconClasses={iconClasses}
                     name={name}
                     key={index}
+                    data-testid="first-sidebar-element"
                   />
                 )
               })
             }
           </ul>
-          <p className="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">
+          <p
+            className="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0"
+            data-testid="playlist-text"
+          >
             Playlists
           </p>
-          <ul className="nav flex-column bg-darky mb-0 ml-2">
+          <ul
+            className="nav flex-column bg-darky mb-0 ml-2"
+            data-testid="second-sidebar-elements"
+          >
             {
               secondSidebarElements.map(({ route, iconClasses, name }, index) => {
                 return (
@@ -69,11 +85,15 @@ class Sidebar extends Component {
                     iconClasses={iconClasses}
                     name={name}
                     key={index}
+                    data-testid="second-sidebar-element"
                   />
                 )
               })
             }
-            <hr className="divider" />
+            <hr
+              className="divider"
+              data-testid="divider"
+            />
           </ul>
         </div>
       </div>
