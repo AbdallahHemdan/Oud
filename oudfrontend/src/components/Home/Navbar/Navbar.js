@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./Navbar.css";
 import { withRouter } from "react-router-dom";
-import { BeforeLogin, AfterLogin } from "./BeforeAfterLogin"
+import { BeforeLogin } from "./BeforeLogin/BeforeLogin"
+import { AfterLogin } from "./AfterLogin/AfterLogin"
 
 /**
  * Component to render all the stuff in Home page
@@ -30,7 +31,7 @@ class Navbar extends Component {
        * @property {boolean} 
        * 
        */
-      isLoggedIn: true
+      isLoggedIn: this.props.isLoggedIn
     }
   }
 
@@ -44,7 +45,7 @@ class Navbar extends Component {
    * @returns {void} returns nothing, it just handle changing the routes
    */
   handleClickOnSearch = (newRoute) => {
-    this.props.history.replace({ newRoute });
+    this.props.history.replace(`/${newRoute}`);
   }
 
   /**
@@ -79,13 +80,29 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-darky fixed-top">
-          <form className="form-inline">
-            <div className="back-forward nav-back-forward">
-              <div className="navbar-brand" onClick={this.handleGoBack}>
+        <nav
+          className="navbar navbar-expand-lg navbar-dark bg-darky fixed-top"
+          data-testid="home-nav"
+        >
+          <form
+            className="form-inline"
+            data-testid="left-part"
+          >
+            <div
+              className="back-forward nav-back-forward"
+              data-testid="nav-back-forward"
+            >
+              <div
+                className="navbar-brand"
+                onClick={this.handleGoBack}
+                data-testid="back-switch"
+              >
                 <i className="fa fa-angle-left fa-2x left-arrow"></i>
               </div>
-              <div className="navbar-brand" onClick={this.handleGoForward}>
+              <div
+                className="navbar-brand"
+                onClick={this.handleGoForward}
+                data-testid="forward-switch">
                 <i className="fa fa-angle-right fa-2x right-arrow"></i>
               </div>
             </div>
@@ -96,6 +113,7 @@ class Navbar extends Component {
               placeholder="&#xF002; Search for Artists, Songs"
               aria-label="Search"
               onClick={() => this.handleClickOnSearch('search')}
+              data-testid="search-input"
             />
           </form>
           <button
@@ -106,15 +124,22 @@ class Navbar extends Component {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            data-testid="toggle-btn"
           >
             <span className="navbar-toggler-icon toggler"></span>
           </button>
 
-          <div className="collapse navbar-collapse login-signup" id="navbarSupportedContent">
+          <div
+            className="collapse navbar-collapse login-signup"
+            id="navbarSupportedContent"
+            data-testid="right-part"
+          >
             <ul className="navbar-nav mr-auto"></ul>
             <ul className="navbar-nav mr-auto"></ul>
             {
-              (this.state.isLoggedIn) ? <AfterLogin /> : <BeforeLogin />
+              (this.state.isLoggedIn) ?
+                <AfterLogin data-testid="right-after-login" /> :
+                <BeforeLogin data-testid="right-before-login" />
             }
           </div>
         </nav>
@@ -122,6 +147,7 @@ class Navbar extends Component {
     );
   }
 }
+
 
 export default withRouter(Navbar);
 

@@ -1,6 +1,3 @@
-import React from "react";
-import "./App.css";
-import Home from "./pages/Home/Home";
 import Search from "./pages/Search/Search";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Account from "../src/Account/Components/Account/Account";

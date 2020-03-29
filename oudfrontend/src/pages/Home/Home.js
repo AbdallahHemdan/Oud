@@ -2,39 +2,20 @@ import React, { Component } from "react";
 import "./Home.css";
 import Sidebar from "../../components/Home/Sidebar/Sidebar";
 import Navbar from "../../components/Home/Navbar/Navbar";
-import MusicItem from "../../components/Home/MusicItem/MusicItem";
+import MainContent from './../../components/Home/MainContent/MainContent';
+
 import axios from "axios"
 
 
 /**
  * a string to store endpoint url of getting List of Categories
+ * 
  * @type {string}
+ * 
  */
 let fetchCategoriesUrl = "http://localhost:2022/browse/categories";
 
-/**
- * a function to render main content of the home page (Categories)
- * by calling MusicItem component with its data needed
- * 
- * @param {object} items - list of categories of music 
- * 
- * @returns {void} nothing to return it just render main content
- */
-function MainContent({ items }) {
-  return (
-    <section className="main-content">
-      <section className="music-component main">
-        {
-          items.map((item, index) => {
-            return (
-              <MusicItem item={item} key={index} />
-            )
-          })
-        }
-      </section>
-    </section>
-  )
-}
+
 
 
 /**
@@ -86,7 +67,11 @@ class Home extends Component {
        * 
        * @type {number}
        */
-      total: 0
+      total: 0,
+      /**
+       * Check if the data loaded from the backend or not
+       */
+      isLoading: true
     }
   }
 
@@ -103,7 +88,7 @@ class Home extends Component {
    * @return {void} returns nothing, it just store data in state
    */
   handleStoringData = ({ items, limit, offset, total }) => {
-    this.setState({ items, limit, offset, total });
+    this.setState({ items, limit, offset, total, isLoading: false });
   }
 
   /**
@@ -125,12 +110,15 @@ class Home extends Component {
    * @returns {JSX} Component for App
    */
   render() {
+    if (this.state.isLoading) {
+      return <div>Loading !!</div>
+    }
     return (
       <div>
         <Sidebar />
-        <Navbar />
+        <Navbar isLoggedIn={true} />
         <MainContent items={this.state.items} />
-      </div>
+      </div >
     );
   }
 }

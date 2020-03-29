@@ -139,18 +139,47 @@ class MusicCard extends Component {
    */
   render() {
     return (
-      <div className="card-container">
-        <div className="card">
-          <div className="overlayer" onClick={this.handlePlaylistClick}>
+      <div
+        className="card-container"
+        data-testid="card-container"
+      >
+        <div className="card"
+          data-testid="card"
+        >
+          <div
+            className="overlayer"
+            onClick={this.handlePlaylistClick}
+            data-testid="overlay"
+          >
             <button
               className="play-btn"
-              onClick={this.handlePlayClick}>
-              <i className="fa fa-play-circle play-circle">
-              </i></button>
+              onClick={this.handlePlayClick}
+              data-testid="play-btn"
+            >
+
+              <i
+                className="fa fa-play-circle play-circle"
+                data-testid="play-circle"
+              >
+              </i>
+            </button>
           </div>
-          <img src={this.state.image} alt="playlist cover" />
-          <div className="title">
-            <Link to="/playlist" className="playlist-link">{this.state.name}</Link>
+          <img
+            src={this.state.image}
+            alt="playlist cover"
+            data-testid="playlist-image"
+          />
+          <div
+            className="title"
+            data-testid="playlist-title"
+          >
+            <Link
+              to="/playlist"
+              className="playlist-link"
+              data-testid="playlist-link"
+            >
+              {this.state.name}
+            </Link>
           </div>
         </div>
       </div >
