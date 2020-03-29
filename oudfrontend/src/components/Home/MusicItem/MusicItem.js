@@ -88,19 +88,34 @@ class MusicItem extends Component {
   render() {
     return (
       <div className="module">
-        <div className="row">
-          <h1 className="gray-white item-name">{this.props.item.name}</h1>
+        <div className="row"
+          data-testid="category-header"
+        >
+          <h1 className="gray-white item-name"
+            data-testid="category-title"
+          >{this.props.item.name}</h1>
           <Link to="playlist">
-            <div className="see-more">See All</div>
+            <div className="see-more"
+              data-testid="category-see-all"
+            >See All</div>
           </Link>
         </div>
-        <div className="wrapper">
-          <div className="wrapper_section_2">
-            <div className="cards">
+        <div
+          className="wrapper"
+          data-testid="first-wrapper">
+          <div className="wrapper_section_2"
+            data-testid="second-wrapper"
+          >
+            <div className="cards"
+              data-testid="cards-wrapper"
+            >
               {
                 this.state.playlists.map(playlist => {
                   return (
-                    <MusicCard item={playlist} key={playlist.id} />
+                    <MusicCard
+                      item={playlist}
+                      key={playlist.id}
+                    />
                   )
                 })
               }
