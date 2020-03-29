@@ -1,0 +1,61 @@
+{
+  "me": {
+    "_id": "5a2539b41c574006c46f1a01",
+    "username": "Ahmed Mahboub",
+    "birthDate": "1999-03-09",
+    "gender": "M",
+    "email": "ahmed.mahboub99@gmail.com",
+    "displayName": "Ahmed",
+    "role": "free",
+    "country": "Egypt",
+    "credit": 0,
+    "plan": null,
+    "images": [
+      "https://vignette.wikia.nocookie.net/kimetsu-no-yaiba/images/8/8c/Tanjiro_with_longer_hair_and_dirty_face.png/revision/latest/top-crop/width/300/height/300?cb=20190420121127"
+    ],
+    "followersCount": 0,
+    "verified": false,
+    "Artist": {
+      "_id": "string",
+      "followersCount": 0,
+      "genres": [
+        "string"
+      ],
+      "images": [
+        "string"
+      ],
+      "name": "string",
+      "bio": "string",
+      "popularSongs": [
+        {
+          "_id": "string",
+          "name": "string",
+          "artists": [
+            {
+              "_id": "string",
+              "name": "string",
+              "type": "string",
+              "image": "string"
+            }
+          ],
+          "albumId": "string",
+          "type": "string",
+          "audioUrl": "string"
+        }
+      ],
+      "type": "string"
+    },
+    "facebook_id": "string",
+    "google_id": "string",
+    "type": "string"
+  },
+  "profile": {
+    "email": "ahmed.mahboub99@gmail.com",
+    "passwordConfirm": "7_DummyPassword_5",
+    "gender": "M",
+    "birthDate": "1999-03-09",
+    "country": "Egypt",
+    "displayName": "Mahboub"
+  },
+  "updatePassword": {}
+}
