@@ -11,6 +11,9 @@ import "./ChangePassword.css";
  *
  */
 let ProfileInfo = {
+  oldPassword: "",
+  repeatPassword: "",
+  newpassword: "",
   password: "7_DummyPassword_5" //this should not sotred in the db you should change this
 };
 
@@ -94,6 +97,7 @@ class ChangePassword extends Component {
       this
     );
     this.handelSubmit = this.handelSubmit.bind(this);
+    this.handleCancle = this.handleCancle.bind(this);
   }
 
   oldPasswordHandelChange(event) {
@@ -163,7 +167,21 @@ class ChangePassword extends Component {
         : "";
     this.setState({ formErrors });
   }
+  handleCancle(event) {
+    this.setState({
+      formNotValid: "",
+      formSaved: "",
+      formErrors: {
+        passwordErorr: "",
+        repeatPasswordErorr: "",
+        oldPasswordError: ""
+      },
 
+      oldPassword: "",
+      password: "",
+      repeatPassword: ""
+    });
+  }
   render() {
     return (
       <div className="accountContainer" data-test="ChangePassword">
@@ -184,6 +202,7 @@ class ChangePassword extends Component {
               class="editInput"
               type="password"
               handeler={this.oldPasswordHandelChange}
+              value={this.state.oldPassword}
             />
             {this.state.formErrors.oldPasswordError.length > 0 && (
               <span className="error">
@@ -197,6 +216,7 @@ class ChangePassword extends Component {
               class="editInput"
               type="password"
               handeler={this.passwordHandelChange}
+              value={this.state.password}
             />
             {this.state.formErrors.passwordErorr.length > 0 && (
               <span className="error">
@@ -210,6 +230,7 @@ class ChangePassword extends Component {
               class="editInput"
               type="password"
               handeler={this.repeatPasswordHandelChange}
+              value={this.state.repeatPassword}
             />
             {this.state.formErrors.repeatPasswordErorr.length > 0 && (
               <span className="error">
@@ -219,10 +240,11 @@ class ChangePassword extends Component {
             <div style={{ height: "45px" }}></div>
             <div className="rightSaveProfile">
               <button
-                id="cancel"
+                id="cancle"
                 type="button"
                 className="btn btn-light cancle"
                 data-test="cancle"
+                onClick={this.handleCancle}
               >
                 Cancle
               </button>
