@@ -114,6 +114,7 @@ class EditProfile extends Component {
     this.displayNameHandelChange = this.displayNameHandelChange.bind(this);
     this.passwordHandelChange = this.passwordHandelChange.bind(this);
     this.handelSubmit = this.handelSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   componentDidMount() {
@@ -215,7 +216,16 @@ class EditProfile extends Component {
       });
     }
   }
-
+  handleCancel(event) {
+    this.setState({
+      email: ProfileInfo.email,
+      gender: ProfileInfo.gender,
+      dateOfBirth: ProfileInfo.birthDate,
+      displayName: ProfileInfo.displayName,
+      country: ProfileInfo.country,
+      password: ""
+    });
+  }
   render() {
     const disablePassword =
       ProfileInfo.email === this.state.email &&
@@ -291,6 +301,7 @@ class EditProfile extends Component {
               metaData="Confirm password"
               class="editInput"
               type="password"
+              value={this.state.password}
               disable={disablePassword}
               handeler={this.passwordHandelChange}
             />
@@ -305,13 +316,16 @@ class EditProfile extends Component {
             </p>
             <div className="rightSaveProfile">
               <button
+                id="cancle"
                 type="button"
                 className="btn btn-light cancle"
                 data-test="cancle"
+                onClick={this.handleCancel}
               >
                 CANCLE
               </button>
               <input
+                id="save profile"
                 className="btn btn-warning submit"
                 type="submit"
                 value="SAVE PROFILE"
