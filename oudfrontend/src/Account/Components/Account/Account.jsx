@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import HiddenSideBar from "../HiddenSideBar/HiddenSideBar";
 import MainContainer from "../MainContainer/MainContainer";

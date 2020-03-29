@@ -15,7 +15,7 @@ import "./HiddenSideBar.css";
  * @returns {HTMLElement} element such that change Password , Edit Profile , Account Overview
  */
 function SideBarElement(props) {
-  let { url, path } = useRouteMatch();
+  let { url } = useRouteMatch();
   return (
     <Dropdown.Item className="listHiddenSideBar">
       <Link to={`${url}${props.route}`} id={props.id + " hidden"}>

@@ -52,7 +52,7 @@ class SideBar extends Component {
         <img
           className="userImg"
           src={this.state.photo}
-          alt="user photo"
+          alt="user"
           data-test="userImg"
         />
 

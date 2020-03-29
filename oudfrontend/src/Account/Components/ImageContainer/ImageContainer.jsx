@@ -31,6 +31,7 @@ function ImageContainer() {
           className="iphone"
           src="https://www.scdn.co/i/account/overview/iphone-ddd9e69.png"
           href="iphone"
+          alt="iphone"
         />
       </div>
     </div>
