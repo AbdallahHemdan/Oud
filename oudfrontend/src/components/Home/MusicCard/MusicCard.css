@@ -47,7 +47,7 @@
 .overlayer .fa-play-circle {
   color: #ffffff;
   font-size: 73px;
-  margin-top: 53px;
+  /* margin-top: 53px; */
   transition: 100ms ease-in-out;
 }
 .fa-play-circle:hover {
@@ -71,10 +71,16 @@ a:hover {
   text-decoration: none;
 }
 .play-btn {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  top: 30%;
   background: transparent !important;
   border: none;
-  width: 62.575px;
-  height: 72.8px;
 }
 .play-btn:hover {
   background: transparent;
