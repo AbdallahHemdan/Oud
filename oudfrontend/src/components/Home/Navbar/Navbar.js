@@ -81,7 +81,7 @@ class Navbar extends Component {
     return (
       <div>
         <nav
-          className="navbar navbar-expand-lg navbar-dark bg-darky fixed-top"
+          className="navbar navbar-expand-lg navbar-dark bg-darky fixed-top oud-nav"
           data-testid="home-nav"
         >
           <form
@@ -97,13 +97,13 @@ class Navbar extends Component {
                 onClick={this.handleGoBack}
                 data-testid="back-switch"
               >
-                <i className="fa fa-angle-left fa-2x left-arrow"></i>
+                <i className="fa fa-angle-left fa-lg left-arrow"></i>
               </div>
               <div
                 className="navbar-brand"
                 onClick={this.handleGoForward}
                 data-testid="forward-switch">
-                <i className="fa fa-angle-right fa-2x right-arrow"></i>
+                <i className="fa fa-angle-right fa-lg right-arrow"></i>
               </div>
             </div>
             <input
