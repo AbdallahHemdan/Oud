@@ -38,7 +38,9 @@ class WebPlayer extends Component {
       shuffleState: false,
       repeatState: false,
       volume: 1.0,
-      muteState: false
+      muteState: false,
+      contextUri: "oud:album:1Je1IMUlBXcx1Fz0WE7oPT",
+      trackIdx: 0
     };
   }
   /**
@@ -187,7 +189,30 @@ class WebPlayer extends Component {
         console.log(error);
       });
   };
-
+  /**
+   * PUT request to the server to play/resume the currently track.
+   * @function
+   * @param {integer} position zero-based index indicates the position of the track in the context array
+   * @returns {axios object}
+   */
+  playResumeRequest = (position = 0) => {
+    const deviceId = this.state.deviceId,
+      contextUri = this.state.contextUri,
+      idx = this.state.trackIdx;
+    return axios.put(
+      "http://localhost:3000/me/player/play?deviceId=" +
+        deviceId +
+        "&queueIndex=0",
+      {
+        contextUri: {
+          context_uri: contextUri
+        },
+        uris: [],
+        offset: { position: idx },
+        positionMs: position
+      }
+    );
+  };
   /**
    * Handling the resume action. request from the back end to resume the currently playing track from specific position,
    * resume the sound in the browser, and update the playing state
@@ -196,16 +221,12 @@ class WebPlayer extends Component {
    * @returns{void}
    */
   resume = () => {
-    let deviceId = this.state.deviceId;
-    let position = this.state.sound.seek();
-    axios
-      .post("http://localhost:3000/me/player/pause?deviceId=" + deviceId, {
-        positionMs: position
-      })
+    const position = this.state.sound.seek();
+    this.playResumeRequest(position)
       .then(resp => {
         this.setState({ playing: true });
         this.state.sound.play();
-        // console.log(resp);
+        console.log(resp);
       })
       .catch(error => {
         console.log(error);
@@ -219,12 +240,10 @@ class WebPlayer extends Component {
    * @returns{void}
    */
   play = () => {
-    let deviceId = this.state.deviceId;
-    axios
-      .post("http://localhost:3000/me/player/pause?deviceId=" + deviceId)
+    this.playResumeRequest()
       .then(resp => {
         this.playTrack();
-        // console.log(resp);
+        console.log(resp);
       })
       .catch(error => {
         console.log(error);

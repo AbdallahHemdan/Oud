@@ -56,5 +56,15 @@
   "seek": {},
   "shuffle": {},
   "repeat": {},
-  "volume": {}
+  "volume": {},
+  "play": {
+    "contextUri": {
+      "context_uri": "oud:album:1Je1IMUlBXcx1Fz0WE7oPT"
+    },
+    "uris": [],
+    "offset": {
+      "position": 0
+    },
+    "positionMs": 0
+  }
 }

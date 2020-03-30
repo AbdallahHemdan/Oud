@@ -17,10 +17,20 @@ import Queue from "./Queue/Queue";
 class PlayingBarRight extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      queueOpened: false
+    };
     this.queueElement = React.createRef();
   }
   openQueue = () => {
-    this.queueElement.current.openQueue();
+    if (this.state.queueOpened) {
+      this.queueElement.current.closeQueue();
+    } else {
+      this.queueElement.current.openQueue();
+    }
+    this.setState({
+      queueOpened: !this.state.queueOpened
+    });
   };
   render() {
     return (
@@ -34,7 +44,10 @@ class PlayingBarRight extends Component {
               data-testid="queue-btn"
               onClick={this.openQueue}
             >
-              <img src={queue} alt="Queue" />
+              <img
+                src={this.state.queueOpened ? queueActivated : queue}
+                alt="Queue"
+              />
             </button>
             <button
               className="control-button shuffle"
