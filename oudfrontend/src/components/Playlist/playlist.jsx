@@ -1,9 +1,9 @@
 import React from 'react';
 import './playlist.css';
 import axios from 'axios';
-import HeaderBodyBottom from './components/headerBodyBottom'
+import HeaderBodyBottom from '../commonComponents/headerBodyBottom'
 import HeaderBodyTop from './components/headerBodyTop'
-import SongList from '../songList/songList'
+import SongList from '../commonComponents/songList'
 import PropTypes from 'prop-types';
 
 
@@ -78,7 +78,7 @@ class Playlist extends React.Component{
             });
         }
         if(this.state.playing === false){
-            axios.post('http://localhost:3000/player/pause',)
+            axios.post('http://localhost:3000/player/pause/',)
             .then(function (response) {
                 console.log(response);
             })
@@ -87,7 +87,7 @@ class Playlist extends React.Component{
             });
         }
         if(this.state.playing === true){
-            axios.post('http://localhost:3000/player/play',)
+            axios.post('http://localhost:3000/player/play/',)
             .then(function (response) {
                 console.log(response);
             })

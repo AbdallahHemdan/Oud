@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types';
 /**
  * this is a component that renders the bottom of the body of playlists, albums, likedSongs
@@ -17,7 +17,8 @@ import PropTypes from 'prop-types';
  */
 
 function HeaderBodyBottom(props){
-    const {length, playClicked, likeClicked, liked, playing} = props;
+    const {length, playClicked, likeClicked, liked, playing, releaseDate, recieved} = props;
+    
     return(
         <div data-testid="HeaderBodyBottom" className='playlistHeaderBodyBottom'>
             <button onClick={playClicked} data-testid="playButton" className="playButton" variant="outline-success">
@@ -28,6 +29,7 @@ function HeaderBodyBottom(props){
                 {liked? 'liked' : 'like'} {/*font awseome icons*/}
             </button> 
             <p>
+                <span>{recieved?releaseDate.slice(0,4):<span></span>} <h2 style={{display:"inline"}}>.</h2> </span>
                 <span data-testid="songsNumber">{length} </span>
                 <span data-testid="songsLiteral">{length > 1? 'songs':'song'}</span>
             </p>

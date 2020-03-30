@@ -447,7 +447,1019 @@
       ]
     }
   ],
-  "queue": {},
+  "queue": {
+    "tracks": [
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      }
+    ],
+    "total": 48
+  },
   "user": [
     {
       "id": "1",
@@ -918,6 +1930,2091 @@
       ]
     }
   ],
-  "likedSongs": {},
-  "album": {}
+  "albums": [
+    {
+      "id": "1",
+      "album_type": "Jazz",
+      "artists": [
+        {
+          "id": "5",
+          "name": "حمزة نمرة",
+          "type": "shaaby",
+          "image": "string"
+        },
+        {
+          "id": "1",
+          "name": "ًWegz",
+          "type": "Shaaby",
+          "image": "string"
+        }
+      ],
+      "genres": [
+        "string"
+      ],
+      "image": "https://i.scdn.co/image/ab67616d0000b273ef029742aa2f7342b3b5daaf",
+      "name": "Insan",
+      "release_date": "2011-03-07",
+      "tracks": {
+        "items": [
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      "type": "string",
+      "released": true
+    }
+  ],
+  "likedAlbums": [
+    {
+      "id": "1",
+      "album_type": "Jazz",
+      "artists": [
+        {
+          "id": "5",
+          "name": "حمزة نمرة",
+          "type": "shaaby",
+          "image": "string"
+        },
+        {
+          "id": "1",
+          "name": "ًWegz",
+          "type": "Shaaby",
+          "image": "string"
+        }
+      ],
+      "genres": [
+        "string"
+      ],
+      "image": "https://i.scdn.co/image/ab67616d0000b273ef029742aa2f7342b3b5daaf",
+      "name": "Insan",
+      "release_date": "2011-03-07",
+      "tracks": {
+        "items": [
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      "type": "string",
+      "released": true
+    }
+  ],
+  "likedSongs": {}
 }

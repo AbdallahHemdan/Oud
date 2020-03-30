@@ -1,16 +1,22 @@
 import React from 'react';
-import SongList from '../commonComponents/songList'
-import HeaderBody from './components/headerBody'
 import axios from 'axios';
-import './likedSongs.css'
+import HeaderBodyBottom from '../commonComponents/headerBodyBottom'
+import HeaderBodyTop from './components/headerBodyTop'
+import SongList from '../commonComponents/songList'
+import PropTypes from 'prop-types';
+
+
+
 /**
- * @classdesc this is a component that renders likedSongs page
+ * @classdesc this is a component that renders album page
  * @author Ahmed Walid <ahmedwa1999@gmail.com>
  * @class
+ * @param {string} id the Id of the album
  * @property {object} state carries the state of the component
- * @property {boolean} state.recived true if the data of the playlist is fetched correctly false otherwise
- * @property {object} state.items carries all the information of the playlist
- * @property {Array.<track>} state.tracks array of all the songs in the playlist
+ * @property {boolean} state.recived true if the data of the album is fetched correctly false otherwise
+ * @property {boolean} state.liked true if the album is liked by the user (i.e the album is in the likedAlbums table in the database)
+ * @property {object} state.album carries all the information of the album
+ * @property {Array.<track>} state.tracks array of all the songs in the album
  * @property {boolean} playing true when the playist is playing. Otherwise, it is false
  * @property {boolean} queued true when the playist is added to queue. Otherwise, it is false
  * @returns {
@@ -30,16 +36,22 @@ import './likedSongs.css'
  *          
  *          }
  */
+class Album extends React.Component{
 
-class LikedSongs extends React.Component{
+    /** 
+     * @constructor
+     */ 
     constructor(props){
         super(props);
         this.state = {
             tracks : [],
+            artists : [],
             recieved:false,
-            items:[],
+            album:{},
+            liked:false,
             playing:false,
-            queued:false
+            queued:false,
+            
         };
     }
     /**
@@ -92,55 +104,84 @@ class LikedSongs extends React.Component{
      * @func
      * @returns {void}
      */
-    
+    likeButtonClicked(){
+        const likedAlbum = this.state.album
+        if(this.state.liked === false){
+            this.setState({liked:true})
+            axios.post('http://localhost:3000/likedAlbums/', likedAlbum)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+        else{
+            this.setState({liked:false})
+
+            axios.delete(`http://localhost:3000/likedAlbums/${this.props.id}`)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+
+    }
     /**
-     * It fetches the data of the playlist from the database and checks if it exists in the likedPlaylists table
+     * It fetches the data of the album from the database and checks if it exists in the likedAlbums table
      * @func
      * @returns {void}
      */
     componentDidMount(){
-        axios.get(`http://localhost:3000/likedSongs/`)
+        axios.get(`http://localhost:3000/albums/${this.props.id}`)
         .then((response)=> {
-            const items = response.data.items;
+            const album = response.data;
+            this.setState({tracks:album.tracks.items});
+            this.setState({artists:album.artists})
+            this.setState({album:album})   
             this.setState({recieved:true})
-            this.setState({items:items})   
-            this.destructuring(items);
-            console.log(items)
+
         })
         .catch((error)=> {
             console.log(error);
-        }); 
-    }
-    destructuring(items){
-        var tracks =[]
-        items.map((item)=>{
-            tracks.push(item.track);
+        });  
+        
+        axios.get(`http://localhost:3000/likedAlbums/${this.props.id}`)
+        .then((response)=> {
+            console.log(response);
+            this.setState({liked:true})
         })
-        console.log(tracks)
-        this.setState({tracks:tracks})
+        .catch((error)=> {
+            console.log(error);
+        });
     }
-    
-
     render(){
         return(
-            <div data-testid='likedSongs' className='playlist'>
+            <div data-testid='playlist' className='playlist'>
                 
                 <div className='row'>
                     <div data-testid="playlistHeader" className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
                         <div data-testid="playlistIamgeContainer" className='playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
-                            <img 
-                            data-testid="playlistIamge" 
-                            src='https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png' 
-                            className='playlistImage' 
-                            alt='playlist img'/>
+                            <img data-testid="playlistIamge" src={this.state.album.image} className='playlistImage' alt='album img'/>
                         </div>            
                         <div data-testid="playlistHeaderBody" className='playlistHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8'>
-                      
-                            <HeaderBody 
+                            <HeaderBodyTop 
+                                data-testid="HeaderBodyTop"
+                                title={this.state.album.name}
+                                artists={this.state.artists}
+                              />
+                              
+                            <HeaderBodyBottom 
                                 data-testid = "HeaderBodyBottom" 
                                 length = {this.state.tracks.length} 
                                 playClicked = {this.playButtonClicked.bind(this)}
+                                likeClicked = {this.likeButtonClicked.bind(this)}
+                                liked = {this.state.liked}
                                 playing = {this.state.playing}
+                                releaseDate = {this.state.album.release_date}
+                                recieved = {this.state.recieved}
                             />
                         </div>
                     </div>  
@@ -156,4 +197,7 @@ class LikedSongs extends React.Component{
         );
     }
 }
-export default LikedSongs;
+Album.propTypes={
+    id : PropTypes.string
+};
+export default Album;

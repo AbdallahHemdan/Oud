@@ -466,12 +466,264 @@
             "image": "string"
           }
         ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
+      },
+      {
+        "id": "21",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "limit": 0,
+        "offset": 0,
+        "total": 0
       }
     ],
-    "total": 1
+    "total": 13
   },
   "user": [
     {
@@ -1185,8 +1437,325 @@
           "audioUrl": "www.Facebook.com"
         }
       }
-      
     ]
   },
-  "album": {}
+  "albums": [
+    {
+      "id": "1",
+      "album_type": "Rap",
+      "artists": [
+        {
+          "id": "5",
+          "name": "حمزة نمرة",
+          "type": "Shaaby",
+          "image": "string"
+        },
+        {
+          "id": "1",
+          "name": "wegz",
+          "type": "Shaaby",
+          "image": "string"
+        }
+      ],
+      "genres": [
+        "shaaby"
+      ],
+      "image": "https://i.scdn.co/image/ab67616d0000b273ef029742aa2f7342b3b5daaf",
+      "name": "Insan",
+      "release_date": "2020-03-07",
+      "tracks": {
+        "items": [
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          },
+          {
+            "id": "21",
+            "name": "إنسان",
+            "albumId": "1",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "limit": 0,
+            "offset": 0,
+            "total": 0
+          }
+        ]
+      },
+      "type": "string",
+      "released": true
+    }
+  ],
+  "likedAlbums": []
 }

@@ -16,3 +16,14 @@ h2{
 .songChild:hover{
     background-color: transparent;
 }
+.songButton{
+    
+    margin: 10px;
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+
+}
+.songButton:focus{
+    outline: none;
+}

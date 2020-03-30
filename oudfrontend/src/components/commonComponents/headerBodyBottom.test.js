@@ -1,5 +1,5 @@
 import React from 'React'
-import HeaderBodyBottom from './headerBodyBottom';
+import HeaderBodyBottom from './headerBodyBottom'
 import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import checkPropTypes from 'check-prop-types'
