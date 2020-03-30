@@ -3,6 +3,8 @@ import { sortableHandle } from "react-sortable-hoc";
 import art from "../../../assets/images/icons/album.jpg";
 import ellipsis from "../../../assets/images/icons/ellipsis.png";
 import handler from "../../../assets/images/icons/handler.png";
+import play from "../../../assets/images/icons/play.png";
+import pause from "../../../assets/images/icons/pause.png";
 const DragHandle = sortableHandle(() => (
   <span className="handler">
     <img src={handler} alt="Handler" />
@@ -13,10 +15,15 @@ const Track = props => {
     <div className="track">
       <DragHandle />
       <div className="content">
-        <div
-          className="track-art-work"
-          style={{ backgroundImage: `url(${art})` }}
-        ></div>
+        <div className="play-art">
+          <div
+            className="track-art-work"
+            style={{ backgroundImage: `url(${art})` }}
+          ></div>
+          <button className="play-pause">
+            <img src={play} alt="Play" />
+          </button>
+        </div>
 
         <div className="track-name">
           <text title="Somthing Just Like This">

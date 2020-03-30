@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-const art = "../../assets/images/icons/album.jpg";
-const extend = "../../assets/images/icons/extend.png";
-const pause = "../../assets/images/icons/pause.png";
-const play = "../../assets/images/icons/play.png";
-const previous = "../../assets/images/icons/previous.png";
-const next = "../../assets/images/icons/next.png";
+import art from "../../assets/images/icons/album.jpg";
+import extend from "../../assets/images/icons/extend.png";
+import pause from "../../assets/images/icons/pause.png";
+import play from "../../assets/images/icons/play.png";
+import previous from "../../assets/images/icons/previous.png";
+import next from "../../assets/images/icons/next.png";
 
 /**
  * Component for controling the left part of the player: artist link, and previous, play/pause, and next buttons

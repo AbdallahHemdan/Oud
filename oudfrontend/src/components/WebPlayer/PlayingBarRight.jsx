@@ -1,67 +1,96 @@
-import React from "react";
+import React, { Fragment, Component } from "react";
 import PropTypes from "prop-types";
-const repeat = "../../assets/images/icons/repeat.png";
-const repeatEnabled = "../../assets/images/icons/repeat-enable.png";
-const shuffle = "../../assets/images/icons/shuffle.png";
-const shuffleEnabled = "../../assets/images/icons/shuffle-enable.png";
-const volume = "../../assets/images/icons/volume.png";
-const volumeMuted = "../../assets/images/icons/volume-mute.png";
+import repeat from "../../assets/images/icons/repeat.png";
+import repeatEnabled from "../../assets/images/icons/repeat-enable.png";
+import shuffle from "../../assets/images/icons/shuffle.png";
+import shuffleEnabled from "../../assets/images/icons/shuffle-enable.png";
+import volume from "../../assets/images/icons/volume.png";
+import volumeMuted from "../../assets/images/icons/volume-mute.png";
+import queue from "../../assets/images/icons/queue.png";
+import queueActivated from "../../assets/images/icons/queueActivated.png";
+import Queue from "./Queue/Queue";
 /**
  * Component for controling the right part of the player: shuffle, repeat, and mute buttons and clicking on the volume bar
  * @author Ahmed Ashraf
  * @component
  */
-function PlayingBarRight(props) {
-  return (
-    <div className="now-playing-bar-right">
-      <div className="volume-bar">
-        <button
-          className="control-button shuffle"
-          title="Shuffle"
-          onClick={props.handleShuffleState}
-          data-testid="shuffle-btn"
-        >
-          <img
-            src={props.shuffleState ? shuffleEnabled : shuffle}
-            alt="Shuffle"
-          />
-        </button>
-        <button
-          className="control-button repeat"
-          title="Repeat"
-          onClick={props.handleRepeatState}
-          data-testid="repeat-btn"
-        >
-          <img src={props.repeatState ? repeatEnabled : repeat} alt="Repeat" />
-        </button>
-        <button
-          className="control-button volume"
-          title="Volume"
-          onClick={props.handleMuteState}
-          data-testid="volume-btn"
-        >
-          <img src={props.volumeState ? volumeMuted : volume} alt="Volume" />
-        </button>
+class PlayingBarRight extends Component {
+  constructor(props) {
+    super(props);
+    this.queueElement = React.createRef();
+  }
+  openQueue = () => {
+    this.queueElement.current.openQueue();
+  };
+  render() {
+    return (
+      <Fragment>
+        <Queue ref={this.queueElement} />
+        <div className="now-playing-bar-right">
+          <div className="volume-bar">
+            <button
+              className="control-button queue"
+              title="Queue"
+              data-testid="queue-btn"
+              onClick={this.openQueue}
+            >
+              <img src={queue} alt="Queue" />
+            </button>
+            <button
+              className="control-button shuffle"
+              title="Shuffle"
+              onClick={this.props.handleShuffleState}
+              data-testid="shuffle-btn"
+            >
+              <img
+                src={this.props.shuffleState ? shuffleEnabled : shuffle}
+                alt="Shuffle"
+              />
+            </button>
+            <button
+              className="control-button repeat"
+              title="Repeat"
+              onClick={this.props.handleRepeatState}
+              data-testid="repeat-btn"
+            >
+              <img
+                src={this.props.repeatState ? repeatEnabled : repeat}
+                alt="Repeat"
+              />
+            </button>
+            <button
+              className="control-button volume"
+              title="Volume"
+              onClick={this.props.handleMuteState}
+              data-testid="volume-btn"
+            >
+              <img
+                src={this.props.volumeState ? volumeMuted : volume}
+                alt="Volume"
+              />
+            </button>
 
-        <div
-          className="progress-bar"
-          id="volume-width"
-          style={{ width: "125px" }}
-          onMouseDown={props.setMouseDown}
-          onMouseMove={props.onVolumeClick}
-          onMouseUp={props.mouseUp}
-          data-testid="volume-click"
-        >
-          <div className="progress-bar-bg">
             <div
-              className="progress"
-              style={{ width: props.volume + "%" }}
-            ></div>
+              className="progress-bar"
+              id="volume-width"
+              style={{ width: "125px" }}
+              onMouseDown={this.props.setMouseDown}
+              onMouseMove={this.props.onVolumeClick}
+              onMouseUp={this.props.mouseUp}
+              data-testid="volume-click"
+            >
+              <div className="progress-bar-bg">
+                <div
+                  className="progress"
+                  style={{ width: this.props.volume + "%" }}
+                ></div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  );
+      </Fragment>
+    );
+  }
 }
 
 PlayingBarRight.propTypes = {

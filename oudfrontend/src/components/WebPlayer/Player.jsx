@@ -4,8 +4,8 @@ import { Howl } from "howler";
 import PlayingBarLeft from "./PlayingBarLeft";
 import PlayingBarCenter from "./PlayingBarCenter";
 import PlayingBarRight from "./PlayingBarRight";
-const art = "../../assets/images/icons/album.jpg";
-const extend = "../../assets/images/icons/extend.png";
+import art from "../../assets/images/icons/album.jpg";
+import extend from "../../assets/images/icons/extend.png";
 const axios = require("axios");
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
@@ -142,9 +142,10 @@ class WebPlayer extends Component {
         setInterval(() => {
           if (this.state.sound && this.state.playing) {
             const progress = this.getSoundProgress();
+            const current = Number(this.state.sound.seek() / 60).toFixed(2);
             this.setState({
-              progress: isNaN(progress) ? 0 : progress,
-              current: Number(this.state.sound.seek() / 60).toFixed(2)
+              progress: isNaN(progress) ? this.state.progress : progress,
+              current: isNaN(current) ? this.state.current : current
             });
           }
         }, 100);

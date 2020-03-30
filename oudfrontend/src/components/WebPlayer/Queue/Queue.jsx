@@ -13,14 +13,14 @@ class Queue extends Component {
     };
   }
   /* Open */
-  openNav = () => {
+  openQueue = () => {
     this.setState({
       height: "60%"
     });
   };
 
   /* Close */
-  closeNav = () => {
+  closeQueue = () => {
     this.setState({
       height: "0%"
     });
@@ -33,7 +33,7 @@ class Queue extends Component {
     return (
       <div className="queue-container">
         <div className="overlay" style={{ height: this.state.height }}>
-          <button className="close-btn" onClick={this.closeNav}>
+          <button className="close-btn" onClick={this.closeQueue}>
             <img src={Extend} alt="Close Queue" />
           </button>
           <TrackContainer
@@ -42,9 +42,6 @@ class Queue extends Component {
             useDragHandle={true}
           />
         </div>
-        <span onClick={this.openNav} className="open-nav-btn">
-          &#9776; open
-        </span>
       </div>
     );
   }
