@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 import Search from "./pages/Search/Search";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Account from "../src/Account/Components/Account/Account";
-import RedirectPage from "../src/Account/General/RedirectPage";
-import Home from "./pages/Home/Home"
-import "./App.css"
+import Account from "./components/Account/Components/Account/Account";
+import RedirectPage from "./components/Account/General/RedirectPage";
+import Home from "./pages/Home/Home";
+import "./App.css";
 
 function App() {
   return (
