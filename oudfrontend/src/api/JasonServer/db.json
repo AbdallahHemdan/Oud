@@ -18,12 +18,8 @@
     "Artist": {
       "_id": "string",
       "followersCount": 0,
-      "genres": [
-        "string"
-      ],
-      "images": [
-        "string"
-      ],
+      "genres": ["string"],
+      "images": ["string"],
       "name": "string",
       "bio": "string",
       "popularSongs": [
