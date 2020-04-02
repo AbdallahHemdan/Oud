@@ -1,4 +1,17 @@
 import axios from 'axios'
+
+/**
+ * @file this file contains three functions used in Playlist, Album, LikedSongs
+ * 
+ */
+
+/**
+ * adds tracks to the queue
+ * @param {Array<track>} tracks 
+ * @param {number} length 
+ * @returns {void}
+ */
+
 export function addToQueue(tracks, length){
     axios.post('http://localhost:3000/queue/', {
             tracks : tracks,
@@ -12,7 +25,10 @@ export function addToQueue(tracks, length){
         });
         console.log('queue called');
 };
-
+/**
+ * pauses the player
+ * @returns {void}
+ */
 export function pause(){
     axios.post('http://localhost:3000/player/pause/',)
     .then(function (response) {
@@ -23,6 +39,11 @@ export function pause(){
     });
     console.log('pause called');
 };
+
+/**
+ * resums the player
+ * @returns {void}
+ */
 export function resume(){
     axios.post('http://localhost:3000/player/play/',)
     .then(function (response) {

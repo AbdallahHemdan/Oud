@@ -20,6 +20,7 @@ import {resume, pause, addToQueue} from '../commonComponents/utils'
  * @property {Array.<track>} state.tracks array of all the songs in the playlist
  * @property {boolean} playing true when the playist is playing. Otherwise, it is false
  * @property {boolean} queued true when the playist is added to queue. Otherwise, it is false
+ * @property {string} clikedID this is used to mark all songs as unclicked
  * @returns {
  *              <div>
  *               <div classname="playlistHeader">
@@ -61,8 +62,9 @@ class Playlist extends React.Component{
 
     }
     /**
-     * Called Whenever the user clicked on the PLAY button and it adds all the songs of the playlist to the queue by a post request
-     * @func
+     * add the tracks to queue and resume the player
+     * @param {Array.<track>} tracks 
+     * @param {number} length 
      * @returns {void}
      */
     addToQueue(tracks, length){
@@ -70,6 +72,11 @@ class Playlist extends React.Component{
         addToQueue(tracks, length)
         this.resume()
     }
+    /**
+     * Called Whenever the user clicked on the PLAY button and it adds all the songs of the playlist to the queue by a post request
+     * @func
+     * @returns {void}
+     */
     playButtonClicked(){
         //all the three requests should be put requests
         if(this.state.queued === false){
@@ -84,10 +91,19 @@ class Playlist extends React.Component{
             this.resume()
         }
     }
+    /**
+     * pauses the player
+     * @returns {void}
+     */
     pause(){
         pause()
         this.setState({playing:false})
     }
+    /**
+     * resumes the player
+     * @returns {void}
+     * 
+     */
     resume(){
         resume()
         this.setState({playing:true})
@@ -151,7 +167,10 @@ class Playlist extends React.Component{
             console.log(error);
         });
     }
-    
+    /**
+     * it changes the state so that all song will be marked as unclicked
+     * @returns {void}
+     */
     markAllUnclicked(){
         this.setState({clickID:'0'})
 

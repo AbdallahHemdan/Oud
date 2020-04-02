@@ -1,6 +1,15 @@
 import React, {Component} from 'react'
 import CreatePlaylist from '../CreatePlaylist/createPlaylist'
 import axios from 'axios';
+
+
+/**
+ * it is an overlay that is used to add song to a playlist
+ * @class
+ * @param {boolean} display true ifthe component is to be visible
+ * @property {boolean} display true when the component is visible
+ * @property {boolean} createPlaylist true when the CreatePLaylist component is visible
+ */
 class addToPlaylist extends Component{
     constructor(props){
         super(props);
@@ -9,6 +18,11 @@ class addToPlaylist extends Component{
             createPlaylist:false
         }
     }
+    /**
+     * called when the component is moounted and it fetches the playlists of the user
+     * NOT COMPLETED
+     * @returns {void}
+     */
     componentDidMount(){
         axios.get('http://localhost:3000/playlists/')
             .then(function (response) {
@@ -18,9 +32,17 @@ class addToPlaylist extends Component{
                 console.log(error);
             });
     }
+    /**
+     * closes the window by making state.display false 
+     * @returns {void} 
+     */
     close(){
         this.setState({display:false})
     }
+    /**
+     * opens the CreatePlaylist by making state.createPlaylist true 
+     * @returns {void} 
+     */
     createPlaylist(){
         this.setState({createPlaylist:true})
     }

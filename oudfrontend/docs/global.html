@@ -104,7 +104,381 @@
     
 
     
-    <h4 class="name" id="HeaderBodyBottom"><span class="type-signature"></span>HeaderBodyBottom<span class="signature">(length, playClicked, likeClicked, liked)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="addToQueue"><span class="type-signature"></span>addToQueue<span class="signature">(tracks, length)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    adds tracks to the queue
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tracks</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;track></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>length</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="commonComponents_utils.jsx.html">commonComponents/utils.jsx</a>, <a href="commonComponents_utils.jsx.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="HeaderBody"><span class="type-signature"></span>HeaderBody<span class="signature">(length, playClicked, playing)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    this is a component that renders the bottom of the body of playlists, albums, likedSongs
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>length</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the number of songs in the playlists, albums, likedSongs</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>playClicked</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">func</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a function that is called when the playButtoon is clicked to add the playlists, albums, likedSongs to queue</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>playing</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">means that the playlist is playing used to conditionaly render the text of playButton with 'play' or 'pause'</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li><a href="mailto:ahmedwa1999@gmail.com">Ahmed Walid</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="likedSongs_components_headerBody.jsx.html">likedSongs/components/headerBody.jsx</a>, <a href="likedSongs_components_headerBody.jsx.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="HeaderBodyBottom"><span class="type-signature"></span>HeaderBodyBottom<span class="signature">(length, playClicked, likeClicked, liked, playing, recieved, album, releaseDate)</span><span class="type-signature"></span></h4>
     
 
     
@@ -237,6 +611,98 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>playing</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">means that the playlist is playing used to conditionaly render the text of playButton with 'play' or 'pause'</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>recieved</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">true if the data is retrieved successfuly at parent</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>album</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">true if the parent is album</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>releaseDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the release date of the album</td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -281,7 +747,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_headerBodyBottom.jsx.html">components/headerBodyBottom.jsx</a>, <a href="components_headerBodyBottom.jsx.html#line18">line 18</a>
+        <a href="commonComponents_headerBodyBottom.jsx.html">commonComponents/headerBodyBottom.jsx</a>, <a href="commonComponents_headerBodyBottom.jsx.html#line22">line 22</a>
     </li></ul></dd>
     
 
@@ -454,7 +920,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_headerBodyTop.jsx.html">components/headerBodyTop.jsx</a>, <a href="components_headerBodyTop.jsx.html#line24">line 24</a>
+        <a href="album_components_headerBodyTop.jsx.html">album/components/headerBodyTop.jsx</a>, <a href="album_components_headerBodyTop.jsx.html#line23">line 23</a>
     </li></ul></dd>
     
 
@@ -496,7 +962,7 @@
     
 
     
-    <h4 class="name" id="SongList"><span class="type-signature"></span>SongList<span class="signature">(recieved, track, tracks)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="HeaderBodyTop"><span class="type-signature"></span>HeaderBodyTop<span class="signature">(title, owner)</span><span class="type-signature"></span></h4>
     
 
     
@@ -504,7 +970,7 @@
 
 
 <div class="description">
-    this is a component that renders the list of songs in playlists, albums, likedSongs or a "loading" animation if the songs are not recieved
+    this is a component that renders the Top of the body of playlists, albums, likedSongson clicking the name of the owner it takes you to his/her profile
 </div>
 
 
@@ -540,72 +1006,7 @@
 
         <tr>
             
-                <td class="name"><code>recieved</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the number of songs in the playlists, albums, likedSongs</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>track</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">song object
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>_id</code></td>
+                <td class="name"><code>title</code></td>
             
 
             <td class="type">
@@ -621,14 +1022,14 @@
 
             
 
-            <td class="description last">track id</td>
+            <td class="description last">the title of playlists, albums</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>owner</code></td>
             
 
             <td class="type">
@@ -644,221 +1045,7 @@
 
             
 
-            <td class="description last">track title</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>albumId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the id of the track's album</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the type of music that the track belongs to</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>audioUrl</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the URL of the track</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>artist._id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the Id of the singer</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>artist.name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">name of the singer</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>artist.type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the type of music that the artist produces</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>artist.image</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Image of the artist</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>track.artists</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;artist></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the artists that produced the track</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>tracks</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;track></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">array of songs to be rendered</td>
+            <td class="description last">the Id of the owner of playlists or albums. It is used to fetch his/her name from the database</td>
         </tr>
 
     
@@ -906,7 +1093,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_songList.jsx.html">components/songList.jsx</a>, <a href="components_songList.jsx.html#line35">line 35</a>
+        <a href="playlist_components_headerBodyTop.jsx.html">playlist/components/headerBodyTop.jsx</a>, <a href="playlist_components_headerBodyTop.jsx.html#line24">line 24</a>
     </li></ul></dd>
     
 
@@ -943,6 +1130,218 @@
 
 
         
+            
+
+    
+
+    
+    <h4 class="name" id="pause"><span class="type-signature"></span>pause<span class="signature">()</span><span class="type-signature"> &rarr; {void}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    pauses the player
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="commonComponents_utils.jsx.html">commonComponents/utils.jsx</a>, <a href="commonComponents_utils.jsx.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="resume"><span class="type-signature"></span>resume<span class="signature">()</span><span class="type-signature"> &rarr; {void}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    resums the player
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="commonComponents_utils.jsx.html">commonComponents/utils.jsx</a>, <a href="commonComponents_utils.jsx.html#line47">line 47</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
     
 
     
@@ -958,13 +1357,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Playlist.html">Playlist</a></li></ul><h3>Global</h3><ul><li><a href="global.html#HeaderBodyBottom">HeaderBodyBottom</a></li><li><a href="global.html#HeaderBodyTop">HeaderBodyTop</a></li><li><a href="global.html#SongList">SongList</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="addToPlaylist.html">addToPlaylist</a></li><li><a href="Album.html">Album</a></li><li><a href="CreatePlaylist.html">CreatePlaylist</a></li><li><a href="LikedSongs.html">LikedSongs</a></li><li><a href="Playlist.html">Playlist</a></li><li><a href="Song.html">Song</a></li><li><a href="SongList.html">SongList</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addToQueue">addToQueue</a></li><li><a href="global.html#HeaderBody">HeaderBody</a></li><li><a href="global.html#HeaderBodyBottom">HeaderBodyBottom</a></li><li><a href="global.html#HeaderBodyTop">HeaderBodyTop</a></li><li><a href="global.html#pause">pause</a></li><li><a href="global.html#resume">resume</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Mar 27 2020 06:52:25 GMT+0200 (Eastern European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Thu Apr 02 2020 22:33:34 GMT+0200 (Eastern European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

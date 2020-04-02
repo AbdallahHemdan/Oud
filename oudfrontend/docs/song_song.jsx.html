@@ -1,4 +1,32 @@
-import React, { Component} from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: song/song.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: song/song.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component} from 'react';
 import './song.css';
 import {BrowserRouter as Router, Link} from "react-router-dom";
 import axios from 'axios'
@@ -6,7 +34,7 @@ import axios from 'axios'
 
 /**
  * @classdesc this is a component that renders playlist page
- * @author Ahmed Walid <ahmedwa1999@gmail.com>
+ * @author Ahmed Walid &lt;ahmedwa1999@gmail.com>
  * @class
  * @param {string} key the Id of the playlist
  * @param {string} clickedId the Id of the clicked song
@@ -18,7 +46,7 @@ import axios from 'axios'
  * @property {boolean} state.hover true if the mouse is on the song false otherwise
  * @property {string} state.albumName name of the album
  * @property {object} state.playlist carries all the information of the playlist
- * @property {Array.<track>} state.tracks array of all the songs in the playlist
+ * @property {Array.&lt;track>} state.tracks array of all the songs in the playlist
  * @property {boolean} state.playing true when the song is playing. Otherwise, it is false
  * @property {boolean} state.queued true when the song is added to queue. Otherwise, it is false
  * @property {boolean} state.cliked true when the song is focused
@@ -26,19 +54,19 @@ import axios from 'axios'
  * @property {boolean} state.saved true when the song is saved to likedSongs
  * 
  * @returns {
- *              <div>
- *               <div classname="playlistHeader">
- *                  <div classname="imageContainer">
- *                      <img/>
- *                  </div>
+ *              &lt;div>
+ *               &lt;div classname="playlistHeader">
+ *                  &lt;div classname="imageContainer">
+ *                      &lt;img/>
+ *                  &lt;/div>
  * 
- *                  <div classname="playlistHeaderBody">
- *                      <HeaderBodyTop/>
- *                      <HeaderBodyBottom/>
- *                  </div>
- *                  <SongList/>
- *               </div>
- *              </div>
+ *                  &lt;div classname="playlistHeaderBody">
+ *                      &lt;HeaderBodyTop/>
+ *                      &lt;HeaderBodyBottom/>
+ *                  &lt;/div>
+ *                  &lt;SongList/>
+ *               &lt;/div>
+ *              &lt;/div>
  *          
  *          }
  */
@@ -187,70 +215,92 @@ class Song extends Component{
     render(){
         
         return(
-            <Router>
-                <button onClick={()=>{this.props.handleClick(this.state.track.id)}} className="song row" id='song' onMouseEnter={this.hover} onMouseLeave={this.notHover}>
+            &lt;Router>
+                &lt;button onClick={()=>{this.props.handleClick(this.state.track.id)}} className="song row" id='song' onMouseEnter={this.hover} onMouseLeave={this.notHover}>
                     
-                        <div  className='songIcon col-1'>
-                            <button className='songButton' onClick={this.playSongClicked.bind(this)}>
-                            <img src={(this.state.hover||this.state.clicked)? require('./play.png'):require('./musicIcon.png')}
+                        &lt;div  className='songIcon col-1'>
+                            &lt;button className='songButton' onClick={this.playSongClicked.bind(this)}>
+                            &lt;img src={(this.state.hover||this.state.clicked)? require('./play.png'):require('./musicIcon.png')}
                              width='12' height='14' 
                              alt='play music icon'/>
-                             </button>
-                        </div>
+                             &lt;/button>
+                        &lt;/div>
 
-                        <div className='songInfo col-8'>    
-                            <span className='whiteText'>{this.state.track.name}</span>
-                            <p>
-                        <span>{
+                        &lt;div className='songInfo col-8'>    
+                            &lt;span className='whiteText'>{this.state.track.name}&lt;/span>
+                            &lt;p>
+                        &lt;span>{
                             this.state.track.artists.map((artist)=>{
-                                return(<span>
-                                    <Link to={`/artist/${artist.id}`} className='playlistAnchor'>{artist.name}</Link>
-                                    <span>, </span>
-                                    </span>
+                                return(&lt;span>
+                                    &lt;Link to={`/artist/${artist.id}`} className='playlistAnchor'>{artist.name}&lt;/Link>
+                                    &lt;span>, &lt;/span>
+                                    &lt;/span>
                                     );
                                 })}
 
-                            </span>
-                            <Link to={`/albums/${this.state.track.albumId}`}className='playlistAnchor'>{this.state.albumName}</Link>
-                            </p>
-                        </div>
+                            &lt;/span>
+                            &lt;Link to={`/albums/${this.state.track.albumId}`}className='playlistAnchor'>{this.state.albumName}&lt;/Link>
+                            &lt;/p>
+                        &lt;/div>
 
-                        <div  className='col-1'>
+                        &lt;div  className='col-1'>
                             
-                                <div className="dropdown">
-                                    <button 
+                                &lt;div className="dropdown">
+                                    &lt;button 
                                         onClick={this.toggleDropdown.bind(this)}
                                         className="songButton" 
                                         id='songDropdownButton'>
-                                        <h3 className='whiteText' 
+                                        &lt;h3 className='whiteText' 
                                         style={(this.state.hover||this.state.clicked)?{display:'block'}:{display:'none'}}>
-                                        ...</h3>
-                                     </button>
+                                        ...&lt;/h3>
+                                     &lt;/button>
 
-                                    <div 
-                                        style={this.state.displayDropdown && this.state.clicked?{display: "block"}:{display: 'none'}}
+                                    &lt;div 
+                                        style={this.state.displayDropdown &amp;&amp; this.state.clicked?{display: "block"}:{display: 'none'}}
                                         className="dropdownContent" id="dropdownContent">
 
-                                        <Link onClick={this.handleSaving.bind(this)} className="SongDropdownItem">
-                                        {this.state.saved?'Remove From Your Liked Songs':'Save to your Liked Songs'}</Link>
+                                        &lt;Link onClick={this.handleSaving.bind(this)} className="SongDropdownItem">
+                                        {this.state.saved?'Remove From Your Liked Songs':'Save to your Liked Songs'}&lt;/Link>
 
-                                        <Link onClick={this.handleQueue.bind(this)}
+                                        &lt;Link onClick={this.handleQueue.bind(this)}
                                         className="SongDropdownItem">
-                                        {this.state.queued?'Remove From Queue':'Add to Queue'}</Link>
+                                        {this.state.queued?'Remove From Queue':'Add to Queue'}&lt;/Link>
 
-                                        <Link className="SongDropdownItem">Add to Playlist</Link>
-                                    </div>
-                                </div> 
-                        </div>
+                                        &lt;Link className="SongDropdownItem">Add to Playlist&lt;/Link>
+                                    &lt;/div>
+                                &lt;/div> 
+                        &lt;/div>
 
-                        <div className='col-2'>
-                            <p className='whiteText'>{this.state.track.songTime}3:34</p>
-                        </div>
-                    </button>
-            </Router>
+                        &lt;div className='col-2'>
+                            &lt;p className='whiteText'>{this.state.track.songTime}3:34&lt;/p>
+                        &lt;/div>
+                    &lt;/button>
+            &lt;/Router>
 
         );
     }
 }
 
-export default Song;
+export default Song;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="addToPlaylist.html">addToPlaylist</a></li><li><a href="Album.html">Album</a></li><li><a href="CreatePlaylist.html">CreatePlaylist</a></li><li><a href="LikedSongs.html">LikedSongs</a></li><li><a href="Playlist.html">Playlist</a></li><li><a href="Song.html">Song</a></li><li><a href="SongList.html">SongList</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addToQueue">addToQueue</a></li><li><a href="global.html#HeaderBody">HeaderBody</a></li><li><a href="global.html#HeaderBodyBottom">HeaderBodyBottom</a></li><li><a href="global.html#HeaderBodyTop">HeaderBodyTop</a></li><li><a href="global.html#pause">pause</a></li><li><a href="global.html#resume">resume</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Thu Apr 02 2020 22:33:34 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

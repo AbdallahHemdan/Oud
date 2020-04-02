@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
  * @param {func} likeClicked a function that is called when the likeButtoon is clicked to add the playlists, albums to library
  * @param {boolean} liked used to indicate the state of like icon it is true when the playlist or album is in the library and false otherwise
  * @param {boolean} playing means that the playlist is playing used to conditionaly render the text of playButton with 'play' or 'pause'
+ * @param {boolean} recieved true if the data is retrieved successfuly at parent
+ * @param {boolean} album true if the parent is album
+ * @param {string} releaseDate the release date of the album
  * @returns {<div>
  * <button></button>
  * <button></button>
@@ -43,7 +46,10 @@ HeaderBodyBottom.propTypes ={
     liked : PropTypes.bool,
     playing : PropTypes.bool,
     likeClicked : PropTypes.func,
-    playClicked : PropTypes.func
+    playClicked : PropTypes.func, 
+    releaseDate: PropTypes.string,
+    recieved: PropTypes.bool,
+    album: PropTypes.bool
 }
 
 

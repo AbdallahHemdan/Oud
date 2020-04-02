@@ -1,6 +1,14 @@
 import React, {Component} from 'react'
 import './createPlaylist.css'
 import axios from 'axios';
+
+/**
+ * it is an overlay that is used to create a new playlist
+ * @class
+ * @param {boolean} display true ifthe component is to be visible
+ * @property {boolean} display true when the component is visible
+ * @property {string} name name of the new playlist
+ */
 class CreatePlaylist extends Component{
     constructor(props){
         super(props);
@@ -9,16 +17,30 @@ class CreatePlaylist extends Component{
             name:''
         }
     }
+    /**
+     * if the component recieved new props it sets the display property to it
+     * @param {object} nextProps new props
+     * @returns {void} 
+     */
     componentWillReceiveProps(nextProps){
         if(nextProps.display !== this.state.display){
             this.setState({display:nextProps.display})
         }
         
     }
+    /**
+     * updates the state to the contents of the textbox
+     * @param {event} e the event of changing the text
+     * @returns {void} 
+     */
     updateName(e){
         const name = e.target.value
         this.setState({name:name})
     }
+    /**
+     * creates a playlist object and sends to the database
+     * @returns {void} 
+     */
     createPlaylist(){
        let  playlist={
         "name": this.state.name,
@@ -35,6 +57,10 @@ class CreatePlaylist extends Component{
             console.log(error);
         });
     }
+    /**
+     * closes the window by making state.display false 
+     * @returns {void} 
+     */
     close(){
         this.setState({display:false})
     }
