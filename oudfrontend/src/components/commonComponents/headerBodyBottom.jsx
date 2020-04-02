@@ -17,7 +17,7 @@ import PropTypes from 'prop-types';
  */
 
 function HeaderBodyBottom(props){
-    const {length, playClicked, likeClicked, liked, playing, releaseDate, recieved} = props;
+    const {length, playClicked, likeClicked, liked, playing, releaseDate, recieved, album} = props;
     
     return(
         <div data-testid="HeaderBodyBottom" className='playlistHeaderBodyBottom'>
@@ -29,7 +29,7 @@ function HeaderBodyBottom(props){
                 {liked? 'liked' : 'like'} {/*font awseome icons*/}
             </button> 
             <p>
-                <span>{recieved?releaseDate.slice(0,4):<span></span>} <h2 style={{display:"inline"}}>.</h2> </span>
+                <span>{recieved?releaseDate.slice(0,4):<span></span>} <h2 style={{display:"inline"}}>{album?'.':''}</h2> </span>
                 <span data-testid="songsNumber">{length} </span>
                 <span data-testid="songsLiteral">{length > 1? 'songs':'song'}</span>
             </p>

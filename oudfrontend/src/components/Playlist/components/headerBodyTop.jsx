@@ -38,7 +38,6 @@ function HeaderBodyTop(props)
         .then((response)=> {
             const user = response.data;
             setOwnerName(user.displayName);
-            console.log(ownerName);
         })
         .catch((error)=> {
             console.log(error);

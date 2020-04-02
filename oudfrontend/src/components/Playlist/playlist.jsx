@@ -5,7 +5,7 @@ import HeaderBodyBottom from '../commonComponents/headerBodyBottom'
 import HeaderBodyTop from './components/headerBodyTop'
 import SongList from '../commonComponents/songList'
 import PropTypes from 'prop-types';
-
+import {resume, pause, addToQueue} from '../commonComponents/utils'
 
 
 /**
@@ -50,52 +50,47 @@ class Playlist extends React.Component{
             playlist:{},
             liked:false,
             playing:false,
-            queued:false
+            queued:false,
+            clickID:'0'
         };
-        const id = this.props.id;
+        this.addToQueue = this.addToQueue.bind(this)
+        this.resume = this.resume.bind(this)
+        this.pause = this.pause.bind(this)
+        this.playButtonClicked = this.playButtonClicked.bind(this)
+        this.likeButtonClicked = this.likeButtonClicked.bind(this)
+
     }
     /**
      * Called Whenever the user clicked on the PLAY button and it adds all the songs of the playlist to the queue by a post request
      * @func
      * @returns {void}
      */
+    addToQueue(tracks, length){
+        this.setState({queued:true})
+        addToQueue(tracks, length)
+        this.resume()
+    }
     playButtonClicked(){
         //all the three requests should be put requests
-        this.setState({playing:!this.state.playing})
         if(this.state.queued === false){
-            this.setState({queued:true});
             const tracks = this.state.tracks
             const length = this.state.tracks.length
-            axios.post('http://localhost:3000/queue/', {
-                tracks : tracks,
-                total : length
-            })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        }
-        if(this.state.playing === false){
-            axios.post('http://localhost:3000/player/pause/',)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            this.addToQueue(tracks, length)
         }
         if(this.state.playing === true){
-            axios.post('http://localhost:3000/player/play/',)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            this.pause()
         }
-
+        else{
+            this.resume()
+        }
+    }
+    pause(){
+        pause()
+        this.setState({playing:false})
+    }
+    resume(){
+        resume()
+        this.setState({playing:true})
     }
 
     /**
@@ -108,13 +103,7 @@ class Playlist extends React.Component{
         const likedPlaylist = this.state.playlist
         if(this.state.liked === false){
             this.setState({liked:true})
-            axios.post('http://localhost:3000/likedPlaylists/', likedPlaylist)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            
         }
         else{
             this.setState({liked:false})
@@ -127,6 +116,13 @@ class Playlist extends React.Component{
                 console.log(error);
             });
         }
+        axios.post('http://localhost:3000/likedPlaylists/', likedPlaylist)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
     }
     /**
@@ -156,14 +152,17 @@ class Playlist extends React.Component{
         });
     }
     
-    
+    markAllUnclicked(){
+        this.setState({clickID:'0'})
+
+    }
 
     render(){
         return(
             <div data-testid='playlist' className='playlist'>
                 
                 <div className='row'>
-                    <div data-testid="playlistHeader" className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
+                    <div data-testid="playlistHeader"  onClick={this.markAllUnclicked.bind(this)} className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
                         <div data-testid="playlistIamgeContainer" className='playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
                             <img data-testid="playlistIamge" src={this.state.playlist.image} className='playlistImage' alt='playlist img'/>
                         </div>            
@@ -176,10 +175,12 @@ class Playlist extends React.Component{
                             <HeaderBodyBottom 
                                 data-testid = "HeaderBodyBottom" 
                                 length = {this.state.tracks.length} 
-                                playClicked = {this.playButtonClicked.bind(this)}
-                                likeClicked = {this.likeButtonClicked.bind(this)}
+                                playClicked = {this.playButtonClicked}
+                                likeClicked = {this.likeButtonClicked}
                                 liked = {this.state.liked}
                                 playing = {this.state.playing}
+                                album = {false}
+
                             />
                         </div>
                     </div>  
@@ -187,6 +188,10 @@ class Playlist extends React.Component{
                         data-testid="songList"
                         recieved = {this.state.recieved}
                         tracks={this.state.tracks} 
+                        pause = {this.pause}
+                        resume = {this.resume}
+                        addToQueue = {this.addToQueue}
+                        clickedItemId = {this.state.clickID}
                         className="col-xs-8 col-md-6 col-lg-8 col-xl-8"
                     />
                     
