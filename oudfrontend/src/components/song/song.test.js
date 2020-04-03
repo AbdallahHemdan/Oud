@@ -132,7 +132,7 @@ const findByTestAttr=(wrapper, val)=>{
     return wrapper.find(`[data-testid="${val}"]`);
 }
 describe('song component', ()=>{
-    describe('testing with props', ()=>{
+   /* describe('testing with props', ()=>{
       let component;
         beforeEach (()=>{
             component = setup();
@@ -142,7 +142,7 @@ describe('song component', ()=>{
         expect(wrapper.length).toBe(1)
       })
       
-    })
+    })*/
     describe('testing prop types', ()=>{
         it('passing true props', ()=>{
             const result = checkPropTypes(Song.propTypes, {...fullProps}, 'prop', Song.name);
