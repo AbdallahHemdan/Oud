@@ -9,7 +9,7 @@ export default {
           "image":"https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
           "public": true,
           "type": "trap",
-        
+          "name":"ahmed",
           "tracks": [
             {
               "id": "21",

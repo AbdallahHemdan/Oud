@@ -77,10 +77,10 @@ class Song extends Component{
      * @returns {void}
      */
     componentDidMount(){
-        axios.get(`http://localhost:3000/albums/${this.state.track.albumId}/`)
+        axios.get(`http://localhost:3000/albums/${this.props.track.albumId}/`)
         .then((response)=> {
-            const albumName = response.data.name
-            this.setState({albumName:albumName})
+            const album = response.data
+            this.setState({albumName:album.name})
         })
         .catch((error)=> {
             console.log(error);
@@ -187,7 +187,6 @@ class Song extends Component{
 
     }
     render(){
-        var date = new Date();
         return(
             <Router>
                 <button onClick={()=>{this.props.handleClick(this.state.track.id)}} data-testId='song' className="song row" id='song' onMouseEnter={this.hover} onMouseLeave={this.notHover}>
@@ -205,7 +204,7 @@ class Song extends Component{
                             <p data-testId='aristsNames'>
                         <span>{
                             this.state.track.artists.map((artist)=>{
-                                return(<span key={date.getTime()}>
+                                return(<span>
                                     <Link data-testId='artistName' to={`/artist/${artist.id}`} className='playlistAnchor'>{artist.name}</Link>
                                     <span data-testId='comma'>, </span>
                                     </span>
