@@ -22,40 +22,20 @@ import {BrowserRouter as Router,Link} from "react-router-dom";
  */
 function  HeaderBodyTop(props)
 {
-
-   /* constructor(props){
-        super(props)
-        this.state={
-            artists:[],
-            length: 0
-        }
-    }
-    
-    componentDidMount(){
-        this.setState({length:this.state.artists})
-        this.setState({artists:this.props.artists})
-        console.log(this.state.artists)
-
-    }
-   /* renderArtists(){
-        let x = ''
-        for(let i=0; i<this.state.artists.length; i++){
-            x += <span><Link to={`/artist/${this.state.artists[i].id}`} data-testid="owner" className='playlistAnchor'>{this.state.artists[i].name}</Link></span>
-        }
-    }*/
-    //render(){
-        const {title, artists} = props;
+        const title = props.title
+        var artists= Array.isArray(props.artists)?props.artists:[]
+        
         let flag = false
         function withComma(artist){
             return(
             <span>, <Link to={`/artist/${artist.id}`}
-             data-testid="owner" 
+             data-testid="artist" 
              className='playlistAnchor'>{artist.name}</Link></span>
             );}
         function withoutComma(artist){
             flag= true;
             return(<span><Link to={`/artist/${artist.id}`}
-             data-testid="owner"
+             data-testid="artist"
               className='playlistAnchor'>{artist.name}</Link></span>
             );}
         
@@ -78,7 +58,7 @@ function  HeaderBodyTop(props)
 
 HeaderBodyTop.propTypes = {
     title: PropTypes.string,
-    owner: PropTypes.string
+    artists:PropTypes.array
 }
 
 export default HeaderBodyTop;

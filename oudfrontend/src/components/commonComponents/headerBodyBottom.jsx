@@ -32,7 +32,7 @@ function HeaderBodyBottom(props){
                 {liked? 'liked' : 'like'} {/*font awseome icons*/}
             </button> 
             <p>
-                <span>{recieved?releaseDate.slice(0,4):<span></span>} <h2 style={{display:"inline"}}>{album?'.':''}</h2> </span>
+                <span data-testid="releaseDate">{recieved?releaseDate.slice(0,4):''} <h2 data-testid="separatingDot" style={{display:"inline"}}>{album?'.':''}</h2> </span>
                 <span data-testid="songsNumber">{length} </span>
                 <span data-testid="songsLiteral">{length > 1? 'songs':'song'}</span>
             </p>

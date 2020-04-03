@@ -130,6 +130,10 @@ class SongList extends Component{
 }
 SongList.propTypes={
     recieved : PropTypes.bool,
-    tracks : PropTypes.array
+    tracks : PropTypes.array,
+    pause : PropTypes.func,
+    resume : PropTypes.func,
+    addToQueue : PropTypes.func,
+    clickedItemId : PropTypes.string
 }
 export default SongList;

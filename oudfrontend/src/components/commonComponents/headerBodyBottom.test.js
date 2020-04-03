@@ -2,9 +2,20 @@ import React from 'React'
 import HeaderBodyBottom from './headerBodyBottom'
 import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
+import renderer from 'react-test-renderer';
 import checkPropTypes from 'check-prop-types'
 Enzyme.configure({adapter: new EnzymeAdapter()});
 
+const fullProps = {
+    length : 1,
+    liked : true,
+    playing : true,
+    likeClicked : jest.fn(),
+    playClicked : jest.fn(), 
+    releaseDate:'2011-05-06',
+    recieved: true,
+    album: true
+}
 
 const setup = (props={}) =>{
     return shallow(<HeaderBodyBottom {...props}/>);
@@ -57,24 +68,48 @@ describe('HeaderBodyBottom component', ()=>{
         let propsNan = {length: NaN};
         let propsPlaying = {playing:true}
         let propsNotPlaying = {playing:false}
+        let album = {album:true}
+        let notAlbum = {album:false}
+        let notRecieved = {releaseDate:'1234-11-01', recieved:false}
+
         
         it("renders correctly with props", ()=>{
             component = setup(propsPlural);
             const wrapper = findByTestAttr(component, "HeaderBodyBottom");
             expect(wrapper.length).toBe(1);
         });
-    
+
+        it("renders correctly with album = true", ()=>{
+            component = setup(album);
+            const wrapper = findByTestAttr(component, "separatingDot");
+            expect(wrapper.length).toBe(1);
+            expect(wrapper.text()).toBe('.')
+        });
+        it("renders correctly with album = false", ()=>{
+            component = setup(notAlbum);
+            const wrapper = findByTestAttr(component, "separatingDot");
+            expect(wrapper.length).toBe(1);
+            expect(wrapper.text()).toBe('')
+        });
+        
+        it("renders correctly with recieved = false", ()=>{
+            component = setup(notRecieved);
+            const wrapper = findByTestAttr(component, "releaseDate");
+            expect(wrapper.length).toBe(1);
+            expect(wrapper.text()).toBe('  ')
+        });
+
         it("renders play button correctly with playing = true", ()=>{
             component = setup(propsPlaying);
             const wrapper = findByTestAttr(component, "playButton");
             expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe('PLAY')
+            expect(wrapper.text()).toBe('PAUSE')
         });
         it("renders play button correctly with playing = false", ()=>{
-            component = setup(propsPlaying);
+            component = setup(propsNotPlaying);
             const wrapper = findByTestAttr(component, "playButton");
             expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe('PAUSE')
+            expect(wrapper.text()).toBe('PLAY')
         });
     
         it("renders like icon correctly with props", ()=>{
@@ -162,6 +197,42 @@ describe('HeaderBodyBottom component', ()=>{
             expect(result).toBeDefined();
         });
 
+        //tetsing releaseDate prop
+        it('should not throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {releaseDate:'lskdvn'}, 'prop', HeaderBodyBottom.name);
+            expect(result).toBeUndefined();
+        });
+        
+        it('should throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {playing:4}, 'prop', HeaderBodyBottom.name);
+            console.log(result);
+            expect(result).toBeDefined();
+        });
+
+        //testing recieved prop
+        it('should not throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {recieved:false}, 'prop', HeaderBodyBottom.name);
+            expect(result).toBeUndefined();
+        });
+        
+        it('should throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {recieved:{}}, 'prop', HeaderBodyBottom.name);
+            console.log(result);
+            expect(result).toBeDefined();
+        });
+
+        //testing album prop
+        it('should not throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {album:false}, 'prop', HeaderBodyBottom.name);
+            expect(result).toBeUndefined();
+        });
+        
+        it('should throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {album:{}}, 'prop', HeaderBodyBottom.name);
+            console.log(result);
+            expect(result).toBeDefined();
+        });
+
         //testing the likeClicked prop
         it('should not throw a warning', ()=>{
             const result = checkPropTypes(HeaderBodyBottom.propTypes, {likeClicked:jest.fn()}, 'prop', HeaderBodyBottom.name);
@@ -182,6 +253,14 @@ describe('HeaderBodyBottom component', ()=>{
             const result = checkPropTypes(HeaderBodyBottom.propTypes, {playClicked:{}}, 'prop', HeaderBodyBottom.name);
             console.log(result);
             expect(result).toBeDefined();
+        });
+    });
+    describe('snapshot test', ()=>{
+        it('renders correctly', () => {
+            const tree = renderer
+              .create(<HeaderBodyBottom {...fullProps}/>)
+              .toJSON();
+            expect(tree).toMatchSnapshot();
         });
     });
 });

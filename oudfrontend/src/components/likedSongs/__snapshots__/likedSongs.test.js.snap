@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Playlist Component snapshot test for the playlist renders correctly 1`] = `
+exports[`album Component snapshot test for the playlist renders correctly 1`] = `
 <div
   className="playlist"
-  data-testid="playlist"
+  data-testid="likedSongs"
 >
   <div
     className="row"
@@ -21,6 +21,7 @@ exports[`Playlist Component snapshot test for the playlist renders correctly 1`]
           alt="playlist img"
           className="playlistImage"
           data-testid="playlistIamge"
+          src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"
         />
       </div>
       <div
@@ -28,32 +29,14 @@ exports[`Playlist Component snapshot test for the playlist renders correctly 1`]
         data-testid="playlistHeaderBody"
       >
         <div
-          className="playlistHeaderBodyTop"
-          data-testid="HeaderBodyTop"
+          data-testid="HeaderBody"
         >
           <h2
             className="whiteText"
             data-testid="title"
-          />
-          <span
-            className="whiteText"
-            data-testid="credits"
           >
-            Crerated By 
-          </span>
-          <a
-            className="playlistAnchor"
-            data-testid="owner"
-            href="/user/undefined"
-            onClick={[Function]}
-          >
-            
-          </a>
-        </div>
-        <div
-          className="playlistHeaderBodyBottom"
-          data-testid="HeaderBodyBottom"
-        >
+            Liked Songs
+          </h2>
           <button
             className="playButton"
             data-testid="playButton"
@@ -62,32 +45,7 @@ exports[`Playlist Component snapshot test for the playlist renders correctly 1`]
           >
             PLAY
           </button>
-          <button
-            className="likeIcon"
-            data-testid="likeIcon"
-            onClick={[Function]}
-          >
-            like
-             
-          </button>
           <p>
-            <span
-              data-testid="releaseDate"
-            >
-              
-               
-              <h2
-                data-testid="separatingDot"
-                style={
-                  Object {
-                    "display": "inline",
-                  }
-                }
-              >
-                
-              </h2>
-               
-            </span>
             <span
               data-testid="songsNumber"
             >

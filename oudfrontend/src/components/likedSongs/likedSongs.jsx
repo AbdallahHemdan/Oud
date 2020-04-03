@@ -153,7 +153,7 @@ class LikedSongs extends React.Component{
                         <div data-testid="playlistHeaderBody" className='playlistHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8'>
                       
                             <HeaderBody 
-                                data-testid = "HeaderBodyBottom" 
+                                data-testid = "HeaderBody" 
                                 length = {this.state.tracks.length} 
                                 playClicked = {this.playButtonClicked.bind(this)}
                                 playing = {this.state.playing}

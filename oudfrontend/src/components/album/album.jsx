@@ -178,7 +178,7 @@ class Album extends React.Component{
     }
     render(){
         return(
-            <div data-testid='playlist' className='playlist' onClick={this.markAllUnclicked.bind(this)}>
+            <div data-testid='album' className='playlist' onClick={this.markAllUnclicked.bind(this)}>
                 
                 <div className='row'>
                     <div data-testid="playlistHeader" className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>

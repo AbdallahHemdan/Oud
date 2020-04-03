@@ -18,7 +18,7 @@ function HeaderBody(props){
     const {length, playClicked,playing} = props;
     return(
         <div data-testid="HeaderBody">
-            <h2 className='whiteText'>Liked Songs</h2>
+            <h2 data-testid="title" className='whiteText'>Liked Songs</h2>
             <button onClick={playClicked} data-testid="playButton" className="playButton" variant="outline-success">
                     {playing? 'PAUSE' : 'PLAY'}
             </button>
