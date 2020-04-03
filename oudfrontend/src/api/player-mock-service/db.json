@@ -54,9 +54,28 @@
   "shuffle": {},
   "repeat": {},
   "volume": {},
-  "play": {},
+  "play": {
+    "contextUri": {},
+    "uris": [
+      "oud:track:dkfjnc245",
+      "oud:track:dkfjnc246",
+      "oud:track:dkfjnc247",
+      "oud:track:dkfjnc248",
+      "oud:track:dkfjnc249"
+    ],
+    "offset": {
+      "position": 0
+    },
+    "positionMs": 0
+  },
   "queue": {
-    "tracks": ["dkfjnc245", "dkfjnc246", "dkfjnc247", "dkfjnc248", "dkfjnc249"],
+    "tracks": [
+      "dkfjnc245",
+      "dkfjnc246",
+      "dkfjnc247",
+      "dkfjnc248",
+      "dkfjnc249"
+    ],
     "total": 5
   },
   "dkfjnc245": {

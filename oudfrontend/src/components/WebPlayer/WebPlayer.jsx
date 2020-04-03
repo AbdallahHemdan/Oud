@@ -1,18 +1,22 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Component } from "react";
 import axios from "axios";
 import Player from "./Player";
+import Queue from "./Queue/Queue";
 class WebPlayer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       context: {},
       trackIdx: 0,
+      trackId: "",
       queue: [],
-      deviceId: "74ASZWbe4lXaubB36ztrGX"
+      deviceId: "74ASZWbe4lXaubB36ztrGX",
+      playing: false
     };
+    this.queueElement = React.createRef();
+    this.playerElement = React.createRef();
   }
-
   getRequest = endpoint => {
     return axios.get(endpoint);
   };
@@ -21,6 +25,9 @@ class WebPlayer extends Component {
   };
   postRequest = (endpoint, body = {}) => {
     return axios.post(endpoint, body);
+  };
+  patchRequest = (endpoint, body = {}) => {
+    return axios.patch(endpoint, body);
   };
 
   fetchQueue = (queueIndex = "0", trackId = "") => {
@@ -38,7 +45,8 @@ class WebPlayer extends Component {
 
           this.setState({
             trackIdx: trackIdx,
-            queue: data["tracks"]
+            queue: data["tracks"],
+            trackId: trackId
           });
         }
       })
@@ -51,14 +59,18 @@ class WebPlayer extends Component {
     return this.getRequest("http://localhost:3000/tracks/" + trackId);
   };
   getNext = () => {
+    const idx = (this.state.trackIdx + 1) % this.state.queue.length;
     this.setState({
-      trackIdx: (this.state.trackIdx + 1) % this.state.queue.length
+      trackIdx: idx,
+      trackId: this.state.queue[idx]
     });
     return this.fetchTrack(this.state.queue[this.state.trackIdx]);
   };
   getPrevious = () => {
+    const idx = this.state.trackIdx - 1 < 0 ? 0 : this.state.trackIdx - 1;
     this.setState({
-      trackIdx: this.state.trackIdx - 1 < 0 ? 0 : this.state.trackIdx - 1
+      trackIdx: idx,
+      trackId: this.state.queue[idx]
     });
     return this.fetchTrack(this.state.queue[this.state.trackIdx]);
   };
@@ -93,6 +105,9 @@ class WebPlayer extends Component {
       });
   };
   getContextQueue = contextUri => {
+    this.setState({
+      context: contextUri
+    });
     const context = contextUri.split(":");
     const type = context[1];
     switch (type) {
@@ -106,10 +121,15 @@ class WebPlayer extends Component {
         break;
     }
   };
-  playContext = (contextUri = "", uris = [], offset = 0, position = 0) => {
+  playContext = (
+    contextUri = this.state.context,
+    uris = [],
+    offset = 0,
+    position = 0
+  ) => {
     this.putRequest(
       "http://localhost:3000/me/player/play?deviceId=" +
-        this.props.deviceId +
+        this.state.deviceId +
         "&queueIndex=0",
       {
         contextUri: {
@@ -121,23 +141,72 @@ class WebPlayer extends Component {
       }
     )
       .then(response => {
+        console.log("context: " + contextUri);
         this.getContextQueue(contextUri);
+        this.playerElement.play();
       })
       .catch(error => {
+        console.log("I'm here ha ha ha");
         console.log(error);
       });
   };
+  onChangeQueueOrder = queue => {
+    let oldIdx = this.state.trackIdx,
+      newIdx = this.state.trackIdx;
+    for (let i = 0; i < queue.length; ++i)
+      if (queue[i] === this.state.trackId) newIdx = i;
+
+    this.setState({
+      queue: queue,
+      trackIdx: newIdx
+    });
+    // this.patchRequest(
+    //   "http://localhost:3000/me/queue?queueIndex=0&trackIndex=" +
+    //     oldIdx +
+    //     "&newIndex=" +
+    //     newIdx
+    // )
+    //   .then(response => {
+    //     this.this.setState({
+    //       queue: queue,
+    //       trackIdx: newIdx
+    //     });
+    //     console.log(response);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+  };
+  changePlayingState = playing => {
+    this.setState({
+      playing: playing
+    });
+    console.log("playing state has changed: " + this.state.playing);
+  };
   render() {
     return (
-      <Player
-        deviceId={this.state.deviceId}
-        getRequest={this.getRequest}
-        putRequest={this.putRequest}
-        postRequest={this.postRequest}
-        fetchQueue={this.fetchQueue}
-        getNext={this.getNext}
-        getPrevious={this.getPrevious}
-      />
+      <Fragment>
+        <Queue
+          ref={this.queueElement}
+          tracks={this.state.queue}
+          trackId={this.state.trackId}
+          playing={this.state.playing}
+          onChangeQueueOrder={this.onChangeQueueOrder}
+          playTrack={this.playContext}
+        />
+        <Player
+          ref={this.playerElement}
+          deviceId={this.state.deviceId}
+          queueElement={this.queueElement}
+          getRequest={this.getRequest}
+          putRequest={this.putRequest}
+          postRequest={this.postRequest}
+          fetchQueue={this.fetchQueue}
+          getNext={this.getNext}
+          getPrevious={this.getPrevious}
+          changePlayingState={this.changePlayingState}
+        />
+      </Fragment>
     );
   }
 }

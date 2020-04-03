@@ -113,7 +113,7 @@ class Player extends Component {
       html5: true,
       format: ["mp3"],
       onplay: () => {
-        console.log("on play");
+        this.props.changePlayingState(true);
         this.setState({
           playing: true,
           duration: Number(this.state.sound.duration() / 60).toFixed(2)
@@ -130,6 +130,7 @@ class Player extends Component {
         }, 100);
       },
       onend: () => {
+        this.props.changePlayingState(false);
         this.setState({
           playing: false,
           progress: 0,
@@ -160,7 +161,7 @@ class Player extends Component {
       .then(resp => {
         this.state.sound.pause();
         this.setState({ playing: false });
-        // console.log(resp);
+        this.props.changePlayingState(false);
       })
       .catch(error => {
         console.log(error);
@@ -190,6 +191,7 @@ class Player extends Component {
   resume = () => {
     this.playResumeRequest()
       .then(resp => {
+        this.props.changePlayingState(true);
         this.setState({ playing: true });
         this.state.sound.play();
         console.log(resp);
@@ -262,6 +264,7 @@ class Player extends Component {
               progress: Number(0).toFixed(2),
               playing: false
             });
+            this.props.changePlayingState(false);
             this.play();
           })
           .catch(function(error) {
@@ -298,6 +301,7 @@ class Player extends Component {
               progress: Number(0).toFixed(2),
               playing: false
             });
+            this.props.changePlayingState(false);
             this.play();
           })
           .catch(function(error) {
@@ -504,6 +508,7 @@ class Player extends Component {
               repeatState={this.state.repeatState}
               volumeState={this.state.muteState}
               volume={this.state.volume}
+              queueElement={this.props.queueElement}
               handleShuffleState={this.handleShuffleState}
               handleRepeatState={this.handleRepeatState}
               handleMuteState={this.handleMuteState}

@@ -5,9 +5,19 @@ import SortableTrackContainer from "./SortableTrackContainer";
 const TrackContainer = SortableContainer(props => {
   return (
     <div>
-      {props.tracks.map((track, index) => (
-        <SortableTrackContainer key={track} index={index} />
-      ))}
+      {props.tracks.map((track, index) => {
+        const playing = props.trackId === track && props.playing ? true : false;
+        return (
+          <SortableTrackContainer
+            key={track}
+            index={index}
+            id={track}
+            playing={playing}
+            playTrack={props.playTrack}
+          />
+        );
+      })}
+      )
     </div>
   );
 });

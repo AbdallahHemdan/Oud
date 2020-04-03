@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { sortableHandle } from "react-sortable-hoc";
-import art from "../../../assets/images/icons/album.jpg";
 import ellipsis from "../../../assets/images/icons/ellipsis.png";
 import handler from "../../../assets/images/icons/handler.png";
 import play from "../../../assets/images/icons/play.png";
 import pause from "../../../assets/images/icons/pause.png";
+import axios from "axios";
 const DragHandle = sortableHandle(() => (
   <span className="handler">
     <img src={handler} alt="Handler" />
@@ -24,8 +24,8 @@ class Track extends Component {
     this.fetchTrackInfo();
   }
   fetchTrackInfo = () => {
-    this.props
-      .fetchTrack(this.props.id)
+    axios
+      .get("http://localhost:3000/tracks/" + this.props.id)
       .then(response => {
         const track = response["data"];
         this.setState({
@@ -34,10 +34,14 @@ class Track extends Component {
           artistName: track["artists"][0]["name"],
           duration: Number(track["duartion"] / 60000).toFixed(2)
         });
+        console.log("track component: " + this.props.id);
       })
       .catch(error => {
         console.log(error);
       });
+  };
+  handlePlayTrack = () => {
+    this.props.playTrack(undefined, undefined, this.props.idx);
   };
   render() {
     return (
@@ -49,8 +53,11 @@ class Track extends Component {
               className="track-art-work"
               style={{ backgroundImage: `url(${this.state.image})` }}
             ></div>
-            <button className="play-pause">
-              <img src={this.props.playing ? pause : play} alt="Play" />
+            <button className="play-pause" onClick={this.handlePlayTrack}>
+              <img
+                src={this.props.playing ? pause : play}
+                alt={this.props.playing ? "Pause" : "Play"}
+              />
             </button>
           </div>
 

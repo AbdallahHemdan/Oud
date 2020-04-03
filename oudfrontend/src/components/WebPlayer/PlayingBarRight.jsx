@@ -8,7 +8,6 @@ import volume from "../../assets/images/icons/volume.png";
 import volumeMuted from "../../assets/images/icons/volume-mute.png";
 import queue from "../../assets/images/icons/queue.png";
 import queueActivated from "../../assets/images/icons/queueActivated.png";
-import Queue from "./Queue/Queue";
 /**
  * Component for controling the right part of the player: shuffle, repeat, and mute buttons and clicking on the volume bar
  * @author Ahmed Ashraf
@@ -20,13 +19,12 @@ class PlayingBarRight extends Component {
     this.state = {
       queueOpened: false
     };
-    this.queueElement = React.createRef();
   }
   openQueue = () => {
     if (this.state.queueOpened) {
-      this.queueElement.current.closeQueue();
+      this.props.queueElement.current.closeQueue();
     } else {
-      this.queueElement.current.openQueue();
+      this.props.queueElement.current.openQueue();
     }
     this.setState({
       queueOpened: !this.state.queueOpened
@@ -35,7 +33,6 @@ class PlayingBarRight extends Component {
   render() {
     return (
       <Fragment>
-        <Queue ref={this.queueElement} />
         <div className="now-playing-bar-right">
           <div className="volume-bar">
             <button

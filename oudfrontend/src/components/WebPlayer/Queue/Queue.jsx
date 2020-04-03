@@ -9,11 +9,16 @@ class Queue extends Component {
     super(props);
     this.state = {
       height: "0%",
-      tracks: ["1", "2", "3", "4", "5", "6", "7", "8"]
+      tracks: []
     };
   }
-
-  fetchQueue = () => {};
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.tracks !== prevState.tracks) {
+      return {
+        tracks: nextProps.tracks
+      };
+    }
+  }
 
   /* Open */
   openQueue = () => {
@@ -30,7 +35,9 @@ class Queue extends Component {
   };
 
   onSortEnd = ({ oldIndex, newIndex }) => {
-    this.setState({ tracks: arrayMove(this.state.tracks, oldIndex, newIndex) });
+    const tracks = arrayMove(this.state.tracks, oldIndex, newIndex);
+    this.setState({ tracks: tracks });
+    this.props.onChangeQueueOrder(tracks);
   };
   render() {
     return (
@@ -41,8 +48,11 @@ class Queue extends Component {
           </button>
           <TrackContainer
             tracks={this.state.tracks}
+            trackId={this.props.trackId}
+            playing={this.props.playing}
             onSortEnd={this.onSortEnd}
             useDragHandle={true}
+            playTrack={this.props.playTrack}
           />
         </div>
       </div>

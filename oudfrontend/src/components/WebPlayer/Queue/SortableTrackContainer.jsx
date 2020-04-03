@@ -1,8 +1,16 @@
 import React from "react";
 import { SortableElement } from "react-sortable-hoc";
 import Track from "./Track";
-const SortableTrackContainer = SortableElement((fetchTrack, playing, id) => {
-  return <Track fetchTrack={fetchTrack} playing={playing} id={id} />;
+const SortableTrackContainer = SortableElement(props => {
+  console.log(props.id);
+  return (
+    <Track
+      id={props.id}
+      idx={props.index}
+      playing={props.playing}
+      playTrack={props.playTrack}
+    />
+  );
 });
 
 export default SortableTrackContainer;
