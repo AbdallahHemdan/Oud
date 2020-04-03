@@ -1,7 +1,7 @@
 import React from "react";
 // import logo from "./logo.svg";
 import "./App.css";
-import WebPlayer from "./components/WebPlayer/Player";
+import WebPlayer from "./components/WebPlayer/WebPlayer";
 // import Queue from "./components/WebPlayer/Queue/Queue";
 function App() {
   return (

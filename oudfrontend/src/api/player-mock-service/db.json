@@ -1,5 +1,5 @@
 {
-  "currently-playing": {
+  "player": {
     "device": {
       "id": "74ASZWbe4lXaubB36ztrGX",
       "isActive": true,
@@ -8,13 +8,13 @@
       "type": "Laptop",
       "volumePercent": 65
     },
-    "progressMs": 0,
+    "progressMs": 60235,
     "isPlaying": false,
     "shuffleState": false,
     "repeatState": "off",
     "currentlyPlayingType": "unknown",
     "item": {
-      "_id": "3256",
+      "_id": "dkfjnc247",
       "name": "Dorak gai",
       "artists": [
         {
@@ -27,7 +27,7 @@
       "albumId": "50",
       "type": "track",
       "audioUrl": "https://cdn1.esm3.com//music/10028/m289005.mp3",
-      "duartion": 4.27,
+      "duartion": 256200,
       "views": 100000
     },
     "actions": {
@@ -49,22 +49,99 @@
   },
   "next": {},
   "previous": {},
-  "pause": {
-    "first_name": "Ashraf",
-    "meId": "player"
-  },
+  "pause": {},
   "seek": {},
   "shuffle": {},
   "repeat": {},
   "volume": {},
-  "play": {
-    "contextUri": {
-      "context_uri": "oud:album:1Je1IMUlBXcx1Fz0WE7oPT"
-    },
-    "uris": [],
-    "offset": {
-      "position": 0
-    },
-    "positionMs": 0
+  "play": {},
+  "queue": {
+    "tracks": ["dkfjnc245", "dkfjnc246", "dkfjnc247", "dkfjnc248", "dkfjnc249"],
+    "total": 5
+  },
+  "dkfjnc245": {
+    "_id": "dkfjnc245",
+    "name": "أعمارنا أعمالنا",
+    "artists": [
+      {
+        "_id": "string",
+        "name": "Maher Zain",
+        "type": "string",
+        "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Islamic-Maher-Zain.jpg"
+      }
+    ],
+    "albumId": "kjhnm",
+    "type": "string",
+    "audioUrl": "https://serv10.songatak.com/mp3/Songatak.Com_c1702de2cce9ed30199f0fe96a4ba58d.mp3",
+    "duartion": 205800,
+    "views": 0
+  },
+  "dkfjnc246": {
+    "_id": "dkfjnc246",
+    "name": "أمتي",
+    "artists": [
+      {
+        "_id": "string",
+        "name": "Maher Zain",
+        "type": "string",
+        "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Islamic-Maher-Zain.jpg"
+      }
+    ],
+    "albumId": "kjhnm",
+    "type": "string",
+    "audioUrl": "https://cdn1.esm3.com//music/4558/m288438.mp3",
+    "duartion": 212400,
+    "views": 0
+  },
+  "dkfjnc247": {
+    "_id": "dkfjnc247",
+    "name": "Dorak gai",
+    "artists": [
+      {
+        "_id": "string",
+        "name": "Wegz",
+        "type": "string",
+        "image": "https://1.bp.blogspot.com/-UiyeZ3BS-vU/XkofO3B9dyI/AAAAAAAAAxs/Qq4zCnTnuZ4lrYv_T7TZ-lkuWScalDtSwCPcBGAYYCw/s320/unnamed.jpg"
+      }
+    ],
+    "albumId": "kjhnm",
+    "type": "string",
+    "audioUrl": "https://cdn1.esm3.com//music/10028/m289005.mp3",
+    "duartion": 256200,
+    "views": 0
+  },
+  "dkfjnc248": {
+    "_id": "dkfjnc248",
+    "name": "ارضي علينا يا لميمة",
+    "artists": [
+      {
+        "_id": "string",
+        "name": "Hamza Namra",
+        "type": "string",
+        "image": "https://www.dw.com/image/18376104_303.jpg"
+      }
+    ],
+    "albumId": "kjhnm",
+    "type": "string",
+    "audioUrl": "https://www.matb3aa.com/music/Hamza-Namira/Album-Remixat2-2018/11-Erdi.Alina.Ya.Lmeema-MaTb3aa.Com.mp3",
+    "duartion": 205800,
+    "views": 0
+  },
+  "dkfjnc249": {
+    "_id": "dkfjnc248",
+    "name": "Story of a child",
+    "artists": [
+      {
+        "_id": "string",
+        "name": "Hamza Namra",
+        "type": "string",
+        "image": "https://www.dw.com/image/18376104_303.jpg"
+      }
+    ],
+    "albumId": "kjhnm",
+    "type": "string",
+    "audioUrl": "https://dndnat.dnsta123.com/media/hamza-namira/singles/Hamza.Namira.Hekayet.Tefl.mp3",
+    "duartion": 208800,
+    "views": 0
   }
 }

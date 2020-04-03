@@ -6,41 +6,37 @@ import PlayingBarCenter from "./PlayingBarCenter";
 import PlayingBarRight from "./PlayingBarRight";
 import art from "../../assets/images/icons/album.jpg";
 import extend from "../../assets/images/icons/extend.png";
-const axios = require("axios");
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
  * @author Ahmed Ashraf
  * @component
  * @example
  * return (
- *  <WebPlayer />
+ *  <Player />
  * )
  */
-class WebPlayer extends Component {
+class Player extends Component {
   /**
    * Setting things up. It initialize what will be fetched from the API
    * @returns{void}
    */
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       sound: null,
       audioUrl: "",
-      deviceId: "",
       fetched: false,
       progress: 0,
       playing: false,
-      current: "0.00",
+      current: Number(0).toFixed(2),
       trackName: "",
       artistName: "",
-      duration: "0.00",
+      duration: Number(0).toFixed(2),
       mouseDown: false,
       shuffleState: false,
       repeatState: false,
       volume: 1.0,
-      muteState: false,
-      contextUri: "oud:album:1Je1IMUlBXcx1Fz0WE7oPT",
-      trackIdx: 0
+      muteState: false
     };
   }
   /**
@@ -58,7 +54,7 @@ class WebPlayer extends Component {
    * Fetching data immediately after the component has been mount to the DOM tree
    */
   componentDidMount() {
-    this.fetchTrackInfo();
+    this.fetchPlayback();
   }
 
   /**
@@ -67,50 +63,32 @@ class WebPlayer extends Component {
    * @function
    * @returns{void}
    */
-  fetchTrackInfo = () => {
-    axios
-      .get("http://localhost:3000/me/player/currently-playing")
+  fetchPlayback = () => {
+    this.props
+      .getRequest("http://localhost:3000/me/player/recently-playing?limit=1")
       .then(response => {
-        if (response["status"] === 200) {
-          let data = response["data"];
+        const data = response["data"];
+        if (!data.hasOwnProperty("status")) {
+          const track = data["item"];
           this.setState({
-            deviceId: data["device"]["id"],
-            progress: data["progressMs"],
+            audioUrl: track["audioUrl"],
+            progress: Math.floor(
+              (data["progressMs"] / track["duartion"]) * 100
+            ),
             playing: data["isPlaying"],
+            current: Number(data["progressMs"] / 60000).toFixed(2),
+            trackName: track["name"],
+            artistName: track["artists"][0]["name"],
+            duration: Number(track["duartion"] / 60000).toFixed(2),
             shuffleState: data["shuffleState"],
             repeatState: data["repeatState"] === "off" ? false : true,
-            audioUrl: data["item"]["audioUrl"],
-            trackName: data["item"]["name"],
-            artistName: data["item"]["artists"][0]["name"],
-            duration: data["item"]["duartion"],
             volume: data["device"]["volumePercent"],
+            muteState: data["device"]["volumePercent"] === 0 ? true : false,
             fetched: true
           });
+          this.props.fetchQueue("0", track["_id"]);
         }
-      })
-      .catch(function(error) {
-        console.log(error);
       });
-
-    // if (!this.state.fetched) {
-    //   axios
-    //     .get("http://localhost:3000/me/player/recently-playing?limit=1")
-    //     .then(response => {
-    //       if (response["status"] === 200) {
-    //         let data = response["items"][0]["track"];
-    //         this.setState({
-    //           playing: false,
-    //           trackName: data["name"],
-    //           artistName: data["artists"][0]["name"],
-    //           duration: data["duartion"],
-    //           fetched: true
-    //         });
-    //       }
-    //     })
-    //     .catch(function(error) {
-    //       console.log(error);
-    //     });
-    // }
   };
 
   /**
@@ -124,22 +102,21 @@ class WebPlayer extends Component {
    * @returns{void}
    */
   playTrack = () => {
-    const mute = this.state.muteState,
-      repeat = this.state.repeatState;
-
     if (this.state.sound && this.state.sound.state() === "loaded")
       this.state.sound.unload();
-    let sound = new Howl({
+    const sound = new Howl({
       src: [this.state.audioUrl],
       autoplay: false,
-      loop: repeat,
+      loop: this.state.repeatState,
       volume: Number(this.state.volume / 100).toFixed(2),
-      mute: mute,
+      mute: this.state.muteState,
       html5: true,
+      format: ["mp3"],
       onplay: () => {
+        console.log("on play");
         this.setState({
           playing: true,
-          duration: Number(sound.duration() / 60).toFixed(2)
+          duration: Number(this.state.sound.duration() / 60).toFixed(2)
         });
         setInterval(() => {
           if (this.state.sound && this.state.playing) {
@@ -152,19 +129,21 @@ class WebPlayer extends Component {
           }
         }, 100);
       },
-      format: ["mp3"],
       onend: () => {
         this.setState({
           playing: false,
           progress: 0,
-          current: "0.00"
+          current: Number(0).toFixed(2)
         });
+        if (!this.state.repeatState) this.handleNext();
       }
     });
     this.setState({
       sound: sound
     });
     this.state.sound.play();
+    this.state.sound.seek(this.state.current * 60);
+    console.log("current: " + this.state.sound.duration());
   };
 
   /**
@@ -174,12 +153,10 @@ class WebPlayer extends Component {
    * @returns{void}
    */
   pause = () => {
-    let deviceId = this.state.deviceId;
-    axios
-      .post("http://localhost:3000/me/player/pause?deviceId=" + deviceId, {
-        first_name: "Ashraf",
-        meId: "player"
-      })
+    this.props
+      .putRequest(
+        "http://localhost:3000/me/player/pause?deviceId=" + this.props.deviceId
+      )
       .then(resp => {
         this.state.sound.pause();
         this.setState({ playing: false });
@@ -195,22 +172,12 @@ class WebPlayer extends Component {
    * @param {integer} position zero-based index indicates the position of the track in the context array
    * @returns {axios object}
    */
-  playResumeRequest = (position = 0) => {
-    const deviceId = this.state.deviceId,
-      contextUri = this.state.contextUri,
-      idx = this.state.trackIdx;
-    return axios.put(
+  playResumeRequest = () => {
+    return this.props.putRequest(
       "http://localhost:3000/me/player/play?deviceId=" +
-        deviceId +
+        this.props.deviceId +
         "&queueIndex=0",
-      {
-        contextUri: {
-          context_uri: contextUri
-        },
-        uris: [],
-        offset: { position: idx },
-        positionMs: position
-      }
+      {}
     );
   };
   /**
@@ -221,8 +188,7 @@ class WebPlayer extends Component {
    * @returns{void}
    */
   resume = () => {
-    const position = this.state.sound.seek();
-    this.playResumeRequest(position)
+    this.playResumeRequest()
       .then(resp => {
         this.setState({ playing: true });
         this.state.sound.play();
@@ -243,7 +209,8 @@ class WebPlayer extends Component {
     this.playResumeRequest()
       .then(resp => {
         this.playTrack();
-        console.log(resp);
+        // console.log(resp);
+        console.log("play function");
       })
       .catch(error => {
         console.log(error);
@@ -277,12 +244,29 @@ class WebPlayer extends Component {
    * @returns{void}
    */
   handleNext = () => {
-    let deviceId = this.state.deviceId;
-    axios
-      .post("http://localhost:3000/me/player/next?deviceId=" + deviceId)
+    this.props
+      .postRequest(
+        "http://localhost:3000/me/player/next?deviceId=" + this.props.deviceId
+      )
       .then(response => {
-        this.fetchTrackInfo();
-        this.play();
+        this.props
+          .getNext()
+          .then(response => {
+            console.log(response);
+            this.setState({
+              trackName: response["data"]["name"],
+              artistName: response["data"]["artists"][0]["name"],
+              audioUrl: response["data"]["audioUrl"],
+              duration: response["data"]["duartion"] / 60000,
+              current: Number(0).toFixed(2),
+              progress: Number(0).toFixed(2),
+              playing: false
+            });
+            this.play();
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
       })
       .catch(function(error) {
         console.log(error);
@@ -296,13 +280,29 @@ class WebPlayer extends Component {
    * @returns{void}
    */
   handlePrev = () => {
-    let deviceId = this.state.deviceId;
-    axios
-      .post("http://localhost:3000/me/player/previous?deviceId=" + deviceId)
+    this.props
+      .postRequest(
+        "http://localhost:3000/me/player/previous?deviceId=" +
+          this.props.deviceId
+      )
       .then(response => {
-        // if (!index) return;
-        this.fetchTrackInfo();
-        this.play();
+        this.props
+          .getPrevious()
+          .then(response => {
+            this.setState({
+              trackName: response["data"]["name"],
+              artistName: response["data"]["artists"][0]["name"],
+              audioUrl: response["data"]["audioUrl"],
+              duration: response["data"]["duartion"] / 60000,
+              current: Number(0).toFixed(2),
+              progress: Number(0).toFixed(2),
+              playing: false
+            });
+            this.play();
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
       })
       .catch(function(error) {
         console.log(error);
@@ -325,9 +325,10 @@ class WebPlayer extends Component {
     const percent = offsetX / width;
     const position = percent * this.state.duration * 60;
 
-    let deviceId = this.state.deviceId;
-    axios
-      .post("http://localhost:3000/me/player/seek?deviceId=" + deviceId)
+    this.props
+      .putRequest(
+        "http://localhost:3000/me/player/seek?deviceId=" + this.props.deviceId
+      )
       .then(response => {
         this.state.sound.seek(position);
         this.setState({
@@ -357,9 +358,11 @@ class WebPlayer extends Component {
    * @returns{void}
    */
   handleShuffleState = () => {
-    let deviceId = this.state.deviceId;
-    axios
-      .post("http://localhost:3000/me/player/shuffle?deviceId=" + deviceId)
+    this.props
+      .putRequest(
+        "http://localhost:3000/me/player/shuffle?deviceId=" +
+          this.props.deviceId
+      )
       .then(response => {
         this.setState({
           shuffleState: !this.state.shuffleState
@@ -379,22 +382,29 @@ class WebPlayer extends Component {
    * @returns{void}
    */
   handleRepeatState = () => {
-    let deviceId = this.state.deviceId;
-    axios
-      .post("http://localhost:3000/me/player/repeat?deviceId=" + deviceId)
+    this.props
+      .putRequest(
+        "http://localhost:3000/me/player/repeat?deviceId=" + this.props.deviceId
+      )
       .then(response => {
         const loop = !this.state.repeatState;
         this.setState({
           repeatState: loop
         });
         if (this.state.sound) this.state.sound.loop(loop);
-        console.log(response);
+        console.log("from repeat it's fine!");
       })
       .catch(function(error) {
         console.log(error);
       });
   };
 
+  volumeRequest = (volumePercent = this.state.volume) => {
+    return this.props.putRequest(
+      "http://localhost:3000/me/player/volume?deviceId=" + this.props.deviceId
+    );
+    //+"&volumePercent=" + volumePercent
+  };
   /**
    * Handling the mute action.
    * Request from the server to mute the currently playing track then update the mute state to render the proper button
@@ -404,9 +414,7 @@ class WebPlayer extends Component {
    */
   handleMuteState = () => {
     const mute = !this.state.muteState;
-    let deviceId = this.state.deviceId;
-    axios
-      .post("http://localhost:3000/me/player/volume?deviceId=" + deviceId)
+    this.volumeRequest(0)
       .then(response => {
         this.setState({
           muteState: mute
@@ -434,14 +442,12 @@ class WebPlayer extends Component {
     const percent = offsetX / width;
     const volume = parseInt(percent * 100);
 
-    let deviceId = this.state.deviceId;
-    // const volumePercent = mute ? 0 : this.state.volume;
-    axios
-      .post("http://localhost:3000/me/player/volume?deviceId=" + deviceId)
+    this.volumeRequest(volume)
       .then(response => {
         this.state.sound.volume(volume / 100);
         this.setState({
-          volume: volume
+          volume: volume,
+          muteState: volume === 0 ? true : false
         });
         console.log(response);
       })
@@ -496,7 +502,7 @@ class WebPlayer extends Component {
             <PlayingBarRight
               shuffleState={this.state.shuffleState}
               repeatState={this.state.repeatState}
-              volumeState={this.state.volumeState}
+              volumeState={this.state.muteState}
               volume={this.state.volume}
               handleShuffleState={this.handleShuffleState}
               handleRepeatState={this.handleRepeatState}
@@ -521,4 +527,4 @@ class WebPlayer extends Component {
   }
 }
 
-export default WebPlayer;
+export default Player;
