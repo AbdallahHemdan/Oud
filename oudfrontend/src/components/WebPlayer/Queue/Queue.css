@@ -100,6 +100,7 @@
   text-overflow: ellipsis;
   display: block;
   max-height: 3.5em;
+  width: 18rem;
 }
 .track-name a {
   display: initial;
@@ -118,6 +119,7 @@
   }
 }
 .artist-name {
+  position: relative;
   float: left;
   max-width: 18rem;
   overflow: hidden;
@@ -125,8 +127,9 @@
   text-overflow: ellipsis;
   display: block;
   max-height: 3em;
-  margin-left: 3.5em;
-  margin-top: 0.95em;
+  /* margin-left: 3.5em; */
+  /* margin-top: 0.95em; */
+  left: 5%;
 }
 .artist-name a {
   display: initial;
@@ -159,7 +162,8 @@
   text-align: center;
   top: 14px;
   display: initial;
-  right: -18%;
+  float: right;
+  right: 5%;
 }
 .ellipsis-icon {
   background: transparent;
@@ -265,3 +269,5 @@
     right: -59%;
   }
 }
+float: right;
+right: 5%;
