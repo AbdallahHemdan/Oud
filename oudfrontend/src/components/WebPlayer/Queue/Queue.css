@@ -5,7 +5,7 @@
   z-index: 3;
   float: right;
 }
-.overlay {
+.queue-container .overlay {
   position: fixed;
   bottom: 99px;
   right: 0;
@@ -21,7 +21,7 @@
   border-bottom: 2px groove #a0a0a0;
 }
 
-.overlay-content {
+.queue-container .overlay-content {
   position: relative;
   top: 25%;
   width: 100%;
@@ -29,7 +29,7 @@
   margin-top: 30px;
 }
 
-.overlay a {
+.queue-container .overlay a {
   padding: 8px;
   text-decoration: none;
   font-size: 36px;
@@ -38,18 +38,18 @@
   transition: 0.3s;
 }
 
-.overlay a:hover,
-.overlay a:focus {
+.queue-container .overlay a:hover,
+.queue-container .overlay a:focus {
   color: #f1f1f1;
 }
 
-.close-btn {
+.queue-container .close-btn {
   display: flex;
   background: transparent;
   border: none;
   transform: rotateZ(180deg);
 }
-.overlay .close-btn {
+.queue-container .overlay .close-btn {
   position: absolute;
   top: 20px;
   right: 2%;
@@ -224,13 +224,13 @@
 }
 
 @media screen and (max-height: 450px) {
-  .overlay {
+  .queue-container .overlay {
     overflow-y: auto;
   }
-  .overlay a {
+  .queue-container .overlay a {
     font-size: 20px;
   }
-  .overlay .close-btn {
+  .queue-container .overlay .close-btn {
     font-size: 40px;
     top: 15px;
     right: 35px;

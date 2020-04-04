@@ -16,7 +16,7 @@ function PlayingBarLeft(props) {
   return (
     <div className="now-playing-bar-left">
       <div className="content">
-        <div className="ablum-link">
+        <div className="ablum-link" style={{ display: props.display }}>
           <img
             src={art}
             className="album-art-work"
@@ -26,6 +26,7 @@ function PlayingBarLeft(props) {
           <button
             className="extended-card-button"
             title="Extend"
+            onClick={props.openThumb}
             data-testid="album-link-btn"
           >
             <img src={extend} alt="Extend" className="extend-img" />
@@ -91,7 +92,7 @@ PlayingBarLeft.propTypes = {
   /**
    * Handle next action function
    */
-  handleNext: PropTypes.func.isRequired
+  handleNext: PropTypes.func.isRequired,
 };
 
 export default PlayingBarLeft;

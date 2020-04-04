@@ -145,7 +145,7 @@ button:focus {
   display: none;
 }
 .expanded-img-btn {
-  position: relative;
+  position: absolute;
   left: 54px;
   top: 18px;
   background: transparent;
@@ -188,7 +188,37 @@ button:focus {
   transition: 0.1s linear;
   transition-property: width, background-color;
 }
-
+.extedned-thumb {
+  position: fixed;
+  bottom: 99px;
+  transition: 0.5s ease;
+}
+.thumb-img {
+  position: relative;
+  /* bottom: 99px; */
+  max-width: 35%;
+}
+.close-thumb {
+  position: absolute;
+  left: 29%;
+  top: 3%;
+  background: transparent;
+  border: none;
+  transform: rotateZ(180deg);
+}
+@media screen and (max-height: 450px) {
+  .extedned-thumb .overlay {
+    overflow-y: auto;
+  }
+  .extedned-thumb .overlay a {
+    font-size: 20px;
+  }
+  .extedned-thumb .overlay .close-btn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
 @media only screen and (max-width: 665px) {
   .now-playing-bar-container {
     min-width: 320px;

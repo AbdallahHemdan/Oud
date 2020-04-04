@@ -2,7 +2,7 @@ import React from "react";
 import { SortableContainer } from "react-sortable-hoc";
 import SortableTrackContainer from "./SortableTrackContainer";
 
-const TrackContainer = SortableContainer(props => {
+const TrackContainer = SortableContainer((props) => {
   return (
     <div>
       {props.tracks.map((track, index) => {
@@ -12,6 +12,7 @@ const TrackContainer = SortableContainer(props => {
             index={index}
             id={track}
             playTrack={props.playTrack}
+            playing={props.playing}
           />
         );
       })}

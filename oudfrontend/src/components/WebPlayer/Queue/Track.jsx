@@ -19,7 +19,7 @@ class Track extends Component {
       artistName: "",
       duration: "",
       playing: false,
-      thumb: play
+      thumb: play,
     };
   }
   componentDidMount() {
@@ -28,26 +28,26 @@ class Track extends Component {
   fetchTrackInfo = () => {
     axios
       .get("http://localhost:3000/tracks/" + this.props.id)
-      .then(response => {
+      .then((response) => {
         const track = response["data"];
         this.setState({
           image: track["artists"][0]["image"],
           trackName: track["name"],
           artistName: track["artists"][0]["name"],
-          duration: Number(track["duartion"] / 60000).toFixed(2)
+          duration: Number(track["duartion"] / 60000).toFixed(2),
         });
         console.log("track component: " + this.props.id);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
   handlePlayButton = () => {
     const playing = !this.state.playing;
-    const thumb = playing ? pause : play;
+    const thumb = this.props.playing ? pause : play;
     this.setState({
       playing: playing,
-      thumb: thumb
+      thumb: thumb,
     });
     this.props.playTrack.current.handlePlayPause(this.props.id, this.props.idx);
   };

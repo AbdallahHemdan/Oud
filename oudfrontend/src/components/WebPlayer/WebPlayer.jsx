@@ -12,12 +12,12 @@ class WebPlayer extends Component {
       trackId: "",
       queue: [],
       deviceId: "74ASZWbe4lXaubB36ztrGX",
-      playing: false
+      playing: false,
     };
     this.queueElement = React.createRef();
     this.playerElement = React.createRef();
   }
-  getRequest = endpoint => {
+  getRequest = (endpoint) => {
     return axios.get(endpoint);
   };
   putRequest = (endpoint, body = {}) => {
@@ -32,7 +32,7 @@ class WebPlayer extends Component {
 
   fetchQueue = (queueIndex = "0", trackId = "") => {
     this.getRequest("http://localhost:3000/me/queue?queueIndex=" + queueIndex)
-      .then(response => {
+      .then((response) => {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
           const size = data["total"];
@@ -46,23 +46,32 @@ class WebPlayer extends Component {
           this.setState({
             trackIdx: trackIdx,
             queue: data["tracks"],
-            trackId: trackId
+            trackId: trackId,
           });
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
 
-  fetchTrack = trackId => {
+  fetchTrack = (trackId) => {
+    let trackIdx = this.state.trackIdx;
+    for (let i = 0; i < this.state.queue.length; ++i)
+      if (this.state.queue[i] === trackId) {
+        trackIdx = i;
+        break;
+      }
+    this.setState({
+      trackIdx: trackIdx,
+    });
     return this.getRequest("http://localhost:3000/tracks/" + trackId);
   };
   getNext = () => {
     const idx = (this.state.trackIdx + 1) % this.state.queue.length;
     this.setState({
       trackIdx: idx,
-      trackId: this.state.queue[idx]
+      trackId: this.state.queue[idx],
     });
     return this.fetchTrack(this.state.queue[this.state.trackIdx]);
   };
@@ -70,43 +79,43 @@ class WebPlayer extends Component {
     const idx = this.state.trackIdx - 1 < 0 ? 0 : this.state.trackIdx - 1;
     this.setState({
       trackIdx: idx,
-      trackId: this.state.queue[idx]
+      trackId: this.state.queue[idx],
     });
     return this.fetchTrack(this.state.queue[this.state.trackIdx]);
   };
-  createQeueu = tracks => {
+  createQeueu = (tracks) => {
     let queue = [];
-    tracks.forEach(element => {
+    tracks.forEach((element) => {
       queue.push(element["_id"]);
     });
     this.setState({
-      queue: queue
+      queue: queue,
     });
   };
   //the following two functions are to be replaced with Hemdan and Walid functions in integration, they are just dummy
-  fetchAlbum = id => {
+  fetchAlbum = (id) => {
     this.getRequest("http://localhost:3000/albums/" + id)
-      .then(response => {
+      .then((response) => {
         const tracks = response["data"]["tracks"]["items"];
         this.createQeueu(tracks);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
-  fetchPlaylist = id => {
+  fetchPlaylist = (id) => {
     this.getRequest("http://localhost:3000/playlists/" + id)
-      .then(response => {
+      .then((response) => {
         const tracks = response["data"]["tracks"]["items"];
         this.createQeueu(tracks);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
-  getContextQueue = contextUri => {
+  getContextQueue = (contextUri) => {
     this.setState({
-      context: contextUri
+      context: contextUri,
     });
     const context = contextUri.split(":");
     const type = context[1];
@@ -133,24 +142,24 @@ class WebPlayer extends Component {
         "&queueIndex=0",
       {
         contextUri: {
-          context_uri: contextUri
+          context_uri: contextUri,
         },
         uris: uris,
         offset: { position: offset },
-        positionMs: position
+        positionMs: position,
       }
     )
-      .then(response => {
+      .then((response) => {
         console.log("context: " + contextUri);
         this.getContextQueue(contextUri);
         this.playerElement.play();
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("I'm here ha ha ha");
         console.log(error);
       });
   };
-  onChangeQueueOrder = queue => {
+  onChangeQueueOrder = (queue) => {
     let oldIdx = this.state.trackIdx,
       newIdx = this.state.trackIdx;
     for (let i = 0; i < queue.length; ++i)
@@ -158,7 +167,7 @@ class WebPlayer extends Component {
 
     this.setState({
       queue: queue,
-      trackIdx: newIdx
+      trackIdx: newIdx,
     });
     // this.patchRequest(
     //   "http://localhost:3000/me/queue?queueIndex=0&trackIndex=" +
@@ -177,9 +186,9 @@ class WebPlayer extends Component {
     //     console.log(error);
     //   });
   };
-  changePlayingState = playing => {
+  changePlayingState = (playing) => {
     this.setState({
-      playing: playing
+      playing: playing,
     });
     console.log("playing state has changed: " + this.state.playing);
   };
@@ -194,6 +203,7 @@ class WebPlayer extends Component {
           deviceId={this.state.deviceId}
           onChangeQueueOrder={this.onChangeQueueOrder}
           player={this.playerElement}
+          playing={this.state.playing}
         />
         <Player
           ref={this.playerElement}

@@ -9,13 +9,13 @@ class Queue extends Component {
     super(props);
     this.state = {
       height: "0%",
-      tracks: []
+      tracks: [],
     };
   }
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.tracks !== prevState.tracks) {
       return {
-        tracks: nextProps.tracks
+        tracks: nextProps.tracks,
       };
     }
     return null;
@@ -24,14 +24,14 @@ class Queue extends Component {
   /* Open */
   openQueue = () => {
     this.setState({
-      height: "60%"
+      height: "60%",
     });
   };
 
   /* Close */
   closeQueue = () => {
     this.setState({
-      height: "0%"
+      height: "0%",
     });
   };
 
@@ -53,6 +53,7 @@ class Queue extends Component {
             onSortEnd={this.onSortEnd}
             useDragHandle={true}
             playTrack={this.props.player}
+            playing={this.props.playing}
           />
         </div>
       </div>

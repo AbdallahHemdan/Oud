@@ -37,7 +37,9 @@ class Player extends Component {
       shuffleState: false,
       repeatState: false,
       volume: 1.0,
-      muteState: false
+      muteState: false,
+      thumbHeight: 0,
+      thumbDisplay: "initial",
     };
   }
   /**
@@ -68,7 +70,7 @@ class Player extends Component {
     console.log("fetchPlayback");
     this.props
       .getRequest("http://localhost:3000/me/player/recently-playing?limit=1")
-      .then(response => {
+      .then((response) => {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
           const track = data["item"];
@@ -87,8 +89,9 @@ class Player extends Component {
             volume: data["device"]["volumePercent"],
             muteState: data["device"]["volumePercent"] === 0 ? true : false,
             fetched: true,
-            trackId: track["_id"]
+            trackId: track["_id"],
           });
+          this.props.changePlayingState(data["isPlaying"]);
           this.props.fetchQueue("0", track["_id"]);
         }
       });
@@ -119,7 +122,7 @@ class Player extends Component {
         this.props.changePlayingState(true);
         this.setState({
           playing: true,
-          duration: Number(this.state.sound.duration() / 60).toFixed(2)
+          duration: Number(this.state.sound.duration() / 60).toFixed(2),
         });
         setInterval(() => {
           if (this.state.sound && this.state.playing) {
@@ -127,7 +130,7 @@ class Player extends Component {
             const current = Number(this.state.sound.seek() / 60).toFixed(2);
             this.setState({
               progress: isNaN(progress) ? this.state.progress : progress,
-              current: isNaN(current) ? this.state.current : current
+              current: isNaN(current) ? this.state.current : current,
             });
           }
         }, 100);
@@ -137,13 +140,13 @@ class Player extends Component {
         this.setState({
           playing: false,
           progress: 0,
-          current: Number(0).toFixed(2)
+          current: Number(0).toFixed(2),
         });
         if (!this.state.repeatState) this.handleNext();
-      }
+      },
     });
     this.setState({
-      sound: sound
+      sound: sound,
     });
     this.state.sound.play();
     this.state.sound.seek(this.state.current * 60);
@@ -161,12 +164,12 @@ class Player extends Component {
       .putRequest(
         "http://localhost:3000/me/player/pause?deviceId=" + this.props.deviceId
       )
-      .then(resp => {
+      .then((resp) => {
         this.state.sound.pause();
         this.setState({ playing: false });
         this.props.changePlayingState(false);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
@@ -176,7 +179,7 @@ class Player extends Component {
    * @param {integer} position zero-based index indicates the position of the track in the context array
    * @returns {axios object}
    */
-  playResumeRequest = idx => {
+  playResumeRequest = (idx) => {
     return this.props.putRequest(
       "http://localhost:3000/me/player/play?deviceId=" +
         this.props.deviceId +
@@ -193,13 +196,13 @@ class Player extends Component {
    */
   resume = (idx = this.props.idx) => {
     this.playResumeRequest(idx)
-      .then(resp => {
+      .then((resp) => {
         this.props.changePlayingState(true);
         this.setState({ playing: true });
         this.state.sound.play();
         console.log(resp);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
@@ -212,12 +215,12 @@ class Player extends Component {
    */
   play = (idx = this.props.idx) => {
     this.playResumeRequest(idx)
-      .then(resp => {
+      .then((resp) => {
         this.playTrack();
         // console.log(resp);
         console.log("play function");
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
@@ -235,7 +238,7 @@ class Player extends Component {
 
       this.props
         .fetchTrack(id)
-        .then(response => {
+        .then((response) => {
           console.log(response);
           this.setState({
             trackName: response["data"]["name"],
@@ -244,13 +247,13 @@ class Player extends Component {
             duration: response["data"]["duartion"] / 60000,
             current: Number(0).toFixed(2),
             progress: Number(0).toFixed(2),
-            playing: false,
-            trackId: response["data"]["_id"]
+            playing: true,
+            trackId: response["data"]["_id"],
           });
-          this.props.changePlayingState(false);
+          this.props.changePlayingState(true);
           this.play(idx);
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
         });
       return;
@@ -277,10 +280,10 @@ class Player extends Component {
       .postRequest(
         "http://localhost:3000/me/player/next?deviceId=" + this.props.deviceId
       )
-      .then(response => {
+      .then((response) => {
         this.props
           .getNext()
-          .then(response => {
+          .then((response) => {
             console.log(response);
             this.setState({
               trackName: response["data"]["name"],
@@ -290,16 +293,16 @@ class Player extends Component {
               current: Number(0).toFixed(2),
               progress: Number(0).toFixed(2),
               playing: false,
-              trackId: response["data"]["_id"]
+              trackId: response["data"]["_id"],
             });
             this.props.changePlayingState(false);
             this.play();
           })
-          .catch(function(error) {
+          .catch(function (error) {
             console.log(error);
           });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
@@ -316,10 +319,10 @@ class Player extends Component {
         "http://localhost:3000/me/player/previous?deviceId=" +
           this.props.deviceId
       )
-      .then(response => {
+      .then((response) => {
         this.props
           .getPrevious()
-          .then(response => {
+          .then((response) => {
             this.setState({
               trackName: response["data"]["name"],
               artistName: response["data"]["artists"][0]["name"],
@@ -328,16 +331,16 @@ class Player extends Component {
               current: Number(0).toFixed(2),
               progress: Number(0).toFixed(2),
               playing: false,
-              trackId: response["data"]["_id"]
+              trackId: response["data"]["_id"],
             });
             this.props.changePlayingState(false);
             this.play();
           })
-          .catch(function(error) {
+          .catch(function (error) {
             console.log(error);
           });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
@@ -349,7 +352,7 @@ class Player extends Component {
    * @function
    * @returns{void}
    */
-  onProgressClick = e => {
+  onProgressClick = (e) => {
     // e.preventDefault();
     if (!this.state.mouseDown || !this.state.sound) return;
     const width = document.getElementById("progress-width").clientWidth;
@@ -362,13 +365,13 @@ class Player extends Component {
       .putRequest(
         "http://localhost:3000/me/player/seek?deviceId=" + this.props.deviceId
       )
-      .then(response => {
+      .then((response) => {
         this.state.sound.seek(position);
         this.setState({
-          progress: this.getSoundProgress()
+          progress: this.getSoundProgress(),
         });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
@@ -378,9 +381,9 @@ class Player extends Component {
    * @function
    * @returns{void}
    */
-  setMouseDown = cond => {
+  setMouseDown = (cond) => {
     this.setState({
-      mouseDown: cond
+      mouseDown: cond,
     });
   };
 
@@ -396,13 +399,13 @@ class Player extends Component {
         "http://localhost:3000/me/player/shuffle?deviceId=" +
           this.props.deviceId
       )
-      .then(response => {
+      .then((response) => {
         this.setState({
-          shuffleState: !this.state.shuffleState
+          shuffleState: !this.state.shuffleState,
         });
         console.log(response);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
@@ -419,15 +422,15 @@ class Player extends Component {
       .putRequest(
         "http://localhost:3000/me/player/repeat?deviceId=" + this.props.deviceId
       )
-      .then(response => {
+      .then((response) => {
         const loop = !this.state.repeatState;
         this.setState({
-          repeatState: loop
+          repeatState: loop,
         });
         if (this.state.sound) this.state.sound.loop(loop);
         console.log("from repeat it's fine!");
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
@@ -448,14 +451,14 @@ class Player extends Component {
   handleMuteState = () => {
     const mute = !this.state.muteState;
     this.volumeRequest(0)
-      .then(response => {
+      .then((response) => {
         this.setState({
-          muteState: mute
+          muteState: mute,
         });
         if (this.state.sound) this.state.sound.mute(mute);
         console.log(response);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
@@ -467,7 +470,7 @@ class Player extends Component {
    * @function
    * @returns{void}
    */
-  onVolumeClick = e => {
+  onVolumeClick = (e) => {
     // e.preventDefault();
     if (!this.state.mouseDown || !this.state.sound) return;
     const width = document.getElementById("volume-width").clientWidth;
@@ -476,39 +479,54 @@ class Player extends Component {
     const volume = parseInt(percent * 100);
 
     this.volumeRequest(volume)
-      .then(response => {
+      .then((response) => {
         this.state.sound.volume(volume / 100);
         this.setState({
           volume: volume,
-          muteState: volume === 0 ? true : false
+          muteState: volume === 0 ? true : false,
         });
         console.log(response);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
-
+  closeThumb = () => {
+    this.setState({
+      thumbHeight: 0,
+      thumbDisplay: "initial",
+    });
+  };
+  openThumb = () => {
+    this.setState({
+      thumbHeight: "35%",
+      thumbDisplay: "none",
+    });
+  };
   render() {
     return (
       <Fragment>
-        <div className="expanded-img" data-testid="expaned-album-img">
-          <img src={art} className="img-thumbnail" alt="Cinque Terre" />
-          <button
-            className="expanded-img-btn"
-            title="Extend"
-            data-testid="expaned-album-btn"
-          >
-            <img src={extend} alt="extend" />
+        <div
+          className="extedned-thumb"
+          style={{ height: this.state.thumbHeight }}
+        >
+          <a href="/">
+            <img src={art} alt="Cinque Terre" className="thumb-img" />
+          </a>
+          <button className="close-thumb" onClick={this.closeThumb}>
+            <img src={extend} alt="Close Queue" />
           </button>
         </div>
+
         <div className="now-playing-bar-container" data-testid="web-palyer">
           <div className="now-playing-bar">
             <PlayingBarLeft
               playing={this.state.playing}
+              display={this.state.thumbDisplay}
               handlePrev={() => this.handlePrev()}
               handlePlayPause={() => this.handlePlayPause()}
               handleNext={() => this.handleNext()}
+              openThumb={this.openThumb}
               data-testid="web-player-left"
             />
 
@@ -519,13 +537,13 @@ class Player extends Component {
               progress={this.state.progress}
               duration={this.state.duration}
               setMouseDown={() => this.setMouseDown(true)}
-              onProgressClick={e => this.onProgressClick(e)}
-              mouseUp={e => {
+              onProgressClick={(e) => this.onProgressClick(e)}
+              mouseUp={(e) => {
                 this.onProgressClick(e);
                 document.addEventListener(
                   "mouseup",
                   this.setState({
-                    mouseDown: false
+                    mouseDown: false,
                   })
                 );
               }}
@@ -542,13 +560,13 @@ class Player extends Component {
               handleRepeatState={this.handleRepeatState}
               handleMuteState={this.handleMuteState}
               setMouseDown={() => this.setMouseDown(true)}
-              onVolumeClick={e => this.onVolumeClick(e)}
-              mouseUp={e => {
+              onVolumeClick={(e) => this.onVolumeClick(e)}
+              mouseUp={(e) => {
                 this.onVolumeClick(e);
                 document.addEventListener(
                   "mouseup",
                   this.setState({
-                    mouseDown: false
+                    mouseDown: false,
                   })
                 );
               }}
