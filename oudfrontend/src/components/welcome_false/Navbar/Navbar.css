@@ -1,0 +1,23 @@
+.oud-logo {
+  margin-left: 5vw;
+  max-width: 30%;
+}
+
+.oud-navbar {
+  height: 5vw;
+}
+
+.nav-items {
+  margin-right: 3vw;
+}
+
+.bg-custom {
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 3px 8px -2px rgba(240, 235, 222, 0.1);
+}
+
+.block {
+  font-size: 25px;
+  color: #a8a49e;
+
+}

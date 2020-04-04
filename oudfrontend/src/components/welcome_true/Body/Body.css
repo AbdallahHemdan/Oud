@@ -1,0 +1,63 @@
+.backGround {
+    width: 100%;
+}
+
+.Body {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    /* Make the width of box same as image */
+}
+
+/* button {
+    color: white;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 55%;
+    text-align: center;
+
+} */
+
+.welcomeText {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 40%;
+    text-align: center;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .welcomeText {
+        top: 30%;
+    }
+    h1{
+        font-size: 30px;
+    }
+    h6{
+        font-size: 10px;
+    }
+    .welcomeText button{
+        width: 30%;
+        font-size: 100%;
+
+    }
+}
+
+
+.getOudBtn {
+    background-color: #f9b835;
+    width: 15.6rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 25px;
+    color: white;
+    font-family: 'Lalezar',
+        cursive;
+    align-items: center;
+    align-content: center;
+}
