@@ -30,6 +30,7 @@ class Player extends Component {
       playing: false,
       current: Number(0).toFixed(2),
       trackName: "",
+      trackId: "",
       artistName: "",
       duration: Number(0).toFixed(2),
       mouseDown: false,
@@ -64,6 +65,7 @@ class Player extends Component {
    * @returns{void}
    */
   fetchPlayback = () => {
+    console.log("fetchPlayback");
     this.props
       .getRequest("http://localhost:3000/me/player/recently-playing?limit=1")
       .then(response => {
@@ -84,7 +86,8 @@ class Player extends Component {
             repeatState: data["repeatState"] === "off" ? false : true,
             volume: data["device"]["volumePercent"],
             muteState: data["device"]["volumePercent"] === 0 ? true : false,
-            fetched: true
+            fetched: true,
+            trackId: track["_id"]
           });
           this.props.fetchQueue("0", track["_id"]);
         }
@@ -173,12 +176,12 @@ class Player extends Component {
    * @param {integer} position zero-based index indicates the position of the track in the context array
    * @returns {axios object}
    */
-  playResumeRequest = () => {
+  playResumeRequest = idx => {
     return this.props.putRequest(
       "http://localhost:3000/me/player/play?deviceId=" +
         this.props.deviceId +
         "&queueIndex=0",
-      {}
+      { offset: { position: idx } }
     );
   };
   /**
@@ -188,8 +191,8 @@ class Player extends Component {
    * @function
    * @returns{void}
    */
-  resume = () => {
-    this.playResumeRequest()
+  resume = (idx = this.props.idx) => {
+    this.playResumeRequest(idx)
       .then(resp => {
         this.props.changePlayingState(true);
         this.setState({ playing: true });
@@ -207,8 +210,8 @@ class Player extends Component {
    * @function
    * @returns{void}
    */
-  play = () => {
-    this.playResumeRequest()
+  play = (idx = this.props.idx) => {
+    this.playResumeRequest(idx)
       .then(resp => {
         this.playTrack();
         // console.log(resp);
@@ -225,18 +228,42 @@ class Player extends Component {
    * @function
    * @returns{void}
    */
-  handlePlayPause = () => {
+  handlePlayPause = (id = this.state.trackId, idx = this.props.idx) => {
+    if (id !== this.state.trackId) {
+      //to uncomment this we need a "REAL" live server
+      // this.fetchPlayback();
+
+      this.props
+        .fetchTrack(id)
+        .then(response => {
+          console.log(response);
+          this.setState({
+            trackName: response["data"]["name"],
+            artistName: response["data"]["artists"][0]["name"],
+            audioUrl: response["data"]["audioUrl"],
+            duration: response["data"]["duartion"] / 60000,
+            current: Number(0).toFixed(2),
+            progress: Number(0).toFixed(2),
+            playing: false,
+            trackId: response["data"]["_id"]
+          });
+          this.props.changePlayingState(false);
+          this.play(idx);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+      return;
+    }
     if (this.state.sound) {
       this.state.sound.mute(this.state.muteState);
       this.state.sound.loop(this.state.repeatState);
       if (this.state.sound.playing()) {
         this.pause();
       } else if (this.state.sound.state() === "loaded") {
-        this.resume();
+        this.resume(idx);
       }
-    } else {
-      this.play();
-    }
+    } else this.play(idx);
   };
 
   /**
@@ -262,7 +289,8 @@ class Player extends Component {
               duration: response["data"]["duartion"] / 60000,
               current: Number(0).toFixed(2),
               progress: Number(0).toFixed(2),
-              playing: false
+              playing: false,
+              trackId: response["data"]["_id"]
             });
             this.props.changePlayingState(false);
             this.play();
@@ -299,7 +327,8 @@ class Player extends Component {
               duration: response["data"]["duartion"] / 60000,
               current: Number(0).toFixed(2),
               progress: Number(0).toFixed(2),
-              playing: false
+              playing: false,
+              trackId: response["data"]["_id"]
             });
             this.props.changePlayingState(false);
             this.play();

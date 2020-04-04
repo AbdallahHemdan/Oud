@@ -183,6 +183,7 @@ class WebPlayer extends Component {
     });
     console.log("playing state has changed: " + this.state.playing);
   };
+
   render() {
     return (
       <Fragment>
@@ -190,13 +191,14 @@ class WebPlayer extends Component {
           ref={this.queueElement}
           tracks={this.state.queue}
           trackId={this.state.trackId}
-          playing={this.state.playing}
+          deviceId={this.state.deviceId}
           onChangeQueueOrder={this.onChangeQueueOrder}
-          playTrack={this.playContext}
+          player={this.playerElement}
         />
         <Player
           ref={this.playerElement}
           deviceId={this.state.deviceId}
+          trackIdx={this.state.trackIdx}
           queueElement={this.queueElement}
           getRequest={this.getRequest}
           putRequest={this.putRequest}
@@ -205,6 +207,7 @@ class WebPlayer extends Component {
           getNext={this.getNext}
           getPrevious={this.getPrevious}
           changePlayingState={this.changePlayingState}
+          fetchTrack={this.fetchTrack}
         />
       </Fragment>
     );

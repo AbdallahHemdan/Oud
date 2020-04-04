@@ -55,18 +55,7 @@
   "repeat": {},
   "volume": {},
   "play": {
-    "contextUri": {},
-    "uris": [
-      "oud:track:dkfjnc245",
-      "oud:track:dkfjnc246",
-      "oud:track:dkfjnc247",
-      "oud:track:dkfjnc248",
-      "oud:track:dkfjnc249"
-    ],
-    "offset": {
-      "position": 0
-    },
-    "positionMs": 0
+    "offset": {}
   },
   "queue": {
     "tracks": [

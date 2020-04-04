@@ -17,7 +17,9 @@ class Track extends Component {
       image: "",
       trackName: "",
       artistName: "",
-      duration: ""
+      duration: "",
+      playing: false,
+      thumb: play
     };
   }
   componentDidMount() {
@@ -40,8 +42,14 @@ class Track extends Component {
         console.log(error);
       });
   };
-  handlePlayTrack = () => {
-    this.props.playTrack(undefined, undefined, this.props.idx);
+  handlePlayButton = () => {
+    const playing = !this.state.playing;
+    const thumb = playing ? pause : play;
+    this.setState({
+      playing: playing,
+      thumb: thumb
+    });
+    this.props.playTrack.current.handlePlayPause(this.props.id, this.props.idx);
   };
   render() {
     return (
@@ -53,11 +61,9 @@ class Track extends Component {
               className="track-art-work"
               style={{ backgroundImage: `url(${this.state.image})` }}
             ></div>
-            <button className="play-pause" onClick={this.handlePlayTrack}>
-              <img
-                src={this.props.playing ? pause : play}
-                alt={this.props.playing ? "Pause" : "Play"}
-              />
+
+            <button className="play-pause" onClick={this.handlePlayButton}>
+              <img src={this.state.thumb} alt="Pause" />
             </button>
           </div>
 

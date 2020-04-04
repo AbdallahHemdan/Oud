@@ -18,6 +18,7 @@ class Queue extends Component {
         tracks: nextProps.tracks
       };
     }
+    return null;
   }
 
   /* Open */
@@ -39,6 +40,7 @@ class Queue extends Component {
     this.setState({ tracks: tracks });
     this.props.onChangeQueueOrder(tracks);
   };
+
   render() {
     return (
       <div className="queue-container">
@@ -48,11 +50,9 @@ class Queue extends Component {
           </button>
           <TrackContainer
             tracks={this.state.tracks}
-            trackId={this.props.trackId}
-            playing={this.props.playing}
             onSortEnd={this.onSortEnd}
             useDragHandle={true}
-            playTrack={this.props.playTrack}
+            playTrack={this.props.player}
           />
         </div>
       </div>
