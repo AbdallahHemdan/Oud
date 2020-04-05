@@ -204,7 +204,7 @@
   position: absolute;
   /* display: inline-block; */
   float: right;
-  right: 54%;
+  right: 41em;
   top: 0;
 }
 .dropdown-menu {
@@ -284,7 +284,9 @@
 
 @media screen and (max-width: 1026px) {
   .track .content .duration,
-  .ellipsis-container {
+  .ellipsis-container,
+  .menu,
+  .dropdown-menu {
     display: none;
   }
 }

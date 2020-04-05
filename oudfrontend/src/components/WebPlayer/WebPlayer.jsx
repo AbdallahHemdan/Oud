@@ -200,6 +200,7 @@ class WebPlayer extends Component {
           ref={this.queueElement}
           tracks={this.state.queue}
           trackId={this.state.trackId}
+          trackIdx={this.state.trackIdx}
           deviceId={this.state.deviceId}
           onChangeQueueOrder={this.onChangeQueueOrder}
           player={this.playerElement}

@@ -9,7 +9,7 @@ const TrackContainer = SortableContainer((props) => {
         return (
           <SortableTrackContainer
             key={track}
-            index={index}
+            idx={index}
             id={track}
             playTrack={props.playTrack}
             playing={props.playing}

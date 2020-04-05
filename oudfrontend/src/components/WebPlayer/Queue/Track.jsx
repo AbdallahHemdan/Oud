@@ -36,7 +36,6 @@ class Track extends Component {
           artistName: track["artists"][0]["name"],
           duration: Number(track["duartion"] / 60000).toFixed(2),
         });
-        console.log("track component: " + this.props.id);
       })
       .catch((error) => {
         console.log(error);
@@ -52,6 +51,9 @@ class Track extends Component {
     this.props.playTrack.current.handlePlayPause(this.props.id, this.props.idx);
   };
 
+  handleDropdown = () => {
+    this.props.toggleDropdown(this.props.idx);
+  };
   render() {
     return (
       <div className="track">
@@ -85,10 +87,7 @@ class Track extends Component {
           </div>
 
           <div className="ellipsis-container">
-            <button
-              className="ellipsis-icon"
-              onClick={this.props.toggleDropdown}
-            >
+            <button className="ellipsis-icon" onClick={this.handleDropdown}>
               <img src={ellipsis} alt="Show More" />
             </button>
           </div>

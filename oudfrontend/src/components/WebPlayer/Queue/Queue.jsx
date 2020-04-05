@@ -11,6 +11,7 @@ class Queue extends Component {
       height: "0%",
       tracks: [],
       dropdown: "none",
+      topIdx: 1,
     };
   }
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -42,10 +43,13 @@ class Queue extends Component {
     this.props.onChangeQueueOrder(tracks);
   };
 
-  toggleDropdown = () => {
+  toggleDropdown = (idx) => {
     const dropdown = this.state.dropdown === "none" ? "block" : "none";
+    const topIdx = (idx + 1) * 5;
+    console.log("top: " + topIdx);
     this.setState({
       dropdown: dropdown,
+      topIdx: topIdx,
     });
   };
   render() {
@@ -63,7 +67,13 @@ class Queue extends Component {
             playing={this.props.playing}
             toggleDropdown={this.toggleDropdown}
           />
-          <div className="menu" style={{ display: this.state.dropdown }}>
+          <div
+            className="menu"
+            style={{
+              display: this.state.dropdown,
+              top: this.state.topIdx + "em",
+            }}
+          >
             <div className="dropdown-menu">
               <a href="/">Delete</a>
               <a href="/">Add to Playlist</a>
