@@ -9,6 +9,7 @@ const SortableTrackContainer = SortableElement((props) => {
       idx={props.index}
       playTrack={props.playTrack}
       playing={props.playing}
+      toggleDropdown={props.toggleDropdown}
     />
   );
 });

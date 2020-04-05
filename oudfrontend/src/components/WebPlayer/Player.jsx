@@ -4,7 +4,7 @@ import { Howl } from "howler";
 import PlayingBarLeft from "./PlayingBarLeft";
 import PlayingBarCenter from "./PlayingBarCenter";
 import PlayingBarRight from "./PlayingBarRight";
-import art from "../../assets/images/icons/album.jpg";
+// import art from "../../assets/images/icons/album.jpg";
 import extend from "../../assets/images/icons/extend.png";
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
@@ -40,6 +40,7 @@ class Player extends Component {
       muteState: false,
       thumbHeight: 0,
       thumbDisplay: "initial",
+      art: "",
     };
   }
   /**
@@ -74,6 +75,7 @@ class Player extends Component {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
           const track = data["item"];
+          console.log("url: " + track["audioUrl"]);
           this.setState({
             audioUrl: track["audioUrl"],
             progress: Math.floor(
@@ -90,6 +92,7 @@ class Player extends Component {
             muteState: data["device"]["volumePercent"] === 0 ? true : false,
             fetched: true,
             trackId: track["_id"],
+            art: track["artists"][0]["image"],
           });
           this.props.changePlayingState(data["isPlaying"]);
           this.props.fetchQueue("0", track["_id"]);
@@ -294,6 +297,7 @@ class Player extends Component {
               progress: Number(0).toFixed(2),
               playing: false,
               trackId: response["data"]["_id"],
+              art: response["data"]["artists"][0]["image"],
             });
             this.props.changePlayingState(false);
             this.play();
@@ -332,6 +336,7 @@ class Player extends Component {
               progress: Number(0).toFixed(2),
               playing: false,
               trackId: response["data"]["_id"],
+              art: response["data"]["artists"][0]["image"],
             });
             this.props.changePlayingState(false);
             this.play();
@@ -511,7 +516,11 @@ class Player extends Component {
           style={{ height: this.state.thumbHeight }}
         >
           <a href="/">
-            <img src={art} alt="Cinque Terre" className="thumb-img" />
+            <img
+              src={this.state.art}
+              alt="Cinque Terre"
+              className="thumb-img"
+            />
           </a>
           <button className="close-thumb" onClick={this.closeThumb}>
             <img src={extend} alt="Close Queue" />
@@ -523,6 +532,7 @@ class Player extends Component {
             <PlayingBarLeft
               playing={this.state.playing}
               display={this.state.thumbDisplay}
+              art={this.state.art}
               handlePrev={() => this.handlePrev()}
               handlePlayPause={() => this.handlePlayPause()}
               handleNext={() => this.handleNext()}

@@ -51,6 +51,7 @@ class Track extends Component {
     });
     this.props.playTrack.current.handlePlayPause(this.props.id, this.props.idx);
   };
+
   render() {
     return (
       <div className="track">
@@ -84,7 +85,10 @@ class Track extends Component {
           </div>
 
           <div className="ellipsis-container">
-            <button className="ellipsis-icon">
+            <button
+              className="ellipsis-icon"
+              onClick={this.props.toggleDropdown}
+            >
               <img src={ellipsis} alt="Show More" />
             </button>
           </div>

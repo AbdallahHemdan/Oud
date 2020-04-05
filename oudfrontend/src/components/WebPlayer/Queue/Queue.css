@@ -200,6 +200,32 @@
 .track .content .play-art:hover .play-pause {
   visibility: visible;
 }
+.menu {
+  position: absolute;
+  /* display: inline-block; */
+  float: right;
+  right: 54%;
+  top: 0;
+}
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  background-color: #383838;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  width: 27rem;
+}
+.dropdown-menu a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-menu a:hover {
+  background-color: #999999;
+  color: #ffc107;
+}
 @media screen and (max-width: 1030px) {
   /* .track .content .artist-name,
   .track .content .track-name {

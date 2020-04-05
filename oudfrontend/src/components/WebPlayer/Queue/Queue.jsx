@@ -10,6 +10,7 @@ class Queue extends Component {
     this.state = {
       height: "0%",
       tracks: [],
+      dropdown: "none",
     };
   }
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -41,6 +42,12 @@ class Queue extends Component {
     this.props.onChangeQueueOrder(tracks);
   };
 
+  toggleDropdown = () => {
+    const dropdown = this.state.dropdown === "none" ? "block" : "none";
+    this.setState({
+      dropdown: dropdown,
+    });
+  };
   render() {
     return (
       <div className="queue-container">
@@ -54,7 +61,16 @@ class Queue extends Component {
             useDragHandle={true}
             playTrack={this.props.player}
             playing={this.props.playing}
+            toggleDropdown={this.toggleDropdown}
           />
+          <div className="menu" style={{ display: this.state.dropdown }}>
+            <div className="dropdown-menu">
+              <a href="/">Delete</a>
+              <a href="/">Add to Playlist</a>
+              <a href="/">Copy Song Link</a>
+              <a href="/">Save to your Liked Songs</a>
+            </div>
+          </div>
         </div>
       </div>
     );

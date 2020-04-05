@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import art from "../../assets/images/icons/album.jpg";
+// import art from "../../assets/images/icons/album.jpg";
 import extend from "../../assets/images/icons/extend.png";
 import pause from "../../assets/images/icons/pause.png";
 import play from "../../assets/images/icons/play.png";
@@ -18,7 +18,7 @@ function PlayingBarLeft(props) {
       <div className="content">
         <div className="ablum-link" style={{ display: props.display }}>
           <img
-            src={art}
+            src={props.art}
             className="album-art-work"
             alt="Album Art"
             data-testid="album-link-img"
