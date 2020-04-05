@@ -91,7 +91,7 @@
   margin-bottom: auto;
   width: 100%;
 }
-.track-name {
+.track .content .track-name {
   /* display: inline-flex; */
   float: left;
   max-width: 18rem;
@@ -102,7 +102,7 @@
   max-height: 3.5em;
   width: 18rem;
 }
-.track-name a {
+.track .content .track-name a {
   display: initial;
   padding: 8px;
   text-decoration: none;
@@ -118,7 +118,7 @@
     left: 100%;
   }
 }
-.artist-name {
+.track .content .artist-name {
   position: relative;
   float: left;
   max-width: 18rem;
@@ -131,8 +131,7 @@
   /* margin-top: 0.95em; */
   left: 5%;
 }
-.artist-name a {
-  display: initial;
+.track .content .artist-name a {
   padding: 8px;
   text-decoration: none;
   font-size: 0.9em;
@@ -160,7 +159,7 @@
   height: 100%;
   position: relative;
   text-align: center;
-  top: 14px;
+  top: 0.6em;
   display: initial;
   float: right;
   right: 5%;
@@ -202,27 +201,27 @@
   visibility: visible;
 }
 @media screen and (max-width: 1030px) {
-  .artist-name,
-  .track-name {
+  /* .track .content .artist-name,
+  .track .content .track-name {
     float: none;
-  }
-  .artist-name {
+  } */
+  .track .content .artist-name {
     margin-top: auto;
   }
-  .track-name a {
+  .track .content .track-name a {
     font-size: 18px;
   }
 }
 
 @media screen and (max-height: 450px) {
-  .artist-name,
-  .track-name {
+  .track .content .artist-name,
+  .track .content .track-name {
     float: none;
   }
-  .artist-name {
+  .track .content .artist-name {
     margin-top: auto;
   }
-  .track-name a {
+  .track .content .track-name a {
     font-size: 18px;
   }
 }
@@ -241,11 +240,11 @@
   }
 }
 @media screen and (min-width: 1027px) and (max-width: 1131px) {
-  .artist-name {
+  .track .content .artist-name {
     display: none;
   }
 }
-@media screen and (min-width: 1018px) and (max-width: 1261px) {
+/* @media screen and (min-width: 1018px) and (max-width: 1261px) {
   .track .content .duration {
     display: none;
   }
@@ -255,19 +254,18 @@
   .track .content .duration {
     margin-top: -11%;
   }
-}
+} */
 
-@media screen and (min-width: 1036px) and (max-width: 1649px) {
+@media screen and (max-width: 1026px) {
+  .track .content .duration,
   .ellipsis-container {
     display: none;
   }
 }
 
-@media screen and (max-width: 1036px) {
+/* @media screen and (max-width: 1036px) {
   .ellipsis-container {
     top: -33px;
     right: -59%;
   }
-}
-float: right;
-right: 5%;
+} */

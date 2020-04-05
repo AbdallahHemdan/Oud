@@ -32,6 +32,8 @@
 .now-playing-bar-right {
   position: relative;
   margin-top: 16px;
+  float: right;
+  right: 0;
 }
 .now-playing-bar-left {
   display: flex;
@@ -83,19 +85,25 @@
 .track-controls {
   display: flex;
 }
+.now-playing-bar-center .content .track-controls {
+  width: 100%;
+  position: relative;
+  left: 6%;
+}
 .now-playing-bar-center .track-info {
-  align-self: flex-start;
-  margin: 0 auto;
-  vertical-align: middle;
+  margin: auto;
 }
 .now-playing-bar-center .track-info .track-name {
   color: #ffce00;
   text-decoration: none;
+  position: relative;
+  float: left;
 }
 .now-playing-bar-center .track-info .track-name::after {
   content: "  .  ";
 }
 .now-playing-bar-center .track-info .artist-name {
+  position: relative;
   font-size: 12px;
   color: #a0a0a0;
   text-decoration: none;
@@ -107,12 +115,19 @@ button:focus {
   outline: none;
 }
 .volume-bar {
-  width: 180px;
-  position: absolute;
+  /* width: 180px; */
+  position: relative;
+  /* transform-style: flat; */
+  float: right;
   right: 0;
   display: flex;
   align-items: center;
   vertical-align: middle;
+}
+@media screen and (max-height: 846px) {
+  .volume-bar {
+    width: 180px;
+  }
 }
 .ablum-link {
   width: 40%;
@@ -227,7 +242,7 @@ button:focus {
   .previous,
   .next,
   .now-playing-bar-right {
-    display: none;
+    display: none !important;
   }
   .play {
     float: left;
