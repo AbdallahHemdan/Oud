@@ -1,10 +1,55 @@
-import React from "react";
+import React, { Component } from "react";
+import getUserId from "./../../General/getUserId";
+import ProfileID from "./../../General/ProfileID";
+import FollowCard from "./../FollowCard/FollowCard";
 
-function Following() {
-  return (
-    <div style={{ padding: "40px" }}>
-      <h1>i am Following page</h1>
-    </div>
-  );
+import axios from "axios";
+
+class Following extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      items: [],
+      signInId: "0"
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:3002/following/" + this.props.userId)
+      .then(response => {
+        this.setState({
+          items: response.data.items
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    axios
+      .get("http://localhost:3002/me")
+      .then(response => {
+        this.setState({ signInId: response.data.id });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  render() {
+    let count = 0; //just for mapping
+    return (
+      <div>
+        {this.state.items.map(item => (
+          <FollowCard
+            id={item.id}
+            signInId={this.state.signInId}
+            key={count++}
+          />
+        ))}
+      </div>
+    );
+  }
 }
+
 export default Following;

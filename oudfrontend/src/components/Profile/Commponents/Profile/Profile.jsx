@@ -1,8 +1,11 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import Sidebar from "../../../Home/Sidebar/Sidebar";
 import Navbar from "../../../Home/Navbar/Navbar";
 import UpperContainer from "../UpperContainer/UpperContainer";
 import LowerContainer from "../LowerContainer/LowerContainer";
+import ProfileID from "./../../General/ProfileID";
+
 import "./Profile.css";
 
 function ActivityBar() {
@@ -16,13 +19,15 @@ function ActivityBar() {
 }
 
 function Profile() {
+  let { userId } = useParams();
+  ProfileID.set = userId;
   return (
     <div className="dummyParent">
       <Sidebar />
       <Navbar isLoggedIn={true} />
       <div className="profile-user">
-        <UpperContainer />
-        <LowerContainer />
+        <UpperContainer userId={userId} />
+        <LowerContainer userId={userId} />
       </div>
       <ActivityBar />
     </div>

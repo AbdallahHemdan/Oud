@@ -1,4 +1,10 @@
 {
   "/me/profile": "/profile",
-  "/me/updatePassword": "/updatePassword"
+  "/me/updatePassword": "/updatePassword",
+  "/users/following": "/following",
+  "/users/followers": "/followers",
+  "/me/following": "/followingMe",
+  "/me/followingDel": "/myFollowing",
+  "/me/following/containes": "/ids",
+  "/usres/playlists": "/playlists"
 }

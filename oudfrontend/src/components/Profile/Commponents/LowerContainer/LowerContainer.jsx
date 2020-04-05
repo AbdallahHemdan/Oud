@@ -5,34 +5,51 @@ import Following from "../Following/Following";
 import Overview from "../Overview/Overview";
 import PublicPlaylists from "../PublicPlaylists/PublicPlaylists";
 
-function LowerContainer() {
+import Oud from "./../../../../assets/images/Oud2.png";
+
+import "./LowerContainer.css";
+
+function defaultProfile() {
   return (
-    <div>
+    <div className="defaultProfile">
+      {" "}
+      <img className="defaultProfileImage" src={Oud}></img>{" "}
+    </div>
+  );
+}
+
+function LowerContainer(props) {
+  return (
+    <div className="LowerContainer">
       <Switch>
         <Route
           data-test="profileOverview"
           exact
-          path={`/profile/overview`}
-          component={Overview}
+          path={`/profile/:userId/overview`}
+          render={prop => <Overview {...prop} userId={props.userId} />}
         />
+
         <Route
           data-test="profilePublicPlaylists"
           exact
-          path={`/profile/publicPlaylists`}
-          component={PublicPlaylists}
+          path={`/profile/:userId/publicPlaylists`}
+          render={prop => <PublicPlaylists {...prop} userId={props.userId} />}
         />
+
         <Route
           data-test="following"
           exact
-          path={`/profile/following`}
-          component={Following}
+          path={`/profile/:userId/following`}
+          render={prop => <Following {...prop} userId={props.userId} />}
         />
+
         <Route
           data-test="followers"
           exact
-          path={`/profile/followers`}
-          component={Followers}
+          path={`/profile/:userId/followers`}
+          render={prop => <Followers {...prop} userId={props.userId} />}
         />
+        <Route exact path={`/profile/:userId`} component={defaultProfile} />
       </Switch>
     </div>
   );

@@ -1,9 +1,12 @@
 import React from "react";
+import PublicPlaylists from "./../PublicPlaylists/PublicPlaylists";
+import "./Overview.css";
 
-function Overview() {
+function Overview(props) {
   return (
-    <div style={{ padding: "40px" }}>
-      <h1>i am Overview page</h1>
+    <div>
+      <h5 className="overview-title">Public Playlists</h5>
+      <PublicPlaylists userId={props.userId} />
     </div>
   );
 }

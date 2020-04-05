@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/search">
           <Search />
         </Route>
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile/:userId" component={Profile} />
         <Route path="/account" component={Account} />
         <Route path="/RedirectPage" component={RedirectPage} />
       </Switch>
