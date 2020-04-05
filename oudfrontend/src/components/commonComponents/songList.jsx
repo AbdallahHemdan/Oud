@@ -1,4 +1,4 @@
-import React, {useState, Component} from 'react';
+import React, {Component} from 'react';
 import Song from '../song/song'
 import PropTypes from 'prop-types';
 import axios from 'axios'

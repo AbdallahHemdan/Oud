@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types';
 /**
  * this is a component that renders the bottom of the body of playlists, albums, likedSongs

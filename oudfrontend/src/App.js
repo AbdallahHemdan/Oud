@@ -4,8 +4,6 @@ import './App.css';
 import Playlist from './components/playlist/playlist';
 import LikedSongs from './components/likedSongs/likedSongs';
 import Album from './components/album/album'
-import CreatePlaylist from './components/CreatePlaylist/createPlaylist'
-import AddToPlaylist from './components/addToPlaylist/addToPlaylist'
 import { BrowserRouter as Router, Route, Switch, useParams} from 'react-router-dom';
 
 
@@ -14,7 +12,6 @@ function App() {
   return (
     <Router>
       <div className="App">  
-        <AddToPlaylist/>
         <Switch>
           <Route path={`/playlist/:id`} Component={<Playlist/>}>
             <PlaylistRender/>
