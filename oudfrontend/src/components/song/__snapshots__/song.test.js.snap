@@ -3,7 +3,7 @@
 exports[`song component snapshot test renders correctly 1`] = `
 <button
   className="song row"
-  data-testId="song"
+  data-testid="song"
   id="song"
   onClick={[Function]}
   onMouseEnter={[Function]}
@@ -14,12 +14,12 @@ exports[`song component snapshot test renders correctly 1`] = `
   >
     <button
       className="songButton"
-      data-testId="playButton"
+      data-testid="playButton"
       onClick={[Function]}
     >
       <img
         alt="play music icon"
-        data-testId="playButtonImage"
+        data-testid="playButtonImage"
         height="14"
         src="musicIcon.png"
         width="12"
@@ -31,25 +31,25 @@ exports[`song component snapshot test renders correctly 1`] = `
   >
     <span
       className="whiteText"
-      data-testId="songName"
+      data-testid="songName"
     >
       إنسان
     </span>
     <p
-      data-testId="aristsNames"
+      data-testid="aristsNames"
     >
       <span>
         <span>
           <a
             className="playlistAnchor"
-            data-testId="artistName"
+            data-testid="artistName"
             href="/artist/5"
             onClick={[Function]}
           >
             حمزة نمرة
           </a>
           <span
-            data-testId="comma"
+            data-testid="comma"
           >
             , 
           </span>
@@ -57,14 +57,14 @@ exports[`song component snapshot test renders correctly 1`] = `
         <span>
           <a
             className="playlistAnchor"
-            data-testId="artistName"
+            data-testid="artistName"
             href="/artist/2"
             onClick={[Function]}
           >
             Sardeena
           </a>
           <span
-            data-testId="comma"
+            data-testid="comma"
           >
             , 
           </span>
@@ -72,7 +72,7 @@ exports[`song component snapshot test renders correctly 1`] = `
       </span>
       <a
         className="playlistAnchor"
-        data-testId="albumName"
+        data-testid="albumName"
         href="/albums/1"
         onClick={[Function]}
       >
@@ -85,11 +85,11 @@ exports[`song component snapshot test renders correctly 1`] = `
   >
     <div
       className="dropdown"
-      data-testId="dropdown"
+      data-testid="dropdown"
     >
       <button
         className="songButton"
-        data-testId="dropdownButton"
+        data-testid="dropdownButton"
         id="songDropdownButton"
         onClick={[Function]}
       >
@@ -106,7 +106,7 @@ exports[`song component snapshot test renders correctly 1`] = `
       </button>
       <div
         className="dropdownContent"
-        data-testId="dropdownList"
+        data-testid="dropdownList"
         id="dropdownContent"
         style={
           Object {
@@ -116,7 +116,7 @@ exports[`song component snapshot test renders correctly 1`] = `
       >
         <a
           className="SongDropdownItem"
-          data-testId="dropdownItem"
+          data-testid="saveSong"
           href=""
           onClick={[Function]}
         >
@@ -124,7 +124,7 @@ exports[`song component snapshot test renders correctly 1`] = `
         </a>
         <a
           className="SongDropdownItem"
-          data-testId="dropdownItem"
+          data-testid="addToQueue"
           href=""
           onClick={[Function]}
         >
@@ -132,7 +132,7 @@ exports[`song component snapshot test renders correctly 1`] = `
         </a>
         <a
           className="SongDropdownItem"
-          data-testId="dropdownItem"
+          data-testid="addToPlaylist"
           href=""
           onClick={[Function]}
         >
@@ -146,7 +146,7 @@ exports[`song component snapshot test renders correctly 1`] = `
   >
     <p
       className="whiteText"
-      data-testId="songTime"
+      data-testid="songTime"
     >
       3:34
     </p>

@@ -56,5 +56,6 @@ export default {
               "audioUrl": "www.facebook.com"
             }
           ]
-      })})
+      })}),
+      post: jest.fn(()=>{return Promise.resolve({status: "204", message: "success" })})
 };

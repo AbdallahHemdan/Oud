@@ -4,7 +4,6 @@ exports[`album Component snapshot test for the playlist renders correctly 1`] = 
 <div
   className="playlist"
   data-testid="album"
-  onClick={[Function]}
 >
   <div
     className="row"
@@ -12,6 +11,7 @@ exports[`album Component snapshot test for the playlist renders correctly 1`] = 
     <div
       className="playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4"
       data-testid="playlistHeader"
+      onClick={[Function]}
     >
       <div
         className="playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4"

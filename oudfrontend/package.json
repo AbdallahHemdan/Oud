@@ -51,6 +51,7 @@
     "@testing-library/jest-dom": "^5.1.1",
     "check-prop-types": "^1.1.2",
     "jest": "^25.1.0",
-    "jsdoc": "^3.6.3"
+    "jsdoc": "^3.6.3",
+    "moxios": "^0.4.0"
   }
 }

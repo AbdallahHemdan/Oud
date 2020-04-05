@@ -3,7 +3,6 @@ import './song.css';
 import {BrowserRouter as Router, Link} from "react-router-dom";
 import axios from 'axios'
 import PropTypes from 'prop-types';
-import { getDefaultNormalizer } from '@testing-library/react';
 
 
 /**
@@ -182,45 +181,48 @@ class Song extends Component{
      */
     toggleDropdown(){
         this.setState({displayDropdown:!this.state.displayDropdown})
-        console.log("click -->" + this.state.clicked)
-        console.log("display -->" + this.state.displayDropdown)
-
-    }
+        }
     render(){
         return(
             <Router>
-                <button onClick={()=>{this.props.handleClick(this.state.track.id)}} data-testId='song' className="song row" id='song' onMouseEnter={this.hover} onMouseLeave={this.notHover}>
+                <button 
+                    onClick={()=>{this.props.handleClick(this.state.track.id)}} 
+                    data-testid='song' 
+                    className="song row" 
+                    id='song' 
+                    onMouseEnter={this.hover} 
+                    onMouseLeave={this.notHover}>
                     
                         <div className='songIcon col-1'>
-                            <button data-testId='playButton' className='songButton' onClick={this.playSongClicked.bind(this)}>
-                            <img data-testId='playButtonImage' src={(this.state.hover||this.state.clicked)? require('./play.png'):require('./musicIcon.png')}
+                            <button data-testid='playButton' className='songButton' onClick={this.playSongClicked.bind(this)}>
+                            <img data-testid='playButtonImage' src={(this.state.hover||this.state.clicked)? require('./play.png'):require('./musicIcon.png')}
                              width='12' height='14' 
                              alt='play music icon'/>
                              </button>
                         </div>
 
                         <div className='songInfo col-8'>    
-                            <span data-testId='songName' className='whiteText'>{this.state.track.name}</span>
-                            <p data-testId='aristsNames'>
+                            <span data-testid='songName' className='whiteText'>{this.state.track.name}</span>
+                            <p data-testid='aristsNames'>
                         <span>{
                             this.state.track.artists.map((artist)=>{
                                 return(<span>
-                                    <Link data-testId='artistName' to={`/artist/${artist.id}`} className='playlistAnchor'>{artist.name}</Link>
-                                    <span data-testId='comma'>, </span>
+                                    <Link data-testid='artistName' to={`/artist/${artist.id}`} className='playlistAnchor'>{artist.name}</Link>
+                                    <span data-testid='comma'>, </span>
                                     </span>
                                     );
                                 })}
 
                             </span>
-                            <Link data-testId='albumName' to={`/albums/${this.state.track.albumId}`}className='playlistAnchor'>{this.state.albumName}</Link>
+                            <Link data-testid='albumName' to={`/albums/${this.state.track.albumId}`}className='playlistAnchor'>{this.state.albumName}</Link>
                             </p>
                         </div>
 
                         <div  className='col-1'>
                             
-                                <div data-testId='dropdown' className="dropdown">
+                                <div data-testid='dropdown' className="dropdown">
                                     <button 
-                                        data-testId='dropdownButton'
+                                        data-testid='dropdownButton'
                                         onClick={this.toggleDropdown.bind(this)}
                                         className="songButton" 
                                         id='songDropdownButton'>
@@ -230,24 +232,24 @@ class Song extends Component{
                                      </button>
 
                                     <div
-                                        data-testId='dropdownList' 
+                                        data-testid='dropdownList' 
                                         style={this.state.displayDropdown && this.state.clicked?{display: "block"}:{display: 'none'}}
                                         className="dropdownContent" id="dropdownContent">
 
-                                        <Link data-testId='dropdownItem' onClick={this.handleSaving.bind(this)} className="SongDropdownItem">
+                                        <Link data-testid='saveSong' onClick={this.handleSaving.bind(this)} className="SongDropdownItem">
                                         {this.state.saved?'Remove From Your Liked Songs':'Save to your Liked Songs'}</Link>
 
-                                        <Link data-testId='dropdownItem' onClick={this.handleQueue.bind(this)}
+                                        <Link data-testid='addToQueue' onClick={this.handleQueue.bind(this)}
                                         className="SongDropdownItem">
                                         {this.state.queued?'Remove From Queue':'Add to Queue'}</Link>
 
-                                        <Link data-testId='dropdownItem' className="SongDropdownItem">Add to Playlist</Link>
+                                        <Link data-testid='addToPlaylist' className="SongDropdownItem">Add to Playlist</Link>
                                     </div>
                                 </div> 
                         </div>
 
                         <div className='col-2'>
-                            <p data-testId='songTime' className='whiteText'>{this.state.track.songTime}3:34</p>
+                            <p data-testid='songTime' className='whiteText'>{this.state.track.songTime}3:34</p>
                         </div>
                     </button>
             </Router>
