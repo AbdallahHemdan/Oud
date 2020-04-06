@@ -24,7 +24,7 @@ class FollowCard extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3002/users/" + this.props.id)
+      .get("http://localhost:2022/users/" + this.props.id)
       .then(response => {
         this.setState({
           name: response.data.displayName,
@@ -34,7 +34,7 @@ class FollowCard extends Component {
         let ids = this.props.id;
         //you should use the type and ids as query prams in the real API as here you can't make it just get the data
         axios
-          .get("http://localhost:3002/me/following/containes")
+          .get("http://localhost:2022/me/following/containes")
           .then(response => {
             this.setState({ followStatus: response.data.ids[0] });
           })
@@ -47,7 +47,7 @@ class FollowCard extends Component {
       });
 
     axios
-      .get("http://localhost:3002/me")
+      .get("http://localhost:2022/me")
       .then(response => {
         this.setState({ signInId: response.data.id });
       })
@@ -68,14 +68,14 @@ class FollowCard extends Component {
     if (this.state.followStatus) {
       /*this should be in route me/following/ids=*,*,*,*&type=user/artist*/
       axios
-        .delete("http://localhost:3002/myFollowing/" + this.props.id)
+        .delete("http://localhost:2022/myFollowing/" + this.props.id)
         .then(response => {
           console.log(response);
         })
         .catch(error => console.log(error));
     } else {
       axios
-        .put("http://localhost:3002/me/following", {
+        .put("http://localhost:2022/me/following", {
           ids: [ids]
         })
         .then(response => {

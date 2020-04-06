@@ -36,14 +36,14 @@ class UpperContainer extends Component {
     if (this.state.followStatus) {
       /*this shouild be in route me/following/ids=*,*,*,*&type=user/artist*/
       axios
-        .delete("http://localhost:3002/myFollowing/" + this.props.id)
+        .delete("http://localhost:2022/myFollowing/" + this.props.id)
         .then(response => {
           console.log(response);
         })
         .catch(error => console.log(error));
     } else {
       axios
-        .put("http://localhost:3002/me/following", {
+        .put("http://localhost:2022/me/following", {
           ids: [ids]
         })
         .then(response => {
@@ -70,7 +70,7 @@ class UpperContainer extends Component {
     if (event.target.files[0]) {
       fd.append("image", event.target.files[0], event.target.files[0].name);
       axios
-        .patch("http://localhost:3002/me/profilePicture", fd)
+        .patch("http://localhost:2022/me/profilePicture", fd)
         .then(respons => {
           console.log(respons);
         })
@@ -81,7 +81,7 @@ class UpperContainer extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:3002/users/" + this.props.userId)
+      .get("http://localhost:2022/users/" + this.props.userId)
       .then(response => {
         this.setState({
           id: response.data.id,
@@ -91,7 +91,7 @@ class UpperContainer extends Component {
         let ids = this.props.id;
         //you should use the type and ids as query prams in the real API as here you can't make it just get the data
         axios
-          .get("http://localhost:3002/me/following/containes")
+          .get("http://localhost:2022/me/following/containes")
           .then(response => {
             this.setState({ followStatus: response.data.ids[0] });
           })
@@ -104,7 +104,7 @@ class UpperContainer extends Component {
       });
 
     axios
-      .get("http://localhost:3002/me")
+      .get("http://localhost:2022/me")
       .then(response => {
         this.setState({ signInId: response.data.id });
       })
@@ -125,7 +125,7 @@ class UpperContainer extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.userId !== this.props.userId) {
       axios
-        .get("http://localhost:3002/users/" + this.props.userId)
+        .get("http://localhost:2022/users/" + this.props.userId)
         .then(response => {
           this.setState({
             id: response.data.id,

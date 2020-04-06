@@ -116,7 +116,7 @@ class ChangePassword extends Component {
     if (formValid(this.state)) {
       //make a request
       axios
-        .patch("http://localhost:3002/me/updatePassword", {
+        .patch("http://localhost:2022/me/updatePassword", {
           currentPassword: this.state.oldPassword,
           password: this.state.password,
           passwordConfirm: this.state.repeatPassword

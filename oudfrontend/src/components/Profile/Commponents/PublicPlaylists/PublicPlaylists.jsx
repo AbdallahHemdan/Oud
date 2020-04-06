@@ -25,7 +25,7 @@ class PublicPlaylists extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:3002/playlists/" + this.props.userId)
+      .get("http://localhost:2022/playlists/" + this.props.userId)
       .then(response => {
         this.setState({
           items: response.data.items

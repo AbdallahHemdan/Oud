@@ -7,7 +7,7 @@ function Overview(props) {
   return (
     <div data-test="Overview">
       <div className="overview-title">
-        <h5 data-test="title" style={{ width: "90%" }}>
+        <h5 data-test="title" style={{ width: "50%" }}>
           Public Playlists
         </h5>
         <Link

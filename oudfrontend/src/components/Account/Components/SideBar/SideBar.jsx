@@ -36,7 +36,7 @@ class SideBar extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:3002/me")
+      .get("http://localhost:2022/me")
       .then(respose => {
         this.setState({ photo: respose.data.images[0] });
       })

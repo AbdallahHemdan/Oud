@@ -119,7 +119,7 @@ class EditProfile extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3002/me")
+      .get("http://localhost:2022/me")
       .then(response => {
         ProfileInfo.displayName = response.data.displayName;
         ProfileInfo.email = response.data.email;
@@ -190,7 +190,7 @@ class EditProfile extends Component {
     } else if (formValid(this.state)) {
       //make a update request
       axios
-        .put("http://localhost:3002/me/profile", {
+        .put("http://localhost:2022/me/profile", {
           email: this.state.email,
           passwordConfirm: ProfileInfo.password,
           gender: this.state.gender,

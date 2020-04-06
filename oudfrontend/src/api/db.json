@@ -1,0 +1,1425 @@
+{
+  "1": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "2": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "3": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "4": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "5": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "6": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "7": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "8": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "9": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "10": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Fitness Araby",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout fitness music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "3",
+        "name": "Islamic songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best islamic songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "4",
+        "name": "Rab songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rab songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "5",
+        "name": "Hamedo songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best Hamedo songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "6",
+        "name": "CUFE songs",
+        "owner": "CUFE",
+        "collaborative": true,
+        "description": "list of best CUFE songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "me": {
+    "id": "1",
+    "username": "Ahmed Mahboub",
+    "birthDate": "1999-03-09",
+    "gender": "M",
+    "email": "ahmed.mahboub99@gmail.com",
+    "displayName": "Ahmed",
+    "role": "free",
+    "country": "Egypt",
+    "credit": 0,
+    "plan": null,
+    "images": [
+      "https://vignette.wikia.nocookie.net/kimetsu-no-yaiba/images/8/8c/Tanjiro_with_longer_hair_and_dirty_face.png/revision/latest/top-crop/width/300/height/300?cb=20190420121127"
+    ],
+    "followersCount": 0,
+    "verified": false,
+    "Artist": {
+      "_id": "string",
+      "followersCount": 0,
+      "genres": ["string"],
+      "images": ["string"],
+      "name": "string",
+      "bio": "string",
+      "popularSongs": [
+        {
+          "_id": "string",
+          "name": "string",
+          "artists": [
+            {
+              "_id": "string",
+              "name": "string",
+              "type": "string",
+              "image": "string"
+            }
+          ],
+          "albumId": "string",
+          "type": "string",
+          "audioUrl": "string"
+        }
+      ],
+      "type": "string"
+    },
+    "facebook_id": "string",
+    "google_id": "string",
+    "type": "string"
+  },
+  "profile": {
+    "email": "ahmed.mahboub99@gmail.co",
+    "passwordConfirm": "7_DummyPassword_5",
+    "gender": "M",
+    "birthDate": "1999-03-09",
+    "country": "Egypt",
+    "displayName": "Ahmed"
+  },
+  "updatePassword": {},
+  "followingMe": {
+    "ids": ["4"]
+  },
+  "myFollowing": [
+    {
+      "id": "3",
+      "name": "AhmedMahboub"
+    }
+  ],
+  "following": [
+    {
+      "id": "1",
+      "items": [
+        {
+          "id": "2",
+          "name": "Abdullah Ahmed Hemdan",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/s960x960/49010256_2184180468567599_5341278422305865728_o.jpg?_nc_cat=104&_nc_sid=13bebb&_nc_ohc=ocumQyJIzkUAX_bGlUR&_nc_ht=scontent-mxp1-1.xx&_nc_tp=7&oh=6204fb38693ce0c34e83c7cdc027e910&oe=5EACF458"
+        },
+        {
+          "id": "3",
+          "name": "Adel Mohamed",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.15752-9/91412016_267115707626489_2961297680493445120_n.jpg?_nc_cat=108&_nc_sid=b96e70&_nc_ohc=LSqR0bVzwgYAX-D96Ar&_nc_ht=scontent-mxp1-1.xx&oh=fc9307b9f2d3a466311d97326c06eb42&oe=5EA9FCDB"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    },
+    {
+      "id": "2",
+      "items": [
+        {
+          "id": "1",
+          "name": "Ahmed Mahboub",
+          "type": "user",
+          "image": "https://vignette.wikia.nocookie.net/kimetsu-no-yaiba/images/8/8c/Tanjiro_with_longer_hair_and_dirty_face.png/revision/latest/top-crop/width/300/height/300?cb=20190420121127"
+        },
+        {
+          "id": "3",
+          "name": "Adel Mohamed",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.15752-9/91412016_267115707626489_2961297680493445120_n.jpg?_nc_cat=108&_nc_sid=b96e70&_nc_ohc=LSqR0bVzwgYAX-D96Ar&_nc_ht=scontent-mxp1-1.xx&oh=fc9307b9f2d3a466311d97326c06eb42&oe=5EA9FCDB"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    },
+    {
+      "id": "3",
+      "items": [
+        {
+          "id": "2",
+          "name": "Abdullah Ahmed Hemdan",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/s960x960/49010256_2184180468567599_5341278422305865728_o.jpg?_nc_cat=104&_nc_sid=13bebb&_nc_ohc=ocumQyJIzkUAX_bGlUR&_nc_ht=scontent-mxp1-1.xx&_nc_tp=7&oh=6204fb38693ce0c34e83c7cdc027e910&oe=5EACF458"
+        },
+        {
+          "id": "1",
+          "name": "Ahmed Mahboub",
+          "type": "user",
+          "image": "https://vignette.wikia.nocookie.net/kimetsu-no-yaiba/images/8/8c/Tanjiro_with_longer_hair_and_dirty_face.png/revision/latest/top-crop/width/300/height/300?cb=20190420121127"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    },
+    {
+      "id": "4",
+      "items": [
+        {
+          "id": "2",
+          "name": "Abdullah Ahmed Hemdan",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/s960x960/49010256_2184180468567599_5341278422305865728_o.jpg?_nc_cat=104&_nc_sid=13bebb&_nc_ohc=ocumQyJIzkUAX_bGlUR&_nc_ht=scontent-mxp1-1.xx&_nc_tp=7&oh=6204fb38693ce0c34e83c7cdc027e910&oe=5EACF458"
+        },
+        {
+          "id": "3",
+          "name": "Adel Mohamed",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.15752-9/91412016_267115707626489_2961297680493445120_n.jpg?_nc_cat=108&_nc_sid=b96e70&_nc_ohc=LSqR0bVzwgYAX-D96Ar&_nc_ht=scontent-mxp1-1.xx&oh=fc9307b9f2d3a466311d97326c06eb42&oe=5EA9FCDB"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    },
+    {
+      "id": "5",
+      "items": [
+        {
+          "id": "1",
+          "name": "Ahmed Mahboub",
+          "type": "user",
+          "image": "https://vignette.wikia.nocookie.net/kimetsu-no-yaiba/images/8/8c/Tanjiro_with_longer_hair_and_dirty_face.png/revision/latest/top-crop/width/300/height/300?cb=20190420121127"
+        },
+        {
+          "id": "3",
+          "name": "Adel Mohamed",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.15752-9/91412016_267115707626489_2961297680493445120_n.jpg?_nc_cat=108&_nc_sid=b96e70&_nc_ohc=LSqR0bVzwgYAX-D96Ar&_nc_ht=scontent-mxp1-1.xx&oh=fc9307b9f2d3a466311d97326c06eb42&oe=5EA9FCDB"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    }
+  ],
+  "followers": [
+    {
+      "id": "1",
+      "items": [
+        {
+          "id": "4",
+          "name": "Darkin",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-1/79777159_476034299706366_2556411895183572992_n.jpg?_nc_cat=107&_nc_sid=dbb9e7&_nc_ohc=hf37c8ffIIIAX-8HPne&_nc_ht=scontent-mxp1-1.xx&oh=7dfcea29c6893d7c9604104efd69d3fb&oe=5EAD7A9D"
+        },
+        {
+          "id": "5",
+          "name": "Hassan Mohamed",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/p720x720/70600223_2422065417873606_6881938609344086016_o.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=sX-L1BmOT7YAX_ZMxC1&_nc_ht=scontent-mxp1-1.xx&_nc_tp=6&oh=c5554e1304a8a382b35edd8d1a229be8&oe=5EAB7E37"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    },
+    {
+      "id": "2",
+      "items": [
+        {
+          "id": "4",
+          "name": "Darkin",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-1/79777159_476034299706366_2556411895183572992_n.jpg?_nc_cat=107&_nc_sid=dbb9e7&_nc_ohc=hf37c8ffIIIAX-8HPne&_nc_ht=scontent-mxp1-1.xx&oh=7dfcea29c6893d7c9604104efd69d3fb&oe=5EAD7A9D"
+        },
+        {
+          "id": "3",
+          "name": "Adel Mohamed",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.15752-9/91412016_267115707626489_2961297680493445120_n.jpg?_nc_cat=108&_nc_sid=b96e70&_nc_ohc=LSqR0bVzwgYAX-D96Ar&_nc_ht=scontent-mxp1-1.xx&oh=fc9307b9f2d3a466311d97326c06eb42&oe=5EA9FCDB"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    },
+    {
+      "id": "3",
+      "items": [
+        {
+          "id": "4",
+          "name": "Darkin",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-1/79777159_476034299706366_2556411895183572992_n.jpg?_nc_cat=107&_nc_sid=dbb9e7&_nc_ohc=hf37c8ffIIIAX-8HPne&_nc_ht=scontent-mxp1-1.xx&oh=7dfcea29c6893d7c9604104efd69d3fb&oe=5EAD7A9D"
+        },
+        {
+          "id": "5",
+          "name": "Hassan Mohamed",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/p720x720/70600223_2422065417873606_6881938609344086016_o.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=sX-L1BmOT7YAX_ZMxC1&_nc_ht=scontent-mxp1-1.xx&_nc_tp=6&oh=c5554e1304a8a382b35edd8d1a229be8&oe=5EAB7E37"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    },
+    {
+      "id": "4",
+      "items": [
+        {
+          "id": "5",
+          "name": "Hassan Mohamed",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/p720x720/70600223_2422065417873606_6881938609344086016_o.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=sX-L1BmOT7YAX_ZMxC1&_nc_ht=scontent-mxp1-1.xx&_nc_tp=6&oh=c5554e1304a8a382b35edd8d1a229be8&oe=5EAB7E37"
+        },
+        {
+          "id": "1",
+          "name": "Ahmed Mahboub",
+          "type": "user",
+          "image": "https://vignette.wikia.nocookie.net/kimetsu-no-yaiba/images/8/8c/Tanjiro_with_longer_hair_and_dirty_face.png/revision/latest/top-crop/width/300/height/300?cb=20190420121127"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    },
+    {
+      "id": "5",
+      "items": [
+        {
+          "id": "1",
+          "name": "Ahmed Mahboub",
+          "type": "user",
+          "image": "https://vignette.wikia.nocookie.net/kimetsu-no-yaiba/images/8/8c/Tanjiro_with_longer_hair_and_dirty_face.png/revision/latest/top-crop/width/300/height/300?cb=20190420121127"
+        },
+        {
+          "id": "2",
+          "name": "Abdullah Ahmed Hemdan",
+          "type": "user",
+          "image": "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/s960x960/49010256_2184180468567599_5341278422305865728_o.jpg?_nc_cat=104&_nc_sid=13bebb&_nc_ohc=ocumQyJIzkUAX_bGlUR&_nc_ht=scontent-mxp1-1.xx&_nc_tp=7&oh=6204fb38693ce0c34e83c7cdc027e910&oe=5EACF458"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "displayName": "Ahmed Mahboub",
+      "followersCount": 0,
+      "images": [
+        "https://vignette.wikia.nocookie.net/kimetsu-no-yaiba/images/8/8c/Tanjiro_with_longer_hair_and_dirty_face.png/revision/latest/top-crop/width/300/height/300?cb=20190420121127"
+      ],
+      "verified": false,
+      "type": "user"
+    },
+    {
+      "id": "2",
+      "displayName": "Abdullah Ahmed Hemdan",
+      "followersCount": 0,
+      "images": [
+        "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/s960x960/49010256_2184180468567599_5341278422305865728_o.jpg?_nc_cat=104&_nc_sid=13bebb&_nc_ohc=ocumQyJIzkUAX_bGlUR&_nc_ht=scontent-mxp1-1.xx&_nc_tp=7&oh=6204fb38693ce0c34e83c7cdc027e910&oe=5EACF458"
+      ],
+      "verified": false,
+      "type": "user"
+    },
+    {
+      "id": "3",
+      "displayName": "Adel Mohamed",
+      "followersCount": 0,
+      "images": [
+        "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.15752-9/91412016_267115707626489_2961297680493445120_n.jpg?_nc_cat=108&_nc_sid=b96e70&_nc_ohc=LSqR0bVzwgYAX-D96Ar&_nc_ht=scontent-mxp1-1.xx&oh=fc9307b9f2d3a466311d97326c06eb42&oe=5EA9FCDB"
+      ],
+      "verified": false,
+      "type": "user"
+    },
+    {
+      "id": "4",
+      "displayName": "Darkin",
+      "followersCount": 0,
+      "images": [
+        "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-1/79777159_476034299706366_2556411895183572992_n.jpg?_nc_cat=107&_nc_sid=dbb9e7&_nc_ohc=hf37c8ffIIIAX-8HPne&_nc_ht=scontent-mxp1-1.xx&oh=7dfcea29c6893d7c9604104efd69d3fb&oe=5EAD7A9D"
+      ],
+      "verified": false,
+      "type": "user"
+    },
+    {
+      "id": "5",
+      "displayName": "Hassan Mohamed",
+      "followersCount": 0,
+      "images": [
+        "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/p720x720/70600223_2422065417873606_6881938609344086016_o.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=sX-L1BmOT7YAX_ZMxC1&_nc_ht=scontent-mxp1-1.xx&_nc_tp=6&oh=c5554e1304a8a382b35edd8d1a229be8&oe=5EAB7E37"
+      ],
+      "verified": false,
+      "type": "user"
+    }
+  ],
+  "ids": {
+    "ids": [true]
+  },
+  "playlists": [
+    {
+      "id": "1",
+      "items": [
+        {
+          "id": "1",
+          "name": "PlayList1",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": false,
+          "image": "https://pbs.twimg.com/media/ETfaipsXkAATdUx.jpg",
+          "type": "string"
+        },
+        {
+          "id": "2",
+          "name": "PlayList2",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://pbs.twimg.com/media/ETffBfeX0AA5bOW.jpg",
+          "type": "string"
+        },
+        {
+          "id": "3",
+          "name": "PlayList3",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuTALnEZHwlQ-HfzprquGqD5IejMPhtMl1WloBlKgm7ueylSXe&usqp=CAU",
+          "type": "string"
+        },
+        {
+          "id": "4",
+          "name": "PlayList4",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://m.media-amazon.com/images/I/619NneDwK1L._SS500_.jpg",
+          "type": "string"
+        },
+        {
+          "id": "5",
+          "name": "PlayList5",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/8753-1559143778.jpg?crop=1xw:1xh;center,top&resize=480:*",
+          "type": "string"
+        },
+        {
+          "id": "6",
+          "name": "PlayList6",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://creativereview.imgix.net/content/uploads/2020/02/2-Tame-Impala-TSR-%E2%80%93-Neil-Krug.jpg",
+          "type": "string"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    },
+    {
+      "id": "2",
+      "items": [
+        {
+          "id": "1",
+          "name": "PlayList1",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://pbs.twimg.com/media/ETfaipsXkAATdUx.jpg",
+          "type": "string"
+        },
+        {
+          "id": "2",
+          "name": "PlayList2",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": false,
+          "image": "https://pbs.twimg.com/media/ETffBfeX0AA5bOW.jpg",
+          "type": "string"
+        },
+        {
+          "id": "3",
+          "name": "PlayList3",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuTALnEZHwlQ-HfzprquGqD5IejMPhtMl1WloBlKgm7ueylSXe&usqp=CAU",
+          "type": "string"
+        },
+        {
+          "id": "4",
+          "name": "PlayList4",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://m.media-amazon.com/images/I/619NneDwK1L._SS500_.jpg",
+          "type": "string"
+        },
+        {
+          "id": "5",
+          "name": "PlayList5",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/8753-1559143778.jpg?crop=1xw:1xh;center,top&resize=480:*",
+          "type": "string"
+        },
+        {
+          "id": "6",
+          "name": "PlayList6",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://creativereview.imgix.net/content/uploads/2020/02/2-Tame-Impala-TSR-%E2%80%93-Neil-Krug.jpg",
+          "type": "string"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    },
+    {
+      "id": "3",
+      "items": [
+        {
+          "id": "1",
+          "name": "PlayList1",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://pbs.twimg.com/media/ETfaipsXkAATdUx.jpg",
+          "type": "string"
+        },
+        {
+          "id": "2",
+          "name": "PlayList2",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://pbs.twimg.com/media/ETffBfeX0AA5bOW.jpg",
+          "type": "string"
+        },
+        {
+          "id": "3",
+          "name": "PlayList3",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": false,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuTALnEZHwlQ-HfzprquGqD5IejMPhtMl1WloBlKgm7ueylSXe&usqp=CAU",
+          "type": "string"
+        },
+        {
+          "id": "4",
+          "name": "PlayList4",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://m.media-amazon.com/images/I/619NneDwK1L._SS500_.jpg",
+          "type": "string"
+        },
+        {
+          "id": "5",
+          "name": "PlayList5",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/8753-1559143778.jpg?crop=1xw:1xh;center,top&resize=480:*",
+          "type": "string"
+        },
+        {
+          "id": "6",
+          "name": "PlayList6",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://creativereview.imgix.net/content/uploads/2020/02/2-Tame-Impala-TSR-%E2%80%93-Neil-Krug.jpg",
+          "type": "string"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    },
+    {
+      "id": "4",
+      "items": [
+        {
+          "id": "1",
+          "name": "PlayList1",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://pbs.twimg.com/media/ETfaipsXkAATdUx.jpg",
+          "type": "string"
+        },
+        {
+          "id": "2",
+          "name": "PlayList2",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://pbs.twimg.com/media/ETffBfeX0AA5bOW.jpg",
+          "type": "string"
+        },
+        {
+          "id": "3",
+          "name": "PlayList3",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuTALnEZHwlQ-HfzprquGqD5IejMPhtMl1WloBlKgm7ueylSXe&usqp=CAU",
+          "type": "string"
+        },
+        {
+          "id": "4",
+          "name": "PlayList4",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": false,
+          "image": "https://m.media-amazon.com/images/I/619NneDwK1L._SS500_.jpg",
+          "type": "string"
+        },
+        {
+          "id": "5",
+          "name": "PlayList5",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/8753-1559143778.jpg?crop=1xw:1xh;center,top&resize=480:*",
+          "type": "string"
+        },
+        {
+          "id": "6",
+          "name": "PlayList6",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://creativereview.imgix.net/content/uploads/2020/02/2-Tame-Impala-TSR-%E2%80%93-Neil-Krug.jpg",
+          "type": "string"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    },
+    {
+      "id": "5",
+      "items": [
+        {
+          "id": "1",
+          "name": "PlayList1",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://pbs.twimg.com/media/ETfaipsXkAATdUx.jpg",
+          "type": "string"
+        },
+        {
+          "id": "2",
+          "name": "PlayList2",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://pbs.twimg.com/media/ETffBfeX0AA5bOW.jpg",
+          "type": "string"
+        },
+        {
+          "id": "3",
+          "name": "PlayList3",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuTALnEZHwlQ-HfzprquGqD5IejMPhtMl1WloBlKgm7ueylSXe&usqp=CAU",
+          "type": "string"
+        },
+        {
+          "id": "4",
+          "name": "PlayList4",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://m.media-amazon.com/images/I/619NneDwK1L._SS500_.jpg",
+          "type": "string"
+        },
+        {
+          "id": "5",
+          "name": "PlayList5",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": false,
+          "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/8753-1559143778.jpg?crop=1xw:1xh;center,top&resize=480:*",
+          "type": "string"
+        },
+        {
+          "id": "6",
+          "name": "PlayList6",
+          "owner": "string",
+          "tracks": ["string"],
+          "collaborative": true,
+          "description": "string",
+          "public": true,
+          "image": "https://creativereview.imgix.net/content/uploads/2020/02/2-Tame-Impala-TSR-%E2%80%93-Neil-Krug.jpg",
+          "type": "string"
+        }
+      ],
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    }
+  ],
+  "profilePicture": {},
+  "categories": {
+    "items": [
+      {
+        "id": 1,
+        "name": "Recently played",
+        "icon": "http://lorempixel.com/640/480/cats"
+      },
+      {
+        "id": 2,
+        "name": "Recommended playlists",
+        "icon": "http://lorempixel.com/640/480/cats"
+      },
+      {
+        "id": 3,
+        "name": "New releases",
+        "icon": "http://lorempixel.com/640/480/cats"
+      },
+      {
+        "id": 4,
+        "name": "Arabic Music",
+        "icon": "http://lorempixel.com/640/480/cats"
+      },
+      {
+        "id": 5,
+        "name": "Throwback",
+        "icon": "http://lorempixel.com/640/480/cats"
+      },
+      {
+        "id": 6,
+        "name": "Popular playlists",
+        "icon": "http://lorempixel.com/640/480/cats"
+      },
+      {
+        "id": 7,
+        "name": "Editors' Picks",
+        "icon": "http://lorempixel.com/640/480/cats"
+      },
+      {
+        "id": 8,
+        "name": "Workout",
+        "icon": "http://lorempixel.com/640/480/cats"
+      },
+      {
+        "id": 9,
+        "name": "Mood",
+        "icon": "http://lorempixel.com/640/480/cats"
+      },
+      {
+        "id": 10,
+        "name": "Recommended radio",
+        "icon": "http://lorempixel.com/640/480/cats"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  }
+}

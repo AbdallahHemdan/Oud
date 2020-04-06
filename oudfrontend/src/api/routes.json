@@ -1,4 +1,13 @@
 {
+  "/me/profile": "/profile",
+  "/me/updatePassword": "/updatePassword",
+  "/users/following": "/following",
+  "/users/followers": "/followers",
+  "/me/following": "/followingMe",
+  "/me/followingDel": "/myFollowing",
+  "/me/following/containes": "/ids",
+  "/usres/playlists": "/playlists",
+  "/me/profilePicture": "/profilePicture",
   "/browse/categories": "/categories",
   "/browse/categories/1/playlists": "/1",
   "/browse/categories/2/playlists": "/2",

@@ -4,7 +4,7 @@
   "description": "Fack API (MOcking)",
   "main": "index.js",
   "scripts": {
-    "json:server": "json-server db.json --routes routes.json"
+    "json:server": "json-server db.json --routes routes.json --port 2022"
   },
   "author": "",
   "license": "ISC",

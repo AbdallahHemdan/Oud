@@ -14,7 +14,7 @@ class Followers extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3002/followers/" + this.props.userId)
+      .get("http://localhost:2022/followers/" + this.props.userId)
       .then(response => {
         this.setState({
           items: response.data.items
@@ -24,7 +24,7 @@ class Followers extends Component {
         console.log(error);
       });
     axios
-      .get("http://localhost:3002/me")
+      .get("http://localhost:2022/me")
       .then(response => {
         this.setState({ signInId: response.data.id });
       })
