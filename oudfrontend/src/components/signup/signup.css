@@ -21,8 +21,16 @@
   background-color: #ffca60 !important;
 }
 
+.form-check-label {
+  display: inline;
+}
+
 .btn.btn-primary.btn-block {
   border: 0;
+}
+
+button.btn.btn-outline-links {
+  margin-top: 10px;
 }
 
 .btn.btn-outline-links {
@@ -33,7 +41,7 @@
   align-items: center;
   align-content: center;
   padding-top: 10px;
-  margin-top: 10px;
+  margin-top: 50px;
 
 }
 

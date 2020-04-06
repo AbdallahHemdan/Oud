@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './forgetPass.css';
 import MainBrand from './MainBrand';
 import axios from 'axios';
-import {object} from 'yup';
 /** the forget password section  */
 class ForgotPassword extends Component {
   constructor(props) {
@@ -15,7 +14,6 @@ class ForgotPassword extends Component {
       },
     };
   }
-
   /**
    * on submit send the email to back end to send the code
    * @function
@@ -24,19 +22,22 @@ class ForgotPassword extends Component {
    */
   handelSubmit = (e) => {
     e.preventDefault();
-    let tosend = {
+    let toSend = {
       email: this.state.email,
     };
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/ForgottenPasswords`, tosend)
-      .then((res) => {
-        // if (res.status === '200') {
-        //   /**go the rest password page*/
-        // } else if (res.status === '404') {
-        //   /**go to 404 page*/
-        // }
-      })
-      .catch((error) => {});
+
+    console.log(this.EmailHandel);
+    if (this.state.formErrors.EmailError === '') {
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/ForgottenPasswords`, toSend)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
     console.log(this.state);
   };
   /**
@@ -51,11 +52,13 @@ class ForgotPassword extends Component {
     const emailRegex = RegExp(
       /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
     );
-    let formErrors = {...this.state.formErrors};
-    formErrors.EmailError = emailRegex.test(event.target.value)
+    let formError = {...this.state.formErrors};
+    formError.EmailError = emailRegex.test(event.target.value)
       ? ''
       : 'invalid email address';
-    this.setState({formErrors});
+    this.setState({
+      formErrors: formError,
+    });
   };
   /**
    * this function activate on change
@@ -90,7 +93,8 @@ class ForgotPassword extends Component {
             <form onSubmit={this.handelSubmit}>
               <div className="form-group sm-8">
                 <input
-                  data-testid="register-email"
+                  required
+                  data-testid="forgetPassword-email"
                   type="email"
                   name="email"
                   className="form-control"

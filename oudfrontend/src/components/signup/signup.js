@@ -2,42 +2,9 @@ import React, {Component} from 'react';
 import './signup.css';
 import {Redirect} from 'react-router-dom';
 import _ from 'lodash';
-import MainBrand from './MainBrand';
-import SocialIcons from './SocialIcons';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
-
-/**
- * the password validation
- * (check if the password is valid)
- * @function
- * @param {String} Password -user password
- * @returns {boolean} - returns if the password is valid
- * */
-function checkPassword(Password) {
-  let [isUppercase, isLowercase, isSpecialChar, isNumber] = [
-    false,
-    false,
-    false,
-    false,
-  ];
-  let str = Password + '0';
-  let patt1 = /[0-9]/g;
-  isNumber = str.match(patt1).length > 1;
-
-  patt1 = /[!@#$%^&*(),.?":{}_|<>]/g;
-  str = Password + '@';
-  isSpecialChar = str.match(patt1).length > 1;
-
-  for (let i = 0; i < Password.length; i++) {
-    if (Password[i] === Password[i].toUpperCase()) {
-      isUppercase = true;
-    } else if (Password[i] === Password[i].toLowerCase()) {
-      isLowercase = true;
-    }
-  }
-  return isSpecialChar && isNumber && isUppercase && isLowercase;
-}
+import Validator from './validate';
 /**
  * this class that have all function
  */
@@ -48,6 +15,7 @@ class Signup extends Component {
       name: '',
       email: '',
       gender: '',
+      birthdata: '',
       year: '',
       month: '',
       day: '',
@@ -59,14 +27,22 @@ class Signup extends Component {
       Password: '',
       ConfirmPassword: '',
       formErrors: {
+        userNameError: '',
+        EmailError: '',
         ConfirmPasswordError: '',
         PasswordError: '',
-        EmailError: '',
+        GenderError: '',
+        BirthdataError: '',
+        TermsError: '',
       },
       redirect: false,
     };
+    console.log(Validator);
   }
-
+  userNameHandel = (event) => {
+    this.setState({name: event.target.value});
+    Validator.validateUserName(event.target.value, this);
+  };
   /**
    * Email validation
    * (check if the email is valid)
@@ -76,72 +52,22 @@ class Signup extends Component {
    */
   EmailHandel = (event) => {
     this.setState({email: event.target.value});
-    const emailRegex = RegExp(
-      /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
-    );
-    let formErrors = {...this.state.formErrors};
-    formErrors.EmailError = emailRegex.test(event.target.value)
-      ? ''
-      : 'invalid email address';
-    this.setState({formErrors});
+    Validator.validateEmail(event.target.value, this);
   };
   /**
    * Password checker
    * (here check if the entered password is correct under some restricts)
-   * 1)if it dose not enter any thing
-   * 2)if it under 8 latter's
-   * 3)if it more than 30 latter's
-   * 5)if it is valid
-   * 6)then it is correct
+   * 1)if it under 8 latter's
+   * 2)if it more than 30 latter's
+   * 3)if it is valid
+   * 4)then it is correct
    * @function
    * @param {object} event - the entered password
    * @returns {string} -change the error massages
    *  */
   PasswordHandel = (event) => {
     this.setState({Password: event.target.value});
-
-    if (this.state.Password.length === 0) {
-      this.setState({
-        formErrors: {
-          PasswordError: 'you must enter a password here',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
-    } else if (this.state.Password.length < 8) {
-      this.setState({
-        formErrors: {
-          PasswordError: 'minimum 8 characaters required',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
-    } else if (this.state.Password.length > 30) {
-      this.setState({
-        formErrors: {
-          PasswordError: 'maximum 30 characaters',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
-    } else if (!checkPassword(this.state.Password)) {
-      this.setState({
-        formErrors: {
-          PasswordError:
-            'Password should contain uppercase,lowercase and a number ',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
-    } else {
-      this.setState({
-        formErrors: {
-          PasswordError: '',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
-    }
+    Validator.validatePassword(event.target.value, this);
   };
   /**
    * Password Validation
@@ -153,24 +79,23 @@ class Signup extends Component {
    */
   ConfirmPasswordHandel = (event) => {
     this.setState({ConfirmPassword: event.target.value});
+    Validator.validateConfirmPassword(event.target.value, this);
+  };
 
-    if (event.target.value !== this.state.Password) {
-      this.setState({
-        formErrors: {
-          PasswordError: this.state.formErrors.PasswordError,
-          ConfirmPasswordError: 'Invallid  ,Password not matched',
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
-    } else {
-      this.setState({
-        formErrors: {
-          PasswordError: this.state.formErrors.PasswordError,
-          ConfirmPasswordError: '',
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
-    }
+  genderHandel = (event) => {
+    this.setState({gender: event.target.value});
+    Validator.validateGender(event.target.value, this);
+  };
+
+  birthdataHandel = (event) => {
+    Validator.validateBirthdata(
+      this.state.year,
+      this.state.month,
+      this.state.day,
+      this
+    );
+    let birth = this.state.year + '-' + this.state.month + '-' + this.state.day;
+    this.setState({birthdata: birth});
   };
   /**
    * check if the two passwords are the same
@@ -184,6 +109,24 @@ class Signup extends Component {
       return true;
     }
   };
+  validateAll = () => {
+    let value = true;
+    value &= Validator.validateUserName(this.state.name, this);
+    value &= Validator.validateEmail(this.state.email, this);
+    value &= Validator.validatePassword(this.state.password, this);
+    value &= Validator.validateConfirmPassword(
+      this.state.confirmPassword,
+      this
+    );
+    value &= Validator.validateGender(this.state.gender, this);
+    value &= Validator.validateBirthdata(
+      this.state.year,
+      this.state.month,
+      this.state.day,
+      this
+    );
+    return value;
+  };
   /**
    * this function activate when we click the submit button
    * it's check if the password and the confirm password are the same
@@ -195,48 +138,51 @@ class Signup extends Component {
   handelSubmit = (e) => {
     // It prevents a submit button from submitting a form
     e.preventDefault();
-    let tosent = {
+    this.validateAll();
+    let gen;
+    if (this.state.gender === '1') {
+      gen = 'M';
+    } else if (this.state.gender === '2') {
+      gen = 'F';
+    }
+    let toSent = {
       username: this.state.name,
-      year: this.state.year,
-      month: this.state.month,
-      day: this.state.day,
+      birthDate: this.state.birthdata,
       email: this.state.email,
       password: this.state.Password,
-      confirmpassword: this.state.ConfirmPassword,
-      displayname: this.state.name,
-      role: this.state.roll,
-      country: '',
-      gender: this.state.gender,
+      passwordConfirm: this.state.ConfirmPassword,
+      displayName: this.state.name,
+      role: 'free',
+      country: 'EG',
+      gender: gen,
     };
-    if (this.state.isVerified && this.hasSamePassword() === true) {
-      let birth =
-        this.state.day + '-' + this.state.month + '-' + this.state.year;
-      console.log(birth);
-      this.setState({
-        formErrors: {
-          PasswordError: this.state.formErrors.PasswordError,
-          ConfirmPasswordError: '',
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
+
+    let errorMassage = '';
+    if (
+      this.state.isVerified &&
+      this.hasSamePassword() === true &&
+      this.validateAll()
+    ) {
+      console.log(toSent);
       axios
-        .post(`${process.env.REACT_APP_API_URL}/users`, tosent)
-        .then((req) => {})
+        .post('http://oud-zerobase.me/api/v1/users/signup', toSent)
+        .then((req) => {
+          console.log(req);
+        })
         .catch((error) => {
-          console.log(error);
+          console.log(error.response);
         });
       console.log(this.state);
       console.dir(e.target);
     } else if (this.hasSamePassword() === false) {
-      this.setState({
-        formErrors: {
-          PasswordError: this.state.formErrors.PasswordError,
-          ConfirmPasswordError: 'Invallid  ,Password not matched',
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
+      errorMassage = 'Invalid  ,Password not matched';
     }
+    this.setState((prevState) => {
+      prevState.formErrors.ConfirmPasswordError = errorMassage;
+      return prevState;
+    });
   };
+
   /**
    * this function is for the show password button that check if i want it to be
    * a password or to be a text input
@@ -257,9 +203,7 @@ class Signup extends Component {
    * @function
    * @returns {void}
    */
-  callback = () => {
-    console.log('yaaaaaaaa, captha is loaded');
-  };
+  callback = () => {};
   /**
    * this is a captcha
    * a function to call it
@@ -276,7 +220,7 @@ class Signup extends Component {
   /**
    * this function activate on change
    * @function
-   * @param {object} a
+   * @param {object} e
    * @returns {void}
    */
   handleChange = (e) => {
@@ -304,7 +248,7 @@ class Signup extends Component {
   signupForm() {
     return (
       <section className="main-form container">
-        <form onSubmit={this.handelSubmit}>
+        <form onSubmit={this.handelSubmit} noValidate>
           {this.userName()}
           {this.emailAddress()}
           {this.Password()}
@@ -378,7 +322,7 @@ class Signup extends Component {
     );
   }
   /**
-   * the recatcha call part
+   * the recaptcha call part
    * @function
    * @returns {JSX}
    */
@@ -418,6 +362,11 @@ class Signup extends Component {
             </label>
           </div>
         </div>
+        <div>
+          {this.state.formErrors.TermsError && (
+            <span className="error">{this.state.formErrors.TermsError}</span>
+          )}
+        </div>
       </div>
     );
   }
@@ -429,10 +378,17 @@ class Signup extends Component {
    */
   birthDate() {
     return (
-      <div className="form-row">
+      <div className="form-row" onSubmit={this.birthdataHandel}>
         {this.year()}
         {this.month()}
         {this.day()}
+        <div>
+          {this.state.formErrors.BirthdataError && (
+            <span className="error">
+              {this.state.formErrors.BirthdataError}
+            </span>
+          )}
+        </div>
       </div>
     );
   }
@@ -453,7 +409,21 @@ class Signup extends Component {
           onChange={this.handleChange}
         >
           <option value="">Day</option>
-          {_.range(1, 32).map((value) => (
+          {_.range(
+            1,
+            (this.state.year % 400 === 0 ||
+              (this.state.year % 4 === 0 && this.state.year % 100 !== 0)) &&
+              this.state.month === '02'
+              ? 30
+              : this.state.month === '02'
+              ? 29
+              : this.state.month === '04' ||
+                this.state.month === '06' ||
+                this.state.month === '09' ||
+                this.state.month === '11'
+              ? 31
+              : 32
+          ).map((value) => (
             <option key={value} value={value}>
               {value}
             </option>
@@ -530,10 +500,11 @@ class Signup extends Component {
     return (
       <div className="form-group">
         <select
+          required
           data-testid="register-male"
           id="inputGender"
           className="form-control form-col custom-select"
-          onChange={this.handleChange}
+          onChange={(this.handleChange, this.genderHandel)}
           name="gender"
         >
           <option value="">Gender</option>
@@ -542,6 +513,13 @@ class Signup extends Component {
           </option>
           <option value="2">Female</option>
         </select>
+        <div>
+          {this.state.formErrors.GenderError && (
+            <span className="error" htmlFor="register-male">
+              {this.state.formErrors.GenderError}
+            </span>
+          )}
+        </div>
       </div>
     );
   }
@@ -555,6 +533,7 @@ class Signup extends Component {
       <div className="form-group">
         <div className="input-group">
           <input
+            required
             data-testid="register-confirmPassword"
             type={this.state.PasswordType}
             className="form-control"
@@ -565,7 +544,7 @@ class Signup extends Component {
           />
         </div>
         {this.hasSamePassword() === false
-          ? this.state.formErrors.ConfirmPasswordError.length > 0 && (
+          ? this.state.formErrors.ConfirmPasswordError && (
               <span className="error" htmlFor="register-confirmPassword">
                 {this.state.formErrors.ConfirmPasswordError}
               </span>
@@ -584,6 +563,7 @@ class Signup extends Component {
       <div className="form-group">
         <div className="input-group">
           <input
+            required
             data-testid="register-password"
             type={this.state.PasswordType}
             className="form-control"
@@ -600,7 +580,7 @@ class Signup extends Component {
             {this.state.showText}
           </button>
         </div>
-        {this.state.formErrors.PasswordError.length > 0 && (
+        {this.state.formErrors.PasswordError && (
           <span className="error" htmlFor="register-password">
             {this.state.formErrors.PasswordError}
           </span>
@@ -617,6 +597,7 @@ class Signup extends Component {
     return (
       <div className="form-group" data-testid="email">
         <input
+          required
           data-testid="register-email"
           type="email"
           className="form-control custom-select"
@@ -624,7 +605,7 @@ class Signup extends Component {
           onChange={(this.handleChange, this.EmailHandel)}
           name="email"
         />
-        {this.state.formErrors.EmailError.length > 0 && (
+        {this.state.formErrors.EmailError && (
           <span
             className="error"
             htmlFor="register-email"
@@ -645,6 +626,7 @@ class Signup extends Component {
     return (
       <div className="form-group sm-8">
         <input
+          required
           data-testid="register-displayname"
           value={this.state.name}
           label="name"
@@ -652,9 +634,16 @@ class Signup extends Component {
           className="form-control custom-select"
           id="validationTextarea"
           placeholder="What should we call you?"
-          onChange={this.handleChange}
+          onChange={(this.handleChange, this.userNameHandel)}
           name="name"
         />
+        <div>
+          {this.state.formErrors.userNameError && (
+            <span className="error" htmlFor="register-displayname">
+              {this.state.formErrors.userNameError}
+            </span>
+          )}
+        </div>
       </div>
     );
   }

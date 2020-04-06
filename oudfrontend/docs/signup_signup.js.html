@@ -87,9 +87,9 @@ class Signup extends Component {
       Password: '',
       ConfirmPassword: '',
       formErrors: {
-        ConfirmPasswordErorr: '',
-        PasswordErorr: '',
-        EmailErorr: '',
+        ConfirmPasswordError: '',
+        PasswordError: '',
+        EmailError: '',
       },
       redirect: false,
     };
@@ -108,7 +108,7 @@ class Signup extends Component {
       /^[a-zA-Z0-9.!#$%&amp;’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
     );
     let formErrors = {...this.state.formErrors};
-    formErrors.EmailErorr = emailRegex.test(event.target.value)
+    formErrors.EmailError = emailRegex.test(event.target.value)
       ? ''
       : 'invalid email address';
     this.setState({formErrors});
@@ -131,42 +131,42 @@ class Signup extends Component {
     if (this.state.Password.length === 0) {
       this.setState({
         formErrors: {
-          PasswordErorr: 'you must enter a password here',
-          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: 'you must enter a password here',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     } else if (this.state.Password.length &lt; 8) {
       this.setState({
         formErrors: {
-          PasswordErorr: 'minimum 8 characaters required',
-          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: 'minimum 8 characaters required',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     } else if (this.state.Password.length > 30) {
       this.setState({
         formErrors: {
-          PasswordErorr: 'maximum 30 characaters',
-          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: 'maximum 30 characaters',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     } else if (!checkPassword(this.state.Password)) {
       this.setState({
         formErrors: {
-          PasswordErorr:
+          PasswordError:
             'Password should contain uppercase,lowercase and a number ',
-          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
-          EmailErorr: this.state.formErrors.EmailErorr,
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     } else {
       this.setState({
         formErrors: {
-          PasswordErorr: '',
-          ConfirmPasswordErorr: this.state.formErrors.ConfirmPasswordErorr,
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: '',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     }
@@ -185,17 +185,17 @@ class Signup extends Component {
     if (event.target.value !== this.state.Password) {
       this.setState({
         formErrors: {
-          PasswordErorr: this.state.formErrors.PasswordErorr,
-          ConfirmPasswordErorr: 'Invallid  ,Password not matched',
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: this.state.formErrors.PasswordError,
+          ConfirmPasswordError: 'Invallid  ,Password not matched',
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     } else {
       this.setState({
         formErrors: {
-          PasswordErorr: this.state.formErrors.PasswordErorr,
-          ConfirmPasswordErorr: '',
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: this.state.formErrors.PasswordError,
+          ConfirmPasswordError: '',
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     }
@@ -242,9 +242,9 @@ class Signup extends Component {
       console.log(birth);
       this.setState({
         formErrors: {
-          PasswordErorr: this.state.formErrors.PasswordErorr,
-          ConfirmPasswordErorr: '',
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: this.state.formErrors.PasswordError,
+          ConfirmPasswordError: '',
+          EmailError: this.state.formErrors.EmailError,
         },
       });
       axios
@@ -258,9 +258,9 @@ class Signup extends Component {
     } else if (this.hasSamePassword() === false) {
       this.setState({
         formErrors: {
-          PasswordErorr: this.state.formErrors.PasswordErorr,
-          ConfirmPasswordErorr: 'Invallid  ,Password not matched',
-          EmailErorr: this.state.formErrors.EmailErorr,
+          PasswordError: this.state.formErrors.PasswordError,
+          ConfirmPasswordError: 'Invallid  ,Password not matched',
+          EmailError: this.state.formErrors.EmailError,
         },
       });
     }
@@ -272,8 +272,7 @@ class Signup extends Component {
    * @param {object} e
    * @returns {boolean} - if the the button is clicked it is check if i want to show the type is a password or as a text
    */
-  handleShowPassword = (e) => {
-    e.preventDefault();
+  handleShowPassword = () => {
     this.setState({
       PasswordType: this.state.PasswordType === 'text' ? 'Password' : 'text',
       showText: this.state.showText === 'show' ? 'hide' : 'show',
@@ -323,15 +322,7 @@ class Signup extends Component {
    * @returns {JSX}
    */
   render() {
-    return (
-      &lt;div className="container main-center">
-        &lt;MainBrand />
-        &lt;section className="social-form">
-          &lt;SocialIcons />
-          {this.signupForm()}
-        &lt;/section>
-      &lt;/div>
-    );
+    return &lt;div>{this.signupForm()}&lt;/div>;
   }
   /**
    * here i call all the form functions
@@ -387,7 +378,11 @@ class Signup extends Component {
   signUp() {
     return (
       &lt;React.Fragment>
-        &lt;button type="submit" className="btn btn-primary btn-block">
+        &lt;button
+          type="submit"
+          className="btn btn-primary btn-block"
+          data-testid="SignUp-btn"
+        >
           Sign Up
         &lt;/button>
         &lt;section className="or-seperator-2">&lt;/section>
@@ -397,6 +392,7 @@ class Signup extends Component {
             &lt;h6 className="hint-text">
               Already registered?
               &lt;button
+                data-testid="SignIN-btn"
                 type="button"
                 className="btn btn-outline-links"
                 onClick={this.setRedirect}
@@ -597,9 +593,9 @@ class Signup extends Component {
           />
         &lt;/div>
         {this.hasSamePassword() === false
-          ? this.state.formErrors.ConfirmPasswordErorr.length > 0 &amp;&amp; (
-              &lt;span className="error" for="register-confirmPassword">
-                {this.state.formErrors.ConfirmPasswordErorr}
+          ? this.state.formErrors.ConfirmPasswordError.length > 0 &amp;&amp; (
+              &lt;span className="error" htmlFor="register-confirmPassword">
+                {this.state.formErrors.ConfirmPasswordError}
               &lt;/span>
             )
           : null}
@@ -626,14 +622,15 @@ class Signup extends Component {
           />
           &lt;button
             className="btn btn-outline-dark"
+            data-testid="showPass"
             onClick={this.handleShowPassword}
           >
             {this.state.showText}
           &lt;/button>
         &lt;/div>
-        {this.state.formErrors.PasswordErorr.length > 0 &amp;&amp; (
-          &lt;span className="error" for="register-password">
-            {this.state.formErrors.PasswordErorr}
+        {this.state.formErrors.PasswordError.length > 0 &amp;&amp; (
+          &lt;span className="error" htmlFor="register-password">
+            {this.state.formErrors.PasswordError}
           &lt;/span>
         )}
       &lt;/div>
@@ -646,7 +643,7 @@ class Signup extends Component {
    */
   emailAddress() {
     return (
-      &lt;div className="form-group">
+      &lt;div className="form-group" data-testid="email">
         &lt;input
           data-testid="register-email"
           type="email"
@@ -655,9 +652,13 @@ class Signup extends Component {
           onChange={(this.handleChange, this.EmailHandel)}
           name="email"
         />
-        {this.state.formErrors.EmailErorr.length > 0 &amp;&amp; (
-          &lt;span className="error" for="register-email">
-            {this.state.formErrors.EmailErorr}
+        {this.state.formErrors.EmailError.length > 0 &amp;&amp; (
+          &lt;span
+            className="error"
+            htmlFor="register-email"
+            data-testid="EmailError"
+          >
+            {this.state.formErrors.EmailError}
           &lt;/span>
         )}
       &lt;/div>
@@ -698,13 +699,13 @@ export default Signup;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Code.html">Code</a></li><li><a href="Facebook.html">Facebook</a></li><li><a href="ForgotPassword.html">ForgotPassword</a></li><li><a href="MainBrand.html">MainBrand</a></li><li><a href="signup.html">signup</a></li><li><a href="Signup_.html">Signup</a></li><li><a href="SocialIcons.html">SocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#checkPassword">checkPassword</a></li><li>{JSX}</li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Code.html">Code</a></li><li><a href="Facebook.html">Facebook</a></li><li><a href="ForgotPassword.html">ForgotPassword</a></li><li><a href="MainBrand.html">MainBrand</a></li><li><a href="ResetPassword.html">ResetPassword</a></li><li><a href="SignIn.html">SignIn</a></li><li><a href="Signup.html">Signup</a></li><li><a href="SocialIcons.html">SocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#checkPassword">checkPassword</a></li><li>{JSX}</li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Mar 27 2020 04:25:29 GMT+0200 (Eastern European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sun Mar 29 2020 19:40:31 GMT+0200 (Eastern European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

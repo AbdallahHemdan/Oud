@@ -1,12 +1,11 @@
 import React from 'react';
 import Signup from '../components/signup/signup';
 import MainBrand from '../components/signup/MainBrand';
-import {render, fireEvent, waitFor} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import * as renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import '../../src/setuptest';
 import '@testing-library/jest-dom/extend-expect';
-import axiosMock from 'axios';
 import SocialIcons from '../components/signup/SocialIcons';
 import SignIn from '../components/signin/signin';
 import ResetPassword from '../components/ForgetPassword/resetPassword';

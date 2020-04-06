@@ -4,6 +4,37 @@ import {Link, Redirect} from 'react-router-dom';
 import MainBrand from './MainBrand';
 import SocialIcons from './SocialIcons';
 import axios from 'axios';
+/**
+ * the password validation
+ * (check if the password is valid)
+ * @function
+ * @param {String} Password -user password
+ * @returns {boolean} - returns if the password is valid
+ * */
+function checkPassword(Password) {
+  let [isUppercase, isLowercase, isSpecialChar, isNumber] = [
+    false,
+    false,
+    false,
+    false,
+  ];
+  let str = Password + '0';
+  let patt1 = /[0-9]/g;
+  isNumber = str.match(patt1).length > 1;
+
+  patt1 = /[!@#$%^&*(),.?":{}_|<>]/g;
+  str = Password + '@';
+  isSpecialChar = str.match(patt1).length > 1;
+
+  for (let i = 0; i < Password.length; i++) {
+    if (Password[i] === Password[i].toUpperCase()) {
+      isUppercase = true;
+    } else if (Password[i] === Password[i].toLowerCase()) {
+      isLowercase = true;
+    }
+  }
+  return isSpecialChar || (isNumber && isUppercase && isLowercase);
+}
 /**the sign up section  */
 class SignIn extends Component {
   constructor(props) {
@@ -18,6 +49,7 @@ class SignIn extends Component {
       redirect: false,
       formErrors: {
         EmailError: '',
+        PasswordError: '',
       },
     };
   }
@@ -55,6 +87,51 @@ class SignIn extends Component {
     return false;
   };
   /**
+   * Password checker
+   * (here check if the entered password is correct under some restricts)
+   * 1)if it dose not enter any thing
+   * 2)if it under 8 latter's
+   * 3)if it more than 30 latter's
+   * 5)if it is valid
+   * 6)then it is correct
+   * @function
+   * @param {object} event - the entered password
+   * @returns {string} -change the error massages
+   *  */
+  PasswordHandel = (event) => {
+    this.setState({password: event.target.value});
+    if (this.state.password.length < 8) {
+      this.setState({
+        formErrors: {
+          PasswordError: 'minimum 8 characaters required',
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+    } else if (this.state.password.length > 30) {
+      this.setState({
+        formErrors: {
+          PasswordError: 'maximum 30 characaters',
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+    } else if (!checkPassword(this.state.password)) {
+      this.setState({
+        formErrors: {
+          PasswordError:
+            'Password should contain uppercase,lowercase and a number ',
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+    } else {
+      this.setState({
+        formErrors: {
+          PasswordError: '',
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+    }
+  };
+  /**
    * this function is set the redirect to true the is allow me to go to anther page
    * if it false the button will not work
    * if true the button wil work and to the page
@@ -76,7 +153,6 @@ class SignIn extends Component {
       return <Redirect to="/" />;
     }
   };
-
   /**
    * on submit send the email and password to back end to check it on the db
    * @function
@@ -89,18 +165,18 @@ class SignIn extends Component {
       email: this.state.email,
       password: this.state.password,
     };
-    axios.post(`${process.env.REACT_APP_API_URL}/login`, tosent).then((res) => {
-      console.log(res.data);
-    });
-    axios.get(`${process.env.REACT_APP_API_URL}/users`).then((res) => {
-      if (res.status === '200') {
-        this.setState.islogin = true;
-      } else if (res.status === '400' || res.status === '429') {
-        this.setState({errors: res.data});
-      }
-      console.log(res.status);
-      console.log(this.state);
-    });
+    console.log(this.checkPassword ? true : false);
+    if (checkPassword(this.state.password)) {
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/login`, tosent)
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
   /**
    * the remember me check box
@@ -128,7 +204,6 @@ class SignIn extends Component {
           <section className="main-form container">
             <form onSubmit={this.handelSubmit}>
               <div className="form-group sm-8">
-                {/* {this.state.errors.email && <p>{this.state.errors.email}</p>} */}
                 <input
                   required
                   type="email"
@@ -136,8 +211,13 @@ class SignIn extends Component {
                   className="form-control"
                   placeholder="email@address.com"
                   onChange={(this.handleChange, this.EmailHandel)}
-                  data-testid="login-username"
+                  data-testid="login-email"
                 />
+                {this.state.formErrors.EmailError.length > 0 && (
+                  <span className="error" htmlFor="register-email">
+                    {this.state.formErrors.EmailError}
+                  </span>
+                )}
               </div>
               <div className="form-group">
                 <div className="input-group">
@@ -147,9 +227,10 @@ class SignIn extends Component {
                     type={this.state.passwordType}
                     className="form-control"
                     placeholder={'password'}
-                    onChange={this.handleChange}
+                    onChange={(this.handleChange, this.PasswordHandel)}
                     data-testid="login-password"
                   />
+
                   <button
                     className="btn btn-outline-secondary"
                     onClick={this.handleShowPassword}
@@ -158,6 +239,11 @@ class SignIn extends Component {
                     {this.state.showText}
                   </button>
                 </div>
+                {this.state.formErrors.PasswordError.length > 0 && (
+                  <span className="error" htmlFor="register-password">
+                    {this.state.formErrors.PasswordError}
+                  </span>
+                )}
               </div>
               <div className="form-group">
                 <div className="pretty p-svg p-curve container">
@@ -186,6 +272,7 @@ class SignIn extends Component {
                     type="button"
                     className="btn btn-outline-link"
                     data-testid="Forgetpass"
+                    onClick={this.handelSubmit}
                   >
                     <Link to="/ForgotPassword">Forgot your password?</Link>
                   </button>
