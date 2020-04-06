@@ -1,5 +1,4 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import Sidebar from "../../components/Home/Sidebar/Sidebar";
 import Navbar from "../../components/Home/Navbar/Navbar";
 import UpperContainer from "../../components/Profile/Commponents/UpperContainer/UpperContainer";
