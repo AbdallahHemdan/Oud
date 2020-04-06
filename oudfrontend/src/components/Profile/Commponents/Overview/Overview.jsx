@@ -4,9 +4,11 @@ import "./Overview.css";
 
 function Overview(props) {
   return (
-    <div>
-      <h5 className="overview-title">Public Playlists</h5>
-      <PublicPlaylists userId={props.userId} />
+    <div data-test="Overview">
+      <h5 className="overview-title" data-test="title">
+        Public Playlists
+      </h5>
+      <PublicPlaylists data-test="PublicPlaylists" userId={props.userId} />
     </div>
   );
 }

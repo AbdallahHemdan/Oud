@@ -59,6 +59,10 @@
 .upperNav a {
   transition: 0.25s;
 }
+.avatarContainer {
+  width: auto;
+}
+.userImg-profile-signedIn,
 .userImg-profile {
   float: left;
   width: 115px;
@@ -67,6 +71,20 @@
   margin-right: 30px;
   border-radius: 50%;
   transition: 0.5s;
+}
+
+.changeImage {
+  opacity: 0;
+  clear: left;
+  position: absolute;
+  margin-top: 120px;
+  margin-left: 40px;
+}
+.avatarContainer:hover .userImg-profile-signedIn {
+  opacity: 0.3;
+}
+.avatarContainer:hover .changeImage {
+  opacity: 1;
 }
 .userImg-profile-scrolled {
   float: left;
@@ -79,6 +97,7 @@
 .userName-profile {
   margin-top: 35px;
 }
+
 .userName-profile-scrolled {
   margin-top: 40px;
 }

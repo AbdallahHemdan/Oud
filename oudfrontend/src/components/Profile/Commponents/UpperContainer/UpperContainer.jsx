@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import ProfileID from "./../../General/ProfileID";
-import getUserId from "./../../General/getUserId";
+
 import "./UpperContainer.css";
 
 class UpperContainer extends Component {
@@ -21,10 +20,11 @@ class UpperContainer extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
+    this.changeProfileImage = this.changeProfileImage.bind(this);
+    this.upload = this.upload.bind(this);
   }
 
   handleClick(event) {
-    ProfileID.set = this.props.id;
     /*
      1) make put request if it was false 
      2) make delet request if true
@@ -56,16 +56,26 @@ class UpperContainer extends Component {
     this.setState({ followStatus: !this.state.followStatus });
   }
   handleMouseOver(event) {
-    this.setState(
-      { mouseOn: true },
-      console.log("mouseOn: " + this.state.mouseOn)
-    );
+    this.setState({ mouseOn: true });
   }
   handleMouseOut() {
-    this.setState(
-      { mouseOn: false },
-      console.log("mouseDowm: " + this.state.mouseOn)
-    );
+    this.setState({ mouseOn: false });
+  }
+  upload(event) {
+    if (this.props.userId === this.state.signInId)
+      document.getElementById("avatar").click();
+  }
+  changeProfileImage(event) {
+    const fd = new FormData();
+    fd.append("image", event.target.files[0], event.target.files[0].name);
+    axios
+      .patch("http://localhost:3002/me/profilePicture", fd)
+      .then(respons => {
+        console.log(respons);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
   componentDidMount() {
     axios
@@ -132,19 +142,40 @@ class UpperContainer extends Component {
       <div>
         <div
           className={this.state.scrolled ? "upperNav" : "upperContainerProfile"}
+          data-test="UpperContainer"
         >
-          <img
-            className={
-              this.state.scrolled
-                ? "userImg-profile-scrolled"
-                : "userImg-profile"
-            }
-            src={this.state.photo}
-            alt="user"
-            data-test="userImg"
+          <input
+            type="file"
+            id="avatar"
+            hidden
+            name="avatar"
+            accept="image/png, image/jpeg"
+            onChange={this.changeProfileImage}
           />
+          <div className="avatarContainer" data-test="avatar">
+            <img
+              id="avatarImage"
+              className={
+                this.state.scrolled
+                  ? "userImg-profile-scrolled"
+                  : this.props.userId === this.state.signInId &&
+                    !this.state.scrolled
+                  ? "userImg-profile-signedIn"
+                  : "userImg-profile"
+              }
+              src={this.state.photo}
+              data-test="avatarImage"
+              alt="user"
+              onClick={this.upload}
+            />
+            {!this.state.scrolled &&
+              this.props.userId === this.state.signInId && (
+                <p className="changeImage">change</p>
+              )}
+          </div>
 
           <div
+            data-test="userName"
             className={
               this.state.scrolled
                 ? "userName-profile-scrolled"
@@ -158,9 +189,10 @@ class UpperContainer extends Component {
           </div>
 
           {this.props.userId !== this.state.signInId &&
-          this.state.signInId != "" &&
+          this.state.signInId !== "" &&
           !this.state.scrolled ? (
             <button
+              id="follow-button-upperContainer"
               className={
                 this.state.followStatus
                   ? "btn btn-outline-warning upperContainerFollowingButton"
@@ -183,19 +215,34 @@ class UpperContainer extends Component {
           ) : null}
 
           <div
+            data-test="profile-links"
             className="profile-links"
             style={
               this.state.scrolled ? { marginTop: "0", marginLeft: "30px" } : {}
             }
           >
-            <Link to={`/profile/${this.props.userId}/overview`}> OVERVIEW</Link>
-            <Link to={`/profile/${this.props.userId}/publicPlaylists`}>
+            <Link
+              id="overview-upperContainer"
+              to={`/profile/${this.props.userId}/overview`}
+            >
+              OVERVIEW
+            </Link>
+            <Link
+              id="publicPlaylists-upperContainer"
+              to={`/profile/${this.props.userId}/publicPlaylists`}
+            >
               PUBLIC PLAYLISTS
             </Link>
-            <Link to={`/profile/${this.props.userId}/following`}>
+            <Link
+              id="following-upperContainer"
+              to={`/profile/${this.props.userId}/following`}
+            >
               FOLLOWING
             </Link>
-            <Link to={`/profile/${this.props.userId}/followers`}>
+            <Link
+              id="followers-upperContainer"
+              to={`/profile/${this.props.userId}/followers`}
+            >
               FOLLOWERS
             </Link>
           </div>

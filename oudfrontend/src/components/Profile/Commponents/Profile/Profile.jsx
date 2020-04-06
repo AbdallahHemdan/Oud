@@ -4,7 +4,6 @@ import Sidebar from "../../../Home/Sidebar/Sidebar";
 import Navbar from "../../../Home/Navbar/Navbar";
 import UpperContainer from "../UpperContainer/UpperContainer";
 import LowerContainer from "../LowerContainer/LowerContainer";
-import ProfileID from "./../../General/ProfileID";
 
 import "./Profile.css";
 
@@ -18,16 +17,21 @@ function ActivityBar() {
   );
 }
 
-function Profile() {
-  let { userId } = useParams();
-  ProfileID.set = userId;
+function Profile(props) {
   return (
     <div className="dummyParent">
       <Sidebar />
       <Navbar isLoggedIn={true} />
-      <div className="profile-user">
-        <UpperContainer userId={userId} />
-        <LowerContainer userId={userId} />
+      <div className="profile-user" data-test="Profile">
+        <UpperContainer
+          data-test="UpperContainer"
+          userId={props.match.params.userId}
+        />
+        {console.log(props)}
+        <LowerContainer
+          data-test="LowerContainer"
+          userId={props.match.params.userId}
+        />
       </div>
       <ActivityBar />
     </div>

@@ -4,7 +4,6 @@ import Followers from "../Followers/Followers";
 import Following from "../Following/Following";
 import Overview from "../Overview/Overview";
 import PublicPlaylists from "../PublicPlaylists/PublicPlaylists";
-
 import Oud from "./../../../../assets/images/Oud2.png";
 
 import "./LowerContainer.css";
@@ -13,14 +12,14 @@ function defaultProfile() {
   return (
     <div className="defaultProfile">
       {" "}
-      <img className="defaultProfileImage" src={Oud}></img>{" "}
+      <img className="defaultProfileImage" src={Oud} alt="Oud-logo"></img>{" "}
     </div>
   );
 }
 
 function LowerContainer(props) {
   return (
-    <div className="LowerContainer">
+    <div className="LowerContainer" data-test="LowerContainer">
       <Switch>
         <Route
           data-test="profileOverview"
@@ -49,7 +48,12 @@ function LowerContainer(props) {
           path={`/profile/:userId/followers`}
           render={prop => <Followers {...prop} userId={props.userId} />}
         />
-        <Route exact path={`/profile/:userId`} component={defaultProfile} />
+        <Route
+          data-test="defualt-profile-page"
+          exact
+          path={`/profile/:userId`}
+          component={defaultProfile}
+        />
       </Switch>
     </div>
   );

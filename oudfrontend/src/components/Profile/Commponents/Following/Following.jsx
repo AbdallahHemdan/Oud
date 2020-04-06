@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import getUserId from "./../../General/getUserId";
-import ProfileID from "./../../General/ProfileID";
 import FollowCard from "./../FollowCard/FollowCard";
-
 import axios from "axios";
 
 class Following extends Component {
@@ -39,7 +36,7 @@ class Following extends Component {
   render() {
     let count = 0; //just for mapping
     return (
-      <div>
+      <div data-test="Following">
         {this.state.items.map(item => (
           <FollowCard
             id={item.id}

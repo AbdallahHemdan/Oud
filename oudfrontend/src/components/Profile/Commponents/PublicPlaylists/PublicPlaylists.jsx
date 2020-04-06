@@ -6,10 +6,9 @@ import "./PublicPlaylists.css";
 function DummyPlayListCard(props) {
   return (
     <div className="Dummy-playLists-Card">
-      <img src={props.photo} className="DummyCardImge" />
+      <img src={props.photo} className="DummyCardImge" alt="playlist" />
       <div className="playListName-profile">
         <h6>{props.name}</h6>
-        <p></p>
       </div>
     </div>
   );
@@ -40,7 +39,7 @@ class PublicPlaylists extends Component {
   render() {
     let count = 0;
     return (
-      <div className="pubblicPlayLists-profile">
+      <div className="pubblicPlayLists-profile" data-test="PublicPlaylists">
         {this.state.items.map(
           item =>
             item.public && (

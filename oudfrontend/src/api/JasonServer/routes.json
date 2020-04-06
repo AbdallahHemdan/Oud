@@ -6,5 +6,6 @@
   "/me/following": "/followingMe",
   "/me/followingDel": "/myFollowing",
   "/me/following/containes": "/ids",
-  "/usres/playlists": "/playlists"
+  "/usres/playlists": "/playlists",
+  "/me/profilePicture": "/profilePicture"
 }

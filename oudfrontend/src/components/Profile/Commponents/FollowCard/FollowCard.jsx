@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import getUserId from "./../../General/getUserId";
-import ProfileID from "./../../General/ProfileID";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -59,7 +57,6 @@ class FollowCard extends Component {
   }
 
   handleClick(event) {
-    ProfileID.set = this.props.id;
     /*
       1) make put request if it was false 
       2) make delet request if true
@@ -100,22 +97,33 @@ class FollowCard extends Component {
 
   render() {
     return (
-      <div className="followCard">
-        <img className="userImg-followCard" src={this.state.photo}></img>
+      <div className="followCard" data-test="FollowCard">
+        <img
+          className="userImg-followCard"
+          src={this.state.photo}
+          alt="user"
+          data-test="followCardImage"
+        />
         <div className="followCard-content">
           <Link
+            id={"user" + this.props.id}
             to={`/profile/${this.props.id}`}
             className="userName-followCard"
+            data-test="followCardName"
           >
             {this.state.name}
           </Link>
-          <p className="folloewersCounter-followCard">
+          <p
+            className="folloewersCounter-followCard"
+            data-test="followCardFollowers"
+          >
             {this.state.followersCount} FOLLOWERS
           </p>
         </div>
 
-        {this.props.id !== this.state.signInId && this.state.signInId != "" ? (
+        {this.props.id !== this.state.signInId && this.state.signInId !== "" ? (
           <button
+            id="follow-button-card"
             type="button"
             className={
               this.state.followStatus

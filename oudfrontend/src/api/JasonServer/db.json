@@ -18,8 +18,12 @@
     "Artist": {
       "_id": "string",
       "followersCount": 0,
-      "genres": ["string"],
-      "images": ["string"],
+      "genres": [
+        "string"
+      ],
+      "images": [
+        "string"
+      ],
       "name": "string",
       "bio": "string",
       "popularSongs": [
@@ -55,7 +59,9 @@
   },
   "updatePassword": {},
   "followingMe": {
-    "ids": ["3"]
+    "ids": [
+      "4"
+    ]
   },
   "myFollowing": [
     {
@@ -320,7 +326,9 @@
     }
   ],
   "ids": {
-    "ids": [false]
+    "ids": [
+      false
+    ]
   },
   "playlists": [
     {
@@ -330,7 +338,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -341,7 +351,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -352,7 +364,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -363,7 +377,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -374,7 +390,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -385,7 +403,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -404,7 +424,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -415,7 +437,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -426,7 +450,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -437,7 +463,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -448,7 +476,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -459,7 +489,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -478,7 +510,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -489,7 +523,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -500,7 +536,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -511,7 +549,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -522,7 +562,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -533,7 +575,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -552,7 +596,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -563,7 +609,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -574,7 +622,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -585,7 +635,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -596,7 +648,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -607,7 +661,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -626,7 +682,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -637,7 +695,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -648,7 +708,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -659,7 +721,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -670,7 +734,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -681,7 +747,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -693,5 +761,6 @@
       "offset": 0,
       "total": 0
     }
-  ]
+  ],
+  "profilePicture": {}
 }
