@@ -28,7 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "docs": "jsdoc src -r -d docs",
-    "json:server": "json-server homeMock.json --routes homeMockRoutes.json"
+    "json:server": "json-server src/api/db.json --routes src/api/routes.json --port 2022"
   },
   "eslintConfig": {
     "extends": "react-app"
