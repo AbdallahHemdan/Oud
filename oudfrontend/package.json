@@ -17,6 +17,7 @@
     "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.0",
     "react-router": "^5.1.2",
+    "react-router-config": "^5.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-test-renderer": "^16.13.1"
@@ -26,7 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "docs": "jsdoc src -r -d docs"
+    "docs": "jsdoc src -r -d docs",
+    "json:server": "json-server homeMock.json --routes homeMockRoutes.json"
   },
   "eslintConfig": {
     "extends": "react-app"
