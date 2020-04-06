@@ -301,7 +301,6 @@ class EditProfile extends Component {
               metaData="Confirm password"
               class="editInput"
               type="password"
-              value={this.state.password}
               disable={disablePassword}
               handeler={this.passwordHandelChange}
             />

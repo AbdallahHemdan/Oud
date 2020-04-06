@@ -50,12 +50,12 @@
     "type": "string"
   },
   "profile": {
-    "email": "ahmed.mahboub99@gmail.com",
+    "email": "ahmed.mahboub99@gmail.co",
     "passwordConfirm": "7_DummyPassword_5",
     "gender": "M",
     "birthDate": "1999-03-09",
     "country": "Egypt",
-    "displayName": "Ali"
+    "displayName": "Ahmed"
   },
   "updatePassword": {},
   "followingMe": {
