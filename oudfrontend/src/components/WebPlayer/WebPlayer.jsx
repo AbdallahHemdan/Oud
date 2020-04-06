@@ -330,6 +330,7 @@ class WebPlayer extends Component {
           player={this.playerElement}
           playing={this.state.playing}
           removeTrack={this.removeTrack}
+          data-testid="queue-container"
         />
         <Player
           ref={this.playerElement}
@@ -344,6 +345,7 @@ class WebPlayer extends Component {
           getPrevious={this.getPrevious}
           changePlayingState={this.changePlayingState}
           fetchTrack={this.fetchTrack}
+          data-testid="player-container"
         />
       </Fragment>
     );

@@ -81,7 +81,7 @@ class Track extends Component {
   render() {
     return (
       <div className="track">
-        <DragHandle />
+        <DragHandle data-testid="handler-control" />
         <div className="content">
           <div className="play-art">
             <div
@@ -89,18 +89,22 @@ class Track extends Component {
               style={{ backgroundImage: `url(${this.state.image})` }}
             ></div>
 
-            <button className="play-pause" onClick={this.handlePlayButton}>
+            <button
+              className="play-pause"
+              onClick={this.handlePlayButton}
+              data-testid="queue-play-btn"
+            >
               <img src={this.state.thumb} alt="Pause" />
             </button>
           </div>
 
-          <div className="track-name">
+          <div className="track-name" data-testid="queue-track-name">
             <text title="Somthing Just Like This">
               <a href="https://www.facebook.com/">{this.state.trackName}</a>
             </text>
           </div>
 
-          <div className="artist-name">
+          <div className="artist-name" data-testid="queue-artist-name">
             <text title="The Chainsmokers & Coldplay">
               <a href="https://www.facebook.com/">{this.state.artistName}</a>
             </text>
@@ -111,7 +115,11 @@ class Track extends Component {
           </div>
 
           <div className="ellipsis-container">
-            <button className="ellipsis-icon" onClick={this.handleDropdown}>
+            <button
+              className="ellipsis-icon"
+              onClick={this.handleDropdown}
+              data-testid="open-option-menu"
+            >
               <img src={ellipsis} alt="Show More" />
             </button>
           </div>

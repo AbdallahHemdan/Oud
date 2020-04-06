@@ -105,6 +105,7 @@ class Queue extends Component {
             playTrack={this.props.player}
             playing={this.props.playing}
             toggleDropdown={this.toggleDropdown}
+            data-testid="tracks-container"
           />
           <div
             className="menu"
@@ -114,12 +115,25 @@ class Queue extends Component {
             }}
           >
             <div className="dropdown-menu">
-              <button className="dropdown-btn" onClick={this.removeTrack}>
+              <button
+                className="dropdown-btn"
+                onClick={this.removeTrack}
+                data-testid="delete-option"
+              >
                 Delete
               </button>
-              <button className="dropdown-btn">Add to Playlist</button>
-              <button className="dropdown-btn">Copy Song Link</button>
-              <button className="dropdown-btn">Save to your Liked Songs</button>
+              <button
+                className="dropdown-btn"
+                data-testid="add-to-playlist-option"
+              >
+                Add to Playlist
+              </button>
+              <button className="dropdown-btn" data-testid="copy-option">
+                Copy Song Link
+              </button>
+              <button className="dropdown-btn" data-testid="like-option">
+                Save to your Liked Songs
+              </button>
             </div>
           </div>
         </div>
