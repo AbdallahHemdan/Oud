@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { findByTestAtrr } from "./../../General/Utils";
+import { findByTestAtrr } from "./../../components/Account/General/Utils";
 import Account from "./Account";
 
 const setUp = (props = {}) => {

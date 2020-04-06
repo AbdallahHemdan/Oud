@@ -1,9 +1,9 @@
 import React from "react";
 import Search from "./pages/Search/Search";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Account from "./components/Account/Components/Account/Account";
+import Account from "./pages/Account/Account";
 import RedirectPage from "./components/Account/General/RedirectPage";
-import Profile from "./components/Profile/Commponents/Profile/Profile";
+import Profile from "./pages/Profile/Profile";
 
 import Home from "./pages/Home/Home";
 

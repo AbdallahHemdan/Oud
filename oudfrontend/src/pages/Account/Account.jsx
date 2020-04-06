@@ -1,7 +1,7 @@
 import React from "react";
 
-import HiddenSideBar from "../HiddenSideBar/HiddenSideBar";
-import MainContainer from "../MainContainer/MainContainer";
+import HiddenSideBar from "./../../components/Account/Components/HiddenSideBar/HiddenSideBar";
+import MainContainer from "./../../components/Account/Components/MainContainer/MainContainer";
 
 import "./Account.css";
 
