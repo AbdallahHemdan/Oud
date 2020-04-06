@@ -67,15 +67,17 @@ class UpperContainer extends Component {
   }
   changeProfileImage(event) {
     const fd = new FormData();
-    fd.append("image", event.target.files[0], event.target.files[0].name);
-    axios
-      .patch("http://localhost:3002/me/profilePicture", fd)
-      .then(respons => {
-        console.log(respons);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    if (event.target.files[0]) {
+      fd.append("image", event.target.files[0], event.target.files[0].name);
+      axios
+        .patch("http://localhost:3002/me/profilePicture", fd)
+        .then(respons => {
+          console.log(respons);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   }
   componentDidMount() {
     axios
@@ -168,10 +170,11 @@ class UpperContainer extends Component {
               alt="user"
               onClick={this.upload}
             />
-            {!this.state.scrolled &&
-              this.props.userId === this.state.signInId && (
-                <p className="changeImage">change</p>
-              )}
+            {!this.state.scrolled && this.props.userId === this.state.signInId && (
+              <p className="changeImage" onClick={this.upload}>
+                change
+              </p>
+            )}
           </div>
 
           <div

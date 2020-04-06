@@ -72,13 +72,16 @@
   border-radius: 50%;
   transition: 0.5s;
 }
-
+.userImg-profile-signedIn {
+  cursor: pointer;
+}
 .changeImage {
   opacity: 0;
   clear: left;
   position: absolute;
   margin-top: 120px;
   margin-left: 40px;
+  cursor: pointer;
 }
 .avatarContainer:hover .userImg-profile-signedIn {
   opacity: 0.3;
