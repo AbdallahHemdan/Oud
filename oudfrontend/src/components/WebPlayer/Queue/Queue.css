@@ -216,16 +216,24 @@
   z-index: 5;
   width: 27rem;
 }
-.dropdown-menu a {
+.menu .dropdown-menu .dropdown-btn {
+  background: transparent;
+  border: none;
+  font-size: 2em;
+  color: whitesmoke;
+  width: 100%;
+}
+.dropdown-menu .dropdown-btn {
   color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
-.dropdown-menu a:hover {
-  background-color: #999999;
+.dropdown-menu .dropdown-btn:hover {
+  background-color: black;
   color: #ffc107;
 }
+
 @media screen and (max-width: 1030px) {
   /* .track .content .artist-name,
   .track .content .track-name {

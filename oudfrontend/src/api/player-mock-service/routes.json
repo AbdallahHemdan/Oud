@@ -1,5 +1,5 @@
 {
-  "/me/player/recently-playing?limit=1": "/player",
+  "/me/player": "/player",
   "/me/player/currently-playing": "/currently-playing",
   "/me/player/next?deviceId=74ASZWbe4lXaubB36ztrGX": "/next",
   "/me/player/previous?deviceId=74ASZWbe4lXaubB36ztrGX": "/previous",
@@ -14,5 +14,10 @@
   "/tracks/dkfjnc246": "/dkfjnc246",
   "/tracks/dkfjnc247": "/dkfjnc247",
   "/tracks/dkfjnc248": "/dkfjnc248",
-  "/tracks/dkfjnc249": "/dkfjnc249"
+  "/tracks/dkfjnc249": "/dkfjnc249",
+  "/me/queue?queueIndex=0&trackIndex=0&trackId=dkfjnc245": "/deldkfjnc245",
+  "/me/queue?queueIndex=0&trackIndex=1&trackId=dkfjnc246": "/deldkfjnc246",
+  "/me/queue?queueIndex=0&trackIndex=2&trackId=dkfjnc247": "/deldkfjnc247",
+  "/me/queue?queueIndex=0&trackIndex=3&trackId=dkfjnc248": "/deldkfjnc248",
+  "/me/queue?queueIndex=0&trackIndex=4&trackId=dkfjnc249": "/deldkfjnc249"
 }

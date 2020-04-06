@@ -1,18 +1,46 @@
-import React, { Component, Fragment } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Player/Player.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Player/Player.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component, Fragment } from "react";
 import "./Player.css";
 import { Howl } from "howler";
 import PlayingBarLeft from "./PlayingBarLeft";
 import PlayingBarCenter from "./PlayingBarCenter";
 import PlayingBarRight from "./PlayingBarRight";
-// import art from "../../assets/images/icons/album.jpg";
-import extend from "../../assets/images/icons/extend.png";
+import extend from "../../../assets/images/icons/extend.png";
+import PropTypes from "prop-types";
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
  * @author Ahmed Ashraf
  * @component
  * @example
  * return (
- *  <Player />
+ *  &lt;Player />
  * )
  */
 class Player extends Component {
@@ -46,7 +74,7 @@ class Player extends Component {
   /**
    * Get the sound progress percentage to update the progress bar
    * @function
-   * @returns{number}. returns the progress percentage
+   * @returns {number}. returns the progress percentage
    */
   getSoundProgress = () => {
     const progress =
@@ -56,21 +84,23 @@ class Player extends Component {
 
   /**
    * Fetching data immediately after the component has been mount to the DOM tree
+   * It fetches the current playback and the current queue
+   * @returns {void}
    */
   componentDidMount() {
     this.fetchPlayback();
   }
 
   /**
-   * Calling the currently playing endpoint to check if there is a track available to be fetched
-   * if not, then fetch the recently played track
+   * Get Information About The User's Current Playback and fetch the current queue with updating the state with the needed
+   * information about the track to display in the UI
    * @function
-   * @returns{void}
+   * @returns {void}
    */
   fetchPlayback = () => {
     console.log("fetchPlayback");
     this.props
-      .getRequest("http://localhost:3000/me/player/recently-playing?limit=1")
+      .getRequest("http://localhost:3000/me/player")
       .then((response) => {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
@@ -108,10 +138,10 @@ class Player extends Component {
    * Setting an interval function to update the progress bar periodically
    * On the end of the track return the progress bar to 0
    * @function
-   * @returns{void}
+   * @returns {void}
    */
   playTrack = () => {
-    if (this.state.sound && this.state.sound.state() === "loaded")
+    if (this.state.sound &amp;&amp; this.state.sound.state() === "loaded")
       this.state.sound.unload();
     const sound = new Howl({
       src: [this.state.audioUrl],
@@ -128,7 +158,7 @@ class Player extends Component {
           duration: Number(this.state.sound.duration() / 60).toFixed(2),
         });
         setInterval(() => {
-          if (this.state.sound && this.state.playing) {
+          if (this.state.sound &amp;&amp; this.state.playing) {
             const progress = this.getSoundProgress();
             const current = Number(this.state.sound.seek() / 60).toFixed(2);
             this.setState({
@@ -160,7 +190,7 @@ class Player extends Component {
    * Handling the pause action. request from the back end to pause, pause the sound in the browser, and update the playing state
    * to false to be aware of the related UI changes
    * @function
-   * @returns{void}
+   * @returns {void}
    */
   pause = () => {
     this.props
@@ -179,14 +209,14 @@ class Player extends Component {
   /**
    * PUT request to the server to play/resume the currently track.
    * @function
-   * @param {integer} position zero-based index indicates the position of the track in the context array
-   * @returns {axios object}
+   * @param {integer} idx zero-based index indicates the position of the track in the context array
+   * @returns {object}
    */
   playResumeRequest = (idx) => {
     return this.props.putRequest(
       "http://localhost:3000/me/player/play?deviceId=" +
         this.props.deviceId +
-        "&queueIndex=0",
+        "&amp;queueIndex=0",
       { offset: { position: idx } }
     );
   };
@@ -195,7 +225,8 @@ class Player extends Component {
    * resume the sound in the browser, and update the playing state
    * to true to be aware of the related UI changes
    * @function
-   * @returns{void}
+   * @param {integer} idx zero-based index indicates the position of the track in the context array
+   * @returns {void}
    */
   resume = (idx = this.props.idx) => {
     this.playResumeRequest(idx)
@@ -214,7 +245,8 @@ class Player extends Component {
    * Handling the play action. request from the back end to play a track from begining, play the sound in the browser, and update the playing state
    * to true to be aware of the related UI changes
    * @function
-   * @returns{void}
+   * @param {integer} idx zero-based index indicates the position of the track in the context array
+   * @returns {void}
    */
   play = (idx = this.props.idx) => {
     this.playResumeRequest(idx)
@@ -232,6 +264,8 @@ class Player extends Component {
    * Controlling function for the play, pause, and resume actions. It specifies which action will be called
    * depending on the plaing state of the currently track
    * @function
+   * @param {String} id the unique identify of the track
+   * @param {integer} idx zero-based index indicates the position of the track in the context array
    * @returns{void}
    */
   handlePlayPause = (id = this.state.trackId, idx = this.props.idx) => {
@@ -276,7 +310,7 @@ class Player extends Component {
    * Handling the next action.
    * Request from the server to get the next track then play it
    * @function
-   * @returns{void}
+   * @returns {void}
    */
   handleNext = () => {
     this.props
@@ -315,7 +349,7 @@ class Player extends Component {
    * Handling the previous action.
    * Request from the server to get the previous track then play it
    * @function
-   * @returns{void}
+   * @returns {void}
    */
   handlePrev = () => {
     this.props
@@ -355,7 +389,7 @@ class Player extends Component {
    * It gets the mouse click position then normalize it to the width of the bar
    * then request from the server to progress to the specified position and update the state with new progress
    * @function
-   * @returns{void}
+   * @returns {void}
    */
   onProgressClick = (e) => {
     // e.preventDefault();
@@ -384,7 +418,7 @@ class Player extends Component {
   /**
    * Update the mouse down flag to be aware of the mouse click on the progress or volume bar
    * @function
-   * @returns{void}
+   * @returns {void}
    */
   setMouseDown = (cond) => {
     this.setState({
@@ -396,7 +430,7 @@ class Player extends Component {
    * Handling the shuffle action.
    * Request from the server to shuffle the current queue then update the shuffle state to render the proper button
    * @function
-   * @returns{void}
+   * @returns {void}
    */
   handleShuffleState = () => {
     this.props
@@ -420,7 +454,7 @@ class Player extends Component {
    * Request from the server to repeat the currently playing track then update the repeat state to render the proper button
    * then active the repeat state in Howler
    * @function
-   * @returns{void}
+   * @returns {void}
    */
   handleRepeatState = () => {
     this.props
@@ -444,14 +478,14 @@ class Player extends Component {
     return this.props.putRequest(
       "http://localhost:3000/me/player/volume?deviceId=" + this.props.deviceId
     );
-    //+"&volumePercent=" + volumePercent
+    //+"&amp;volumePercent=" + volumePercent
   };
   /**
    * Handling the mute action.
    * Request from the server to mute the currently playing track then update the mute state to render the proper button
    * then active the mute state in Howler
    * @function
-   * @returns{void}
+   * @returns {void}
    */
   handleMuteState = () => {
     const mute = !this.state.muteState;
@@ -473,7 +507,7 @@ class Player extends Component {
    * It gets the mouse click position then normalize it to the width of the bar
    * then request from the server to progress to the specified volume and update the state with new volume
    * @function
-   * @returns{void}
+   * @returns {void}
    */
   onVolumeClick = (e) => {
     // e.preventDefault();
@@ -496,12 +530,24 @@ class Player extends Component {
         console.log(error);
       });
   };
+
+  /**
+   * Handling the closing of the thumbnail image of the artist in the most left part of the player
+   * @function
+   * @returns {void}
+   */
   closeThumb = () => {
     this.setState({
       thumbHeight: 0,
       thumbDisplay: "initial",
     });
   };
+
+  /**
+   * Handling the opening of the thumbnail image of the artist in the most left part of the player
+   * @function
+   * @returns {void}
+   */
   openThumb = () => {
     this.setState({
       thumbHeight: "35%",
@@ -510,26 +556,26 @@ class Player extends Component {
   };
   render() {
     return (
-      <Fragment>
-        <div
+      &lt;Fragment>
+        &lt;div
           className="extedned-thumb"
           style={{ height: this.state.thumbHeight }}
         >
-          <a href="/">
-            <img
+          &lt;a href="/">
+            &lt;img
               src={this.state.art}
               alt="Cinque Terre"
               className="thumb-img"
             />
-          </a>
-          <button className="close-thumb" onClick={this.closeThumb}>
-            <img src={extend} alt="Close Queue" />
-          </button>
-        </div>
+          &lt;/a>
+          &lt;button className="close-thumb" onClick={this.closeThumb}>
+            &lt;img src={extend} alt="Close Queue" />
+          &lt;/button>
+        &lt;/div>
 
-        <div className="now-playing-bar-container" data-testid="web-palyer">
-          <div className="now-playing-bar">
-            <PlayingBarLeft
+        &lt;div className="now-playing-bar-container" data-testid="web-palyer">
+          &lt;div className="now-playing-bar">
+            &lt;PlayingBarLeft
               playing={this.state.playing}
               display={this.state.thumbDisplay}
               art={this.state.art}
@@ -540,7 +586,7 @@ class Player extends Component {
               data-testid="web-player-left"
             />
 
-            <PlayingBarCenter
+            &lt;PlayingBarCenter
               trackName={this.state.trackName}
               artistName={this.state.artistName}
               current={this.state.current}
@@ -560,7 +606,7 @@ class Player extends Component {
               data-testid="web-player-center"
             />
 
-            <PlayingBarRight
+            &lt;PlayingBarRight
               shuffleState={this.state.shuffleState}
               repeatState={this.state.repeatState}
               volumeState={this.state.muteState}
@@ -582,11 +628,82 @@ class Player extends Component {
               }}
               data-testid="web-player-right"
             />
-          </div>
-        </div>
-      </Fragment>
+          &lt;/div>
+        &lt;/div>
+      &lt;/Fragment>
     );
   }
 }
 
+Player.propTypes = {
+  /**
+   * The id of the device of the user
+   */
+  deviceId: PropTypes.string.isRequired,
+  /**
+   * The index of the currently playing track
+   */
+  trackIdx: PropTypes.number.isRequired,
+  /**
+   * A reference to the Queue
+   */
+  queueElement: PropTypes.object.isRequired,
+  /**
+   * A function to handle axios GET request
+   */
+  getRequest: PropTypes.func.isRequired,
+  /**
+   * A function to handle axios PUT request
+   */
+  putRequest: PropTypes.func.isRequired,
+  /**
+   * A function to handle axios POST request
+   */
+  postRequest: PropTypes.func.isRequired,
+  /**
+   * A function to handle fetching of the currently queue from the server
+   */
+  fetchQueue: PropTypes.func.isRequired,
+  /**
+   * A function to fetch the next track from the server
+   */
+  getNext: PropTypes.func.isRequired,
+  /**
+   * A function to fetch the previous track from the server
+   */
+
+  getPrevious: PropTypes.func.isRequired,
+  /**
+   * A function to change the playing state of the parent component
+   */
+  changePlayingState: PropTypes.func.isRequired,
+  /**
+   * A function to fetch any track given the id as a parameter
+   */
+  fetchTrack: PropTypes.func.isRequired,
+};
+
 export default Player;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Player.html">Player</a></li><li><a href="PlayingBarCenter.html">PlayingBarCenter</a></li><li><a href="PlayingBarLeft.html">PlayingBarLeft</a></li><li><a href="PlayingBarRight.html">PlayingBarRight</a></li><li><a href="Queue.html">Queue</a></li><li><a href="SortableTrackContainer.html">SortableTrackContainer</a></li><li><a href="Track.html">Track</a></li><li><a href="TrackContainer.html">TrackContainer</a></li><li><a href="WebPlayer.html">WebPlayer</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Apr 06 2020 04:04:12 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

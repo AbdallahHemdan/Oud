@@ -1,4 +1,32 @@
-import React, { Fragment } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: WebPlayer.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: WebPlayer.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Fragment } from "react";
 import { Component } from "react";
 import axios from "axios";
 import Player from "./Player/Player";
@@ -9,7 +37,7 @@ import Queue from "./Queue/Queue";
  * @component
  * @example
  * return (
- *  <WebPlayer />
+ *  &lt;WebPlayer />
  * )
  */
 class WebPlayer extends Component {
@@ -88,7 +116,7 @@ class WebPlayer extends Component {
         if (!data.hasOwnProperty("status")) {
           const size = data["total"];
           let trackIdx = 0;
-          for (let i = 0; i < size; ++i)
+          for (let i = 0; i &lt; size; ++i)
             if (data["tracks"][i] === trackId) {
               trackIdx = i;
               break;
@@ -113,7 +141,7 @@ class WebPlayer extends Component {
    */
   fetchTrack = (trackId) => {
     let trackIdx = this.state.trackIdx;
-    for (let i = 0; i < this.state.queue.length; ++i)
+    for (let i = 0; i &lt; this.state.queue.length; ++i)
       if (this.state.queue[i] === trackId) {
         trackIdx = i;
         break;
@@ -142,7 +170,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   getPrevious = () => {
-    const idx = this.state.trackIdx - 1 < 0 ? 0 : this.state.trackIdx - 1;
+    const idx = this.state.trackIdx - 1 &lt; 0 ? 0 : this.state.trackIdx - 1;
     this.setState({
       trackIdx: idx,
       trackId: this.state.queue[idx],
@@ -226,7 +254,7 @@ class WebPlayer extends Component {
     this.putRequest(
       "http://localhost:3000/me/player/play?deviceId=" +
         this.state.deviceId +
-        "&queueIndex=0",
+        "&amp;queueIndex=0",
       {
         contextUri: {
           context_uri: contextUri,
@@ -255,7 +283,7 @@ class WebPlayer extends Component {
   onChangeQueueOrder = (queue) => {
     let oldIdx = this.state.trackIdx,
       newIdx = this.state.trackIdx;
-    for (let i = 0; i < queue.length; ++i)
+    for (let i = 0; i &lt; queue.length; ++i)
       if (queue[i] === this.state.trackId) newIdx = i;
 
     this.setState({
@@ -263,9 +291,9 @@ class WebPlayer extends Component {
       trackIdx: newIdx,
     });
     // this.patchRequest(
-    //   "http://localhost:3000/me/queue?queueIndex=0&trackIndex=" +
+    //   "http://localhost:3000/me/queue?queueIndex=0&amp;trackIndex=" +
     //     oldIdx +
-    //     "&newIndex=" +
+    //     "&amp;newIndex=" +
     //     newIdx
     // )
     //   .then(response => {
@@ -300,9 +328,9 @@ class WebPlayer extends Component {
   removeTrack = (idx, id) => {
     console.log("id: " + id + " idx: " + idx);
     this.deleteRequest(
-      "http://localhost:3000/me/queue?queueIndex=0&trackIndex=" +
+      "http://localhost:3000/me/queue?queueIndex=0&amp;trackIndex=" +
         idx +
-        "&trackId=" +
+        "&amp;trackId=" +
         id
     )
       .then((response) => {
@@ -319,8 +347,8 @@ class WebPlayer extends Component {
   };
   render() {
     return (
-      <Fragment>
-        <Queue
+      &lt;Fragment>
+        &lt;Queue
           ref={this.queueElement}
           tracks={this.state.queue}
           trackId={this.state.trackId}
@@ -331,7 +359,7 @@ class WebPlayer extends Component {
           playing={this.state.playing}
           removeTrack={this.removeTrack}
         />
-        <Player
+        &lt;Player
           ref={this.playerElement}
           deviceId={this.state.deviceId}
           trackIdx={this.state.trackIdx}
@@ -345,9 +373,32 @@ class WebPlayer extends Component {
           changePlayingState={this.changePlayingState}
           fetchTrack={this.fetchTrack}
         />
-      </Fragment>
+      &lt;/Fragment>
     );
   }
 }
 
 export default WebPlayer;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Player.html">Player</a></li><li><a href="PlayingBarCenter.html">PlayingBarCenter</a></li><li><a href="PlayingBarLeft.html">PlayingBarLeft</a></li><li><a href="PlayingBarRight.html">PlayingBarRight</a></li><li><a href="Queue.html">Queue</a></li><li><a href="SortableTrackContainer.html">SortableTrackContainer</a></li><li><a href="Track.html">Track</a></li><li><a href="TrackContainer.html">TrackContainer</a></li><li><a href="WebPlayer.html">WebPlayer</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Apr 06 2020 04:04:12 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

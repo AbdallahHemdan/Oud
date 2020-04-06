@@ -1,13 +1,13 @@
 import React, { Fragment, Component } from "react";
 import PropTypes from "prop-types";
-import repeat from "../../assets/images/icons/repeat.png";
-import repeatEnabled from "../../assets/images/icons/repeat-enable.png";
-import shuffle from "../../assets/images/icons/shuffle.png";
-import shuffleEnabled from "../../assets/images/icons/shuffle-enable.png";
-import volume from "../../assets/images/icons/volume.png";
-import volumeMuted from "../../assets/images/icons/volume-mute.png";
-import queue from "../../assets/images/icons/queue.png";
-import queueActivated from "../../assets/images/icons/queueActivated.png";
+import repeat from "../../../assets/images/icons/repeat.png";
+import repeatEnabled from "../../../assets/images/icons/repeat-enable.png";
+import shuffle from "../../../assets/images/icons/shuffle.png";
+import shuffleEnabled from "../../../assets/images/icons/shuffle-enable.png";
+import volume from "../../../assets/images/icons/volume.png";
+import volumeMuted from "../../../assets/images/icons/volume-mute.png";
+import queue from "../../../assets/images/icons/queue.png";
+import queueActivated from "../../../assets/images/icons/queueActivated.png";
 /**
  * Component for controling the right part of the player: shuffle, repeat, and mute buttons and clicking on the volume bar
  * @author Ahmed Ashraf
@@ -17,7 +17,7 @@ class PlayingBarRight extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      queueOpened: false
+      queueOpened: false,
     };
   }
   openQueue = () => {
@@ -27,7 +27,7 @@ class PlayingBarRight extends Component {
       this.props.queueElement.current.openQueue();
     }
     this.setState({
-      queueOpened: !this.state.queueOpened
+      queueOpened: !this.state.queueOpened,
     });
   };
   render() {
@@ -143,7 +143,7 @@ PlayingBarRight.propTypes = {
   /**
    * function to handle whan the mouse is up and click has ended
    */
-  mouseUp: PropTypes.func.isRequired
+  mouseUp: PropTypes.func.isRequired,
 };
 
 export default PlayingBarRight;

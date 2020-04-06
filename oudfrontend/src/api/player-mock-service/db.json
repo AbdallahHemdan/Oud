@@ -58,13 +58,7 @@
     "offset": {}
   },
   "queue": {
-    "tracks": [
-      "dkfjnc245",
-      "dkfjnc246",
-      "dkfjnc247",
-      "dkfjnc248",
-      "dkfjnc249"
-    ],
+    "tracks": ["dkfjnc245", "dkfjnc246", "dkfjnc247", "dkfjnc248", "dkfjnc249"],
     "total": 5
   },
   "dkfjnc245": {
@@ -151,5 +145,10 @@
     "audioUrl": "https://dndnat.dnsta123.com/media/hamza-namira/singles/Hamza.Namira.Hekayet.Tefl.mp3",
     "duartion": 208800,
     "views": 0
-  }
+  },
+  "deldkfjnc245": { "Ahmed": "Ashraf" },
+  "deldkfjnc246": { "Ahmed": "Ashraf" },
+  "deldkfjnc247": { "Ahmed": "Ashraf" },
+  "deldkfjnc248": { "Ahmed": "Ashraf" },
+  "deldkfjnc249": { "Ahmed": "Ashraf" }
 }
