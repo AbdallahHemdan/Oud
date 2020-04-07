@@ -6,6 +6,7 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
     className="main-form container"
   >
     <form
+      noValidate={true}
       onSubmit={[Function]}
     >
       <div
@@ -19,9 +20,13 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
           name="name"
           onChange={[Function]}
           placeholder="What should we call you?"
+          required={true}
           type="text"
           value=""
         />
+        <div>
+          
+        </div>
       </div>
       <div
         className="form-group"
@@ -33,8 +38,10 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
           name="email"
           onChange={[Function]}
           placeholder="email@address.com"
+          required={true}
           type="email"
         />
+        
       </div>
       <div
         className="form-group"
@@ -48,6 +55,7 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
             name="Password"
             onChange={[Function]}
             placeholder="Password"
+            required={true}
             type="Password"
           />
           <button
@@ -58,6 +66,7 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
             show
           </button>
         </div>
+        
       </div>
       <div
         className="form-group"
@@ -71,6 +80,7 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
             name="confirmPassword"
             onChange={[Function]}
             placeholder="confirm Password"
+            required={true}
             type="Password"
           />
         </div>
@@ -84,6 +94,7 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
           id="inputGender"
           name="gender"
           onChange={[Function]}
+          required={true}
         >
           <option
             value=""
@@ -102,9 +113,13 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
             Female
           </option>
         </select>
+        <div>
+          
+        </div>
       </div>
       <div
         className="form-row"
+        onSubmit={[Function]}
       >
         <div
           className="form-group col-md-4"
@@ -970,6 +985,9 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
             </option>
           </select>
         </div>
+        <div>
+          
+        </div>
       </div>
       <div
         className="form-group"
@@ -1011,6 +1029,9 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
               </a>
             </label>
           </div>
+        </div>
+        <div>
+          
         </div>
       </div>
       <div

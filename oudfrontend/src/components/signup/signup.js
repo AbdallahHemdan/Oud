@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './signup.css';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import _ from 'lodash';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
@@ -40,7 +40,7 @@ class Signup extends Component {
     console.log(Validator);
   }
   userNameHandel = (event) => {
-    this.setState({name: event.target.value});
+    this.setState({ name: event.target.value });
     Validator.validateUserName(event.target.value, this);
   };
   /**
@@ -51,7 +51,7 @@ class Signup extends Component {
    * @returns {boolean} - return true if the email is valid
    */
   EmailHandel = (event) => {
-    this.setState({email: event.target.value});
+    this.setState({ email: event.target.value });
     Validator.validateEmail(event.target.value, this);
   };
   /**
@@ -66,8 +66,8 @@ class Signup extends Component {
    * @returns {string} -change the error massages
    *  */
   PasswordHandel = (event) => {
-    this.setState({Password: event.target.value});
-    Validator.validatePassword(event.target.value, this);
+    this.setState({ Password: event.target.value });
+    Validator.validatePassword(this.state.Password, this);
   };
   /**
    * Password Validation
@@ -78,12 +78,12 @@ class Signup extends Component {
    * @returns {string}
    */
   ConfirmPasswordHandel = (event) => {
-    this.setState({ConfirmPassword: event.target.value});
+    this.setState({ ConfirmPassword: event.target.value });
     Validator.validateConfirmPassword(event.target.value, this);
   };
 
   genderHandel = (event) => {
-    this.setState({gender: event.target.value});
+    this.setState({ gender: event.target.value });
     Validator.validateGender(event.target.value, this);
   };
 
@@ -94,8 +94,6 @@ class Signup extends Component {
       this.state.day,
       this
     );
-    let birth = this.state.year + '-' + this.state.month + '-' + this.state.day;
-    this.setState({birthdata: birth});
   };
   /**
    * check if the two passwords are the same
@@ -113,9 +111,9 @@ class Signup extends Component {
     let value = true;
     value &= Validator.validateUserName(this.state.name, this);
     value &= Validator.validateEmail(this.state.email, this);
-    value &= Validator.validatePassword(this.state.password, this);
+    value &= Validator.validatePassword(this.state.Password, this);
     value &= Validator.validateConfirmPassword(
-      this.state.confirmPassword,
+      this.state.ConfirmPassword,
       this
     );
     value &= Validator.validateGender(this.state.gender, this);
@@ -138,7 +136,7 @@ class Signup extends Component {
   handelSubmit = (e) => {
     // It prevents a submit button from submitting a form
     e.preventDefault();
-    this.validateAll();
+    let birth = this.state.year + '-' + this.state.month + '-' + this.state.day;
     let gen;
     if (this.state.gender === '1') {
       gen = 'M';
@@ -147,7 +145,7 @@ class Signup extends Component {
     }
     let toSent = {
       username: this.state.name,
-      birthDate: this.state.birthdata,
+      birthDate: birth,
       email: this.state.email,
       password: this.state.Password,
       passwordConfirm: this.state.ConfirmPassword,
@@ -157,6 +155,7 @@ class Signup extends Component {
       gender: gen,
     };
 
+
     let errorMassage = '';
     if (
       this.state.isVerified &&
@@ -165,7 +164,7 @@ class Signup extends Component {
     ) {
       console.log(toSent);
       axios
-        .post('http://oud-zerobase.me/api/v1/users/signup', toSent)
+        .post(`${process.env.REACT_APP_API_URL}/users`, toSent)
         .then((req) => {
           console.log(req);
         })
@@ -203,7 +202,7 @@ class Signup extends Component {
    * @function
    * @returns {void}
    */
-  callback = () => {};
+  callback = () => { };
   /**
    * this is a captcha
    * a function to call it
@@ -214,7 +213,7 @@ class Signup extends Component {
    */
   verifyCallback = (action) => {
     if (action) {
-      this.setState({isVerified: true});
+      this.setState({ isVerified: true });
     }
   };
   /**
@@ -352,7 +351,7 @@ class Signup extends Component {
             <svg className="svg svg-icon" viewBox="0 0 20 20">
               <path
                 d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z"
-                style={{stroke: 'white', fill: 'white'}}
+                style={{ stroke: 'white', fill: 'white' }}
               ></path>
             </svg>
             <label htmlFor="gridCheck" className="form-check-label">
@@ -416,13 +415,13 @@ class Signup extends Component {
               this.state.month === '02'
               ? 30
               : this.state.month === '02'
-              ? 29
-              : this.state.month === '04' ||
-                this.state.month === '06' ||
-                this.state.month === '09' ||
-                this.state.month === '11'
-              ? 31
-              : 32
+                ? 29
+                : this.state.month === '04' ||
+                  this.state.month === '06' ||
+                  this.state.month === '09' ||
+                  this.state.month === '11'
+                  ? 31
+                  : 32
           ).map((value) => (
             <option key={value} value={value}>
               {value}
@@ -545,10 +544,10 @@ class Signup extends Component {
         </div>
         {this.hasSamePassword() === false
           ? this.state.formErrors.ConfirmPasswordError && (
-              <span className="error" htmlFor="register-confirmPassword">
-                {this.state.formErrors.ConfirmPasswordError}
-              </span>
-            )
+            <span className="error" htmlFor="register-confirmPassword">
+              {this.state.formErrors.ConfirmPasswordError}
+            </span>
+          )
           : null}
       </div>
     );
@@ -572,13 +571,13 @@ class Signup extends Component {
             name="Password"
             value={this.setState.Password}
           />
-          <button
+          {/* <button
             className="btn btn-outline-dark"
             data-testid="showPass"
             onClick={this.handleShowPassword}
           >
             {this.state.showText}
-          </button>
+          </button> */}
         </div>
         {this.state.formErrors.PasswordError && (
           <span className="error" htmlFor="register-password">
@@ -600,7 +599,7 @@ class Signup extends Component {
           required
           data-testid="register-email"
           type="email"
-          className="form-control custom-select"
+          className="form-control"
           placeholder="email@address.com"
           onChange={(this.handleChange, this.EmailHandel)}
           name="email"
@@ -631,7 +630,7 @@ class Signup extends Component {
           value={this.state.name}
           label="name"
           type="text"
-          className="form-control custom-select"
+          className="form-control"
           id="validationTextarea"
           placeholder="What should we call you?"
           onChange={(this.handleChange, this.userNameHandel)}
