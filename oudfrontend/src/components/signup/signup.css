@@ -34,7 +34,7 @@
 }
 
 .Signup-LoginBtn {
-  border: 0;
+  border: 0 !important;
 }
 
 .SigninRedirect {
@@ -172,7 +172,8 @@ hr {
 
 .Signup-LoginBtn:active {
   color: #ffffff;
-  background-color: #f9b835;
+  background-color: #f9b835 !important;
+  border: 0;
 }
 
 .Signup-LoginBtn:hover {

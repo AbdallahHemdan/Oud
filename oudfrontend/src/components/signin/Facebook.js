@@ -43,7 +43,7 @@ class Facebook extends Component {
     let FBcontant;
 
     if (this.state.islogin) {
-      FBcontant = <Redirect to="/Facebookislogined"></Redirect>;
+      FBcontant = <Redirect to="/Home"></Redirect>;
     } else {
       FBcontant = (
         <FacebookLogin

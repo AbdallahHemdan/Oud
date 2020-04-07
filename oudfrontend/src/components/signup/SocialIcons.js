@@ -11,9 +11,17 @@ class SocialIcons extends Component {
    */
   handelClickFace() {
     axios
-      .post(`${process.env.REACT_APP_API_URL}/users`, this.state.Facebook_token)
-      .then((req) => {
-        this.setState({Facebook_token: req.data.accessToken});
+      .post(
+        'http://oud-zerobase.me/api/v1/usersfacebook',
+        this.state.Facebook_token
+      )
+      .then((response) => {
+        /**redirect to home  * ****************************************************************************************************/
+        const authToken = response.data.token;
+        localStorage.setItem('accessToken', authToken);
+        console.log('token', authToken);
+        console.log(response);
+        /**redirect to home */
       })
       .catch((error) => {
         console.log(error);

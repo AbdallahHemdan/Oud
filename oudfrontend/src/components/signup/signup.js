@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './signup.css';
-import {Redirect} from 'react-router-dom';
+import {Redirect, useHistory} from 'react-router-dom';
 import _ from 'lodash';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
@@ -178,12 +178,16 @@ class Signup extends Component {
             localStorage.setItem('accessToken', authToken);
             console.log('token', authToken);
             console.log(response);
+            let history = useHistory();
+            history.push('/home');
+
             /**redirect to home */
           } else if (response.status === 400) {
             errorMassage = response.statusText;
           } else if (response.status === 401) {
             /**Unauthorized */
             errorMassage = response.statusText;
+            console.log(errorMassage);
           }
           this.setState((prevState) => {
             prevState.formErrors.mainError = errorMassage;
