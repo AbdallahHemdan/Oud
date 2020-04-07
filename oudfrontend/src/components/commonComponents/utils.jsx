@@ -12,31 +12,31 @@ import axios from 'axios'
  * @returns {void}
  */
 
-export function addToQueue(tracks, length){
-    axios.post('http://localhost:3000/queue/', {
-            tracks : tracks,
-            total : length
-        })
+export function addToQueue(tracks, length) {
+    axios.post('http://localhost:2022/queue/', {
+        tracks: tracks,
+        total: length
+    })
         .then(function (response) {
             console.log(response);
         })
         .catch(function (error) {
             console.log(error);
         });
-        console.log('queue called');
+    console.log('queue called');
 };
 /**
  * pauses the player
  * @returns {void}
  */
-export function pause(){
-    axios.post('http://localhost:3000/player/pause/',)
-    .then(function (response) {
-        console.log(response);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
+export function pause() {
+    axios.post('http://localhost:2022/player/pause/')
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     console.log('pause called');
 };
 
@@ -44,13 +44,13 @@ export function pause(){
  * resums the player
  * @returns {void}
  */
-export function resume(){
-    axios.post('http://localhost:3000/player/play/',)
-    .then(function (response) {
-        console.log(response);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
+export function resume() {
+    axios.post('http://localhost:2022/player/play/')
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     console.log('resume called');
 }

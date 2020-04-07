@@ -5,7 +5,7 @@ import HeaderBodyBottom from '../commonComponents/headerBodyBottom'
 import HeaderBodyTop from './components/headerBodyTop'
 import SongList from '../commonComponents/songList'
 import PropTypes from 'prop-types';
-import {resume, pause, addToQueue} from '../commonComponents/utils'
+import { resume, pause, addToQueue } from '../commonComponents/utils'
 
 
 /**
@@ -38,21 +38,21 @@ import {resume, pause, addToQueue} from '../commonComponents/utils'
  *          
  *          }
  */
-class Playlist extends React.Component{
+class Playlist extends React.Component {
 
     /** 
      * @constructor
-     */ 
-    constructor(props){
+     */
+    constructor(props) {
         super(props);
         this.state = {
-            tracks : [],
-            recieved:false,
-            playlist:{},
-            liked:false,
-            playing:false,
-            queued:false,
-            clickID:'0'
+            tracks: [],
+            recieved: false,
+            playlist: {},
+            liked: false,
+            playing: false,
+            queued: false,
+            clickID: '0'
         };
         this.addToQueue = this.addToQueue.bind(this)
         this.resume = this.resume.bind(this)
@@ -67,8 +67,8 @@ class Playlist extends React.Component{
      * @param {number} length 
      * @returns {void}
      */
-    addToQueue(tracks, length){
-        this.setState({queued:true})
+    addToQueue(tracks, length) {
+        this.setState({ queued: true })
         addToQueue(tracks, length)
         this.resume()
     }
@@ -77,17 +77,17 @@ class Playlist extends React.Component{
      * @func
      * @returns {void}
      */
-    playButtonClicked(){
+    playButtonClicked() {
         //all the three requests should be put requests
-        if(this.state.queued === false){
+        if (this.state.queued === false) {
             const tracks = this.state.tracks
             const length = this.state.tracks.length
             this.addToQueue(tracks, length)
         }
-        if(this.state.playing === true){
+        if (this.state.playing === true) {
             this.pause()
         }
-        else{
+        else {
             this.resume()
         }
     }
@@ -95,18 +95,18 @@ class Playlist extends React.Component{
      * pauses the player
      * @returns {void}
      */
-    pause(){
+    pause() {
         pause()
-        this.setState({playing:false})
+        this.setState({ playing: false })
     }
     /**
      * resumes the player
      * @returns {void}
      * 
      */
-    resume(){
+    resume() {
         resume()
-        this.setState({playing:true})
+        this.setState({ playing: true })
     }
 
     /**
@@ -115,24 +115,24 @@ class Playlist extends React.Component{
      * @func
      * @returns {void}
      */
-    likeButtonClicked(){
+    likeButtonClicked() {
         const likedPlaylist = this.state.playlist
-        if(this.state.liked === false){
-            this.setState({liked:true})
-            
-        }
-        else{
-            this.setState({liked:false})
+        if (this.state.liked === false) {
+            this.setState({ liked: true })
 
-            axios.delete(`http://localhost:3000/likedPlaylists/${this.props.id.id}`)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
         }
-        axios.post('http://localhost:3000/likedPlaylists/', likedPlaylist)
+        else {
+            this.setState({ liked: false })
+
+            axios.delete(`http://localhost:2022/likedPlaylists/${this.props.id.id}`)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+        axios.post('http://localhost:2022/likedPlaylists/', likedPlaylist)
             .then(function (response) {
                 console.log(response);
             })
@@ -146,80 +146,79 @@ class Playlist extends React.Component{
      * @func
      * @returns {void}
      */
-    componentDidMount(){
-        axios.get(`http://localhost:3000/playlist/${this.props.id.id}`)
-        .then((response)=> {
-            const playlist = response.data;
-            this.setState({tracks:playlist.tracks});
-            this.setState({recieved:true})
-            this.setState({playlist:playlist})   
-        })
-        .catch((error)=> {
-            console.log(error);
-        });  
-        
-        axios.get(`http://localhost:3000/likedPlaylists/${this.props.id.id}`)
-        .then((response)=> {
-            console.log(response);
-            this.setState({liked:true})
-        })
-        .catch((error)=> {
-            console.log(error);
-        });
+    componentDidMount() {
+        axios.get(`http://localhost:2022/playlist/${this.props.id.id}`)
+            .then((response) => {
+                const playlist = response.data;
+                this.setState({ tracks: playlist.tracks });
+                this.setState({ recieved: true })
+                this.setState({ playlist: playlist })
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+        axios.get(`http://localhost:2022/likedPlaylists/${this.props.id.id}`)
+            .then((response) => {
+                console.log(response);
+                this.setState({ liked: true })
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
     /**
      * it changes the state so that all song will be marked as unclicked
      * @returns {void}
      */
-    markAllUnclicked(){
-        this.setState({clickID:'0'})
+    markAllUnclicked() {
+        this.setState({ clickID: '0' })
 
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div data-testid='playlist' className='playlist'>
-                
                 <div className='row'>
-                    <div data-testid="playlistHeader"  onClick={this.markAllUnclicked.bind(this)} className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
+                    <div data-testid="playlistHeader" onClick={this.markAllUnclicked.bind(this)} className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
                         <div data-testid="playlistIamgeContainer" className='playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
-                            <img data-testid="playlistIamge" src={this.state.playlist.image} className='playlistImage' alt='playlist img'/>
-                        </div>            
+                            <img data-testid="playlistIamge" src={this.state.playlist.image} className='playlistImage' alt='playlist img' />
+                        </div>
                         <div data-testid="playlistHeaderBody" className='playlistHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8'>
-                            <HeaderBodyTop 
+                            <HeaderBodyTop
                                 data-testid="HeaderBodyTop"
                                 title={this.state.playlist.name}
                                 owner={this.state.playlist.owner}
-                              />
-                            <HeaderBodyBottom 
-                                data-testid = "HeaderBodyBottom" 
-                                length = {this.state.tracks.length} 
-                                playClicked = {this.playButtonClicked}
-                                likeClicked = {this.likeButtonClicked}
-                                liked = {this.state.liked}
-                                playing = {this.state.playing}
-                                album = {false}
+                            />
+                            <HeaderBodyBottom
+                                data-testid="HeaderBodyBottom"
+                                length={this.state.tracks.length}
+                                playClicked={this.playButtonClicked}
+                                likeClicked={this.likeButtonClicked}
+                                liked={this.state.liked}
+                                playing={this.state.playing}
+                                album={false}
 
                             />
                         </div>
-                    </div>  
-                    <SongList 
+                    </div>
+                    <SongList
                         data-testid="songList"
-                        recieved = {this.state.recieved}
-                        tracks={this.state.tracks} 
-                        pause = {this.pause}
-                        resume = {this.resume}
-                        addToQueue = {this.addToQueue}
-                        clickedItemId = {this.state.clickID}
+                        recieved={this.state.recieved}
+                        tracks={this.state.tracks}
+                        pause={this.pause}
+                        resume={this.resume}
+                        addToQueue={this.addToQueue}
+                        clickedItemId={this.state.clickID}
                         className="col-xs-8 col-md-6 col-lg-8 col-xl-8"
                     />
-                    
+
                 </div>
             </div>
         );
     }
 }
-Playlist.propTypes={
-    id : PropTypes.objectOf(PropTypes.string)
+Playlist.propTypes = {
+    id: PropTypes.objectOf(PropTypes.string)
 };
 export default Playlist;

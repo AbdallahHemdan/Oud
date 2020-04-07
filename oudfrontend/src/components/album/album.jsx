@@ -3,7 +3,7 @@ import axios from 'axios';
 import HeaderBodyBottom from '../commonComponents/headerBodyBottom'
 import HeaderBodyTop from './components/headerBodyTop'
 import SongList from '../commonComponents/songList'
-import {resume, pause, addToQueue} from '../commonComponents/utils'
+import { resume, pause, addToQueue } from '../commonComponents/utils'
 import PropTypes from 'prop-types';
 
 
@@ -38,23 +38,23 @@ import PropTypes from 'prop-types';
  *          
  *          }
  */
-class Album extends React.Component{
+class Album extends React.Component {
 
     /** 
      * @constructor
-     */ 
-    constructor(props){
+     */
+    constructor(props) {
         super(props);
         this.state = {
-            tracks : [],
-            artists : [],
-            recieved:false,
-            album:{},
-            liked:false,
-            playing:false,
-            queued:false,
-            clickID:'0'
-            
+            tracks: [],
+            artists: [],
+            recieved: false,
+            album: {},
+            liked: false,
+            playing: false,
+            queued: false,
+            clickID: '0'
+
         };
         this.addToQueue = this.addToQueue.bind(this)
         this.resume = this.resume.bind(this)
@@ -69,8 +69,8 @@ class Album extends React.Component{
      * @param {number} length 
      * @returns {void}
      */
-    addToQueue(tracks, length){
-        this.setState({queued:true})
+    addToQueue(tracks, length) {
+        this.setState({ queued: true })
         addToQueue(tracks, length)
         this.resume()
     }
@@ -79,17 +79,17 @@ class Album extends React.Component{
      * @func
      * @returns {void}
      */
-    playButtonClicked(){
+    playButtonClicked() {
         //all the three requests should be put requests
-        if(this.state.queued === false){
+        if (this.state.queued === false) {
             const tracks = this.state.tracks
             const length = this.state.tracks.length
             this.addToQueue(tracks, length)
         }
-        if(this.state.playing === true){
+        if (this.state.playing === true) {
             this.pause()
         }
-        else{
+        else {
             this.resume()
         }
     }
@@ -97,17 +97,17 @@ class Album extends React.Component{
      * pauses the player
      * @returns {void}
      */
-    pause(){
+    pause() {
         pause()
-        this.setState({playing:false})
+        this.setState({ playing: false })
     }
     /**
      * resume the player
      * @returns {void}
      */
-    resume(){
+    resume() {
         resume()
-        this.setState({playing:true})
+        this.setState({ playing: true })
     }
     /**
      * Called Whenever the user clicked on the like button and it adds the playlist to the likedPlaylists 
@@ -115,28 +115,28 @@ class Album extends React.Component{
      * @func
      * @returns {void}
      */
-    likeButtonClicked(){
+    likeButtonClicked() {
         const likedAlbum = this.state.album
-        if(this.state.liked === false){
-            this.setState({liked:true})
-            axios.post('http://localhost:3000/likedAlbums/', likedAlbum)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        if (this.state.liked === false) {
+            this.setState({ liked: true })
+            axios.post('http://localhost:2022/likedAlbums/', likedAlbum)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
-        else{
-            this.setState({liked:false})
+        else {
+            this.setState({ liked: false })
 
-            axios.delete(`http://localhost:3000/likedAlbums/${this.props.id}`)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            axios.delete(`http://localhost:2022/likedAlbums/${this.props.id}`)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
 
     }
@@ -145,83 +145,83 @@ class Album extends React.Component{
      * @func
      * @returns {void}
      */
-    componentDidMount(){
-        axios.get(`http://localhost:3000/albums/${this.props.id}`)
-        .then((response)=> {
-            const album = response.data;
-            this.setState({tracks:album.tracks.items});
-            this.setState({artists:album.artists})
-            this.setState({album:album})   
-            this.setState({recieved:true})
+    componentDidMount() {
+        axios.get(`http://localhost:2022/albums/${this.props.id}`)
+            .then((response) => {
+                const album = response.data;
+                this.setState({ tracks: album.tracks.items });
+                this.setState({ artists: album.artists })
+                this.setState({ album: album })
+                this.setState({ recieved: true })
 
-        })
-        .catch((error)=> {
-            console.log(error);
-        });  
-        
-        axios.get(`http://localhost:3000/likedAlbums/${this.props.id}`)
-        .then((response)=> {
-            console.log(response);
-            this.setState({liked:true})
-        })
-        .catch((error)=> {
-            console.log(error);
-        });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+        axios.get(`http://localhost:2022/likedAlbums/${this.props.id}`)
+            .then((response) => {
+                console.log(response);
+                this.setState({ liked: true })
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
     /**
      * it changes the state so that all song will be marked as unclicked
      * @returns {void}
      */
-    markAllUnclicked(){
-        this.setState({clickID:'0'})
+    markAllUnclicked() {
+        this.setState({ clickID: '0' })
 
     }
-    render(){
-        return(
+    render() {
+        return (
             <div data-testid='album' className='playlist'>
-                
+
                 <div className='row'>
                     <div data-testid="playlistHeader" onClick={this.markAllUnclicked.bind(this)} className='playlistHeader row col-xs-4 col-md-6 col-lg-4 col-xl-4'>
                         <div data-testid="playlistIamgeContainer" className='playlistImageContainer col col-lg-12 col-md-12 col-sm-4 col-xs-4'>
-                            <img data-testid="playlistIamge" src={this.state.album.image} className='playlistImage' alt='album img'/>
-                        </div>            
+                            <img data-testid="playlistIamge" src={this.state.album.image} className='playlistImage' alt='album img' />
+                        </div>
                         <div data-testid="playlistHeaderBody" className='playlistHeaderBody col col-lg-12 col-md-12 col-sm-8 col-xs-8'>
-                            <HeaderBodyTop 
+                            <HeaderBodyTop
                                 data-testid="HeaderBodyTop"
                                 title={this.state.album.name}
                                 artists={this.state.artists}
-                              />
-                              
-                            <HeaderBodyBottom 
-                                data-testid = "HeaderBodyBottom" 
-                                length = {this.state.tracks.length} 
-                                playClicked = {this.playButtonClicked}
-                                likeClicked = {this.likeButtonClicked}
-                                liked = {this.state.liked}
-                                playing = {this.state.playing}
-                                releaseDate = {this.state.album.release_date}
-                                recieved = {this.state.recieved}
-                                album = {true}
+                            />
+
+                            <HeaderBodyBottom
+                                data-testid="HeaderBodyBottom"
+                                length={this.state.tracks.length}
+                                playClicked={this.playButtonClicked}
+                                likeClicked={this.likeButtonClicked}
+                                liked={this.state.liked}
+                                playing={this.state.playing}
+                                releaseDate={this.state.album.release_date}
+                                recieved={this.state.recieved}
+                                album={true}
                             />
                         </div>
-                    </div>  
-                    <SongList 
+                    </div>
+                    <SongList
                         data-testid="songList"
-                        recieved = {this.state.recieved}
-                        tracks={this.state.tracks} 
-                        pause = {this.pause}
-                        resume = {this.resume}
-                        addToQueue = {this.addToQueue}
-                        clickedItemId = {this.state.clickID}
+                        recieved={this.state.recieved}
+                        tracks={this.state.tracks}
+                        pause={this.pause}
+                        resume={this.resume}
+                        addToQueue={this.addToQueue}
+                        clickedItemId={this.state.clickID}
                         className="col-xs-8 col-md-6 col-lg-8 col-xl-8"
                     />
-                    
+
                 </div>
             </div>
         );
     }
 }
-Album.propTypes={
-    id : PropTypes.string
+Album.propTypes = {
+    id: PropTypes.string
 };
 export default Album;

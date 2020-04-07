@@ -1,5 +1,5 @@
 import React from 'react'
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types';
 /**
  * this is a component that renders the bottom of the body of playlists, albums, likedSongs
@@ -15,29 +15,29 @@ import PropTypes from 'prop-types';
  * </div>}
  */
 
-function HeaderBody(props){
-    const {length, playClicked,playing} = props;
+function HeaderBody(props) {
+    const { length, playClicked, playing } = props;
     let history = useHistory()
-    return(
+    return (
         <div data-testid="HeaderBody">
             <h2 data-testid="title" className='whiteText'>Liked Songs</h2>
-            <button data-testid="owner" className='playlistAnchor songButton' onClick={()=>{history.push('/user/1')}} style={{display:"block"}}>Ahmed{/*userName*/}</button>
+            <button data-testid="owner" className='playlistAnchor songButton' onClick={() => { history.push('/user/1') }} style={{ display: "block" }}>Ahmed{/*userName*/}</button>
             <button onClick={playClicked} data-testid="playButton" className="playButton" variant="outline-success">
-                    {playing? 'PAUSE' : 'PLAY'}
+                {playing ? 'PAUSE' : 'PLAY'}
             </button>
             <p>
                 <span data-testid="songsNumber">{length} </span>
-                <span data-testid="songsLiteral">{length > 1? 'songs':'song'}</span>
+                <span data-testid="songsLiteral">{length > 1 ? 'songs' : 'song'}</span>
             </p>
-            
+
         </div>
     );
 }
 
-HeaderBody.propTypes ={
-    length : PropTypes.number,
-    playing : PropTypes.bool,
-    playClicked : PropTypes.func
+HeaderBody.propTypes = {
+    length: PropTypes.number,
+    playing: PropTypes.bool,
+    playClicked: PropTypes.func
 }
 
 

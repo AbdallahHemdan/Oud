@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 /**
  * this is a component that renders the Top of the body of playlists, albums, likedSongs
@@ -21,34 +21,33 @@ import {useHistory} from "react-router-dom";
  *          </Router>
  *          }
  */
-function HeaderBodyTop(props)
-{
+function HeaderBodyTop(props) {
     /**
      * ownerName is a state that carries the name of the owner of the playlist or album
      * @constant
      * @type {string}
      */
     const [ownerName, setOwnerName] = useState('')
-    const {title, owner} = props;
+    const { title, owner } = props;
     /**
      * fetching the owner name and setting state
      */
-    const url = `http://localhost:3000/user/${owner}`; 
-         axios.get(`${url}`)
-        .then((response)=> {
+    const url = `http://localhost:2022/user/${owner}`;
+    axios.get(`${url}`)
+        .then((response) => {
             const user = response.data;
             setOwnerName(user.displayName);
         })
-        .catch((error)=> {
+        .catch((error) => {
             console.log(error);
-        });  
+        });
     let history = useHistory()
-    return(
-            <div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
-                <h2 data-testid="title" className='whiteText'>{title}</h2>
-                <span data-testid="credits" className="whiteText">Crerated By </span>
-                <button data-testid="owner" className='playlistAnchor songButton' onClick={()=>{history.push(`/user/${owner}`)}}>{ownerName}</button>
-            </div>
+    return (
+        <div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
+            <h2 data-testid="title" className='whiteText'>{title}</h2>
+            <span data-testid="credits" className="whiteText">Crerated By </span>
+            <button data-testid="owner" className='playlistAnchor songButton' onClick={() => { history.push(`/user/${owner}`) }}>{ownerName}</button>
+        </div>
     );
 }
 

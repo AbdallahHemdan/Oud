@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Song from './song/song'
 import PropTypes from 'prop-types';
 import axios from 'axios'
@@ -37,12 +37,12 @@ import axios from 'axios'
  */
 
 
-class SongList extends Component{
-    constructor(props){
+class SongList extends Component {
+    constructor(props) {
         super(props)
         this.state = {
             clickedItemId: '0',
-            playing:false
+            playing: false
         }
         this.handleClick = this.handleClick.bind(this)
         this.handlePlay = this.handlePlay.bind(this)
@@ -52,27 +52,27 @@ class SongList extends Component{
      * it sets the state tothe new ID so it is sent to all the songs 
      * @param {string} id the id of the calling song
      */
-    handleClick(id){
-        this.setState({clickedItemId:id})
+    handleClick(id) {
+        this.setState({ clickedItemId: id })
     }
     /**
      *if the recieved props is changed it sets the state to the new props
      * @param {object} nextProps 
      */
-    componentWillReceiveProps(nextProps){
-        if(nextProps.clickedItemId !== this.state.clickedItemId){
-            this.setState({clickedItemId:nextProps.clickedItemId})
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.clickedItemId !== this.state.clickedItemId) {
+            this.setState({ clickedItemId: nextProps.clickedItemId })
         }
     }
     /**
      * it adds all the songs after the calling song to the queue
      * @param {string} id the id of the calling song
      */
-    handleQueue(id){
+    handleQueue(id) {
         let flag = false
         let queue = []
-        for(let i=0; i<this.props.tracks.length; i++){
-            if(flag || this.props.tracks[i].id === id){
+        for (let i = 0; i < this.props.tracks.length; i++) {
+            if (flag || this.props.tracks[i].id === id) {
                 flag = true
                 queue.push(this.props.tracks[i])
             }
@@ -84,56 +84,57 @@ class SongList extends Component{
      * otherwise, it calls handleQueue
      * @param {sttring} id the id of the calling song 
      */
-    handlePlay(id){
+    handlePlay(id) {
         let playingId;
-        axios.get('http://localhost:3000/player/currently-playing')
-        .then((response)=>{
-            playingId = response.data.item.id
-        })
-        .catch((error)=> {
-            console.log(error);
-        });
-        if(id === playingId){
-            this.setState({playing:!this.state.playing})
-            if(this.state.playing === true){
+        axios.get('http://localhost:2022/player/currently-playing')
+            .then((response) => {
+                playingId = response.data.item.id
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        if (id === playingId) {
+            this.setState({ playing: !this.state.playing })
+            if (this.state.playing === true) {
                 this.props.play()
             }
-            else{
+            else {
                 this.props.pause()
             }
-        
+
         }
-        else{
+        else {
             this.handleQueue(id)
         }
-        
+
     }
 
-    render(){
-    return(
-        <div data-testid="songsList" className='col-xs-8 col-md-6 col-lg-8 col-xl-8'>
-            {this.props.recieved?
-                this.props.tracks.map((track) => {
-                    return(
-                     <Song data-testid='songElement'
-                     key = {track.id} track={track}
-                     clickedId = {this.state.clickedItemId} 
-                     handleClick={this.handleClick}
-                     handlePlay = {this.handlePlay}    
-                     />);})
-                :<h1 data-testid='loading'>LOADING ...</h1>
-            }
-                
-        </div>
-    );
-        }
+    render() {
+        return (
+            <div data-testid="songsList" className='col-xs-8 col-md-6 col-lg-8 col-xl-8'>
+                {this.props.recieved ?
+                    this.props.tracks.map((track) => {
+                        return (
+                            <Song data-testid='songElement'
+                                key={track.id} track={track}
+                                clickedId={this.state.clickedItemId}
+                                handleClick={this.handleClick}
+                                handlePlay={this.handlePlay}
+                            />);
+                    })
+                    : <h1 data-testid='loading'>LOADING ...</h1>
+                }
+
+            </div>
+        );
+    }
 }
-SongList.propTypes={
-    recieved : PropTypes.bool,
-    tracks : PropTypes.array,
-    pause : PropTypes.func,
-    resume : PropTypes.func,
-    addToQueue : PropTypes.func,
-    clickedItemId : PropTypes.string
+SongList.propTypes = {
+    recieved: PropTypes.bool,
+    tracks: PropTypes.array,
+    pause: PropTypes.func,
+    resume: PropTypes.func,
+    addToQueue: PropTypes.func,
+    clickedItemId: PropTypes.string
 }
 export default SongList;
