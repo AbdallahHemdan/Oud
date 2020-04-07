@@ -1,19 +1,69 @@
 .song{  
     height:64px;
-    width: 100%;
+    width:100%;
+    min-width: 450px;
     padding: 9px 0px;  
     border: none;
     background-color: transparent;
+}
+@media screen and (min-width: 1430px) {
+    .song {
+        min-width: 950px;
+    }
+}
+
+@media screen and (min-width: 1350px) and (max-width: 1430px){
+    .song {
+        min-width: 880px;
+    }
+}
+
+@media screen and (min-width: 1250px) and (max-width: 1350px){
+    .song {
+        min-width: 780px;
+    }
+}
+@media screen and (min-width: 1200px) and (max-width: 1250px){
+    .song {
+        min-width: 720px;
+    }
+}
+@media screen and (min-width:992px) and (max-width: 1200px){
+    .song {
+        min-width: 550px;
+    }
+}
+@media screen and (min-width:900px) and (max-width: 992px){
+    .song {
+        min-width: 670px;
+    }
+}
+@media screen and (min-width:800px) and (max-width: 900px){
+    .song {
+        min-width: 580px;
+    }
 }
 #song:focus{
     background-color: rgba(50,60,60, .5);
     border: none;
     outline: none;
 }
+.hovered{
+    background-color: rgba(50,60,60, .5);
+
+}
 #song:hover{
     background-color: rgba(50,60,60, .5);
 }
-
+.goldText{
+    color: #F9B835;
+}
+.hide{
+    display: none;
+}
+.block{
+    display: block;
+}
 .songInfo{
     text-align: left;
 }

@@ -2188,244 +2188,560 @@
           "audioUrl": "www.facebook.com"
         }
       ]
+    },
+    {
+      "name": "",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "jiyVgQx"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "DgzqHNc"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "VStfhC4"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "gV0TVvR"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "uhiz53t"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "1nWOMiK"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "eFs5yHC"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "XnoUCA4"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "L6GXfCp"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "vJrXlK7"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "5RkIxDc"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "93GDxL9"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "NxAKTmI"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "ASMKHmZ"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "3g7jOT2"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "QNZLOol"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "5ylPP_O"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "vEPUamA"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "Yojgykk"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "sPGrCAy"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "jV6Os6J"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "qv3ymVQ"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "zoVA5qO"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "-nRkO7A"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "2pSE57G"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "QypTlfw"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "rtiTOKQ"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "aHZggYs"
+    },
+    {
+      "name": "Hello, World",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "E1d2ZzA"
     }
   ],
   "queue": {
     "tracks": [
       {
-        "id": "22",
-        "name": "سلاح التلميذ",
+        "id": "3",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "23",
-        "name": "سلاح التلميذ",
+        "id": "4",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "25",
-        "name": "سلاح التلميذ",
+        "id": "5",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "26",
-        "name": "سلاح التلميذ",
+        "id": "6",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "27",
-        "name": "سلاح التلميذ",
+        "id": "7",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "28",
-        "name": "سلاح التلميذ",
+        "id": "8",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "29",
-        "name": "سلاح التلميذ",
+        "id": "9",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "30",
-        "name": "سلاح التلميذ",
+        "id": "10",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "31",
-        "name": "سلاح التلميذ",
+        "id": "11",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "32",
-        "name": "سلاح التلميذ",
+        "id": "12",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "33",
-        "name": "سلاح التلميذ",
+        "id": "13",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "34",
-        "name": "سلاح التلميذ",
+        "id": "14",
+        "name": "Hat Sogara",
+        "artists": [
+          {
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "15",
+        "name": "Hat Sogara",
+        "artists": [
+          {
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "16",
+        "name": "Hat Sogara",
+        "artists": [
+          {
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "17",
+        "name": "Hat Sogara",
+        "artists": [
+          {
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "18",
+        "name": "واحد وعشرين",
         "artists": [
           {
             "id": "3",
@@ -2445,7 +2761,7 @@
         "audioUrl": "www.facebook.com"
       }
     ],
-    "total": 12
+    "total": 16
   },
   "user": [
     {
@@ -2470,61 +2786,6 @@
     }
   ],
   "likedPlaylists": [
-    {
-      "id": "2",
-      "name": "Jazz",
-      "owner": "2",
-      "collaborative": true,
-      "description": "Best music I have ever listened to",
-      "followersCount": 100,
-      "image": "https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
-      "public": true,
-      "type": "trap",
-      "tracks": [
-        {
-          "id": "21",
-          "name": "إنسان",
-          "artists": [
-            {
-              "id": "5",
-              "name": "حمزة نمرة",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "22",
-          "name": "سلاح التلميذ",
-          "artists": [
-            {
-              "id": "3",
-              "name": "ًWegz el wench",
-              "type": "Trap",
-              "image": "string"
-            },
-            {
-              "id": "4",
-              "name": "Amr Diab",
-              "type": "farafeery",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Trap",
-          "audioUrl": "www.facebook.com"
-        }
-      ]
-    },
     {
       "id": "1",
       "name": "Jazz",

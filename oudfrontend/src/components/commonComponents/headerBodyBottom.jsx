@@ -20,8 +20,8 @@ import PropTypes from 'prop-types';
  */
 
 function HeaderBodyBottom(props) {
-    const { length, playClicked, likeClicked, liked, playing, releaseDate, recieved, album } = props;
-
+    const { length, playClicked, likeClicked, liked, playing, releaseDate, recieved, album, addToPlaylist} = props;
+    
     return (
         <div data-testid="HeaderBodyBottom" class='playlistHeaderBodyBottom'>
             <button onClick={playClicked} data-testid="playButton" className="playButton" variant="outline-success">
@@ -29,12 +29,15 @@ function HeaderBodyBottom(props) {
             </button>
 
             <button data-testid="likeIcon" className="likeIcon" onClick={likeClicked}>
-                {liked ? <i className="fa fa-heart"></i> : <i class="fa fa-heart"></i>} {/*font awseome icons*/}
+                {liked ? <i className="far fa-heart" ></i> : <i class="fa fa-heart"></i>}
             </button>
+            {album?<button className="likeIcon" onClick={addToPlaylist}>
+                <i class="fa fa-plus"></i>
+            </button>:<span></span>}
             <p>
                 <span data-testid="releaseDate" className="gray-text">
                     {recieved ? releaseDate.slice(0, 4) : ''}
-                    <h2 data-testid="separatingDot" style={{ display: "inline" }}>
+                    <h2 data-testid="separatingDot" className="inline">
                         {album ? '.' : ''}
                     </h2>
                 </span>

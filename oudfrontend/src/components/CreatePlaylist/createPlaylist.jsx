@@ -66,7 +66,7 @@ class CreatePlaylist extends Component {
     }
     render() {
         return (
-            <div style={this.state.display ? {} : { display: "none" }} className="createPlaylist">
+            <div className={this.state.display ? "createPlaylist" : "createPlaylist hide"}>
                 <button onClick={this.close.bind(this)} className='closeButton'>
                     <svg width='32' height='32' xmlns="http://www.w3.org/2000/svg">
                         <title>close</title>

@@ -108,7 +108,6 @@ class SongList extends Component {
         }
 
     }
-
     render() {
         return (
             <div data-testid="songsList" className='col-xs-8 col-md-6 col-lg-8 col-xl-8'>
@@ -120,6 +119,7 @@ class SongList extends Component {
                                 clickedId={this.state.clickedItemId}
                                 handleClick={this.handleClick}
                                 handlePlay={this.handlePlay}
+                                addToPlaylist = {()=>this.props.addToPlaylist()}
                             />);
                     })
                     : <h1 data-testid='loading'>LOADING ...</h1>
