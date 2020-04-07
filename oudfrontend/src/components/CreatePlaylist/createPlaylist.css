@@ -1,0 +1,49 @@
+.createPlaylist{
+    background-color: rgba(0, 0, 0, 1);
+    min-height: 750px;
+    color: #fff;
+    text-align: center;
+    padding: 37px 0px;
+    z-index: 1;
+    width:100%;
+}
+
+.closeButton{
+    background-color: transparent;
+    text-align: center;
+    border: transparent;
+    padding: 8px 20%;
+}
+#createPlaylistTitle{
+    font-weight: bold;
+    margin: 16px 0px;
+    line-height: 56px;
+    font-size: 48px;
+}
+#createPlaylistBigField{
+    width: 100%;
+    padding: 0 20%;
+    background-color: #282828;
+    min-height: 148px;
+    margin-bottom: 28px;
+}
+#createPlaylistContainer{
+    padding: 32px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: .015em;
+    font-weight: bold;
+    caret-color: #1db954
+}
+#cretePLaylistName{
+    font-size: 48px;
+    line-height: 56px;
+    width:100%;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    height: 65px;
+    font-weight: bold;
+}
+

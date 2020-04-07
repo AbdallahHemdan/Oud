@@ -1,0 +1,80 @@
+.followCard {
+  height: 120px;
+  padding: 20px 30px;
+  border-bottom: 1.2px solid hsla(0, 0%, 100%, 0.05);
+  display: flex;
+  flex-flow: row nowrap;
+}
+.followCard a {
+  transition: 0.5s;
+}
+.userImg-followCard {
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin-right: 15px;
+  border-radius: 50%;
+}
+.followCard-content {
+  margin-top: 12px;
+  width: 80%;
+}
+.userName-followCard {
+  margin-top: 10px;
+  color: #ffffff;
+}
+.followCard-content a:hover {
+  color: #ffce00;
+}
+.folloewersCounter-followCard {
+  color: #666565;
+  font-size: 12px;
+  padding-top: 10px;
+}
+.followingCardButton {
+  background-color: transparent;
+  color: #f9b835;
+  border-radius: 28px;
+  font-weight: 700;
+  font-size: 12px;
+  width: 130px;
+  margin: 20px 0 10px;
+  padding: 5px;
+  align-self: flex-end;
+  transition: transform 0.2s;
+  align-self: flex-end;
+}
+
+.followingCardButton:hover {
+  transform: scale(1.05);
+  background-color: transparent;
+  color: #f9b835;
+}
+.followingCardButton:active,
+.followingCardButton:focus {
+  background-color: transparent;
+  color: #f9b835;
+}
+.followCardButton {
+  background-color: transparent;
+  color: #ffffff;
+  border-radius: 28px;
+  font-weight: 700;
+  font-size: 12px;
+  width: 130px;
+  margin: 20px 0 10px;
+  padding: 5px;
+  align-self: flex-end;
+  transition: transform 0.2s;
+  align-self: flex-end;
+}
+.followCardButton:hover {
+  transform: scale(1.05);
+  background-color: transparent;
+  color: #ffffff;
+}
+.followCardButton:active,
+.followCardButton:focus {
+  background-color: transparent;
+  color: #ffffff;
+}
