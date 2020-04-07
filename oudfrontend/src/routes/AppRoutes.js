@@ -1,42 +1,49 @@
-import React, {Component} from 'react';
-import {Router, Route} from 'react-router';
+import React from 'react';
+import {Route} from 'react-router';
 import createHistory from 'history/createBrowserHistory';
-import Navbar from '../components/welcome_false/Navbar/Navbar.js';
-import Footer from '../components/welcome_false/Footer/Footer';
-import Body from '../components/welcome_false/Body/Body.js';
-import Navbar2 from '../components/welcome_true/Navbar/Navbar';
-import Body2 from '../components/welcome_true/Body/Body.js';
-import Items2 from '../components/welcome_true/item/MusicCard.js';
-import Footer2 from '../components/welcome_true/Footer/Footer';
-class AppRoute extends Component {
-  render() {
-    const history = createHistory();
-    return (
-      <Router history={history}>
-        <Route
-          path="/"
-          render={(props) => (
-            <div>
-              <Navbar guest={false} />
-              <Body />
-              <Footer />
-            </div>
-          )}
-        />
-        {/* <Route
-          path="/HomePageUser"
-          render={(props) => (
-            <div>
-              <Navbar2 />
-              <Body2 />
-              <Items2 />
-              <Footer2 />
-            </div>
-          )}
-        ></Route> */}
-      </Router>
-    );
-  }
+
+import WelcomeUser from '../pages/welcomeUser';
+import WelcomeGuest from '../pages/welcomeGuest';
+/**dummy imports will change in integration  */
+import Login from '../pages/login';
+import SignUP from '../pages/SignUp';
+import Download from '../pages/download';
+import Help from '../pages/help';
+import Premium from '../pages/premium';
+import Overview from '../pages/OverView';
+function AppRoute() {
+  // const history = require('history').createBrowserHistory;
+  return (
+    <React.Fragment>
+      <Route exact path="/welcomeUser">
+        <WelcomeUser />
+      </Route>
+      <Route path="/welcomeGuest">
+        <WelcomeGuest />
+      </Route>
+      <Route path="/Login">
+        <Login />
+      </Route>
+      <Route path="/SignUP">
+        <SignUP />
+      </Route>
+      <Route path="/download">
+        <Download />
+      </Route>
+      <Route path="/help">
+        <Help />
+      </Route>
+      <Route path="/premium">
+        <Premium />
+      </Route>
+      <Route path="/overview">
+        <Overview />
+      </Route>
+      <Route path="/webPlayer">
+        <SignUP />
+      </Route>
+    </React.Fragment>
+  );
 }
 
 export default AppRoute;

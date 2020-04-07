@@ -24,14 +24,16 @@ class Body extends Component {
           alt="background"
           data-testid="background"
         ></img>
-        <div className="welcomeText">
+        <div className="welcomeTextGeust">
           <h1 data-testid="firstText">Music for everyone.</h1>
           <h6 data-testid="secText">
             Millions of songs. No credit card needed.
           </h6>
-          <button className="getOudBtn" data-testid="getOudBtn">
-            Get Oud Free
-          </button>
+          <Link to="/SignUP">
+            <button className="getOudBtn" data-testid="getOudBtn">
+              Get Oud Free
+            </button>
+          </Link>
         </div>
       </div>
     );

@@ -1,6 +1,11 @@
-.oud-logo {
-  margin-left: 5vw;
+img.img-responsive.oud-logo {
+  margin-left: 0;
+  margin-right: 20px;
   max-width: 30%;
+}
+
+.navbar-brand {
+  text-align: left;
 }
 
 .oud-navbar {
@@ -20,4 +25,21 @@
   font-size: 25px;
   color: #a8a49e;
 
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #ffffff;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: goldenrod;
+}
+
+.navbar-expand-lg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  background-color: black;
 }

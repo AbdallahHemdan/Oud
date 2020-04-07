@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import logo from '../../../assets/images/Logo.png';
 import './Footer.css';
-import FooterRouter from '../../../routes/FooterRouter';
+
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFacebook} from '@fortawesome/free-brands-svg-icons';
 import {faTwitter} from '@fortawesome/free-brands-svg-icons';
@@ -22,12 +22,12 @@ function Footer() {
             <div className="row">
               {/* Column 1 */}
               <div className="col-md-3 col-sm-6" data-testid="logoImage">
-                <Link to="/">
+                <Link to="/welcomeGuest">
                   <img className="img-responsiveF" src={logo} alt="Oud logo" />
                 </Link>
               </div>
               {/* Column 2 */}
-              <div className="col-md-3 col-sm-6">
+              <div className="col-md-3 col-sm-6 ">
                 <h5
                   data-testid="Company"
                   className="font-weight-bold text-uppercase mt-3 mb-4"
@@ -141,7 +141,7 @@ function Footer() {
       </footer>
 
       <div>
-        <FooterRouter />
+       
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React, {Fragment, useState, Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Back from '../../../assets/images/2685063.jpg';
 import './Body.css';
-import MusicCard from '../item/MusicCard';
+import SignUP from '../../../pages/SignUp';
 /**
  * @class Body
  * the body class
@@ -10,8 +10,33 @@ import MusicCard from '../item/MusicCard';
 class Body extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {redirect1: false, redirect2: false};
   }
+  setRedirect1 = () => {
+    this.setState({
+      redirect1: true,
+    });
+  };
+  setRedirect2 = () => {
+    this.setState({
+      redirect2: true,
+    });
+  };
+  /**
+   * this is the function that have the path of the page that i want to go
+   * @function
+   * @returns {void}
+   */
+  toSignUP = () => {
+    if (this.state.redirect1) {
+      return <Redirect to="/SignUP"></Redirect>;
+    }
+  };
+  towebplayer = () => {
+    if (this.state.redirect2) {
+      return <Redirect to="/webPlayer"></Redirect>;
+    }
+  };
   /**
    * @function
    * @returns {JSX}
@@ -25,22 +50,33 @@ class Body extends Component {
           className="backGround"
           alt="background"
         ></img>
-        <div className="welcomeText">
+        <div className="welcomeTextUser">
           <h1 data-testid="firstText">Music for everyone.</h1>
           <h6 data-testid="secText">
             Millions of songs. No credit card needed.
           </h6>
-          <button className="getOudBtn" data-testid="getOudBtn">
-            Get Oud Free
-          </button>
+          {this.redirect1 ? this.toSignUP() : null}
+          <Link to="/premium">
+            <button className="getOudBtn" data-testid="getOudBtn">
+              Get Oud Premium
+            </button>
+          </Link>
         </div>
         <div className="container">
           <div className="bottom">
             <h1>Looking for music?</h1>
             <h5>Start listening to the best new releases.</h5>
-            <button data-testid="getOudBtn2" className="getOudBtn2">
-              LAUNCH WEB PLAYER
-            </button>
+            {this.redirect2 ? this.towebplayer() : null}
+            <Link to="webPlayer">
+              {' '}
+              <button
+                data-testid="getOudBtn2"
+                className="getOudBtn2"
+                onClick={this.setRedirect2}
+              >
+                LAUNCH WEB PLAYER
+              </button>
+            </Link>
           </div>
         </div>
       </div>

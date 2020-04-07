@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import {Link, NavLink} from 'react-router-dom';
-import NavbarRouter from '../../../routes/NavbarRouter';
+// import NavbarRouter from '../../../routes/NavbarRouter';
 import logo from '../../../assets/images/Logo.png';
 import mask from '../../../assets/images/mask.png';
 import './Navbar.css';
@@ -42,13 +42,13 @@ class Navbar extends React.Component {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-custom">
-          <Link to="/" className="navbar-brand">
+          <Link to="/welcomeUser" className="navbar-brand">
             <img
               className="img-responsive oud-logo"
               src={logo}
               alt="Oud logo"
               data-testid="oudlogo"
-              to="/"
+              to="/welcomeUser"
             />
           </Link>
           <button
@@ -113,7 +113,7 @@ class Navbar extends React.Component {
                   </Link>
                   <Link
                     data-testid="LogOut"
-                    to="/logout"
+                    to="/welcomeGuest"
                     class="dropdown-item"
                     onClick={() => this.doLogOut()}
                   >
@@ -124,9 +124,7 @@ class Navbar extends React.Component {
             </ul>
           </div>
         </nav>
-        <div>
-          <NavbarRouter />
-        </div>
+        <div>{/* <NavbarRouter /> */}</div>
       </div>
     );
   }

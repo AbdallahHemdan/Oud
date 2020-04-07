@@ -20,3 +20,7 @@ ul li a:hover {
 .img-responsiveF {
   max-width: 80%;
 }
+
+.list-unstyled :hover {
+  color: goldenrod;
+}

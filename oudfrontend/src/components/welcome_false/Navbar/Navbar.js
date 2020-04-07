@@ -1,8 +1,7 @@
 import React, {Fragment} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import NavbarRouter from '../../../routes/NavbarRouter';
+// import NavbarRouter from '../../../routes/NavbarRouter';
 import logo from '../../../assets/images/Logo.png';
-import mask from '../../../assets/images/mask.png';
 import './Navbar.css';
 /**nav bar if the user is not logged in */
 class Navbar extends React.Component {
@@ -20,7 +19,7 @@ class Navbar extends React.Component {
   };
   toUserHomepage = () => {
     if (this.state.redirect) {
-      return <Redirect to="/HomePageUser" />;
+      return <Redirect to="/welcomeUser" />;
     }
   };
   /**
@@ -53,7 +52,7 @@ class Navbar extends React.Component {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-custom">
-          <Link to="/" className="navbar-brand">
+          <Link to="/welcomeGuest" className="navbar-brand">
             <img
               className="img-responsive oud-logo"
               src={logo}
@@ -106,6 +105,7 @@ class Navbar extends React.Component {
                   data-testid="Login"
                   onClick={this.setRedirect}
                   className="nav-link"
+                  to="/welcomeUser"
                 >
                   Login
                 </Link>
@@ -113,9 +113,7 @@ class Navbar extends React.Component {
             </ul>
           </div>
         </nav>
-        <div>
-          <NavbarRouter />
-        </div>
+        <div>{/* <NavbarRouter /> */}</div>
       </div>
     );
   }
