@@ -79,7 +79,7 @@ a:hover {
   margin: 0 auto;
   position: relative;
   top: 30%;
-  background: transparent !important;
+  background: transparent;
   border: none;
 }
 .play-btn:hover {
