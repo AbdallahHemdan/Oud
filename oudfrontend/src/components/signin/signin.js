@@ -4,37 +4,8 @@ import {Link, Redirect} from 'react-router-dom';
 import MainBrand from './MainBrand';
 import SocialIcons from './SocialIcons';
 import axios from 'axios';
-/**
- * the password validation
- * (check if the password is valid)
- * @function
- * @param {String} Password -user password
- * @returns {boolean} - returns if the password is valid
- * */
-function checkPassword(Password) {
-  let [isUppercase, isLowercase, isSpecialChar, isNumber] = [
-    false,
-    false,
-    false,
-    false,
-  ];
-  let str = Password + '0';
-  let patt1 = /[0-9]/g;
-  isNumber = str.match(patt1).length > 1;
-
-  patt1 = /[!@#$%^&*(),.?":{}_|<>]/g;
-  str = Password + '@';
-  isSpecialChar = str.match(patt1).length > 1;
-
-  for (let i = 0; i < Password.length; i++) {
-    if (Password[i] === Password[i].toUpperCase()) {
-      isUppercase = true;
-    } else if (Password[i] === Password[i].toLowerCase()) {
-      isLowercase = true;
-    }
-  }
-  return isSpecialChar || (isNumber && isUppercase && isLowercase);
-}
+import Validator from '../signup/validate';
+import {token} from '../../utils/auth';
 /**the sign up section  */
 class SignIn extends Component {
   constructor(props) {
@@ -62,14 +33,7 @@ class SignIn extends Component {
    */
   EmailHandel = (event) => {
     this.setState({email: event.target.value});
-    const emailRegex = RegExp(
-      /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
-    );
-    let formErrors = {...this.state.formErrors};
-    formErrors.EmailError = emailRegex.test(event.target.value)
-      ? ''
-      : 'invalid email address';
-    this.setState({formErrors});
+    Validator.validateEmail(event.target.value, this);
   };
   /**
    * this function is for the show password button that check if i want it to be
@@ -100,36 +64,13 @@ class SignIn extends Component {
    *  */
   PasswordHandel = (event) => {
     this.setState({password: event.target.value});
-    if (this.state.password.length < 8) {
-      this.setState({
-        formErrors: {
-          PasswordError: 'minimum 8 characaters required',
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
-    } else if (this.state.password.length > 30) {
-      this.setState({
-        formErrors: {
-          PasswordError: 'maximum 30 characaters',
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
-    } else if (!checkPassword(this.state.password)) {
-      this.setState({
-        formErrors: {
-          PasswordError:
-            'Password should contain uppercase,lowercase and a number ',
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
-    } else {
-      this.setState({
-        formErrors: {
-          PasswordError: '',
-          EmailError: this.state.formErrors.EmailError,
-        },
-      });
-    }
+    Validator.validatePassword(event.target.value, this);
+  };
+  validateAll = () => {
+    let valid = true;
+    valid &= Validator.validateEmail(this.state.email, this);
+    valid &= Validator.validatePassword(this.state.password, this);
+    return valid;
   };
   /**
    * on submit send the email and password to back end to check it on the db
@@ -139,17 +80,38 @@ class SignIn extends Component {
    *   */
   handelSubmit = (e) => {
     e.preventDefault();
+    console.log('tokeeen', token);
+
+    let errorMassage = '';
     let tosent = {
       email: this.state.email,
       password: this.state.password,
     };
     console.log(this.checkPassword ? true : false);
-    if (checkPassword(this.state.password)) {
+    if (this.validateAll()) {
       axios
-        .post(`${process.env.REACT_APP_API_URL}/login`, tosent)
-        .then((res) => {
-          console.log(res);
-          console.log(res.data);
+        .post('http://oud-zerobase.me/api/v1/users/login', tosent)
+        .then((response) => {
+          if (response.status === 200) {
+            /**redirect to home  * ****************************************************************************************************/
+            const authToken = response.data.token;
+            localStorage.setItem('accessToken', authToken);
+            console.log('local', localStorage.getItem('accessToken'));
+
+            console.log('token', authToken);
+            console.log(response);
+            /**redirect to home */
+          } else if (response.status === 400) {
+            errorMassage = response.massage;
+          } else if (response.status === 429) {
+            /**Unauthorized */
+            errorMassage = response.massage;
+          }
+          this.setState((prevState) => {
+            prevState.formErrors.mainError = errorMassage;
+            return prevState;
+          });
+          console.log(response);
         })
         .catch((error) => {
           console.log(error);
@@ -175,12 +137,12 @@ class SignIn extends Component {
    */
   render() {
     return (
-      <div className="container main-center LoginPage">
+      <div className="container main-center LoginPage ">
         <MainBrand />
         <section className="social-form">
           <SocialIcons />
           <section className="main-form container LoginForm">
-            <form onSubmit={this.handelSubmit}>
+            <form onSubmit={this.handelSubmit} noValidate>
               <div className="form-group sm-8">
                 <input
                   required

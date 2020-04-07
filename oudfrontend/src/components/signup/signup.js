@@ -67,7 +67,7 @@ class Signup extends Component {
    *  */
   PasswordHandel = (event) => {
     this.setState({Password: event.target.value});
-    Validator.validatePassword(this.state.Password, this);
+    Validator.validatePassword(event.target.value, this);
   };
   /**
    * Password Validation
@@ -137,7 +137,13 @@ class Signup extends Component {
   handelSubmit = (e) => {
     // It prevents a submit button from submitting a form
     e.preventDefault();
-    let birth = this.state.year + '-' + this.state.month + '-' + this.state.day;
+    let birth =
+      this.state.year +
+      '-' +
+      this.state.month +
+      '-' +
+      (this.state.day.length == 1 ? '0' : '') +
+      this.state.day;
     let gen;
     if (this.state.gender === '1') {
       gen = 'M';
@@ -166,24 +172,24 @@ class Signup extends Component {
       axios
         .post('http://oud-zerobase.me/api/v1/users/signUp', toSent)
         .then((response) => {
-          if (this.status === 200) {
+          if (response.status === 200) {
             /**redirect to home  * ****************************************************************************************************/
-            const authToken = response.token;
+            const authToken = response.data.token;
             localStorage.setItem('accessToken', authToken);
-            console.log('token', response.token);
+            console.log('token', authToken);
+            console.log(response);
             /**redirect to home */
-          } else if (this.status === 400) {
-            errorMassage = this.statusText;
-          } else if (this.status === 401) {
+          } else if (response.status === 400) {
+            errorMassage = response.statusText;
+          } else if (response.status === 401) {
             /**Unauthorized */
-            errorMassage = this.statusText;
+            errorMassage = response.statusText;
           }
           this.setState((prevState) => {
             prevState.formErrors.mainError = errorMassage;
             return prevState;
           });
         })
-
         .catch((error) => {
           console.log(error.response);
         });

@@ -11,6 +11,15 @@
   height: 48px;
 }
 
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  background-color: black;
+}
+
 .google_button:hover {
   background-color: #7aa6ec;
   border: 2px solid #7aa6ec;
@@ -85,8 +94,12 @@ hr {
   /* margin-bottom: -5px; */
 }
 
-.Oud {
-  padding-top: 20px;
+.OudImage {
+  width: 13%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  align-items: center;
 }
 
 .navBrand:hover {

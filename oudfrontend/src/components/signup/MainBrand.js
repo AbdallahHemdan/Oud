@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import Oud from '../../assets/images/Oud2.png';
+import Oud from '../../assets/images/Logo.png';
 /** header class of the sign up */
 class MainBrand extends Component {
   /**
@@ -11,19 +11,14 @@ class MainBrand extends Component {
   render() {
     return (
       <section className="main-brand mainBrand">
-        <Link className="navbar-brand navBrand" to="/">
-          <span>
-            <img
-              id="OudImage"
-              data-testid="OudImage"
-              src={Oud}
-              className="d-inline-block align-top"
-              alt="logo imag"
-            />
-            <p className="Oud" data-testid="Oud">
-              Oud
-            </p>
-          </span>
+        <Link className="navbar navbar-dark bg-dark bar" to="/">
+          <img
+            id="OudImage"
+            data-testid="OudImage"
+            src={Oud}
+            className="d-inline-block align-top OudImage"
+            alt="logo imag"
+          />
         </Link>
       </section>
     );

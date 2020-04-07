@@ -3,6 +3,7 @@ import './forgetPass.css';
 import MainBrand from './MainBrand';
 import axios from 'axios';
 import validator from '../signup/validate';
+import {Redirect} from 'react-router';
 /** the forget password section  */
 class ForgotPassword extends Component {
   constructor(props) {
@@ -26,13 +27,22 @@ class ForgotPassword extends Component {
     let toSend = {
       email: this.state.email,
     };
-
+    let errorMassage = '';
     console.log(this.EmailHandel);
     if (this.state.formErrors.EmailError === '' && this.validation()) {
       axios
-        .post(`${process.env.REACT_APP_API_URL}/ForgottenPasswords`, toSend)
+        .post('http://oud-zerobase.me/api/v1/users/forgotPassword', toSend)
         .then((res) => {
+          if (res.status === 200) {
+            return <Redirect to="/code"></Redirect>;
+          } else if (res.status === 404) {
+            errorMassage = res.massage;
+          }
           console.log(res);
+          this.setState((prevstate) => {
+            prevstate.formErrors.EmailError = errorMassage;
+            return prevstate;
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -78,7 +88,7 @@ class ForgotPassword extends Component {
    */
   render() {
     return (
-      <div className="container main-center">
+      <div className="container main-center forgetForm">
         <MainBrand />
         <section className="social-form">
           <h2 className="pass-reset">Password Reset</h2>

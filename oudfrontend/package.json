@@ -14,6 +14,7 @@
     "jest-dom": "^4.0.0",
     "jest-enzyme": "^7.1.2",
     "json-server": "^0.16.1",
+    "jwt-decode": "^2.2.0",
     "postcss-preset-env": "^6.7.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

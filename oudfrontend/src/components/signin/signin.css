@@ -20,6 +20,23 @@
   background-color: #ffca60;
 }
 
+.OudImage {
+  width: 13%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  align-items: center;
+}
+
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  background-color: black;
+}
+
 .signUpBtn:hover {
   background-color: #ffca60;
 }
