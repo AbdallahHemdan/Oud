@@ -1,21 +1,24 @@
-import React from 'react';
+import React from "react";
 //import logo from './logo.svg';
-import './App.css';
-import Playlist from './components/Playlist/playlist';
-import LikedSongs from './components/likedSongs/likedSongs';
-import Album from './components/album/album'
-import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
+import "./App.css";
+import Playlist from "./components/Playlist/playlist";
+import LikedSongs from "./components/likedSongs/likedSongs";
+import Album from "./components/album/album";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams,
+} from "react-router-dom";
 
 import Search from "./pages/Search/Search";
 import Account from "./pages/Account/Account";
 import RedirectPage from "./components/Account/General/RedirectPage";
 import Profile from "./pages/Profile/Profile";
-
+import WebPlayer from "./components/WebPlayer/WebPlayer";
 import Home from "./pages/Home/Home";
 
-
 function App() {
-
   return (
     <Router>
       <div className="App">
@@ -33,7 +36,7 @@ function App() {
             <PlaylistRender />
           </Route>
 
-          <Route path='/likedSongs/'>
+          <Route path="/likedSongs/">
             <LikedSongs />
           </Route>
 
@@ -41,8 +44,8 @@ function App() {
             <AlbumRender />
           </Route>
         </Switch>
+        <WebPlayer />
       </div>
-
     </Router>
   );
 }
@@ -51,13 +54,9 @@ export default App;
 
 function PlaylistRender() {
   let id = useParams();
-  return (
-    <Playlist id={id} />
-  );
+  return <Playlist id={id} />;
 }
 function AlbumRender() {
   let id = useParams().id;
-  return (
-    <Album id={id} />
-  );
+  return <Album id={id} />;
 }

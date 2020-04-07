@@ -4,7 +4,7 @@ import "./App.css";
 import Playlist from "./components/Playlist/playlist";
 import LikedSongs from "./components/likedSongs/likedSongs";
 import Album from "./components/album/album";
-import WebPlayer from "./components/WebPlayer/WebPlayer";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -45,7 +45,6 @@ function App() {
             <AlbumRender />
           </Route>
         </Switch>
-        <WebPlayer />
       </div>
     </Router>
   );
