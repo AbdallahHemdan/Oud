@@ -1,0 +1,20 @@
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.main-content {
+  margin-left: 16em;
+  margin-top: 5em;
+}
+.bg-dark {
+  background-color: #161618 !important;
+}
+
+.module {
+  margin-top: 10px;
+}
+.toto {
+  width: 100%;
+  font-size: 30px;
+}
