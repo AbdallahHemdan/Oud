@@ -74,7 +74,7 @@ class Player extends Component {
   fetchPlayback = () => {
     console.log("fetchPlayback");
     this.props
-      .getRequest("http://localhost:3000/me/player")
+      .getRequest("http://localhost:2022/me/player")
       .then((response) => {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
@@ -170,7 +170,7 @@ class Player extends Component {
   pause = () => {
     this.props
       .putRequest(
-        "http://localhost:3000/me/player/pause?deviceId=" + this.props.deviceId
+        "http://localhost:2022/me/player/pause?deviceId=" + this.props.deviceId
       )
       .then((resp) => {
         this.state.sound.pause();
@@ -189,7 +189,7 @@ class Player extends Component {
    */
   playResumeRequest = (idx) => {
     return this.props.putRequest(
-      "http://localhost:3000/me/player/play?deviceId=" +
+      "http://localhost:2022/me/player/play?deviceId=" +
         this.props.deviceId +
         "&queueIndex=0",
       { offset: { position: idx } }
@@ -290,7 +290,7 @@ class Player extends Component {
   handleNext = () => {
     this.props
       .postRequest(
-        "http://localhost:3000/me/player/next?deviceId=" + this.props.deviceId
+        "http://localhost:2022/me/player/next?deviceId=" + this.props.deviceId
       )
       .then((response) => {
         this.props
@@ -329,7 +329,7 @@ class Player extends Component {
   handlePrev = () => {
     this.props
       .postRequest(
-        "http://localhost:3000/me/player/previous?deviceId=" +
+        "http://localhost:2022/me/player/previous?deviceId=" +
           this.props.deviceId
       )
       .then((response) => {
@@ -377,7 +377,7 @@ class Player extends Component {
 
     this.props
       .putRequest(
-        "http://localhost:3000/me/player/seek?deviceId=" + this.props.deviceId
+        "http://localhost:2022/me/player/seek?deviceId=" + this.props.deviceId
       )
       .then((response) => {
         this.state.sound.seek(position);
@@ -410,7 +410,7 @@ class Player extends Component {
   handleShuffleState = () => {
     this.props
       .putRequest(
-        "http://localhost:3000/me/player/shuffle?deviceId=" +
+        "http://localhost:2022/me/player/shuffle?deviceId=" +
           this.props.deviceId
       )
       .then((response) => {
@@ -434,7 +434,7 @@ class Player extends Component {
   handleRepeatState = () => {
     this.props
       .putRequest(
-        "http://localhost:3000/me/player/repeat?deviceId=" + this.props.deviceId
+        "http://localhost:2022/me/player/repeat?deviceId=" + this.props.deviceId
       )
       .then((response) => {
         const loop = !this.state.repeatState;
@@ -451,7 +451,7 @@ class Player extends Component {
 
   volumeRequest = (volumePercent = this.state.volume) => {
     return this.props.putRequest(
-      "http://localhost:3000/me/player/volume?deviceId=" + this.props.deviceId
+      "http://localhost:2022/me/player/volume?deviceId=" + this.props.deviceId
     );
     //+"&volumePercent=" + volumePercent
   };

@@ -83,7 +83,7 @@ class WebPlayer extends Component {
    * @returns {void}
    */
   fetchQueue = (queueIndex = "0", trackId = "") => {
-    this.getRequest("http://localhost:3000/me/queue?queueIndex=" + queueIndex)
+    this.getRequest("http://localhost:2022/me/queue?queueIndex=" + queueIndex)
       .then((response) => {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
@@ -123,7 +123,7 @@ class WebPlayer extends Component {
     this.setState({
       trackIdx: trackIdx,
     });
-    return this.getRequest("http://localhost:3000/tracks/" + trackId);
+    return this.getRequest("http://localhost:2022/tracks/" + trackId);
   };
   /**
    * A function to fetch the next track to the currently playing track
@@ -168,7 +168,7 @@ class WebPlayer extends Component {
   };
   //the following two functions are to be replaced with Hemdan and Walid functions in integration, they are just dummy
   fetchAlbum = (id) => {
-    this.getRequest("http://localhost:3000/albums/" + id)
+    this.getRequest("http://localhost:2022/albums/" + id)
       .then((response) => {
         const tracks = response["data"]["tracks"]["items"];
         this.createQeueu(tracks);
@@ -178,7 +178,7 @@ class WebPlayer extends Component {
       });
   };
   fetchPlaylist = (id) => {
-    this.getRequest("http://localhost:3000/playlists/" + id)
+    this.getRequest("http://localhost:2022/playlists/" + id)
       .then((response) => {
         const tracks = response["data"]["tracks"]["items"];
         this.createQeueu(tracks);
@@ -226,7 +226,7 @@ class WebPlayer extends Component {
     position = 0
   ) => {
     this.putRequest(
-      "http://localhost:3000/me/player/play?deviceId=" +
+      "http://localhost:2022/me/player/play?deviceId=" +
         this.state.deviceId +
         "&queueIndex=0",
       {
@@ -265,7 +265,7 @@ class WebPlayer extends Component {
       trackIdx: newIdx,
     });
     // this.patchRequest(
-    //   "http://localhost:3000/me/queue?queueIndex=0&trackIndex=" +
+    //   "http://localhost:2022/me/queue?queueIndex=0&trackIndex=" +
     //     oldIdx +
     //     "&newIndex=" +
     //     newIdx
@@ -305,7 +305,7 @@ class WebPlayer extends Component {
     this.setState({
       queue: queue,
     });
-    // this.deleteRequest("http://localhost:3000/me/queue?trackId=" + id)
+    // this.deleteRequest("http://localhost:2022/me/queue?trackId=" + id)
     //   .then((response) => {
     //     console.log(response);
     //     let queue = this.state.queue;
@@ -322,10 +322,10 @@ class WebPlayer extends Component {
   addRemoveSavedSong = (status) => {
     status
       ? this.putRequest(
-          "http://localhost:3000/me/tracks?IDs=[" + this.state.trackId + "]"
+          "http://localhost:2022/me/tracks?IDs=[" + this.state.trackId + "]"
         )
       : this.deleteRequest(
-          "http://localhost:3000/me/tracks?IDs=[" + this.state.trackId + "]"
+          "http://localhost:2022/me/tracks?IDs=[" + this.state.trackId + "]"
         )
           .then((response) => {
             if (!response["data"].hasOwnProperty("status")) {
@@ -339,11 +339,11 @@ class WebPlayer extends Component {
           });
   };
   chekckSavedSong = (trackId) => {
-    this.getRequest("http://localhost:3000/me/tracks?ids=[" + trackId + "]")
+    this.getRequest("http://localhost:2022/me/tracks?ids=[" + trackId + "]")
       .then((response) => {
         console.log(
           "id from check: " +
-            "http://localhost:3000/me/tracks?ids=[" +
+            "http://localhost:2022/me/tracks?ids=[" +
             trackId +
             "]"
         );

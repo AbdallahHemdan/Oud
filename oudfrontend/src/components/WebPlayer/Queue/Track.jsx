@@ -42,7 +42,7 @@ class Track extends Component {
    */
   fetchTrackInfo = () => {
     axios
-      .get("http://localhost:3000/tracks/" + this.props.id)
+      .get("http://localhost:2022/tracks/" + this.props.id)
       .then((response) => {
         const track = response["data"];
         this.setState({
