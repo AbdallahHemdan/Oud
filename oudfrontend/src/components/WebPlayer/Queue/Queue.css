@@ -1,5 +1,5 @@
 .queue-container {
-  background-color: #818181;
+  background-color: black;
   bottom: 100px;
   position: fixed;
   z-index: 3;
@@ -9,7 +9,7 @@
   position: fixed;
   bottom: 99px;
   right: 0;
-  background-color: #383838;
+  background-color: black;
   /* background-color: rgba(0, 0, 0, 0.9); */
   overflow-y: scroll;
   overflow-x: hidden;
@@ -61,7 +61,7 @@
   top: 60px;
 }
 .track {
-  background: #383838;
+  background: black;
   width: 100%;
   z-index: 5;
   height: 4.56em;
@@ -74,7 +74,7 @@
   margin-bottom: 0.5em;
 }
 .track:hover {
-  background: black;
+  background: #292929;
 }
 
 .track-art-work {
@@ -204,7 +204,7 @@
   position: absolute;
   /* display: inline-block; */
   float: right;
-  right: 41em;
+  right: 30em;
   top: 0;
 }
 .dropdown-menu {
@@ -214,12 +214,12 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 5;
-  width: 27rem;
+  width: 20rem;
 }
 .menu .dropdown-menu .dropdown-btn {
   background: transparent;
   border: none;
-  font-size: 2em;
+  font-size: 1.5em;
   color: whitesmoke;
   width: 100%;
 }

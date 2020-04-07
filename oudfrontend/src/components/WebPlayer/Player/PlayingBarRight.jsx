@@ -8,6 +8,8 @@ import volume from "../../../assets/images/icons/volume.png";
 import volumeMuted from "../../../assets/images/icons/volume-mute.png";
 import queue from "../../../assets/images/icons/queue.png";
 import queueActivated from "../../../assets/images/icons/queueActivated.png";
+import love from "../../../assets/images/icons/love.png";
+import loved from "../../../assets/images/icons/loved.png";
 /**
  * Component for controling the right part of the player: shuffle, repeat, and mute buttons and clicking on the volume bar
  * @author Ahmed Ashraf
@@ -18,8 +20,18 @@ class PlayingBarRight extends Component {
     super(props);
     this.state = {
       queueOpened: false,
+      loved: false,
     };
   }
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   if (nextProps.loved !== prevState.loved) {
+  //     return {
+  //       loved: nextProps.loved,
+  //     };
+  //   }
+  //   return null;
+  // }
+
   openQueue = () => {
     if (this.state.queueOpened) {
       this.props.queueElement.current.closeQueue();
@@ -30,11 +42,42 @@ class PlayingBarRight extends Component {
       queueOpened: !this.state.queueOpened,
     });
   };
+  likeSong = () => {
+    this.setState({
+      loved: true,
+    });
+    this.props.addRemoveSavedSong(true);
+  };
+  unlikeSong = () => {
+    this.setState({
+      loved: false,
+    });
+    this.props.addRemoveSavedSong(false);
+  };
   render() {
     return (
       <Fragment>
         <div className="now-playing-bar-right">
           <div className="volume-bar">
+            {this.state.loved ? (
+              <button
+                className="control-button unlove"
+                title="Remove from your Liked Songs"
+                data-testid="remove-from-liked-songs"
+                onClick={this.unlikeSong}
+              >
+                <img src={loved} alt="Loved" />
+              </button>
+            ) : (
+              <button
+                className="control-button love"
+                title="Save to your Liked Songs"
+                data-testid="save-to-liked-songs"
+                onClick={this.likeSong}
+              >
+                <img src={love} alt="Love" />
+              </button>
+            )}
             <button
               className="control-button queue"
               title="Queue"
@@ -104,6 +147,10 @@ class PlayingBarRight extends Component {
 }
 
 PlayingBarRight.propTypes = {
+  /**
+   * The unique id of the track
+   */
+  trackId: PropTypes.string.isRequired,
   /**
    * Shuffle button state, enabled and disabled
    */

@@ -90,6 +90,9 @@ class Queue extends Component {
    */
   removeTrack = () => {
     this.props.removeTrack(this.state.trackIdx, this.state.trackId);
+    this.setState({
+      dropdown: "none",
+    });
   };
   render() {
     return (
@@ -165,7 +168,7 @@ Queue.propTypes = {
   /**
    * A reference to the player
    */
-  player: PropTypes.func.isRequired,
+  player: PropTypes.object.isRequired,
   /**
    * The playing state of the parent component
    */

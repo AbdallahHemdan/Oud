@@ -11,7 +11,7 @@
 }
 .now-playing-bar-container {
   width: 100%;
-  background-color: #383838;
+  background-color: black;
   bottom: 0;
   position: fixed;
   min-width: 620px;
@@ -207,11 +207,17 @@ button:focus {
   position: fixed;
   bottom: 99px;
   transition: 0.5s ease;
+  height: 35%;
+  width: 35%;
+  background-size: cover;
 }
 .thumb-img {
   position: relative;
   /* bottom: 99px; */
   max-width: 35%;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 .close-thumb {
   position: absolute;
@@ -241,14 +247,19 @@ button:focus {
   .ablum-link,
   .previous,
   .next,
-  .now-playing-bar-right {
+  .now-playing-bar-right,
+  .queue-container {
     display: none !important;
   }
-  .play {
+  .play,
+  .pause {
     float: left;
     position: absolute;
     left: 80%;
-    bottom: 59%;
+    bottom: 52%;
+    width: 3em;
+    height: 3em;
+    z-index: 6;
   }
   .now-playing-bar-center {
     width: 100%;

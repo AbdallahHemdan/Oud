@@ -41,6 +41,8 @@ class Player extends Component {
       thumbHeight: 0,
       thumbDisplay: "initial",
       art: "",
+      muteProgress: 0,
+      loved: false,
     };
   }
   /**
@@ -95,6 +97,7 @@ class Player extends Component {
             fetched: true,
             trackId: track["_id"],
             art: track["artists"][0]["image"],
+            loved: this.props.chekckSavedSong(track["_id"]),
           });
           this.props.changePlayingState(data["isPlaying"]);
           this.props.fetchQueue("0", track["_id"]);
@@ -465,6 +468,8 @@ class Player extends Component {
       .then((response) => {
         this.setState({
           muteState: mute,
+          muteProgress: mute ? this.state.volume : 0,
+          volume: mute ? 0 : this.state.muteProgress,
         });
         if (this.state.sound) this.state.sound.mute(mute);
         console.log(response);
@@ -583,7 +588,9 @@ class Player extends Component {
               repeatState={this.state.repeatState}
               volumeState={this.state.muteState}
               volume={this.state.volume}
+              trackId={this.state.trackId}
               queueElement={this.props.queueElement}
+              loved={this.state.loved}
               handleShuffleState={this.handleShuffleState}
               handleRepeatState={this.handleRepeatState}
               handleMuteState={this.handleMuteState}
@@ -598,6 +605,8 @@ class Player extends Component {
                   })
                 );
               }}
+              addRemoveSavedSong={this.props.addRemoveSavedSong}
+              chekckSavedSong={this.props.chekckSavedSong}
               data-testid="web-player-right"
             />
           </div>

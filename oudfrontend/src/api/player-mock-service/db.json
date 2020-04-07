@@ -26,7 +26,7 @@
       ],
       "albumId": "50",
       "type": "track",
-      "audioUrl": "http://oud-zerobase.me/api/uploads/tracks/2.mp3",
+      "audioUrl": "https://cdn1.esm3.com//music/10028/m289005.mp3",
       "duartion": 256200,
       "views": 100000
     },
@@ -108,7 +108,7 @@
     ],
     "albumId": "kjhnm",
     "type": "string",
-    "audioUrl": "http://oud-zerobase.me/api/uploads/tracks/2.mp3",
+    "audioUrl": "https://cdn1.esm3.com//music/10028/m289005.mp3",
     "duartion": 256200,
     "views": 0
   },
@@ -146,9 +146,59 @@
     "duartion": 208800,
     "views": 0
   },
-  "deldkfjnc245": { "Ahmed": "Ashraf" },
-  "deldkfjnc246": { "Ahmed": "Ashraf" },
-  "deldkfjnc247": { "Ahmed": "Ashraf" },
-  "deldkfjnc248": { "Ahmed": "Ashraf" },
-  "deldkfjnc249": { "Ahmed": "Ashraf" }
+  "deldkfjnc245": {
+    "id": "1"
+  },
+  "deldkfjnc246": {
+    "id": "1"
+  },
+  "deldkfjnc247": {
+    "id": "1"
+  },
+  "deldkfjnc248": {
+    "id": "1"
+  },
+  "deldkfjnc249": {
+    "id": "1"
+  },
+  "likedkfjnc245": {
+    "items": [{}],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "likedkfjnc2456": {
+    "items": [{}],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "likedkfjnc247": {},
+  "likedkfjnc248": {
+    "items": [{}],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "likedkfjnc249": {
+    "items": [{}],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "checkkfjnc245": {
+    "IsFound": [true]
+  },
+  "checkkfjnc246": {
+    "IsFound": [false]
+  },
+  "checkkfjnc247": {
+    "IsFound": [true]
+  },
+  "checkkfjnc248": {
+    "IsFound": [false]
+  },
+  "checkkfjnc249": {
+    "IsFound": [true]
+  }
 }

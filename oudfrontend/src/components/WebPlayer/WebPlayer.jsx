@@ -22,6 +22,7 @@ class WebPlayer extends Component {
       queue: [],
       deviceId: "74ASZWbe4lXaubB36ztrGX",
       playing: false,
+      loved: false,
     };
     this.queueElement = React.createRef();
     this.playerElement = React.createRef();
@@ -42,7 +43,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   deleteRequest = (endpoint) => {
-    return axios.delete(endpoint);
+    return axios.delete(endpoint, {});
   };
   /**
    * Axios PUT request
@@ -104,6 +105,7 @@ class WebPlayer extends Component {
       .catch(function (error) {
         console.log(error);
       });
+    console.log("id from queue: " + this.state.trackId);
   };
   /**
    * A function to fetch any track from the server
@@ -298,24 +300,71 @@ class WebPlayer extends Component {
    * @returns {void}
    */
   removeTrack = (idx, id) => {
-    console.log("id: " + id + " idx: " + idx);
-    this.deleteRequest(
-      "http://localhost:3000/me/queue?queueIndex=0&trackIndex=" +
-        idx +
-        "&trackId=" +
-        id
-    )
+    let queue = this.state.queue;
+    queue.splice(idx, 1);
+    this.setState({
+      queue: queue,
+    });
+    // this.deleteRequest("http://localhost:3000/me/queue?trackId=" + id)
+    //   .then((response) => {
+    //     console.log(response);
+    //     let queue = this.state.queue;
+    //     queue.splice(idx, 1);
+    //     this.setState({
+    //       queue: queue,
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+  };
+
+  addRemoveSavedSong = (status) => {
+    status
+      ? this.putRequest(
+          "http://localhost:3000/me/tracks?IDs=[" + this.state.trackId + "]"
+        )
+      : this.deleteRequest(
+          "http://localhost:3000/me/tracks?IDs=[" + this.state.trackId + "]"
+        )
+          .then((response) => {
+            if (!response["data"].hasOwnProperty("status")) {
+              this.setState({
+                loved: status,
+              });
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+  };
+  chekckSavedSong = (trackId) => {
+    this.getRequest("http://localhost:3000/me/tracks?ids=[" + trackId + "]")
       .then((response) => {
+        console.log(
+          "id from check: " +
+            "http://localhost:3000/me/tracks?ids=[" +
+            trackId +
+            "]"
+        );
         console.log(response);
-        let queue = this.state.queue;
-        queue.splice(idx, 1);
+        const isFound = response["data"]["IsFound"][0];
         this.setState({
-          queue: queue,
+          loved: isFound,
         });
+
+        // if (response["data"].hasOwnProperty("IsFound")) {
+        //   const isFound = response["data"]["IsFound"][0];
+        //   this.setState({
+        //     loved: isFound,
+        //   });
+        //   console.log("id from check: " + trackId);
+        // }
       })
       .catch((error) => {
         console.log(error);
       });
+    return this.state.loved;
   };
   render() {
     return (
@@ -330,6 +379,8 @@ class WebPlayer extends Component {
           player={this.playerElement}
           playing={this.state.playing}
           removeTrack={this.removeTrack}
+          addRemoveSavedSong={this.addRemoveSavedSong}
+          chekckSavedSong={this.chekckSavedSong}
           data-testid="queue-container"
         />
         <Player
@@ -345,6 +396,8 @@ class WebPlayer extends Component {
           getPrevious={this.getPrevious}
           changePlayingState={this.changePlayingState}
           fetchTrack={this.fetchTrack}
+          addRemoveSavedSong={this.addRemoveSavedSong}
+          chekckSavedSong={this.chekckSavedSong}
           data-testid="player-container"
         />
       </Fragment>

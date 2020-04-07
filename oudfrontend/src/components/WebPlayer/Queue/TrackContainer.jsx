@@ -46,11 +46,11 @@ TrackContainer.propTypes = {
   /**
    * A function to handle playing a track from the queue
    */
-  playTrack: PropTypes.bool.isRequired,
+  playTrack: PropTypes.object.isRequired,
   /**
    * The playing state of the parent component
    */
-  playing: PropTypes.func.isRequired,
+  playing: PropTypes.bool.isRequired,
   /**
    * Open/Close the dropdown menu function.
    */

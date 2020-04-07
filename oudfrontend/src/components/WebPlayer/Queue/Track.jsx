@@ -140,7 +140,7 @@ Track.propTypes = {
   /**
    * A function to handle playing a track from the queue
    */
-  playTrack: PropTypes.func.isRequired,
+  playTrack: PropTypes.object.isRequired,
   /**
    * The playing state of the parent component
    */

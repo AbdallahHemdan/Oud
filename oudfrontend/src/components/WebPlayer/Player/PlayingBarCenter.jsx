@@ -74,7 +74,7 @@ PlayingBarCenter.propTypes = {
   /**
    * the percentage of played duration of the track
    */
-  progress: PropTypes.string.isRequired,
+  progress: PropTypes.number.isRequired,
   /**
    * total time of the track
    */
@@ -90,7 +90,7 @@ PlayingBarCenter.propTypes = {
   /**
    * function to handle whan the mouse is up and click has ended
    */
-  mouseUp: PropTypes.func.isRequired
+  mouseUp: PropTypes.func.isRequired,
 };
 
 export default PlayingBarCenter;
