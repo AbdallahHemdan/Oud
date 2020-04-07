@@ -44,7 +44,7 @@ function HeaderBodyTop(props) {
     let history = useHistory()
     return (
         <div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
-            <h2 data-testid="title" className='whiteText'>{title}</h2>
+            <h2 data-testid="title" className='gray-text'>{title}</h2>
             <span data-testid="credits" className="whiteText">Crerated By </span>
             <button data-testid="owner" className='playlistAnchor songButton' onClick={() => { history.push(`/user/${owner}`) }}>{ownerName}</button>
         </div>

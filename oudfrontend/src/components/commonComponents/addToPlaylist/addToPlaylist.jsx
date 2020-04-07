@@ -14,7 +14,7 @@ class addToPlaylist extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            display: true,
+            display: this.props.display,
             createPlaylist: false
         }
     }
@@ -38,6 +38,13 @@ class addToPlaylist extends Component {
      */
     close() {
         this.setState({ display: false })
+        this.props.close()
+    }
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.display !== this.state.display) {
+            this.setState({ display: nextProps.display })
+        }
+
     }
     /**
      * opens the CreatePlaylist by making state.createPlaylist true 
@@ -48,7 +55,7 @@ class addToPlaylist extends Component {
     }
     render() {
         return (
-            <div style={this.state.display ? {} : { display: "none" }} className="createPlaylist">
+            <div className={this.state.display ?"createPlaylist": "createPlaylist hide"} >
                 <CreatePlaylist display={this.state.createPlaylist} />
                 <button onClick={this.close.bind(this)} className='closeButton'>
                     <svg width='32' height='32' xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +66,7 @@ class addToPlaylist extends Component {
                 </button>
 
                 <h1 id="createPlaylistTitle">Add To playlist</h1>
-                <button style={{ width: "200px" }} className='playButton' onClick={this.createPlaylist.bind(this)}>NEW PLAYLIST</button>
+                <button className='playButton' onClick={this.createPlaylist.bind(this)}>NEW PLAYLIST</button>
 
                 <div id="createPlaylistBigField">
                     <div id="createPlaylistContainer">

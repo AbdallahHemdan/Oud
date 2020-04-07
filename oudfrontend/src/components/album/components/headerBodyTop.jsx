@@ -43,7 +43,7 @@ function  HeaderBodyTop(props)
         
         return(
             <div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
-                <h2 data-testid="title" className='whiteText'>{title}</h2>
+                <h2 data-testid="title" className='gray-text'>{title}</h2>
                 <span data-testid="credits" className="whiteText">By </span>
                 {
                     artists.map((artist)=>{

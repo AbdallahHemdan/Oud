@@ -20,12 +20,12 @@ function HeaderBody(props) {
     let history = useHistory()
     return (
         <div data-testid="HeaderBody">
-            <h2 data-testid="title" className='whiteText'>Liked Songs</h2>
-            <button data-testid="owner" className='playlistAnchor songButton' onClick={() => { history.push('/user/1') }} style={{ display: "block" }}>Ahmed{/*userName*/}</button>
+            <h2 data-testid="title" className='gray-text likedSongsTitle'>Liked Songs</h2>
+            <button data-testid="owner" className='playlistAnchor songButton block' onClick={() => { history.push('/user/1') }}>Ahmed{/*userName*/}</button>
             <button onClick={playClicked} data-testid="playButton" className="playButton" variant="outline-success">
                 {playing ? 'PAUSE' : 'PLAY'}
             </button>
-            <p>
+            <p className='likedSongsTitle gray-text' > 
                 <span data-testid="songsNumber">{length} </span>
                 <span data-testid="songsLiteral">{length > 1 ? 'songs' : 'song'}</span>
             </p>
