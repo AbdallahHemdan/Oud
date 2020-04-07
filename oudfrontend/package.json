@@ -8,11 +8,8 @@
     "jest": "24.9.0",
     "prop-types": "^15.7.2",
     "@types/jest": "^25.1.4",
-    
-    
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    
     "json-server": "^0.16.1",
     "async-wait-until": "^1.2.4",
     "axios": "^0.19.2",
@@ -44,8 +41,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage",
-    
-    
     "json:server": "json-server src/api/db.json --routes src/api/routes.json --port 2022",
     "eject": "react-scripts eject",
     "styleguide": "styleguidist server",
@@ -70,8 +65,6 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.1.1",
     "check-prop-types": "^1.1.2",
-    
-    
     "jest-enzyme": "^7.1.2",
     "axios-mock-adapter": "^1.18.1",
     "enzyme": "^3.11.0",
