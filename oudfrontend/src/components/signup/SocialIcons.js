@@ -27,9 +27,11 @@ class SocialIcons extends Component {
   render() {
     return (
       <React.Fragment>
-        <h6 className="hint-text">Sign Up with your social media account</h6>
-        <section className="social-icons">
-          <button className="google_button" href="#">
+        <h6 className="hint-text hint">
+          Sign Up with your social media account
+        </h6>
+        <section className="social-icons icons">
+          <button className="google_button " href="#">
             <img
               alt=""
               src="http://pngimg.com/uploads/google/google_PNG19630.png"
@@ -42,7 +44,7 @@ class SocialIcons extends Component {
             onClick={this.handelClickFace}
           />
         </section>
-        <section className="or-seperator">
+        <section className="or-seperator OR">
           <i>OR</i>
           <h6 className="hint-text">Sign up with your email address</h6>
         </section>

@@ -1,6 +1,4 @@
-body {
-  min-width: 300px;
-}
+
 
 .btn.btn-outline-linkF {
   background-color: #f9b835;
@@ -71,6 +69,7 @@ body {
 
 .main-center {
   text-align: center;
+  min-width: 300px;
 }
 
 .oud-title {

@@ -10,8 +10,8 @@ class MainBrand extends Component {
    */
   render() {
     return (
-      <section className="main-brand">
-        <Link className="navbar-brand" to="/">
+      <section className="main-brand mainBrand">
+        <Link className="navbar-brand navBrand" to="/">
           <span>
             <img
               id="OudImage"

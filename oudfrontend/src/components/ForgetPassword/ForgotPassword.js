@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './forgetPass.css';
 import MainBrand from './MainBrand';
 import axios from 'axios';
+import validator from '../signup/validate';
 /** the forget password section  */
 class ForgotPassword extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class ForgotPassword extends Component {
     };
 
     console.log(this.EmailHandel);
-    if (this.state.formErrors.EmailError === '') {
+    if (this.state.formErrors.EmailError === '' && this.validation()) {
       axios
         .post(`${process.env.REACT_APP_API_URL}/ForgottenPasswords`, toSend)
         .then((res) => {
@@ -49,16 +50,12 @@ class ForgotPassword extends Component {
    */
   EmailHandel = (event) => {
     this.setState({email: event.target.value});
-    const emailRegex = RegExp(
-      /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
-    );
-    let formError = {...this.state.formErrors};
-    formError.EmailError = emailRegex.test(event.target.value)
-      ? ''
-      : 'invalid email address';
-    this.setState({
-      formErrors: formError,
-    });
+    validator.validateEmail(event.target.value, this);
+  };
+  validation = () => {
+    let valid = true;
+    valid &= validator.validateEmail(this.state.email, this);
+    return valid;
   };
   /**
    * this function activate on change

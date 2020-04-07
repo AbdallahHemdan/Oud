@@ -1,7 +1,6 @@
 .google_button {
   width: 370px;
   border-radius: 50px;
-
   color: white;
   text-align: center;
   background-color: #4285f4;
@@ -17,7 +16,7 @@
   border: 2px solid #7aa6ec;
 }
 
-.btn.btn-primary.btn-block:hover {
+.Signup-LoginBtn:hover {
   background-color: #ffca60 !important;
 }
 
@@ -25,15 +24,16 @@
   display: inline;
 }
 
-.btn.btn-primary.btn-block {
+.Signup-LoginBtn {
   border: 0;
 }
 
-button.btn.btn-outline-links {
-  margin-top: 10px;
+.SigninRedirect {
+  margin-top: 20px;
+
 }
 
-.btn.btn-outline-links {
+.SigninRedirect {
   background-color: #f9b835;
   border-radius: 50px;
   color: white;
@@ -60,13 +60,10 @@ hr {
   color: #f9b835;
 }
 
-body {
+.mainCenter {
+  text-align: center;
   min-width: 300px;
   color: #f9b835;
-}
-
-.main-center {
-  text-align: center;
 }
 
 .oud-title {
@@ -74,63 +71,63 @@ body {
   top: 30px;
 }
 
-.navbar-brand img {
+.navBrand img {
   padding-right: 20px;
   float: left;
 }
 
-.navbar-brand {
+.navBrand {
   font-family: 'Lobster', cursive;
   font-size: 3.5rem;
   width: auto;
   color: #f9b835;
   padding-bottom: 0;
-  margin-bottom: -5px;
+  /* margin-bottom: -5px; */
 }
 
 .Oud {
   padding-top: 20px;
 }
 
-.navbar-brand:hover {
+.navBrand:hover {
   color: #ffca60;
 }
 
-.navbar-brand:active {
+.navBrand:active {
   color: #f9b835;
 }
 
-.main-brand {
+.mainBrand {
   border-bottom: 0.1px solid #f9b835;
   text-align: center;
 }
 
-.hint-text {
+.SigninRedirect {
   color: #f9b835;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   margin-top: 15px;
 }
 
-.social-icons {
+.icons {
   font-size: 2.5em;
 }
 
-.main-form {
+.Form {
   max-width: 400px;
   min-width: 30vw;
   text-align: justify;
 }
 
-.or-seperator,
-.or-seperator-2 {
+.OR,
+.OR-2 {
   width: 30%;
   margin: 20px auto 10px;
   text-align: center;
   border-top: 1px solid #f9b835;
 }
 
-.or-seperator i {
+.OR i {
   padding: 0 10px;
   background: #f9b835;
   position: relative;
@@ -150,22 +147,22 @@ body {
   margin-bottom: 45px;
 }
 
-.or-seperator-2 {
+.OR-2 {
   width: 50%;
 }
 
-button.btn.btn-primary.btn-block {
+.Signup-LoginBtn {
   color: #ffffff;
   background-color: #f9b835;
   border-radius: 50px;
 }
 
-button.btn.btn-primary.btn-block:active {
+.Signup-LoginBtn:active {
   color: #ffffff;
   background-color: #f9b835;
 }
 
-button.btn.btn-primary.btn-block:hover {
+.Signup-LoginBtn:hover {
   background-color: #ffca60;
 }
 

@@ -132,28 +132,6 @@ class SignIn extends Component {
     }
   };
   /**
-   * this function is set the redirect to true the is allow me to go to anther page
-   * if it false the button will not work
-   * if true the button wil work and to the page
-   * @function
-   * @returns {void}
-   */
-  setRedirect = () => {
-    this.setState({
-      redirect: true,
-    });
-  };
-  /**
-   * this is the function that have the path of the page that i want to go
-   * @function
-   * @returns {void}
-   */
-  toSignUp = () => {
-    if (this.state.redirect) {
-      return <Redirect to="/" />;
-    }
-  };
-  /**
    * on submit send the email and password to back end to check it on the db
    * @function
    * @param {object} e
@@ -197,11 +175,11 @@ class SignIn extends Component {
    */
   render() {
     return (
-      <div className="container main-center">
+      <div className="container main-center LoginPage">
         <MainBrand />
         <section className="social-form">
           <SocialIcons />
-          <section className="main-form container">
+          <section className="main-form container LoginForm">
             <form onSubmit={this.handelSubmit}>
               <div className="form-group sm-8">
                 <input
@@ -232,7 +210,7 @@ class SignIn extends Component {
                   />
 
                   <button
-                    className="btn btn-outline-secondary"
+                    className="btn btn-outline-secondary showText"
                     onClick={this.handleShowPassword}
                     data-testid="login-button"
                   >
@@ -266,11 +244,11 @@ class SignIn extends Component {
                   </div>
                 </div>
               </div>
-              <section className="container main-center">
+              <section className="container main-center forgetLink">
                 <h6 className="hint-text-forgot">
                   <button
                     type="button"
-                    className="btn btn-outline-link"
+                    className="btn btn-outline-link forgetBtn"
                     data-testid="Forgetpass"
                     onClick={this.handelSubmit}
                   >
@@ -286,20 +264,20 @@ class SignIn extends Component {
                 Sign In
               </button>
               <section className="or-seperator-2"></section>
-              <section className="container main-center">
+              <section className="container main-center forgetLink">
                 <span>
-                  {this.toSignUp()}
                   <h6 className="hint-text">
                     Don't have an account?
                     <br />
-                    <button
-                      data-testid="SignUpBtn"
-                      type="button"
-                      className="btn btn-outline-links"
-                      onClick={this.setRedirect}
-                    >
-                      SIGN UP
-                    </button>
+                    <Link to="/SignUp">
+                      <button
+                        data-testid="SignUpBtn"
+                        type="button"
+                        className="btn btn-outline-links signUpBtn"
+                      >
+                        SIGN UP
+                      </button>
+                    </Link>
                   </h6>
                 </span>
               </section>

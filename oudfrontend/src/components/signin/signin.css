@@ -1,7 +1,3 @@
-body {
-  min-width: 300px;
-}
-
 .btn.btn-outline-linkF {
   background-color: #f9b835;
   border-radius: 50px;
@@ -12,15 +8,23 @@ body {
   margin-top: 20px;
 }
 
+.signUpBtn:hover {
+  text-decoration: none;
+}
+
+.forgetLink a {
+  text-decoration: none;
+}
+
 .btn.btn-outline-linkF:hover {
   background-color: #ffca60;
 }
 
-.btn.btn-outline-links:hover {
+.signUpBtn:hover {
   background-color: #ffca60;
 }
 
-.btn.btn-outline-links {
+signUpBtn {
   background-color: #f9b835;
   border-radius: 50px;
   color: white;
@@ -69,8 +73,9 @@ body {
   margin: auto 10px auto -10px;
 }
 
-.main-center {
+.LoginPage {
   text-align: center;
+  min-width: 300px;
 }
 
 .oud-title {
@@ -110,7 +115,7 @@ body {
   font-size: 2.5em;
 }
 
-.main-form {
+.LoginForm {
   max-width: 400px;
   min-width: 30vw;
   text-align: justify;
@@ -163,19 +168,19 @@ body {
   color: red;
 }
 
-.btn-outline-secondary {
+.showText {
   background-color: white !important;
   border-color: #f9b835 !important;
   box-shadow: white !important;
 }
 
-.btn-outline-secondary:hover {
+.showText:hover {
   background-color: #ffca60 !important;
   border-color: #ffca60 !important;
   box-shadow: none !important;
 }
 
-.btn-outline-secondary:not(:hover) {
+.showText:not(:hover) {
   box-shadow: none !important;
 }
 
