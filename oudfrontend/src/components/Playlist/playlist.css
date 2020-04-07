@@ -1,0 +1,125 @@
+.playlist{
+    background-color: rgb(0,0,0);
+    padding: 30px 32px;
+    color: #b3b3b3;
+    position: relative;
+    min-height: 800px;
+}
+
+.playlistHeader{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    max-height: 340px;
+}
+
+.playlistHeaderBodyTop{
+    padding-bottom: 10px;
+    text-align:center;
+    margin-bottom: 10px;
+}
+
+.whiteText{
+    color: #fff;
+}
+
+.playlistAnchor:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+.playlistAnchor{
+    color:#b3b3b3;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.playButton {
+    border-radius: 500px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 12px;
+    line-height: 18px;
+    background-color: #1db954;
+    color: #ffffff;
+    width: 200px;
+    margin: 10px auto;
+    padding: 8px 10px;
+    align-self: flex-start;
+    transition: transform 0.2s; /* Animation */
+    border-color: transparent;
+    max-width: 114px;
+    letter-spacing: 1.75px;
+    display: block;
+    
+}
+  
+  .playButton:hover {
+    transform: scale(1.06);
+    background-color: #1db954;
+  }
+  .playButton:active {
+    background-color: #1db954;
+    border: #1db954;
+  }
+  .playButton:focus{
+      outline: none;
+  }
+
+.playlistHeaderBodyBottom{
+    
+    text-align:center;
+}
+.playlistImage{   
+    max-width: 320px;
+    max-height: 320px;
+    margin: 10px auto;    
+   
+    width:100%;
+}
+
+
+
+.playlistImageContainer{
+    position: relative;
+    text-align:center;
+    max-height: 340px;
+
+}
+
+.playlist {
+    font-family: "Helvetica Neue";
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: rgb(125, 126, 125);
+    background: -moz-linear-gradient(
+      -45deg,
+      rgba(125, 126, 125, 1) 0%,
+      rgba(14, 14, 14, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      -45deg,
+      rgba(125, 126, 125, 1) 0%,
+      rgba(14, 14, 14, 1) 100%
+    );
+    background: linear-gradient(
+      135deg,
+      rgba(125, 126, 125, 1) 0%,
+      rgba(14, 14, 14, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 );
+    background-attachment: fixed;
+  }
+.likeIcon{
+    margin: 10px;
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+}
+
+.likeIcon:focus{
+    outline: none;
+}

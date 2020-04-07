@@ -1,0 +1,61 @@
+.song{  
+    height:64px;
+    width: 100%;
+    padding: 9px 0px;  
+    border: none;
+    background-color: transparent;
+}
+#song:focus{
+    background-color: rgba(50,60,60, .5);
+    border: none;
+    outline: none;
+}
+#song:hover{
+    background-color: rgba(50,60,60, .5);
+}
+
+.songInfo{
+    text-align: left;
+}
+.songChild:hover{
+    background-color: transparent;
+}
+.songButton{
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: none;
+    padding:0px
+}
+.songButton:focus{
+    outline: none;
+}
+#songDropdownButton{
+    padding-bottom: 10px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+}
+.dropdownContent {
+    position: sticky;
+    background-color: #f1f1f1/*#282828*/;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 5px 0px;
+    text-align: left;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdownContent .SongDropdownItem{
+    color: black;
+    padding: 5px 5px 0px 7px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  /* Change color of dropdown links on hover */
+.dropdownContent .SongDropdownItem:hover {background-color: #ddd;}
+

@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import Playlist from './components/playlist/playlist';
+import LikedSongs from './components/likedSongs/likedSongs';
+import Album from './components/album/album'
+import { BrowserRouter as Router, Route, Switch, useParams} from 'react-router-dom';
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">  
+        <Switch>
+          <Route path={`/playlist/:id`} Component={<Playlist/>}>
+            <PlaylistRender/>
+          </Route> 
+
+          <Route path='/likedSongs/'>
+            <LikedSongs/>
+          </Route> 
+
+          <Route path="/albums/:id" Component={<Album/>}>
+            <AlbumRender/>
+          </Route>
+        </Switch> 
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
+function PlaylistRender(){
+  let id = useParams();
+  return(
+  <Playlist id={id}/>
+  );
+}
+function AlbumRender(){
+  let id = useParams().id;
+  return(
+  <Album id={id}/>
+  );
+}
