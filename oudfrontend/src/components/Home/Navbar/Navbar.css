@@ -139,7 +139,8 @@ input.empty {
 }
 
 .dropdown-me {
-  left: -30px;
+  left: -30px !important;
+  /* right: 200px !important; */
   top: 50px;
   background: #ca8e15;
 }

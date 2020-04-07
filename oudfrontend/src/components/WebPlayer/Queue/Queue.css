@@ -207,7 +207,7 @@
   right: 30em;
   top: 0;
 }
-.dropdown-menu {
+.queue-container .overlay .menu .dropdown-menu {
   display: block;
   position: absolute;
   background-color: #383838;

@@ -124,11 +124,7 @@ button:focus {
   align-items: center;
   vertical-align: middle;
 }
-@media screen and (max-height: 846px) {
-  .volume-bar {
-    width: 180px;
-  }
-}
+
 .ablum-link {
   width: 40%;
   display: block;
@@ -180,8 +176,10 @@ button:focus {
   text-align: center;
 }
 .progress-bar {
+  min-width: 125px;
   width: 100%;
   height: 12px;
+
   display: inline-flex;
   cursor: pointer;
   background-color: transparent;
