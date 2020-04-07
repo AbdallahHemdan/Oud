@@ -111,7 +111,7 @@ class MusicCard extends Component {
    * 
    */
   handlePlaylistClick = () => {
-    this.props.history.push('playlist');
+    this.props.history.push('playlist/1');
   }
 
   /**

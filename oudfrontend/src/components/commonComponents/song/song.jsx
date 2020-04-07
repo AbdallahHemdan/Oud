@@ -3,7 +3,9 @@ import './song.css';
 import { BrowserRouter as Router, Redirect } from "react-router-dom";
 import axios from 'axios'
 import PropTypes from 'prop-types';
-
+import addToPlaylist from '../addToPlaylist/addToPlaylist';
+import play from "../../../assets/images/play.png"
+import musicIcon from "../../../assets/images/musicIcon.png"
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -85,6 +87,14 @@ class Song extends Component {
             .catch((error) => {
                 console.log(error);
             });
+        axios.get(`http://localhost:2022//me/tracks/contains/${this.props.track.albumId}/`)
+            .then((response) => {
+                const isFound = response.data
+                this.setState({ saved: isFound })
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
     /**
      *if the recieved props is changed it sets state.clicked to true or 
@@ -113,7 +123,7 @@ class Song extends Component {
     handleSaving() {
         this.toggleDropdown()
         if (this.state.saved === false) {
-            axios.post('http://localhost:2022/likedSongs/items', this.state.track)
+            axios.post(`http://localhost:2022/likedSongs/${this.state.track.id}`)
                 .then(function (response) {
                     console.log(response);
 
@@ -125,7 +135,7 @@ class Song extends Component {
 
         }
         else {
-            axios.delete(`http://localhost:2022/likedSongs/items${this.state.track.id}`)
+            axios.delete(`http://localhost:2022/likedSongs/${this.state.track.id}`)
                 .then(function (response) {
                     console.log(response);
                 })
@@ -186,6 +196,10 @@ class Song extends Component {
     toggleDropdown() {
         this.setState({ displayDropdown: !this.state.displayDropdown })
     }
+    addToPlaylist() {
+        this.toggleDropdown()
+
+    }
     render() {
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect} />
@@ -195,23 +209,23 @@ class Song extends Component {
                 <button
                     onClick={() => { this.props.handleClick(this.state.track.id) }}
                     data-testid='song'
-                    className="song row"
+                    className={this.state.playing ? "song row hovered" : "song row"}
                     id='song'
                     onMouseEnter={this.hover}
-                    onMouseLeave={this.notHover}
-                    style={this.state.playing ? { backgroundColor: "rgba(50,60,60, .5)" } : {}}>
+                    onMouseLeave={this.notHover}>
 
                     <div className='songIcon col-1'>
-                        <button data-testid='playButton' className='songButton' onClick={this.playSongClicked.bind(this)}>
+                        <button data-testid='playButton' className='songButton goldText' onClick={this.playSongClicked.bind(this)}>
                             <img data-testid='playButtonImage' src={(this.state.hover || this.state.clicked || this.state.playing) ?
-                                require('./play.png') : require('./musicIcon.png')}
-                                width='12' height='14'
+                                play : musicIcon}
+                                width='18' height='20'
                                 alt='play music icon' />
+
                         </button>
                     </div>
 
                     <div className='songInfo col-8'>
-                        <span data-testid='songName' className='whiteText' style={this.state.playing ? { color: "#F9B835" } : {}}>{this.state.track.name}</span>
+                        <span data-testid='songName' className={this.state.playing ? 'goldText' : 'whiteText'}>{this.state.track.name}</span>
                         <p data-testid='aristsNames'>
                             <span>{
                                 this.state.track.artists.map((artist) => {
@@ -233,18 +247,15 @@ class Song extends Component {
                             <button
                                 data-testid='dropdownButton'
                                 onClick={this.toggleDropdown.bind(this)}
-                                className="songButton"
-                                id='songDropdownButton'
-                                style={(this.state.hover || this.state.clicked) ? { display: 'block' } : { display: 'none' }}>
-                                <h3 className='whiteText'
-                                    style={this.state.playing ? { color: "#F9B835" } : {}}>
+                                className={(this.state.hover || this.state.clicked) ? "songButton block" : "songButton hide"}
+                                id='songDropdownButton'>
+                                <h3 className={this.state.playing ? "goldText" : 'whiteText'}>
                                     ...</h3>
                             </button>
 
                             <div
                                 data-testid='dropdownList'
-                                style={this.state.displayDropdown && this.state.clicked ? { display: "block" } : { display: 'none' }}
-                                className="dropdownContent" id="dropdownContent">
+                                className={this.state.displayDropdown && this.state.clicked ? "dropdownContent block" : "dropdownContent hide"} id="dropdownContent">
 
                                 <button data-testid='saveSong' onClick={this.handleSaving.bind(this)} className="SongDropdownItem songButton">
                                     {this.state.saved ? 'Remove From Your Liked Songs' : 'Save to your Liked Songs'}</button>
@@ -253,13 +264,17 @@ class Song extends Component {
                                     className="SongDropdownItem songButton">
                                     {this.state.queued ? 'Remove From Queue' : 'Add to Queue'}</button>
 
-                                <button data-testid='addToPlaylist' className="SongDropdownItem songButton">Add to Playlist</button>
+                                <button data-testid='addToPlaylist'
+                                    className="SongDropdownItem songButton"
+                                    onClick={() => this.props.addToPlaylist()}>
+                                    Add to Playlist
+                                </button>
                             </div>
                         </div>
                     </div>
 
                     <div className='col-2'>
-                        <p data-testid='songTime' className='whiteText' style={this.state.playing ? { color: "#F9B835" } : {}}>{this.state.track.songTime}3:34</p>
+                        <p data-testid='songTime' className={this.state.playing ? 'goldText' : 'whiteText'}>{this.state.track.songTime}3:34</p>
                     </div>
                 </button>
             </Router>

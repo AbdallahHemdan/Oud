@@ -4,6 +4,8 @@
     color: #fff;
     text-align: center;
     padding: 37px 0px;
+    z-index: 1;
+    width:100%;
 }
 
 .closeButton{
