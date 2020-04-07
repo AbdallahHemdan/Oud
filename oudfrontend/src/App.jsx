@@ -4,6 +4,7 @@ import "./App.css";
 import Playlist from "./components/Playlist/playlist";
 import LikedSongs from "./components/likedSongs/likedSongs";
 import Album from "./components/album/album";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -15,7 +16,7 @@ import Search from "./pages/Search/Search";
 import Account from "./pages/Account/Account";
 import RedirectPage from "./components/Account/General/RedirectPage";
 import Profile from "./pages/Profile/Profile";
-import WebPlayer from "./components/WebPlayer/WebPlayer";
+
 import Home from "./pages/Home/Home";
 
 function App() {
@@ -44,7 +45,6 @@ function App() {
             <AlbumRender />
           </Route>
         </Switch>
-        <WebPlayer />
       </div>
     </Router>
   );
