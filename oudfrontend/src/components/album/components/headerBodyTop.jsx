@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {BrowserRouter as Router,Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 /**
  * this is a component that renders the Top of the body of playlists, albums, likedSongs
@@ -24,34 +24,34 @@ function  HeaderBodyTop(props)
 {
         const title = props.title
         var artists= Array.isArray(props.artists)?props.artists:[]
-        
+        let history = useHistory()
         let flag = false
         function withComma(artist){
             return(
-            <span>, <Link to={`/artist/${artist.id}`}
+            <span>, <button
              data-testid="artist" 
-             className='playlistAnchor'>{artist.name}</Link></span>
+             onClick={()=>{history.push(`/artist/${artist.id}`)}}
+             className='playlistAnchor songButton'>{artist.name}</button></span>
             );}
         function withoutComma(artist){
             flag= true;
-            return(<span><Link to={`/artist/${artist.id}`}
+            return(<span><button
+             onClick={()=>{history.push(`/artist/${artist.id}`)}}
              data-testid="artist"
-              className='playlistAnchor'>{artist.name}</Link></span>
+              className='playlistAnchor songButton'>{artist.name}</button></span>
             );}
         
         return(
-            <Router>
-                <div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
-                    <h2 data-testid="title" className='whiteText'>{title}</h2>
-                    <span data-testid="credits" className="whiteText">By </span>
-                    {
-                        artists.map((artist)=>{
-                            return(
-                            flag ? withComma(artist):withoutComma(artist)
-                            )}
-                            )}
-                </div>
-            </Router>
+            <div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
+                <h2 data-testid="title" className='whiteText'>{title}</h2>
+                <span data-testid="credits" className="whiteText">By </span>
+                {
+                    artists.map((artist)=>{
+                        return(
+                        flag ? withComma(artist):withoutComma(artist)
+                        )}
+                        )}
+            </div>
         );
     //}
 }

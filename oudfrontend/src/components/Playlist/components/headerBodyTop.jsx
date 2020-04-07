@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import {BrowserRouter as Router,Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 /**
  * this is a component that renders the Top of the body of playlists, albums, likedSongs
@@ -42,14 +42,13 @@ function HeaderBodyTop(props)
         .catch((error)=> {
             console.log(error);
         });  
+    let history = useHistory()
     return(
-        <Router>
             <div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
                 <h2 data-testid="title" className='whiteText'>{title}</h2>
                 <span data-testid="credits" className="whiteText">Crerated By </span>
-                <Link to={`/user/${owner}`} data-testid="owner" className='playlistAnchor'>{ownerName}</Link>
+                <button data-testid="owner" className='playlistAnchor songButton' onClick={()=>{history.push(`/user/${owner}`)}}>{ownerName}</button>
             </div>
-        </Router>
     );
 }
 

@@ -23,13 +23,13 @@ function HeaderBodyBottom(props){
     const {length, playClicked, likeClicked, liked, playing, releaseDate, recieved, album} = props;
     
     return(
-        <div data-testid="HeaderBodyBottom" className='playlistHeaderBodyBottom'>
+        <div data-testid="HeaderBodyBottom" class='playlistHeaderBodyBottom'>
             <button onClick={playClicked} data-testid="playButton" className="playButton" variant="outline-success">
                     {playing? 'PAUSE' : 'PLAY'}
             </button>
             
             <button data-testid="likeIcon" className="likeIcon" onClick={likeClicked}>
-                {liked? 'liked' : 'like'} {/*font awseome icons*/}
+                {liked? <i className="fa fa-heart"></i> : <i class="fa fa-heart"></i>} {/*font awseome icons*/}
             </button> 
             <p>
                 <span data-testid="releaseDate">{recieved?releaseDate.slice(0,4):''} <h2 data-testid="separatingDot" style={{display:"inline"}}>{album?'.':''}</h2> </span>

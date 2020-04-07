@@ -24,6 +24,7 @@
     margin-bottom: 10px;
     background-color: transparent;
     border: none;
+    padding:0px
 }
 .songButton:focus{
     outline: none;
@@ -37,7 +38,7 @@
     font-size: 14px;
 }
 .dropdownContent {
-    position: fixed;
+    position: sticky;
     background-color: #f1f1f1/*#282828*/;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -49,9 +50,11 @@
   /* Links inside the dropdown */
   .dropdownContent .SongDropdownItem{
     color: black;
-    padding: 12px 16px;
+    padding: 5px 5px 0px 7px;
     text-decoration: none;
     display: block;
+    width: 100%;
+    text-align: left;
   }
   /* Change color of dropdown links on hover */
 .dropdownContent .SongDropdownItem:hover {background-color: #ddd;}

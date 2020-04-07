@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import CreatePlaylist from '../CreatePlaylist/createPlaylist'
+import CreatePlaylist from '../../CreatePlaylist/createPlaylist'
 import axios from 'axios';
 
 
