@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import FacebookLogin from 'react-facebook-login';
-import '../signin/signin.css';
+import '../signup/signup.css';
 import {Redirect} from 'react-router-dom';
 /**Facebook class creation */
 class Facebook extends Component {

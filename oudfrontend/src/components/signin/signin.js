@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import './signin.css';
+import '../signup/signup.css';
 import {Link, Redirect} from 'react-router-dom';
-import MainBrand from './MainBrand';
-import SocialIcons from './SocialIcons';
+
 import axios from 'axios';
-import Validator from '../signup/validate';
+import Validator from '../validate';
 import {token} from '../../utils/auth';
 /**the sign up section  */
 class SignIn extends Component {
@@ -138,17 +137,15 @@ class SignIn extends Component {
   render() {
     return (
       <div className="container main-center LoginPage ">
-        <MainBrand />
         <section className="social-form">
-          <SocialIcons />
-          <section className="main-form container LoginForm">
+          <section className="main-form container SignUpForm">
             <form onSubmit={this.handelSubmit} noValidate>
               <div className="form-group sm-8">
                 <input
                   required
                   type="email"
                   name="email"
-                  className="form-control"
+                  className="form-control FormElement"
                   placeholder="email@address.com"
                   onChange={(this.handleChange, this.EmailHandel)}
                   data-testid="login-email"
@@ -165,14 +162,14 @@ class SignIn extends Component {
                     required
                     name="password"
                     type={this.state.passwordType}
-                    className="form-control"
+                    className="form-control FormElement"
                     placeholder={'password'}
                     onChange={(this.handleChange, this.PasswordHandel)}
                     data-testid="login-password"
                   />
 
                   <button
-                    className="btn btn-outline-secondary showText"
+                    className="btn btn-outline-secondary showText "
                     onClick={this.handleShowPassword}
                     data-testid="login-button"
                   >
@@ -214,28 +211,30 @@ class SignIn extends Component {
                     data-testid="Forgetpass"
                     onClick={this.handelSubmit}
                   >
-                    <Link to="/ForgotPassword">Forgot your password?</Link>
+                    <Link className="forget" to="/ForgotPassword">
+                      Forgot your password?
+                    </Link>
                   </button>
                 </h6>
               </section>
               <button
                 type="submit"
-                className="btn btn-primary btn-block"
+                className="btn SignUpSubmit btn-block"
                 data-testid="SignInBtn"
               >
                 Sign In
               </button>
               <section className="or-seperator-2"></section>
-              <section className="container main-center forgetLink">
+              <section className="container main-center forgetLink ">
                 <span>
-                  <h6 className="hint-text">
+                  <h6 className="hint-text hint ">
                     Don't have an account?
                     <br />
-                    <Link to="/SignUp">
+                    <Link to="/SignUp" className="btnstyle">
                       <button
                         data-testid="SignUpBtn"
                         type="button"
-                        className="btn btn-outline-links signUpBtn"
+                        className="btn SignUpSubmit btn-block"
                       >
                         SIGN UP
                       </button>

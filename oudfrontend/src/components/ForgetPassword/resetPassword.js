@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './forgetPass.css';
-import MainBrand from './MainBrand';
+import '../signup/signup.css';
+import MainBrand from '../MainBrand';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 
@@ -212,23 +212,22 @@ class ResetPassword extends Component {
    */
   render() {
     return (
-      <div className="container main-center">
+      <div className="container main-center forgetPage SignUpForm">
         <MainBrand />
-        <section className="social-form">
+        <section className="main-form container SignUpForm">
           <h2 className="pass-reset">Password Reset</h2>
-          <h6 className="title-text">Enter your new password</h6>
+          <h6 className="hint pass-massage">Enter your new password</h6>
           <section className="main-form container">
             <form onSubmit={this.handelSubmit}>
               <div className="form-group sm-8">
                 {this.Password()}
-
-                <h6 className="title-text">Confirm your password</h6>
+                <h6 className="hint pass-massage">Confirm your password</h6>
                 {this.confirmPassword()}
 
                 <button
                   type="button"
                   data-testid="restPass"
-                  className="btn btn-outline-linkF"
+                  className="btn SignUpSubmit btn-block"
                   onClick={this.handelSubmit}
                 >
                   Reset password
@@ -237,7 +236,7 @@ class ResetPassword extends Component {
                 <button
                   type="button"
                   data-testid="backToLogin"
-                  className="btn btn-outline-linkF"
+                  className="btn SignUpSubmit btn-block"
                   onClick={this.handelSubmit}
                 >
                   Back to Login
@@ -245,7 +244,7 @@ class ResetPassword extends Component {
               </div>
               <section className="or-seperator-2"></section>
               <section className="container main-center">
-                <h6 className="hint-text">
+                <h6 className="hint">
                   If you still need help, contact Oud team at
                   <button type="button" className="btn btn-outline-link">
                     <a href={'mailto:oudteam.sup@gmail.com'}>
@@ -272,7 +271,7 @@ class ResetPassword extends Component {
           <input
             data-testid="registerConfirmPassword"
             type={this.state.PasswordType}
-            className="form-control"
+            className="form-control FormElement"
             placeholder={'confirm Password'}
             onChange={(this.handleChange, this.ConfirmPasswordHandel)}
             name="confirmPassword"
@@ -300,13 +299,13 @@ class ResetPassword extends Component {
           <input
             data-testid="registerpassword"
             type={this.state.PasswordType}
-            className="form-control"
+            className="form-control FormElement"
             placeholder={'Password'}
             onChange={(this.handleChange, this.PasswordHandel)}
             name="Password"
           />
           <button
-            className="btn btn-outline-dark"
+            className="btn btn-outline-dark showText"
             onClick={this.handleShowPassword}
           >
             {this.state.showText}

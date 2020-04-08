@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import './forgetPass.css';
-import MainBrand from './MainBrand';
+import MainBrand from '../MainBrand';
 import axios from 'axios';
-import validator from '../signup/validate';
+import validator from '../validate';
 import {Redirect} from 'react-router';
+import '../signup/signup.css';
 /** the forget password section  */
 class ForgotPassword extends Component {
   constructor(props) {
@@ -88,15 +88,15 @@ class ForgotPassword extends Component {
    */
   render() {
     return (
-      <div className="container main-center forgetForm">
+      <div className="container main-center forgetPage SignUpForm ">
         <MainBrand />
         <section className="social-form">
           <h2 className="pass-reset">Password Reset</h2>
-          <h6 className="title-text">
+          <h6 className="hint pass-massage">
             Enter your email address that you used to register. We'll send you
             an email to reset your password.
           </h6>
-          <section className="main-form container">
+          <section className="main-form container ">
             <form onSubmit={this.handelSubmit}>
               <div className="form-group sm-8">
                 <input
@@ -104,7 +104,7 @@ class ForgotPassword extends Component {
                   data-testid="forgetPassword-email"
                   type="email"
                   name="email"
-                  className="form-control"
+                  className="form-control  FormElement"
                   placeholder="enter your email "
                   onChange={(this.handleChange, this.EmailHandel)}
                 />
@@ -116,7 +116,7 @@ class ForgotPassword extends Component {
 
                 <button
                   type="button"
-                  className="btn btn-outline-linkF"
+                  className="btn SignUpSubmit btn-block"
                   onClick={this.handelSubmit}
                 >
                   Send code
@@ -124,7 +124,7 @@ class ForgotPassword extends Component {
               </div>
               <section className="or-seperator-2"></section>
               <section className="container main-center">
-                <h6 className="hint-text">
+                <h6 className="hint">
                   If you still need help, contact Oud team at
                   <button type="button" className="btn btn-outline-link">
                     <a href={'mailto:oudteam.sup@gmail.com'}>

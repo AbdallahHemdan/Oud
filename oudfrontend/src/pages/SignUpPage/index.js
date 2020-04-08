@@ -1,6 +1,6 @@
 import React from 'react';
-import MainBrand from '../../components/signup/MainBrand';
-import SocialIcons from '../../components/signup/SocialIcons';
+import MainBrand from '../../components/MainBrand';
+import SocialIcons from '../../components/SocialIcons';
 import Signup from '../../components/signup/signup';
 
 export default () => (

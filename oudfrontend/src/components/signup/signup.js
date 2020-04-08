@@ -4,7 +4,7 @@ import {Redirect, useHistory} from 'react-router-dom';
 import _ from 'lodash';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
-import Validator from './validate';
+import Validator from '../validate';
 /**
  * this class that have all function
  */
@@ -178,15 +178,13 @@ class Signup extends Component {
             localStorage.setItem('accessToken', authToken);
             console.log('token', authToken);
             console.log(response);
-            let history = useHistory();
-            history.push('/home');
-
+            window.location = '/home';
             /**redirect to home */
           } else if (response.status === 400) {
-            errorMassage = response.statusText;
+            errorMassage = response.massage;
           } else if (response.status === 401) {
             /**Unauthorized */
-            errorMassage = response.statusText;
+            errorMassage = response.massage;
             console.log(errorMassage);
           }
           this.setState((prevState) => {
@@ -271,7 +269,7 @@ class Signup extends Component {
    */
   signupForm() {
     return (
-      <section className="main-form container Form">
+      <section className="main-form container SignUpForm">
         <form onSubmit={this.handelSubmit} noValidate>
           <div>
             {this.state.formErrors.mainError && (
@@ -325,27 +323,24 @@ class Signup extends Component {
       <React.Fragment>
         <button
           type="submit"
-          className="btn btn-primary btn-block  Signup-LoginBtn"
-          data-testid="SignUp-btn"
+          className="btn btn-block SignUpSubmit"
+          data-testid="SignUp-btn "
         >
           Sign Up
         </button>
         <section className="or-seperator-2 OR-2"></section>
-        <section className="container main-center  mainCenter">
-          <span>
-            {this.toSignIN()}
-            <h6 className="hint-text hint ">
-              Already registered?
-              <button
-                data-testid="SignIN-btn"
-                type="button"
-                className="btn btn-outline-links SigninRedirect"
-                onClick={this.setRedirect}
-              >
-                SignIn
-              </button>
-            </h6>
-          </span>
+        <section>
+          {this.toSignIN()}
+          <h6 className="hint-text hint ">Already registered?</h6>
+
+          <button
+            data-testid="SignIN-btn"
+            type="button"
+            className="btn-block SignUpSubmit"
+            onClick={this.setRedirect}
+          >
+            SignIn
+          </button>
         </section>
       </React.Fragment>
     );
@@ -380,7 +375,7 @@ class Signup extends Component {
             style={{display: 'inline', width: '20px'}}
             type="checkbox"
             id="gridCheck"
-            className="form-check-input"
+            className="form-check-input checkBoxElement"
           />
           <div className="state p-success">
             <svg className="svg svg-icon" viewBox="0 0 20 20">
@@ -437,7 +432,7 @@ class Signup extends Component {
         <select
           data-testid="register-dob-day"
           id="inputDay"
-          className="form-control form-col custom-select"
+          className="form-control FormElement  form-col custom-select"
           defaultValue="Day"
           name="day"
           onChange={this.handleChange}
@@ -477,7 +472,7 @@ class Signup extends Component {
         <select
           data-testid="register-dob-month"
           id="inputMonth"
-          className="form-control form-col custom-select"
+          className="form-control FormElement  form-col custom-select"
           defaultValue="Month"
           name="month"
           onChange={this.handleChange}
@@ -510,7 +505,7 @@ class Signup extends Component {
         <select
           data-testid="register-dob-year"
           id="inputYear"
-          className="form-control form-col custom-select"
+          className="form-control FormElement  form-col custom-select"
           defaultValue="Year"
           name="year"
           onChange={this.handleChange}
@@ -537,7 +532,7 @@ class Signup extends Component {
           required
           data-testid="register-male"
           id="inputGender"
-          className="form-control form-col custom-select"
+          className="form-control FormElement  form-col custom-select"
           onChange={(this.handleChange, this.genderHandel)}
           name="gender"
         >
@@ -570,7 +565,7 @@ class Signup extends Component {
             required
             data-testid="register-confirmPassword"
             type={this.state.PasswordType}
-            className="form-control"
+            className="form-control FormElement "
             placeholder={'confirm Password'}
             onChange={(this.handleChange, this.ConfirmPasswordHandel)}
             name="confirmPassword"
@@ -600,7 +595,7 @@ class Signup extends Component {
             required
             data-testid="register-password"
             type={this.state.PasswordType}
-            className="form-control"
+            className="form-control FormElement "
             placeholder={'Password'}
             onChange={(this.handleChange, this.PasswordHandel)}
             name="Password"
@@ -636,7 +631,7 @@ class Signup extends Component {
           required
           data-testid="register-email"
           type="email"
-          className="form-control"
+          className="form-control FormElement "
           placeholder="email@address.com"
           onChange={(this.handleChange, this.EmailHandel)}
           name="email"
@@ -667,7 +662,7 @@ class Signup extends Component {
           value={this.state.name}
           label="name"
           type="text"
-          className="form-control"
+          className="form-control FormElement  "
           id="validationTextarea"
           placeholder="What should we call you?"
           onChange={(this.handleChange, this.userNameHandel)}

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './forgetPass.css';
-import MainBrand from '../ForgetPassword/MainBrand';
+import '../signup/signup.css';
+import MainBrand from '../MainBrand';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 
@@ -108,11 +108,11 @@ class Code extends Component {
    */
   render() {
     return (
-      <div className="container main-center">
+      <div>
         <MainBrand />
-        <section className="social-form">
+        <section className="container main-center forgetPage SignUpForm">
           <h2 className="pass-reset">Reset Code</h2>
-          <h6 className="title-text">
+          <h6 className="hint pass-massage">
             We sent a code to your email write the code here
           </h6>
           <section className="main-form container">
@@ -122,7 +122,7 @@ class Code extends Component {
                   data-testid="register-email"
                   type="text"
                   name="code"
-                  className="form-control"
+                  className="form-control   FormElement"
                   placeholder="enter your code "
                   onChange={this.handleChange}
                 />
@@ -134,7 +134,7 @@ class Code extends Component {
                 {this.toResetPassword()}
                 <button
                   type="button"
-                  className="btn btn-outline-linkF"
+                  className="btn SignUpSubmit btn-block"
                   onClick={this.handelSubmit}
                 >
                   Verify code
@@ -142,7 +142,7 @@ class Code extends Component {
               </div>
               <section className="or-seperator-2"></section>
               <section className="container main-center">
-                <h6 className="hint-text">
+                <h6 className="hint">
                   If you still need help, contact Oud team at
                   <button type="button" className="btn btn-outline-link">
                     <a href={'mailto:oudteam.sup@gmail.com'}>
