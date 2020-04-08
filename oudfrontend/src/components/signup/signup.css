@@ -5,7 +5,9 @@
   left: 0;
   z-index: 9999;
   width: 100%;
+  color: black;
 }
+
 
 .OudImage {
   width: 150px;
@@ -204,10 +206,13 @@ button.btn.btn-primary.btn-block {
 .SignUpSubmit:hover {
   color: #ffffff;
   background-color: #fac65f;
+  transition: 1s;
+  text-decoration: none;
+
 
 }
 
-.btnstyle {
+.btn-style a {
   text-decoration: none;
 }
 
@@ -268,8 +273,12 @@ button.btn.btn-primary.btn-block {
   background-color: #ffca60 !important;
   border-color: #ffca60 !important;
   box-shadow: none !important;
+  transition: 1s;
+
 }
 
 .showText:not(:hover) {
   box-shadow: none !important;
+  transition: 1s;
+
 }

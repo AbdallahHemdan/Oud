@@ -227,19 +227,19 @@ class SignIn extends Component {
               <section className="or-seperator-2"></section>
               <section className="container main-center forgetLink ">
                 <span>
-                  <h6 className="hint-text hint ">
+                  <h6 className="hint">
                     Don't have an account?
                     <br />
-                    <Link to="/SignUp" className="btnstyle">
-                      <button
-                        data-testid="SignUpBtn"
-                        type="button"
-                        className="btn SignUpSubmit btn-block"
-                      >
-                        SIGN UP
-                      </button>
-                    </Link>
                   </h6>
+                  <Link to="/SignUp" className="btn-style">
+                    <button
+                      data-testid="SignUpBtn"
+                      type="button"
+                      className="btn SignUpSubmit btn-style btn-block"
+                    >
+                      SIGN UP
+                    </button>
+                  </Link>
                 </span>
               </section>
             </form>
