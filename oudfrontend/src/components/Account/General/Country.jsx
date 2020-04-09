@@ -11,9 +11,14 @@ function Country(props) {
       value={props.default}
       onChange={props.handeler}
     >
-      {countryList.map(country => (
-        <option value={country.code}>{country.name}</option>
-      ))}
+      {countryList.map(
+        country =>
+          country.name !== "Israel" && (
+            <option value={country.code}>
+              {country.code === "PS" ? "Palestine" : country.name}
+            </option>
+          )
+      )}
     </select>
   );
 }
