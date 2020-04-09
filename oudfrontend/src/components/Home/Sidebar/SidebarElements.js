@@ -26,7 +26,7 @@ const secondSidebarElements = [
         name: "Create Playlist"
     },
     {
-        route: "/collection/tracks",
+        route: "/likedSongs",
         iconClasses: "fa fa-heart mr-3 fa-lg sidebar-icons",
         name: "Liked Songs"
 

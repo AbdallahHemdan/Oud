@@ -3,9 +3,20 @@ body {
   font-family: "Raleway", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* @media only screen and (max-width: 615px) {
+  .now-playing-bar-center {
+    width: 100%;
+  }
+  .now-playing-bar-left,
+  .now-playing-bar-right {
+    width: 0;
+  }
+} */

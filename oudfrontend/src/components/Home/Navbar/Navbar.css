@@ -4,7 +4,6 @@
   right: 0;
   left: 223px;
   z-index: 2;
-  /* height: 68px; */
 }
 .fa-angle-left:before {
   margin-right: 20px;
@@ -19,17 +18,13 @@
   border-style: solid;
   border-width: 2px;
   width: 150px;
-  /* color: #f0a91a; */
   border: 2px solid #f0a91a;
   transition: all 0.4s linear;
   border-radius: 80px !important;
   border-radius: 0.85rem;
 }
 .oud-btn:hover {
-  /* background-color: #fff; */
   border: 2px solid #ffffff;
-  /* color: #f0a91a; */
-  /* font-weight: 700; */
 }
 .icon_wrap {
   cursor: pointer;
@@ -62,11 +57,9 @@ input.empty {
   overflow: hidden;
 }
 .left-arrow {
-  /* font-weight: 600; */
   font-size: 1.7em;
 }
 .right-arrow {
-  /* font-weight: 600; */
   font-size: 1.7em;
 }
 .left-arrow:hover {
@@ -135,7 +128,6 @@ input.empty {
   width: 40px;
   height: 40px;
   border-radius: 30%;
-  /* border: 2px solid #494338; */
 }
 
 .username {
@@ -147,7 +139,8 @@ input.empty {
 }
 
 .dropdown-me {
-  left: -30px;
+  left: -30px !important;
+  /* right: 200px !important; */
   top: 50px;
   background: #ca8e15;
 }

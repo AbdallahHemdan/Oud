@@ -119,9 +119,9 @@ class UpperContainer extends Component {
       } else this.setState({ scrolled: false });
     });
   }
-  componentWillUnmount() {
-    window.removeEventListener("scroll");
-  }
+  // componentWillUnmount() {
+  //   window.removeEventListener("scroll");
+  // }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.userId !== this.props.userId) {
       axios

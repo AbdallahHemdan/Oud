@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the Web Player Component snapshot test for the whole web player component 1`] = `
+Array [
+  <div
+    className="expanded-img"
+    data-testid="expaned-album-img"
+  >
+    <img
+      alt="Cinque Terre"
+      className="img-thumbnail"
+      src="../../assets/images/icons/album.jpg"
+    />
+    <button
+      className="expanded-img-btn"
+      data-testid="expaned-album-btn"
+      title="Extend"
+    >
+      <img
+        alt="extend"
+        src="../../assets/images/icons/extend.png"
+      />
+    </button>
+  </div>,
+  <div
+    className="now-playing-bar-container"
+    data-testid="web-palyer"
+  >
+    <div
+      className="now-playing-bar"
+    >
+      <div
+        className="now-playing-bar-left"
+      >
+        <div
+          className="content"
+        >
+          <div
+            className="ablum-link"
+          >
+            <img
+              alt="Album Art"
+              className="album-art-work"
+              data-testid="album-link-img"
+              src="../../assets/images/icons/album.jpg"
+            />
+            <button
+              className="extended-card-button"
+              data-testid="album-link-btn"
+              title="Extend"
+            >
+              <img
+                alt="Extend"
+                className="extend-img"
+                src="../../assets/images/icons/extend.png"
+              />
+            </button>
+          </div>
+          <div
+            className="player-controls"
+          >
+            <div
+              className="control-buttons"
+            >
+              <button
+                className="control-button previous"
+                data-testid="previous-btn"
+                onClick={[Function]}
+                title="Previous"
+              >
+                <img
+                  alt="Previous"
+                  src="../../assets/images/icons/previous.png"
+                />
+              </button>
+              <button
+                className="control-button play"
+                data-testid="play-btn"
+                onClick={[Function]}
+                title="Play"
+              >
+                <img
+                  alt="Play"
+                  src="../../assets/images/icons/play.png"
+                />
+              </button>
+              <button
+                className="control-button next"
+                data-testid="next-btn"
+                onClick={[Function]}
+                title="Next"
+              >
+                <img
+                  alt="Next"
+                  src="../../assets/images/icons/next.png"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="now-playing-bar-center"
+      >
+        <div
+          className="content player-controls"
+        >
+          <div
+            className="track-controls"
+          >
+            <div
+              className="track-info"
+            >
+              <a
+                href="/"
+                onClick={[Function]}
+              >
+                <strong
+                  className="track-name"
+                  data-testid="track-name-link"
+                >
+                  
+                </strong>
+              </a>
+              <a
+                href="/"
+                onClick={[Function]}
+              >
+                <strong
+                  className="artist-name"
+                  data-testid="artist-name-link"
+                >
+                  
+                </strong>
+              </a>
+            </div>
+            <div
+              className="control-buttons"
+            />
+          </div>
+          <div
+            className="playback-bar"
+          >
+            <span
+              className="progress-time current"
+              data-testid="current-time"
+            >
+              0.00
+            </span>
+            <div
+              className="progress-bar"
+              data-testid="progress-click"
+              id="progress-width"
+              onMouseDown={[Function]}
+              onMouseMove={[Function]}
+              onMouseUp={[Function]}
+            >
+              <div
+                className="progress-bar-bg"
+              >
+                <div
+                  className="progress"
+                  style={
+                    Object {
+                      "width": "0%",
+                    }
+                  }
+                />
+              </div>
+            </div>
+            <span
+              className="progress-time remaining"
+              data-testid="duration-time"
+            >
+              0.00
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="now-playing-bar-right"
+      >
+        <div
+          className="volume-bar"
+        >
+          <button
+            className="control-button shuffle"
+            data-testid="shuffle-btn"
+            onClick={[Function]}
+            title="Shuffle"
+          >
+            <img
+              alt="Shuffle"
+              src="../../assets/images/icons/shuffle.png"
+            />
+          </button>
+          <button
+            className="control-button repeat"
+            data-testid="repeat-btn"
+            onClick={[Function]}
+            title="Repeat"
+          >
+            <img
+              alt="Repeat"
+              src="../../assets/images/icons/repeat.png"
+            />
+          </button>
+          <button
+            className="control-button volume"
+            data-testid="volume-btn"
+            onClick={[Function]}
+            title="Volume"
+          >
+            <img
+              alt="Volume"
+              src="../../assets/images/icons/volume.png"
+            />
+          </button>
+          <div
+            className="progress-bar"
+            data-testid="volume-click"
+            id="volume-width"
+            onMouseDown={[Function]}
+            onMouseMove={[Function]}
+            onMouseUp={[Function]}
+            style={
+              Object {
+                "width": "125px",
+              }
+            }
+          >
+            <div
+              className="progress-bar-bg"
+            >
+              <div
+                className="progress"
+                style={
+                  Object {
+                    "width": "1%",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
