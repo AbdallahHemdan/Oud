@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 
 import "./UpperContainer.css";
 
+/**
+ * @type {Function}
+ * @returns {JSX} this is the upper part of the profile which containes
+ * @the profile user name
+ * @follow button
+ * @navigation bar [overview , public playlists , following followers]
+ */
+
 class UpperContainer extends Component {
   constructor(props) {
     super(props);

@@ -27,7 +27,7 @@ function HeaderBody(props) {
         data-testid="owner"
         className="playlistAnchor songButton block"
         onClick={() => {
-          history.push("/profile/1");
+          history.push("/profile/1/overview");
         }}
       >
         Ahmed{/*userName*/}
