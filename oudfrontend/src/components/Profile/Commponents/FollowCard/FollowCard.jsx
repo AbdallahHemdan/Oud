@@ -59,7 +59,7 @@ class FollowCard extends Component {
   handleClick(event) {
     /*
       1) make put request if it was false 
-      2) make delet request if true
+      2) make delete request if true
       3) then change the state
     */
     let ids = this.props.id;

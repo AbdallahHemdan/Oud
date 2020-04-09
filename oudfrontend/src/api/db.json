@@ -688,8 +688,12 @@
     "Artist": {
       "_id": "string",
       "followersCount": 0,
-      "genres": ["string"],
-      "images": ["string"],
+      "genres": [
+        "string"
+      ],
+      "images": [
+        "string"
+      ],
       "name": "string",
       "bio": "string",
       "popularSongs": [
@@ -725,7 +729,9 @@
   },
   "updatePassword": {},
   "followingMe": {
-    "ids": ["4"]
+    "ids": [
+      null
+    ]
   },
   "myFollowing": [
     {
@@ -990,7 +996,9 @@
     }
   ],
   "ids": {
-    "ids": [true]
+    "ids": [
+      true
+    ]
   },
   "playlists": [
     {
@@ -1000,7 +1008,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1011,7 +1021,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1022,7 +1034,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1033,7 +1047,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1044,7 +1060,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1055,7 +1073,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1074,7 +1094,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1085,7 +1107,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1096,7 +1120,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1107,7 +1133,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1118,7 +1146,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1129,7 +1159,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1148,7 +1180,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1159,7 +1193,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1170,7 +1206,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1181,7 +1219,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1192,7 +1232,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1203,7 +1245,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1222,7 +1266,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1233,7 +1279,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1244,7 +1292,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1255,7 +1305,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1266,7 +1318,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1277,7 +1331,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1296,7 +1352,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1307,7 +1365,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1318,7 +1378,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1329,7 +1391,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1340,7 +1404,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1351,7 +1417,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -2365,218 +2433,113 @@
   "queue": {
     "tracks": [
       {
-        "id": "23",
-        "name": "سلاح التلميذ",
+        "id": "2",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "25",
-        "name": "سلاح التلميذ",
+        "id": "11",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "26",
-        "name": "سلاح التلميذ",
+        "id": "3",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "27",
-        "name": "سلاح التلميذ",
+        "id": "4",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "28",
-        "name": "سلاح التلميذ",
+        "id": "5",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "29",
-        "name": "سلاح التلميذ",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
-      },
-      {
-        "id": "30",
-        "name": "سلاح التلميذ",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
-      },
-      {
-        "id": "31",
-        "name": "سلاح التلميذ",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
-      },
-      {
-        "id": "32",
-        "name": "سلاح التلميذ",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
-      },
-      {
-        "id": "33",
-        "name": "سلاح التلميذ",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
-      },
-      {
-        "id": "34",
-        "name": "سلاح التلميذ",
+        "id": "12",
+        "name": "واحد وعشرين",
         "artists": [
           {
             "id": "3",
@@ -2596,14 +2559,16 @@
         "audioUrl": "www.facebook.com"
       }
     ],
-    "total": 11
+    "total": 6
   },
   "user": [
     {
       "id": "1",
       "displayName": "Ahmed",
       "followersCount": 5,
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "verified": false,
       "type": "string"
     },
@@ -2611,7 +2576,9 @@
       "id": "2",
       "displayName": "Mido",
       "followersCount": 0,
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "verified": false,
       "type": "string"
     }
@@ -3175,7 +3142,9 @@
           "image": "string"
         }
       ],
-      "genres": ["shaaby"],
+      "genres": [
+        "shaaby"
+      ],
       "image": "https://i.scdn.co/image/ab67616d0000b273ef029742aa2f7342b3b5daaf",
       "name": "Insan",
       "release_date": "2020-03-07",
@@ -3541,7 +3510,13 @@
     "offset": {}
   },
   "queue1": {
-    "tracks": ["dkfjnc245", "dkfjnc246", "dkfjnc247", "dkfjnc248", "dkfjnc249"],
+    "tracks": [
+      "dkfjnc245",
+      "dkfjnc246",
+      "dkfjnc247",
+      "dkfjnc248",
+      "dkfjnc249"
+    ],
     "total": 5
   },
   "dkfjnc245": {
@@ -3645,43 +3620,54 @@
     "id": "1"
   },
   "likedkfjnc245": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc2456": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc247": {},
   "likedkfjnc248": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
-  "likedkfjnc249": {
-    "items": [{}],
-    "limit": 0,
-    "offset": 0,
-    "total": 0
-  },
+  "likedkfjnc249": {},
   "checkkfjnc245": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   },
   "checkkfjnc246": {
-    "IsFound": [false]
+    "IsFound": [
+      false
+    ]
   },
   "checkkfjnc247": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   },
   "checkkfjnc248": {
-    "IsFound": [false]
+    "IsFound": [
+      false
+    ]
   },
   "checkkfjnc249": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   }
 }
