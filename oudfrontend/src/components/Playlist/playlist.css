@@ -1,5 +1,5 @@
 .playlist {
-  background-color:rgna(0, 0, 0, .5);
+  background-color: rgna(0, 0, 0, 0.5);
   padding: 30px 32px;
   color: #b3b3b3;
   position: relative;
@@ -26,7 +26,7 @@
   text-decoration: underline;
 }
 .playlistAnchor {
-  color: #916B49;
+  color: #916b49;
   margin-left: auto;
   margin-right: auto;
 }
@@ -37,7 +37,7 @@
   font-weight: bolder;
   font-size: 12px;
   line-height: 18px;
-  background-color: #FFCE00;
+  background-color: #ffce00;
   color: #ffffff;
   width: 200px;
   margin: 10px auto;
@@ -52,16 +52,16 @@
 
 .playButton:hover {
   transform: scale(1.06);
-  background-color: #F9B835;
+  background-color: #f9b835;
 }
 .playButton:active {
-  background-color: #FFCE00;
-  border: #FFCE00;
+  background-color: #ffce00;
+  border: #ffce00;
 }
 .playButton:focus {
   outline: none;
 }
-.inline{
+.inline {
   display: inline;
 }
 .playlistHeaderBodyBottom {
@@ -87,18 +87,16 @@
   padding: 0px;
   background-color: transparent;
   border: none;
-  color: #FFCE00;
+  color: #ffce00;
 }
-
 
 .likeIcon:focus {
   outline: none;
 }
 
-.likeIcon:hover{
+.likeIcon:hover {
   transform: scale(1.3);
-
 }
 .gray-text {
-  color: #916B49;
+  color: #916b49;
 }
