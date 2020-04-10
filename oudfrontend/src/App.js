@@ -1,5 +1,4 @@
 import React from "react";
-//import logo from './logo.svg';
 import "./App.css";
 import Playlist from "./components/Playlist/playlist";
 import LikedSongs from "./components/likedSongs/likedSongs";
@@ -17,6 +16,7 @@ import RedirectPage from "./components/Account/General/RedirectPage";
 import Profile from "./pages/Profile/Profile";
 import WebPlayer from "./components/WebPlayer/WebPlayer";
 import Home from "./pages/Home/Home";
+import SeeAll from './components/SeeAll/SeeAll';
 
 function App() {
   return (
@@ -29,17 +29,22 @@ function App() {
           <Route exact path="/search">
             <Search />
           </Route>
+          <Route exact path="/genre/:genreName">
+            <SeeAll />
+          </Route>
           <Route path="/profile/:userId" component={Profile} />
-          <Route path="/account" component={Account} />
-          <Route path="/RedirectPage" component={RedirectPage} />
+          <Route path="/account" >
+            <Account />
+          </Route>
+          <Route path="/RedirectPage" >
+            <RedirectPage />
+          </Route>
           <Route path={`/playlist/:id`} Component={<Playlist />}>
             <PlaylistRender />
           </Route>
-
           <Route path="/likedSongs/">
             <LikedSongs />
           </Route>
-
           <Route path="/albums/:id" Component={<Album />}>
             <AlbumRender />
           </Route>

@@ -49,5 +49,6 @@
   "/me/tracks?ids=[dkfjnc246]": "/checkkfjnc246",
   "/me/tracks?ids=[dkfjnc247]": "/checkkfjnc247",
   "/me/tracks?ids=[dkfjnc248]": "/checkkfjnc248",
-  "/me/tracks?ids=[dkfjnc249]": "/checkkfjnc249"
+  "/me/tracks?ids=[dkfjnc249]": "/checkkfjnc249",
+  "/genres": "/genres"
 }
