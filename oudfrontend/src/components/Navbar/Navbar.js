@@ -71,6 +71,11 @@ class Navbar extends Component {
     this.props.history.goForward();
   }
 
+  componentDidMount() {
+    if (this.props.isSearch) {
+      this.nameInput.focus();
+    }
+  }
   /**
    * @function
    * @name render
@@ -110,6 +115,7 @@ class Navbar extends Component {
               type="search"
               className="search-input empty"
               id="iconified"
+              ref={(input) => { this.nameInput = input; }}
               placeholder="&#xF002; Search for Artists, Songs"
               aria-label="Search"
               onClick={() => this.handleClickOnSearch('search')}
