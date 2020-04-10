@@ -88,7 +88,9 @@
 .now-playing-bar-center .content .track-controls {
   width: 100%;
   position: relative;
-  left: 6%;
+  left: 20%;
+  margin-bottom: 6px;
+  font-size: 18px;
 }
 .now-playing-bar-center .track-info {
   margin: auto;
