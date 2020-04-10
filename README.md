@@ -1,10 +1,9 @@
-<p align="center">
+<div align="center">
+<a href="" rel="noopener">
   
-
 ![Oud](https://user-images.githubusercontent.com/40190772/79008099-ebb5f680-7b5c-11ea-926d-f79f25f3e47b.png)
-
   
-</p>
+</div>
 
 <h3 align="center">Oud Front-End</h3>
 
