@@ -115,6 +115,9 @@ input.empty {
     left: 5px !important;
     top: 50px !important;
   }
+  .signup-signin-link {
+    width: 100%;
+  }
   .oud-btn {
     width: 100%;
   }

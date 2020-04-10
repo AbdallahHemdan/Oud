@@ -34,7 +34,7 @@ class Search extends Component {
     return (
       <React.Fragment>
         <Sidebar />
-        <Navbar isLoggedIn={true} />
+        <Navbar isLoggedIn={false} />
         <section
           className="main-content"
           data-testid="main-content"
