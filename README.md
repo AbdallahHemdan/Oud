@@ -60,3 +60,8 @@ npm start
 ```sh
 npm build
 ```
+
+### 📃 Generate functional documentation
+```sh
+npm run docs
+```
