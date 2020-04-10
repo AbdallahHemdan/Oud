@@ -1,13 +1,9 @@
 <p align="center">
-  <a href="" rel="noopener">
   
-  <img 
-    src="https://github.com/AbdallahHemdan/oudFrontend/blob/master/oudfrontend/src/assets/images/Oud.png" 
-    width="340px"
-    height="340px"
-    align="center"
-  />
 
+![Oud](https://user-images.githubusercontent.com/40190772/79008099-ebb5f680-7b5c-11ea-926d-f79f25f3e47b.png)
+
+  
 </p>
 
 <h3 align="center">Oud Front-End</h3>
@@ -25,7 +21,18 @@
 # 🏃‍♂️ Oud Front-End
 > Frontend of ```Oud``` which is a mimic all the functionalities of [Spotify](https://open.spotify.com/) using ReactJS.
 
+## 📷 Screenshots
 
+<div align="center">
+ 
+![image](https://user-images.githubusercontent.com/40190772/79008135-01c3b700-7b5d-11ea-85c9-9f1e166e299b.png)
+
+<hr />
+
+![image](https://user-images.githubusercontent.com/40190772/79008263-418a9e80-7b5d-11ea-9433-c8d7791a9b81.png)
+
+
+</div>
 
 ### 📦 Install packages
 ```sh
