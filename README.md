@@ -5,9 +5,11 @@
     src="https://github.com/AbdallahHemdan/oudFrontend/blob/master/oudfrontend/src/assets/images/Oud.png" 
     width="340px"
     height="340px"
+    align="center"
   />
 
 </p>
+
 <h3 align="center">Oud Front-End</h3>
 
 <div align="center">
