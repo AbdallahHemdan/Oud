@@ -10,6 +10,7 @@ import queue from "../../../assets/images/icons/queue.png";
 import queueActivated from "../../../assets/images/icons/queueActivated.png";
 import love from "../../../assets/images/icons/love.png";
 import loved from "../../../assets/images/icons/loved.png";
+
 /**
  * Component for controling the right part of the player: shuffle, repeat, and mute buttons and clicking on the volume bar
  * @author Ahmed Ashraf
@@ -21,16 +22,18 @@ class PlayingBarRight extends Component {
     this.state = {
       queueOpened: false,
       loved: false,
+      lovedState: true,
     };
   }
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   if (nextProps.loved !== prevState.loved) {
-  //     return {
-  //       loved: nextProps.loved,
-  //     };
-  //   }
-  //   return null;
-  // }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.loved !== prevState.loved) {
+      console.log("next props: " + nextProps.loved);
+      return {
+        loved: nextProps.loved,
+      };
+    }
+    return null;
+  }
 
   openQueue = () => {
     if (this.state.queueOpened) {
@@ -43,16 +46,10 @@ class PlayingBarRight extends Component {
     });
   };
   likeSong = () => {
-    this.setState({
-      loved: true,
-    });
-    this.props.addRemoveSavedSong(true);
+    this.props.likeSong(this.props.trackId);
   };
   unlikeSong = () => {
-    this.setState({
-      loved: false,
-    });
-    this.props.addRemoveSavedSong(false);
+    this.props.unlikeSong(this.props.trackId);
   };
   render() {
     return (
@@ -126,7 +123,7 @@ class PlayingBarRight extends Component {
             <div
               className="progress-bar"
               id="volume-width"
-              style={{ width: "125px" }}
+              // style={{ width: "125px" }}
               onMouseDown={this.props.setMouseDown}
               onMouseMove={this.props.onVolumeClick}
               onMouseUp={this.props.mouseUp}

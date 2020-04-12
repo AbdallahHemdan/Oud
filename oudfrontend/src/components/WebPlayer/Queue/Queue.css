@@ -72,6 +72,8 @@
   box-shadow: none;
   border: none;
   margin-bottom: 0.5em;
+  /* opacity: 1 !important;
+  visibility: visible !important; */
 }
 .track:hover {
   background: #292929;
@@ -207,7 +209,7 @@
   right: 30em;
   top: 0;
 }
-.dropdown-menu {
+.queue-container .overlay .menu .dropdown-menu {
   display: block;
   position: absolute;
   background-color: #383838;
@@ -246,7 +248,11 @@
     font-size: 18px;
   }
 }
-
+.queue-add-to-playlist .createPlaylist {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+}
 @media screen and (max-height: 450px) {
   .track .content .artist-name,
   .track .content .track-name {

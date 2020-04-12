@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import Extend from "../../../assets/images/icons/extend.png";
 import TrackContainer from "./TrackContainer";
-import { arrayMove } from "react-sortable-hoc";
 import PropTypes from "prop-types";
 import "./Queue.css";
+import { checkSavedTrack } from "../../../utils/Actions/Player";
+import Swal from "sweetalert2";
+import AddToPlaylist from "../../commonComponents/addToPlaylist/addToPlaylist";
+const arrayMove = require("array-move");
+
 /**
  * Component for Queue the track of the currently context.
  * @author Ahmed Ashraf
@@ -22,6 +26,9 @@ class Queue extends Component {
       dropdown: "none",
       topIdx: 1,
       trackIdx: 0,
+      trackId: "",
+      likeOption: "Save to your Liked Songs",
+      displayAdd: false,
     };
   }
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -74,8 +81,14 @@ class Queue extends Component {
   toggleDropdown = (idx, id) => {
     let dropdown = this.state.dropdown === "none" ? "block" : "none";
     if (idx !== this.state.trackIdx) dropdown = "block";
+    checkSavedTrack(id).then((isFound) => {
+      let likeOption = "Save to your Liked Songs";
+      if (isFound) likeOption = "Remove from your Liked Songs";
+      this.setState({
+        likeOption: likeOption,
+      });
+    });
     const topIdx = (idx + 1) * 5;
-    console.log("top: " + topIdx);
     this.setState({
       dropdown: dropdown,
       trackIdx: idx,
@@ -94,49 +107,102 @@ class Queue extends Component {
       dropdown: "none",
     });
   };
+  copyLink = () => {
+    let link = "/tracks/" + this.state.trackId;
+    return navigator.clipboard.writeText(link).then(() => {
+      this.setState({
+        dropdown: "none",
+      });
+      Swal.fire({
+        title: "Done!",
+        text: "Song Link was copied to your Clipboard!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    });
+  };
+  likeSong = () => {
+    this.props.likeSong(this.state.trackId);
+    this.setState({
+      likeOption: "Remove from your Liked Songs",
+      dropdown: "none",
+    });
+  };
+  unlikeSong = () => {
+    this.props.unlikeSong(this.state.trackId);
+    this.setState({
+      likeOption: "Save to your Liked Songs",
+      dropdown: "none",
+    });
+  };
+  handleLikeOption = () => {
+    if (this.state.likeOption === "Save to your Liked Songs") this.likeSong();
+    else this.unlikeSong();
+  };
+  addToPlaylist() {
+    this.setState({ displayAdd: true, dropdown: "none" });
+  }
+  closeAddToPlaylist() {
+    this.setState({ displayAdd: false });
+  }
   render() {
     return (
-      <div className="queue-container">
-        <div className="overlay" style={{ height: this.state.height }}>
-          <button className="close-btn" onClick={this.closeQueue}>
-            <img src={Extend} alt="Close Queue" />
-          </button>
-          <TrackContainer
-            tracks={this.state.tracks}
-            onSortEnd={this.onSortEnd}
-            useDragHandle={true}
-            playTrack={this.props.player}
-            playing={this.props.playing}
-            toggleDropdown={this.toggleDropdown}
-            data-testid="tracks-container"
-          />
-          <div
-            className="menu"
-            style={{
-              display: this.state.dropdown,
-              top: this.state.topIdx + "em",
-            }}
-          >
-            <div className="dropdown-menu">
-              <button
-                className="dropdown-btn"
-                onClick={this.removeTrack}
-                data-testid="delete-option"
-              >
-                Delete
-              </button>
-              <button
-                className="dropdown-btn"
-                data-testid="add-to-playlist-option"
-              >
-                Add to Playlist
-              </button>
-              <button className="dropdown-btn" data-testid="copy-option">
-                Copy Song Link
-              </button>
-              <button className="dropdown-btn" data-testid="like-option">
-                Save to your Liked Songs
-              </button>
+      <div className="queue-add-to-playlist">
+        <AddToPlaylist
+          display={this.state.displayAdd}
+          close={this.closeAddToPlaylist.bind(this)}
+        />
+        <div className="queue-container">
+          <div className="overlay" style={{ height: this.state.height }}>
+            <button className="close-btn" onClick={this.closeQueue}>
+              <img src={Extend} alt="Close Queue" />
+            </button>
+            <TrackContainer
+              tracks={this.state.tracks}
+              onSortEnd={this.onSortEnd}
+              useDragHandle={true}
+              playTrack={this.props.player}
+              toggleDropdown={this.toggleDropdown}
+              data-testid="tracks-container"
+            />
+            <div
+              className="menu"
+              style={{
+                display: this.state.dropdown,
+                top: this.state.topIdx + "em",
+              }}
+            >
+              <div className="dropdown-menu">
+                <button
+                  className="dropdown-btn"
+                  onClick={this.removeTrack}
+                  data-testid="delete-option"
+                >
+                  Delete
+                </button>
+                <button
+                  className="dropdown-btn"
+                  data-testid="add-to-playlist-option"
+                  onClick={() => this.addToPlaylist()}
+                >
+                  Add to Playlist
+                </button>
+                <button
+                  className="dropdown-btn"
+                  data-testid="copy-option"
+                  onClick={this.copyLink}
+                >
+                  Copy Song Link
+                </button>
+                <button
+                  className="dropdown-btn"
+                  data-testid="like-option"
+                  onClick={this.handleLikeOption}
+                >
+                  {this.state.likeOption}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -169,10 +235,6 @@ Queue.propTypes = {
    * A reference to the player
    */
   player: PropTypes.object.isRequired,
-  /**
-   * The playing state of the parent component
-   */
-  playing: PropTypes.bool.isRequired,
   /**
    * A function to make a DELETE request to remove a track from the current queue.
    */

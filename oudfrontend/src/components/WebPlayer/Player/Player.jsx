@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react";
 import "./Player.css";
-import { Howl } from "howler";
 import PlayingBarLeft from "./PlayingBarLeft";
 import PlayingBarCenter from "./PlayingBarCenter";
 import PlayingBarRight from "./PlayingBarRight";
 import extend from "../../../assets/images/icons/extend.png";
 import PropTypes from "prop-types";
+import { checkSavedTrack, setupHowler } from "../../../utils/Actions/Player";
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
  * @author Ahmed Ashraf
@@ -18,7 +18,7 @@ import PropTypes from "prop-types";
 class Player extends Component {
   /**
    * Setting things up. It initialize what will be fetched from the API
-   * @returns{void}
+   * @returns {void}
    */
   constructor(props) {
     super(props);
@@ -65,27 +65,54 @@ class Player extends Component {
     this.fetchPlayback();
   }
 
+  onPlay = () => {
+    this.props.changePlayingState(true);
+    this.setState({
+      playing: true,
+      progress: 0,
+      current: Number(0).toFixed(2),
+      duration: Number(this.state.sound.duration() / 60).toFixed(2),
+    });
+    setInterval(() => {
+      if (this.state.sound && this.state.playing) {
+        const progress = this.getSoundProgress();
+        const current = Number(this.state.sound.seek() / 60).toFixed(2);
+        this.setState({
+          progress: isNaN(progress) ? this.state.progress : progress,
+          current: isNaN(current) ? this.state.current : current,
+        });
+      }
+    }, 100);
+  };
+  onEnd = () => {
+    this.props.changePlayingState(false);
+    this.setState({
+      playing: false,
+      progress: 0,
+      current: Number(0).toFixed(2),
+    });
+    if (!this.state.repeatState) this.handleNext();
+  };
   /**
    * Get Information About The User's Current Playback and fetch the current queue with updating the state with the needed
    * information about the track to display in the UI
    * @function
    * @returns {void}
    */
-  fetchPlayback = () => {
-    console.log("fetchPlayback");
+  fetchPlayback = (outPlayer = false) => {
     this.props
       .getRequest("http://localhost:2022/me/player")
       .then((response) => {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
           const track = data["item"];
-          console.log("url: " + track["audioUrl"]);
+
           this.setState({
             audioUrl: track["audioUrl"],
             progress: Math.floor(
               (data["progressMs"] / track["duartion"]) * 100
             ),
-            playing: data["isPlaying"],
+            playing: outPlayer ? true : data["isPlaying"],
             current: Number(data["progressMs"] / 60000).toFixed(2),
             trackName: track["name"],
             artistName: track["artists"][0]["name"],
@@ -97,14 +124,20 @@ class Player extends Component {
             fetched: true,
             trackId: track["_id"],
             art: track["artists"][0]["image"],
-            loved: this.props.chekckSavedSong(track["_id"]),
           });
           this.props.changePlayingState(data["isPlaying"]);
-          this.props.fetchQueue("0", track["_id"]);
+          this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
+          this.handleSaveToLikedSongs();
         }
       });
   };
-
+  handleSaveToLikedSongs = () => {
+    checkSavedTrack(this.state.trackId).then((isFound) => {
+      if (isFound) {
+        this.props.changeLovedState(true);
+      }
+    });
+  };
   /**
    * Setting Howler object up.
    * While setting Howler up, It updates the state of the instance to be aware of changes in the UI.
@@ -115,52 +148,18 @@ class Player extends Component {
    * @function
    * @returns {void}
    */
-  playTrack = () => {
-    if (this.state.sound && this.state.sound.state() === "loaded")
+  playTrack = (fromPlay = false) => {
+    if (this.state.sound) {
+      // this.state.sound.pause();
+      // this.state.sound.seek(0);
       this.state.sound.unload();
-    const sound = new Howl({
-      src: [this.state.audioUrl],
-      autoplay: false,
-      loop: this.state.repeatState,
-      volume: Number(this.state.volume / 100).toFixed(2),
-      mute: this.state.muteState,
-      html5: true,
-      format: ["mp3"],
-      onplay: () => {
-        this.props.changePlayingState(true);
-        this.setState({
-          playing: true,
-          duration: Number(this.state.sound.duration() / 60).toFixed(2),
-        });
-        setInterval(() => {
-          if (this.state.sound && this.state.playing) {
-            const progress = this.getSoundProgress();
-            const current = Number(this.state.sound.seek() / 60).toFixed(2);
-            this.setState({
-              progress: isNaN(progress) ? this.state.progress : progress,
-              current: isNaN(current) ? this.state.current : current,
-            });
-          }
-        }, 100);
-      },
-      onend: () => {
-        this.props.changePlayingState(false);
-        this.setState({
-          playing: false,
-          progress: 0,
-          current: Number(0).toFixed(2),
-        });
-        if (!this.state.repeatState) this.handleNext();
-      },
-    });
+    }
     this.setState({
-      sound: sound,
+      sound: setupHowler(this.state, this.onPlay, this.onEnd),
     });
     this.state.sound.play();
-    this.state.sound.seek(this.state.current * 60);
-    console.log("current: " + this.state.sound.duration());
+    // if (fromPlay) this.state.sound.seek(this.state.current * 60);
   };
-
   /**
    * Handling the pause action. request from the back end to pause, pause the sound in the browser, and update the playing state
    * to false to be aware of the related UI changes
@@ -226,15 +225,13 @@ class Player extends Component {
   play = (idx = this.props.idx) => {
     this.playResumeRequest(idx)
       .then((resp) => {
-        this.playTrack();
+        this.playTrack(true);
         // console.log(resp);
-        console.log("play function");
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
   /**
    * Controlling function for the play, pause, and resume actions. It specifies which action will be called
    * depending on the plaing state of the currently track
@@ -245,9 +242,6 @@ class Player extends Component {
    */
   handlePlayPause = (id = this.state.trackId, idx = this.props.idx) => {
     if (id !== this.state.trackId) {
-      //to uncomment this we need a "REAL" live server
-      // this.fetchPlayback();
-
       this.props
         .fetchTrack(id)
         .then((response) => {
@@ -257,12 +251,13 @@ class Player extends Component {
             artistName: response["data"]["artists"][0]["name"],
             audioUrl: response["data"]["audioUrl"],
             duration: response["data"]["duartion"] / 60000,
+            playing: true,
             current: Number(0).toFixed(2),
             progress: Number(0).toFixed(2),
-            playing: true,
-            trackId: response["data"]["_id"],
+            trackId: id,
+            art: response["data"]["artists"][0]["image"],
           });
-          this.props.changePlayingState(true);
+          this.props.changePlayingState(true, idx);
           this.play(idx);
         })
         .catch(function (error) {
@@ -270,6 +265,7 @@ class Player extends Component {
         });
       return;
     }
+
     if (this.state.sound) {
       this.state.sound.mute(this.state.muteState);
       this.state.sound.loop(this.state.repeatState);
@@ -442,7 +438,6 @@ class Player extends Component {
           repeatState: loop,
         });
         if (this.state.sound) this.state.sound.loop(loop);
-        console.log("from repeat it's fine!");
       })
       .catch(function (error) {
         console.log(error);
@@ -590,7 +585,9 @@ class Player extends Component {
               volume={this.state.volume}
               trackId={this.state.trackId}
               queueElement={this.props.queueElement}
-              loved={this.state.loved}
+              likeSong={this.props.likeSong}
+              unlikeSong={this.props.unlikeSong}
+              loved={this.props.loved}
               handleShuffleState={this.handleShuffleState}
               handleRepeatState={this.handleRepeatState}
               handleMuteState={this.handleMuteState}
@@ -605,8 +602,6 @@ class Player extends Component {
                   })
                 );
               }}
-              addRemoveSavedSong={this.props.addRemoveSavedSong}
-              chekckSavedSong={this.props.chekckSavedSong}
               data-testid="web-player-right"
             />
           </div>

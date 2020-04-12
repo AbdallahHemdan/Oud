@@ -124,9 +124,9 @@ button:focus {
   align-items: center;
   vertical-align: middle;
 }
-@media screen and (max-height: 846px) {
-  .volume-bar {
-    width: 180px;
+@media screen and (max-height: 900px) {
+  .volume-bar .progress-bar {
+    max-width: 3em;
   }
 }
 .ablum-link {
@@ -149,12 +149,12 @@ button:focus {
   border: 0;
   /* opacity: 0; */
 }
-.extend-img {
+/* .extend-img {
   opacity: 1;
 }
 .extend-img:hover {
   opacity: 1;
-}
+} */
 .expanded-img {
   width: 20%;
   display: none;
@@ -181,6 +181,7 @@ button:focus {
 }
 .progress-bar {
   width: 100%;
+  min-width: 4.5vw;
   height: 12px;
   display: inline-flex;
   cursor: pointer;
@@ -240,7 +241,7 @@ button:focus {
     right: 35px;
   }
 }
-@media only screen and (max-width: 665px) {
+@media only screen and (max-width: 677px) {
   .now-playing-bar-container {
     min-width: 320px;
   }

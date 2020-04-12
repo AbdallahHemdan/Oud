@@ -45,9 +45,9 @@
   "/me/tracks?IDs=[dkfjnc247]": "/likedkfjnc247",
   "/me/tracks?IDs=[dkfjnc248]": "/likedkfjnc248",
   "/me/tracks?IDs=[dkfjnc249]": "/likedkfjnc249",
-  "/me/tracks?ids=[dkfjnc245]": "/checkkfjnc245",
-  "/me/tracks?ids=[dkfjnc246]": "/checkkfjnc246",
-  "/me/tracks?ids=[dkfjnc247]": "/checkkfjnc247",
-  "/me/tracks?ids=[dkfjnc248]": "/checkkfjnc248",
-  "/me/tracks?ids=[dkfjnc249]": "/checkkfjnc249"
+  "/me/tracks/contains?ids=[dkfjnc245]": "/checkkfjnc245",
+  "/me/tracks/contains?ids=[dkfjnc246]": "/checkkfjnc246",
+  "/me/tracks/contains?ids=[dkfjnc247]": "/checkkfjnc247",
+  "/me/tracks/contains?ids=[dkfjnc248]": "/checkkfjnc248",
+  "/me/tracks/contains?ids=[dkfjnc249]": "/checkkfjnc249"
 }

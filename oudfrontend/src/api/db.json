@@ -2188,242 +2188,52 @@
           "audioUrl": "www.facebook.com"
         }
       ]
-    },
-    {
-      "name": "",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "jiyVgQx"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "DgzqHNc"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "VStfhC4"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "gV0TVvR"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "uhiz53t"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "1nWOMiK"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "eFs5yHC"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "XnoUCA4"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "L6GXfCp"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "vJrXlK7"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "5RkIxDc"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "93GDxL9"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "NxAKTmI"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "ASMKHmZ"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "3g7jOT2"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "QNZLOol"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "5ylPP_O"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "vEPUamA"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "Yojgykk"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "sPGrCAy"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "jV6Os6J"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "qv3ymVQ"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "zoVA5qO"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "-nRkO7A"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "2pSE57G"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "QypTlfw"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "rtiTOKQ"
-    },
-    {
-      "name": "vfmerkmfre",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "aHZggYs"
-    },
-    {
-      "name": "Hello, World",
-      "public": true,
-      "collaborative": false,
-      "description": "",
-      "image/png": "",
-      "id": "E1d2ZzA"
     }
   ],
   "queue": {
     "tracks": [
+      {
+        "id": "1",
+        "name": "Hat Sogara",
+        "artists": [
+          {
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "2",
+        "name": "Hat Sogara",
+        "artists": [
+          {
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
       {
         "id": "3",
         "name": "Hat Sogara",
@@ -2761,7 +2571,7 @@
         "audioUrl": "www.facebook.com"
       }
     ],
-    "total": 16
+    "total": 18
   },
   "user": [
     {
@@ -2786,6 +2596,61 @@
     }
   ],
   "likedPlaylists": [
+    {
+      "id": "2",
+      "name": "Jazz",
+      "owner": "2",
+      "collaborative": true,
+      "description": "Best music I have ever listened to",
+      "followersCount": 100,
+      "image": "https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
+      "public": true,
+      "type": "trap",
+      "tracks": [
+        {
+          "id": "21",
+          "name": "إنسان",
+          "artists": [
+            {
+              "id": "5",
+              "name": "حمزة نمرة",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "22",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        }
+      ]
+    },
     {
       "id": "1",
       "name": "Jazz",
@@ -3668,20 +3533,20 @@
     "repeatState": "off",
     "currentlyPlayingType": "unknown",
     "item": {
-      "_id": "dkfjnc247",
-      "name": "Dorak gai",
+      "_id": "dkfjnc245",
+      "name": "أعمالنا أعمارنا",
       "artists": [
         {
           "_id": "21",
-          "name": "Wegz",
+          "name": "ماهر زين",
           "type": "string",
-          "image": "https://1.bp.blogspot.com/-UiyeZ3BS-vU/XkofO3B9dyI/AAAAAAAAAxs/Qq4zCnTnuZ4lrYv_T7TZ-lkuWScalDtSwCPcBGAYYCw/s320/unnamed.jpg"
+          "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Islamic-Maher-Zain.jpg"
         }
       ],
       "albumId": "50",
       "type": "track",
-      "audioUrl": "https://cdn1.esm3.com//music/10028/m289005.mp3",
-      "duartion": 256200,
+      "audioUrl": "https://serv10.songatak.com/mp3/Songatak.Com_c1702de2cce9ed30199f0fe96a4ba58d.mp3",
+      "duartion": 205800,
       "views": 100000
     },
     "actions": {
@@ -3709,7 +3574,9 @@
   "repeat": {},
   "volume": {},
   "play": {
-    "offset": {}
+    "offset": {
+      "position": 1
+    }
   },
   "queue1": {
     "tracks": [
@@ -3821,31 +3688,10 @@
   "deldkfjnc249": {
     "id": "1"
   },
-  "likedkfjnc245": {
-    "items": [
-      {}
-    ],
-    "limit": 0,
-    "offset": 0,
-    "total": 0
-  },
-  "likedkfjnc2456": {
-    "items": [
-      {}
-    ],
-    "limit": 0,
-    "offset": 0,
-    "total": 0
-  },
+  "likedkfjnc245": {},
+  "likedkfjnc246": {},
   "likedkfjnc247": {},
-  "likedkfjnc248": {
-    "items": [
-      {}
-    ],
-    "limit": 0,
-    "offset": 0,
-    "total": 0
-  },
+  "likedkfjnc248": {},
   "likedkfjnc249": {
     "items": [
       {}

@@ -28,7 +28,7 @@ class Track extends Component {
       trackName: "",
       artistName: "",
       duration: "",
-      playing: false,
+      resume: false,
       thumb: play,
     };
   }
@@ -62,12 +62,6 @@ class Track extends Component {
    * @returns {void}
    */
   handlePlayButton = () => {
-    const playing = !this.state.playing;
-    const thumb = this.props.playing ? pause : play;
-    this.setState({
-      playing: playing,
-      thumb: thumb,
-    });
     this.props.playTrack.current.handlePlayPause(this.props.id, this.props.idx);
   };
   /**
@@ -94,24 +88,32 @@ class Track extends Component {
               onClick={this.handlePlayButton}
               data-testid="queue-play-btn"
             >
-              <img src={this.state.thumb} alt="Pause" />
+              <img
+                src={
+                  this.props.playTrack.current.state.trackId ===
+                    this.props.id && this.props.playTrack.current.state.playing
+                    ? pause
+                    : play
+                }
+                alt="Pause"
+              />
             </button>
           </div>
 
           <div className="track-name" data-testid="queue-track-name">
-            <text title="Somthing Just Like This">
+            <strong title={this.state.trackName}>
               <a href="https://www.facebook.com/">{this.state.trackName}</a>
-            </text>
+            </strong>
           </div>
 
           <div className="artist-name" data-testid="queue-artist-name">
-            <text title="The Chainsmokers & Coldplay">
+            <strong title={this.state.artistName}>
               <a href="https://www.facebook.com/">{this.state.artistName}</a>
-            </text>
+            </strong>
           </div>
 
           <div className="duration">
-            <text>{this.state.duration}</text>
+            <strong>{this.state.duration}</strong>
           </div>
 
           <div className="ellipsis-container">
@@ -141,10 +143,6 @@ Track.propTypes = {
    * A function to handle playing a track from the queue
    */
   playTrack: PropTypes.object.isRequired,
-  /**
-   * The playing state of the parent component
-   */
-  playing: PropTypes.bool.isRequired,
   /**
    * Open/Close the dropdown menu function.
    */

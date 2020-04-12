@@ -3,6 +3,8 @@ import { Component } from "react";
 import axios from "axios";
 import Player from "./Player/Player";
 import Queue from "./Queue/Queue";
+import Swal from "sweetalert2";
+import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
 /**
  * Component controlling the Player and Qeueu Components. It masters all the logic behind the web player.
  * @author Ahmed Ashraf
@@ -82,7 +84,7 @@ class WebPlayer extends Component {
    * @param {number} trackId the id of the currently fetched track in the Player component
    * @returns {void}
    */
-  fetchQueue = (queueIndex = "0", trackId = "") => {
+  fetchQueue = (queueIndex = "0", trackId = "", newQueue = false) => {
     this.getRequest("http://localhost:2022/me/queue?queueIndex=" + queueIndex)
       .then((response) => {
         const data = response["data"];
@@ -91,21 +93,24 @@ class WebPlayer extends Component {
           let trackIdx = 0;
           for (let i = 0; i < size; ++i)
             if (data["tracks"][i] === trackId) {
+              console.log("found track id");
               trackIdx = i;
               break;
             }
 
+          console.log("track id from data: " + data["tracks"][0]);
+          console.log("track id from params: " + trackId);
           this.setState({
-            trackIdx: trackIdx,
+            trackIdx: newQueue ? 0 : trackIdx,
             queue: data["tracks"],
-            trackId: trackId,
+            trackId: newQueue ? data["tracks"][0] : trackId,
           });
+          console.log("track id from state: " + this.state.trackId);
         }
       })
       .catch(function (error) {
         console.log(error);
       });
-    console.log("id from queue: " + this.state.trackId);
   };
   /**
    * A function to fetch any track from the server
@@ -152,65 +157,6 @@ class WebPlayer extends Component {
     return this.fetchTrack(this.state.queue[this.state.trackIdx]);
   };
   /**
-   * Given an array of track objects, update the state with the needed information from them.
-   * @function
-   * @param {array} tracks array of json track objects
-   * @reutrns {void}
-   */
-  createQeueu = (tracks) => {
-    let queue = [];
-    tracks.forEach((element) => {
-      queue.push(element["_id"]);
-    });
-    this.setState({
-      queue: queue,
-    });
-  };
-  //the following two functions are to be replaced with Hemdan and Walid functions in integration, they are just dummy
-  fetchAlbum = (id) => {
-    this.getRequest("http://localhost:2022/albums/" + id)
-      .then((response) => {
-        const tracks = response["data"]["tracks"]["items"];
-        this.createQeueu(tracks);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  fetchPlaylist = (id) => {
-    this.getRequest("http://localhost:2022/playlists/" + id)
-      .then((response) => {
-        const tracks = response["data"]["tracks"]["items"];
-        this.createQeueu(tracks);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  /**
-   * Given a context uri, fetch the related context and make it the queue
-   * @function
-   * @param {string} contextUri OUD uri
-   * @reutrns {void}
-   */
-  getContextQueue = (contextUri) => {
-    this.setState({
-      context: contextUri,
-    });
-    const context = contextUri.split(":");
-    const type = context[1];
-    switch (type) {
-      case "album":
-        this.fetchAlbum(context[2]);
-        break;
-      case "playlist":
-        this.fetchPlaylist(context[2]);
-        break;
-      default:
-        break;
-    }
-  };
-  /**
    * A generic function to play a track from any location other than the queue and the player
    * @function
    * @param {string} context OUD context
@@ -230,21 +176,31 @@ class WebPlayer extends Component {
         this.state.deviceId +
         "&queueIndex=0",
       {
-        contextUri: {
-          context_uri: contextUri,
-        },
+        contextUri: contextUri,
         uris: uris,
         offset: { position: offset },
         positionMs: position,
       }
     )
       .then((response) => {
-        console.log("context: " + contextUri);
-        this.getContextQueue(contextUri);
-        this.playerElement.play();
+        // this.fetchQueue();
+        let player = this.playerElement.current;
+        player.fetchPlayback(true);
+        setTimeout(() => {
+          player.playTrack();
+        }, 100);
+
+        // if (
+        //   response["data"].hasOwnProperty("status") &&
+        //   response["data"]["status"] === "204"
+        // ) {
+        //   console.log("new context has fetched");
+        //   this.fetchQueue();
+        //   this.playerElement.fetchPlayback();
+        //   this.playerElement.playTrack();
+        // } else console.log(response);
       })
       .catch((error) => {
-        console.log("I'm here ha ha ha");
         console.log(error);
       });
   };
@@ -255,8 +211,8 @@ class WebPlayer extends Component {
    * @returns {void}
    */
   onChangeQueueOrder = (queue) => {
-    let oldIdx = this.state.trackIdx,
-      newIdx = this.state.trackIdx;
+    // let oldIdx = this.state.trackIdx,
+    let newIdx = this.state.trackIdx;
     for (let i = 0; i < queue.length; ++i)
       if (queue[i] === this.state.trackId) newIdx = i;
 
@@ -287,9 +243,27 @@ class WebPlayer extends Component {
    * @param {boot} playing playing state of the track
    * @returns {void}
    */
-  changePlayingState = (playing) => {
+  changePlayingState = (
+    playing,
+    idx = this.state.trackIdx,
+    id = this.state.trackId
+  ) => {
     this.setState({
       playing: playing,
+      trackIdx: idx,
+      trackId: id,
+    });
+  };
+  togglePlayingState = () => {
+    this.setState({
+      playing: !this.state.playing,
+    });
+
+    return this.state.playing;
+  };
+  changeLovedState = (state) => {
+    this.setState({
+      loved: state,
     });
   };
   /**
@@ -300,71 +274,57 @@ class WebPlayer extends Component {
    * @returns {void}
    */
   removeTrack = (idx, id) => {
-    let queue = this.state.queue;
-    queue.splice(idx, 1);
-    this.setState({
-      queue: queue,
-    });
-    // this.deleteRequest("http://localhost:2022/me/queue?trackId=" + id)
-    //   .then((response) => {
-    //     console.log(response);
-    //     let queue = this.state.queue;
-    //     queue.splice(idx, 1);
-    //     this.setState({
-    //       queue: queue,
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-  };
-
-  addRemoveSavedSong = (status) => {
-    status
-      ? this.putRequest(
-          "http://localhost:2022/me/tracks?IDs=[" + this.state.trackId + "]"
-        )
-      : this.deleteRequest(
-          "http://localhost:2022/me/tracks?IDs=[" + this.state.trackId + "]"
-        )
-          .then((response) => {
-            if (!response["data"].hasOwnProperty("status")) {
-              this.setState({
-                loved: status,
-              });
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-  };
-  chekckSavedSong = (trackId) => {
-    this.getRequest("http://localhost:2022/me/tracks?ids=[" + trackId + "]")
+    //"http://localhost:2022/me/queue?trackId=" + id
+    this.deleteRequest("https://jsonplaceholder.typicode.com/posts/1")
       .then((response) => {
-        console.log(
-          "id from check: " +
-            "http://localhost:2022/me/tracks?ids=[" +
-            trackId +
-            "]"
-        );
         console.log(response);
-        const isFound = response["data"]["IsFound"][0];
+        let queue = this.state.queue;
+        queue.splice(idx, 1);
         this.setState({
-          loved: isFound,
+          queue: queue,
         });
-
-        // if (response["data"].hasOwnProperty("IsFound")) {
-        //   const isFound = response["data"]["IsFound"][0];
-        //   this.setState({
-        //     loved: isFound,
-        //   });
-        //   console.log("id from check: " + trackId);
-        // }
+        Swal.fire({
+          title: "Done!",
+          text: "Track Deleted Successfully from your Queue!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000,
+        });
       })
       .catch((error) => {
         console.log(error);
       });
-    return this.state.loved;
+  };
+  likeSong = (trackId, queue = false) => {
+    saveTrack(trackId).then((done) => {
+      if (done) {
+        this.setState({
+          loved: queue ? this.state.loved : true,
+        });
+        Swal.fire({
+          title: "Done!",
+          text: "Added to your Liked Songs!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      }
+    });
+  };
+  unlikeSong = (trackId, queue = false) => {
+    removeSavedTrack(trackId).then((done) => {
+      if (done)
+        this.setState({
+          loved: queue ? this.state.loved : false,
+        });
+      Swal.fire({
+        title: "Done!",
+        text: "Removed from your Liked Songs!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    });
   };
   render() {
     return (
@@ -377,10 +337,9 @@ class WebPlayer extends Component {
           deviceId={this.state.deviceId}
           onChangeQueueOrder={this.onChangeQueueOrder}
           player={this.playerElement}
-          playing={this.state.playing}
           removeTrack={this.removeTrack}
-          addRemoveSavedSong={this.addRemoveSavedSong}
-          chekckSavedSong={this.chekckSavedSong}
+          likeSong={this.likeSong}
+          unlikeSong={this.unlikeSong}
           data-testid="queue-container"
         />
         <Player
@@ -396,8 +355,10 @@ class WebPlayer extends Component {
           getPrevious={this.getPrevious}
           changePlayingState={this.changePlayingState}
           fetchTrack={this.fetchTrack}
-          addRemoveSavedSong={this.addRemoveSavedSong}
-          chekckSavedSong={this.chekckSavedSong}
+          likeSong={this.likeSong}
+          unlikeSong={this.unlikeSong}
+          loved={this.state.loved}
+          changeLovedState={this.changeLovedState}
           data-testid="player-container"
         />
       </Fragment>
