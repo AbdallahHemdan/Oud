@@ -52,4 +52,4 @@ function setupHowler(state, onPlay, onEnd) {
   });
   return sound;
 }
-export { checkSavedTrack, saveTrack, removeSavedTrack, setupHowler };
+export { checkSavedTrack, saveTrack, removeSavedTrack };

@@ -3574,9 +3574,7 @@
   "repeat": {},
   "volume": {},
   "play": {
-    "offset": {
-      "position": 1
-    }
+    "offset": {}
   },
   "queue1": {
     "tracks": [
