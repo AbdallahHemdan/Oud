@@ -3,8 +3,8 @@ import SongList from '../commonComponents/songList'
 import HeaderBody from './components/headerBody'
 import axios from 'axios';
 import './likedSongs.css'
-import Sidebar from "../Home/Sidebar/Sidebar";
-import Navbar from "../Home/Navbar/Navbar";
+import Sidebar from "../Sidebar/Sidebar";
+import Navbar from "../Navbar/Navbar";
 import { resume, pause, addToQueue } from '../commonComponents/utils'
 
 /**
@@ -142,45 +142,45 @@ class LikedSongs extends React.Component {
     render() {
         return (
             <div className="dummyParent">
-            <Sidebar />
-            <Navbar isLoggedIn={true} />
-            <div className='profile-user'>
-            <div data-testid='likedSongs' className='playlist'>
+                <Sidebar />
+                <Navbar isLoggedIn={true} />
+                <div className='profile-user'>
+                    <div data-testid='likedSongs' className='playlist'>
 
-                <div className='row'>
-                    <div onClick={this.markAllUnclicked.bind(this)} data-testid="playlistHeader"
-                     className='playlistHeader row col-xs-12 col-md-12 col-lg-4 col-xl-4'>
-                        <div data-testid="playlistIamgeContainer" className='playlistImageContainer col col-lg-12 col-md-4 col-sm-4 col-xs-4'>
-                            <img
-                                data-testid="playlistIamge"
-                                src='https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png'
-                                className='playlistImage'
-                                alt='playlist img' />
-                        </div>
-                        <div data-testid="playlistHeaderBody" className='playlistHeaderBody col col-lg-12 col-md-8 col-sm-8 col-xs-8'>
+                        <div className='row'>
+                            <div onClick={this.markAllUnclicked.bind(this)} data-testid="playlistHeader"
+                                className='playlistHeader row col-xs-12 col-md-12 col-lg-4 col-xl-4'>
+                                <div data-testid="playlistIamgeContainer" className='playlistImageContainer col col-lg-12 col-md-4 col-sm-4 col-xs-4'>
+                                    <img
+                                        data-testid="playlistIamge"
+                                        src='https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png'
+                                        className='playlistImage'
+                                        alt='playlist img' />
+                                </div>
+                                <div data-testid="playlistHeaderBody" className='playlistHeaderBody col col-lg-12 col-md-8 col-sm-8 col-xs-8'>
 
-                            <HeaderBody
-                                data-testid="headerBody"
-                                length={this.state.tracks.length}
-                                playClicked={this.playButtonClicked.bind(this)}
-                                playing={this.state.playing}
+                                    <HeaderBody
+                                        data-testid="headerBody"
+                                        length={this.state.tracks.length}
+                                        playClicked={this.playButtonClicked.bind(this)}
+                                        playing={this.state.playing}
+                                    />
+                                </div>
+                            </div>
+                            <SongList
+                                data-testid="songList"
+                                recieved={this.state.recieved}
+                                tracks={this.state.tracks}
+                                pause={this.pause}
+                                resume={this.resume}
+                                addToQueue={this.addToQueue}
+                                clickedItemId={this.state.clickID}
+                                className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
                             />
+
                         </div>
                     </div>
-                    <SongList
-                        data-testid="songList"
-                        recieved={this.state.recieved}
-                        tracks={this.state.tracks}
-                        pause={this.pause}
-                        resume={this.resume}
-                        addToQueue={this.addToQueue}
-                        clickedItemId={this.state.clickID}
-                        className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
-                    />
-
                 </div>
-            </div>
-            </div>
             </div>
         );
     }

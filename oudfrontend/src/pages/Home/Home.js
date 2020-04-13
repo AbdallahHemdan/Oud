@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Home.css";
-import Sidebar from "../../components/Home/Sidebar/Sidebar";
-import Navbar from "../../components/Home/Navbar/Navbar";
-import MainContent from './../../components/Home/MainContent/MainContent';
+import Sidebar from "../../components/Sidebar/Sidebar";
+import Navbar from "../../components/Navbar/Navbar";
+import MainContent from "../../components/MainContent/MainContent"
 
 import axios from "axios"
 

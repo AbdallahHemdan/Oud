@@ -1,40 +1,37 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom';
 import axios from "axios"
-import MusicCard from "../../components/MusicCard/MusicCard"
-import Sidebar from "../../components/Sidebar/Sidebar"
-import Navbar from "../../components/Navbar/Navbar"
-import "./Search.css"
+import qs from "qs"
 
+import MusicCard from "../MusicCard/MusicCard"
+import Sidebar from "../Sidebar/Sidebar"
+import Navbar from "../Navbar/Navbar"
 
-let fetchCategoriesUrl = "http://localhost:2022/genres";
-
-class Search extends Component {
+class SeeAll extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      genres: [],
-      limit: 0,
-      offset: 0,
-      total: 0
+      id: qs.parse(this.props.location.search, { ignoreQueryPrefix: true }).id,
+      name: qs.parse(this.props.location.search, { ignoreQueryPrefix: true }).name,
+      playlists: []
     }
   }
   handleStoringPlaylists = ({ items, limit, offset, total }) => {
-    this.setState({ genres: items, limit, offset, total });
+    this.setState({ playlists: items, limit, offset, total });
   }
   componentDidMount() {
-    axios.get(fetchCategoriesUrl)
+    let fetchPlaylistsUrlMocking = `http://localhost:2022/browse/categories/${this.state.id}/playlists`
+    axios.get(fetchPlaylistsUrlMocking)
       .then((result) => {
-        console.log("genres", result.data)
         this.handleStoringPlaylists(result.data);
       }).catch((err) => {
-        console.log(err);
       });
   }
   render() {
     return (
       <React.Fragment>
         <Sidebar />
-        <Navbar isLoggedIn={false} isSearch={true} />
+        <Navbar isLoggedIn={true} />
         <section
           className="main-content"
           data-testid="main-content"
@@ -47,9 +44,9 @@ class Search extends Component {
               <div className="row"
                 data-testid="category-header"
               >
-                <div className="sub-header"
+                <h1 className="gray-white item-name"
                   data-testid="category-title"
-                >Browse all</div>
+                >{this.state.name.split('-').join(' ')}</h1>
               </div>
               <div
                 className="wrapper"
@@ -61,12 +58,12 @@ class Search extends Component {
                     data-testid="cards-wrapper"
                   >
                     {
-                      this.state.genres.map(genre => {
+                      this.state.playlists.map(playlist => {
                         return (
                           <MusicCard
-                            item={genre}
-                            key={genre.id}
-                            playBtn={false}
+                            item={playlist}
+                            key={playlist.id}
+                            playBtn={true}
                           />
                         )
                       })
@@ -82,4 +79,4 @@ class Search extends Component {
   }
 }
 
-export default Search
+export default withRouter(SeeAll)

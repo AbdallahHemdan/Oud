@@ -3,8 +3,8 @@ import axios from 'axios';
 import HeaderBodyBottom from '../commonComponents/headerBodyBottom'
 import HeaderBodyTop from './components/headerBodyTop'
 import SongList from '../commonComponents/songList'
-import Sidebar from "../Home/Sidebar/Sidebar";
-import Navbar from "../Home/Navbar/Navbar";
+import Sidebar from "../Sidebar/Sidebar";
+import Navbar from "../Navbar/Navbar";
 import { resume, pause, addToQueue } from '../commonComponents/utils'
 import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist"
 import PropTypes from 'prop-types';
@@ -57,7 +57,7 @@ class Album extends React.Component {
             playing: false,
             queued: false,
             clickID: '0',
-            displayAdd:false
+            displayAdd: false
 
         };
         this.addToQueue = this.addToQueue.bind(this)
@@ -162,12 +162,12 @@ class Album extends React.Component {
             .catch((error) => {
                 console.log(error);
             });
-            
-            axios.get(`http://localhost:2022/me/albums/contains/${this.props.id}`)
+
+        axios.get(`http://localhost:2022/me/albums/contains/${this.props.id}`)
             .then((response) => {
                 console.log(response);
                 const isFound = response.data
-                this.setState({liked: isFound})
+                this.setState({ liked: isFound })
             })
             .catch((error) => {
                 console.log(error);
@@ -189,69 +189,69 @@ class Album extends React.Component {
         this.setState({ clickID: '0' })
 
     }
-     addToPlaylist(){
-        this.setState({displayAdd:true})
+    addToPlaylist() {
+        this.setState({ displayAdd: true })
     }
-    closeAddToPlaylist(){
-        this.setState({displayAdd:false})
+    closeAddToPlaylist() {
+        this.setState({ displayAdd: false })
 
     }
     render() {
         return (
             <div>
-                {this.state.displayAdd?<AddToPlaylist 
-                display = {this.state.displayAdd}
-                close = {this.closeAddToPlaylist.bind(this)}    
-                />:
-                <div className="dummyParent">
-            <Sidebar />
-            <Navbar isLoggedIn={true} />
-            <div className='profile-user'>
-                <div data-testid='album' className='playlist'>
-                <div className='row'>
+                {this.state.displayAdd ? <AddToPlaylist
+                    display={this.state.displayAdd}
+                    close={this.closeAddToPlaylist.bind(this)}
+                /> :
+                    <div className="dummyParent">
+                        <Sidebar />
+                        <Navbar isLoggedIn={true} />
+                        <div className='profile-user'>
+                            <div data-testid='album' className='playlist'>
+                                <div className='row'>
 
-                    <div data-testid="playlistHeader" onClick={this.markAllUnclicked.bind(this)}
-                     className='playlistHeader row col-xs-12 col-md-12 col-lg-4 col-xl-4'>
-                        <div data-testid="playlistIamgeContainer" className='playlistImageContainer col col-lg-12 col-md-4 col-sm-4 col-xs-4'>
-                            <img data-testid="playlistIamge" src={this.state.album.image} className='playlistImage' alt='album img' />
+                                    <div data-testid="playlistHeader" onClick={this.markAllUnclicked.bind(this)}
+                                        className='playlistHeader row col-xs-12 col-md-12 col-lg-4 col-xl-4'>
+                                        <div data-testid="playlistIamgeContainer" className='playlistImageContainer col col-lg-12 col-md-4 col-sm-4 col-xs-4'>
+                                            <img data-testid="playlistIamge" src={this.state.album.image} className='playlistImage' alt='album img' />
+                                        </div>
+                                        <div data-testid="playlistHeaderBody" className='playlistHeaderBody col col-lg-12 col-md-8 col-sm-8 col-xs-8'>
+                                            <HeaderBodyTop
+                                                data-testid="HeaderBodyTop"
+                                                title={this.state.album.name}
+                                                artists={this.state.artists}
+                                            />
+
+                                            <HeaderBodyBottom
+                                                data-testid="HeaderBodyBottom"
+                                                length={this.state.tracks.length}
+                                                playClicked={this.playButtonClicked}
+                                                likeClicked={this.likeButtonClicked}
+                                                liked={this.state.liked}
+                                                playing={this.state.playing}
+                                                releaseDate={this.state.album.release_date}
+                                                recieved={this.state.recieved}
+                                                album={true}
+                                                addToPlaylist={this.addToPlaylist.bind(this)}
+                                            />
+                                        </div>
+                                    </div>
+                                    <SongList
+                                        data-testid="songList"
+                                        recieved={this.state.recieved}
+                                        tracks={this.state.tracks}
+                                        pause={this.pause}
+                                        resume={this.resume}
+                                        addToQueue={this.addToQueue}
+                                        clickedItemId={this.state.clickID}
+                                        className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
+                                        addToPlaylist={this.addToPlaylist.bind(this)}
+                                    />
+
+                                </div>
+                            </div>
                         </div>
-                        <div data-testid="playlistHeaderBody" className='playlistHeaderBody col col-lg-12 col-md-8 col-sm-8 col-xs-8'>
-                            <HeaderBodyTop
-                                data-testid="HeaderBodyTop"
-                                title={this.state.album.name}
-                                artists={this.state.artists}
-                            />
-
-                            <HeaderBodyBottom
-                                data-testid="HeaderBodyBottom"
-                                length={this.state.tracks.length}
-                                playClicked={this.playButtonClicked}
-                                likeClicked={this.likeButtonClicked}
-                                liked={this.state.liked}
-                                playing={this.state.playing}
-                                releaseDate={this.state.album.release_date}
-                                recieved={this.state.recieved}
-                                album={true}
-                                addToPlaylist = {this.addToPlaylist.bind(this)}
-                            />
-                        </div>
-                    </div>
-                    <SongList
-                        data-testid="songList"
-                        recieved={this.state.recieved}
-                        tracks={this.state.tracks}
-                        pause={this.pause}
-                        resume={this.resume}
-                        addToQueue={this.addToQueue}
-                        clickedItemId={this.state.clickID}
-                        className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
-                        addToPlaylist = {this.addToPlaylist.bind(this)}
-                    />
-
-                </div>
-            </div>
-            </div>
-            </div>}
+                    </div>}
             </div>
         );
     }
