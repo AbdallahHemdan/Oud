@@ -9,6 +9,15 @@
   min-width: 190px;
   background: #191922;
 }
+.hidden-card {
+  width: 10em;
+  height: 180px;
+  margin: 10px;
+  position: relative;
+  min-width: 190px;
+  background: #191922;
+  visibility: hidden;
+}
 .card:hover .overlayer {
   visibility: visible;
 }

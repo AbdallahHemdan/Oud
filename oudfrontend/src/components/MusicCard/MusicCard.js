@@ -98,7 +98,8 @@ class MusicCard extends Component {
        * @type {string}
        */
       type: type,
-      playBtn: this.props.playBtn
+      playBtn: this.props.playBtn,
+      isHidden: this.props.isHidden
     }
   }
 
@@ -139,13 +140,14 @@ class MusicCard extends Component {
    * @returns {JSX} Component for App
    */
   render() {
+    const cardClass = (this.state.isHidden) ? "hidden-card" : "card"
     return (
       <div
         className="card-container"
         data-testid="card-container"
       >
-        <div className="card"
-          data-testid="card"
+        <div className={cardClass}
+          data-testid={cardClass}
         >
           <div
             className="overlayer"

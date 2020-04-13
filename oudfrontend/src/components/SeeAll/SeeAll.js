@@ -63,6 +63,7 @@ class SeeAll extends Component {
                           <MusicCard
                             item={playlist}
                             key={playlist.id}
+                            playBtn={true}
                           />
                         )
                       })
