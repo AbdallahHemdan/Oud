@@ -1,8 +1,16 @@
 import axios from "axios";
 import { Howl } from "howler";
+const config = {
+  headers: {
+    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGFmYTA2NDVmNDU3MTYwNzVmZiIsImlhdCI6MTU4Njg5MzE0MywiZXhwIjoxNTg5NDg1MTQzfQ.ON2Ef2vgOV1_6EokwvD3mlUzgAn0pb5WPCy5qBWj2QA`,
+  },
+};
 function checkSavedTrack(id) {
   return axios
-    .get("http://localhost:2022/me/tracks/contains?ids=[" + id + "]")
+    .get(
+      "https://oud-zerobase.me/api/v1/me/tracks/contains?ids=[" + id + "]",
+      config
+    )
     .then((response) => {
       if (response["data"].hasOwnProperty("IsFound")) {
         return response["data"]["IsFound"][0];
@@ -15,7 +23,7 @@ function checkSavedTrack(id) {
 
 function saveTrack(id) {
   return axios
-    .put("http://localhost:2022/me/tracks?IDs=[" + id + "]")
+    .put("https://oud-zerobase.me/api/v1/me/tracks?IDs=[" + id + "]", config)
     .then((response) => {
       if (!response["data"].hasOwnProperty("status")) return true;
       else return false;
@@ -26,9 +34,8 @@ function saveTrack(id) {
 }
 
 function removeSavedTrack(id) {
-  //http://localhost:2022/me/tracks?IDs=[" + id + "]
   return axios
-    .delete("https://jsonplaceholder.typicode.com/posts/1")
+    .delete("https://oud-zerobase.me/api/v1/me/tracks?IDs=[" + id + "]", config)
     .then((response) => {
       return true;
       // if (response["data"]["status"] === "204") return true;
@@ -39,6 +46,8 @@ function removeSavedTrack(id) {
 }
 
 function setupHowler(state, onPlay, onEnd) {
+  console.log("setup howler");
+  console.log(state.audioUrl);
   const sound = new Howl({
     src: [state.audioUrl],
     autoplay: false,
@@ -52,4 +61,4 @@ function setupHowler(state, onPlay, onEnd) {
   });
   return sound;
 }
-export { checkSavedTrack, saveTrack, removeSavedTrack };
+export { checkSavedTrack, saveTrack, removeSavedTrack, setupHowler };

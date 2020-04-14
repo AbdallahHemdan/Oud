@@ -6,6 +6,11 @@ import play from "../../../assets/images/icons/play.png";
 import pause from "../../../assets/images/icons/pause.png";
 import axios from "axios";
 import PropTypes from "prop-types";
+const config = {
+  headers: {
+    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGFmYTA2NDVmNDU3MTYwNzVmZiIsImlhdCI6MTU4Njg5MzE0MywiZXhwIjoxNTg5NDg1MTQzfQ.ON2Ef2vgOV1_6EokwvD3mlUzgAn0pb5WPCy5qBWj2QA`,
+  },
+};
 const DragHandle = sortableHandle(() => (
   <span className="handler">
     <img src={handler} alt="Handler" />
@@ -42,7 +47,7 @@ class Track extends Component {
    */
   fetchTrackInfo = () => {
     axios
-      .get("http://localhost:2022/tracks/" + this.props.id)
+      .get("https://oud-zerobase.me/api/v1/tracks/" + this.props.id, config)
       .then((response) => {
         const track = response["data"];
         this.setState({

@@ -66,6 +66,7 @@ class Player extends Component {
   }
 
   onPlay = () => {
+    console.log("track is playing");
     this.props.changePlayingState(true);
     this.setState({
       playing: true,
@@ -101,9 +102,11 @@ class Player extends Component {
    */
   fetchPlayback = (outPlayer = false) => {
     this.props
-      .getRequest("http://localhost:2022/me/player")
+      .getRequest("https://oud-zerobase.me/api/v1/me/player")
       .then((response) => {
-        const data = response["data"];
+        console.log("player: ");
+        console.log(response);
+        const data = response["data"]["player"];
         if (!data.hasOwnProperty("status")) {
           const track = data["item"];
 
@@ -112,31 +115,35 @@ class Player extends Component {
             progress: Math.floor(
               (data["progressMs"] / track["duartion"]) * 100
             ),
-            playing: outPlayer ? true : data["isPlaying"],
+            playing: false, //outPlayer ? true : data["isPlaying"],
             current: Number(data["progressMs"] / 60000).toFixed(2),
             trackName: track["name"],
             artistName: track["artists"][0]["name"],
             duration: Number(track["duartion"] / 60000).toFixed(2),
             shuffleState: data["shuffleState"],
             repeatState: data["repeatState"] === "off" ? false : true,
-            volume: data["device"]["volumePercent"],
-            muteState: data["device"]["volumePercent"] === 0 ? true : false,
+            volume: 100,
+            muteState: false,
             fetched: true,
             trackId: track["_id"],
             art: track["artists"][0]["image"],
           });
           this.props.changePlayingState(data["isPlaying"]);
           this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
-          this.handleSaveToLikedSongs();
+          // this.handleSaveToLikedSongs();
         }
       });
   };
   handleSaveToLikedSongs = () => {
-    checkSavedTrack(this.state.trackId).then((isFound) => {
-      if (isFound) {
-        this.props.changeLovedState(true);
-      }
-    });
+    checkSavedTrack(this.state.trackId)
+      .then((isFound) => {
+        if (isFound) {
+          this.props.changeLovedState(true);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   /**
    * Setting Howler object up.
@@ -168,9 +175,7 @@ class Player extends Component {
    */
   pause = () => {
     this.props
-      .putRequest(
-        "http://localhost:2022/me/player/pause?deviceId=" + this.props.deviceId
-      )
+      .putRequest("https://oud-zerobase.me/api/v1/me/player/pause")
       .then((resp) => {
         this.state.sound.pause();
         this.setState({ playing: false });
@@ -188,10 +193,7 @@ class Player extends Component {
    */
   playResumeRequest = (idx) => {
     return this.props.putRequest(
-      "http://localhost:2022/me/player/play?deviceId=" +
-        this.props.deviceId +
-        "&queueIndex=0",
-      { offset: { position: idx } }
+      "https://oud-zerobase.me/api/v1/me/player/play"
     );
   };
   /**
@@ -285,9 +287,7 @@ class Player extends Component {
    */
   handleNext = () => {
     this.props
-      .postRequest(
-        "http://localhost:2022/me/player/next?deviceId=" + this.props.deviceId
-      )
+      .postRequest("https://oud-zerobase.me/api/v1/me/player/next")
       .then((response) => {
         this.props
           .getNext()
@@ -324,10 +324,7 @@ class Player extends Component {
    */
   handlePrev = () => {
     this.props
-      .postRequest(
-        "http://localhost:2022/me/player/previous?deviceId=" +
-          this.props.deviceId
-      )
+      .postRequest("https://oud-zerobase.me/api/v1/me/player/previous")
       .then((response) => {
         this.props
           .getPrevious()
@@ -372,9 +369,7 @@ class Player extends Component {
     const position = percent * this.state.duration * 60;
 
     this.props
-      .putRequest(
-        "http://localhost:2022/me/player/seek?deviceId=" + this.props.deviceId
-      )
+      .putRequest("https://oud-zerobase.me/api/v1/me/player/seek")
       .then((response) => {
         this.state.sound.seek(position);
         this.setState({
@@ -405,10 +400,7 @@ class Player extends Component {
    */
   handleShuffleState = () => {
     this.props
-      .putRequest(
-        "http://localhost:2022/me/player/shuffle?deviceId=" +
-          this.props.deviceId
-      )
+      .putRequest("https://oud-zerobase.me/api/v1/me/player/shuffle")
       .then((response) => {
         this.setState({
           shuffleState: !this.state.shuffleState,
@@ -429,9 +421,7 @@ class Player extends Component {
    */
   handleRepeatState = () => {
     this.props
-      .putRequest(
-        "http://localhost:2022/me/player/repeat?deviceId=" + this.props.deviceId
-      )
+      .putRequest("https://oud-zerobase.me/api/v1/me/player/repeat")
       .then((response) => {
         const loop = !this.state.repeatState;
         this.setState({
@@ -446,7 +436,7 @@ class Player extends Component {
 
   volumeRequest = (volumePercent = this.state.volume) => {
     return this.props.putRequest(
-      "http://localhost:2022/me/player/volume?deviceId=" + this.props.deviceId
+      "https://oud-zerobase.me/api/v1/me/player/volume"
     );
     //+"&volumePercent=" + volumePercent
   };
