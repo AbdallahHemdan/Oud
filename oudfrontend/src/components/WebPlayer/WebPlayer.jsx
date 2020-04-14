@@ -5,6 +5,11 @@ import Player from "./Player/Player";
 import Queue from "./Queue/Queue";
 import Swal from "sweetalert2";
 import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
+const config = {
+  headers: {
+    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGFmYTA2NDVmNDU3MTYwNzVmZiIsImlhdCI6MTU4Njg5MzE0MywiZXhwIjoxNTg5NDg1MTQzfQ.ON2Ef2vgOV1_6EokwvD3mlUzgAn0pb5WPCy5qBWj2QA`,
+  },
+};
 /**
  * Component controlling the Player and Qeueu Components. It masters all the logic behind the web player.
  * @author Ahmed Ashraf
@@ -36,7 +41,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   getRequest = (endpoint) => {
-    return axios.get(endpoint);
+    return axios.get(endpoint, config);
   };
   /**
    * Axios DELETE request
@@ -45,7 +50,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   deleteRequest = (endpoint) => {
-    return axios.delete(endpoint, {});
+    return axios.delete(endpoint, {}, config);
   };
   /**
    * Axios PUT request
@@ -55,7 +60,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   putRequest = (endpoint, body = {}) => {
-    return axios.put(endpoint, body);
+    return axios.put(endpoint, body, config);
   };
   /**
    * Axios POST request
@@ -65,7 +70,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   postRequest = (endpoint, body = {}) => {
-    return axios.post(endpoint, body);
+    return axios.post(endpoint, body, config);
   };
   /**
    * Axios PATCH request
@@ -75,7 +80,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   patchRequest = (endpoint, body = {}) => {
-    return axios.patch(endpoint, body);
+    return axios.patch(endpoint, body, config);
   };
   /**
    * A function to fetch the queue immediately afer the player has mounted.
@@ -85,7 +90,9 @@ class WebPlayer extends Component {
    * @returns {void}
    */
   fetchQueue = (queueIndex = "0", trackId = "", newQueue = false) => {
-    this.getRequest("http://localhost:2022/me/queue?queueIndex=" + queueIndex)
+    this.getRequest(
+      "https://oud-zerobase.me/api/v1/me/queue?queueIndex=" + queueIndex
+    )
       .then((response) => {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
@@ -128,7 +135,7 @@ class WebPlayer extends Component {
     this.setState({
       trackIdx: trackIdx,
     });
-    return this.getRequest("http://localhost:2022/tracks/" + trackId);
+    return this.getRequest("https://oud-zerobase.me/api/v1/tracks/" + trackId);
   };
   /**
    * A function to fetch the next track to the currently playing track
@@ -172,7 +179,7 @@ class WebPlayer extends Component {
     position = 0
   ) => {
     this.putRequest(
-      "http://localhost:2022/me/player/play?deviceId=" +
+      "https://oud-zerobase.me/api/v1/me/player/play?deviceId=" +
         this.state.deviceId +
         "&queueIndex=0",
       {
@@ -221,7 +228,7 @@ class WebPlayer extends Component {
       trackIdx: newIdx,
     });
     // this.patchRequest(
-    //   "http://localhost:2022/me/queue?queueIndex=0&trackIndex=" +
+    //   "https://oud-zerobase.me/api/v1/me/queue?queueIndex=0&trackIndex=" +
     //     oldIdx +
     //     "&newIndex=" +
     //     newIdx
@@ -274,7 +281,7 @@ class WebPlayer extends Component {
    * @returns {void}
    */
   removeTrack = (idx, id) => {
-    //"http://localhost:2022/me/queue?trackId=" + id
+    //"https://oud-zerobase.me/api/v1/me/queue?trackId=" + id
     this.deleteRequest("https://jsonplaceholder.typicode.com/posts/1")
       .then((response) => {
         console.log(response);
