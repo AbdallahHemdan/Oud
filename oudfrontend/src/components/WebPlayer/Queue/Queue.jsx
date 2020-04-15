@@ -67,9 +67,9 @@ class Queue extends Component {
    * @returns {void}
    */
   onSortEnd = ({ oldIndex, newIndex }) => {
-    const tracks = arrayMove(this.state.tracks, oldIndex, newIndex);
-    this.setState({ tracks: tracks });
-    this.props.onChangeQueueOrder(tracks);
+    // const tracks = arrayMove(this.state.tracks, oldIndex, newIndex);
+    // this.setState({ tracks: tracks });
+    this.props.onChangeQueueOrder(oldIndex, newIndex);
   };
   /**
    * Open/Close the dropdown menu function.

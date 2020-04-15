@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
 const config = {
   headers: {
-    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGFmYTA2NDVmNDU3MTYwNzVmZiIsImlhdCI6MTU4Njg5MzE0MywiZXhwIjoxNTg5NDg1MTQzfQ.ON2Ef2vgOV1_6EokwvD3mlUzgAn0pb5WPCy5qBWj2QA`,
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGFmYTA2NDVmNDU3MTYwNzVmZiIsImlhdCI6MTU4Njg5MzE0MywiZXhwIjoxNTg5NDg1MTQzfQ.ON2Ef2vgOV1_6EokwvD3mlUzgAn0pb5WPCy5qBWj2QA`,
   },
 };
 /**
@@ -96,6 +96,8 @@ class WebPlayer extends Component {
       .then((response) => {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
+          console.log("queeu: ");
+          console.log(response);
           const size = data["total"];
           let trackIdx = 0;
           for (let i = 0; i < size; ++i)
@@ -116,7 +118,7 @@ class WebPlayer extends Component {
         }
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
   /**
@@ -143,12 +145,16 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   getNext = () => {
-    const idx = (this.state.trackIdx + 1) % this.state.queue.length;
+    let idx = this.state.trackIdx + 1;
+    if (idx && this.playerElement.current.state.repeatState === 1) {
+      idx = 0;
+    } else idx = idx - 1;
+
     this.setState({
       trackIdx: idx,
       trackId: this.state.queue[idx],
     });
-    return this.fetchTrack(this.state.queue[this.state.trackIdx]);
+    return this.state.trackId;
   };
   /**
    * A function to fetch the previos track to the currently playing track
@@ -161,7 +167,7 @@ class WebPlayer extends Component {
       trackIdx: idx,
       trackId: this.state.queue[idx],
     });
-    return this.fetchTrack(this.state.queue[this.state.trackIdx]);
+    return this.state.trackId;
   };
   /**
    * A generic function to play a track from any location other than the queue and the player
@@ -208,7 +214,7 @@ class WebPlayer extends Component {
         // } else console.log(response);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
   /**
@@ -217,32 +223,28 @@ class WebPlayer extends Component {
    * @param {array} queue the currently playing queue
    * @returns {void}
    */
-  onChangeQueueOrder = (queue) => {
-    // let oldIdx = this.state.trackIdx,
-    let newIdx = this.state.trackIdx;
-    for (let i = 0; i < queue.length; ++i)
-      if (queue[i] === this.state.trackId) newIdx = i;
-
-    this.setState({
-      queue: queue,
-      trackIdx: newIdx,
-    });
-    // this.patchRequest(
-    //   "https://oud-zerobase.me/api/v1/me/queue?queueIndex=0&trackIndex=" +
-    //     oldIdx +
-    //     "&newIndex=" +
-    //     newIdx
-    // )
-    //   .then(response => {
-    //     this.this.setState({
-    //       queue: queue,
-    //       trackIdx: newIdx
-    //     });
-    //     console.log(response);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
+  onChangeQueueOrder = (
+    oldIdx = this.state.trackIdx,
+    newIdx = this.state.trackIdx
+  ) => {
+    console.log("old index: " + oldIdx);
+    console.log("new index: " + newIdx);
+    this.patchRequest(
+      "https://oud-zerobase.me/api/v1/me/queue?queueIndex=0" +
+        "&trackIndex=" +
+        oldIdx +
+        "&newIndex=" +
+        newIdx
+    )
+      .then((response) => {
+        this.fetchQueue(0, this.state.trackId);
+        console.log("changed order");
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error.response);
+        console.log("error changing order");
+      });
   };
   /**
    * Change the playing state as there are many stuff depend on that in the UI
@@ -281,15 +283,11 @@ class WebPlayer extends Component {
    * @returns {void}
    */
   removeTrack = (idx, id) => {
-    //"https://oud-zerobase.me/api/v1/me/queue?trackId=" + id
-    this.deleteRequest("https://jsonplaceholder.typicode.com/posts/1")
+    //
+    this.deleteRequest("https://oud-zerobase.me/api/v1/me/queue?trackId=" + id)
       .then((response) => {
         console.log(response);
-        let queue = this.state.queue;
-        queue.splice(idx, 1);
-        this.setState({
-          queue: queue,
-        });
+        this.fetchQueue(0, this.state.trackId);
         Swal.fire({
           title: "Done!",
           text: "Track Deleted Successfully from your Queue!",
@@ -299,7 +297,7 @@ class WebPlayer extends Component {
         });
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
   likeSong = (trackId, queue = false) => {

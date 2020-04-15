@@ -1,7 +1,8 @@
 import React, { Fragment, Component } from "react";
 import PropTypes from "prop-types";
-import repeat from "../../../assets/images/icons/repeat.png";
-import repeatEnabled from "../../../assets/images/icons/repeat-enable.png";
+import repeatOff from "../../../assets/images/icons/repaetOff.png";
+import repeatContext from "../../../assets/images/icons/repeatContext.png";
+import repeatTrack from "../../../assets/images/icons/repeatTrack.png";
 import shuffle from "../../../assets/images/icons/shuffle.png";
 import shuffleEnabled from "../../../assets/images/icons/shuffle-enable.png";
 import volume from "../../../assets/images/icons/volume.png";
@@ -51,6 +52,7 @@ class PlayingBarRight extends Component {
   unlikeSong = () => {
     this.props.unlikeSong(this.props.trackId);
   };
+
   render() {
     return (
       <Fragment>
@@ -99,13 +101,31 @@ class PlayingBarRight extends Component {
             </button>
             <button
               className="control-button repeat"
-              title="Repeat"
+              title={
+                this.props.repeatState === 0
+                  ? "Repeat Off"
+                  : this.props.repeatState === 1
+                  ? "Repeat Queue"
+                  : "Repeat Track"
+              }
               onClick={this.props.handleRepeatState}
               data-testid="repeat-btn"
             >
               <img
-                src={this.props.repeatState ? repeatEnabled : repeat}
-                alt="Repeat"
+                src={
+                  this.props.repeatState === 0
+                    ? repeatOff
+                    : this.props.repeatState === 1
+                    ? repeatContext
+                    : repeatTrack
+                }
+                alt={
+                  this.props.repeatState === 0
+                    ? "Repeat Off"
+                    : this.props.repeatState === 1
+                    ? "Repeat Queue"
+                    : "Repeat Track"
+                }
               />
             </button>
             <button
@@ -155,7 +175,7 @@ PlayingBarRight.propTypes = {
   /**
    * Repeat button state, enabled and disabled
    */
-  repeatState: PropTypes.bool.isRequired,
+  repeatState: PropTypes.number.isRequired,
   /**
    * Volume button state, enabled and disabled
    */

@@ -8,7 +8,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 const config = {
   headers: {
-    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGFmYTA2NDVmNDU3MTYwNzVmZiIsImlhdCI6MTU4Njg5MzE0MywiZXhwIjoxNTg5NDg1MTQzfQ.ON2Ef2vgOV1_6EokwvD3mlUzgAn0pb5WPCy5qBWj2QA`,
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGFmYTA2NDVmNDU3MTYwNzVmZiIsImlhdCI6MTU4Njg5MzE0MywiZXhwIjoxNTg5NDg1MTQzfQ.ON2Ef2vgOV1_6EokwvD3mlUzgAn0pb5WPCy5qBWj2QA`,
   },
 };
 const DragHandle = sortableHandle(() => (
@@ -49,16 +49,20 @@ class Track extends Component {
     axios
       .get("https://oud-zerobase.me/api/v1/tracks/" + this.props.id, config)
       .then((response) => {
-        const track = response["data"];
+        console.log("get track from queue");
+        console.log(response);
+
+        const track = response.data;
+        console.log(track);
         this.setState({
           image: track["artists"][0]["image"],
           trackName: track["name"],
           artistName: track["artists"][0]["name"],
-          duration: Number(track["duartion"] / 60000).toFixed(2),
+          duration: Number(track["duration"] / 60000).toFixed(2),
         });
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
   /**
@@ -67,6 +71,7 @@ class Track extends Component {
    * @returns {void}
    */
   handlePlayButton = () => {
+    console.log("track itsefl id: " + this.props.id);
     this.props.playTrack.current.handlePlayPause(this.props.id, this.props.idx);
   };
   /**
@@ -118,7 +123,11 @@ class Track extends Component {
           </div>
 
           <div className="duration">
-            <strong>{this.state.duration}</strong>
+            <strong>
+              {isNaN(this.state.duration)
+                ? Number(0).toFixed(2)
+                : this.state.duration}
+            </strong>
           </div>
 
           <div className="ellipsis-container">

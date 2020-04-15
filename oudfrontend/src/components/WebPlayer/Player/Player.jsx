@@ -35,7 +35,7 @@ class Player extends Component {
       duration: Number(0).toFixed(2),
       mouseDown: false,
       shuffleState: false,
-      repeatState: false,
+      repeatState: 0,
       volume: 1.0,
       muteState: false,
       thumbHeight: 0,
@@ -74,6 +74,7 @@ class Player extends Component {
       current: Number(0).toFixed(2),
       duration: Number(this.state.sound.duration() / 60).toFixed(2),
     });
+    this.state.sound.volume(this.state.volume / 100);
     setInterval(() => {
       if (this.state.sound && this.state.playing) {
         const progress = this.getSoundProgress();
@@ -92,7 +93,7 @@ class Player extends Component {
       progress: 0,
       current: Number(0).toFixed(2),
     });
-    if (!this.state.repeatState) this.handleNext();
+    if (this.state.repeatState === 1) this.handleNext();
   };
   /**
    * Get Information About The User's Current Playback and fetch the current queue with updating the state with the needed
@@ -119,9 +120,14 @@ class Player extends Component {
             current: Number(data["progressMs"] / 60000).toFixed(2),
             trackName: track["name"],
             artistName: track["artists"][0]["name"],
-            duration: Number(track["duartion"] / 60000).toFixed(2),
+            duration: Number(track["duration"] / 60000).toFixed(2),
             shuffleState: data["shuffleState"],
-            repeatState: data["repeatState"] === "off" ? false : true,
+            repeatState:
+              data["repeatState"] === "off"
+                ? 0
+                : data["repeatState"] === "context"
+                ? 1
+                : 2,
             volume: 100,
             muteState: false,
             fetched: true,
@@ -130,19 +136,25 @@ class Player extends Component {
           });
           this.props.changePlayingState(data["isPlaying"]);
           this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
-          // this.handleSaveToLikedSongs();
+          this.handleSaveToLikedSongs();
         }
+      })
+      .catch((error) => {
+        console.log(error.response);
       });
   };
   handleSaveToLikedSongs = () => {
     checkSavedTrack(this.state.trackId)
       .then((isFound) => {
+        console.log("is found resp: ");
+        console.log(isFound);
         if (isFound) {
           this.props.changeLovedState(true);
         }
       })
       .catch((error) => {
-        console.log(error);
+        console("print error");
+        console.log(error.response.data.message);
       });
   };
   /**
@@ -182,7 +194,7 @@ class Player extends Component {
         this.props.changePlayingState(false);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
   /**
@@ -191,9 +203,11 @@ class Player extends Component {
    * @param {integer} idx zero-based index indicates the position of the track in the context array
    * @returns {object}
    */
-  playResumeRequest = (idx) => {
+  playResumeRequest = (id) => {
+    console.log("id from play request: " + id);
     return this.props.putRequest(
-      "https://oud-zerobase.me/api/v1/me/player/play"
+      "https://oud-zerobase.me/api/v1/me/player/play",
+      { offset: { uri: "oud:track:" + id } }
     );
   };
   /**
@@ -204,16 +218,17 @@ class Player extends Component {
    * @param {integer} idx zero-based index indicates the position of the track in the context array
    * @returns {void}
    */
-  resume = (idx = this.props.idx) => {
-    this.playResumeRequest(idx)
+  resume = (id = this.props.id) => {
+    this.playResumeRequest(id)
       .then((resp) => {
+        console.log("play resume request");
         this.props.changePlayingState(true);
         this.setState({ playing: true });
         this.state.sound.play();
         console.log(resp);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
 
@@ -224,16 +239,21 @@ class Player extends Component {
    * @param {integer} idx zero-based index indicates the position of the track in the context array
    * @returns {void}
    */
-  play = (idx = this.props.idx) => {
-    this.playResumeRequest(idx)
+  play = (id = this.props.id) => {
+    this.playResumeRequest(id)
       .then((resp) => {
         this.playTrack(true);
         // console.log(resp);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
+  getLoopState(repeatState) {
+    const loop =
+      repeatState === "off" ? false : repeatState === "track" ? true : false;
+    return loop;
+  }
   /**
    * Controlling function for the play, pause, and resume actions. It specifies which action will be called
    * depending on the plaing state of the currently track
@@ -244,39 +264,30 @@ class Player extends Component {
    */
   handlePlayPause = (id = this.state.trackId, idx = this.props.idx) => {
     if (id !== this.state.trackId) {
-      this.props
-        .fetchTrack(id)
-        .then((response) => {
-          console.log(response);
-          this.setState({
-            trackName: response["data"]["name"],
-            artistName: response["data"]["artists"][0]["name"],
-            audioUrl: response["data"]["audioUrl"],
-            duration: response["data"]["duartion"] / 60000,
-            playing: true,
-            current: Number(0).toFixed(2),
-            progress: Number(0).toFixed(2),
-            trackId: id,
-            art: response["data"]["artists"][0]["image"],
-          });
-          this.props.changePlayingState(true, idx);
-          this.play(idx);
+      this.playResumeRequest(id)
+        .then((resp) => {
+          console.log("id of the track: " + id);
+          this.fetchPlayback();
+          this.playTrack(true);
+          console.log("play from queueuue");
+          console.log(resp);
         })
-        .catch(function (error) {
-          console.log(error);
+        .catch((error) => {
+          console.log(error.response);
         });
       return;
     }
 
     if (this.state.sound) {
       this.state.sound.mute(this.state.muteState);
-      this.state.sound.loop(this.state.repeatState);
+      const loop = this.getLoopState(this.state.repeatState);
+      this.state.sound.loop(loop);
       if (this.state.sound.playing()) {
         this.pause();
       } else if (this.state.sound.state() === "loaded") {
-        this.resume(idx);
+        this.resume(id);
       }
-    } else this.play(idx);
+    } else this.play(id);
   };
 
   /**
@@ -289,30 +300,20 @@ class Player extends Component {
     this.props
       .postRequest("https://oud-zerobase.me/api/v1/me/player/next")
       .then((response) => {
-        this.props
-          .getNext()
-          .then((response) => {
-            console.log(response);
-            this.setState({
-              trackName: response["data"]["name"],
-              artistName: response["data"]["artists"][0]["name"],
-              audioUrl: response["data"]["audioUrl"],
-              duration: response["data"]["duartion"] / 60000,
-              current: Number(0).toFixed(2),
-              progress: Number(0).toFixed(2),
-              playing: false,
-              trackId: response["data"]["_id"],
-              art: response["data"]["artists"][0]["image"],
-            });
-            this.props.changePlayingState(false);
-            this.play();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        console.log("next done");
+        console.log(response);
+        const trackId = this.props.getNext();
+        this.setState({
+          trackId: trackId,
+        });
+        this.fetchPlayback();
+        setTimeout(() => {
+          this.props.changePlayingState(false);
+          this.play(trackId);
+        }, 100);
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
 
@@ -326,29 +327,20 @@ class Player extends Component {
     this.props
       .postRequest("https://oud-zerobase.me/api/v1/me/player/previous")
       .then((response) => {
-        this.props
-          .getPrevious()
-          .then((response) => {
-            this.setState({
-              trackName: response["data"]["name"],
-              artistName: response["data"]["artists"][0]["name"],
-              audioUrl: response["data"]["audioUrl"],
-              duration: response["data"]["duartion"] / 60000,
-              current: Number(0).toFixed(2),
-              progress: Number(0).toFixed(2),
-              playing: false,
-              trackId: response["data"]["_id"],
-              art: response["data"]["artists"][0]["image"],
-            });
-            this.props.changePlayingState(false);
-            this.play();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        console.log("prev done");
+        console.log(response);
+        const trackId = this.props.getPrevious();
+        this.setState({
+          trackId: trackId,
+        });
+        this.fetchPlayback();
+        setTimeout(() => {
+          this.props.changePlayingState(false);
+          this.play(trackId);
+        }, 100);
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
 
@@ -369,15 +361,20 @@ class Player extends Component {
     const position = percent * this.state.duration * 60;
 
     this.props
-      .putRequest("https://oud-zerobase.me/api/v1/me/player/seek")
+      .putRequest(
+        "https://oud-zerobase.me/api/v1/me/player/seek?positionMs=" +
+          position * 1000
+      )
       .then((response) => {
+        console.log("seeked: ");
+        console.log(response);
         this.state.sound.seek(position);
         this.setState({
           progress: this.getSoundProgress(),
         });
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
 
@@ -400,15 +397,20 @@ class Player extends Component {
    */
   handleShuffleState = () => {
     this.props
-      .putRequest("https://oud-zerobase.me/api/v1/me/player/shuffle")
+      .putRequest(
+        "https://oud-zerobase.me/api/v1/me/player/shuffle?state=" +
+          !this.state.shuffleState
+      )
       .then((response) => {
+        this.props.fetchQueue("0", this.state.trackId, false);
         this.setState({
           shuffleState: !this.state.shuffleState,
         });
+        console.log("shuffle: " + this.state.shuffleState);
         console.log(response);
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
 
@@ -420,26 +422,25 @@ class Player extends Component {
    * @returns {void}
    */
   handleRepeatState = () => {
+    const repeatState = (this.state.repeatState + 1) % 3;
+    const state =
+      repeatState === 0 ? "off" : repeatState === 1 ? "context" : "track";
     this.props
-      .putRequest("https://oud-zerobase.me/api/v1/me/player/repeat")
+      .putRequest(
+        "https://oud-zerobase.me/api/v1/me/player/repeat?state=" + state
+      )
       .then((response) => {
-        const loop = !this.state.repeatState;
+        const loop = this.getLoopState(state);
         this.setState({
-          repeatState: loop,
+          repeatState: repeatState,
         });
         if (this.state.sound) this.state.sound.loop(loop);
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
 
-  volumeRequest = (volumePercent = this.state.volume) => {
-    return this.props.putRequest(
-      "https://oud-zerobase.me/api/v1/me/player/volume"
-    );
-    //+"&volumePercent=" + volumePercent
-  };
   /**
    * Handling the mute action.
    * Request from the server to mute the currently playing track then update the mute state to render the proper button
@@ -449,19 +450,12 @@ class Player extends Component {
    */
   handleMuteState = () => {
     const mute = !this.state.muteState;
-    this.volumeRequest(0)
-      .then((response) => {
-        this.setState({
-          muteState: mute,
-          muteProgress: mute ? this.state.volume : 0,
-          volume: mute ? 0 : this.state.muteProgress,
-        });
-        if (this.state.sound) this.state.sound.mute(mute);
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    this.setState({
+      muteState: mute,
+      muteProgress: mute ? this.state.volume : 0,
+      volume: mute ? 0 : this.state.muteProgress,
+    });
+    if (this.state.sound) this.state.sound.mute(mute);
   };
 
   /**
@@ -473,24 +467,16 @@ class Player extends Component {
    */
   onVolumeClick = (e) => {
     // e.preventDefault();
-    if (!this.state.mouseDown || !this.state.sound) return;
+    if (!this.state.mouseDown) return;
     const width = document.getElementById("volume-width").clientWidth;
     const offsetX = e.nativeEvent.offsetX;
     const percent = offsetX / width;
     const volume = parseInt(percent * 100);
-
-    this.volumeRequest(volume)
-      .then((response) => {
-        this.state.sound.volume(volume / 100);
-        this.setState({
-          volume: volume,
-          muteState: volume === 0 ? true : false,
-        });
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    if (this.state.sound) this.state.sound.volume(volume / 100);
+    this.setState({
+      volume: volume,
+      muteState: volume === 0 ? true : false,
+    });
   };
 
   /**
@@ -553,7 +539,11 @@ class Player extends Component {
               artistName={this.state.artistName}
               current={this.state.current}
               progress={this.state.progress}
-              duration={this.state.duration}
+              duration={
+                isNaN(this.state.duration)
+                  ? Number(0).toFixed(2)
+                  : this.state.duration
+              }
               setMouseDown={() => this.setMouseDown(true)}
               onProgressClick={(e) => this.onProgressClick(e)}
               mouseUp={(e) => {
