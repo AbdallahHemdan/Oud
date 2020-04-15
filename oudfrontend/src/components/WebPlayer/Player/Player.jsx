@@ -5,6 +5,7 @@ import PlayingBarCenter from "./PlayingBarCenter";
 import PlayingBarRight from "./PlayingBarRight";
 import extend from "../../../assets/images/icons/extend.png";
 import PropTypes from "prop-types";
+import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 import { checkSavedTrack, setupHowler } from "../../../utils/Actions/Player";
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
@@ -74,7 +75,9 @@ class Player extends Component {
       current: Number(0).toFixed(2),
       duration: Number(this.state.sound.duration() / 60).toFixed(2),
     });
+    console.log(this.state.current);
     this.state.sound.volume(this.state.volume / 100);
+    // this.state.sound.seek(this.state.current * 60);
     setInterval(() => {
       if (this.state.sound && this.state.playing) {
         const progress = this.getSoundProgress();
@@ -94,6 +97,14 @@ class Player extends Component {
       current: Number(0).toFixed(2),
     });
     if (this.state.repeatState === 1) this.handleNext();
+    else if (this.state.repeatState === 2) this.state.sound.loop(true);
+    else this.state.sound.loop(false);
+  };
+  onSeek = () => {
+    this.state.sound.volume(this.state.volume / 100);
+    this.setState({
+      progress: this.getSoundProgress(),
+    });
   };
   /**
    * Get Information About The User's Current Playback and fetch the current queue with updating the state with the needed
@@ -136,7 +147,7 @@ class Player extends Component {
           });
           this.props.changePlayingState(data["isPlaying"]);
           this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
-          this.handleSaveToLikedSongs();
+          // this.handleSaveToLikedSongs();
         }
       })
       .catch((error) => {
@@ -174,9 +185,11 @@ class Player extends Component {
       this.state.sound.unload();
     }
     this.setState({
-      sound: setupHowler(this.state, this.onPlay, this.onEnd),
+      sound: setupHowler(this.state, this.onPlay, this.onEnd, this.onSeek),
     });
     this.state.sound.play();
+    this.state.sound.volume(this.state.volume / 100);
+    this.state.sound.seek(this.state.current * 60);
     // if (fromPlay) this.state.sound.seek(this.state.current * 60);
   };
   /**
@@ -302,14 +315,15 @@ class Player extends Component {
       .then((response) => {
         console.log("next done");
         console.log(response);
-        const trackId = this.props.getNext();
-        this.setState({
-          trackId: trackId,
-        });
+        // const trackId = this.props.getNext();
+        // this.setState({
+        //   trackId: trackId,
+        // });
         this.fetchPlayback();
+        console.log("next track id: " + this.state.trackId);
         setTimeout(() => {
           this.props.changePlayingState(false);
-          this.play(trackId);
+          this.play(this.state.trackId);
         }, 100);
       })
       .catch(function (error) {
@@ -353,7 +367,7 @@ class Player extends Component {
    */
   onProgressClick = (e) => {
     // e.preventDefault();
-    if (!this.state.mouseDown || !this.state.sound) return;
+    if (!this.state.mouseDown) return;
     const width = document.getElementById("progress-width").clientWidth;
     const offsetX = e.nativeEvent.offsetX;
     // const offsetWidth = e.nativeEvent.target.offsetWidth;
@@ -368,13 +382,14 @@ class Player extends Component {
       .then((response) => {
         console.log("seeked: ");
         console.log(response);
-        this.state.sound.seek(position);
+        if (this.state.sound) this.state.sound.seek(position);
         this.setState({
-          progress: this.getSoundProgress(),
+          progress: (position / (this.state.duration * 60)) * 100,
+          current: Number(position / 60).toFixed(2),
         });
       })
       .catch(function (error) {
-        console.log(error.response.data.message);
+        console.log(error.response);
       });
   };
 
@@ -498,7 +513,7 @@ class Player extends Component {
    */
   openThumb = () => {
     this.setState({
-      thumbHeight: "35%",
+      thumbHeight: "25%",
       thumbDisplay: "none",
     });
   };
@@ -510,11 +525,7 @@ class Player extends Component {
           style={{ height: this.state.thumbHeight }}
         >
           <a href="/">
-            <img
-              src={this.state.art}
-              alt="Cinque Terre"
-              className="thumb-img"
-            />
+            <img src={placeHolder} alt="Cinque Terre" className="thumb-img" />
           </a>
           <button className="close-thumb" onClick={this.closeThumb}>
             <img src={extend} alt="Close Queue" />

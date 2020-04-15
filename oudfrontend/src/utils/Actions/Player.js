@@ -47,7 +47,7 @@ function removeSavedTrack(id) {
     });
 }
 
-function setupHowler(state, onPlay, onEnd) {
+function setupHowler(state, onPlay, onEnd, onSeek) {
   console.log("setup howler");
   console.log(state.audioUrl);
   const sound = new Howl({
@@ -59,6 +59,7 @@ function setupHowler(state, onPlay, onEnd) {
     html5: true,
     format: ["mp3"],
     onplay: onPlay,
+    onseek: onSeek,
     onend: onEnd,
   });
   return sound;

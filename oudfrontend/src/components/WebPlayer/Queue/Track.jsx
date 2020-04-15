@@ -4,6 +4,7 @@ import ellipsis from "../../../assets/images/icons/ellipsis.png";
 import handler from "../../../assets/images/icons/handler.png";
 import play from "../../../assets/images/icons/play.png";
 import pause from "../../../assets/images/icons/pause.png";
+import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 import axios from "axios";
 import PropTypes from "prop-types";
 const config = {
@@ -90,7 +91,7 @@ class Track extends Component {
           <div className="play-art">
             <div
               className="track-art-work"
-              style={{ backgroundImage: `url(${this.state.image})` }}
+              style={{ backgroundImage: `url(${placeHolder})` }}
             ></div>
 
             <button

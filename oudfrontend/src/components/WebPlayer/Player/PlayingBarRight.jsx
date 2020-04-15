@@ -90,7 +90,7 @@ class PlayingBarRight extends Component {
             </button>
             <button
               className="control-button shuffle"
-              title="Shuffle"
+              title={this.props.shuffleState ? "Shuffle on" : "Shuffle off"}
               onClick={this.props.handleShuffleState}
               data-testid="shuffle-btn"
             >
