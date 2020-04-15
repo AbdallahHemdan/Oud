@@ -4,9 +4,9 @@ import MusicCard from "../../components/MusicCard/MusicCard"
 import Sidebar from "../../components/Sidebar/Sidebar"
 import Navbar from "../../components/Navbar/Navbar"
 import "./Search.css"
+import { base } from "./../../config/environment"
 
-
-let fetchCategoriesUrl = "http://localhost:2022/genres";
+let fetchCategoriesUrl = `${base}/genres`;
 
 class Search extends Component {
   constructor(props) {

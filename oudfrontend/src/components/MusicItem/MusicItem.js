@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./MusicItem.css";
-
+import { base } from "./../../config/environment"
 import CategoryHeader from './../CategoryHeader/CategoryHeader';
 import CategoryBody from './../CategoryBody/CategoryBody';
 import axios from "axios"
@@ -70,7 +70,8 @@ class MusicItem extends Component {
    * @returns {void} - nothing to return, it just fetch data and set it in the state
    */
   componentDidMount() {
-    let fetchPlaylistsUrlMocking = `http://localhost:2022/browse/categories/${this.state.id}/playlists`
+    let fetchPlaylistsUrlMocking = `${base}/browse/categories/${this.state.id}/playlists`
+    console.log("fetchPlaylistsUrlMocking", fetchPlaylistsUrlMocking)
     axios.get(fetchPlaylistsUrlMocking)
       .then((result) => {
         this.handleStoringPlaylists(result.data);
