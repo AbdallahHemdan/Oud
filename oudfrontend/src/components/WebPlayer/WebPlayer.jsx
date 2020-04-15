@@ -50,7 +50,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   deleteRequest = (endpoint) => {
-    return axios.delete(endpoint, {}, config);
+    return axios.delete(endpoint, config);
   };
   /**
    * Axios PUT request
@@ -297,7 +297,8 @@ class WebPlayer extends Component {
         });
       })
       .catch((error) => {
-        console.log(error.response.data.message);
+        console.log("delete err");
+        console.log(error.response);
       });
   };
   likeSong = (trackId, queue = false) => {
