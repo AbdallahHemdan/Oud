@@ -36,31 +36,41 @@
 ### 📦 Install packages
 ```sh
 npm install
+or 
+npm i
 ```
 ### ⚡ Run Mock Services for development
 ```sh
-npm json:server
+npm run json:server
 ```
 
 ### 🧪 Run unit tests
 ```sh
-npm test
+npm run test
 ```
 
 ### ✅ Get Coverge report
 ```sh
-npm test:coverage
+npm run test:coverage
 ```
 ### 🧩 Run on development mode
 ```sh
-npm start
+npm run dev
 ```
 
-### 🤵 Run on production and minifies for production
+### 🤵 Run on production
 ```sh
-npm build
+npm run prod
 ```
 
+### Build and create minifies for development 
+```sh
+npm run build:dev
+```
+### Build and create minifies for development 
+```sh
+npm run build:prod
+```
 ### 📃 Generate functional documentation
 ```sh
 npm run docs
