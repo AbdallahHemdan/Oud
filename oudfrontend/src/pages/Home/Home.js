@@ -3,7 +3,7 @@ import "./Home.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
 import MainContent from "../../components/MainContent/MainContent"
-
+import { base } from "./../../config/environment"
 import axios from "axios"
 
 
@@ -13,7 +13,7 @@ import axios from "axios"
  * @type {string}
  * 
  */
-let fetchCategoriesUrl = "http://localhost:2022/browse/categories";
+let fetchCategoriesUrl = `${base}/browse/categories`;
 
 
 
@@ -95,6 +95,7 @@ class Home extends Component {
    * Fetching data of all categories immediately after the component has been mount to the DOM tree
    */
   componentDidMount() {
+    console.log("fetchCategoriesUrl", fetchCategoriesUrl)
     axios.get(fetchCategoriesUrl) // get all categories
       .then((result) => {
         this.handleStoringData(result.data);
