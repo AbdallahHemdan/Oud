@@ -790,7 +790,7 @@
   "updatePassword": {},
   "followingMe": {
     "ids": [
-      "4"
+      null
     ]
   },
   "myFollowing": [
@@ -3896,5 +3896,157 @@
     "limit": 0,
     "offset": 0,
     "total": 0
-  }
+  },
+  "artists": [
+    {
+      "id": "1",
+      "followersCount": 5,
+      "genres": [
+        {
+          "_id": "sdfsf21",
+          "name": "Death"
+        }
+      ],
+      "images": [
+        "string"
+      ],
+      "displayName": "Michael Jackson",
+      "bio": "Michael Joseph Jackson (August 29, 1958 – June 25, 2009) was an American singer, songwriter, and dancer. Dubbed the King of Pop, he is regarded as one of the most significant cultural figures of the 20th century and one of the greatest entertainers in the history of music. Jackson's contributions to music, dance, and fashion, along with his publicized personal life, made him a global figure in popular culture for over four decades.",
+      "popularSongs": [
+        {
+          "_id": "1",
+          "name": "Song 1",
+          "artists": [
+            {
+              "_id": "1",
+              "name": "Michael Jackson",
+              "type": "string",
+              "image": "string"
+            }
+          ],
+          "albumId": "string",
+          "album": {
+            "_id": "string",
+            "album_type": "string",
+            "album_group": "string",
+            "artists": [
+              {
+                "_id": "string",
+                "name": "string",
+                "type": "string",
+                "image": "string"
+              }
+            ],
+            "image": "string",
+            "name": "string",
+            "type": "string"
+          },
+          "type": "string",
+          "duartion": 0,
+          "views": 0
+        }
+      ],
+      "type": "artist"
+    },
+    {
+      "id": "2",
+      "followersCount": 5,
+      "genres": [
+        {
+          "_id": "sdfsf22",
+          "name": "Life"
+        }
+      ],
+      "images": [
+        "string"
+      ],
+      "displayName": "Adele",
+      "bio": "Adele Laurie Blue Adkins MBE is an English singer-songwriter. After graduating from the BRIT School in 2006, Adele signed a recording contract with XL Recordings. In 2007, she received the Brit Awards Critics' Choice Award and won the BBC Sound of 2008 poll.",
+      "popularSongs": [
+        {
+          "_id": "1",
+          "name": "Song 1",
+          "artists": [
+            {
+              "_id": "1",
+              "name": "Michael Jackson",
+              "type": "string",
+              "image": "string"
+            }
+          ],
+          "albumId": "string",
+          "album": {
+            "_id": "string",
+            "album_type": "string",
+            "album_group": "string",
+            "artists": [
+              {
+                "_id": "string",
+                "name": "string",
+                "type": "string",
+                "image": "string"
+              }
+            ],
+            "image": "string",
+            "name": "string",
+            "type": "string"
+          },
+          "type": "string",
+          "duartion": 0,
+          "views": 0
+        }
+      ],
+      "type": "artist"
+    },
+    {
+      "id": "3",
+      "followersCount": 50,
+      "genres": [
+        {
+          "_id": "sdfsf23",
+          "name": "Eearth"
+        }
+      ],
+      "images": [
+        "string"
+      ],
+      "displayName": "Sia Furler",
+      "bio": "Sia Kate Isobelle Furler is an Australian singer, songwriter, voice actress and music video director. She started her career as a singer in the acid jazz band Crisp in the mid-1990s in Adelaide. In 1997, when Crisp disbanded, she released her debut studio album titled OnlySee in Australia.",
+      "popularSongs": [
+        {
+          "_id": "1",
+          "name": "Song 1",
+          "artists": [
+            {
+              "_id": "1",
+              "name": "Michael Jackson",
+              "type": "string",
+              "image": "string"
+            }
+          ],
+          "albumId": "string",
+          "album": {
+            "_id": "string",
+            "album_type": "string",
+            "album_group": "string",
+            "artists": [
+              {
+                "_id": "string",
+                "name": "string",
+                "type": "string",
+                "image": "string"
+              }
+            ],
+            "image": "string",
+            "name": "string",
+            "type": "string"
+          },
+          "type": "string",
+          "duartion": 0,
+          "views": 0
+        }
+      ],
+      "type": "artist"
+    }
+  ]
 }

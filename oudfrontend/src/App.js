@@ -14,9 +14,10 @@ import Search from "./pages/Search/Search";
 import Account from "./pages/Account/Account";
 import RedirectPage from "./components/Account/General/RedirectPage";
 import Profile from "./pages/Profile/Profile";
+import Artist from "./pages/Artist/Artist";
 import WebPlayer from "./components/WebPlayer/WebPlayer";
 import Home from "./pages/Home/Home";
-import SeeAll from './components/SeeAll/SeeAll';
+import SeeAll from "./components/SeeAll/SeeAll";
 
 function App() {
   return (
@@ -33,10 +34,11 @@ function App() {
             <SeeAll />
           </Route>
           <Route path="/profile/:userId" component={Profile} />
-          <Route path="/account" >
+          <Route path="/artist/:artistId" component={Artist} />
+          <Route path="/account">
             <Account />
           </Route>
-          <Route path="/RedirectPage" >
+          <Route path="/RedirectPage">
             <RedirectPage />
           </Route>
           <Route path={`/playlist/:id`} Component={<Playlist />}>
