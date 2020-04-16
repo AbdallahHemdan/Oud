@@ -53,3 +53,12 @@
   /* width: 100%; */
   min-width: 100% !important;
 }
+.artist-user .upperNav {
+  z-index: 1;
+}
+.artist-user .userName-profile-scrolled {
+  margin-left: 30px;
+}
+.artis-overview .SEE-ALL-Overview {
+  cursor: pointer;
+}

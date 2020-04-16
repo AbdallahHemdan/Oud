@@ -11,6 +11,7 @@ class Albums extends Component {
       items: [],
       limit: 0,
       seeMore: false,
+      seeMoreText: "See More",
     };
   }
   componentDidMount() {
@@ -45,11 +46,33 @@ class Albums extends Component {
     });
     this.setState({
       items: items,
+      limit: this.state.seeMore
+        ? items.length
+        : Math.min(
+            12,
+            this.state.items.length === 0 ? 13 : this.state.items.length
+          ),
     });
     console.log("album items: ");
-    console.log(this.state.items);
+    console.log(this.state.limit);
   };
-  handleSeeMore = () => {};
+  handleSeeMore = () => {
+    this.setState({
+      seeMore: !this.state.seeMore,
+      limit: this.state.items.length,
+      seeMoreText: "See Less",
+    });
+  };
+  handleSeeLess = () => {
+    this.setState({
+      seeMore: !this.state.seeMore,
+      limit: Math.min(
+        12,
+        this.state.items.length === 0 ? 13 : this.state.items.length
+      ),
+      seeMoreText: "See More",
+    });
+  };
   pause = () => {};
   resume = () => {};
   addToQueue = () => {};
@@ -64,20 +87,25 @@ class Albums extends Component {
       <div className="artis-overview">
         <div className="overview-title">
           <h5 data-test="title" style={{ width: "50%" }}>
-            Popular
+            Albums
           </h5>
-          <div className="SEE-ALL-Overview" onClick={this.handleSeeMore}>
-            See All
+          <div
+            className="SEE-ALL-Overview"
+            onClick={
+              this.state.seeMore ? this.handleSeeLess : this.handleSeeMore
+            }
+          >
+            {this.state.seeMoreText}
           </div>
         </div>
         <div className="wrapper" data-testid="first-wrapper">
           <div className="wrapper_section_2" data-testid="second-wrapper">
             <div className="cards" data-testid="cards-wrapper">
-              {this.state.items.map((item, index) => {
-                console.log("item:");
-                console.log(item);
-                return <MusicCard item={item} key={item.id} playBtn={true} />;
-              })}
+              {this.state.items
+                .slice(0, this.state.limit)
+                .map((item, index) => {
+                  return <MusicCard item={item} key={item.id} playBtn={true} />;
+                })}
             </div>
           </div>
         </div>
