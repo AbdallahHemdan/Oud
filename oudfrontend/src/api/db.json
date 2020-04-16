@@ -3,13 +3,13 @@
     "items": [
       {
         "id": "1",
-        "name": "Fitness Araby",
+        "name": "Mail Songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
-        "type": "playlist"
+        "type": "albums"
       },
       {
         "id": "2",
@@ -23,40 +23,100 @@
       },
       {
         "id": "3",
-        "name": "Islamic songs",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
         "id": "4",
-        "name": "Rab songs",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
         "id": "5",
-        "name": "Hamedo songs",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
         "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "7",
+        "name": "Mail Songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout Mail music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "8",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "albums"
+      },
+      {
+        "id": "9",
+        "name": "Arai songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best Arai songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "10",
+        "name": "Rap songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rap songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "11",
+        "name": "jazz songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best jazz songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "id": "12",
+        "name": "Haly songs",
+        "owner": "Haly",
+        "collaborative": true,
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -70,10 +130,10 @@
     "items": [
       {
         "id": "1",
-        "name": "Fitness Araby",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
@@ -90,40 +150,40 @@
       },
       {
         "id": "3",
-        "name": "Islamic songs",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
         "id": "4",
-        "name": "Rab songs",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
         "id": "5",
-        "name": "Hamedo songs",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
         "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "name": "jazz songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -137,10 +197,10 @@
     "items": [
       {
         "id": "1",
-        "name": "Fitness Araby",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
@@ -157,40 +217,40 @@
       },
       {
         "id": "3",
-        "name": "Islamic songs",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
         "id": "4",
-        "name": "Rab songs",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
         "id": "5",
-        "name": "Hamedo songs",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
         "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -204,10 +264,10 @@
     "items": [
       {
         "id": "1",
-        "name": "Fitness Araby",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
@@ -224,40 +284,40 @@
       },
       {
         "id": "3",
-        "name": "Islamic songs",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
         "id": "4",
-        "name": "Rab songs",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
         "id": "5",
-        "name": "Hamedo songs",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
         "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -271,10 +331,10 @@
     "items": [
       {
         "id": "1",
-        "name": "Fitness Araby",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
@@ -291,40 +351,40 @@
       },
       {
         "id": "3",
-        "name": "Islamic songs",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
         "id": "4",
-        "name": "Rab songs",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
         "id": "5",
-        "name": "Hamedo songs",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
         "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -338,10 +398,10 @@
     "items": [
       {
         "id": "1",
-        "name": "Fitness Araby",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
@@ -358,40 +418,40 @@
       },
       {
         "id": "3",
-        "name": "Islamic songs",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
         "id": "4",
-        "name": "Rab songs",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
         "id": "5",
-        "name": "Hamedo songs",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
         "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -405,10 +465,10 @@
     "items": [
       {
         "id": "1",
-        "name": "Fitness Araby",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
@@ -425,40 +485,40 @@
       },
       {
         "id": "3",
-        "name": "Islamic songs",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
         "id": "4",
-        "name": "Rab songs",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
         "id": "5",
-        "name": "Hamedo songs",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
         "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -472,10 +532,10 @@
     "items": [
       {
         "id": "1",
-        "name": "Fitness Araby",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
@@ -492,40 +552,40 @@
       },
       {
         "id": "3",
-        "name": "Islamic songs",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
         "id": "4",
-        "name": "Rab songs",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
         "id": "5",
-        "name": "Hamedo songs",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
         "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -539,10 +599,10 @@
     "items": [
       {
         "id": "1",
-        "name": "Fitness Araby",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
@@ -559,40 +619,40 @@
       },
       {
         "id": "3",
-        "name": "Islamic songs",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
         "id": "4",
-        "name": "Rab songs",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
         "id": "5",
-        "name": "Hamedo songs",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
         "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -606,10 +666,10 @@
     "items": [
       {
         "id": "1",
-        "name": "Fitness Araby",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
@@ -626,40 +686,40 @@
       },
       {
         "id": "3",
-        "name": "Islamic songs",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
         "id": "4",
-        "name": "Rab songs",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
         "id": "5",
-        "name": "Hamedo songs",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
         "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -1384,7 +1444,7 @@
       },
       {
         "id": 4,
-        "name": "Arabic Music",
+        "name": "ARapic Music",
         "icon": "http://lorempixel.com/640/480/cats"
       },
       {
@@ -3447,7 +3507,7 @@
         "_id": "string",
         "name": "Maher Zain",
         "type": "string",
-        "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Islamic-Maher-Zain.jpg"
+        "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Arai-Maher-Zain.jpg"
       }
     ],
     "albumId": "kjhnm",
@@ -3464,7 +3524,7 @@
         "_id": "string",
         "name": "Maher Zain",
         "type": "string",
-        "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Islamic-Maher-Zain.jpg"
+        "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Arai-Maher-Zain.jpg"
       }
     ],
     "albumId": "kjhnm",
@@ -3573,5 +3633,60 @@
   },
   "checkkfjnc249": {
     "IsFound": [true]
+  },
+  "genres": {
+    "items": [
+      {
+        "id": "1",
+        "name": "Podcasts"
+      },
+      {
+        "id": "2",
+        "name": "Charts"
+      },
+      {
+        "id": "3",
+        "name": "New Releases"
+      },
+      {
+        "id": "4",
+        "name": "At Home"
+      },
+      {
+        "id": "5",
+        "name": "Hip-Hop"
+      },
+      {
+        "id": "6",
+        "name": "K-Pop"
+      },
+      {
+        "id": "7",
+        "name": "Sleep"
+      },
+      {
+        "id": "8",
+        "name": "Jazz"
+      },
+      {
+        "id": "9",
+        "name": "Soul"
+      },
+      {
+        "id": "10",
+        "name": "Punk"
+      },
+      {
+        "id": "11",
+        "name": "Metal"
+      },
+      {
+        "id": "12",
+        "name": "Party"
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
   }
 }

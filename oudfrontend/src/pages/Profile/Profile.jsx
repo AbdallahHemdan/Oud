@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "../../components/Home/Sidebar/Sidebar";
-import Navbar from "../../components/Home/Navbar/Navbar";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import Navbar from "../../components/Navbar/Navbar";
 import UpperContainer from "../../components/Profile/Commponents/UpperContainer/UpperContainer";
 import LowerContainer from "../../components/Profile/Commponents/LowerContainer/LowerContainer";
 

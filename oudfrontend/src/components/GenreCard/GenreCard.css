@@ -1,0 +1,26 @@
+.genre-card-container {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.genre-card {
+  width: 9em;
+  height: 180px;
+  margin: 10px;
+  position: relative;
+  text-align: left;
+  justify-content: left;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 20px;
+  border-radius: 6px;
+}
+
+.genre-card:nth-child(1) {
+  background: rgb(245, 155, 35);
+}
+
+.genre-link {
+  text-decoration: none;
+  font-size: 25px;
+  color: #cec9c9;
+}
