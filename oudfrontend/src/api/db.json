@@ -1498,52 +1498,52 @@
       {
         "id": 1,
         "name": "Recently played",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/aratehortua/aratehortua2001/aratehortua200100022/138417489-vector-cartoon-low-poly-man-with-headphones-character.jpg"
       },
       {
         "id": 2,
         "name": "Recommended playlists",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/belchonock/belchonock1801/belchonock180143844/94540927-musical-instruments-on-wooden-background.jpg"
       },
       {
         "id": 3,
         "name": "New releases",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://media.altphotos.com/cache/images/2017/08/08/09/752/trumpet-outdoors-man.jpg"
       },
       {
         "id": 4,
-        "name": "ARapic Music",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "name": "Anacic Music",
+        "icon": "https://media.altphotos.com/cache/images/2017/02/03/16/752/woman-play-violin.jpg"
       },
       {
         "id": 5,
         "name": "Throwback",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/luismolinero/luismolinero1802/luismolinero180202295/96452187-happy-young-beautiful-girl-with-her-cello-on-the-outside.jpg"
       },
       {
         "id": 6,
         "name": "Popular playlists",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/akeeris/akeeris1505/akeeris150500143/40215848-piano-lesson-asian-boy-kid-activity-playing-piano-with-notes-smiling.jpg"
       },
       {
         "id": 7,
         "name": "Editors' Picks",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/cherrymerry/cherrymerry1509/cherrymerry150900034/45248626-pretty-young-teen-girl-playing-acoustic-guitar-in-the-street-.jpg"
       },
       {
         "id": 8,
         "name": "Workout",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/vadymvdrobot/vadymvdrobot1901/vadymvdrobot190104389/116701318-close-up-portrait-of-a-beautiful-young-woman-posing-with-a-violin-isolated-over-blue-background.jpg"
       },
       {
         "id": 9,
         "name": "Mood",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/kenishirotie/kenishirotie1707/kenishirotie170700002/81237352-close-up-of-view-of-little-girl-s-hand-playing-ukulele.jpg"
       },
       {
         "id": 10,
         "name": "Recommended radio",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/deagreez/deagreez1811/deagreez181102934/113111746-full-legs-body-size-beautiful-gorgeous-adorable-two-lady-isolate.jpg"
       }
     ],
     "limit": 0,
@@ -3841,60 +3841,5 @@
     "IsFound": [
       true
     ]
-  },
-  "genres": {
-    "items": [
-      {
-        "id": "1",
-        "name": "Podcasts"
-      },
-      {
-        "id": "2",
-        "name": "Charts"
-      },
-      {
-        "id": "3",
-        "name": "New Releases"
-      },
-      {
-        "id": "4",
-        "name": "At Home"
-      },
-      {
-        "id": "5",
-        "name": "Hip-Hop"
-      },
-      {
-        "id": "6",
-        "name": "K-Pop"
-      },
-      {
-        "id": "7",
-        "name": "Sleep"
-      },
-      {
-        "id": "8",
-        "name": "Jazz"
-      },
-      {
-        "id": "9",
-        "name": "Soul"
-      },
-      {
-        "id": "10",
-        "name": "Punk"
-      },
-      {
-        "id": "11",
-        "name": "Metal"
-      },
-      {
-        "id": "12",
-        "name": "Party"
-      }
-    ],
-    "limit": 0,
-    "offset": 0,
-    "total": 0
   }
 }
