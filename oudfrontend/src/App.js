@@ -1,13 +1,14 @@
-import React from "react";
-import "./App.css";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
-import SignRoute from "./routes/SignsRoute";
+import React from 'react';
+import './App.css';
+import AppRoutes from './routes/AppRoutes';
+import {BrowserRouter as Router, Switch} from 'react-router-dom';
+
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
-          <SignRoute />
+          <AppRoutes />
         </Switch>
       </div>
     </Router>
