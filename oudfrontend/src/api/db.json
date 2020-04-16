@@ -4048,5 +4048,11 @@
       ],
       "type": "artist"
     }
-  ]
+  ],
+  "followArtist": {
+    "ids": [
+      "1"
+    ]
+  },
+  "unfollowArtist": {}
 }

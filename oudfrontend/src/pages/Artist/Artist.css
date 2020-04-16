@@ -45,3 +45,7 @@
 .artist-user .ellipsis-img {
   float: left;
 }
+.artist-bio {
+  color: #a9a1a1;
+  width: 70%;
+}

@@ -1,8 +1,7 @@
 import React from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
-import UpperContainer from "../../components/Artist/UpperContainer";
-import LowerContainer from "../../components/Profile/Commponents/LowerContainer/LowerContainer";
+import ArtistUserView from "../../components/Artist/ArtistUserView";
 
 import "./Artist.css";
 
@@ -21,18 +20,10 @@ function Artist(props) {
     <div className="dummyParent">
       <Sidebar />
       <Navbar isLoggedIn={true} />
-      <div className="profile-user" data-test="Artist">
-        <UpperContainer
-          data-test="UpperContainer"
-          artistId={props.match.params.artistId}
-        />
-        {console.log("props")}
-        {console.log(props)}
-        <LowerContainer
-          data-test="LowerContainer"
-          userId={props.match.params.userId}
-        />
-      </div>
+      <ArtistUserView
+        data-test="artist-upper-container"
+        artistId={props.match.params.artistId}
+      />
       <ActivityBar />
     </div>
   );
