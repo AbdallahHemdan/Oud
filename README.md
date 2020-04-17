@@ -5,7 +5,17 @@
   
 </div>
 
-<h3 align="center">Oud Front-End</h3>
+<div align="center">
+
+[![GitHub contributors](https://img.shields.io/github/contributors/AbdallahHemdan/oudFrontend)](https://github.com/AbdallahHemdan/oudFrontend/contributors)
+[![GitHub issues](https://img.shields.io/github/issues/AbdallahHemdan/oudFrontend)](https://github.com/AbdallahHemdan/oudFrontend/issues)
+[![GitHub forks](https://img.shields.io/github/forks/AbdallahHemdan/oudFrontend)](https://github.com/AbdallahHemdan/oudFrontend/network)
+[![GitHub stars](https://img.shields.io/github/stars/AbdallahHemdan/oudFrontend)](https://github.com/AbdallahHemdan/oudFrontend/stargazers)
+[![GitHub license](https://img.shields.io/github/license/AbdallahHemdan/oudFrontend)](https://github.com/AbdallahHemdan/oudFrontend/blob/master/LICENSE)
+
+</div>
+
+<h3 align="center">🎵 Oud Frontnd</h3>
 
 
 ## Table of Contents
