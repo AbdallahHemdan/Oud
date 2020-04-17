@@ -113,4 +113,29 @@ npm run test:coverage
 npm run docs
 ```
 
+## Contributing
 
+> Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+Check out our [contributing guidelines](https://github.com/AbdallahHemdan/oudFrontend/blob/master/CONTRIBUTING.md) for ways to contribute.
+
+## Contributors
+> Thanks goes to these wonderful people in the frontend team.
+<table>
+  <tr>
+    <td align="center">
+    <a href="https://github.com/AbdallahHemdan" target="_black">
+    <img src="https://avatars1.githubusercontent.com/u/40190772?s=460&v=4" width="150px;" alt="abdallah hemdan"/>
+    <br />
+    <sub><b>Abdallah Hemdan</b></sub></a><a href="https://github.com/AbdallahHemdan/oudFrontend/commits/master?author=AbdallahHemdan" title="Code">💻</a><a href="https://github.com/AbdallahHemdan/oudFrontend/pulls?q=is%3Apr+author%3AAbdallahHemdan" title="Reviewed Pull Requests">👀</a><br />
+    </td>
+    <td align="center"><a href="https://github.com/abdallahabusedo" target="_black"><img src="https://avatars3.githubusercontent.com/u/42722816?s=400&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4" width="150px;" alt="Abdallah Sbu Sedo"/><br /><sub><b>Abdallah Sbu Sedo</b></sub></a><a href="https://github.com/AbdallahHemdan/oudFrontend/commits/master?author=abdallahabusedo" title="Code">💻</a><br /></td>
+    <td align="center"><a href="https://github.com/lido22"  target="_black"><img src="https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4" width="150px;" alt="ahmed walid"/><br /><sub><b>Ahmed Walid</b></sub></a><a href="https://github.com/AbdallahHemdan/oudFrontend/commits/master?author=lido22" title="Code">💻</a><br /></td>
+     <td align="center"><a href="https://github.com/aashrafh" target="_black"><img src="https://avatars0.githubusercontent.com/u/40968967?s=460&v=4" width="150px;" alt=""/><br /><sub><b>Ahmed Ashraf</b></sub></a><a href="https://github.com/AbdallahHemdan/oudFrontend/commits/master?author=aashrafh" title="Code">💻</a><br /></td>
+     <td align="center"><a href="https://github.com/Mahboub99" target="_black"><img src="https://avatars3.githubusercontent.com/u/43186742?s=460&v=4" width="150px;" alt=""/><br /><sub><b>Ahmed Mahboub</b></sub></a><a href="https://github.com/AbdallahHemdan/oudFrontend/commits/master?author=Mahboub99" title="Code">💻</a><br /></td>
+  </tr>
+ </table>
+ 
+## License
+
+> This software is licensed under MIT License, See [License](https://github.com/AbdallahHemdan/oudFrontend/blob/master/LICENSE) for more information ©AbdallahHemdan.
