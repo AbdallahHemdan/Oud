@@ -46,4 +46,50 @@
 - [Json-Server](https://github.com/typicode/json-server)
 - [Axios](https://github.com/axios/axios)
 
+## Getting Started
+> This is an list of needed instructions to set up your project locally, to get a local copy up and running follow these instructuins.
+
+### Installation
+
+1. **_Clone the repository_**
+
+```sh
+$ git clone https://github.com/AbdallahHemdan/oudFrontend.git
+```
+2. **_Navigate to repository directory_**
+```sh
+$ cd oudFrontend
+```
+
+3. **_Install dependencies_**
+
+```sh
+$ npm install
+```
+
+### Running
+
+1. **_Running on development mode_**
+```sh
+$ npm run dev
+```
+
+2. **_Running on production mode_**
+```sh
+$ npm run prod
+```
+
+### Screenshots
+
+<div align="center">
+ 
+![image](https://user-images.githubusercontent.com/40190772/79008135-01c3b700-7b5d-11ea-85c9-9f1e166e299b.png)
+
+<hr />
+
+![image](https://user-images.githubusercontent.com/40190772/79008263-418a9e80-7b5d-11ea-9433-c8d7791a9b81.png)
+
+
+</div>
+
 
