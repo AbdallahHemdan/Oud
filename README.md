@@ -33,4 +33,17 @@
 - [Contributors](#contributors)
 - [License](#license)
 
+## About The Project
+> **Oud** is an online music streaming service which is a mimic of [Spotify](https://open.spotify.com/) with all its functionalities
+
+### Build with
+- [React JS](https://reactjs.org/)
+- [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+- [Bootstrap](https://getbootstrap.com/)
+- [Jest](https://jestjs.io/)
+- [Enzyme](https://enzymejs.github.io/enzyme/)
+- [JSDOC](https://jsdoc.app/)
+- [Json-Server](https://github.com/typicode/json-server)
+- [Axios](https://github.com/axios/axios)
+
 
