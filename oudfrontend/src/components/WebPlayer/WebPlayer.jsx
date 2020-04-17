@@ -5,9 +5,10 @@ import Player from "./Player/Player";
 import Queue from "./Queue/Queue";
 import Swal from "sweetalert2";
 import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
+const base = `https://oud-zerobase.me/api/v1`;
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGFmYTA2NDVmNDU3MTYwNzVmZiIsImlhdCI6MTU4Njg5MzE0MywiZXhwIjoxNTg5NDg1MTQzfQ.ON2Ef2vgOV1_6EokwvD3mlUzgAn0pb5WPCy5qBWj2QA`,
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzA2NzIzNywiZXhwIjoxNTg5NjU5MjM3fQ.e34kaGJ3ujZ-GT6vy1C2uNXo0W7bTi2wIdgY7h8euwg`,
   },
 };
 /**
@@ -90,35 +91,26 @@ class WebPlayer extends Component {
    * @returns {void}
    */
   fetchQueue = (queueIndex = "0", trackId = "", newQueue = false) => {
-    this.getRequest(
-      "https://oud-zerobase.me/api/v1/me/queue?queueIndex=" + queueIndex
-    )
+    this.getRequest(`${base}/me/queue?queueIndex=${queueIndex}`)
       .then((response) => {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
-          console.log("queeu: ");
-          console.log(response);
           const size = data["total"];
           let trackIdx = 0;
           for (let i = 0; i < size; ++i)
             if (data["tracks"][i] === trackId) {
-              console.log("found track id");
               trackIdx = i;
               break;
             }
-
-          console.log("track id from data: " + data["tracks"][0]);
-          console.log("track id from params: " + trackId);
           this.setState({
             trackIdx: newQueue ? 0 : trackIdx,
             queue: data["tracks"],
             trackId: newQueue ? data["tracks"][0] : trackId,
           });
-          console.log("track id from state: " + this.state.trackId);
         }
       })
       .catch(function (error) {
-        console.log(error.response.data.message);
+        console.log(error.response);
       });
   };
   /**
@@ -137,7 +129,7 @@ class WebPlayer extends Component {
     this.setState({
       trackIdx: trackIdx,
     });
-    return this.getRequest("https://oud-zerobase.me/api/v1/tracks/" + trackId);
+    return this.getRequest(`${base}/tracks/${trackId}`);
   };
   /**
    * A function to fetch the next track to the currently playing track
@@ -146,7 +138,10 @@ class WebPlayer extends Component {
    */
   getNext = () => {
     let idx = this.state.trackIdx + 1;
-    if (idx && this.playerElement.current.state.repeatState === 1) {
+    if (
+      idx === this.state.queue.length &&
+      this.playerElement.current.state.repeatState === 1
+    ) {
       idx = 0;
     } else idx = idx - 1;
 
@@ -184,17 +179,12 @@ class WebPlayer extends Component {
     offset = 0,
     position = 0
   ) => {
-    this.putRequest(
-      "https://oud-zerobase.me/api/v1/me/player/play?deviceId=" +
-        this.state.deviceId +
-        "&queueIndex=0",
-      {
-        contextUri: contextUri,
-        uris: uris,
-        offset: { position: offset },
-        positionMs: position,
-      }
-    )
+    this.putRequest(`${base}/me/player/play?queueIndex=0`, {
+      contextUri: contextUri,
+      uris: uris,
+      offset: { position: offset },
+      positionMs: position,
+    })
       .then((response) => {
         // this.fetchQueue();
         let player = this.playerElement.current;
@@ -227,23 +217,14 @@ class WebPlayer extends Component {
     oldIdx = this.state.trackIdx,
     newIdx = this.state.trackIdx
   ) => {
-    console.log("old index: " + oldIdx);
-    console.log("new index: " + newIdx);
     this.patchRequest(
-      "https://oud-zerobase.me/api/v1/me/queue?queueIndex=0" +
-        "&trackIndex=" +
-        oldIdx +
-        "&newIndex=" +
-        newIdx
+      `${base}/me/queue?queueIndex=0&trackIndex=${oldIdx}&newIndex=${newIdx}`
     )
       .then((response) => {
         this.fetchQueue(0, this.state.trackId);
-        console.log("changed order");
-        console.log(response);
       })
       .catch((error) => {
         console.log(error.response);
-        console.log("error changing order");
       });
   };
   /**
@@ -284,9 +265,8 @@ class WebPlayer extends Component {
    */
   removeTrack = (idx, id) => {
     //
-    this.deleteRequest("https://oud-zerobase.me/api/v1/me/queue?trackId=" + id)
+    this.deleteRequest(`${base}/me/queue?trackId=${id}`)
       .then((response) => {
-        console.log(response);
         this.fetchQueue(0, this.state.trackId);
         Swal.fire({
           title: "Done!",
@@ -297,7 +277,6 @@ class WebPlayer extends Component {
         });
       })
       .catch((error) => {
-        console.log("delete err");
         console.log(error.response);
       });
   };
@@ -341,6 +320,7 @@ class WebPlayer extends Component {
           trackId={this.state.trackId}
           trackIdx={this.state.trackIdx}
           deviceId={this.state.deviceId}
+          playing={this.state.playing}
           onChangeQueueOrder={this.onChangeQueueOrder}
           player={this.playerElement}
           removeTrack={this.removeTrack}

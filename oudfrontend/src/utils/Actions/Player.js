@@ -2,7 +2,7 @@ import axios from "axios";
 import { Howl } from "howler";
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGFmYTA2NDVmNDU3MTYwNzVmZiIsImlhdCI6MTU4Njg5MzE0MywiZXhwIjoxNTg5NDg1MTQzfQ.ON2Ef2vgOV1_6EokwvD3mlUzgAn0pb5WPCy5qBWj2QA`,
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzA2NzIzNywiZXhwIjoxNTg5NjU5MjM3fQ.e34kaGJ3ujZ-GT6vy1C2uNXo0W7bTi2wIdgY7h8euwg`,
   },
 };
 function checkSavedTrack(id) {

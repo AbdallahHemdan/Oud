@@ -163,6 +163,7 @@ class Queue extends Component {
               onSortEnd={this.onSortEnd}
               useDragHandle={true}
               playTrack={this.props.player}
+              playing={this.props.playing}
               toggleDropdown={this.toggleDropdown}
               data-testid="tracks-container"
             />

@@ -7,6 +7,7 @@ import extend from "../../../assets/images/icons/extend.png";
 import PropTypes from "prop-types";
 import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 import { checkSavedTrack, setupHowler } from "../../../utils/Actions/Player";
+const base = `https://oud-zerobase.me/api/v1`;
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
  * @author Ahmed Ashraf
@@ -67,7 +68,6 @@ class Player extends Component {
   }
 
   onPlay = () => {
-    console.log("track is playing");
     this.props.changePlayingState(true);
     this.setState({
       playing: true,
@@ -75,7 +75,6 @@ class Player extends Component {
       current: Number(0).toFixed(2),
       duration: Number(this.state.sound.duration() / 60).toFixed(2),
     });
-    console.log(this.state.current);
     this.state.sound.volume(this.state.volume / 100);
     // this.state.sound.seek(this.state.current * 60);
     setInterval(() => {
@@ -114,10 +113,8 @@ class Player extends Component {
    */
   fetchPlayback = (outPlayer = false) => {
     this.props
-      .getRequest("https://oud-zerobase.me/api/v1/me/player")
+      .getRequest(`${base}/me/player`)
       .then((response) => {
-        console.log("player: ");
-        console.log(response);
         const data = response["data"]["player"];
         if (!data.hasOwnProperty("status")) {
           const track = data["item"];
@@ -129,8 +126,8 @@ class Player extends Component {
             ),
             playing: false, //outPlayer ? true : data["isPlaying"],
             current: Number(data["progressMs"] / 60000).toFixed(2),
-            trackName: track["name"],
-            artistName: track["artists"][0]["name"],
+            trackName: response.data.player.item.name,
+            artistName: "Oud Artist",
             duration: Number(track["duration"] / 60000).toFixed(2),
             shuffleState: data["shuffleState"],
             repeatState:
@@ -143,7 +140,6 @@ class Player extends Component {
             muteState: false,
             fetched: true,
             trackId: track["_id"],
-            art: track["artists"][0]["image"],
           });
           this.props.changePlayingState(data["isPlaying"]);
           this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
@@ -157,14 +153,11 @@ class Player extends Component {
   handleSaveToLikedSongs = () => {
     checkSavedTrack(this.state.trackId)
       .then((isFound) => {
-        console.log("is found resp: ");
-        console.log(isFound);
         if (isFound) {
           this.props.changeLovedState(true);
         }
       })
       .catch((error) => {
-        console("print error");
         console.log(error.response.data.message);
       });
   };
@@ -200,7 +193,7 @@ class Player extends Component {
    */
   pause = () => {
     this.props
-      .putRequest("https://oud-zerobase.me/api/v1/me/player/pause")
+      .putRequest(`${base}/me/player/pause`)
       .then((resp) => {
         this.state.sound.pause();
         this.setState({ playing: false });
@@ -217,11 +210,9 @@ class Player extends Component {
    * @returns {object}
    */
   playResumeRequest = (id) => {
-    console.log("id from play request: " + id);
-    return this.props.putRequest(
-      "https://oud-zerobase.me/api/v1/me/player/play",
-      { offset: { uri: "oud:track:" + id } }
-    );
+    return this.props.putRequest(`${base}/me/player/play`, {
+      offset: { uri: "oud:track:" + id },
+    });
   };
   /**
    * Handling the resume action. request from the back end to resume the currently playing track from specific position,
@@ -234,11 +225,9 @@ class Player extends Component {
   resume = (id = this.props.id) => {
     this.playResumeRequest(id)
       .then((resp) => {
-        console.log("play resume request");
         this.props.changePlayingState(true);
         this.setState({ playing: true });
         this.state.sound.play();
-        console.log(resp);
       })
       .catch((error) => {
         console.log(error.response.data.message);
@@ -279,11 +268,8 @@ class Player extends Component {
     if (id !== this.state.trackId) {
       this.playResumeRequest(id)
         .then((resp) => {
-          console.log("id of the track: " + id);
           this.fetchPlayback();
           this.playTrack(true);
-          console.log("play from queueuue");
-          console.log(resp);
         })
         .catch((error) => {
           console.log(error.response);
@@ -311,16 +297,13 @@ class Player extends Component {
    */
   handleNext = () => {
     this.props
-      .postRequest("https://oud-zerobase.me/api/v1/me/player/next")
+      .postRequest(`${base}/me/player/next`)
       .then((response) => {
-        console.log("next done");
-        console.log(response);
-        // const trackId = this.props.getNext();
-        // this.setState({
-        //   trackId: trackId,
-        // });
+        const trackId = this.props.getNext();
+        this.setState({
+          trackId: trackId,
+        });
         this.fetchPlayback();
-        console.log("next track id: " + this.state.trackId);
         setTimeout(() => {
           this.props.changePlayingState(false);
           this.play(this.state.trackId);
@@ -339,18 +322,16 @@ class Player extends Component {
    */
   handlePrev = () => {
     this.props
-      .postRequest("https://oud-zerobase.me/api/v1/me/player/previous")
+      .postRequest(`${base}/me/player/previous`)
       .then((response) => {
-        console.log("prev done");
-        console.log(response);
-        const trackId = this.props.getPrevious();
-        this.setState({
-          trackId: trackId,
-        });
+        // const trackId = this.props.getPrevious();
+        // this.setState({
+        //   trackId: trackId,
+        // });
         this.fetchPlayback();
         setTimeout(() => {
           this.props.changePlayingState(false);
-          this.play(trackId);
+          this.play(this.state.trackId);
         }, 100);
       })
       .catch(function (error) {
@@ -375,13 +356,8 @@ class Player extends Component {
     const position = percent * this.state.duration * 60;
 
     this.props
-      .putRequest(
-        "https://oud-zerobase.me/api/v1/me/player/seek?positionMs=" +
-          position * 1000
-      )
+      .putRequest(`${base}/me/player/seek?positionMs=${position * 1000}`)
       .then((response) => {
-        console.log("seeked: ");
-        console.log(response);
         if (this.state.sound) this.state.sound.seek(position);
         this.setState({
           progress: (position / (this.state.duration * 60)) * 100,
@@ -412,17 +388,12 @@ class Player extends Component {
    */
   handleShuffleState = () => {
     this.props
-      .putRequest(
-        "https://oud-zerobase.me/api/v1/me/player/shuffle?state=" +
-          !this.state.shuffleState
-      )
+      .putRequest(`${base}/me/player/shuffle?state=${!this.state.shuffleState}`)
       .then((response) => {
         this.props.fetchQueue("0", this.state.trackId, false);
         this.setState({
           shuffleState: !this.state.shuffleState,
         });
-        console.log("shuffle: " + this.state.shuffleState);
-        console.log(response);
       })
       .catch(function (error) {
         console.log(error.response.data.message);
@@ -441,9 +412,7 @@ class Player extends Component {
     const state =
       repeatState === 0 ? "off" : repeatState === 1 ? "context" : "track";
     this.props
-      .putRequest(
-        "https://oud-zerobase.me/api/v1/me/player/repeat?state=" + state
-      )
+      .putRequest(`${base}/me/player/repeat?state=${state}`)
       .then((response) => {
         const loop = this.getLoopState(state);
         this.setState({

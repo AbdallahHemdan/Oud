@@ -28,7 +28,6 @@ class PlayingBarRight extends Component {
   }
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.loved !== prevState.loved) {
-      console.log("next props: " + nextProps.loved);
       return {
         loved: nextProps.loved,
       };
