@@ -92,4 +92,25 @@ $ npm run prod
 
 </div>
 
+## Unit testing
+> Each component in our project has its own unit test file separately eg. MusicCard.test.js
+
+### Running Unit tests
+> Run the following command.
+```sh
+npm run test
+```
+
+### Generating Coverage Report
+> After running the following command an html version will be generated and located at coverage\index.html.
+```sh
+npm run test:coverage
+```
+
+## Functional Documentation
+> Run the following command to generate the functional documentation report in docs/index.html
+```sh
+npm run docs
+```
+
 
