@@ -17,61 +17,20 @@
 
 </div>
 
-# 🏃‍♂️ Oud Front-End
-> Frontend of ```Oud``` which is a mimic all the functionalities of [Spotify](https://open.spotify.com/) using ReactJS.
+## Table of Contents
 
-## 📷 Screenshots
+- [About the Project](#about-the-project)
+  - [Build with](#build-with)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Running](#running)
+  - [Screenshots](#screenshots)
+- [Unit Testing](#unit-testing)
+  - [Running Unit tests](#running-unit-tests)
+  - [Generating Coverage Report](#generating-coverage-report)
+- [Functional Documentation](#functional-documentation)
+- [Contributing](#contributing)
+- [Contributors](#contributors)
+- [License](#license)
 
-<div align="center">
- 
-![image](https://user-images.githubusercontent.com/40190772/79008135-01c3b700-7b5d-11ea-85c9-9f1e166e299b.png)
 
-<hr />
-
-![image](https://user-images.githubusercontent.com/40190772/79008263-418a9e80-7b5d-11ea-9433-c8d7791a9b81.png)
-
-
-</div>
-
-### 📦 Install packages
-```sh
-npm install
-or 
-npm i
-```
-### ⚡ Run Mock Services for development
-```sh
-npm run json:server
-```
-
-### 🧪 Run unit tests
-```sh
-npm run test
-```
-
-### ✅ Get Coverge report
-```sh
-npm run test:coverage
-```
-### 🧩 Run on development mode
-```sh
-npm run dev
-```
-
-### 🤵 Run on production
-```sh
-npm run prod
-```
-
-### Build and create minifies for development 
-```sh
-npm run build:dev
-```
-### Build and create minifies for development 
-```sh
-npm run build:prod
-```
-### 📃 Generate functional documentation
-```sh
-npm run docs
-```
