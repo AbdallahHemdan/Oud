@@ -95,7 +95,7 @@ $ npm run prod
 </div>
 
 ## File Structure
-
+                                    
     Oud-Frontend
     ├── README.md
     ├── LICENSE
@@ -119,6 +119,25 @@ $ npm run prod
             |   ├── db.json	
             |   └── routes.json	
             ├── components	
+            |   ├── Account
+            |   ├── CategoryHeader	
+            |   ├── likedSongs	
+            |   ├── Navbar	
+            |   ├── Sidebar	
+            |   ├── album	
+            |   ├── commonComponents	
+            |   ├── MainContent	
+            |   ├── Playlist	
+            |   ├── Subheader	
+            |   ├── Card	
+            |   ├── CreatePlaylist	
+            |   ├── MusicCard	
+            |   ├── Profile	
+            |   ├── WebPlayer	
+            |   ├── CategoryBody	
+            |   ├── GenreCard	
+            |   ├── MusicItem
+            |   └── SeeAll
             ├── config
             |   └── environment.js	
             ├── pages	
@@ -134,6 +153,7 @@ $ npm run prod
             ├── index.css	
             ├── index.js		
             └── setupTests.js
+
 
 ## Unit testing
 > Each component in our project has its own unit test file separately eg. MusicCard.test.js
