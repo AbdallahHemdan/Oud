@@ -40,7 +40,7 @@ function App() {
             <RedirectPage />
           </Route>
           <Route path={`/playlist/:id`} Component={<Playlist />}>
-            <PlaylistRender />
+            <PlaylistRender />  
           </Route>
           <Route path="/likedSongs/">
             <LikedSongs />
