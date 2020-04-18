@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import "./FollowCard.css";
-
+/**
+ * @type {Class}
+ *
+ * @returns {JSX} the card that renders the person who is in followers list or the following list
+ */
 class FollowCard extends Component {
   constructor(props) {
     super(props);
@@ -59,7 +63,7 @@ class FollowCard extends Component {
   handleClick(event) {
     /*
       1) make put request if it was false 
-      2) make delet request if true
+      2) make delete request if true
       3) then change the state
     */
     let ids = this.props.id;
@@ -107,7 +111,7 @@ class FollowCard extends Component {
         <div className="followCard-content">
           <Link
             id={"user" + this.props.id}
-            to={`/profile/${this.props.id}`}
+            to={`/profile/${this.props.id}/overview`}
             className="userName-followCard"
             data-test="followCardName"
           >
