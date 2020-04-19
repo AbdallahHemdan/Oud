@@ -18,20 +18,20 @@ class GenreCard extends Component {
     *
     * @param {object} props - get props from higher components (Home)
     * @param {object} item - get item from higher component (Home)
-    * @param {object} id - get id of an item from higher component (Home)
+    * @param {object} _id - get _id of an item from higher component (Home)
     * @param {object} name - get name of an item from higher component (Home)
     * @param {object} icon - get icon of an item from higher component (Home)
     */
   constructor(props) {
     super(props)
-    const { id, name, icon } = this.props.item;
+    const { _id, name, icon } = this.props.item;
     this.state = {
       /**
-       * id of the category
+       * _id of the category
        * 
        * @type {string} 
        */
-      id: id,
+      _id: _id,
 
       /**
        * name of the category
@@ -59,7 +59,7 @@ class GenreCard extends Component {
    * 
    */
   handlePlaylistClick = () => {
-    this.props.history.push(`genre/${this.state.id}?name=${this.state.name}&id=${this.state.id}`);
+    this.props.history.push(`genre/${this.state._id}?name=${this.state.name}&_id=${this.state._id}`);
   }
 
   /**
@@ -96,7 +96,7 @@ class GenreCard extends Component {
             data-testid="playlist-title"
           >
             <Link
-              to={`${this.state.type}/${this.state.id}`}
+              to={`${this.state.type}/${this.state._id}`}
               className="playlist-link"
               data-testid="playlist-link"
             >

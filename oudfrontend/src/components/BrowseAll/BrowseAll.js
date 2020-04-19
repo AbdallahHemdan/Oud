@@ -36,7 +36,7 @@ class BrowseAll extends Component {
                     return (
                       <GenreCard
                         item={item}
-                        key={item.id}
+                        key={item._id}
                       />
                     )
                   })
