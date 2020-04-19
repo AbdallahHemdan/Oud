@@ -1,15 +1,25 @@
 import React, { Component } from "react";
 import axios from "axios";
+import userPlaceHolder from "../../../../assets/images/user.png";
 import { Link } from "react-router-dom";
 
 import "./UpperContainer.css";
 
+// const config = {
+//   headers: {
+//     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
+//   }
+// };
+const config = {
+  headers: {
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNTU4MTYwNzYxNyIsImlhdCI6MTU4NzMxOTY1MCwiZXhwIjoxNTg5OTExNjUwfQ.9LFFIMgDbRk7Cqaht8q8V_a7eAeyryfxg91fYcv6_iw`
+  }
+};
+
 /**
  * @type {Function}
- * @returns {JSX} this is the upper part of the profile which containes
- * @the profile user name
- * @follow button
- * @navigation bar [overview , public playlists , following followers]
+ * @returns {JSX} this is the upper part of the profile which containes <UpperContainer/>
+ *
  */
 
 class UpperContainer extends Component {
@@ -18,7 +28,7 @@ class UpperContainer extends Component {
 
     this.state = {
       id: "",
-      img: "",
+
       photo: "",
       signInId: "",
       followStatus: "",
@@ -35,7 +45,7 @@ class UpperContainer extends Component {
   handleClick(event) {
     /*
      1) make put request if it was false 
-     2) make delet request if true
+     2) make delete request if true
      3) then change the state
     */
     let ids = this.props.id;
@@ -75,24 +85,32 @@ class UpperContainer extends Component {
   }
   changeProfileImage(event) {
     const fd = new FormData();
-    if (event.target.files[0]) {
+    //if (event.target.files[0])
+    {
       fd.append("image", event.target.files[0], event.target.files[0].name);
+      console.log(fd);
+
       axios
-        .patch("http://localhost:2022/me/profilePicture", fd)
+        .patch(
+          "https://oud-zerobase.me/api/v1/me/profilePicture",
+          { images: [fd] },
+          config
+        )
         .then(respons => {
           console.log(respons);
         })
         .catch(error => {
-          console.log(error);
+          console.log(error.response);
         });
     }
   }
   componentDidMount() {
     axios
-      .get("http://localhost:2022/users/" + this.props.userId)
+      .get("https://oud-zerobase.me/api/v1/users/" + this.props.userId, config)
       .then(response => {
+        console.log(response);
         this.setState({
-          id: response.data.id,
+          id: response.data._id,
           username: response.data.displayName,
           photo: response.data.images[0]
         });
@@ -108,13 +126,13 @@ class UpperContainer extends Component {
           });
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
       });
 
     axios
-      .get("http://localhost:2022/me")
+      .get("https://oud-zerobase.me/api/v1/me", config)
       .then(response => {
-        this.setState({ signInId: response.data.id });
+        this.setState({ signInId: response.data._id });
       })
       .catch(error => {
         console.log(error);
@@ -127,16 +145,17 @@ class UpperContainer extends Component {
       } else this.setState({ scrolled: false });
     });
   }
-  // componentWillUnmount() {
-  //   window.removeEventListener("scroll");
-  // }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.userId !== this.props.userId) {
       axios
-        .get("http://localhost:2022/users/" + this.props.userId)
+        .get(
+          "https://oud-zerobase.me/api/v1/users/" + this.props.userId,
+          config
+        )
         .then(response => {
           this.setState({
-            id: response.data.id,
+            id: response.data._id,
             username: response.data.displayName,
             photo: response.data.images[0]
           });
@@ -148,6 +167,7 @@ class UpperContainer extends Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <div
@@ -173,7 +193,11 @@ class UpperContainer extends Component {
                   ? "userImg-profile-signedIn"
                   : "userImg-profile"
               }
-              src={this.state.photo}
+              src={
+                this.state.photo
+                  ? "https://oud-zerobase.me/api/" + this.state.photo
+                  : userPlaceHolder
+              }
               data-test="avatarImage"
               alt="user"
               onClick={this.upload}

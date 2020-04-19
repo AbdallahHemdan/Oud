@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import FollowCard from "./../FollowCard/FollowCard";
 import axios from "axios";
 
+const config = {
+  headers: {
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
+  }
+};
+
 /**
  * @type {Class}
  * @returns {JSX} this returns the list of the current user following list
@@ -19,22 +25,28 @@ class Following extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:2022/following/" + this.props.userId)
+      .get(
+        "https://oud-zerobase.me/api/v1/users/" +
+          this.props.userId +
+          "/following?type=user",
+        config
+      )
       .then(response => {
         this.setState({
           items: response.data.items
         });
+        console.log(response);
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
       });
     axios
-      .get("http://localhost:2022/me")
+      .get("https://oud-zerobase.me/api/v1/me", config)
       .then(response => {
         this.setState({ signInId: response.data.id });
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
       });
   }
 

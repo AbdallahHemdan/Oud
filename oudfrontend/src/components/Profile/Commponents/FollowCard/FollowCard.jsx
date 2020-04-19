@@ -3,10 +3,17 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import "./FollowCard.css";
+
+const config = {
+  headers: {
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
+  }
+};
 /**
  * @type {Class}
  *
  * @returns {JSX} the card that renders the person who is in followers list or the following list
+ * <FollowCard/>
  */
 class FollowCard extends Component {
   constructor(props) {
@@ -28,7 +35,7 @@ class FollowCard extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:2022/users/" + this.props.id)
+      .get("https://oud-zerobase.me/api/v1/users/" + this.props.id, config)
       .then(response => {
         this.setState({
           name: response.data.displayName,
@@ -51,9 +58,9 @@ class FollowCard extends Component {
       });
 
     axios
-      .get("http://localhost:2022/me")
+      .get("https://oud-zerobase.me/api/v1/me", config)
       .then(response => {
-        this.setState({ signInId: response.data.id });
+        this.setState({ signInId: response.data._id });
       })
       .catch(error => {
         console.log(error);
