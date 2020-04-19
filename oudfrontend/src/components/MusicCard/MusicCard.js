@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./MusicCard.css";
 import { Link, withRouter } from "react-router-dom"
-
+import { base, subUrl, prodUrl } from "./../../config/environment"
 
 /**
  * Music card component which render and display the playlist card of a specific category 
@@ -140,6 +140,7 @@ class MusicCard extends Component {
    * @returns {JSX} Component for App
    */
   render() {
+    const subPath = (base === prodUrl) ? subUrl : "";
     const cardClass = (this.state.isHidden) ? "hidden-card" : "card"
     return (
       <div
@@ -169,7 +170,7 @@ class MusicCard extends Component {
               null}
           </div>
           <img
-            src={this.state.image}
+            src={`${subPath}${this.state.image}`}
             alt="playlist cover"
             data-testid="playlist-image"
           />
