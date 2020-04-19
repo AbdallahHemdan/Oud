@@ -3,7 +3,6 @@ import './song.css';
 import { BrowserRouter as Router, Redirect } from "react-router-dom";
 import axios from 'axios'
 import PropTypes from 'prop-types';
-import addToPlaylist from '../addToPlaylist/addToPlaylist';
 import play from "../../../assets/images/play.png"
 import musicIcon from "../../../assets/images/musicIcon.png"
 

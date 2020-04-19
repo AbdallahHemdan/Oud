@@ -5,6 +5,7 @@ import Sidebar from "../../components/Sidebar/Sidebar"
 import Navbar from "../../components/Navbar/Navbar"
 import "./Search.css"
 import { base } from "./../../config/environment"
+import WebPlayer from '../../components/WebPlayer/WebPlayer'
 
 let fetchCategoriesUrl = `${base}/genres`;
 
@@ -77,6 +78,7 @@ class Search extends Component {
             </div>
           </section>
         </section>
+        <WebPlayer />
       </React.Fragment>
     );
   }

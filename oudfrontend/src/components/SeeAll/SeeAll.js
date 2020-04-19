@@ -20,7 +20,7 @@ class SeeAll extends Component {
     this.setState({ playlists: items, limit, offset, total });
   }
   componentDidMount() {
-    let fetchPlaylistsUrlMocking = `${base}/browse/categories/${this.state.id}/playlists`;
+    let fetchPlaylistsUrlMocking = `${base}/browse/categories/${this.state.id}/playlists`
     axios.get(fetchPlaylistsUrlMocking)
       .then((result) => {
         this.handleStoringPlaylists(result.data);

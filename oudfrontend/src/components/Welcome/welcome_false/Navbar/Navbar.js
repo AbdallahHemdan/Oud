@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 // import NavbarRouter from '../../../routes/NavbarRouter';
 import logo from '../../../../assets/images/Logo.png';
 import '../../welcome.css';
@@ -19,7 +19,7 @@ class Navbar extends React.Component {
   };
   toUserHomepage = () => {
     if (this.state.redirect) {
-      return <Redirect to="/welcomeUser" />;
+      return <Redirect to="/welcome-user" />;
     }
   };
   /**
@@ -27,13 +27,13 @@ class Navbar extends React.Component {
    * @function
    * @returns {void}
    */
-  doLogIn = () => this.setState({loggedIn: true});
+  doLogIn = () => this.setState({ loggedIn: true });
   /**
    * set the logged in to true
    * @function
    * @returns {void}
    */
-  doLogOut = () => this.setState({loggedIn: false});
+  doLogOut = () => this.setState({ loggedIn: false });
   /**
    * just to see what is the status that in the real time
    * @function
@@ -41,8 +41,8 @@ class Navbar extends React.Component {
    */
   handleStatus = () =>
     this.props.status
-      ? this.setState({loggedIn: true})
-      : this.setState({loggedIn: false});
+      ? this.setState({ loggedIn: true })
+      : this.setState({ loggedIn: false });
   /**
    * the render function that have the element inside
    * @function
@@ -52,7 +52,7 @@ class Navbar extends React.Component {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-custom NavBarStyle_bg-custom NavBarStyle_navbar-brand NavBarStyle_navbar-expand-lg">
-          <Link to="/welcomeGuest" className="navbar-brand">
+          <Link to="/welcome-guest" className="navbar-brand">
             <img
               className="img-responsive oudLogo"
               src={logo}
@@ -95,8 +95,8 @@ class Navbar extends React.Component {
               </li>
               <li className="block NavBarStyle_block nav-item">{'|'}</li>
               <li className="nav-item">
-                <Link data-testid="SignUP" to="/SignUP" className="nav-link">
-                  SignUP
+                <Link data-testid="SignUP" to="/signup" className="nav-link">
+                  Sign up
                 </Link>
               </li>
               {this.toUserHomepage()}
@@ -105,9 +105,9 @@ class Navbar extends React.Component {
                   data-testid="Login"
                   onClick={this.setRedirect}
                   className="nav-link"
-                  to="/log-in"
+                  to="/signin"
                 >
-                  Login
+                  Log in
                 </Link>
               </li>
             </ul>
