@@ -76,7 +76,7 @@ class MusicItem extends Component {
       .then((result) => {
         this.handleStoringPlaylists(result.data);
       }).catch((err) => {
-
+        console.log(err)
       });
   }
 
