@@ -17,7 +17,7 @@ function CategoryBody({ playlists }) {
               return (
                 <MusicCard
                   item={playlist}
-                  key={playlist.id}
+                  key={playlist._id}
                   playBtn={true}
                 />
               )

@@ -97,6 +97,7 @@ class Home extends Component {
   componentDidMount() {
     axios.get(fetchCategoriesUrl) // get all categories
       .then((result) => {
+        console.log("From Home ", result.data);
         this.handleStoringData(result.data);
       }).catch((err) => {
         console.log(err)
