@@ -6,7 +6,7 @@
   "/me/following": "/followingMe",
   "/me/followingDel": "/myFollowing",
   "/me/following/containes": "/ids",
-  "/usres/playlists": "/playlists",
+  "/usres/playlists": "/playlists2",
   "/me/profilePicture": "/profilePicture",
   "/browse/categories": "/categories",
   "/browse/categories/1/playlists": "/1",
@@ -51,9 +51,9 @@
   "/me/tracks?ids=[dkfjnc248]": "/checkkfjnc248",
   "/me/tracks?ids=[dkfjnc249]": "/checkkfjnc249",
   "/genres": "/genres",
-  "/me/tracks":"/likedSongs",
-  "/me/queue":"/queue",
-  "/me/playlists":"/likedPlaylists",
-  "/me/albums":"/likedAlbums",
-  "/playlists":"/playlist"
+  "/me/tracks": "/likedSongs",
+  "/me/queue": "/queue",
+  "/me/playlists": "/likedPlaylists",
+  "/me/albums": "/likedAlbums",
+  "/playlists": "/playlist"
 }
