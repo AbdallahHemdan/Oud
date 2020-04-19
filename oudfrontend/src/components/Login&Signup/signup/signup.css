@@ -1,0 +1,384 @@
+.NavBarStyle {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  color: black;
+}
+
+
+.OudImage {
+  width: 150px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  align-items: center;
+}
+
+.barsection {
+  padding-bottom: 20px;
+}
+
+.googlepic {
+
+  width: 10%;
+  background-color: white;
+  border-radius: 100%;
+  margin: auto 10px auto;
+}
+
+
+.SocialIconsPage {
+  padding-top: 100px;
+
+}
+
+
+
+.hint {
+  text-align: center;
+  font-size: 15px;
+}
+
+.google_button {
+  width: 330px;
+  border-radius: 50px;
+  color: white;
+  text-align: center;
+  background-color: #4285f4;
+  border: 2px solid #4285f4;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  height: 48px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.google_button:hover {
+  background-color: #7aa6ec;
+  border: 2px solid #7aa6ec;
+  transition: 1s;
+}
+
+.google_button:active {
+  background-color: #0062ff;
+  border: 2px solid #0062ff;
+  transition: 1s;
+}
+
+
+.social-icons .icons {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+
+}
+
+.kep-login-facebook.medium {
+  width: 330px;
+  border-radius: 50px;
+  color: white;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  height: 48px;
+  display: block;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+.kep-login-facebook.medium:hover {
+  background-color: rgb(59, 99, 220);
+  transition: 1s;
+}
+
+.kep-login-facebook.medium:active {
+  background-color: rgb(20, 56, 162);
+  transition: 1s;
+}
+
+.OR,
+.OR-2 {
+  width: 30%;
+  margin: 20px auto 10px;
+  text-align: center;
+  border-top: 1px solid;
+
+}
+
+.OR i {
+  padding: 0 10px;
+  background: rgb(194, 194, 194);
+  position: relative;
+  top: -11px;
+  z-index: 1;
+}
+
+.OR-2 {
+  width: 50%;
+
+}
+
+.or-seperator,
+.or-seperator-2 {
+  width: 30%;
+  margin: 20px auto 10px;
+  text-align: center;
+  border-top: 1px solid rgb(194, 194, 194);
+}
+
+.or-seperator i {
+  padding: 0 10px;
+  background: white;
+  position: relative;
+  top: -11px;
+  z-index: 1;
+  background-color: #f2f2f2;
+}
+
+.SignUpForm {
+  max-width: 400px;
+  min-width: 30vw;
+  border-color: #f9b835;
+  text-align: justify;
+}
+
+.FormElement {
+  border-color: #f9b835;
+  margin-bottom: 10px;
+}
+
+input.FormElement.custom-select {
+  background-color: #ffffff;
+  border-color: #f9b835;
+}
+
+input.FormElement {
+  border-color: #f9b835;
+}
+
+select.FormElement.form-col.custom-select {
+  border-color: #f9b835;
+}
+
+input.FormElement.custom-select {
+  height: 50px;
+}
+
+input.FormElement {
+  height: 50px;
+}
+
+select.FormElement.form-col.custom-select {
+  height: 50px;
+}
+
+button.btn.btn-primary.btn-block {
+  height: 50px;
+}
+
+.checkBoxElement {
+  color: #f9b835;
+  background-color: #f9b835;
+  border-color: #f9b835;
+
+}
+
+.SignUpSubmit {
+  width: 330px;
+  color: #ffffff;
+  background-color: #f9b835;
+  border-radius: 50px;
+  border: 0;
+  height: 48px;
+  margin-top: 7px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.butt {
+  color: white;
+}
+
+.butt:hover {
+  color: #ffffff;
+  background-color: #fac65f;
+  transition: 1s;
+  text-decoration: none;
+}
+
+
+
+.SignUpSubmit:hover {
+  color: #ffffff;
+  background-color: #fac65f;
+  transition: 1s;
+  text-decoration: none;
+}
+
+.btn-style a {
+  text-decoration: none;
+}
+
+.SignUpSubmit:active {
+  color: #ffffff;
+  background-color: #b3821f !important;
+  border: 0;
+
+}
+
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.rc-captcha {
+  margin: 0 auto;
+  margin-bottom: 15px;
+  width: 302px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.forgetLink {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.forgetPage {
+  margin-top: 100px;
+}
+
+.pass-reset {
+  color: #f9b835;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.pass-massage {
+  padding-bottom: 30px;
+  line-height: inherit;
+
+}
+
+.forgetEmail {
+  margin-bottom: 30px;
+}
+
+.showText {
+  background-color: white !important;
+  border-color: #f9b835 !important;
+  box-shadow: white !important;
+}
+
+.showText:hover {
+  background-color: #ffca60 !important;
+  border-color: #ffca60 !important;
+  box-shadow: none !important;
+  transition: 1s;
+
+}
+
+.showText:not(:hover) {
+  box-shadow: none !important;
+  transition: 1s;
+
+}
+
+.islinked {
+  margin-top: 150px;
+}
+
+.hovergold li a:hover {
+  color: #f9b835 !important;
+
+  text-decoration: none;
+}
+
+
+
+.check {
+  cursor: pointer;
+  position: relative;
+  margin: auto;
+  width: 18px;
+  height: 18px;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate3d(0, 0, 0);
+
+}
+
+.check::before {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(#223254, .03);
+  opacity: 0;
+  transition: .2s ease;
+}
+
+.check svg {
+  position: relative;
+  z-index: 1;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #C8CCD4;
+  stroke-width: 1.5;
+  transform: translate3d(0, 0, 0);
+  transition: all .2s ease;
+}
+
+.check path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 0;
+}
+
+.check polyline {
+  stroke-dasharray: 22;
+  stroke-dashoffset: 66;
+}
+
+.check:hover svg {
+  opacity: 1;
+  stroke: #4285F4;
+}
+
+.check::before svg {
+  opacity: 1;
+  stroke: #4285F4;
+}
+
+#cbx:checked+.check svg {
+  stroke: #4285F4;
+}
+
+#cbx:checked+.check svg path {
+  stroke-dashoffset: 60;
+  transition: all .3s linear;
+}
+
+#cbx:checked+.check svg polyline {
+  stroke-dashoffset: 42;
+  transition: all .2s linear;
+  transition-delay: .15s
+}
