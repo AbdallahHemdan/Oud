@@ -1,0 +1,174 @@
+.upperContainerProfile {
+  height: 240px;
+  background-image: linear-gradient(#424242, #111113);
+  padding: 10px 3% 10px;
+  margin-bottom: 0px;
+  transition: 0.5s;
+}
+.upperNav {
+  height: 130px;
+  position: fixed;
+  background-color: #000000;
+  border-bottom: 1px solid #424242;
+  width: 100%;
+  transition: 0.5s;
+}
+.profile-links {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  margin-top: 35px;
+  clear: left;
+}
+
+.profile-links a {
+  margin-left: 0;
+  color: #f8f8f8;
+  margin: 0 20px 0 0;
+  font-size: 14px;
+  padding-right: 4px;
+}
+
+.profile-links a:focus,
+.profile-links a:active,
+.profile-links a:hover {
+  color: #ffce00;
+  font-weight: 700;
+  border-bottom: 3px #ffce00 solid;
+  padding-bottom: 10px;
+}
+
+.upperContainerProfile p {
+  color: aliceblue;
+  font-size: 12px;
+  transition: 1s;
+}
+.upperContainerProfile h1 {
+  font-size: 40px;
+  font-weight: 1000;
+  transition: 0.25s;
+}
+.upperContainerProfile a {
+  transition: 0.25s;
+}
+.upperNav h1 {
+  font-size: 20px;
+  font-weight: 700;
+  transition: 0.25s;
+}
+.upperNav a {
+  transition: 0.25s;
+}
+.avatarContainer {
+  width: auto;
+}
+.userImg-profile-signedIn,
+.userImg-profile {
+  float: left;
+  width: 115px;
+  height: 115px;
+  margin: 30px auto;
+  margin-right: 30px;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+.userImg-profile-signedIn {
+  cursor: pointer;
+}
+.changeImage {
+  opacity: 0;
+  clear: left;
+  position: absolute;
+  margin-top: 120px;
+  margin-left: 40px;
+  cursor: pointer;
+}
+.avatarContainer:hover .userImg-profile-signedIn {
+  opacity: 0.3;
+}
+.avatarContainer:hover .changeImage {
+  opacity: 1;
+}
+.userImg-profile-scrolled {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin: 30px 40px 15px 30px;
+  transition: 0.5s;
+  border-radius: 50%;
+}
+.userName-profile {
+  margin-top: 35px;
+}
+
+.userName-profile-scrolled {
+  margin-top: 40px;
+}
+
+.userName-profile-padding {
+  padding-top: 0px;
+}
+.upperContainerFollowingButton {
+  background-color: transparent;
+  color: #f9b835;
+  border-radius: 28px;
+  font-weight: 700;
+  font-size: 14px;
+  width: 170px;
+  margin: 0;
+  padding: 5px;
+  align-self: flex-start;
+  transition: transform 0.2s;
+  align-self: flex-end;
+  margin-top: 8px;
+}
+
+.upperContainerFollowingButton:hover {
+  transform: scale(1.05);
+  background-color: transparent;
+  color: #f9b835;
+}
+.upperContainerFollowingButton:active,
+.upperContainerFollowingButton:focus {
+  background-color: transparent;
+  color: #f9b835;
+}
+
+.upperContainerFollowButton {
+  background-color: transparent;
+  color: #ffffff;
+  border-radius: 28px;
+  font-weight: 700;
+  font-size: 14px;
+  width: 170px;
+  margin: 0;
+  padding: 5px;
+  transition: transform 0.2s;
+  align-self: flex-end;
+  margin-top: 8px;
+}
+
+.upperContainerFollowButton:hover {
+  transform: scale(1.05);
+  background-color: transparent;
+  color: #ffffff;
+}
+.upperContainerFollowButton:active,
+.upperContainerFollowButton:focus {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.profileNave-button-right {
+  text-align: right;
+  width: 20%;
+}
+@media (max-width: 900px) {
+  .profile-links a {
+    margin: 0 10px 0 0;
+  }
+
+  .profile-links {
+    margin-top: 40px;
+  }
+}
