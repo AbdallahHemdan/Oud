@@ -111,15 +111,20 @@ class Home extends Component {
    * @returns {JSX} Component for App
    */
   render() {
-    if (this.state.isLoading) {
-      return <div>Loading !!</div>
-    }
     return (
       <div>
         <Sidebar />
         <Navbar isLoggedIn={true} />
-        <MainContent items={this.state.items} />
-        <WebPlayer />
+        {
+          this.state.isLoading ?
+            <div className="container container-half">
+              <i class="fas fa-spinner fa-spin fa-4x"></i>
+            </div> :
+            <React.Fragment>
+              <MainContent items={this.state.items} />
+              <WebPlayer />
+            </React.Fragment>
+        }
       </div >
     );
   }

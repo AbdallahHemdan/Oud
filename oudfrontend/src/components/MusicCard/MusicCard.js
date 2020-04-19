@@ -40,6 +40,7 @@ class MusicCard extends Component {
         image
 
       } = this.props.item;
+    console.log("Items + Lol", this.props.item);
     this.state = {
 
       /**
