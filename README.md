@@ -73,6 +73,7 @@ $ npm install
 
 1. **_Running on development mode_**
 ```sh
+$ npm run json:server
 $ npm run dev
 ```
 
