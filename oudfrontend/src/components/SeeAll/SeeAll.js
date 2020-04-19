@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import axios from "axios"
 import qs from "qs"
-
+import { base } from "./../../config/environment"
 import MusicCard from "../MusicCard/MusicCard"
 import Sidebar from "../Sidebar/Sidebar"
 import Navbar from "../Navbar/Navbar"
@@ -11,7 +11,7 @@ class SeeAll extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      id: qs.parse(this.props.location.search, { ignoreQueryPrefix: true }).id,
+      _id: qs.parse(this.props.location.search, { ignoreQueryPrefix: true })._id,
       name: qs.parse(this.props.location.search, { ignoreQueryPrefix: true }).name,
       playlists: []
     }
@@ -20,7 +20,7 @@ class SeeAll extends Component {
     this.setState({ playlists: items, limit, offset, total });
   }
   componentDidMount() {
-    let fetchPlaylistsUrlMocking = `http://localhost:2022/browse/categories/${this.state.id}/playlists`
+    let fetchPlaylistsUrlMocking = `${base}/browse/categories/${this.state._id}/playlists`
     axios.get(fetchPlaylistsUrlMocking)
       .then((result) => {
         this.handleStoringPlaylists(result.data);
@@ -62,7 +62,7 @@ class SeeAll extends Component {
                         return (
                           <MusicCard
                             item={playlist}
-                            key={playlist.id}
+                            key={playlist._id}
                             playBtn={true}
                           />
                         )
