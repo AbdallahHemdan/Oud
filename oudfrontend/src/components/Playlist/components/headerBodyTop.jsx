@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-
+import {base} from "../../../config/environment"
+import {config} from "../../../utils/auth"
 /**
  * this is a component that renders the Top of the body of playlists, albums, likedSongs
  * on clicking the name of the owner it takes you to his/her profile
@@ -32,8 +33,7 @@ function HeaderBodyTop(props) {
     /**
      * fetching the owner name and setting state
      */
-    const url = `http://localhost:2022/user/${owner}`;
-    axios.get(`${url}`)
+    axios.get(`${base}/users/${owner}`, config)
         .then((response) => {
             const user = response.data;
             setOwnerName(user.displayName);

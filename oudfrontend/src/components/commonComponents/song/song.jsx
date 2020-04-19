@@ -7,6 +7,7 @@ import play from "../../../assets/images/play.png";
 import musicIcon from "../../../assets/images/musicIcon.png";
 import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
 import {base} from "../../../config/environment"
+import {config} from "../../../utils/auth"
 
 
 /**
@@ -82,7 +83,7 @@ class Song extends Component {
    */
   componentDidMount() {
     axios
-      .get(`${base}/albums/${this.props.track.albumId}/`)
+      .get(`${base}/albums/${this.props.track.albumId}/`, config)
       .then((response) => {
         const album = response.data;
         this.setState({ albumName: album.name });
@@ -90,9 +91,10 @@ class Song extends Component {
       .catch((error) => {
         console.log(error);
       });
+
     axios
       .get(
-        `${base}/me/tracks/contains/${this.props.track.albumId}/`
+        `${base}/me/tracks/contains/${this.props.track.albumId}/`, config
       )
       .then((response) => {
         const isFound = response.data;
@@ -150,7 +152,7 @@ class Song extends Component {
     this.toggleDropdown();
     if (this.state.queued === false) {
       axios
-        .post(`${base}/me/queue/`, this.state.track)
+        .post(`${base}/me/queue/`, this.state.track, config)
         .then(function (response) {
           console.log(response);
         })
@@ -160,7 +162,7 @@ class Song extends Component {
       this.setState({ queued: true });
     } else {
       axios
-        .delete(`${base}/me/queue/${this.state.track.id}`)
+        .delete(`${base}/me/queue/${this.state.track.id}`, config)
         .then(function (response) {
           console.log(response);
         })

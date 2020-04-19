@@ -7,6 +7,8 @@ import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
 import { resume, pause, addToQueue } from '../commonComponents/utils'
 import {base} from "../../config/environment"
+import {config} from "../../utils/auth"
+
 /**
  * @classdesc this is a component that renders likedSongs page
  * @author Ahmed Walid <ahmedwa1999@gmail.com>
@@ -109,7 +111,7 @@ class LikedSongs extends React.Component {
    */
   componentDidMount() {
     axios
-      .get(`${base}/me/tracks`)
+      .get(`${base}/me/tracks`, config)
       .then((response) => {
         const items = response.data.items;
         this.setState({ recieved: true });
