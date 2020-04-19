@@ -3,6 +3,11 @@ import PublicPlaylists from "./../PublicPlaylists/PublicPlaylists";
 import { Link } from "react-router-dom";
 import "./Overview.css";
 
+/**
+ * @type {Function}
+ * @returns {JSX} this the profile overview for current user which just calls the public playlists
+ */
+
 function Overview(props) {
   return (
     <div data-test="Overview">

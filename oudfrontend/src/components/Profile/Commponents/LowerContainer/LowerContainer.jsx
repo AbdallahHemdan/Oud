@@ -8,14 +8,30 @@ import Oud from "./../../../../assets/images/Oud2.png";
 
 import "./LowerContainer.css";
 
+/**
+ * @type {Function}
+ * @returns {JSX} this the default page for current user "/profile/{userId}"  (❁´◡`❁)
+ */
+
 function defaultProfile() {
   return (
     <div className="defaultProfile">
       {" "}
-      <img className="defaultProfileImage" src={Oud} alt="Oud-logo"></img>{" "}
+      <img className="defaultProfileImage" src={Oud} alt="Oud-logo"></img>
     </div>
   );
 }
+
+/**
+ * @type {Function}
+ * @returns {JSX} this returns one of the following
+ *
+ * @1)user's followers list
+ * @2)user's following list
+ * @3)user's public playlists
+ * @4)user's profile overview
+ * @5)defaul user route
+ */
 
 function LowerContainer(props) {
   return (

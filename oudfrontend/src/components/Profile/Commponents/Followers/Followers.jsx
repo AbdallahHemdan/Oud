@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import FollowCard from "./../FollowCard/FollowCard";
 import axios from "axios";
 
+/**
+ * @type {Class}
+ * @returns {JSX} this returns the list of the current user followers list
+ */
 class Followers extends Component {
   constructor(props) {
     super(props);

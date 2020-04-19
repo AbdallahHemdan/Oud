@@ -1,0 +1,14 @@
+{
+  "name": "jasonserver",
+  "version": "1.0.0",
+  "description": "Fack API (MOcking)",
+  "main": "index.js",
+  "scripts": {
+    "json:server": "json-server db.json --routes routes.json --port 2022"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jason-server": "^3.0.0"
+  }
+}
