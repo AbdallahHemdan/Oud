@@ -1,0 +1,19 @@
+.yesOrNo {
+  color: #9e9e9e;
+  display: inline-block;
+  margin: 4px;
+}
+.helpUs {
+  cursor: pointer;
+}
+textarea {
+  width: 100%;
+  border-radius: 10px;
+}
+.centerSubmit {
+  text-align: center;
+}
+
+.feedBack h2 {
+  text-align: center;
+}

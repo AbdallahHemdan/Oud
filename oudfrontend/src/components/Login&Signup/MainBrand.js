@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Oud from '../../assets/images/Logo.png';
 import '../../components/Login&Signup/signup/signup.css';
 /** header class of the sign up */
@@ -13,7 +13,7 @@ class MainBrand extends Component {
     return (
       <div className="NavBarStyle">
         <section className="main-brand mainBrand barsection">
-          <Link className="navbar navbar-dark bg-dark" to="/welcomeGuest">
+          <Link className="navbar navbar-dark bg-dark" to="/welcome-guest">
             <img
               id="OudImage"
               data-testid="OudImage"
