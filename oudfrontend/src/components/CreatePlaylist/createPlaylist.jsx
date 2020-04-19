@@ -3,6 +3,8 @@ import "./createPlaylist.css";
 import axios from "axios";
 import getUserId from "../Profile/General/getUserId";
 import {base} from "../../config/environment"
+import {config} from "../../utils/auth"
+
 /**
  * it is an overlay that is used to create a new playlist
  * @class
@@ -51,7 +53,7 @@ class CreatePlaylist extends Component {
     };
     let id = getUserId();
     axios
-      .post(`${base}/users/${id}/playlists`, playlist)
+      .post(`${base}/users/${id}/playlists`, playlist, config)
       .then(function (response) {
         console.log(response);
       })

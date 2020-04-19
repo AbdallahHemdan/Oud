@@ -3,6 +3,7 @@ import Song from "./song/song";
 import PropTypes from "prop-types";
 import axios from "axios";
 import {base} from "../../config/environment"
+import {config} from "../../utils/auth"
 
 /**
  * this is a component that renders the list of songs in playlists, albums, likedSongs or a "loading" animation if the songs are not recieved
@@ -90,7 +91,7 @@ class SongList extends Component {
     let playingId;
     this.setState({ playingItemId: id });
     axios
-      .get(`${base}/me/player/currently-playing`)
+      .get(`${base}/me/player/currently-playing`, config)
       .then((response) => {
         playingId = response.data.item.id;
       })

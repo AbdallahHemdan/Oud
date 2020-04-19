@@ -10,6 +10,7 @@ import Navbar from "../Navbar/Navbar";
 import PropTypes from 'prop-types';
 import { resume, pause, addToQueue } from '../commonComponents/utils'
 import {base} from "./../../config/environment"
+import {config} from "../../utils/auth"
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -123,7 +124,7 @@ class Playlist extends React.Component {
       this.setState({ liked: false });
 
       axios
-        .delete(`${base}/me/playlists/${this.props.id.id}`)
+        .delete(`${base}/me/playlists/${this.props.id.id}`, config)
         .then(function (response) {
           console.log(response);
         })
@@ -132,7 +133,7 @@ class Playlist extends React.Component {
         });
     }
     axios
-      .post(`${base}/me/playlists/`, this.props.id.id)
+      .post(`${base}/me/playlists/`, this.props.id.id, config)
       .then(function (response) {
         console.log(response);
       })
@@ -147,7 +148,7 @@ class Playlist extends React.Component {
    */
   componentDidMount() {
     axios
-      .get(`${base}/playlists/${this.props.id.id}`)
+      .get(`${base}/playlists/${this.props.id.id}`, config)
       .then((response) => {
         const playlist = response.data;
         this.setState({ tracks: playlist.tracks });
@@ -159,7 +160,7 @@ class Playlist extends React.Component {
       });
 
     axios
-      .get(`${base}/me/playlists/contains/${this.props.id.id}`)
+      .get(`${base}/me/playlists/contains/${this.props.id.id}`, config)
       .then((response) => {
         console.log(response);
         const isFound = response.data;

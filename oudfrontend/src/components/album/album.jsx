@@ -9,7 +9,7 @@ import { resume, pause, addToQueue } from '../commonComponents/utils'
 import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist"
 import PropTypes from 'prop-types';
 import {base} from '../../config/environment'
-
+import {config} from "../../utils/auth"
 
 /**
  * @classdesc this is a component that renders album page
@@ -120,7 +120,7 @@ class Album extends React.Component {
     if (this.state.liked === false) {
       this.setState({ liked: true });
       axios
-        .post(`${base}/me/albums/`, likedAlbum.id)
+        .post(`${base}/me/albums/`, likedAlbum.id, config)
         .then(function (response) {
           console.log(response);
         })
@@ -131,7 +131,7 @@ class Album extends React.Component {
       this.setState({ liked: false });
 
       axios
-        .delete(`${base}/me/albums/${this.props.id}`)
+        .delete(`${base}/me/albums/${this.props.id}`, config)
         .then(function (response) {
           console.log(response);
         })
@@ -147,7 +147,7 @@ class Album extends React.Component {
    */
   componentDidMount() {
     axios
-      .get(`${base}/albums/${this.props.id}`)
+      .get(`${base}/albums/${this.props.id}`, config)
       .then((response) => {
         const album = response.data;
         this.setState({ tracks: album.tracks.items });
@@ -160,7 +160,7 @@ class Album extends React.Component {
       });
 
     axios
-      .get(`${base}/me/albums/contains/${this.props.id}`)
+      .get(`${base}/me/albums/contains/${this.props.id}`, config)
       .then((response) => {
         console.log(response);
         const isFound = response.data;
