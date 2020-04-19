@@ -748,8 +748,12 @@
     "Artist": {
       "_id": "string",
       "followersCount": 0,
-      "genres": ["string"],
-      "images": ["string"],
+      "genres": [
+        "string"
+      ],
+      "images": [
+        "string"
+      ],
       "name": "string",
       "bio": "string",
       "popularSongs": [
@@ -785,7 +789,9 @@
   },
   "updatePassword": {},
   "followingMe": {
-    "ids": ["4"]
+    "ids": [
+      "4"
+    ]
   },
   "myFollowing": [
     {
@@ -1050,7 +1056,9 @@
     }
   ],
   "ids": {
-    "ids": [true]
+    "ids": [
+      true
+    ]
   },
   "playlists": [
     {
@@ -1060,7 +1068,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1071,7 +1081,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1082,7 +1094,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1093,7 +1107,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1104,7 +1120,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1115,7 +1133,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1134,7 +1154,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1145,7 +1167,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1156,7 +1180,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1167,7 +1193,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1178,7 +1206,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1189,7 +1219,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1208,7 +1240,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1219,7 +1253,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1230,7 +1266,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1241,7 +1279,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1252,7 +1292,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1263,7 +1305,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1282,7 +1326,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1293,7 +1339,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1304,7 +1352,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1315,7 +1365,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1326,7 +1378,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1337,7 +1391,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1356,7 +1412,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1367,7 +1425,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1378,7 +1438,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1389,7 +1451,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1400,7 +1464,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1411,7 +1477,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1430,52 +1498,52 @@
       {
         "_id": 1,
         "name": "Recently played",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/aratehortua/aratehortua2001/aratehortua200100022/138417489-vector-cartoon-low-poly-man-with-headphones-character.jpg"
       },
       {
         "_id": 2,
         "name": "Recommended playlists",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/belchonock/belchonock1801/belchonock180143844/94540927-musical-instruments-on-wooden-background.jpg"
       },
       {
         "_id": 3,
         "name": "New releases",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://media.altphotos.com/cache/images/2017/08/08/09/752/trumpet-outdoors-man.jpg"
       },
       {
-        "_id": 4,
-        "name": "ARapic Music",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "id": 4,
+        "name": "Anacic Music",
+        "icon": "https://media.altphotos.com/cache/images/2017/02/03/16/752/woman-play-violin.jpg"
       },
       {
         "_id": 5,
         "name": "Throwback",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/luismolinero/luismolinero1802/luismolinero180202295/96452187-happy-young-beautiful-girl-with-her-cello-on-the-outside.jpg"
       },
       {
         "_id": 6,
         "name": "Popular playlists",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/akeeris/akeeris1505/akeeris150500143/40215848-piano-lesson-asian-boy-kid-activity-playing-piano-with-notes-smiling.jpg"
       },
       {
         "_id": 7,
         "name": "Editors' Picks",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/cherrymerry/cherrymerry1509/cherrymerry150900034/45248626-pretty-young-teen-girl-playing-acoustic-guitar-in-the-street-.jpg"
       },
       {
         "_id": 8,
         "name": "Workout",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/vadymvdrobot/vadymvdrobot1901/vadymvdrobot190104389/116701318-close-up-portrait-of-a-beautiful-young-woman-posing-with-a-violin-isolated-over-blue-background.jpg"
       },
       {
         "_id": 9,
         "name": "Mood",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/kenishirotie/kenishirotie1707/kenishirotie170700002/81237352-close-up-of-view-of-little-girl-s-hand-playing-ukulele.jpg"
       },
       {
         "_id": 10,
         "name": "Recommended radio",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/deagreez/deagreez1811/deagreez181102934/113111746-full-legs-body-size-beautiful-gorgeous-adorable-two-lady-isolate.jpg"
       }
     ],
     "limit": 0,
@@ -2558,7 +2626,9 @@
       "id": "1",
       "displayName": "Ahmed",
       "followersCount": 5,
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "verified": false,
       "type": "string"
     },
@@ -2566,7 +2636,9 @@
       "id": "2",
       "displayName": "Mido",
       "followersCount": 0,
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "verified": false,
       "type": "string"
     }
@@ -3130,7 +3202,9 @@
           "image": "string"
         }
       ],
-      "genres": ["shaaby"],
+      "genres": [
+        "shaaby"
+      ],
       "image": "https://i.scdn.co/image/ab67616d0000b273ef029742aa2f7342b3b5daaf",
       "name": "Insan",
       "release_date": "2020-03-07",
@@ -3496,7 +3570,13 @@
     "offset": {}
   },
   "queue1": {
-    "tracks": ["dkfjnc245", "dkfjnc246", "dkfjnc247", "dkfjnc248", "dkfjnc249"],
+    "tracks": [
+      "dkfjnc245",
+      "dkfjnc246",
+      "dkfjnc247",
+      "dkfjnc248",
+      "dkfjnc249"
+    ],
     "total": 5
   },
   "dkfjnc245": {
@@ -3600,98 +3680,61 @@
     "id": "1"
   },
   "likedkfjnc245": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc2456": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc247": {},
   "likedkfjnc248": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc249": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "checkkfjnc245": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   },
   "checkkfjnc246": {
-    "IsFound": [false]
+    "IsFound": [
+      false
+    ]
   },
   "checkkfjnc247": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   },
   "checkkfjnc248": {
-    "IsFound": [false]
+    "IsFound": [
+      false
+    ]
   },
   "checkkfjnc249": {
-    "IsFound": [true]
-  },
-  "genres": {
-    "items": [
-      {
-        "id": "1",
-        "name": "Podcasts"
-      },
-      {
-        "id": "2",
-        "name": "Charts"
-      },
-      {
-        "id": "3",
-        "name": "New Releases"
-      },
-      {
-        "id": "4",
-        "name": "At Home"
-      },
-      {
-        "id": "5",
-        "name": "Hip-Hop"
-      },
-      {
-        "id": "6",
-        "name": "K-Pop"
-      },
-      {
-        "id": "7",
-        "name": "Sleep"
-      },
-      {
-        "id": "8",
-        "name": "Jazz"
-      },
-      {
-        "id": "9",
-        "name": "Soul"
-      },
-      {
-        "id": "10",
-        "name": "Punk"
-      },
-      {
-        "id": "11",
-        "name": "Metal"
-      },
-      {
-        "id": "12",
-        "name": "Party"
-      }
-    ],
-    "limit": 0,
-    "offset": 0,
-    "total": 0
+    "IsFound": [
+      true
+    ]
   }
 }
