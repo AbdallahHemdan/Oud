@@ -3,6 +3,7 @@ import "./App.css";
 import Playlist from "./components/Playlist/playlist";
 import LikedSongs from "./components/likedSongs/likedSongs";
 import Album from "./components/album/album";
+import Library from "./components/library/library"
 import {
   BrowserRouter as Router,
   Route,
@@ -32,6 +33,7 @@ import Islinked from './components/Login&Signup/linkisSent';
 function App() {
   return (
     <Router>
+    <Library/>
       <div className="App">
         <Switch>
           <Route exact path="/">
