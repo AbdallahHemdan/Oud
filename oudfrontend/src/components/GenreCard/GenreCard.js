@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./GenreCard.css";
 import { Link, withRouter } from "react-router-dom"
-
+import { base, subUrl, prodUrl } from "./../../config/environment"
 
 /**
  * Genre card component which render and display the playlist card of a specific category 
@@ -72,6 +72,7 @@ class GenreCard extends Component {
    * @returns {JSX} Component for App
    */
   render() {
+    const subPath = (base === prodUrl) ? subUrl : "";
     return (
       <div
         className="card-container"
@@ -87,7 +88,7 @@ class GenreCard extends Component {
           >
           </div>
           <img
-            src={this.state.icon}
+            src={`${subPath}${this.state.icon}`}
             alt="playlist cover"
             data-testid="playlist-image"
           />
