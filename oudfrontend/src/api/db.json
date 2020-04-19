@@ -748,8 +748,12 @@
     "Artist": {
       "_id": "string",
       "followersCount": 0,
-      "genres": ["string"],
-      "images": ["string"],
+      "genres": [
+        "string"
+      ],
+      "images": [
+        "string"
+      ],
       "name": "string",
       "bio": "string",
       "popularSongs": [
@@ -785,7 +789,9 @@
   },
   "updatePassword": {},
   "followingMe": {
-    "ids": ["4"]
+    "ids": [
+      "4"
+    ]
   },
   "myFollowing": [
     {
@@ -2180,7 +2186,9 @@
       "id": "1",
       "displayName": "Ahmed",
       "followersCount": 5,
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "verified": false,
       "type": "string"
     },
@@ -2188,7 +2196,9 @@
       "id": "2",
       "displayName": "Mido",
       "followersCount": 0,
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "verified": false,
       "type": "string"
     }
@@ -2752,7 +2762,9 @@
           "image": "string"
         }
       ],
-      "genres": ["shaaby"],
+      "genres": [
+        "shaaby"
+      ],
       "image": "https://i.scdn.co/image/ab67616d0000b273ef029742aa2f7342b3b5daaf",
       "name": "Insan",
       "release_date": "2020-03-07",
@@ -3118,7 +3130,13 @@
     "offset": {}
   },
   "queue1": {
-    "tracks": ["dkfjnc245", "dkfjnc246", "dkfjnc247", "dkfjnc248", "dkfjnc249"],
+    "tracks": [
+      "dkfjnc245",
+      "dkfjnc246",
+      "dkfjnc247",
+      "dkfjnc248",
+      "dkfjnc249"
+    ],
     "total": 5
   },
   "dkfjnc245": {
@@ -3222,39 +3240,55 @@
     "id": "1"
   },
   "likedkfjnc245": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc2456": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc247": {},
   "likedkfjnc248": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc249": {},
   "checkkfjnc245": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   },
   "checkkfjnc246": {
-    "IsFound": [false]
+    "IsFound": [
+      false
+    ]
   },
   "checkkfjnc247": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   },
   "checkkfjnc248": {
-    "IsFound": [false]
+    "IsFound": [
+      false
+    ]
   },
   "checkkfjnc249": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   },
   "genres": {
     "items": [
