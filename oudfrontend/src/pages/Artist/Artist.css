@@ -62,3 +62,8 @@
 .artis-overview .SEE-ALL-Overview {
   cursor: pointer;
 }
+.artist-appears-on,
+.artist-singles,
+.artist-compilation {
+  margin-top: 2%;
+}
