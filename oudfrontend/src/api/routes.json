@@ -50,5 +50,10 @@
   "/me/tracks?ids=[dkfjnc247]": "/checkkfjnc247",
   "/me/tracks?ids=[dkfjnc248]": "/checkkfjnc248",
   "/me/tracks?ids=[dkfjnc249]": "/checkkfjnc249",
-  "/genres": "/genres"
+  "/genres": "/genres",
+  "/me/tracks":"/likedSongs",
+  "/me/queue":"/queue",
+  "/me/playlists":"/likedPlaylists",
+  "/me/albums":"/likedAlbums",
+  "/playlists":"/playlist"
 }
