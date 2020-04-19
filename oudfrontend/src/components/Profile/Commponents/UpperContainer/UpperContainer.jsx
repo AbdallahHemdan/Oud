@@ -4,14 +4,6 @@ import { Link } from "react-router-dom";
 
 import "./UpperContainer.css";
 
-/**
- * @type {Function}
- * @returns {JSX} this is the upper part of the profile which containes
- * @the profile user name
- * @follow button
- * @navigation bar [overview , public playlists , following followers]
- */
-
 class UpperContainer extends Component {
   constructor(props) {
     super(props);
@@ -170,8 +162,8 @@ class UpperContainer extends Component {
                   ? "userImg-profile-scrolled"
                   : this.props.userId === this.state.signInId &&
                     !this.state.scrolled
-                  ? "userImg-profile-signedIn"
-                  : "userImg-profile"
+                    ? "userImg-profile-signedIn"
+                    : "userImg-profile"
               }
               src={this.state.photo}
               data-test="avatarImage"
@@ -200,30 +192,30 @@ class UpperContainer extends Component {
           </div>
 
           {this.props.userId !== this.state.signInId &&
-          this.state.signInId !== "" &&
-          !this.state.scrolled ? (
-            <button
-              id="follow-button-upperContainer"
-              className={
-                this.state.followStatus
-                  ? "btn btn-outline-warning upperContainerFollowingButton"
-                  : "btn btn-outline-light upperContainerFollowButton"
-              }
-              onClick={this.handleClick}
-              onMouseOver={this.handleMouseOver}
-              onMouseOut={this.handleMouseOut}
-            >
-              {this.state.followStatus ? (
-                this.state.mouseOn ? (
-                  <>UNFOLLOW</>
+            this.state.signInId !== "" &&
+            !this.state.scrolled ? (
+              <button
+                id="follow-button-upperContainer"
+                className={
+                  this.state.followStatus
+                    ? "btn btn-outline-warning upperContainerFollowingButton"
+                    : "btn btn-outline-light upperContainerFollowButton"
+                }
+                onClick={this.handleClick}
+                onMouseOver={this.handleMouseOver}
+                onMouseOut={this.handleMouseOut}
+              >
+                {this.state.followStatus ? (
+                  this.state.mouseOn ? (
+                    <>UNFOLLOW</>
+                  ) : (
+                      <> FOLLOWING </>
+                    )
                 ) : (
-                  <> FOLLOWING </>
-                )
-              ) : (
-                <> FOLLOW</>
-              )}
-            </button>
-          ) : null}
+                    <> FOLLOW</>
+                  )}
+              </button>
+            ) : null}
 
           <div
             data-test="profile-links"

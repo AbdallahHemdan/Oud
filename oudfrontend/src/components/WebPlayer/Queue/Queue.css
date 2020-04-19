@@ -1,5 +1,5 @@
 .queue-container {
-  background-color: #424242;
+  background-color: black;
   bottom: 100px;
   position: fixed;
   z-index: 3;
@@ -7,9 +7,9 @@
 }
 .queue-container .overlay {
   position: fixed;
-  bottom: 75px;
+  bottom: 99px;
   right: 0;
-  background-color: #424242;
+  background-color: black;
   /* background-color: rgba(0, 0, 0, 0.9); */
   overflow-y: scroll;
   overflow-x: hidden;
@@ -61,7 +61,7 @@
   top: 60px;
 }
 .track {
-  background: #424242;
+  background: black;
   width: 100%;
   z-index: 5;
   height: 4.56em;

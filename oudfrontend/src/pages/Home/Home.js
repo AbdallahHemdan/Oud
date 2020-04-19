@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import MainContent from "../../components/MainContent/MainContent"
 import { base } from "./../../config/environment"
 import axios from "axios"
-
+import WebPlayer from './../../components/WebPlayer/WebPlayer';
 
 /**
  * a string to store endpoint url of getting List of Categories
@@ -95,7 +95,6 @@ class Home extends Component {
    * Fetching data of all categories immediately after the component has been mount to the DOM tree
    */
   componentDidMount() {
-    console.log("fetchCategoriesUrl", fetchCategoriesUrl)
     axios.get(fetchCategoriesUrl) // get all categories
       .then((result) => {
         console.log("From Home ", result.data);
@@ -120,6 +119,7 @@ class Home extends Component {
         <Sidebar />
         <Navbar isLoggedIn={true} />
         <MainContent items={this.state.items} />
+        <WebPlayer />
       </div >
     );
   }

@@ -11,11 +11,11 @@
 }
 .now-playing-bar-container {
   width: 100%;
-  background-color: #282828;
+  background-color: black;
   bottom: 0;
   position: fixed;
   min-width: 620px;
-  height: 80px;
+  height: 100px;
   z-index: 4;
 }
 .now-playing-bar {
