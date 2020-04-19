@@ -105,7 +105,6 @@ class WebPlayer extends Component {
       .catch(function (error) {
         console.log(error);
       });
-    console.log("id from queue: " + this.state.trackId);
   };
   /**
    * A function to fetch any track from the server
@@ -227,8 +226,8 @@ class WebPlayer extends Component {
   ) => {
     this.putRequest(
       "http://localhost:2022/me/player/play?deviceId=" +
-        this.state.deviceId +
-        "&queueIndex=0",
+      this.state.deviceId +
+      "&queueIndex=0",
       {
         contextUri: {
           context_uri: contextUri,
@@ -322,32 +321,25 @@ class WebPlayer extends Component {
   addRemoveSavedSong = (status) => {
     status
       ? this.putRequest(
-          "http://localhost:2022/me/tracks?IDs=[" + this.state.trackId + "]"
-        )
+        "http://localhost:2022/me/tracks?IDs=[" + this.state.trackId + "]"
+      )
       : this.deleteRequest(
-          "http://localhost:2022/me/tracks?IDs=[" + this.state.trackId + "]"
-        )
-          .then((response) => {
-            if (!response["data"].hasOwnProperty("status")) {
-              this.setState({
-                loved: status,
-              });
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        "http://localhost:2022/me/tracks?IDs=[" + this.state.trackId + "]"
+      )
+        .then((response) => {
+          if (!response["data"].hasOwnProperty("status")) {
+            this.setState({
+              loved: status,
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   };
   chekckSavedSong = (trackId) => {
     this.getRequest("http://localhost:2022/me/tracks?ids=[" + trackId + "]")
       .then((response) => {
-        console.log(
-          "id from check: " +
-            "http://localhost:2022/me/tracks?ids=[" +
-            trackId +
-            "]"
-        );
-        console.log(response);
         const isFound = response["data"]["IsFound"][0];
         this.setState({
           loved: isFound,
