@@ -1,13 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../../../../assets/images/Logoc.png';
 import '../../welcome.css';
 
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faFacebook} from '@fortawesome/free-brands-svg-icons';
-import {faTwitter} from '@fortawesome/free-brands-svg-icons';
-import {faInstagram} from '@fortawesome/free-brands-svg-icons';
-import {faYoutube} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 /**
  * footer function that have all footer element
  * @function
@@ -89,7 +89,7 @@ function Footer() {
 
                 <ul className="list-unstyled ListMain hovergold">
                   <li className="ListItem hovergold">
-                    <Link to="/web" data-testid="WebPlayer">
+                    <Link to="/" data-testid="WebPlayer">
                       Web Player
                     </Link>
                   </li>
