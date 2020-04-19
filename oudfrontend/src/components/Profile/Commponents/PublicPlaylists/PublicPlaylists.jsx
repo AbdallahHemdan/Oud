@@ -14,11 +14,6 @@ function DummyPlayListCard(props) {
   );
 }
 
-/**
- * @type {Class}
- * @returns {JSX} this the public playLists for the current user
- */
-
 class PublicPlaylists extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +25,7 @@ class PublicPlaylists extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:2022/playlists/" + this.props.userId)
+      .get("http://localhost:2022/playlists2/" + this.props.userId)
       .then(response => {
         this.setState({
           items: response.data.items

@@ -126,7 +126,7 @@ class EditProfile extends Component {
         ProfileInfo.gender = response.data.gender;
         ProfileInfo.birthDate = response.data.birthDate;
         ProfileInfo.country = response.data.country;
-        console.log(response.data);
+
         this.setState({
           email: response.data.email,
           gender: response.data.gender,

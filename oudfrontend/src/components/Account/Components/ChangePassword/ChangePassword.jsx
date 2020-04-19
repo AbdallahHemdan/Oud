@@ -143,13 +143,13 @@ class ChangePassword extends Component {
     this.setState({ password: event.target.value });
     let formErrors = { ...this.state.formErrors };
 
-    if (event.target.value < 8) {
+    if (this.state.password.length < 8) {
       formErrors.passwordErorr = "minimum 8 characaters required";
       this.setState({ formErrors });
-    } else if (event.target.value > 30) {
+    } else if (this.state.password.length > 30) {
       formErrors.passwordErorr = "maximum 30 characaters";
       this.setState({ formErrors });
-    } else if (!checkPassword(event.target.value)) {
+    } else if (!checkPassword(this.state.password)) {
       formErrors.passwordErorr =
         "password should contain uppercase,lowercase,special character and a number";
       this.setState({ formErrors });
@@ -183,7 +183,6 @@ class ChangePassword extends Component {
     });
   }
   render() {
-    console.log(this.state.password.length);
     return (
       <div className="accountContainer" data-test="ChangePassword">
         <h2 className="settingTitle"> Change password </h2>

@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar/Navbar"
 import BrowseAll from "./../../components/BrowseAll/BrowseAll"
 import RecentSearch from './../../components/RecentSearch/RecentSearch';
 import { base } from "./../../config/environment"
+import WebPlayer from '../../components/WebPlayer/WebPlayer'
 import "./Search.css"
 
 let fetchCategoriesUrl = `${base}/browse/categories`;
@@ -68,6 +69,7 @@ class Search extends Component {
           <RecentSearch items={this.state.items} />
           <BrowseAll items={this.state.items} />
         </section>
+        <WebPlayer />
       </React.Fragment>
     );
   }
