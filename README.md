@@ -5,6 +5,8 @@
   
 </div>
 
+<h3 align="center">Oud Front-End</h3>
+
 <div align="center">
 
 [![GitHub contributors](https://img.shields.io/github/contributors/AbdallahHemdan/oudFrontend)](https://github.com/AbdallahHemdan/oudFrontend/contributors)
@@ -15,9 +17,6 @@
 
 </div>
 
-<h3 align="center">🎵 Oud Frontnd</h3>
-
-
 ## Table of Contents
 
 - [About the Project](#about-the-project)
@@ -26,6 +25,7 @@
   - [Installation](#installation)
   - [Running](#running)
   - [Screenshots](#screenshots)
+ - [File Structure](#file-structure)
 - [Unit Testing](#unit-testing)
   - [Running Unit tests](#running-unit-tests)
   - [Generating Coverage Report](#generating-coverage-report)
@@ -33,6 +33,7 @@
 - [Contributing](#contributing)
 - [Contributors](#contributors)
 - [License](#license)
+
 
 ## About The Project
 > **Oud** is an online music streaming service which is a mimic of [Spotify](https://open.spotify.com/) with all its functionalities
@@ -72,6 +73,7 @@ $ npm install
 
 1. **_Running on development mode_**
 ```sh
+$ npm run json:server
 $ npm run dev
 ```
 
@@ -92,6 +94,67 @@ $ npm run prod
 
 
 </div>
+
+## File Structure
+                                    
+    Oud-Frontend
+    ├── README.md
+    ├── LICENSE
+    ├── CONTRIBUTING.md	
+    └── oudfrontend	
+        ├── node_modules
+        ├── package.json
+        ├── jsdoc.conf.json	
+        ├── .env-cmdrc.json	
+        ├── .gitignore
+        ├── build
+        ├── public
+        │   ├── favicon.ico	
+        │   ├── index.html
+        │   └── manifest.json	
+        └── src
+            ├── assets
+            │   ├── images
+            │   └── fonts
+            ├── api	
+            |   ├── db.json	
+            |   └── routes.json	
+            ├── components	
+            |   ├── Account
+            |   ├── CategoryHeader	
+            |   ├── likedSongs	
+            |   ├── Navbar	
+            |   ├── Sidebar	
+            |   ├── album	
+            |   ├── commonComponents	
+            |   ├── MainContent	
+            |   ├── Playlist	
+            |   ├── Subheader	
+            |   ├── Card	
+            |   ├── CreatePlaylist	
+            |   ├── MusicCard	
+            |   ├── Profile	
+            |   ├── WebPlayer	
+            |   ├── CategoryBody	
+            |   ├── GenreCard	
+            |   ├── MusicItem
+            |   └── SeeAll
+            ├── config
+            |   └── environment.js	
+            ├── pages	
+            |   ├── Account	
+            |   ├── Home	
+            |   ├── Profile	
+            |   └── Search	
+            ├── routes	
+            ├── utils	
+            |   └── index.js	
+            ├── App.css	
+            ├── App.js	
+            ├── index.css	
+            ├── index.js		
+            └── setupTests.js
+
 
 ## Unit testing
 > Each component in our project has its own unit test file separately eg. MusicCard.test.js

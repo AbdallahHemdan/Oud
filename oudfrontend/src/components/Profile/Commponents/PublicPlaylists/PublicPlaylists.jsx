@@ -14,6 +14,11 @@ function DummyPlayListCard(props) {
   );
 }
 
+/**
+ * @type {Class}
+ * @returns {JSX} this the public playLists for the current user
+ */
+
 class PublicPlaylists extends Component {
   constructor(props) {
     super(props);
