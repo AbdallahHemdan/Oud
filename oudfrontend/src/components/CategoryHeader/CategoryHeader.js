@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 
-function CategoryHeader({ name, id }) {
+function CategoryHeader({ name, _id }) {
   return (
     <div className="row"
       data-testid="category-header"
@@ -13,7 +13,7 @@ function CategoryHeader({ name, id }) {
       >
         {name}
       </h1>
-      <Link to={`genre/${name.split(' ').join('-')}?id=${id}&name=${name.split(' ').join('-')}`}>
+      <Link to={`genre/${name.split(' ').join('-')}?_id=${_id}&name=${name.split(' ').join('-')}`}>
         <div className="see-more"
           data-testid="category-see-all"
         >See All</div>
