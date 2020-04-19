@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Oud from '../../assets/images/Logo.png';
+import Oud from '../../assets/images/Logoc.png';
 import '../../components/Login&Signup/signup/signup.css';
 /** header class of the sign up */
 class MainBrand extends Component {

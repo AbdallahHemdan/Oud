@@ -187,7 +187,7 @@ class ResetPassword extends Component {
       }).token;
       axios
         .patch(
-          `http://oud-zerobase.me/api/v1/users/resetPassword/${restToken}`,
+          `https://oud-zerobase.me/api/v1/users/resetPassword/${restToken}`,
           toSent
         )
         .then((response) => {

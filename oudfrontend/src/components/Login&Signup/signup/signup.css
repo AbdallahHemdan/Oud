@@ -29,13 +29,21 @@
   margin: auto 10px auto;
 }
 
+body {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
+}
 
 .SocialIconsPage {
   padding-top: 100px;
-
+  align-items: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  align-self: center;
 }
-
-
 
 .hint {
   text-align: center;
@@ -83,6 +91,15 @@
 
 }
 
+.icons {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+}
+
 .kep-login-facebook.medium {
   width: 330px;
   border-radius: 50px;
@@ -119,7 +136,7 @@
 
 .OR i {
   padding: 0 10px;
-  background: rgb(194, 194, 194);
+  background: rgb(0, 0, 0);
   position: relative;
   top: -11px;
   z-index: 1;
@@ -135,16 +152,16 @@
   width: 30%;
   margin: 20px auto 10px;
   text-align: center;
-  border-top: 1px solid rgb(194, 194, 194);
+  border-top: 1px solid rgb(255, 255, 255);
 }
 
 .or-seperator i {
   padding: 0 10px;
-  background: white;
+  background: rgb(0, 0, 0);
   position: relative;
   top: -11px;
   z-index: 1;
-  background-color: #f2f2f2;
+  background-color: #111113;
 }
 
 .SignUpForm {
@@ -157,6 +174,7 @@
 .FormElement {
   border-color: #f9b835;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 input.FormElement.custom-select {
@@ -309,76 +327,5 @@ button.btn.btn-primary.btn-block {
 
 .hovergold li a:hover {
   color: #f9b835 !important;
-
   text-decoration: none;
-}
-
-
-
-.check {
-  cursor: pointer;
-  position: relative;
-  margin: auto;
-  width: 18px;
-  height: 18px;
-  -webkit-tap-highlight-color: transparent;
-  transform: translate3d(0, 0, 0);
-
-}
-
-.check::before {
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(#223254, .03);
-  opacity: 0;
-  transition: .2s ease;
-}
-
-.check svg {
-  position: relative;
-  z-index: 1;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: #C8CCD4;
-  stroke-width: 1.5;
-  transform: translate3d(0, 0, 0);
-  transition: all .2s ease;
-}
-
-.check path {
-  stroke-dasharray: 60;
-  stroke-dashoffset: 0;
-}
-
-.check polyline {
-  stroke-dasharray: 22;
-  stroke-dashoffset: 66;
-}
-
-.check:hover svg {
-  opacity: 1;
-  stroke: #4285F4;
-}
-
-.check::before svg {
-  opacity: 1;
-  stroke: #4285F4;
-}
-
-#cbx:checked+.check svg {
-  stroke: #4285F4;
-}
-
-#cbx:checked+.check svg path {
-  stroke-dashoffset: 60;
-  transition: all .3s linear;
-}
-
-#cbx:checked+.check svg polyline {
-  stroke-dashoffset: 42;
-  transition: all .2s linear;
-  transition-delay: .15s
 }

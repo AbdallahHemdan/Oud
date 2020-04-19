@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link, Redirect} from 'react-router-dom';
 import Back from '../../../../assets/images/2685063.jpg';
 import '../../welcome.css';
 /**
@@ -9,7 +9,7 @@ import '../../welcome.css';
 class Body extends Component {
   constructor(props) {
     super(props);
-    this.state = { redirect1: false, redirect2: false };
+    this.state = {redirect1: false, redirect2: false};
   }
   setRedirect1 = () => {
     this.setState({
@@ -67,7 +67,6 @@ class Body extends Component {
             <h5>Start listening to the best new releases.</h5>
             {this.redirect2 ? this.towebplayer() : null}
             <Link className="LinkStyle" to="webPlayer">
-              {' '}
               <button
                 data-testid="getOudBtn2"
                 className="getOudBtn2"

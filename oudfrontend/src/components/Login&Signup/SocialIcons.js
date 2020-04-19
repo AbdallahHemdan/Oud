@@ -40,7 +40,7 @@ class SocialIcons extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="SocialIconsPage">
+        <div className="SocialIconsPage container">
           <h6 className="hint-text hint">
             Sign Up with your social media account
           </h6>
@@ -54,7 +54,7 @@ class SocialIcons extends Component {
               continue with Google
             </button>
             <Facebook
-              data-testid="FacebookButton"
+              data-testid="FacebookButton "
               onClick={this.handelClickFace}
             />
           </section>

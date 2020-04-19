@@ -15,7 +15,7 @@ class IsEntered extends Component {
       ignoreQueryPrefix: true,
     }).token;
     axios
-      .patch(`http://oud-zerobase.me/api/v1/users/verify/${restToken}`)
+      .patch(`https://oud-zerobase.me/api/v1/users/verify/${restToken}`)
       .then((req) => {
         if (req.status === 200) {
           window.location = '/home';

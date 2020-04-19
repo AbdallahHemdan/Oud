@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 // import NavbarRouter from '../../../routes/NavbarRouter';
-import logo from '../../../../assets/images/Logo.png';
+import logo from '../../../../assets/images/Logoc.png';
 import '../../welcome.css';
 /**nav bar if the user is not logged in */
 class Navbar extends React.Component {

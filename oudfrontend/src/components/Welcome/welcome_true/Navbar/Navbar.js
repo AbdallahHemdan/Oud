@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../../assets/images/Logo.png';
+import logo from '../../../../assets/images/Logoc.png';
 import mask from '../../../../assets/images/mask.png';
 import '../../welcome.css';
 class Navbar extends React.Component {

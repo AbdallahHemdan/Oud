@@ -189,14 +189,14 @@ class Signup extends Component {
     ) {
       console.log('toSent', toSent);
       axios
-        .post('http://oud-zerobase.me/api/v1/users/signup', toSent)
+        .post('https://oud-zerobase.me/api/v1/users/signup', toSent)
         .then((response) => {
           if (response.status === 200) {
             const authToken = response.data.token;
             localStorage.setItem('accessToken', authToken);
             console.log('token', authToken);
             console.log(response);
-            window.location = '/home';
+            window.location = '/';
           }
         })
         .catch((error) => {
@@ -611,7 +611,7 @@ class Signup extends Component {
             required
             data-testid="register-confirmPassword"
             type={this.state.PasswordType}
-            className="form-control FormElement "
+            className="form-control FormElement"
             placeholder={'confirm Password'}
             onChange={(this.handleChange, this.ConfirmPasswordHandel)}
             name="confirmPassword"
@@ -641,7 +641,7 @@ class Signup extends Component {
             required
             data-testid="register-password"
             type={this.state.PasswordType}
-            className="form-control FormElement "
+            className="form-control FormElement"
             placeholder={'Password'}
             onChange={(this.handleChange, this.PasswordHandel)}
             name="Password"
@@ -677,7 +677,7 @@ class Signup extends Component {
           required
           data-testid="register-email"
           type="email"
-          className="form-control FormElement "
+          className="form-control FormElement"
           placeholder="email@address.com"
           onChange={(this.handleChange, this.EmailHandel)}
           name="email"
@@ -708,7 +708,7 @@ class Signup extends Component {
           value={this.state.name}
           label="name"
           type="text"
-          className="form-control FormElement  "
+          className="form-control FormElement"
           id="validationTextarea"
           placeholder="Enter Username"
           onChange={(this.handleChange, this.userNameHandel)}
@@ -733,7 +733,7 @@ class Signup extends Component {
           value={this.state.displayname}
           label="display name"
           type="text"
-          className="form-control FormElement  "
+          className="form-control FormElement"
           placeholder="What should we call you?"
           onChange={(this.handleChange, this.DisplaynameHandel)}
           name="name"

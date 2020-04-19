@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../signup/signup.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import axios from 'axios';
 import Validator from '../validate';
-import { token } from '../../../utils/auth';
+import {token} from '../../../utils/auth';
 /**the sign up section  */
 class SignIn extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class SignIn extends Component {
    * @returns {boolean} - return true if the email is valid
    */
   EmailHandel = (event) => {
-    this.setState({ email: event.target.value });
+    this.setState({email: event.target.value});
     Validator.validateEmail(event.target.value, this);
   };
   /**
@@ -63,7 +63,7 @@ class SignIn extends Component {
    * @returns {string} -change the error massages
    *  */
   PasswordHandel = (event) => {
-    this.setState({ password: event.target.value });
+    this.setState({password: event.target.value});
     Validator.validatePassword(event.target.value, this);
   };
   validateAll = () => {
@@ -90,7 +90,7 @@ class SignIn extends Component {
     console.log(this.checkPassword ? true : false);
     if (this.validateAll()) {
       axios
-        .post('http://oud-zerobase.me/api/v1/users/login', toSent)
+        .post('https://oud-zerobase.me/api/v1/users/login', toSent)
         .then((response) => {
           if (response.status === 200) {
             const authToken = response.data.token;
@@ -98,12 +98,12 @@ class SignIn extends Component {
             console.log('local', localStorage.getItem('accessToken'));
             console.log('token', authToken);
             console.log(response);
-            // window.location = '/home';
+            window.location = '/';
           } else console.log(response);
         })
         .catch((error) => {
           errorMassage = error.response.data.message;
-          console.log('eroror', error.response.data.message);
+          console.log('error', error.response.data.message);
           this.setState((prevState) => {
             prevState.formErrors.mainError = errorMassage;
             return prevState;
@@ -121,7 +121,7 @@ class SignIn extends Component {
     let target = e.target;
     let value = target.type === 'checkbox' ? target.checked : target.value;
     let name = target.name;
-    this.setState({ [name]: value });
+    this.setState({[name]: value});
   };
   /**
    * here i render the page
@@ -184,7 +184,7 @@ class SignIn extends Component {
               <div className="form-group">
                 <div className="custom-control custom-checkbox">
                   <input
-                    style={{ display: 'inline', width: '20px' }}
+                    style={{display: 'inline', width: '20px'}}
                     type="checkbox"
                     class="custom-control-input"
                     id="customControlInline"
