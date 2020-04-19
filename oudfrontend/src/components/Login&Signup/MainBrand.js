@@ -12,7 +12,7 @@ class MainBrand extends Component {
   render() {
     return (
       <div className="NavBarStyle">
-        <section className="main-brand mainBrand barsection">
+        <div className="main-brand mainBrand barsection">
           <Link className="navbar navbar-dark bg-dark" to="/welcome-guest">
             <img
               id="OudImage"
@@ -22,7 +22,7 @@ class MainBrand extends Component {
               alt="logo imag"
             />
           </Link>
-        </section>
+        </div>
       </div>
     );
   }

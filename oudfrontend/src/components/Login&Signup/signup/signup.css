@@ -8,7 +8,6 @@
   color: black;
 }
 
-
 .OudImage {
   width: 150px;
   margin: 0 auto;
@@ -22,27 +21,19 @@
 }
 
 .googlepic {
-
   width: 10%;
   background-color: white;
   border-radius: 100%;
   margin: auto 10px auto;
 }
 
-body {
+.SocialIconsPage {
+  padding-top: 100px;
   margin: 0 auto;
   left: 0;
   right: 0;
   display: block;
-}
-
-.SocialIconsPage {
-  padding-top: 100px;
   align-items: center;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  align-self: center;
 }
 
 .hint {
@@ -80,7 +71,6 @@ body {
   transition: 1s;
 }
 
-
 .social-icons .icons {
   margin: 0 auto;
   left: 0;
@@ -88,16 +78,13 @@ body {
   align-items: center;
   align-content: center;
   align-self: center;
-
+  margin-top: 100px;
 }
 
 .icons {
   margin: 0 auto;
   left: 0;
   right: 0;
-  align-items: center;
-  align-content: center;
-  align-self: center;
 }
 
 .kep-login-facebook.medium {
@@ -131,7 +118,6 @@ body {
   margin: 20px auto 10px;
   text-align: center;
   border-top: 1px solid;
-
 }
 
 .OR i {
@@ -144,7 +130,6 @@ body {
 
 .OR-2 {
   width: 50%;
-
 }
 
 .or-seperator,
@@ -210,7 +195,6 @@ button.btn.btn-primary.btn-block {
   color: #f9b835;
   background-color: #f9b835;
   border-color: #f9b835;
-
 }
 
 .SignUpSubmit {
@@ -240,8 +224,6 @@ button.btn.btn-primary.btn-block {
   text-decoration: none;
 }
 
-
-
 .SignUpSubmit:hover {
   color: #ffffff;
   background-color: #fac65f;
@@ -257,9 +239,7 @@ button.btn.btn-primary.btn-block {
   color: #ffffff;
   background-color: #b3821f !important;
   border: 0;
-
 }
-
 
 .error {
   color: red;
@@ -294,7 +274,6 @@ button.btn.btn-primary.btn-block {
 .pass-massage {
   padding-bottom: 30px;
   line-height: inherit;
-
 }
 
 .forgetEmail {
@@ -312,13 +291,11 @@ button.btn.btn-primary.btn-block {
   border-color: #ffca60 !important;
   box-shadow: none !important;
   transition: 1s;
-
 }
 
 .showText:not(:hover) {
   box-shadow: none !important;
   transition: 1s;
-
 }
 
 .islinked {

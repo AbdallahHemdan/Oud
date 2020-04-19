@@ -44,20 +44,19 @@ class SocialIcons extends Component {
           <h6 className="hint-text hint">
             Sign Up with your social media account
           </h6>
-          <section className="icons container">
-            <button className="google_button" href="#">
-              <img
-                alt=""
-                src="http://pngimg.com/uploads/google/google_PNG19630.png"
-                className="googlepic"
-              ></img>{' '}
-              continue with Google
-            </button>
-            <Facebook
-              data-testid="FacebookButton "
-              onClick={this.handelClickFace}
-            />
-          </section>
+          <button className="google_button" href="#">
+            <img
+              alt=""
+              src="http://pngimg.com/uploads/google/google_PNG19630.png"
+              className="googlepic"
+            ></img>{' '}
+            continue with Google
+          </button>
+          <Facebook
+            data-testid="FacebookButton "
+            onClick={this.handelClickFace}
+          />
+
           <section className="or-seperator OR">
             <i>OR</i>
             <h6 className="hint-text hint">Sign up with your email address</h6>
