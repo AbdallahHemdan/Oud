@@ -17,6 +17,8 @@
   width: 5%;
   margin-bottom: 0;
   border: #ffffff;
+  height: 50px;
+  width: 5%;
 }
 .dropdownButtonSideBar {
   color: #000000;
@@ -27,6 +29,7 @@
   width: 95%;
   margin-bottom: 0;
   border: #ffffff;
+  height: 50px;
 }
 .dropdownButtonSideBar:hover {
   background-color: #ffffff;

@@ -1,23 +1,22 @@
 import React from "react";
-import "./App.css";
 import Playlist from "./components/Playlist/playlist";
 import LikedSongs from "./components/likedSongs/likedSongs";
 import Album from "./components/album/album";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useParams,
-} from "react-router-dom";
-
 import Search from "./pages/Search/Search";
 import Account from "./pages/Account/Account";
 import RedirectPage from "./components/Account/General/RedirectPage";
 import Profile from "./pages/Profile/Profile";
 import WebPlayer from "./components/WebPlayer/WebPlayer";
 import Home from "./pages/Home/Home";
-import SeeAll from './components/SeeAll/SeeAll';
+import SeeAll from "./components/SeeAll/SeeAll";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams
+} from "react-router-dom";
 
+import "./App.css";
 function App() {
   return (
     <Router>
@@ -32,15 +31,16 @@ function App() {
           <Route exact path="/genre/:genreName">
             <SeeAll />
           </Route>
+
           <Route path="/profile/:userId" component={Profile} />
-          <Route path="/account" >
-            <Account />
-          </Route>
-          <Route path="/RedirectPage" >
+          <Route path="/account" component={Account} />
+
+          <Route path="/RedirectPage">
             <RedirectPage />
           </Route>
+
           <Route path={`/playlist/:id`} Component={<Playlist />}>
-            <PlaylistRender />  
+            <PlaylistRender />
           </Route>
           <Route path="/likedSongs/">
             <LikedSongs />

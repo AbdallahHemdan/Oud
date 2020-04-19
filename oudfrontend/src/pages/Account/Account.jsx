@@ -1,5 +1,4 @@
 import React from "react";
-
 import HiddenSideBar from "./../../components/Account/Components/HiddenSideBar/HiddenSideBar";
 import MainContainer from "./../../components/Account/Components/MainContainer/MainContainer";
 
@@ -8,7 +7,10 @@ import "./Account.css";
 /**
  * Footer
  * @type {Function}
- * @returns {HTMLElement} Dummy Footer
+ * @returns {jsx} Dummy Footer
+ * <Footer/>
+ * TODO : change this to the real one when they merge it
+ *
  */
 function Footer() {
   return (
@@ -23,7 +25,9 @@ function Footer() {
 /**
  * Navigation Bar
  * @type {Function}
- * @returns {HTMLElement} Dummy Navigation Bar
+ * @returns {jsx} Dummy Navigation Bar
+ * <NaveBar/>
+ * TODO : change this to the real one when they merge it
  */
 
 function NavBar() {
@@ -39,8 +43,8 @@ function NavBar() {
 /**
  * this is the account and this renders NavBar , Hidden sideBar , MainContainer , Footer
  * @type {Function}
- * @returns {HTMLElement} Account Component
- *
+ * @returns {jsx} Account Component
+ * <Account/>
  */
 /*do not forget to handel hiddenSidebar*/
 function Account() {
