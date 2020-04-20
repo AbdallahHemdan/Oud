@@ -1,8 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../../../../assets/images/Logoc.png';
+import React, {Fragment} from 'react';
+import {Link, NavLink} from 'react-router-dom';
+// import NavbarRouter from '../../../routes/NavbarRouter';
+import logo from '../../../../assets/images/Logo.png';
 import mask from '../../../../assets/images/mask.png';
 import '../../welcome.css';
+/**nav bar if the user is logged in */
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -15,13 +17,13 @@ class Navbar extends React.Component {
    * @function
    * @returns {void}
    */
-  doLogIn = () => this.setState({ loggedIn: true });
+  doLogIn = () => this.setState({loggedIn: true});
   /**
    * set the logged in to true
    * @function
    * @returns {void}
    */
-  doLogOut = () => this.setState({ loggedIn: false });
+  doLogOut = () => this.setState({loggedIn: false});
   /**
    * just to see what is the status that in the real time
    * @function
@@ -29,8 +31,8 @@ class Navbar extends React.Component {
    */
   handleStatus = () =>
     this.props.status
-      ? this.setState({ loggedIn: true })
-      : this.setState({ loggedIn: false });
+      ? this.setState({loggedIn: true})
+      : this.setState({loggedIn: false});
   /**
    * the render function that have the element inside
    * @function

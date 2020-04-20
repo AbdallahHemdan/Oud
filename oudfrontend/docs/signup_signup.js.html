@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: signup/signup.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: signup/signup.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
+import './signup.css';
+import {Redirect} from 'react-router-dom';
+import _ from 'lodash';
+import MainBrand from './MainBrand';
+import SocialIcons from './SocialIcons';
+import Recaptcha from 'react-recaptcha';
+import axios from 'axios';
+
+/**
+ * the password validation
+ * (check if the password is valid)
+ * @function
+ * @param {String} Password -user password
+ * @returns {boolean} - returns if the password is valid
+ * */
+function checkPassword(Password) {
+  let [isUppercase, isLowercase, isSpecialChar, isNumber] = [
+    false,
+    false,
+    false,
+    false,
+  ];
+  let str = Password + '0';
+  let patt1 = /[0-9]/g;
+  isNumber = str.match(patt1).length > 1;
+
+  patt1 = /[!@#$%^&amp;*(),.?":{}_|&lt;>]/g;
+  str = Password + '@';
+  isSpecialChar = str.match(patt1).length > 1;
+
+  for (let i = 0; i &lt; Password.length; i++) {
+    if (Password[i] === Password[i].toUpperCase()) {
+      isUppercase = true;
+    } else if (Password[i] === Password[i].toLowerCase()) {
+      isLowercase = true;
+    }
+  }
+  return isSpecialChar &amp;&amp; isNumber &amp;&amp; isUppercase &amp;&amp; isLowercase;
+}
+/**
+ * this class that have all function
+ */
+class Signup extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      gender: '',
+      year: '',
+      month: '',
+      day: '',
+      roll: 'free',
+      PasswordType: 'Password',
+      showText: 'show',
+      isVerified: true,
+      agreeTerms: true,
+      Password: '',
+      ConfirmPassword: '',
+      formErrors: {
+        ConfirmPasswordError: '',
+        PasswordError: '',
+        EmailError: '',
+      },
+      redirect: false,
+    };
+  }
+
+  /**
+   * Email validation
+   * (check if the email is valid)
+   * @function
+   * @param {object} event -the entered email
+   * @returns {boolean} - return true if the email is valid
+   */
+  EmailHandel = (event) => {
+    this.setState({email: event.target.value});
+    const emailRegex = RegExp(
+      /^[a-zA-Z0-9.!#$%&amp;’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/
+    );
+    let formErrors = {...this.state.formErrors};
+    formErrors.EmailError = emailRegex.test(event.target.value)
+      ? ''
+      : 'invalid email address';
+    this.setState({formErrors});
+  };
+  /**
+   * Password checker
+   * (here check if the entered password is correct under some restricts)
+   * 1)if it dose not enter any thing
+   * 2)if it under 8 latter's
+   * 3)if it more than 30 latter's
+   * 5)if it is valid
+   * 6)then it is correct
+   * @function
+   * @param {object} event - the entered password
+   * @returns {string} -change the error massages
+   *  */
+  PasswordHandel = (event) => {
+    this.setState({Password: event.target.value});
+
+    if (this.state.Password.length === 0) {
+      this.setState({
+        formErrors: {
+          PasswordError: 'you must enter a password here',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+    } else if (this.state.Password.length &lt; 8) {
+      this.setState({
+        formErrors: {
+          PasswordError: 'minimum 8 characaters required',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+    } else if (this.state.Password.length > 30) {
+      this.setState({
+        formErrors: {
+          PasswordError: 'maximum 30 characaters',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+    } else if (!checkPassword(this.state.Password)) {
+      this.setState({
+        formErrors: {
+          PasswordError:
+            'Password should contain uppercase,lowercase and a number ',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+    } else {
+      this.setState({
+        formErrors: {
+          PasswordError: '',
+          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+    }
+  };
+  /**
+   * Password Validation
+   * its validate the input password to be a strong password
+   * and match the two passwords
+   * @function
+   * @param {object} event -the confirm password
+   * @returns {string}
+   */
+  ConfirmPasswordHandel = (event) => {
+    this.setState({ConfirmPassword: event.target.value});
+
+    if (event.target.value !== this.state.Password) {
+      this.setState({
+        formErrors: {
+          PasswordError: this.state.formErrors.PasswordError,
+          ConfirmPasswordError: 'Invallid  ,Password not matched',
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+    } else {
+      this.setState({
+        formErrors: {
+          PasswordError: this.state.formErrors.PasswordError,
+          ConfirmPasswordError: '',
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+    }
+  };
+  /**
+   * check if the two passwords are the same
+   * @function
+   * @returns {boolean} -if the two passwords are the same return true
+   */
+  hasSamePassword = () => {
+    if (this.state.Password !== this.state.ConfirmPassword) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+  /**
+   * this function activate when we click the submit button
+   * it's check if the password and the confirm password are the same
+   * then it send a request with all the data
+   * @function
+   * @param {object} e
+   * @returns {void}
+   */
+  handelSubmit = (e) => {
+    // It prevents a submit button from submitting a form
+    e.preventDefault();
+    let tosent = {
+      username: this.state.name,
+      year: this.state.year,
+      month: this.state.month,
+      day: this.state.day,
+      email: this.state.email,
+      password: this.state.Password,
+      confirmpassword: this.state.ConfirmPassword,
+      displayname: this.state.name,
+      role: this.state.roll,
+      country: '',
+      gender: this.state.gender,
+    };
+    if (this.state.isVerified &amp;&amp; this.hasSamePassword() === true) {
+      let birth =
+        this.state.day + '-' + this.state.month + '-' + this.state.year;
+      console.log(birth);
+      this.setState({
+        formErrors: {
+          PasswordError: this.state.formErrors.PasswordError,
+          ConfirmPasswordError: '',
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/users`, tosent)
+        .then((req) => {})
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log(this.state);
+      console.dir(e.target);
+    } else if (this.hasSamePassword() === false) {
+      this.setState({
+        formErrors: {
+          PasswordError: this.state.formErrors.PasswordError,
+          ConfirmPasswordError: 'Invallid  ,Password not matched',
+          EmailError: this.state.formErrors.EmailError,
+        },
+      });
+    }
+  };
+  /**
+   * this function is for the show password button that check if i want it to be
+   * a password or to be a text input
+   * @function
+   * @param {object} e
+   * @returns {boolean} - if the the button is clicked it is check if i want to show the type is a password or as a text
+   */
+  handleShowPassword = () => {
+    this.setState({
+      PasswordType: this.state.PasswordType === 'text' ? 'Password' : 'text',
+      showText: this.state.showText === 'show' ? 'hide' : 'show',
+    });
+    return false;
+  };
+  /**
+   * this is a captcha
+   * a function to call it
+   * @function
+   * @returns {void}
+   */
+  callback = () => {
+    console.log('yaaaaaaaa, captha is loaded');
+  };
+  /**
+   * this is a captcha
+   * a function to call it
+   * @function
+   * @param {object} action
+   * @returns {void}
+   * it is change if the user is not a robot
+   */
+  verifyCallback = (action) => {
+    if (action) {
+      this.setState({isVerified: true});
+    }
+  };
+  /**
+   * this function activate on change
+   * @function
+   * @param {object} a
+   * @returns {void}
+   */
+  handleChange = (e) => {
+    let target = e.target;
+    let value = target.type === 'checkbox' ? target.checked : target.value;
+    let name = target.name;
+    this.setState({
+      [name]: value,
+    });
+  };
+  /**
+   * the render function
+   * here i call all the other component
+   * @function
+   * @returns {JSX}
+   */
+  render() {
+    return &lt;div>{this.signupForm()}&lt;/div>;
+  }
+  /**
+   * here i call all the form functions
+   * @function
+   * @returns {JSX}
+   */
+  signupForm() {
+    return (
+      &lt;section className="main-form container">
+        &lt;form onSubmit={this.handelSubmit}>
+          {this.userName()}
+          {this.emailAddress()}
+          {this.Password()}
+          {this.confirmPassword()}
+          {this.gender()}
+          {this.birthDate()}
+          {this.conditionsAndTerms()}
+          {this.Recaptcha()}
+          {this.signUp()}
+        &lt;/form>
+      &lt;/section>
+    );
+  }
+  /**
+   * this function is set the redirect to true the is allow me to go to anther page
+   * if it false the button will not work
+   * if true the button wil work and to the page
+   * @function
+   * @returns {void}
+   */
+  setRedirect = () => {
+    this.setState({
+      redirect: true,
+    });
+  };
+  /**
+   * this is the function that have the path of the page that i want to go
+   * @function
+   * @returns {void}
+   */
+  toSignIN = () => {
+    if (this.state.redirect) {
+      return &lt;Redirect to="/log-in" />;
+    }
+  };
+  /**
+   * this part include (signup button ==> sign in button )
+   * sign up button => the submission button
+   * sign in button => the router to login page
+   * @function
+   * @returns {JSX}
+   */
+  signUp() {
+    return (
+      &lt;React.Fragment>
+        &lt;button
+          type="submit"
+          className="btn btn-primary btn-block"
+          data-testid="SignUp-btn"
+        >
+          Sign Up
+        &lt;/button>
+        &lt;section className="or-seperator-2">&lt;/section>
+        &lt;section className="container main-center">
+          &lt;span>
+            {this.toSignIN()}
+            &lt;h6 className="hint-text">
+              Already registered?
+              &lt;button
+                data-testid="SignIN-btn"
+                type="button"
+                className="btn btn-outline-links"
+                onClick={this.setRedirect}
+              >
+                SignIn
+              &lt;/button>
+            &lt;/h6>
+          &lt;/span>
+        &lt;/section>
+      &lt;/React.Fragment>
+    );
+  }
+  /**
+   * the recatcha call part
+   * @function
+   * @returns {JSX}
+   */
+  Recaptcha() {
+    return (
+      &lt;div className="rc-captcha container">
+        &lt;Recaptcha
+          sitekey="6Ld5Ht8UAAAAADUJ6PLpOY_x5YSBfe9fRsYDEiVv"
+          render="explicit"
+          onloadCallback={this.callback}
+          verifyCallback={this.verifyCallback}
+        />
+      &lt;/div>
+    );
+  }
+  /**
+   * terms and conditions of use checkbox
+   * @function
+   * @returns {JSX}
+   */
+  conditionsAndTerms() {
+    return (
+      &lt;div className="form-group">
+        &lt;div className="pretty p-svg p-curve container">
+          &lt;input type="checkbox" id="gridCheck" className="form-check-input" />
+          &lt;div className="state p-success">
+            &lt;svg className="svg svg-icon" viewBox="0 0 20 20">
+              &lt;path
+                d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z"
+                style={{stroke: 'white', fill: 'white'}}
+              >&lt;/path>
+            &lt;/svg>
+            &lt;label htmlFor="gridCheck" className="form-check-label">
+              &lt;a href="/terms-conditions" target="_black">
+                Accept terms &amp; conditions of use
+              &lt;/a>
+            &lt;/label>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    );
+  }
+  /**
+   * Birth date
+   * here i call the year , month and day select box
+   * @function
+   * @returns {JSx}
+   */
+  birthDate() {
+    return (
+      &lt;div className="form-row">
+        {this.year()}
+        {this.month()}
+        {this.day()}
+      &lt;/div>
+    );
+  }
+  /**
+   * day select box
+   * @function
+   * @returns {JSX}
+   */
+  day() {
+    return (
+      &lt;div className="form-group col-md-4">
+        &lt;select
+          data-testid="register-dob-day"
+          id="inputDay"
+          className="form-control form-col custom-select"
+          defaultValue="Day"
+          name="day"
+          onChange={this.handleChange}
+        >
+          &lt;option value="">Day&lt;/option>
+          {_.range(1, 32).map((value) => (
+            &lt;option key={value} value={value}>
+              {value}
+            &lt;/option>
+          ))}
+        &lt;/select>
+      &lt;/div>
+    );
+  }
+  /**
+   * month select box
+   * @function
+   * @returns {JSX}
+   */
+  month() {
+    return (
+      &lt;div className="form-group col-md-4">
+        &lt;select
+          data-testid="register-dob-month"
+          id="inputMonth"
+          className="form-control form-col custom-select"
+          defaultValue="Month"
+          name="month"
+          onChange={this.handleChange}
+        >
+          &lt;option value="">Month&lt;/option>
+          &lt;option value="01">January&lt;/option>
+          &lt;option value="02">February&lt;/option>
+          &lt;option value="03">March&lt;/option>
+          &lt;option value="04">April&lt;/option>
+          &lt;option value="05">May&lt;/option>
+          &lt;option value="06">June&lt;/option>
+          &lt;option value="07">July&lt;/option>
+          &lt;option value="08">August&lt;/option>
+          &lt;option value="09">September&lt;/option>
+          &lt;option value="10">October&lt;/option>
+          &lt;option value="11">November&lt;/option>
+          &lt;option value="12">December&lt;/option>
+        &lt;/select>
+      &lt;/div>
+    );
+  }
+  /**
+   * year select box
+   * @function
+   * @returns {JSX}
+   */
+  year() {
+    return (
+      &lt;div className="form-group col-md-4">
+        &lt;select
+          data-testid="register-dob-year"
+          id="inputYear"
+          className="form-control form-col custom-select"
+          defaultValue="Year"
+          name="year"
+          onChange={this.handleChange}
+        >
+          &lt;option value="">Year&lt;/option>
+          {_.range(2018, 1899).map((value) => (
+            &lt;option key={value} value={value}>
+              {value}
+            &lt;/option>
+          ))}
+        &lt;/select>
+      &lt;/div>
+    );
+  }
+  /**
+   * gender select box
+   * @function
+   * @returns {JSX}
+   */
+  gender() {
+    return (
+      &lt;div className="form-group">
+        &lt;select
+          data-testid="register-male"
+          id="inputGender"
+          className="form-control form-col custom-select"
+          onChange={this.handleChange}
+          name="gender"
+        >
+          &lt;option value="">Gender&lt;/option>
+          &lt;option value="1" defaultValue>
+            Male
+          &lt;/option>
+          &lt;option value="2">Female&lt;/option>
+        &lt;/select>
+      &lt;/div>
+    );
+  }
+  /**
+   * confirm password text box
+   * @function
+   * @returns {JSX}
+   */
+  confirmPassword() {
+    return (
+      &lt;div className="form-group">
+        &lt;div className="input-group">
+          &lt;input
+            data-testid="register-confirmPassword"
+            type={this.state.PasswordType}
+            className="form-control"
+            placeholder={'confirm Password'}
+            onChange={(this.handleChange, this.ConfirmPasswordHandel)}
+            name="confirmPassword"
+            value={this.setState.ConfirmPassword}
+          />
+        &lt;/div>
+        {this.hasSamePassword() === false
+          ? this.state.formErrors.ConfirmPasswordError.length > 0 &amp;&amp; (
+              &lt;span className="error" htmlFor="register-confirmPassword">
+                {this.state.formErrors.ConfirmPasswordError}
+              &lt;/span>
+            )
+          : null}
+      &lt;/div>
+    );
+  }
+  /**
+   * password text box
+   * @function
+   * @returns {JSX}
+   */
+  Password() {
+    return (
+      &lt;div className="form-group">
+        &lt;div className="input-group">
+          &lt;input
+            data-testid="register-password"
+            type={this.state.PasswordType}
+            className="form-control"
+            placeholder={'Password'}
+            onChange={(this.handleChange, this.PasswordHandel)}
+            name="Password"
+            value={this.setState.Password}
+          />
+          &lt;button
+            className="btn btn-outline-dark"
+            data-testid="showPass"
+            onClick={this.handleShowPassword}
+          >
+            {this.state.showText}
+          &lt;/button>
+        &lt;/div>
+        {this.state.formErrors.PasswordError.length > 0 &amp;&amp; (
+          &lt;span className="error" htmlFor="register-password">
+            {this.state.formErrors.PasswordError}
+          &lt;/span>
+        )}
+      &lt;/div>
+    );
+  }
+  /**
+   * email text box
+   * @function
+   * @returns {JSX}
+   */
+  emailAddress() {
+    return (
+      &lt;div className="form-group" data-testid="email">
+        &lt;input
+          data-testid="register-email"
+          type="email"
+          className="form-control custom-select"
+          placeholder="email@address.com"
+          onChange={(this.handleChange, this.EmailHandel)}
+          name="email"
+        />
+        {this.state.formErrors.EmailError.length > 0 &amp;&amp; (
+          &lt;span
+            className="error"
+            htmlFor="register-email"
+            data-testid="EmailError"
+          >
+            {this.state.formErrors.EmailError}
+          &lt;/span>
+        )}
+      &lt;/div>
+    );
+  }
+  /**
+   * user name text box
+   * @function
+   * @returns {JSX}
+   */
+  userName() {
+    return (
+      &lt;div className="form-group sm-8">
+        &lt;input
+          data-testid="register-displayname"
+          value={this.state.name}
+          label="name"
+          type="text"
+          className="form-control custom-select"
+          id="validationTextarea"
+          placeholder="What should we call you?"
+          onChange={this.handleChange}
+          name="name"
+        />
+      &lt;/div>
+    );
+  }
+}
+
+export default Signup;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Code.html">Code</a></li><li><a href="Facebook.html">Facebook</a></li><li><a href="ForgotPassword.html">ForgotPassword</a></li><li><a href="MainBrand.html">MainBrand</a></li><li><a href="ResetPassword.html">ResetPassword</a></li><li><a href="SignIn.html">SignIn</a></li><li><a href="Signup.html">Signup</a></li><li><a href="SocialIcons.html">SocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#checkPassword">checkPassword</a></li><li>{JSX}</li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sun Mar 29 2020 19:40:31 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
