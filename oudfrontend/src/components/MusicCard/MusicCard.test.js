@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer'
-import MusicCard from "./MusicCard"
-import { findByTestAttr } from "../../../utils/index";
+import MusicCard from "./MusicCard.js"
+import { findByTestAttr } from "./../../utils/index";
 
 
 const setup = (props = {}) => {

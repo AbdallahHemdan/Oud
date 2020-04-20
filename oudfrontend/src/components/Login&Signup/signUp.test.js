@@ -1,10 +1,10 @@
 import React from 'react';
 import Signup from '../Login&Signup/signup/signup';
 import MainBrand from './MainBrand';
-import {render} from '@testing-library/react';
+import { render } from '@testing-library/react';
 import * as renderer from 'react-test-renderer';
-import {shallow} from 'enzyme';
-import '../../testSetup';
+import { shallow } from 'enzyme';
+import './../../setupTests';
 import '@testing-library/jest-dom/extend-expect';
 import SocialIcons from './SocialIcons';
 import SignIn from './signin/signin';

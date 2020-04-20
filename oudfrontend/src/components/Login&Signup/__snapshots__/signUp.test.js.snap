@@ -16,7 +16,7 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
         className="form-group sm-8"
       >
         <input
-          className="form-control FormElement  "
+          className="form-control FormElement"
           data-testid="register-displayname"
           label="display name"
           name="name"
@@ -33,7 +33,7 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
         className="form-group sm-8"
       >
         <input
-          className="form-control FormElement  "
+          className="form-control FormElement"
           data-testid="register-username"
           id="validationTextarea"
           label="name"
@@ -53,7 +53,7 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
         data-testid="email"
       >
         <input
-          className="form-control FormElement "
+          className="form-control FormElement"
           data-testid="register-email"
           name="email"
           onChange={[Function]}
@@ -70,7 +70,7 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
           className="input-group"
         >
           <input
-            className="form-control FormElement "
+            className="form-control FormElement"
             data-testid="register-password"
             name="Password"
             onChange={[Function]}
@@ -88,7 +88,7 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
           className="input-group"
         >
           <input
-            className="form-control FormElement "
+            className="form-control FormElement"
             data-testid="register-confirmPassword"
             name="confirmPassword"
             onChange={[Function]}
@@ -2268,45 +2268,6 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
         </div>
       </div>
       <div
-        className="form-group"
-      >
-        <div
-          className="pretty p-svg p-curve container"
-        >
-          <div
-            class="custom-control custom-checkbox"
-          >
-            <input
-              class="custom-control-input"
-              id="customControlInline"
-              name="agreeTerms"
-              onChange={[Function]}
-              style={
-                Object {
-                  "display": "inline",
-                  "width": "20px",
-                }
-              }
-              type="checkbox"
-            />
-            <label
-              class="custom-control-label"
-              for="customControlInline"
-            >
-              <a
-                href="/terms-conditions"
-                target="_black"
-              >
-                Accept terms & conditions of use
-              </a>
-            </label>
-          </div>
-        </div>
-        <div>
-          
-        </div>
-      </div>
-      <div
         className="rc-captcha container"
       >
         <div
@@ -2317,7 +2278,7 @@ exports[`Sign up page testing ===> render correctly text component 1`] = `
       </div>
       <button
         className="btn btn-block SignUpSubmit"
-        data-testid="SignUp-btn "
+        data-testid="SignUp-btn"
         type="submit"
       >
         Sign Up

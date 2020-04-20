@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import MusicItem from './MusicItem';
-import { findByTestAttr } from "../../../utils/index"
+import { findByTestAttr } from "./../../utils/index"
 
 
 const setup = (props = {}) => {

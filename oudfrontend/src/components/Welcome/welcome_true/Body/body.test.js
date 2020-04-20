@@ -1,21 +1,12 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import { render } from '@testing-library/react';
 import * as renderer from 'react-test-renderer';
-import {shallow} from 'enzyme';
-import '../../../testSetup';
+import { shallow } from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
 import Body from './Body';
 
-const setUP = (props = {}) => {
-  const component = render(<Body />);
-  return component;
-};
 
 describe('Body page testing ', () => {
-  let component;
-  beforeEach(() => {
-    component = setUP();
-  });
 
   it('render correctly text component', () => {
     const TextInputComponent = renderer.create(<Body />).toJSON();
