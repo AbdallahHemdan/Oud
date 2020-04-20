@@ -6,6 +6,7 @@ import MainContent from "../../components/MainContent/MainContent"
 import { base } from "./../../config/environment"
 import axios from "axios"
 import WebPlayer from './../../components/WebPlayer/WebPlayer';
+import LoadingSnipper from './../../components/LoadingSnipper/LoadingSnipper';
 
 /**
  * a string to store endpoint url of getting List of Categories
@@ -117,9 +118,7 @@ class Home extends Component {
         <Navbar isLoggedIn={true} />
         {
           this.state.isLoading ?
-            <div className="container container-half">
-              <i class="fas fa-spinner fa-spin fa-4x"></i>
-            </div> :
+            <LoadingSnipper /> :
             <React.Fragment>
               <MainContent items={this.state.items} />
               <WebPlayer />
