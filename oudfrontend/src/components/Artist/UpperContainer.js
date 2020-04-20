@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../Profile/Commponents/UpperContainer/UpperContainer.css";
-import ellipsis from "../../assets/images/icons/ellipsis.png";
 import Options from "./Options";
 class UpperContainer extends Component {
   constructor(props) {
@@ -56,7 +55,13 @@ class UpperContainer extends Component {
         <div
           className={this.state.scrolled ? "upperNav" : "upperContainerProfile"}
           data-test="UpperContainer"
-          //   style={{ backgroundImage: `url(${placeHolder})` }}
+          style={
+            this.state.scrolled
+              ? { backgroundColor: "#000000" }
+              : {
+                  backgroundImage: `url(${this.props.cover})`,
+                }
+          }
         >
           <div className="avatarContainer" data-test="avatar">
             {!this.state.scrolled && this.props.userId === this.state.signInId && (

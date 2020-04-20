@@ -29,6 +29,7 @@ class ArtistUserView extends Component {
           id: response.data.id,
           username: response.data.displayName,
           bio: response.data.bio,
+          img: response.data.images[1],
         });
         getRequest(
           `${base}/me/following/containes?type=artist&ids=[${this.props.artistId}]`
@@ -102,6 +103,7 @@ class ArtistUserView extends Component {
           handleFollowClick={this.handleFollowClick}
           followStatus={this.state.followStatus}
           username={this.state.username}
+          cover={this.state.img}
         />
         <LowerContainer
           data-test="artist-lower-container"
