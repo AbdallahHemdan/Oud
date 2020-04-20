@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import FollowCard from "./../FollowCard/FollowCard";
 import axios from "axios";
+import { config } from "./../../../../utils/auth"
+
+
+/**
+ * @type {Class}
+ * @returns {JSX} this returns the list of the current user following list
+ */
 
 class Following extends Component {
   constructor(props) {
@@ -14,22 +21,27 @@ class Following extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:2022/following/" + this.props.userId)
+      .get(
+        "https://oud-zerobase.me/api/v1/users/" +
+        this.props.userId +
+        "/following?type=user",
+        config
+      )
       .then(response => {
         this.setState({
           items: response.data.items
         });
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
       });
     axios
-      .get("http://localhost:2022/me")
+      .get("https://oud-zerobase.me/api/v1/me", config)
       .then(response => {
         this.setState({ signInId: response.data.id });
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
       });
   }
 
