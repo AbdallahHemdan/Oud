@@ -107,7 +107,11 @@ class UpperContainer extends Component {
                   <> FOLLOW</>
                 )}
               </button>
-              <Options />
+              <Options
+                followStatus={this.props.followStatus}
+                artistId={this.props.artistId}
+                handleFollowClick={this.handleFollowClick}
+              />
             </div>
           ) : null}
 

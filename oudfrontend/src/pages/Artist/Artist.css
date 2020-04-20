@@ -72,7 +72,15 @@
 }
 .artist-user .dropdown-item {
   color: white;
+  cursor: pointer;
 }
 .artist-user .dropdown-item:hover {
   background-color: #ffc107;
+}
+.swal2-icon.swal2-success {
+  border-color: #ffce00;
+  color: #ffce00;
+}
+.swal2-icon.swal2-success [class^="swal2-success-line"] {
+  background-color: #ffce00;
 }
