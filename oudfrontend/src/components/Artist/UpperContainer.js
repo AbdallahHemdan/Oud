@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../Profile/Commponents/UpperContainer/UpperContainer.css";
 import ellipsis from "../../assets/images/icons/ellipsis.png";
+import Options from "./Options";
 class UpperContainer extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ class UpperContainer extends Component {
       signInId: "",
       mouseOn: "",
       scrolled: false,
+      openDrop: false,
     };
     this.upload = this.upload.bind(this);
   }
@@ -48,7 +50,6 @@ class UpperContainer extends Component {
       document.getElementById("avatar").click();
   }
   handlePlay = () => {};
-  handleOptionDropdown = () => {};
   render() {
     return (
       <div className="artist-user">
@@ -106,19 +107,7 @@ class UpperContainer extends Component {
                   <> FOLLOW</>
                 )}
               </button>
-              <div className="artist-ellipsis-container">
-                <button
-                  className="ellipsis-icon"
-                  onClick={this.handleOptionDropdown}
-                  data-testid="artist-option-menu"
-                >
-                  <img
-                    src={ellipsis}
-                    alt="Show Options"
-                    className="ellipsis-img"
-                  />
-                </button>
-              </div>
+              <Options />
             </div>
           ) : null}
 
