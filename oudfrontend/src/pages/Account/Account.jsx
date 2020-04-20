@@ -1,6 +1,8 @@
 import React from "react";
 import HiddenSideBar from "./../../components/Account/Components/HiddenSideBar/HiddenSideBar";
 import MainContainer from "./../../components/Account/Components/MainContainer/MainContainer";
+import Footer from './../../components/Welcome/welcome_false/Footer/Footer';
+import { isLoggedIn } from "./../../utils/auth"
 
 import "./Account.css";
 
@@ -12,15 +14,7 @@ import "./Account.css";
  * TODO : change this to the real one when they merge it
  *
  */
-function Footer() {
-  return (
-    <footer>
-      <div className="Dummy">
-        <h1>Dummy Footer</h1>
-      </div>
-    </footer>
-  );
-}
+
 
 /**
  * Navigation Bar

@@ -10,7 +10,7 @@ import Navbar from "../Navbar/Navbar";
 import PropTypes from 'prop-types';
 import { resume, pause, addToQueue } from '../commonComponents/utils'
 import { base } from "./../../config/environment"
-import { config } from "../../utils/auth"
+import { config, isLoggedIn } from "../../utils/auth"
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -193,6 +193,7 @@ class Playlist extends React.Component {
           />
         ) : (
             <div className="dummyParent">
+              <Navbar isLoggedIn={isLoggedIn()} />
               <Sidebar />
               {/* <Navbar isLoggedIn={true} /> */}
               <div className="profile-user">
