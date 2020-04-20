@@ -2,7 +2,7 @@ import React from "react";
 import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer'
 import Navbar from "./Navbar"
-import { findByTestAttr } from "../../../utils/index";
+import { findByTestAttr } from "./../../utils/index";
 
 
 const setup = (props = {}) => {
