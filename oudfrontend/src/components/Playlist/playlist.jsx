@@ -162,7 +162,6 @@ class Playlist extends React.Component {
     axios
       .get(`${base}/me/playlists/contains/${this.props.id.id}`, config)
       .then((response) => {
-        console.log(response);
         const isFound = response.data;
         this.setState({ liked: isFound });
       })

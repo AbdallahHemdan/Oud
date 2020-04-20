@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import SongList from './songList';
 import Enzyme, { shallow } from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
@@ -79,9 +79,6 @@ describe('SongList Component', () => {
         it("doesn't render songElement when recived = false", () => {
             const wrapper = findByTestAttr(component, 'songElement');
             expect(wrapper.length).toBe(0);
-        }); it('renders loading correctly when recived = false', () => {
-            const wrapper = findByTestAttr(component, 'loading');
-            expect(wrapper.length).toBe(1);
         });
     });
 
@@ -97,9 +94,6 @@ describe('SongList Component', () => {
         it("doesn't render songElement when without props", () => {
             const wrapper = findByTestAttr(component, 'songElement');
             expect(wrapper.length).toBe(0);
-        }); it('renders loading correctly when without props', () => {
-            const wrapper = findByTestAttr(component, 'loading');
-            expect(wrapper.length).toBe(1);
         });
     });
 
@@ -206,7 +200,6 @@ describe('SongList Component', () => {
         });
         it('should throw a warning', () => {
             const result = checkPropTypes(SongList.propTypes, props10, 'prop', SongList.name);
-            console.log(result);
             expect(result).toBeDefined();
         });
         it('should not throw a warning', () => {
@@ -215,7 +208,6 @@ describe('SongList Component', () => {
         });
         it('should throw a warning', () => {
             const result = checkPropTypes(SongList.propTypes, props00, 'prop', SongList.name);
-            console.log(result);
             expect(result).toBeDefined();
         });
     });

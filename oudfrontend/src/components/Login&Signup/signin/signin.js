@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../signup/signup.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import axios from 'axios';
 import Validator from '../validate';
-import {token} from '../../../utils/auth';
+import { token } from '../../../utils/auth';
 /**the sign up section  */
 class SignIn extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class SignIn extends Component {
    * @returns {boolean} - return true if the email is valid
    */
   EmailHandel = (event) => {
-    this.setState({email: event.target.value});
+    this.setState({ email: event.target.value });
     Validator.validateEmail(event.target.value, this);
   };
   /**
@@ -63,7 +63,7 @@ class SignIn extends Component {
    * @returns {string} -change the error massages
    *  */
   PasswordHandel = (event) => {
-    this.setState({password: event.target.value});
+    this.setState({ password: event.target.value });
     Validator.validatePassword(event.target.value, this);
   };
   validateAll = () => {
@@ -80,14 +80,12 @@ class SignIn extends Component {
    *   */
   handelSubmit = (e) => {
     e.preventDefault();
-    console.log('tokeeen', token);
 
     let errorMassage = '';
     let toSent = {
       email: this.state.email,
       password: this.state.password,
     };
-    console.log(this.checkPassword ? true : false);
     if (this.validateAll()) {
       axios
         .post('https://oud-zerobase.me/api/v1/users/login', toSent)
@@ -121,7 +119,7 @@ class SignIn extends Component {
     let target = e.target;
     let value = target.type === 'checkbox' ? target.checked : target.value;
     let name = target.name;
-    this.setState({[name]: value});
+    this.setState({ [name]: value });
   };
   /**
    * here i render the page
@@ -184,7 +182,7 @@ class SignIn extends Component {
               <div className="form-group">
                 <div className="custom-control custom-checkbox">
                   <input
-                    style={{display: 'inline', width: '20px'}}
+                    style={{ display: 'inline', width: '20px' }}
                     type="checkbox"
                     class="custom-control-input"
                     id="customControlInline"

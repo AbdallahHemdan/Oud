@@ -1,5 +1,5 @@
 import axios from "axios";
-import {base} from "../../config/environment"
+import { base } from "../../config/environment"
 
 /**
  * @file this file contains three functions used in Playlist, Album, LikedSongs
@@ -25,7 +25,6 @@ export function addToQueue(tracks, length) {
     .catch(function (error) {
       console.log(error);
     });
-  console.log("queue called");
 }
 /**
  * pauses the player
@@ -40,7 +39,6 @@ export function pause() {
     .catch(function (error) {
       console.log(error);
     });
-  console.log("pause called");
 }
 
 /**
@@ -56,5 +54,4 @@ export function resume() {
     .catch(function (error) {
       console.log(error);
     });
-  console.log("resume called");
 }
