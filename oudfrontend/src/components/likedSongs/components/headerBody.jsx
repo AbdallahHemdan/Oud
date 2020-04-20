@@ -1,6 +1,9 @@
-import React from 'react'
-import {useHistory} from 'react-router-dom'
-import PropTypes from 'prop-types';
+import React from "react";
+import { useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
+import axios from 'axios'
+import {base} from '../../../config/environment'
+import {config} from '../../../utils/auth'
 /**
  * this is a component that renders the bottom of the body of playlists, albums, likedSongs
  * @author Ahmed Walid <ahmedwa1999@gmail.com>
@@ -15,30 +18,52 @@ import PropTypes from 'prop-types';
  * </div>}
  */
 
-function HeaderBody(props){
-    const {length, playClicked,playing} = props;
-    let history = useHistory()
-    return(
-        <div data-testid="HeaderBody">
-            <h2 data-testid="title" className='whiteText'>Liked Songs</h2>
-            <button data-testid="owner" className='playlistAnchor songButton' onClick={()=>{history.push('/user/1')}} style={{display:"block"}}>Ahmed{/*userName*/}</button>
-            <button onClick={playClicked} data-testid="playButton" className="playButton" variant="outline-success">
-                    {playing? 'PAUSE' : 'PLAY'}
-            </button>
-            <p>
-                <span data-testid="songsNumber">{length} </span>
-                <span data-testid="songsLiteral">{length > 1? 'songs':'song'}</span>
-            </p>
-            
-        </div>
-    );
+function HeaderBody(props) {
+  var me;
+  axios.get(`${base}/me`, config)
+  .then(function (response) {
+    me = response.data;
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  const { length, playClicked, playing } = props;
+  let history = useHistory();
+  return (
+    <div data-testid="HeaderBody">
+      <h2 data-testid="title" className="gray-text likedSongsTitle">
+        Liked Songs
+      </h2>
+      <button
+        data-testid="owner"
+        className="playlistAnchor songButton block"
+        onClick={() => {
+          history.push("/profile/1/overview");
+        }}
+      >
+        {me}
+      </button>
+      <button
+        onClick={playClicked}
+        data-testid="playButton"
+        className="playButton"
+        variant="outline-success"
+      >
+        {playing ? "PAUSE" : "PLAY"}
+      </button>
+      <p className="likedSongsTitle gray-text">
+        <span data-testid="songsNumber">{length} </span>
+        <span data-testid="songsLiteral">{length > 1 ? "songs" : "song"}</span>
+      </p>
+    </div>
+  );
 }
 
-HeaderBody.propTypes ={
-    length : PropTypes.number,
-    playing : PropTypes.bool,
-    playClicked : PropTypes.func
-}
-
+HeaderBody.propTypes = {
+  length: PropTypes.number,
+  playing: PropTypes.bool,
+  playClicked: PropTypes.func
+};
 
 export default HeaderBody;

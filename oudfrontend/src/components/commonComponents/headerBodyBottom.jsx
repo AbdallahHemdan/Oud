@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 /**
  * this is a component that renders the bottom of the body of playlists, albums, likedSongs
  * @author Ahmed Walid <ahmedwa1999@gmail.com>
@@ -19,38 +19,67 @@ import PropTypes from 'prop-types';
  * </div>}
  */
 
-function HeaderBodyBottom(props){
-    const {length, playClicked, likeClicked, liked, playing, releaseDate, recieved, album} = props;
-    
-    return(
-        <div data-testid="HeaderBodyBottom" class='playlistHeaderBodyBottom'>
-            <button onClick={playClicked} data-testid="playButton" className="playButton" variant="outline-success">
-                    {playing? 'PAUSE' : 'PLAY'}
-            </button>
-            
-            <button data-testid="likeIcon" className="likeIcon" onClick={likeClicked}>
-                {liked? <i className="fa fa-heart"></i> : <i class="fa fa-heart"></i>} {/*font awseome icons*/}
-            </button> 
-            <p>
-                <span data-testid="releaseDate">{recieved?releaseDate.slice(0,4):''} <h2 data-testid="separatingDot" style={{display:"inline"}}>{album?'.':''}</h2> </span>
-                <span data-testid="songsNumber">{length} </span>
-                <span data-testid="songsLiteral">{length > 1? 'songs':'song'}</span>
-            </p>
-            
-        </div>
-    );
+function HeaderBodyBottom(props) {
+  const {
+    length,
+    playClicked,
+    likeClicked,
+    liked,
+    playing,
+    releaseDate,
+    recieved,
+    album,
+    addToPlaylist,
+  } = props;
+
+  return (
+    <div data-testid="HeaderBodyBottom" class="playlistHeaderBodyBottom">
+      <button
+        onClick={playClicked}
+        data-testid="playButton"
+        className="playButton"
+        variant="outline-success"
+      >
+        {playing ? "PAUSE" : "PLAY"}
+      </button>
+
+      <button data-testid="likeIcon" className="likeIcon" onClick={likeClicked}>
+        {liked ? <i class="fa fa-heart"></i>:<i className="far fa-heart"></i>}
+      </button>
+      {album ? (
+        <button className="likeIcon" onClick={addToPlaylist}>
+          <i class="fa fa-plus"></i>
+        </button>
+      ) : (
+        <span></span>
+      )}
+      <p>
+        <span data-testid="releaseDate" className="gray-text">
+          {recieved ? releaseDate.slice(6, 10) : ""}
+          <h2 data-testid="separatingDot" className="inline">
+            {album ? "." : ""}
+          </h2>
+        </span>
+        <span data-testid="songsNumber" className="gray-text">
+          {length}{" "}
+        </span>
+        <span data-testid="songsLiteral" className="gray-text">
+          {length > 1 ? "songs" : "song"}
+        </span>
+      </p>
+    </div>
+  );
 }
 
-HeaderBodyBottom.propTypes ={
-    length : PropTypes.number,
-    liked : PropTypes.bool,
-    playing : PropTypes.bool,
-    likeClicked : PropTypes.func,
-    playClicked : PropTypes.func, 
-    releaseDate: PropTypes.string,
-    recieved: PropTypes.bool,
-    album: PropTypes.bool
-}
-
+HeaderBodyBottom.propTypes = {
+  length: PropTypes.number,
+  liked: PropTypes.bool,
+  playing: PropTypes.bool,
+  likeClicked: PropTypes.func,
+  playClicked: PropTypes.func,
+  releaseDate: PropTypes.string,
+  recieved: PropTypes.bool,
+  album: PropTypes.bool,
+};
 
 export default HeaderBodyBottom;
