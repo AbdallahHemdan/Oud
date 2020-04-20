@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import logo from '../../../../assets/images/Logo.png';
+import logo from '../../../../assets/images/Logoc.png';
 import '../../welcome.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFacebook} from '@fortawesome/free-brands-svg-icons';
@@ -15,7 +15,7 @@ import {faYoutube} from '@fortawesome/free-brands-svg-icons';
 function Footer() {
   return (
     <div>
-      <footer className="main-footer ">
+      <footer className="main-footer">
         <div className="footer-middle Ffooter-middle">
           <div className="container">
             <div className="row">

@@ -8,7 +8,6 @@
   color: black;
 }
 
-
 .OudImage {
   width: 150px;
   margin: 0 auto;
@@ -22,20 +21,20 @@
 }
 
 .googlepic {
-
   width: 10%;
   background-color: white;
   border-radius: 100%;
   margin: auto 10px auto;
 }
 
-
 .SocialIconsPage {
   padding-top: 100px;
-
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
+  align-items: center;
 }
-
-
 
 .hint {
   text-align: center;
@@ -72,7 +71,6 @@
   transition: 1s;
 }
 
-
 .social-icons .icons {
   margin: 0 auto;
   left: 0;
@@ -80,7 +78,13 @@
   align-items: center;
   align-content: center;
   align-self: center;
+  margin-top: 100px;
+}
 
+.icons {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
 }
 
 .kep-login-facebook.medium {
@@ -114,12 +118,11 @@
   margin: 20px auto 10px;
   text-align: center;
   border-top: 1px solid;
-
 }
 
 .OR i {
   padding: 0 10px;
-  background: rgb(194, 194, 194);
+  background: rgb(0, 0, 0);
   position: relative;
   top: -11px;
   z-index: 1;
@@ -127,7 +130,6 @@
 
 .OR-2 {
   width: 50%;
-
 }
 
 .or-seperator,
@@ -135,16 +137,16 @@
   width: 30%;
   margin: 20px auto 10px;
   text-align: center;
-  border-top: 1px solid rgb(194, 194, 194);
+  border-top: 1px solid rgb(255, 255, 255);
 }
 
 .or-seperator i {
   padding: 0 10px;
-  background: white;
+  background: rgb(0, 0, 0);
   position: relative;
   top: -11px;
   z-index: 1;
-  background-color: #f2f2f2;
+  background-color: #111113;
 }
 
 .SignUpForm {
@@ -157,6 +159,7 @@
 .FormElement {
   border-color: #f9b835;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 input.FormElement.custom-select {
@@ -192,7 +195,6 @@ button.btn.btn-primary.btn-block {
   color: #f9b835;
   background-color: #f9b835;
   border-color: #f9b835;
-
 }
 
 .SignUpSubmit {
@@ -222,8 +224,6 @@ button.btn.btn-primary.btn-block {
   text-decoration: none;
 }
 
-
-
 .SignUpSubmit:hover {
   color: #ffffff;
   background-color: #fac65f;
@@ -239,9 +239,7 @@ button.btn.btn-primary.btn-block {
   color: #ffffff;
   background-color: #b3821f !important;
   border: 0;
-
 }
-
 
 .error {
   color: red;
@@ -276,7 +274,6 @@ button.btn.btn-primary.btn-block {
 .pass-massage {
   padding-bottom: 30px;
   line-height: inherit;
-
 }
 
 .forgetEmail {
@@ -294,13 +291,11 @@ button.btn.btn-primary.btn-block {
   border-color: #ffca60 !important;
   box-shadow: none !important;
   transition: 1s;
-
 }
 
 .showText:not(:hover) {
   box-shadow: none !important;
   transition: 1s;
-
 }
 
 .islinked {
@@ -309,76 +304,5 @@ button.btn.btn-primary.btn-block {
 
 .hovergold li a:hover {
   color: #f9b835 !important;
-
   text-decoration: none;
-}
-
-
-
-.check {
-  cursor: pointer;
-  position: relative;
-  margin: auto;
-  width: 18px;
-  height: 18px;
-  -webkit-tap-highlight-color: transparent;
-  transform: translate3d(0, 0, 0);
-
-}
-
-.check::before {
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(#223254, .03);
-  opacity: 0;
-  transition: .2s ease;
-}
-
-.check svg {
-  position: relative;
-  z-index: 1;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: #C8CCD4;
-  stroke-width: 1.5;
-  transform: translate3d(0, 0, 0);
-  transition: all .2s ease;
-}
-
-.check path {
-  stroke-dasharray: 60;
-  stroke-dashoffset: 0;
-}
-
-.check polyline {
-  stroke-dasharray: 22;
-  stroke-dashoffset: 66;
-}
-
-.check:hover svg {
-  opacity: 1;
-  stroke: #4285F4;
-}
-
-.check::before svg {
-  opacity: 1;
-  stroke: #4285F4;
-}
-
-#cbx:checked+.check svg {
-  stroke: #4285F4;
-}
-
-#cbx:checked+.check svg path {
-  stroke-dashoffset: 60;
-  transition: all .3s linear;
-}
-
-#cbx:checked+.check svg polyline {
-  stroke-dashoffset: 42;
-  transition: all .2s linear;
-  transition-delay: .15s
 }

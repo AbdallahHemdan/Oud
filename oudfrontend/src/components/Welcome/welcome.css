@@ -69,23 +69,7 @@
     color: red;
 }
 
-@media (max-width : 700px) {
-    .cardImage {
-        width: 370px;
-    }
 
-    .cartList {
-        white-space: nowrap;
-        overflow-x: auto;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .welcomeTextUser {
-        top: 25%;
-    }
-}
 
 .cartList {
     width: 100%;
@@ -176,7 +160,7 @@
 }
 
 .Ffooter-middle {
-    background: #040404;
+
     padding-top: 3rem;
     color: #fff;
 }
@@ -222,47 +206,6 @@
     color: white;
 }
 
-@media (max-width: 1100px) {
-    .welcomeTextUser {
-        top: 28%;
-    }
-
-    .welcomeTextUser button {
-        width: 30%;
-        font-size: 100%;
-    }
-
-    .welcomeTextGeust {
-        top: 35%;
-    }
-
-    h1 {
-        font-size: 30px;
-    }
-
-    h6 {
-        font-size: 10px;
-    }
-
-    .welcomeTextGeust button {
-        width: 32%;
-        font-size: 100%;
-    }
-}
-
-
-@media (max-width: 550 px) {
-    .welcomeTextUser {
-        top: 20%;
-    }
-
-    .welcomeTextGeust {
-        top: 33%;
-    }
-
-}
-
-
 .getOudBtn {
     background-color: #f9b835;
     width: 15.6rem;
@@ -304,7 +247,7 @@
     left: 0;
     right: 0;
     text-align: center;
-    color: black;
+    color: white;
     font-family: inherit;
 }
 
@@ -319,26 +262,86 @@
 .getOudBtn2 {
     width: 15.6rem;
     height: 2.8rem;
-    border: 1.5px solid gray;
+    border: 1.5px solid #f9b835;
     border-radius: 50px;
     font-size: 15px;
-    color: gray;
+    color: white;
     padding-top: 3px;
     font-family: 'Lalezar', cursive;
     margin-bottom: 50px;
     margin-top: 10px;
+    background-color: #f9b835;
+    font-weight: bold;
 }
 
 .getOudBtn2:hover {
-    border: 1.5px solid gray;
+    border: 1.5px solid #ffd071;
     color: white;
-    background-color: gray;
+    background-color: #ffd071;
     transition: .5s;
 }
 
 .getOudBtn2:active {
-    border: 1.8px solid black;
+    border: 1.8px solid #e2a731;
     color: white;
-    background-color: black;
+    background-color: #e2a731;
     transition: .5s;
+}
+
+@media (max-width: 1100px) {
+    .welcomeTextUser {
+        top: 24%;
+    }
+
+    .welcomeTextUser button {
+        width: 30%;
+        font-size: 100%;
+    }
+
+    .welcomeTextGeust {
+        top: 35%;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h6 {
+        font-size: 10px;
+    }
+
+    .welcomeTextGeust button {
+        width: 32%;
+        font-size: 100%;
+    }
+}
+
+@media (max-width : 700px) {
+    .cardImage {
+        width: 370px;
+    }
+
+    .cartList {
+        white-space: nowrap;
+        overflow-x: auto;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .welcomeTextUser {
+        top: 25%;
+    }
+}
+
+
+@media (max-width: 550 px) {
+    .welcomeTextUser {
+        top: 20%;
+    }
+
+    .welcomeTextGeust {
+        top: 33%;
+    }
+
 }

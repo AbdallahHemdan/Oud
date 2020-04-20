@@ -1,0 +1,33 @@
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.main-content {
+  margin-left: 16em;
+  margin-top: 5em;
+}
+.bg-dark {
+  background-color: #161618 !important;
+}
+
+.module {
+  margin-top: 10px;
+}
+.toto {
+  width: 100%;
+  font-size: 30px;
+}
+.sub-header {
+  display: flex;
+  font-size: 28px;
+  line-height: 1.6;
+  font-weight: 600;
+  letter-spacing: -0.36px;
+  color: #fff;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 70%;
+  flex: 1 0 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

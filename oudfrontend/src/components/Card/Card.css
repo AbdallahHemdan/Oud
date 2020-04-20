@@ -1,0 +1,153 @@
+.card {
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 0.75em;
+  padding: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 220px;
+  height: 180px;
+  margin: 15px;
+  position: relative;
+  min-width: 190px;
+  background: #191922;
+}
+.card:nth-child(even) {
+  margin: 0 1em;
+}
+
+.card-top {
+  background: #282828;
+  padding: 1em;
+  border-top-left-radius: 0.75em;
+  border-top-right-radius: 0.75em;
+  height: 130%;
+}
+.card-top .card-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 12em;
+  width: auto;
+}
+.card-top .overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 114%;
+  width: 100%;
+  border-top-left-radius: 0.75em;
+  border-top-right-radius: 0.75em;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  -webkit-transition: all 700ms ease;
+  transition: all 700ms ease;
+  opacity: 0;
+}
+.card-top .overlay h1 {
+  text-align: center;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.card-top .overlay:hover,
+.card-top .overlay:focus {
+  opacity: 1;
+}
+
+.triangle {
+  position: relative;
+  height: 0;
+  width: 0;
+  border-left: 1.5em solid transparent;
+  border-right: 1.5em solid transparent;
+  border-top: 1.5em solid transparent;
+  margin: 0 auto -1.75em auto;
+  top: -0.25em;
+  z-index: 20;
+}
+
+.card-middle {
+  display: none;
+  background: #efefef;
+  padding: 2em 1em 1em 1em;
+}
+.card-middle .more {
+  font-weight: 400;
+}
+
+.card-bottom {
+  background: #282828;
+  color: #ffffff;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  border-bottom-left-radius: 0.75em;
+  border-bottom-right-radius: 0.75em;
+}
+.card-bottom .card-title {
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.circle-button {
+  position: absolute;
+  bottom: 0;
+  bottom: 0.5em;
+  right: 2.5em;
+  width: 45px;
+  height: 45px;
+  font-size: 1.5em;
+  color: white;
+  background: #f9b835;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.275);
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+.circle-button .close {
+  -webkit-transition: -webkit-transform 400ms ease;
+  transition: -webkit-transform 400ms ease;
+  transition: transform 400ms ease;
+  transition: transform 400ms ease, -webkit-transform 400ms ease;
+}
+
+.closeRotate {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.text-center {
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.row {
+  margin-left: 2px;
+  margin-bottom: 80px;
+}
+
+.overlay-img {
+  margin-left: 30%;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}

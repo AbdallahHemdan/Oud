@@ -1,8 +1,7 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import { render } from '@testing-library/react';
 import * as renderer from 'react-test-renderer';
-import {shallow} from 'enzyme';
-import '../../../testSetup';
+import { shallow } from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
 import Navbar from './Navbar';
 const setUP = (props = {}) => {

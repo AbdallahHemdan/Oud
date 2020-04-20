@@ -1,0 +1,13 @@
+::-webkit-datetime-edit {
+  width: 100%;
+}
+::-webkit-inner-spin-button {
+  display: none;
+}
+
+::-webkit-calendar-picker-indicator {
+  width: 15px;
+}
+.EditProfileDropElement {
+  margin: 20px 0px 0;
+}

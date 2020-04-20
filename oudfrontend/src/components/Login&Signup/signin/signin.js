@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../signup/signup.css';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import axios from 'axios';
 import Validator from '../validate';
@@ -90,7 +90,7 @@ class SignIn extends Component {
     console.log(this.checkPassword ? true : false);
     if (this.validateAll()) {
       axios
-        .post('http://oud-zerobase.me/api/v1/users/login', toSent)
+        .post('https://oud-zerobase.me/api/v1/users/login', toSent)
         .then((response) => {
           if (response.status === 200) {
             const authToken = response.data.token;
@@ -98,12 +98,12 @@ class SignIn extends Component {
             console.log('local', localStorage.getItem('accessToken'));
             console.log('token', authToken);
             console.log(response);
-            // window.location = '/home';
+            window.location = '/';
           } else console.log(response);
         })
         .catch((error) => {
           errorMassage = error.response.data.message;
-          console.log('eroror', error.response.data.message);
+          console.log('error', error.response.data.message);
           this.setState((prevState) => {
             prevState.formErrors.mainError = errorMassage;
             return prevState;
@@ -204,7 +204,7 @@ class SignIn extends Component {
                     data-testid="Forgetpass"
                     onClick={this.handelSubmit}
                   >
-                    <Link className="forget" to="/ForgotPassword">
+                    <Link className="forget" to="/forgot-password">
                       Forgot your password?
                     </Link>
                   </button>
