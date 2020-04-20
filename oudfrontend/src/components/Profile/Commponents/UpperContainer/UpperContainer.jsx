@@ -15,12 +15,12 @@ const config = {
 //     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzM5NDY5MSwiZXhwIjoxNTg5OTg2NjkxfQ.fx8JNCDppFuzlWVzWYap1bKxoFRDenQxCPhOYYWaOS4`
 //   }
 // };
-const config2 = {
-  headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`,
-    "content-type": "multipart/form-data"
-  }
-};
+// const config2 = {
+//   headers: {
+//     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`,
+//     "content-type": "multipart/form-data"
+//   }
+// };
 
 /**
  * @type {Function}
@@ -103,15 +103,7 @@ class UpperContainer extends Component {
 
       console.log(fd.get("images"));
 
-      axios //({
-        //   url: `https://oud-zerobase.me/api/v1/me/profilePicture`,
-        //   method: "patch",
-
-        //   headers: {
-        //     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzM5NDY5MSwiZXhwIjoxNTg5OTg2NjkxfQ.fx8JNCDppFuzlWVzWYap1bKxoFRDenQxCPhOYYWaOS4`
-        //   },
-        //   data: fd
-        // })
+      axios
         .patch("https://oud-zerobase.me/api/v1/me/profilePicture", fd, config)
         .then(response => {
           console.log(response);
