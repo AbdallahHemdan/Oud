@@ -47,6 +47,7 @@ class Popular extends Component {
         </div>
         {this.state.displayAdd && (
           <AddToPlaylist
+            data-test="artist-top-tracks"
             display={this.state.displayAdd}
             close={this.closeAddToPlaylist}
           />

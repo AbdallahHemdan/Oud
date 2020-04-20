@@ -84,7 +84,7 @@ class Albums extends Component {
   };
   render() {
     return (
-      <div className="artis-overview">
+      <div className="artis-overview" data-test="test-artist-albums">
         <div className="overview-title">
           <h5 data-test="title" style={{ width: "50%" }}>
             {this.props.type === 0

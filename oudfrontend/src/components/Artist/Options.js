@@ -33,18 +33,27 @@ class Options extends Component {
             <img src={ellipsis} alt="Show Options" className="ellipsis-img" />
           </button>
         </div>
-        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div
+          className="dropdown-menu"
+          aria-labelledby="dropdownMenuButton"
+          data-test="test-start-radio"
+        >
           <a className="dropdown-item" href="/">
             Start Radio
           </a>
           <div
+            data-test="test-follow"
             className="dropdown-item"
             onClick={this.props.handleFollowClick}
             role="button"
           >
             {this.props.followStatus ? "UNFOLLOW" : "FOLLOW"}
           </div>
-          <div className="dropdown-item" onClick={this.copyLink}>
+          <div
+            className="dropdown-item"
+            onClick={this.copyLink}
+            data-test="test-copy-artist-link"
+          >
             Copy Artist Link
           </div>
         </div>

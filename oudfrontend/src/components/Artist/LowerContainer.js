@@ -19,22 +19,46 @@ function LowerContainer(props) {
         {[`/artist/:artistId`, `/artist/:artistId/overview`].map(
           (path, index) => (
             <Route
-              data-test="popular-artist-lower"
+              data-test="test-artist-lower"
               exact
               path={path}
               key={index}
               render={(prop) => (
                 <Fragment>
-                  <Popular {...prop} artistId={props.artistId} />
-                  <Albums {...prop} artistId={props.artistId} type={0} />
+                  <Popular
+                    {...prop}
+                    artistId={props.artistId}
+                    data-test="test-artist-lower"
+                  />
+                  <Albums
+                    {...prop}
+                    artistId={props.artistId}
+                    type={0}
+                    data-test="test-artist-albums"
+                  />
                   <div className="artist-singles">
-                    <Albums {...prop} artistId={props.artistId} type={1} />
+                    <Albums
+                      {...prop}
+                      artistId={props.artistId}
+                      type={1}
+                      data-test="test-artist-singles"
+                    />
                   </div>
                   <div className="artist-compilation">
-                    <Albums {...prop} artistId={props.artistId} type={2} />
+                    <Albums
+                      {...prop}
+                      artistId={props.artistId}
+                      type={2}
+                      data-test="test-artist-compilations"
+                    />
                   </div>
                   <div className="artist-appears-on">
-                    <Albums {...prop} artistId={props.artistId} type={3} />
+                    <Albums
+                      {...prop}
+                      artistId={props.artistId}
+                      type={3}
+                      data-test="test-artist-appears-on"
+                    />
                   </div>
                 </Fragment>
               )}
