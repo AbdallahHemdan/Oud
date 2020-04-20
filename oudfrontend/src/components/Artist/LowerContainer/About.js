@@ -11,9 +11,9 @@ import PropTypes from "prop-types";
  */
 function About(props) {
   return (
-    <div data-test="about-artist">
+    <div data-testid="about-artist">
       <div className="about-artist-title">
-        <h5 data-test="title" style={{ width: "50%" }}>
+        <h5 data-testid="title" style={{ width: "50%" }}>
           Biography
         </h5>
         <p className="artist-bio">{props.bio}</p>

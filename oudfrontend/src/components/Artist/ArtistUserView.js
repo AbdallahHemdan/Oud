@@ -4,6 +4,7 @@ import LowerContainer from "./LowerContainer/LowerContainer";
 import { base } from "../../config/environment";
 import { getRequest, deleteRequest, putRequest } from "../../utils/requester";
 import PropTypes from "prop-types";
+import axios from "axios";
 /**
  * A class component to control rendering the upper and lower parts of the artist page.
  * @author Ahmed Ashraf
@@ -22,7 +23,7 @@ class ArtistUserView extends Component {
       img: "",
       photo: "",
       signInId: "",
-      followStatus: "",
+      followStatus: false,
       bio: "",
     };
   }
@@ -115,9 +116,9 @@ class ArtistUserView extends Component {
   };
   render() {
     return (
-      <div className="profile-user" data-test="Artist">
+      <div className="profile-user" data-testid="artist-user-view">
         <UpperContainer
-          data-test="artist-upper-container"
+          data-testid="artist-upper-container"
           artistId={this.props.artistId}
           handleFollowClick={this.handleFollowClick}
           followStatus={this.state.followStatus}
@@ -125,7 +126,7 @@ class ArtistUserView extends Component {
           cover={this.state.img}
         />
         <LowerContainer
-          data-test="artist-lower-container"
+          data-testid="artist-lower-container"
           artistId={this.props.artistId}
           bio={this.state.bio}
         />

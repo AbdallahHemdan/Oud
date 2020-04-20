@@ -65,13 +65,13 @@ class Popular extends Component {
     return (
       <div className="artis-overview">
         <div className="overview-title">
-          <h5 data-test="title" style={{ width: "50%" }}>
+          <h5 data-testid="title" style={{ width: "50%" }}>
             Popular
           </h5>
         </div>
         {this.state.displayAdd && (
           <AddToPlaylist
-            data-test="artist-top-tracks"
+            data-testid="artist-top-tracks"
             display={this.state.displayAdd}
             close={this.closeAddToPlaylist}
           />

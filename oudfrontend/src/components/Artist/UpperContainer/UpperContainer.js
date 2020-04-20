@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Router, Link } from "react-router-dom";
 import "../../Profile/Commponents/UpperContainer/UpperContainer.css";
 import Options from "./Options";
 import PropTypes from "prop-types";
+import { createBrowserHistory } from "history";
+
+const newHistory = createBrowserHistory();
+
 /**
  * A class component to control rendering the bottom parts; Albums, Singles, Compilations, and Appears On
  * @author Ahmed Ashraf
@@ -84,7 +88,7 @@ class UpperContainer extends Component {
       <div className="artist-user">
         <div
           className={this.state.scrolled ? "upperNav" : "upperContainerProfile"}
-          data-test="UpperContainer"
+          data-testid="UpperContainer"
           style={
             this.state.scrolled
               ? { backgroundColor: "#000000" }
@@ -93,7 +97,7 @@ class UpperContainer extends Component {
                 }
           }
         >
-          <div className="avatarContainer" data-test="avatar">
+          <div className="avatarContainer" data-testid="avatar">
             {!this.state.scrolled && this.props.userId === this.state.signInId && (
               <p className="changeImage" onClick={this.upload}>
                 change
@@ -102,7 +106,7 @@ class UpperContainer extends Component {
           </div>
 
           <div
-            data-test="userName"
+            data-testid="userName"
             className={
               this.state.scrolled
                 ? "userName-profile-scrolled"
@@ -151,30 +155,32 @@ class UpperContainer extends Component {
           ) : null}
 
           <div
-            data-test="profile-links"
+            data-testid="profile-links"
             className="profile-links"
             style={
               this.state.scrolled ? { marginTop: "0", marginLeft: "30px" } : {}
             }
           >
-            <Link
-              id="overview-upperContainer"
-              to={`/artist/${this.props.artistId}/overview`}
-            >
-              Overview
-            </Link>
-            <Link
-              id="publicPlaylists-upperContainer"
-              to={`/artist/${this.props.artistId}/related`}
-            >
-              Related Artists
-            </Link>
-            <Link
-              id="following-upperContainer"
-              to={`/artist/${this.props.artistId}/about`}
-            >
-              About
-            </Link>
+            <Router history={newHistory}>
+              <Link
+                id="overview-upperContainer"
+                to={`/artist/${this.props.artistId}/overview`}
+              >
+                Overview
+              </Link>
+              <Link
+                id="publicPlaylists-upperContainer"
+                to={`/artist/${this.props.artistId}/related`}
+              >
+                Related Artists
+              </Link>
+              <Link
+                id="following-upperContainer"
+                to={`/artist/${this.props.artistId}/about`}
+              >
+                About
+              </Link>
+            </Router>
           </div>
         </div>
         {this.state.scrolled && <div style={{ height: "250px" }}></div>}
@@ -187,10 +193,6 @@ UpperContainer.propTypes = {
    * The unique idetifier of the author
    */
   artistId: PropTypes.string.isRequired,
-  /**
-   * The unique idetifier of the user
-   */
-  userId: PropTypes.string.isRequired,
   /**
    * User's unique username
    */

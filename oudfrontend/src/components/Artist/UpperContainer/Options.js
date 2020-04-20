@@ -51,13 +51,13 @@ class Options extends Component {
         <div
           className="dropdown-menu"
           aria-labelledby="dropdownMenuButton"
-          data-test="test-start-radio"
+          data-testid="test-start-radio"
         >
           <a className="dropdown-item" href="/">
             Start Radio
           </a>
           <div
-            data-test="test-follow"
+            data-testid="test-follow"
             className="dropdown-item"
             onClick={this.props.handleFollowClick}
             role="button"
@@ -67,7 +67,7 @@ class Options extends Component {
           <div
             className="dropdown-item"
             onClick={this.copyLink}
-            data-test="test-copy-artist-link"
+            data-testid="test-copy-artist-link"
           >
             Copy Artist Link
           </div>
