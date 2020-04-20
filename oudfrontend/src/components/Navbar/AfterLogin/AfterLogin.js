@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import { base, subUrl, prodUrl } from "./../../../config/environment"
 
 export class AfterLogin extends Component {
+    handleLogOut = (e) => {
+        localStorage.removeItem("accessToken");
+    }
     render() {
         const userInformation = (this.props.userInfo) ? (this.props.userInfo) : null;
         const subPath = (base === prodUrl) ? subUrl : "";
@@ -62,9 +65,12 @@ export class AfterLogin extends Component {
                         >Account</Link>
                         <Link
                             className="dropdown-item element"
-                            to="logout"
+                            onClick={this.handleLogOut}
+                            to="/welcome-guest"
                             data-testid="logout-dropdown-element"
-                        >Log out</Link>
+                        >
+                            Log out
+                        </Link>
                     </div>
                 </div>
                 <a href={`/profile/${userId}`}>
