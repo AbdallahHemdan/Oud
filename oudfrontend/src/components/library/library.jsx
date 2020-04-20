@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
-import {Link , Switch , Route} from 'react-router-dom'
+import {Link , Switch , Route ,withRouter} from 'react-router-dom'
 import './library.css'
 import PropTypes from 'prop-types';
 import Albums from './components/albums/albums';
@@ -13,10 +13,12 @@ import { Auth } from '../../utils/auth';
 class Library extends Component{
 constructor(){
     super();
-   /* if(Auth())
-        console.log("Authnticated")
+}
+componentDidMount(){
+    if(Auth())
+    this.props.history.replace('/collection/albums')
     else
-        window.location = '/login'*/
+    window.location = '/login'
 }
 render(){
     return(
@@ -40,4 +42,4 @@ render(){
 }
 }
 
-export default Library;
+export default withRouter(Library);

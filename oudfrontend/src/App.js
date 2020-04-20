@@ -9,6 +9,7 @@ import {
   Route,
   Switch,
   useParams,
+  Redirect
 } from "react-router-dom";
 
 import Search from "./pages/Search/Search";
@@ -36,6 +37,7 @@ function App() {
     
       <div className="App">
         <Switch>
+          
           <Route exact path="/">
             <Home />
           </Route>
