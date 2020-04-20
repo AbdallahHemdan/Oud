@@ -39,9 +39,7 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/library">
-            <Library/>
-          </Route>
+          <Route path='/collection' component={Library} />
           <Route exact path="/search">
             <Search />
           </Route>
