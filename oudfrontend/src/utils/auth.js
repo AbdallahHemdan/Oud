@@ -1,4 +1,4 @@
-const jwtDecode = require('jwt-decode');
+import jwtDecode from 'jwt-decode';
 
 function getToken() {
   return localStorage.getItem('accessToken');
@@ -21,7 +21,10 @@ function isLoggedIn() {
   return (getToken()) ? true : false;
 }
 
-exports.config = config;
-exports.token = getToken();
-exports.Auth = Auth;
-exports.isLoggedIn = isLoggedIn;
+const _config = config;
+export { _config as config };
+export const token = getToken();
+const _Auth = Auth;
+export { _Auth as Auth };
+const _isLoggedIn = isLoggedIn;
+export { _isLoggedIn as isLoggedIn };
