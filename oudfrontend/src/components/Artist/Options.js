@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ellipsis from "../../assets/images/icons/ellipsis.png";
 import Swal from "sweetalert2";
-import { base } from "./../../config/environment";
+const base = "http://localhost:3000";
 class Options extends Component {
   constructor(props) {
     super(props);
