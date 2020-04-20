@@ -42,15 +42,6 @@ describe('Music Card Component', () => {
         expect(wrapper.length).toBe(1);
     });
 
-    it('Should render play btn container in right way', () => {
-        const wrapper = findByTestAttr(component, "play-btn");
-        expect(wrapper.length).toBe(1);
-    });
-
-    it('Should render play-circle icon in right way', () => {
-        const wrapper = findByTestAttr(component, "play-circle");
-        expect(wrapper.length).toBe(1);
-    });
 
     it('Should render playlist image in right way', () => {
         const wrapper = findByTestAttr(component, "playlist-image");
