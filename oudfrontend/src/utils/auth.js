@@ -5,7 +5,7 @@ function getToken() {
 }
 
 const config = {
-  headers: {Authorization: `Bearer ${getToken()}`},
+  headers: { Authorization: `Bearer ${getToken()}` },
 };
 
 function Auth() {
@@ -17,6 +17,11 @@ function Auth() {
     return null;
   }
 }
+function isLoggedIn() {
+  return (getToken()) ? true : false;
+}
+
 exports.config = config;
 exports.token = getToken();
 exports.Auth = Auth;
+exports.isLoggedIn = isLoggedIn;
