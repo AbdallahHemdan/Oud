@@ -35,7 +35,6 @@ class Following extends Component {
         this.setState({
           items: response.data.items
         });
-        console.log(response);
       })
       .catch(error => {
         console.log(error.response);

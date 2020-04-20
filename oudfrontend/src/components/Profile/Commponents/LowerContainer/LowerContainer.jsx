@@ -12,16 +12,6 @@ import "./LowerContainer.css";
  * @type {Function}
  * @returns {JSX} this the default page for current user "/profile/{userId}"  (❁´◡`❁)
  */
-
-function defaultProfile() {
-  return (
-    <div className="defaultProfile">
-      {" "}
-      <img className="defaultProfileImage" src={Oud} alt="Oud-logo"></img>
-    </div>
-  );
-}
-
 /**
  * @type {Function}
  * @returns {JSX} this returns one of the following
@@ -43,14 +33,12 @@ function LowerContainer(props) {
           path={`/profile/:userId/overview`}
           render={prop => <Overview {...prop} userId={props.userId} />}
         />
-
         <Route
           data-test="profilePublicPlaylists"
           exact
           path={`/profile/:userId/publicPlaylists`}
           render={prop => <PublicPlaylists {...prop} userId={props.userId} />}
         />
-
         <Route
           data-test="following"
           exact
@@ -68,7 +56,7 @@ function LowerContainer(props) {
           data-test="defualt-profile-page"
           exact
           path={`/profile/:userId`}
-          component={defaultProfile}
+          component={Overview}
         />
       </Switch>
     </div>

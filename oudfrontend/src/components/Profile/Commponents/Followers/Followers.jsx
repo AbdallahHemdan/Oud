@@ -34,7 +34,6 @@ class Followers extends Component {
         this.setState({
           items: response.data.items
         });
-        console.log(response);
       })
       .catch(error => {
         console.log(error.response);
@@ -51,7 +50,6 @@ class Followers extends Component {
 
   render() {
     let count = 0; //just for mapping
-    console.log(this.state);
     return (
       <div data-test="Followers">
         {this.state.items.map(item => (

@@ -1,18 +1,24 @@
 import React, { Component } from "react";
 import axios from "axios";
-import userPlaceHolder from "../../../../assets/images/user.png";
+import userPlaceHolder from "../../../../assets/images/default-Profile.svg";
 import { Link } from "react-router-dom";
 
 import "./UpperContainer.css";
 
-// const config = {
-//   headers: {
-//     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
-//   }
-// };
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNTU4MTYwNzYxNyIsImlhdCI6MTU4NzMxOTY1MCwiZXhwIjoxNTg5OTExNjUwfQ.9LFFIMgDbRk7Cqaht8q8V_a7eAeyryfxg91fYcv6_iw`
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
+  }
+};
+// const config = {
+//   headers: {
+//     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzM5NDY5MSwiZXhwIjoxNTg5OTg2NjkxfQ.fx8JNCDppFuzlWVzWYap1bKxoFRDenQxCPhOYYWaOS4`
+//   }
+// };
+const config2 = {
+  headers: {
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`,
+    "content-type": "multipart/form-data"
   }
 };
 
@@ -31,7 +37,7 @@ class UpperContainer extends Component {
 
       photo: "",
       signInId: "",
-      followStatus: "",
+      followStatus: false,
       mouseOn: "",
       scrolled: false
     };
@@ -49,29 +55,36 @@ class UpperContainer extends Component {
      3) then change the state
     */
     let ids = this.props.id;
-    //you should use the type and ids as query params in the real API as here
-    // you can't make it just get the data 😎😎
     if (this.state.followStatus) {
-      /*this shouild be in route me/following/ids=*,*,*,*&type=user/artist*/
       axios
-        .delete("http://localhost:2022/myFollowing/" + this.props.id)
+        .delete(
+          "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
+            this.props.userId,
+          config
+        )
         .then(response => {
           console.log(response);
+          this.setState({ followStatus: !this.state.followStatus });
         })
-        .catch(error => console.log(error));
+        .catch(error => console.log(error.response));
     } else {
       axios
-        .put("http://localhost:2022/me/following", {
-          ids: [ids]
-        })
+        .put(
+          "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
+            this.props.userId,
+          {
+            ids: [this.props.userId]
+          },
+          config
+        )
         .then(response => {
           console.log(response);
+          this.setState({ followStatus: !this.state.followStatus });
         })
         .catch(error => {
-          console.log(error);
+          console.log(error.response);
         });
     }
-    this.setState({ followStatus: !this.state.followStatus });
   }
   handleMouseOver(event) {
     this.setState({ mouseOn: true });
@@ -85,19 +98,23 @@ class UpperContainer extends Component {
   }
   changeProfileImage(event) {
     const fd = new FormData();
-    //if (event.target.files[0])
-    {
-      fd.append("image", event.target.files[0], event.target.files[0].name);
-      console.log(fd);
+    if (event.target.files[0]) {
+      fd.append("images", event.target.files[0], event.target.files[0].name);
 
-      axios
-        .patch(
-          "https://oud-zerobase.me/api/v1/me/profilePicture",
-          { images: [fd] },
-          config
-        )
-        .then(respons => {
-          console.log(respons);
+      console.log(fd.get("images"));
+
+      axios //({
+        //   url: `https://oud-zerobase.me/api/v1/me/profilePicture`,
+        //   method: "patch",
+
+        //   headers: {
+        //     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzM5NDY5MSwiZXhwIjoxNTg5OTg2NjkxfQ.fx8JNCDppFuzlWVzWYap1bKxoFRDenQxCPhOYYWaOS4`
+        //   },
+        //   data: fd
+        // })
+        .patch("https://oud-zerobase.me/api/v1/me/profilePicture", fd, config)
+        .then(response => {
+          console.log(response);
         })
         .catch(error => {
           console.log(error.response);
@@ -108,21 +125,24 @@ class UpperContainer extends Component {
     axios
       .get("https://oud-zerobase.me/api/v1/users/" + this.props.userId, config)
       .then(response => {
-        console.log(response);
         this.setState({
           id: response.data._id,
           username: response.data.displayName,
           photo: response.data.images[0]
         });
-        let ids = this.props.id;
+
         //you should use the type and ids as query prams in the real API as here you can't make it just get the data
         axios
-          .get("http://localhost:2022/me/following/containes")
+          .get(
+            "https://oud-zerobase.me/api/v1/me/following/contains?type=user&ids=" +
+              this.props.userId,
+            config
+          )
           .then(response => {
-            this.setState({ followStatus: response.data.ids[0] });
+            this.setState({ followStatus: response.data[0] });
           })
           .catch(error => {
-            console.log(error);
+            console.log(error.response);
           });
       })
       .catch(error => {
@@ -167,7 +187,6 @@ class UpperContainer extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <div
