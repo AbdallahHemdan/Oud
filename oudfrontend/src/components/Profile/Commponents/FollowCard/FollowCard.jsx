@@ -2,14 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userPlaceHolder from "../../../../assets/images/default-Profile.svg";
 import axios from "axios";
-
+import { config } from "./../../../../utils/auth"
 import "./FollowCard.css";
 
-const config = {
-  headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
-  }
-};
+
 /**
  * @type {Class}
  *
@@ -77,7 +73,7 @@ class FollowCard extends Component {
       axios
         .delete(
           "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
-            this.props.id,
+          this.props.id,
           config
         )
         .then(response => {
@@ -88,7 +84,7 @@ class FollowCard extends Component {
       axios
         .put(
           "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
-            this.props.id,
+          this.props.id,
           {
             ids: [this.props.userId]
           },
@@ -156,11 +152,11 @@ class FollowCard extends Component {
               this.state.mouseOn ? (
                 <>UNFOLLOW</>
               ) : (
-                <> FOLLOWING </>
-              )
+                  <> FOLLOWING </>
+                )
             ) : (
-              <> FOLLOW</>
-            )}
+                <> FOLLOW</>
+              )}
           </button>
         ) : null}
       </div>

@@ -3,16 +3,9 @@ import UserExperienceForm from "../UserExperinceForm/UserExperinceForm";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./AccountOverview.css";
+import { config } from "./../../../../utils/auth"
 
-//TODO
-/**
- * this should be changed to be exported from the enterface when Auth module merged
- */
-const config = {
-  headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
-  }
-};
+
 /**
  * @param {string} email
  * @param {Date} birthDate

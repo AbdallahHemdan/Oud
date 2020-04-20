@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import { config } from "./../../../../utils/auth"
 import "./PublicPlaylists.css";
 
-const config = {
-  headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
-  }
-};
+
 
 function DummyPlayListCard(props) {
   return (
@@ -38,8 +34,8 @@ class PublicPlaylists extends Component {
     axios
       .get(
         "https://oud-zerobase.me/api/v1/users/" +
-          this.props.userId +
-          "/playlists",
+        this.props.userId +
+        "/playlists",
         config
       )
       .then(response => {

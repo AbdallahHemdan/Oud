@@ -2,25 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import userPlaceHolder from "../../../../assets/images/default-Profile.svg";
 import { Link } from "react-router-dom";
-
+import { config } from "./../../../../utils/auth"
 import "./UpperContainer.css";
 
-const config = {
-  headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
-  }
-};
-// const config = {
-//   headers: {
-//     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzM5NDY5MSwiZXhwIjoxNTg5OTg2NjkxfQ.fx8JNCDppFuzlWVzWYap1bKxoFRDenQxCPhOYYWaOS4`
-//   }
-// };
-// const config2 = {
-//   headers: {
-//     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`,
-//     "content-type": "multipart/form-data"
-//   }
-// };
+
 
 /**
  * @type {Function}
@@ -34,7 +19,6 @@ class UpperContainer extends Component {
 
     this.state = {
       id: "",
-
       photo: "",
       signInId: "",
       followStatus: false,
@@ -59,7 +43,7 @@ class UpperContainer extends Component {
       axios
         .delete(
           "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
-            this.props.userId,
+          this.props.userId,
           config
         )
         .then(response => {
@@ -71,7 +55,7 @@ class UpperContainer extends Component {
       axios
         .put(
           "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
-            this.props.userId,
+          this.props.userId,
           {
             ids: [this.props.userId]
           },
@@ -127,7 +111,7 @@ class UpperContainer extends Component {
         axios
           .get(
             "https://oud-zerobase.me/api/v1/me/following/contains?type=user&ids=" +
-              this.props.userId,
+            this.props.userId,
             config
           )
           .then(response => {
@@ -201,8 +185,8 @@ class UpperContainer extends Component {
                   ? "userImg-profile-scrolled"
                   : this.props.userId === this.state.signInId &&
                     !this.state.scrolled
-                  ? "userImg-profile-signedIn"
-                  : "userImg-profile"
+                    ? "userImg-profile-signedIn"
+                    : "userImg-profile"
               }
               src={
                 this.state.photo
@@ -235,30 +219,30 @@ class UpperContainer extends Component {
           </div>
 
           {this.props.userId !== this.state.signInId &&
-          this.state.signInId !== "" &&
-          !this.state.scrolled ? (
-            <button
-              id="follow-button-upperContainer"
-              className={
-                this.state.followStatus
-                  ? "btn btn-outline-warning upperContainerFollowingButton"
-                  : "btn btn-outline-light upperContainerFollowButton"
-              }
-              onClick={this.handleClick}
-              onMouseOver={this.handleMouseOver}
-              onMouseOut={this.handleMouseOut}
-            >
-              {this.state.followStatus ? (
-                this.state.mouseOn ? (
-                  <>UNFOLLOW</>
+            this.state.signInId !== "" &&
+            !this.state.scrolled ? (
+              <button
+                id="follow-button-upperContainer"
+                className={
+                  this.state.followStatus
+                    ? "btn btn-outline-warning upperContainerFollowingButton"
+                    : "btn btn-outline-light upperContainerFollowButton"
+                }
+                onClick={this.handleClick}
+                onMouseOver={this.handleMouseOver}
+                onMouseOut={this.handleMouseOut}
+              >
+                {this.state.followStatus ? (
+                  this.state.mouseOn ? (
+                    <>UNFOLLOW</>
+                  ) : (
+                      <> FOLLOWING </>
+                    )
                 ) : (
-                  <> FOLLOWING </>
-                )
-              ) : (
-                <> FOLLOW</>
-              )}
-            </button>
-          ) : null}
+                    <> FOLLOW</>
+                  )}
+              </button>
+            ) : null}
 
           <div
             data-test="profile-links"

@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import FollowCard from "./../FollowCard/FollowCard";
 import axios from "axios";
+import { config } from "./../../../../utils/auth"
 
-const config = {
-  headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
-  }
-};
 
 /**
  * @type {Class}
@@ -27,8 +23,8 @@ class Following extends Component {
     axios
       .get(
         "https://oud-zerobase.me/api/v1/users/" +
-          this.props.userId +
-          "/following?type=user",
+        this.props.userId +
+        "/following?type=user",
         config
       )
       .then(response => {

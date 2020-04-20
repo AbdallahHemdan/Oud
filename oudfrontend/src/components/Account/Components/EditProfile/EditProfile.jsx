@@ -3,18 +3,9 @@ import Country from "../../General/Country";
 import UserExperinceForm from "../UserExperinceForm/UserExperinceForm";
 import EditProfileTextElement from "../EditProfileTextElement/EditProfileTextElement";
 import axios from "axios";
-
+import { config } from "./../../../../utils/auth"
 import "./EditProfile.css";
 
-//TODO
-/**
- * this should be changed to be exported from the enterface when Auth module merged
- */
-const config = {
-  headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
-  }
-};
 
 /**
  * @type {object}

@@ -3,13 +3,9 @@ import SideBarElements from "../../General/SideBarElements";
 import userPlaceHolder from "../../../../assets/images/default-Profile.svg";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import { config } from "./../../../../utils/auth"
 import "./SideBar.css";
-const config = {
-  headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
-  }
-};
+
 /**
  * side bar Element
  * @type {Function}

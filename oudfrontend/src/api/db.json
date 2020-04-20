@@ -784,8 +784,7 @@
     "displayName": "Ahmed"
   },
   "updatePassword": {},
-  "followingMe": {
-  },
+  "followingMe": {},
   "myFollowing": [
     {
       "id": "3",
@@ -1456,7 +1455,7 @@
       },
       {
         "id": 4,
-        "name": "Anacic Music",
+        "name": "Lolly Music",
         "icon": "https://media.altphotos.com/cache/images/2017/02/03/16/752/woman-play-violin.jpg"
       },
       {
@@ -4047,10 +4046,6 @@
     "limit": 0,
     "offset": 0,
     "total": 0
-  },
-  "likedkfjnc249": {},
-  "checkkfjnc245": {
-    "IsFound": [true]
   },
   "checkkfjnc246": {
     "IsFound": [false]
