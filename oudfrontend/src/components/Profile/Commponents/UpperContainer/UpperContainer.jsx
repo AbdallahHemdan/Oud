@@ -47,7 +47,6 @@ class UpperContainer extends Component {
           config
         )
         .then(response => {
-          console.log(response);
           this.setState({ followStatus: !this.state.followStatus });
         })
         .catch(error => console.log(error.response));
@@ -84,8 +83,6 @@ class UpperContainer extends Component {
     const fd = new FormData();
     if (event.target.files[0]) {
       fd.append("images", event.target.files[0], event.target.files[0].name);
-
-      console.log(fd.get("images"));
 
       axios
         .patch("https://oud-zerobase.me/api/v1/me/profilePicture", fd, config)

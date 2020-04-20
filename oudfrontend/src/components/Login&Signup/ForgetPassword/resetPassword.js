@@ -194,7 +194,6 @@ class ResetPassword extends Component {
           if (response.status === 200) {
             const authToken = response.data.token;
             localStorage.setItem('accessToken', authToken);
-            console.log('token', authToken);
             console.log(response);
             window.location = '/log-in';
           }

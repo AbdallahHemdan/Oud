@@ -123,7 +123,6 @@ class EditProfile extends Component {
     axios
       .get("https://oud-zerobase.me/api/v1/me", config)
       .then(response => {
-        console.log(response.data.birthDate.substr(0, 10));
         ProfileInfo.displayName = response.data.displayName;
         ProfileInfo.email = response.data.email;
         ProfileInfo.gender = response.data.gender;
@@ -236,7 +235,6 @@ class EditProfile extends Component {
           config
         )
         .then(response => {
-          console.log(response);
           this.setState({
             formNotValid: "",
             formSaved: "Profile saved successfully"

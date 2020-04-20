@@ -112,7 +112,6 @@ class Home extends Component {
    * @returns {JSX} Component for App
    */
   render() {
-    console.log("Home state", this.state);
     return (
       <div>
         <Sidebar />

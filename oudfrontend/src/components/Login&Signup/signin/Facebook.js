@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import '../signup/signup.css';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 /**Facebook class creation */
 class Facebook extends Component {
   /**
@@ -20,7 +20,6 @@ class Facebook extends Component {
    * @returns {void}
    */
   responseFacebook = (response) => {
-    console.log(response);
     this.setState({
       islogin: true,
       tokenid: response.accessToken,
@@ -57,7 +56,7 @@ class Facebook extends Component {
               login with facebook
             </button>
           )}
-          appId=""  
+          appId=""
           autoLoad={false}
           fields="name,email,picture"
           onClick={this.componentClicked}

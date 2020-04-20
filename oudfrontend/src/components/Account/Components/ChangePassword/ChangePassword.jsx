@@ -125,7 +125,6 @@ class ChangePassword extends Component {
           config
         )
         .then(response => {
-          console.log(response);
           this.setState({
             formNotValid: "",
             formSaved: "Password changed successfully"
@@ -204,7 +203,6 @@ class ChangePassword extends Component {
    * }
    */
   render() {
-    console.log(this.state.password.length);
     return (
       <div className="accountContainer" data-test="ChangePassword">
         <h2 className="settingTitle"> Change password </h2>

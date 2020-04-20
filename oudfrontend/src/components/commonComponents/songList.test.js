@@ -200,7 +200,6 @@ describe('SongList Component', () => {
         });
         it('should throw a warning', () => {
             const result = checkPropTypes(SongList.propTypes, props10, 'prop', SongList.name);
-            console.log(result);
             expect(result).toBeDefined();
         });
         it('should not throw a warning', () => {
@@ -209,7 +208,6 @@ describe('SongList Component', () => {
         });
         it('should throw a warning', () => {
             const result = checkPropTypes(SongList.propTypes, props00, 'prop', SongList.name);
-            console.log(result);
             expect(result).toBeDefined();
         });
     });
