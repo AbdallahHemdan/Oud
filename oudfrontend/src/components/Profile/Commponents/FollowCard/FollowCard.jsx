@@ -5,7 +5,6 @@ import axios from "axios";
 import { config } from "./../../../../utils/auth"
 import "./FollowCard.css";
 
-
 /**
  * @type {Class}
  *
@@ -40,7 +39,10 @@ class FollowCard extends Component {
         let ids = this.props.id;
         //you should use the type and ids as query prams in the real API as here you can't make it just get the data
         axios
-          .get("http://localhost:2022/me/following/containes")
+          .get(
+            "https://oud-zerobase.me/api/v1/me/following/contains?type=user&ids=" + this.props.id,
+            config
+          )
           .then(response => {
             this.setState({ followStatus: response.data.ids[0] });
           })
