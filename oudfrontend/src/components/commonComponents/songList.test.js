@@ -79,9 +79,6 @@ describe('SongList Component', () => {
         it("doesn't render songElement when recived = false", () => {
             const wrapper = findByTestAttr(component, 'songElement');
             expect(wrapper.length).toBe(0);
-        }); it('renders loading correctly when recived = false', () => {
-            const wrapper = findByTestAttr(component, 'loading');
-            expect(wrapper.length).toBe(1);
         });
     });
 
@@ -97,9 +94,6 @@ describe('SongList Component', () => {
         it("doesn't render songElement when without props", () => {
             const wrapper = findByTestAttr(component, 'songElement');
             expect(wrapper.length).toBe(0);
-        }); it('renders loading correctly when without props', () => {
-            const wrapper = findByTestAttr(component, 'loading');
-            expect(wrapper.length).toBe(1);
         });
     });
 
