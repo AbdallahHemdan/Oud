@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import UpperContainer from "./UpperContainer";
-import LowerContainer from "./LowerContainer";
+import UpperContainer from "./UpperContainer/UpperContainer";
+import LowerContainer from "./LowerContainer/LowerContainer";
 import { base } from "../../config/environment";
 import { getRequest, deleteRequest, putRequest } from "../../utils/requester";
 import PropTypes from "prop-types";

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import AddToPlaylist from "./../commonComponents/addToPlaylist/addToPlaylist";
-import SongList from "./../commonComponents/songList";
-import { getRequest } from "./../../utils/requester";
-import { base } from "./../../config/environment";
+import AddToPlaylist from "../../commonComponents/addToPlaylist/addToPlaylist";
+import SongList from "../../commonComponents/songList";
+import { getRequest } from "../../../utils/requester";
+import { base } from "../../../config/environment";
 import PropTypes from "prop-types";
 /**
  * A class component to render top popular tracks of the artist

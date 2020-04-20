@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ellipsis from "../../assets/images/icons/ellipsis.png";
+import ellipsis from "../../../assets/images/icons/ellipsis.png";
 import Swal from "sweetalert2";
 import PropTypes from "prop-types";
 const base = "http://localhost:3000";

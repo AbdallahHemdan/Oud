@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import MusicCard from "./../MusicCard/MusicCard";
-import { getRequest } from "./../../utils/requester";
-import { base } from "./../../config/environment";
+import MusicCard from "../../MusicCard/MusicCard";
+import { getRequest } from "../../../utils/requester";
+import { base } from "../../../config/environment";
 import PropTypes from "prop-types";
 /**
  * A class component to render the related artists

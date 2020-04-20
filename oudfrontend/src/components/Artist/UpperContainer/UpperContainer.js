@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "../Profile/Commponents/UpperContainer/UpperContainer.css";
+import "../../Profile/Commponents/UpperContainer/UpperContainer.css";
 import Options from "./Options";
 import PropTypes from "prop-types";
 /**
