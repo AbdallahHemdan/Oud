@@ -1,6 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
+/**
+ * A functional component to render the author biography
+ * @author Ahmed Ashraf
+ * @component
+ * @example
+ * return (
+ *  <About bio={"this is a bio example."}/>
+ * )
+ */
 function About(props) {
   return (
     <div data-test="about-artist">
@@ -13,4 +21,10 @@ function About(props) {
     </div>
   );
 }
+About.propTypes = {
+  /**
+   * The author biography
+   */
+  bio: PropTypes.string.isRequired,
+};
 export default About;

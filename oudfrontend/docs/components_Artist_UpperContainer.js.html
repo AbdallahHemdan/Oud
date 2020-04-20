@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Artist/UpperContainer.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Artist/UpperContainer.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "../Profile/Commponents/UpperContainer/UpperContainer.css";
+import Options from "./Options";
+import PropTypes from "prop-types";
+/**
+ * A class component to control rendering the bottom parts; Albums, Singles, Compilations, and Appears On
+ * @author Ahmed Ashraf
+ * @component
+ * @example
+ * return (
+ *  &lt;UpperContainer artistId={"1"} userId={"1"} handleFollowClick={()=>{}} cover={""} username={"aashrafh"} followStatus={true}/>
+ * )
+ */
+class UpperContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: "",
+      img: "",
+      photo: "",
+      signInId: "",
+      mouseOn: "",
+      scrolled: false,
+      openDrop: false,
+    };
+    this.upload = this.upload.bind(this);
+  }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.tracks !== prevState.tracks) {
+      return {
+        id: nextProps.id,
+        username: nextProps.displayName,
+        signInId: nextProps.id,
+      };
+    }
+    return null;
+  }
+  componentDidMount() {
+    window.addEventListener("scroll", () => {
+      const isTop = window.scrollY &lt; 80;
+
+      if (isTop !== true) {
+        this.setState({ scrolled: true });
+      } else this.setState({ scrolled: false });
+    });
+  }
+  /**
+   * A function to call handleFollowClick() function which handles the follow click on the whole artist page
+   * @function
+   * @returns {void}
+   */
+  handleFollowClick = (event) => {
+    this.props.handleFollowClick(event);
+  };
+  /**
+   * A function to change the mouse over on
+   * @function
+   * @returns {void}
+   */
+  handleMouseOver = (event) => {
+    this.setState({ mouseOn: true });
+  };
+  /**
+   * A function to change the mouse over out
+   * @function
+   * @returns {void}
+   */
+  handleMouseOut = (event) => {
+    this.setState({ mouseOn: false });
+  };
+  /**
+   * A function to handle upload action
+   * @function
+   * @returns {void}
+   */
+  upload(event) {
+    if (this.props.userId === this.state.signInId)
+      document.getElementById("avatar").click();
+  }
+  // handlePlay = () => {};
+  render() {
+    return (
+      &lt;div className="artist-user">
+        &lt;div
+          className={this.state.scrolled ? "upperNav" : "upperContainerProfile"}
+          data-test="UpperContainer"
+          style={
+            this.state.scrolled
+              ? { backgroundColor: "#000000" }
+              : {
+                  backgroundImage: `url(${this.props.cover})`,
+                }
+          }
+        >
+          &lt;div className="avatarContainer" data-test="avatar">
+            {!this.state.scrolled &amp;&amp; this.props.userId === this.state.signInId &amp;&amp; (
+              &lt;p className="changeImage" onClick={this.upload}>
+                change
+              &lt;/p>
+            )}
+          &lt;/div>
+
+          &lt;div
+            data-test="userName"
+            className={
+              this.state.scrolled
+                ? "userName-profile-scrolled"
+                : "userName-profile"
+            }
+          >
+            &lt;h1>{this.props.username}&lt;/h1>
+          &lt;/div>
+
+          {!this.state.scrolled ? (
+            &lt;div>
+              &lt;button
+                data-testid="artist-follow-button"
+                className="btn btn-outline-warning play-artist"
+                onClick={this.handlePlay}
+              >
+                Play
+              &lt;/button>
+              &lt;button
+                id="artist-follow-button-upperContainer"
+                className={
+                  this.props.followStatus
+                    ? "btn btn-outline-warning upperContainerFollowingButton"
+                    : "btn btn-outline-light upperContainerFollowButton"
+                }
+                onClick={this.handleFollowClick}
+                onMouseOver={this.handleMouseOver}
+                onMouseOut={this.handleMouseOut}
+              >
+                {this.props.followStatus ? (
+                  this.state.mouseOn ? (
+                    &lt;>UNFOLLOW&lt;/>
+                  ) : (
+                    &lt;> FOLLOWING &lt;/>
+                  )
+                ) : (
+                  &lt;> FOLLOW&lt;/>
+                )}
+              &lt;/button>
+              &lt;Options
+                followStatus={this.props.followStatus}
+                artistId={this.props.artistId}
+                handleFollowClick={this.handleFollowClick}
+              />
+            &lt;/div>
+          ) : null}
+
+          &lt;div
+            data-test="profile-links"
+            className="profile-links"
+            style={
+              this.state.scrolled ? { marginTop: "0", marginLeft: "30px" } : {}
+            }
+          >
+            &lt;Link
+              id="overview-upperContainer"
+              to={`/artist/${this.props.artistId}/overview`}
+            >
+              Overview
+            &lt;/Link>
+            &lt;Link
+              id="publicPlaylists-upperContainer"
+              to={`/artist/${this.props.artistId}/related`}
+            >
+              Related Artists
+            &lt;/Link>
+            &lt;Link
+              id="following-upperContainer"
+              to={`/artist/${this.props.artistId}/about`}
+            >
+              About
+            &lt;/Link>
+          &lt;/div>
+        &lt;/div>
+        {this.state.scrolled &amp;&amp; &lt;div style={{ height: "250px" }}>&lt;/div>}
+      &lt;/div>
+    );
+  }
+}
+UpperContainer.propTypes = {
+  /**
+   * The unique idetifier of the author
+   */
+  artistId: PropTypes.string.isRequired,
+  /**
+   * The unique idetifier of the user
+   */
+  userId: PropTypes.string.isRequired,
+  /**
+   * User's unique username
+   */
+  username: PropTypes.string.isRequired,
+  /**
+   * Cover image of the artist page
+   */
+  cover: PropTypes.string.isRequired,
+  /**
+   * Follow status;
+   * true ==> the user follows the artist
+   * false ==> the user does not follow the artist
+   */
+  followStatus: PropTypes.bool.isRequired,
+  /**
+   * A function to handle the follow click on the whole artist page
+   */
+  handleFollowClick: PropTypes.func.isRequired,
+};
+export default UpperContainer;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="ActivityBar.html">ActivityBar</a></li><li><a href="Albums.html">Albums</a></li><li><a href="ArtistUserView.html">ArtistUserView</a></li><li><a href="GenreCard.html">GenreCard</a></li><li><a href="Home.html">Home</a></li><li><a href="LowerContainer.html">LowerContainer</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="MusicCard.html">MusicCard</a></li><li><a href="MusicItem.html">MusicItem</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="Options.html">Options</a></li><li><a href="Player.html">Player</a></li><li><a href="PlayingBarCenter.html">PlayingBarCenter</a></li><li><a href="PlayingBarLeft.html">PlayingBarLeft</a></li><li><a href="PlayingBarRight.html">PlayingBarRight</a></li><li><a href="Popular.html">Popular</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RelatedArtists.html">RelatedArtists</a></li><li><a href="Sidebar.html">Sidebar</a></li><li><a href="SortableTrackContainer.html">SortableTrackContainer</a></li><li><a href="Track.html">Track</a></li><li><a href="TrackContainer.html">TrackContainer</a></li><li><a href="UpperContainer.html">UpperContainer</a></li><li><a href="WebPlayer.html">WebPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addToQueue">addToQueue</a></li><li><a href="global.html#AfterLogin">AfterLogin</a></li><li><a href="global.html#BeforeLogin">BeforeLogin</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#deleteRequest">deleteRequest</a></li><li><a href="global.html#EditCountry">EditCountry</a></li><li><a href="global.html#EditGendr">EditGendr</a></li><li><a href="global.html#EditProfileTextElement">EditProfileTextElement</a></li><li><a href="global.html#FeedBack">FeedBack</a></li><li><a href="global.html#fetchCategoriesUrl">fetchCategoriesUrl</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#formValid">formValid</a></li><li><a href="global.html#HeaderBody">HeaderBody</a></li><li><a href="global.html#HeaderBodyBottom">HeaderBodyBottom</a></li><li><a href="global.html#HeaderBodyTop">HeaderBodyTop</a></li><li><a href="global.html#HelpUs">HelpUs</a></li><li><a href="global.html#HiddenSideBar">HiddenSideBar</a></li><li><a href="global.html#ImageContainer">ImageContainer</a></li><li><a href="global.html#MainContainer">MainContainer</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#PageContainer">PageContainer</a></li><li><a href="global.html#patchRequest">patchRequest</a></li><li><a href="global.html#pause">pause</a></li><li><a href="global.html#postRequest">postRequest</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#ProfileElement">ProfileElement</a></li><li><a href="global.html#putRequest">putRequest</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#resume">resume</a></li><li><a href="global.html#SideBarElement">SideBarElement</a></li><li><a href="global.html#SignOutEverywhere">SignOutEverywhere</a></li><li><a href="global.html#ThankYou">ThankYou</a></li><li><a href="global.html#YourPlan">YourPlan</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Apr 20 2020 22:26:13 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

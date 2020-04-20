@@ -4,6 +4,16 @@ import About from "./About";
 import Popular from "./Popular";
 import Albums from "./Albums";
 import RelatedArtists from "./RelatedArtists";
+import PropTypes from "prop-types";
+/**
+ * A function component to render the lower part of the artist page. Popular, Albums, Singles, Compilation, and Appears On
+ * @author Ahmed Ashraf
+ * @component
+ * @example
+ * return (
+ *  <LowerContainer artistId={"1"} bio={"artist bio example."}/>
+ * )
+ */
 function LowerContainer(props) {
   return (
     <div className="LowerContainer" data-test="LowerContainer">
@@ -78,4 +88,14 @@ function LowerContainer(props) {
     </div>
   );
 }
+LowerContainer.propTypes = {
+  /**
+   * The unique idetifier of the author
+   */
+  artistId: PropTypes.string.isRequired,
+  /**
+   * The author biography
+   */
+  bio: PropTypes.string.isRequired,
+};
 export default LowerContainer;

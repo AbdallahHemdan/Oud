@@ -2,6 +2,16 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../Profile/Commponents/UpperContainer/UpperContainer.css";
 import Options from "./Options";
+import PropTypes from "prop-types";
+/**
+ * A class component to control rendering the bottom parts; Albums, Singles, Compilations, and Appears On
+ * @author Ahmed Ashraf
+ * @component
+ * @example
+ * return (
+ *  <UpperContainer artistId={"1"} userId={"1"} handleFollowClick={()=>{}} cover={""} username={"aashrafh"} followStatus={true}/>
+ * )
+ */
 class UpperContainer extends Component {
   constructor(props) {
     super(props);
@@ -35,20 +45,40 @@ class UpperContainer extends Component {
       } else this.setState({ scrolled: false });
     });
   }
+  /**
+   * A function to call handleFollowClick() function which handles the follow click on the whole artist page
+   * @function
+   * @returns {void}
+   */
   handleFollowClick = (event) => {
     this.props.handleFollowClick(event);
   };
+  /**
+   * A function to change the mouse over on
+   * @function
+   * @returns {void}
+   */
   handleMouseOver = (event) => {
     this.setState({ mouseOn: true });
   };
+  /**
+   * A function to change the mouse over out
+   * @function
+   * @returns {void}
+   */
   handleMouseOut = (event) => {
     this.setState({ mouseOn: false });
   };
+  /**
+   * A function to handle upload action
+   * @function
+   * @returns {void}
+   */
   upload(event) {
     if (this.props.userId === this.state.signInId)
       document.getElementById("avatar").click();
   }
-  handlePlay = () => {};
+  // handlePlay = () => {};
   render() {
     return (
       <div className="artist-user">
@@ -152,4 +182,32 @@ class UpperContainer extends Component {
     );
   }
 }
+UpperContainer.propTypes = {
+  /**
+   * The unique idetifier of the author
+   */
+  artistId: PropTypes.string.isRequired,
+  /**
+   * The unique idetifier of the user
+   */
+  userId: PropTypes.string.isRequired,
+  /**
+   * User's unique username
+   */
+  username: PropTypes.string.isRequired,
+  /**
+   * Cover image of the artist page
+   */
+  cover: PropTypes.string.isRequired,
+  /**
+   * Follow status;
+   * true ==> the user follows the artist
+   * false ==> the user does not follow the artist
+   */
+  followStatus: PropTypes.bool.isRequired,
+  /**
+   * A function to handle the follow click on the whole artist page
+   */
+  handleFollowClick: PropTypes.func.isRequired,
+};
 export default UpperContainer;

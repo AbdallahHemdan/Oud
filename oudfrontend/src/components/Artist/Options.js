@@ -1,11 +1,26 @@
 import React, { Component } from "react";
 import ellipsis from "../../assets/images/icons/ellipsis.png";
 import Swal from "sweetalert2";
+import PropTypes from "prop-types";
 const base = "http://localhost:3000";
+/**
+ * A class component to control the dropdown of the option that a user can perform on the an artist page
+ * @author Ahmed Ashraf
+ * @component
+ * @example
+ * return (
+ *  <Options artistId={"1"} handleFollowClick={() => {}} followStatus={true}/>
+ * )
+ */
 class Options extends Component {
   constructor(props) {
     super(props);
   }
+  /**
+   * A function to handle the copy of the artist link action
+   * @func
+   * @returns {void}
+   */
   copyLink = () => {
     let link = `${base}/artist/${this.props.artistId}`;
     return navigator.clipboard.writeText(link).then(() => {
@@ -61,4 +76,20 @@ class Options extends Component {
     );
   }
 }
+Options.propTypes = {
+  /**
+   * The unique idetifier of the author
+   */
+  artistId: PropTypes.string.isRequired,
+  /**
+   * Follow status;
+   * true ==> the user follows the artist
+   * false ==> the user does not follow the artist
+   */
+  followStatus: PropTypes.bool.isRequired,
+  /**
+   * A function to handle the follow click on the whole artist page
+   */
+  handleFollowClick: PropTypes.func.isRequired,
+};
 export default Options;

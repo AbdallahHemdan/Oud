@@ -2,16 +2,20 @@ import React, { Component } from "react";
 import UpperContainer from "./UpperContainer";
 import LowerContainer from "./LowerContainer";
 import { base } from "../../config/environment";
-import {
-  getRequest,
-  deleteRequest,
-  putRequest,
-  patchRequest,
-} from "../../utils/requester";
+import { getRequest, deleteRequest, putRequest } from "../../utils/requester";
+import PropTypes from "prop-types";
+/**
+ * A class component to control rendering the upper and lower parts of the artist page.
+ * @author Ahmed Ashraf
+ * @component
+ * @example
+ * return (
+ *  <ArtistUserView artistId={"1"}/>
+ * )
+ */
 class ArtistUserView extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       username: "",
       id: "",
@@ -22,6 +26,11 @@ class ArtistUserView extends Component {
       bio: "",
     };
   }
+  /**
+   * After the component mount, fetch the needed artist data
+   * @func
+   * @returns {void}
+   */
   componentDidMount() {
     getRequest(`${base}/artists/${this.props.artistId}`)
       .then((response) => {
@@ -53,6 +62,11 @@ class ArtistUserView extends Component {
         console.log(error);
       });
   }
+  /**
+   * If the component updated, update the artist id and username
+   * @func
+   * @returns {void}
+   */
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.artistId !== this.props.artistId) {
       getRequest(`${base}/artists/${this.props.artistId}`)
@@ -67,6 +81,11 @@ class ArtistUserView extends Component {
         });
     }
   }
+  /**
+   * A function to handle the follow actions. It toggle the button and make a request to the server
+   * @func
+   * @returns {void}
+   */
   handleFollowClick = (event) => {
     /*
      1) make put request if it was false 
@@ -114,4 +133,10 @@ class ArtistUserView extends Component {
     );
   }
 }
+ArtistUserView.propTypes = {
+  /**
+   * The unique idetifier of the author
+   */
+  artistId: PropTypes.string.isRequired,
+};
 export default ArtistUserView;

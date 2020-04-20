@@ -2,6 +2,16 @@ import React, { Component } from "react";
 import MusicCard from "./../MusicCard/MusicCard";
 import { getRequest } from "./../../utils/requester";
 import { base } from "./../../config/environment";
+import PropTypes from "prop-types";
+/**
+ * A class component to render the related artists
+ * @author Ahmed Ashraf
+ * @component
+ * @example
+ * return (
+ *  <RelatedArtists artistId={"1"} />
+ * )
+ */
 class RelatedArtists extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +21,11 @@ class RelatedArtists extends Component {
       popularSongs: [],
     };
   }
+  /**
+   * Fetch related artists from the server and store the needed information in the state of the component
+   * @func
+   * @returns {void}
+   */
   componentDidMount() {
     getRequest(`${base}/artists/${this.props.artistId}/related-artists`)
       .then((response) => {
@@ -25,6 +40,12 @@ class RelatedArtists extends Component {
         console.log(error.response);
       });
   }
+  /**
+   * Pass a list of artists object and construct a list of album items to be suitable for the MusicCard component
+   * @func
+   * @param artists list of the fethed artists objects
+   * @returns {void}
+   */
   constructArtistItems = (artists) => {
     let items = [];
     artists.forEach((artist) => {
@@ -44,6 +65,12 @@ class RelatedArtists extends Component {
       items: items,
     });
   };
+  /**
+   * Pass a list of artists object and construct a list of tracks for the player
+   * @func
+   * @param artists list of the fethed artists objects
+   * @returns {void}
+   */
   constructTracksItems = (artists) => {
     let popularSongsForEachArtist = [];
     artists.forEach((artist) =>
@@ -60,12 +87,10 @@ class RelatedArtists extends Component {
     this.setState({
       popularSongs: popularSongsIds,
     });
-    console.log("extracted tracks Ids for player: ");
-    console.log(this.state.popularSongs);
   };
-  pause = () => {};
-  resume = () => {};
-  addToQueue = () => {};
+  // pause = () => {};
+  // resume = () => {};
+  // addToQueue = () => {};
   render() {
     return (
       <div className="artis-overview">
@@ -82,4 +107,10 @@ class RelatedArtists extends Component {
     );
   }
 }
+RelatedArtists.propTypes = {
+  /**
+   * The unique idetifier of the author
+   */
+  artistId: PropTypes.string.isRequired,
+};
 export default RelatedArtists;

@@ -1,9 +1,18 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import MusicCard from "./../MusicCard/MusicCard";
 import { getRequest } from "./../../utils/requester";
 import { base } from "./../../config/environment";
+import PropTypes from "prop-types";
 const type = ["album", "single", "compilation", "appears_on"];
+/**
+ * A class component to render the author albums, singles, combinations, and appears on depending on the type
+ * @author Ahmed Ashraf
+ * @component
+ * @example
+ * return (
+ *  <Albums artistId={"1"} type={0} />
+ * )
+ */
 class Albums extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +24,11 @@ class Albums extends Component {
       seeMoreText: "See More",
     };
   }
+  /**
+   * Fetch the specified albums type depending on the type prop
+   * @func
+   * @returns {void}
+   */
   componentDidMount() {
     const query = `${base}/artists/${
       this.props.artistId
@@ -32,6 +46,12 @@ class Albums extends Component {
         console.log(error.response);
       });
   }
+  /**
+   * Pass a list of album object and construct a list of album items to be suitable for the MusicCard component
+   * @func
+   * @param albums list of the fethed albums objects
+   * @returns {void}
+   */
   constructAlbumItems = (albums) => {
     let items = [];
     albums.forEach((album) => {
@@ -59,6 +79,11 @@ class Albums extends Component {
     console.log("album items: ");
     console.log(this.state.limit);
   };
+  /**
+   * Toggle see more action
+   * @func
+   * @returns {void}
+   */
   handleSeeMore = () => {
     this.setState({
       seeMore: !this.state.seeMore,
@@ -66,6 +91,11 @@ class Albums extends Component {
       seeMoreText: "See Less",
     });
   };
+  /**
+   * Toggle see less action
+   * @func
+   * @returns {void}
+   */
   handleSeeLess = () => {
     this.setState({
       seeMore: !this.state.seeMore,
@@ -76,9 +106,14 @@ class Albums extends Component {
       seeMoreText: "See More",
     });
   };
-  pause = () => {};
-  resume = () => {};
-  addToQueue = () => {};
+  // pause = () => {};
+  // resume = () => {};
+  // addToQueue = () => {};
+  /**
+   * A function for the Playlist component  to handle display of the add to playlist
+   * @func
+   * @returns {void}
+   */
   addToPlaylist = () => {
     this.setState({ displayAdd: true });
   };
@@ -119,4 +154,18 @@ class Albums extends Component {
     );
   }
 }
+Albums.propTypes = {
+  /**
+   * The unique idetifier of the author
+   */
+  artistId: PropTypes.string.isRequired,
+  /**
+   * The type of the rendered albums:
+   * 0 ==> artist albums
+   * 1 ==> Singles and EPs
+   * 2 ==> Compilations
+   * 3 ==> Appears On
+   */
+  type: PropTypes.number.isRequired,
+};
 export default Albums;

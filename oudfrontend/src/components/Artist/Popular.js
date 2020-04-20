@@ -3,6 +3,16 @@ import AddToPlaylist from "./../commonComponents/addToPlaylist/addToPlaylist";
 import SongList from "./../commonComponents/songList";
 import { getRequest } from "./../../utils/requester";
 import { base } from "./../../config/environment";
+import PropTypes from "prop-types";
+/**
+ * A class component to render top popular tracks of the artist
+ * @author Ahmed Ashraf
+ * @component
+ * @example
+ * return (
+ *  <Popular artistId={"1"} />
+ * )
+ */
 class Popular extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +23,11 @@ class Popular extends Component {
       displayAdd: false,
     };
   }
+  /**
+   * Fetch top tracks and store the needed information in the state of the component
+   * @func
+   * @returns {void}
+   */
   componentDidMount() {
     getRequest(`${base}/artists/${this.props.artistId}/top-tracks`)
       .then((response) => {
@@ -27,13 +42,22 @@ class Popular extends Component {
         console.log(error.response);
       });
   }
-  constructTracksList = (tracks) => {};
-  pause = () => {};
-  resume = () => {};
-  addToQueue = () => {};
+  // pause = () => {};
+  // resume = () => {};
+  // addToQueue = () => {};
+  /**
+   * A utility for the AddToPlaylist component to display the component
+   * @func
+   * @returns {void}
+   */
   addToPlaylist = () => {
     this.setState({ displayAdd: true });
   };
+  /**
+   * A utility for the AddToPlaylist component to close the component
+   * @func
+   * @returns {void}
+   */
   closeAddToPlaylist = () => {
     this.setState({ displayAdd: false });
   };
@@ -68,4 +92,10 @@ class Popular extends Component {
     );
   }
 }
+Popular.propTypes = {
+  /**
+   * The unique idetifier of the author
+   */
+  artistId: PropTypes.string.isRequired,
+};
 export default Popular;
