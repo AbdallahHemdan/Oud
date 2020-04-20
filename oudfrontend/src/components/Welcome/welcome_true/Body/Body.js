@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Fragment, useState, Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import Back from '../../../../assets/images/2685063.jpg';
 import '../../welcome.css';
@@ -67,6 +67,7 @@ class Body extends Component {
             <h5>Start listening to the best new releases.</h5>
             {this.redirect2 ? this.towebplayer() : null}
             <Link className="LinkStyle" to="webPlayer">
+              {' '}
               <button
                 data-testid="getOudBtn2"
                 className="getOudBtn2"

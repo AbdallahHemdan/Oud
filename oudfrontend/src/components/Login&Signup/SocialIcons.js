@@ -40,23 +40,24 @@ class SocialIcons extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="SocialIconsPage container">
+        <div className="SocialIconsPage">
           <h6 className="hint-text hint">
             Sign Up with your social media account
           </h6>
-          <button className="google_button" href="#">
-            <img
-              alt=""
-              src="http://pngimg.com/uploads/google/google_PNG19630.png"
-              className="googlepic"
-            ></img>{' '}
-            continue with Google
-          </button>
-          <Facebook
-            data-testid="FacebookButton "
-            onClick={this.handelClickFace}
-          />
-
+          <section className="icons container">
+            <button className="google_button" href="#">
+              <img
+                alt=""
+                src="http://pngimg.com/uploads/google/google_PNG19630.png"
+                className="googlepic"
+              ></img>{' '}
+              continue with Google
+            </button>
+            <Facebook
+              data-testid="FacebookButton"
+              onClick={this.handelClickFace}
+            />
+          </section>
           <section className="or-seperator OR">
             <i>OR</i>
             <h6 className="hint-text hint">Sign up with your email address</h6>

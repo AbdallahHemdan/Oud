@@ -31,7 +31,7 @@ class ForgotPassword extends Component {
     console.log(this.EmailHandel);
     if (this.state.formErrors.EmailError === '' && this.validation()) {
       axios
-        .post('https://oud-zerobase.me/api/v1/users/forgotPassword', toSend)
+        .post('http://oud-zerobase.me/api/v1/users/forgotPassword', toSend)
         .then((response) => {
           console.log(response);
           console.log(toSend);
