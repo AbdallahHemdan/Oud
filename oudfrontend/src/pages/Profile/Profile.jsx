@@ -15,7 +15,13 @@ function ActivityBar() {
     </div>
   );
 }
-
+/**
+ *
+ * @param {*} props
+ * @type {Function}
+ * @returns {jsx} Profile componenet
+ * <Profile/>
+ */
 function Profile(props) {
   return (
     <div className="dummyParent">
@@ -26,7 +32,6 @@ function Profile(props) {
           data-test="UpperContainer"
           userId={props.match.params.userId}
         />
-        {console.log(props)}
         <LowerContainer
           data-test="LowerContainer"
           userId={props.match.params.userId}

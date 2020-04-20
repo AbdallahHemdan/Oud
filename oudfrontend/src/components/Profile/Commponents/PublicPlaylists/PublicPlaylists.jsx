@@ -3,6 +3,12 @@ import axios from "axios";
 
 import "./PublicPlaylists.css";
 
+const config = {
+  headers: {
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
+  }
+};
+
 function DummyPlayListCard(props) {
   return (
     <div className="Dummy-playLists-Card">
@@ -13,6 +19,11 @@ function DummyPlayListCard(props) {
     </div>
   );
 }
+
+/**
+ * @type {Class}
+ * @returns {JSX} this the public playLists for the current user
+ */
 
 class PublicPlaylists extends Component {
   constructor(props) {
@@ -25,14 +36,19 @@ class PublicPlaylists extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:2022/playlists2/" + this.props.userId)
+      .get(
+        "https://oud-zerobase.me/api/v1/users/" +
+          this.props.userId +
+          "/playlists",
+        config
+      )
       .then(response => {
         this.setState({
           items: response.data.items
         });
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
       });
   }
 

@@ -4,7 +4,8 @@ import "./ImageContainer.css";
 
 /**
  * @type {Function}
- * @returns {HTMLElement} image container in the top of account overview page (iphone image)
+ * @returns {jsx} image container in the top of account overview page (iphone image)
+ * <ImageContainer/>
  */
 function ImageContainer() {
   return (

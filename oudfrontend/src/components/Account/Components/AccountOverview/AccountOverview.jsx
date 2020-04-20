@@ -4,6 +4,15 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./AccountOverview.css";
 
+//TODO
+/**
+ * this should be changed to be exported from the enterface when Auth module merged
+ */
+const config = {
+  headers: {
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU3MTYwNzYxMiIsImlhdCI6MTU4NzA4NzU4NiwiZXhwIjoxNTg5Njc5NTg2fQ.acrBQ1IHt2IwQwJKkTzsx2dbDh6eg4OZ4ngsvNfPK3s`
+  }
+};
 /**
  * @param {string} email
  * @param {Date} birthDate
@@ -132,10 +141,11 @@ class AccountOverview extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:2022/me")
+      .get("https://oud-zerobase.me/api/v1/me", config)
       .then(response => {
+        console.log(response);
         ProfileInfo.email = response.data.email;
-        ProfileInfo.birthDate = response.data.birthDate;
+        ProfileInfo.birthDate = response.data.birthDate.substr(0, 10);
         ProfileInfo.country = response.data.country;
 
         this.setState({
