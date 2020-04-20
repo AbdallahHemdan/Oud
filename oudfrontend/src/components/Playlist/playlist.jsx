@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import { resume, pause, addToQueue } from '../commonComponents/utils'
 import { base, subUrl, prodUrl } from "./../../config/environment"
 import {config} from "../../utils/auth"
+import {BrowserRouter} from 'react-router-dom'
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -56,7 +57,7 @@ class Playlist extends React.Component {
       playing: false,
       queued: false,
       clickID: "0",
-      displayAdd: false,
+      displayAdd: false
     };
     this.addToQueue = this.addToQueue.bind(this);
     this.resume = this.resume.bind(this);
@@ -155,7 +156,7 @@ class Playlist extends React.Component {
         this.setState({ tracks: playlist.tracks });
         this.setState({ recieved: true });
         this.setState({ playlist: playlist });
-        console.log(playlist.image)
+        console.log(playlist.owner)
       })
       .catch((error) => {
         console.log(error);
@@ -252,6 +253,7 @@ class Playlist extends React.Component {
               </div>
             </div>
           </div>
+          
         )}
       </div>
     );

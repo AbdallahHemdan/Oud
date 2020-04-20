@@ -47,10 +47,6 @@ describe('album Component', ()=>{
             const wrapper = findByTestAttr(component, "HeaderBodyBottom");
             expect(wrapper.length).toBe(1);
         });
-        it('renders HeaderBodyTop component', ()=>{
-            const wrapper = findByTestAttr(component, "HeaderBodyTop");
-            expect(wrapper.length).toBe(1);
-        });
         it('renders songList component', ()=>{
             const wrapper = findByTestAttr(component, "songList");
             expect(wrapper.length).toBe(1);
@@ -76,12 +72,5 @@ describe('album Component', ()=>{
             expect(result).toBeDefined();
         });
     });
-    describe('snapshot test for the playlist', ()=>{
-        it('renders correctly', () => {
-            const tree = renderer
-              .create(<Album {...props}/>)
-              .toJSON();
-            expect(tree).toMatchSnapshot();
-        });
-    });
+   
 })

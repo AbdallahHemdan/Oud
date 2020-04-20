@@ -54,10 +54,6 @@ describe('Playlist Component', ()=>{
             const wrapper = findByTestAttr(component, "HeaderBodyBottom");
             expect(wrapper.length).toBe(1);
         });
-        it('renders HeaderBodyTop component', ()=>{
-            const wrapper = findByTestAttr(component, "HeaderBodyTop");
-            expect(wrapper.length).toBe(1);
-        });
         it('renders songList component', ()=>{
             const wrapper = findByTestAttr(component, "songList");
             expect(wrapper.length).toBe(1);
@@ -65,15 +61,7 @@ describe('Playlist Component', ()=>{
     
     
     });
-    
-    describe('snapshot test for the playlist', ()=>{
-        it('renders correctly', () => {
-            const tree = renderer
-              .create(<Playlist id={trueProps}/>)
-              .toJSON();
-            expect(tree).toMatchSnapshot();
-        });
-    });
+
     describe('checking propTypes', ()=>{
         const propsT = {id:{id :'1'}}
         const propsF ={id:{id :true}}

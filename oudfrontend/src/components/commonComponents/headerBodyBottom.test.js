@@ -96,7 +96,7 @@ describe('HeaderBodyBottom component', ()=>{
             component = setup(notRecieved);
             const wrapper = findByTestAttr(component, "releaseDate");
             expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe('  ')
+            expect(wrapper.text()).toBe('')
         });
 
         it("renders play button correctly with playing = true", ()=>{

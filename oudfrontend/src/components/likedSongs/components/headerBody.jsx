@@ -1,9 +1,9 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, {Component} from "react";
+import { Redirect, BrowserRouter} from "react-router-dom";
 import PropTypes from "prop-types";
-import axios from 'axios'
-import {base} from '../../../config/environment'
 import {config} from '../../../utils/auth'
+import {base} from '../../../config/environment'
+import axios from 'axios'
 /**
  * this is a component that renders the bottom of the body of playlists, albums, likedSongs
  * @author Ahmed Walid <ahmedwa1999@gmail.com>
@@ -18,19 +18,34 @@ import {config} from '../../../utils/auth'
  * </div>}
  */
 
-function HeaderBody(props) {
-  var me;
-  axios.get(`${base}/me`, config)
-  .then(function (response) {
-    me = response.data;
-
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-  const { length, playClicked, playing } = props;
-  let history = useHistory();
+class HeaderBody extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      redirect:null,
+      displayName:'',
+      id:''
+    }
+  }
+  redirect(route){
+    this.setState({redirect:route})
+  }
+  componentDidMount(){
+    axios.get(`${base}/me/`, config)
+        .then((response) => {
+            const user = response.data;
+            this.setState({ownerName:user.displayName, id:user.id});
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+  }
+  render(){
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    }
   return (
+    <BrowserRouter>
     <div data-testid="HeaderBody">
       <h2 data-testid="title" className="gray-text likedSongsTitle">
         Liked Songs
@@ -39,27 +54,29 @@ function HeaderBody(props) {
         data-testid="owner"
         className="playlistAnchor songButton block"
         onClick={() => {
-          history.push("/profile/1/overview");
+          this.redirect(`/profile/${this.state.id}/overview`)
         }}
       >
-        {me}
+      {this.state.displayName}
       </button>
       <button
-        onClick={playClicked}
+        onClick={()=>this.props.playClicked}
         data-testid="playButton"
         className="playButton"
         variant="outline-success"
       >
-        {playing ? "PAUSE" : "PLAY"}
+        {this.props.playing ? "PAUSE" : "PLAY"}
       </button>
       <p className="likedSongsTitle gray-text">
-        <span data-testid="songsNumber">{length} </span>
-        <span data-testid="songsLiteral">{length > 1 ? "songs" : "song"}</span>
+        <span data-testid="songsNumber">{this.props.length} </span>
+        <span data-testid="songsLiteral">{this.props.length > 1 ? "songs" : "song"}</span>
       </p>
     </div>
+    </BrowserRouter>
   );
+      
 }
-
+}
 HeaderBody.propTypes = {
   length: PropTypes.number,
   playing: PropTypes.bool,

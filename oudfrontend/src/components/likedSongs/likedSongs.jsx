@@ -8,6 +8,7 @@ import Navbar from "../Navbar/Navbar";
 import { resume, pause, addToQueue } from '../commonComponents/utils'
 import {base} from "../../config/environment"
 import {config} from "../../utils/auth"
+import {BrowserRouter} from 'react-router-dom'
 
 /**
  * @classdesc this is a component that renders likedSongs page
@@ -168,6 +169,7 @@ class LikedSongs extends React.Component {
                   data-testid="playlistHeaderBody"
                   className="playlistHeaderBody col col-lg-12 col-md-8 col-sm-8 col-xs-8"
                 >
+                
                   <HeaderBody
                     data-testid="headerBody"
                     length={this.state.tracks.length}

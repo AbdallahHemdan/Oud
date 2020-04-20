@@ -37,7 +37,7 @@ describe('HeaderBodyTop Component', ()=>{
         it("renders credits correctly without props", ()=>{
             const wrapper = findByTestAttr(component, "credits");
             expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe("Crerated By ")
+            expect(wrapper.text()).toBe("By ")
         });
     });
     
@@ -60,7 +60,7 @@ describe('HeaderBodyTop Component', ()=>{
         it("renders credits correctly with props", ()=>{
             const wrapper = findByTestAttr(component, "credits");
             expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe("Crerated By ")
+            expect(wrapper.text()).toBe("By ")
         });
     });
     

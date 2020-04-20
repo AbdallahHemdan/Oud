@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {useHistory} from "react-router-dom";
+import {Redirect} from "react-router-dom";
+import { render } from 'enzyme';
 
 /**
  * this is a component that renders the Top of the body of playlists, albums, likedSongs
@@ -20,40 +21,50 @@ import {useHistory} from "react-router-dom";
  *          </Router>
  *          }
  */
-function  HeaderBodyTop(props)
-{
-        const title = props.title
-        var artists= Array.isArray(props.artists)?props.artists:[]
-        let history = useHistory()
-        let flag = false
-        function withComma(artist){
-            return(
-            <span>, <button
-             data-testid="artist" 
-             onClick={()=>{history.push(`/artist/${artist.id}`)}}
-             className='playlistAnchor songButton'>{artist.name}</button></span>
-            );}
-        function withoutComma(artist){
-            flag= true;
-            return(<span><button
-             onClick={()=>{history.push(`/artist/${artist.id}`)}}
-             data-testid="artist"
-              className='playlistAnchor songButton'>{artist.name}</button></span>
-            );}
+class HeaderBodyTop extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            redirect : null,
+            artists:Array.isArray(props.artists)?props.artists:[],
+            flag :false
+        }
         
+    }
+        
+    
+    redirect(route){
+        this.setState({redirect:route})
+    }
+    withComma(artist){
+        return(
+        <span>, <button
+            data-testid="artist" 
+            className='playlistAnchor songButton'>{artist.name}</button></span>
+        );}
+    withoutComma(artist){
+        this.setState({flag: true});
+        return(<span><button
+            data-testid="artist"
+            className='playlistAnchor songButton'>{artist.name}</button></span>
+        );}
+    render(){   
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />;
+          } 
         return(
             <div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
-                <h2 data-testid="title" className='gray-text'>{title}</h2>
+                <h2 data-testid="title" className='gray-text'>{this.props.title}</h2>
                 <span data-testid="credits" className="whiteText">By </span>
                 {
-                    artists.map((artist)=>{
+                    this.state.artists.map((artist)=>{
                         return(
-                        flag ? withComma(artist):withoutComma(artist)
+                        this.state.flag ? this.withComma(artist):this.withoutComma(artist)
                         )}
                         )}
             </div>
         );
-    //}
+    }
 }
 
 HeaderBodyTop.propTypes = {

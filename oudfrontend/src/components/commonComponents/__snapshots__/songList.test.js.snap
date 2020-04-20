@@ -17,16 +17,16 @@ exports[`SongList Component snapshot test renders correctly 1`] = `
       className="songIcon col-1"
     >
       <button
-        className="songButton"
+        className="songButton goldText"
         data-testid="playButton"
         onClick={[Function]}
       >
         <img
           alt="play music icon"
           data-testid="playButtonImage"
-          height="14"
+          height="20"
           src="musicIcon.png"
-          width="12"
+          width="18"
         />
       </button>
     </div>
@@ -44,44 +44,43 @@ exports[`SongList Component snapshot test renders correctly 1`] = `
       >
         <span>
           <span>
-            <a
-              className="playlistAnchor"
+            <button
+              className="playlistAnchor songButton"
               data-testid="artistName"
-              href="/artist/5"
               onClick={[Function]}
-            >
-              حمزة نمرة
-            </a>
+            />
             <span
+              className="gray-text"
               data-testid="comma"
             >
-              , 
+               
+              •
+               
             </span>
           </span>
           <span>
-            <a
-              className="playlistAnchor"
+            <button
+              className="playlistAnchor songButton"
               data-testid="artistName"
-              href="/artist/2"
               onClick={[Function]}
-            >
-              Sardeena
-            </a>
+            />
             <span
+              className="gray-text"
               data-testid="comma"
             >
-              , 
+               
+              •
+               
             </span>
           </span>
         </span>
-        <a
-          className="playlistAnchor"
+        <button
+          className="playlistAnchor songButton"
           data-testid="albumName"
-          href="/albums/1"
           onClick={[Function]}
         >
           
-        </a>
+        </button>
       </p>
     </div>
     <div
@@ -92,56 +91,43 @@ exports[`SongList Component snapshot test renders correctly 1`] = `
         data-testid="dropdown"
       >
         <button
-          className="songButton"
+          className="songButton hide"
           data-testid="dropdownButton"
           id="songDropdownButton"
           onClick={[Function]}
         >
           <h3
             className="whiteText"
-            style={
-              Object {
-                "display": "none",
-              }
-            }
           >
             ...
           </h3>
         </button>
         <div
-          className="dropdownContent"
+          className="dropdownContent hide"
           data-testid="dropdownList"
           id="dropdownContent"
-          style={
-            Object {
-              "display": "none",
-            }
-          }
         >
-          <a
-            className="SongDropdownItem"
+          <button
+            className="SongDropdownItem songButton"
             data-testid="saveSong"
-            href=""
             onClick={[Function]}
           >
             Save to your Liked Songs
-          </a>
-          <a
-            className="SongDropdownItem"
+          </button>
+          <button
+            className="SongDropdownItem songButton"
             data-testid="addToQueue"
-            href=""
             onClick={[Function]}
           >
             Add to Queue
-          </a>
-          <a
-            className="SongDropdownItem"
+          </button>
+          <button
+            className="SongDropdownItem songButton"
             data-testid="addToPlaylist"
-            href=""
             onClick={[Function]}
           >
             Add to Playlist
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -151,9 +137,7 @@ exports[`SongList Component snapshot test renders correctly 1`] = `
       <p
         className="whiteText"
         data-testid="songTime"
-      >
-        3:34
-      </p>
+      />
     </div>
   </button>
   <button
@@ -168,16 +152,16 @@ exports[`SongList Component snapshot test renders correctly 1`] = `
       className="songIcon col-1"
     >
       <button
-        className="songButton"
+        className="songButton goldText"
         data-testid="playButton"
         onClick={[Function]}
       >
         <img
           alt="play music icon"
           data-testid="playButtonImage"
-          height="14"
+          height="20"
           src="musicIcon.png"
-          width="12"
+          width="18"
         />
       </button>
     </div>
@@ -195,44 +179,43 @@ exports[`SongList Component snapshot test renders correctly 1`] = `
       >
         <span>
           <span>
-            <a
-              className="playlistAnchor"
+            <button
+              className="playlistAnchor songButton"
               data-testid="artistName"
-              href="/artist/3"
               onClick={[Function]}
-            >
-              ًWegz el wench
-            </a>
+            />
             <span
+              className="gray-text"
               data-testid="comma"
             >
-              , 
+               
+              •
+               
             </span>
           </span>
           <span>
-            <a
-              className="playlistAnchor"
+            <button
+              className="playlistAnchor songButton"
               data-testid="artistName"
-              href="/artist/4"
               onClick={[Function]}
-            >
-              Amr Diab
-            </a>
+            />
             <span
+              className="gray-text"
               data-testid="comma"
             >
-              , 
+               
+              •
+               
             </span>
           </span>
         </span>
-        <a
-          className="playlistAnchor"
+        <button
+          className="playlistAnchor songButton"
           data-testid="albumName"
-          href="/albums/1"
           onClick={[Function]}
         >
           
-        </a>
+        </button>
       </p>
     </div>
     <div
@@ -243,56 +226,43 @@ exports[`SongList Component snapshot test renders correctly 1`] = `
         data-testid="dropdown"
       >
         <button
-          className="songButton"
+          className="songButton hide"
           data-testid="dropdownButton"
           id="songDropdownButton"
           onClick={[Function]}
         >
           <h3
             className="whiteText"
-            style={
-              Object {
-                "display": "none",
-              }
-            }
           >
             ...
           </h3>
         </button>
         <div
-          className="dropdownContent"
+          className="dropdownContent hide"
           data-testid="dropdownList"
           id="dropdownContent"
-          style={
-            Object {
-              "display": "none",
-            }
-          }
         >
-          <a
-            className="SongDropdownItem"
+          <button
+            className="SongDropdownItem songButton"
             data-testid="saveSong"
-            href=""
             onClick={[Function]}
           >
             Save to your Liked Songs
-          </a>
-          <a
-            className="SongDropdownItem"
+          </button>
+          <button
+            className="SongDropdownItem songButton"
             data-testid="addToQueue"
-            href=""
             onClick={[Function]}
           >
             Add to Queue
-          </a>
-          <a
-            className="SongDropdownItem"
+          </button>
+          <button
+            className="SongDropdownItem songButton"
             data-testid="addToPlaylist"
-            href=""
             onClick={[Function]}
           >
             Add to Playlist
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -302,9 +272,7 @@ exports[`SongList Component snapshot test renders correctly 1`] = `
       <p
         className="whiteText"
         data-testid="songTime"
-      >
-        3:34
-      </p>
+      />
     </div>
   </button>
 </div>

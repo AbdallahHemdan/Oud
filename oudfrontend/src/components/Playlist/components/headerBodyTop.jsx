@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import {base} from "../../../config/environment"
 import {config} from "../../../utils/auth"
 /**
@@ -22,35 +22,50 @@ import {config} from "../../../utils/auth"
  *          </Router>
  *          }
  */
-function HeaderBodyTop(props) {
+class HeaderBodyTop extends Component{
+    constructor(props){
+        super(props)
+        this.state={
+            ownerName:'', 
+            redirect:null
+        }
+    }
     /**
      * ownerName is a state that carries the name of the owner of the playlist or album
      * @constant
      * @type {string}
      */
-    const [ownerName, setOwnerName] = useState('')
-    const { title, owner } = props;
     /**
      * fetching the owner name and setting state
      */
-    axios.get(`${base}/users/${owner}`, config)
+    componentWillReceiveProps(nextProps){
+        const owner = nextProps.owner
+    axios.get(`${base}/users/`+owner, config)
         .then((response) => {
             const user = response.data;
-            setOwnerName(user.displayName);
+            this.setState({ownerName:user.displayName});
         })
         .catch((error) => {
             console.log(error);
         });
-    let history = useHistory()
+    }
+    redirect(route){
+        this.setState({redirect:route})
+    }
+render(){
+    if (this.state.redirect) {
+        return <Redirect to={this.state.redirect} />;
+      }
     return (
+        
         <div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
-            <h2 data-testid="title" className='gray-text'>{title}</h2>
+            <h2 data-testid="title" className='gray-text'>{this.props.title}</h2>
             <span data-testid="credits" className="whiteText">By </span>
-            <button data-testid="owner" className='playlistAnchor songButton' onClick={() => { history.push(`/user/${owner}`) }}>{ownerName}</button>
+            <button data-testid="owner" className='playlistAnchor songButton' >{this.state.ownerName}</button>
         </div>
     );
 }
-
+}
 HeaderBodyTop.propTypes = {
     title: PropTypes.string,
     owner: PropTypes.string

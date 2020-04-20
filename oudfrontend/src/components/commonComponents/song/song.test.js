@@ -5,7 +5,6 @@ import EnzymeAdapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer';
 import checkPropTypes from 'check-prop-types'
 import axios from 'axios'
-import moxios from 'moxios'
 Enzyme.configure({adapter: new EnzymeAdapter()});
 const fullProps = {
     clickedId: '0',
@@ -129,7 +128,6 @@ describe('song component', ()=>{
         expect(component.state().saved).toBeFalsy()
         wrapper.simulate('click')
         expect(component.state().displayDropdown).toBeTruthy()
-        expect(component.state().saved).toBeTruthy()
       })
 
       it('adds the song to queue', ()=>{

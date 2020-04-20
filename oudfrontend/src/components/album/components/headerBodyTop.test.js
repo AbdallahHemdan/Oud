@@ -4,7 +4,6 @@ import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer';
 import checkPropTypes from 'check-prop-types'
-import sinon from 'sinon'
 
 Enzyme.configure({adapter: new EnzymeAdapter()});
 
