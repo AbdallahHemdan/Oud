@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./MusicCard.css";
 import { Link, withRouter } from "react-router-dom"
-
+import { base, subUrl, prodUrl } from "./../../config/environment"
 
 /**
  * Music card component which render and display the playlist card of a specific category 
@@ -17,7 +17,7 @@ class MusicCard extends Component {
    * @constructor
    * 
    * @param {object} props - get musicItem (playlist date and props from the MusicItems component)
-   * @param {string} id - The id of the playlist
+   * @param {string} _id - The _id of the playlist
    * @param {string} name - The name of the playlist
    * @param {string} owner - The owner of the playlist
    * @param {boolean} collaborative - Variable to check if the owner allows other users to modify the playlist.
@@ -30,7 +30,7 @@ class MusicCard extends Component {
     super(props)
     const
       {
-        id,
+        _id,
         name,
         owner,
         collaborative,
@@ -43,11 +43,11 @@ class MusicCard extends Component {
     this.state = {
 
       /**
-       * The id of the playlist
+       * The _id of the playlist
        * 
        * @type {string}
        */
-      id: id,
+      _id: _id,
 
       /**
        * The name of the playlist
@@ -113,7 +113,7 @@ class MusicCard extends Component {
    * 
    */
   handlePlaylistClick = () => {
-    this.props.history.push(`${this.state.type}/${this.state.id}`);
+    this.props.history.push(`${this.state.type}/${this.state._id}`);
   }
 
   /**
@@ -140,6 +140,7 @@ class MusicCard extends Component {
    * @returns {JSX} Component for App
    */
   render() {
+    const subPath = (base === prodUrl) ? subUrl : "";
     const cardClass = (this.state.isHidden) ? "hidden-card" : "card"
     return (
       <div
@@ -169,7 +170,7 @@ class MusicCard extends Component {
               null}
           </div>
           <img
-            src={this.state.image}
+            src={`${subPath}${this.state.image}`}
             alt="playlist cover"
             data-testid="playlist-image"
           />
@@ -178,7 +179,7 @@ class MusicCard extends Component {
             data-testid="playlist-title"
           >
             <Link
-              to={`${this.state.type}/${this.state.id}`}
+              to={`${this.state.type}/${this.state._id}`}
               className="playlist-link"
               data-testid="playlist-link"
             >

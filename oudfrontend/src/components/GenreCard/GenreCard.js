@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./GenreCard.css";
 import { Link, withRouter } from "react-router-dom"
+import { base, subUrl, prodUrl } from "./../../config/environment"
 
 /**
- * Music card component which render and display the playlist card of a specific category 
+ * Genre card component which render and display the playlist card of a specific category 
  * 
  * @author Abdallah Hemdan
  * 
@@ -13,55 +14,52 @@ import { Link, withRouter } from "react-router-dom"
 
 class GenreCard extends Component {
   /**
-   * @constructor
-   * 
-   * @param {object} props - get musicItem (playlist date and props from the MusicItems component)
-   * @param {string} id - The id of the playlist
-   * @param {string} name - The name of the playlist
-   * @param {string} owner - The owner of the playlist
-   * @param {boolean} collaborative - Variable to check if the owner allows other users to modify the playlist.
-   * @param {string} description - The description of the playlist
-   * @param {string} isPublic - The playlist’s public/private status: true the playlist is public, false the playlist is private
-   * @param {string} image - The image of the playlist
-   * @param {string} type - The type of the playlist
-   */
+    * @constructor
+    *
+    * @param {object} props - get props from higher components (Home)
+    * @param {object} item - get item from higher component (Home)
+    * @param {object} _id - get _id of an item from higher component (Home)
+    * @param {object} name - get name of an item from higher component (Home)
+    * @param {object} icon - get icon of an item from higher component (Home)
+    */
   constructor(props) {
     super(props)
-    const
-      {
-        id,
-        name
-      } = this.props.item;
-
+    const { _id, name, icon } = this.props.item;
     this.state = {
-
       /**
-       * The id of the playlist
+       * _id of the category
        * 
-       * @type {string}
+       * @type {string} 
        */
-      id: id,
+      _id: _id,
 
       /**
-       * The name of the playlist
-       * 
+       * name of the category
+       *
        * @type {string}
        */
       name: name,
+
+      /**
+       * icon of the category
+       *
+       * @type {string}
+       */
+      icon: icon
     }
   }
 
   /**
    * Function to handle navigation to the playlist page
-   * on clicking on the music card
+   * on clicking on the Genre card
    * 
    * @function
    * 
    * @return {void}
    * 
    */
-  handleGenreClick = () => {
-    this.props.history.push(`genre/${this.state.name.split(' ').join('-')}?id=${this.state.id}&name=${this.state.name.split(' ').join('-')}`);
+  handlePlaylistClick = () => {
+    this.props.history.push(`genre/${this.state._id}?name=${this.state.name}&_id=${this.state._id}`);
   }
 
   /**
@@ -69,23 +67,45 @@ class GenreCard extends Component {
    * 
    * @name render
    * 
-   * @description Render Music card components..
+   * @description Render Genre card components..
    * 
    * @returns {JSX} Component for App
    */
   render() {
+    const subPath = (base === prodUrl) ? subUrl : "";
     return (
       <div
-        className="genre-card-container"
-        data-testid="genre-card-container"
-        onClick={this.handleGenreClick}
+        className="card-container"
+        data-testid="card-container"
       >
-        <div className="genre-card"
-          data-testid="genre-card"
+        <div className="card"
+          data-testid="card"
         >
-          {this.state.name}
-        </div>
-      </div >
+          <div
+            className="overlayer"
+            onClick={this.handlePlaylistClick}
+            data-testid="overlay"
+          >
+          </div>
+          <img
+            src={`${subPath}${this.state.icon}`}
+            alt="playlist cover"
+            data-testid="playlist-image"
+          />
+          <div
+            className="title"
+            data-testid="playlist-title"
+          >
+            <Link
+              to={`${this.state.type}/${this.state._id}`}
+              className="playlist-link"
+              data-testid="playlist-link"
+            >
+              {this.state.name}
+            </Link>
+          </div>
+        </div >
+      </div>
     );
   }
 }

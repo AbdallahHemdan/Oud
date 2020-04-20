@@ -19,7 +19,7 @@ class MusicItem extends Component {
    * 
    * @param {object} props - get props from higher components (Home)
    * @param {object} item - get item from higher component (Home)
-   * @param {object} id - get id of an item from higher component (Home)
+   * @param {object} _id - get _id of an item from higher component (Home)
    * @param {object} name - get name of an item from higher component (Home)
    * @param {object} icon - get icon of an item from higher component (Home)
    */
@@ -27,16 +27,16 @@ class MusicItem extends Component {
     super(props)
 
     // destructuring item props
-    const { id, name, icon } = this.props.item;
+    const { _id, name, icon } = this.props.item;
 
     this.state = {
       /**
-       * id of the category
+       * _id of the category
        * 
        * @type {string} 
        */
 
-      id: id,
+      _id: _id,
 
       /**
        * name of the category
@@ -70,20 +70,20 @@ class MusicItem extends Component {
    * @returns {void} - nothing to return, it just fetch data and set it in the state
    */
   componentDidMount() {
-    let fetchPlaylistsUrlMocking = `${base}/browse/categories/${this.state.id}/playlists`
+    let fetchPlaylistsUrlMocking = `${base}/browse/categories/${this.state._id}/playlists`
     console.log("fetchPlaylistsUrlMocking", fetchPlaylistsUrlMocking)
     axios.get(fetchPlaylistsUrlMocking)
       .then((result) => {
         this.handleStoringPlaylists(result.data);
       }).catch((err) => {
-
+        console.log(err)
       });
   }
 
   /**
      * @function
      * @name render
-     * @description Render all the playlists of a specific category which it's defined by its id 
+     * @description Render all the playlists of a specific category which it's defined by its _id 
      * 
      * @returns {JSX} Component for Home
      */
@@ -92,7 +92,7 @@ class MusicItem extends Component {
       <div className="module">
         <CategoryHeader
           name={this.state.name}
-          id={this.state.id}
+          _id={this.state._id}
         />
         <CategoryBody
           playlists={this.state.playlists}

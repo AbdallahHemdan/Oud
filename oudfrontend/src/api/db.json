@@ -2,7 +2,7 @@
   "1": {
     "items": [
       {
-        "id": "1",
+        "_id": "1",
         "name": "Mail Songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -12,7 +12,7 @@
         "type": "albums"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -22,7 +22,7 @@
         "type": "playlist"
       },
       {
-        "id": "3",
+        "_id": "3",
         "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
@@ -32,7 +32,7 @@
         "type": "playlist"
       },
       {
-        "id": "4",
+        "_id": "4",
         "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
@@ -42,7 +42,7 @@
         "type": "playlist"
       },
       {
-        "id": "5",
+        "_id": "5",
         "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -52,7 +52,7 @@
         "type": "playlist"
       },
       {
-        "id": "6",
+        "_id": "6",
         "name": "Haly songs",
         "owner": "Haly",
         "collaborative": true,
@@ -62,7 +62,7 @@
         "type": "playlist"
       },
       {
-        "id": "7",
+        "_id": "7",
         "name": "Mail Songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -72,7 +72,7 @@
         "type": "playlist"
       },
       {
-        "id": "8",
+        "_id": "8",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -82,7 +82,7 @@
         "type": "albums"
       },
       {
-        "id": "9",
+        "_id": "9",
         "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
@@ -92,7 +92,7 @@
         "type": "playlist"
       },
       {
-        "id": "10",
+        "_id": "10",
         "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
@@ -102,7 +102,7 @@
         "type": "playlist"
       },
       {
-        "id": "11",
+        "_id": "11",
         "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -112,7 +112,7 @@
         "type": "playlist"
       },
       {
-        "id": "12",
+        "_id": "12",
         "name": "Haly songs",
         "owner": "Haly",
         "collaborative": true,
@@ -129,7 +129,7 @@
   "2": {
     "items": [
       {
-        "id": "1",
+        "_id": "1",
         "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
@@ -139,7 +139,7 @@
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -149,7 +149,7 @@
         "type": "playlist"
       },
       {
-        "id": "3",
+        "_id": "3",
         "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
@@ -159,7 +159,7 @@
         "type": "playlist"
       },
       {
-        "id": "4",
+        "_id": "4",
         "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
@@ -169,7 +169,7 @@
         "type": "playlist"
       },
       {
-        "id": "5",
+        "_id": "5",
         "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -179,7 +179,7 @@
         "type": "playlist"
       },
       {
-        "id": "6",
+        "_id": "6",
         "name": "jazz songs",
         "owner": "Haly",
         "collaborative": true,
@@ -196,7 +196,7 @@
   "3": {
     "items": [
       {
-        "id": "1",
+        "_id": "1",
         "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
@@ -206,7 +206,7 @@
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -216,7 +216,7 @@
         "type": "playlist"
       },
       {
-        "id": "3",
+        "_id": "3",
         "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
@@ -226,7 +226,7 @@
         "type": "playlist"
       },
       {
-        "id": "4",
+        "_id": "4",
         "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
@@ -236,7 +236,7 @@
         "type": "playlist"
       },
       {
-        "id": "5",
+        "_id": "5",
         "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -246,7 +246,7 @@
         "type": "playlist"
       },
       {
-        "id": "6",
+        "_id": "6",
         "name": "Haly songs",
         "owner": "Haly",
         "collaborative": true,
@@ -263,7 +263,7 @@
   "4": {
     "items": [
       {
-        "id": "1",
+        "_id": "1",
         "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
@@ -273,7 +273,7 @@
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -283,7 +283,7 @@
         "type": "playlist"
       },
       {
-        "id": "3",
+        "_id": "3",
         "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
@@ -293,7 +293,7 @@
         "type": "playlist"
       },
       {
-        "id": "4",
+        "_id": "4",
         "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
@@ -303,7 +303,7 @@
         "type": "playlist"
       },
       {
-        "id": "5",
+        "_id": "5",
         "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -313,7 +313,7 @@
         "type": "playlist"
       },
       {
-        "id": "6",
+        "_id": "6",
         "name": "Haly songs",
         "owner": "Haly",
         "collaborative": true,
@@ -330,7 +330,7 @@
   "5": {
     "items": [
       {
-        "id": "1",
+        "_id": "1",
         "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
@@ -340,7 +340,7 @@
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -350,7 +350,7 @@
         "type": "playlist"
       },
       {
-        "id": "3",
+        "_id": "3",
         "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
@@ -360,7 +360,7 @@
         "type": "playlist"
       },
       {
-        "id": "4",
+        "_id": "4",
         "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
@@ -370,7 +370,7 @@
         "type": "playlist"
       },
       {
-        "id": "5",
+        "_id": "5",
         "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -380,7 +380,7 @@
         "type": "playlist"
       },
       {
-        "id": "6",
+        "_id": "6",
         "name": "Haly songs",
         "owner": "Haly",
         "collaborative": true,
@@ -397,7 +397,7 @@
   "6": {
     "items": [
       {
-        "id": "1",
+        "_id": "1",
         "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
@@ -407,7 +407,7 @@
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -417,7 +417,7 @@
         "type": "playlist"
       },
       {
-        "id": "3",
+        "_id": "3",
         "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
@@ -427,7 +427,7 @@
         "type": "playlist"
       },
       {
-        "id": "4",
+        "_id": "4",
         "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
@@ -437,7 +437,7 @@
         "type": "playlist"
       },
       {
-        "id": "5",
+        "_id": "5",
         "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -447,7 +447,7 @@
         "type": "playlist"
       },
       {
-        "id": "6",
+        "_id": "6",
         "name": "Haly songs",
         "owner": "Haly",
         "collaborative": true,
@@ -464,7 +464,7 @@
   "7": {
     "items": [
       {
-        "id": "1",
+        "_id": "1",
         "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
@@ -474,7 +474,7 @@
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -484,7 +484,7 @@
         "type": "playlist"
       },
       {
-        "id": "3",
+        "_id": "3",
         "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
@@ -494,7 +494,7 @@
         "type": "playlist"
       },
       {
-        "id": "4",
+        "_id": "4",
         "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
@@ -504,7 +504,7 @@
         "type": "playlist"
       },
       {
-        "id": "5",
+        "_id": "5",
         "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -514,7 +514,7 @@
         "type": "playlist"
       },
       {
-        "id": "6",
+        "_id": "6",
         "name": "Haly songs",
         "owner": "Haly",
         "collaborative": true,
@@ -531,7 +531,7 @@
   "8": {
     "items": [
       {
-        "id": "1",
+        "_id": "1",
         "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
@@ -541,7 +541,7 @@
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -551,7 +551,7 @@
         "type": "playlist"
       },
       {
-        "id": "3",
+        "_id": "3",
         "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
@@ -561,7 +561,7 @@
         "type": "playlist"
       },
       {
-        "id": "4",
+        "_id": "4",
         "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
@@ -571,7 +571,7 @@
         "type": "playlist"
       },
       {
-        "id": "5",
+        "_id": "5",
         "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -581,7 +581,7 @@
         "type": "playlist"
       },
       {
-        "id": "6",
+        "_id": "6",
         "name": "Haly songs",
         "owner": "Haly",
         "collaborative": true,
@@ -598,7 +598,7 @@
   "9": {
     "items": [
       {
-        "id": "1",
+        "_id": "1",
         "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
@@ -608,7 +608,7 @@
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -618,7 +618,7 @@
         "type": "playlist"
       },
       {
-        "id": "3",
+        "_id": "3",
         "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
@@ -628,7 +628,7 @@
         "type": "playlist"
       },
       {
-        "id": "4",
+        "_id": "4",
         "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
@@ -638,7 +638,7 @@
         "type": "playlist"
       },
       {
-        "id": "5",
+        "_id": "5",
         "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -648,7 +648,7 @@
         "type": "playlist"
       },
       {
-        "id": "6",
+        "_id": "6",
         "name": "Haly songs",
         "owner": "Haly",
         "collaborative": true,
@@ -665,7 +665,7 @@
   "10": {
     "items": [
       {
-        "id": "1",
+        "_id": "1",
         "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
@@ -675,7 +675,7 @@
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -685,7 +685,7 @@
         "type": "playlist"
       },
       {
-        "id": "3",
+        "_id": "3",
         "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
@@ -695,7 +695,7 @@
         "type": "playlist"
       },
       {
-        "id": "4",
+        "_id": "4",
         "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
@@ -705,7 +705,7 @@
         "type": "playlist"
       },
       {
-        "id": "5",
+        "_id": "5",
         "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
@@ -715,7 +715,7 @@
         "type": "playlist"
       },
       {
-        "id": "6",
+        "_id": "6",
         "name": "Haly songs",
         "owner": "Haly",
         "collaborative": true,
@@ -748,12 +748,8 @@
     "Artist": {
       "_id": "string",
       "followersCount": 0,
-      "genres": [
-        "string"
-      ],
-      "images": [
-        "string"
-      ],
+      "genres": ["string"],
+      "images": ["string"],
       "name": "string",
       "bio": "string",
       "popularSongs": [
@@ -789,9 +785,7 @@
   },
   "updatePassword": {},
   "followingMe": {
-    "ids": [
-      null
-    ]
+    "ids": [null]
   },
   "myFollowing": [
     {
@@ -1056,9 +1050,7 @@
     }
   ],
   "ids": {
-    "ids": [
-      true
-    ]
+    "ids": [true]
   },
   "playlists2": [
     {
@@ -1068,9 +1060,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1081,9 +1071,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1094,9 +1082,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1107,9 +1093,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1120,9 +1104,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1133,9 +1115,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1154,9 +1134,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1167,9 +1145,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1180,9 +1156,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1193,9 +1167,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1206,9 +1178,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1219,9 +1189,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1240,9 +1208,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1253,9 +1219,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1266,9 +1230,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1279,9 +1241,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1292,9 +1252,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1305,9 +1263,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1326,9 +1282,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1339,9 +1293,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1352,9 +1304,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1365,9 +1315,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1378,9 +1326,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1391,9 +1337,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1412,9 +1356,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1425,9 +1367,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1438,9 +1378,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1451,9 +1389,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1464,9 +1400,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1477,9 +1411,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1493,6 +1425,7 @@
     }
   ],
   "profilePicture": {},
+
   "errors": [
     {
       "key": "200"
@@ -1504,57 +1437,58 @@
       "key": "429"
     }
   ],
+
   "categories": {
     "items": [
       {
-        "id": 1,
+        "_id": 1,
         "name": "Recently played",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/aratehortua/aratehortua2001/aratehortua200100022/138417489-vector-cartoon-low-poly-man-with-headphones-character.jpg"
       },
       {
-        "id": 2,
+        "_id": 2,
         "name": "Recommended playlists",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/belchonock/belchonock1801/belchonock180143844/94540927-musical-instruments-on-wooden-background.jpg"
       },
       {
-        "id": 3,
+        "_id": 3,
         "name": "New releases",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://media.altphotos.com/cache/images/2017/08/08/09/752/trumpet-outdoors-man.jpg"
       },
       {
         "id": 4,
-        "name": "ARapic Music",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "name": "Anacic Music",
+        "icon": "https://media.altphotos.com/cache/images/2017/02/03/16/752/woman-play-violin.jpg"
       },
       {
-        "id": 5,
+        "_id": 5,
         "name": "Throwback",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/luismolinero/luismolinero1802/luismolinero180202295/96452187-happy-young-beautiful-girl-with-her-cello-on-the-outside.jpg"
       },
       {
-        "id": 6,
+        "_id": 6,
         "name": "Popular playlists",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/akeeris/akeeris1505/akeeris150500143/40215848-piano-lesson-asian-boy-kid-activity-playing-piano-with-notes-smiling.jpg"
       },
       {
-        "id": 7,
+        "_id": 7,
         "name": "Editors' Picks",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/cherrymerry/cherrymerry1509/cherrymerry150900034/45248626-pretty-young-teen-girl-playing-acoustic-guitar-in-the-street-.jpg"
       },
       {
-        "id": 8,
+        "_id": 8,
         "name": "Workout",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/vadymvdrobot/vadymvdrobot1901/vadymvdrobot190104389/116701318-close-up-portrait-of-a-beautiful-young-woman-posing-with-a-violin-isolated-over-blue-background.jpg"
       },
       {
-        "id": 9,
+        "_id": 9,
         "name": "Mood",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/kenishirotie/kenishirotie1707/kenishirotie170700002/81237352-close-up-of-view-of-little-girl-s-hand-playing-ukulele.jpg"
       },
       {
-        "id": 10,
+        "_id": 10,
         "name": "Recommended radio",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/deagreez/deagreez1811/deagreez181102934/113111746-full-legs-body-size-beautiful-gorgeous-adorable-two-lady-isolate.jpg"
       }
     ],
     "limit": 0,
@@ -2742,9 +2676,7 @@
       "id": "1",
       "displayName": "Ahmed",
       "followersCount": 5,
-      "images": [
-        "string"
-      ],
+      "images": ["string"],
       "verified": false,
       "type": "string"
     },
@@ -2752,9 +2684,7 @@
       "id": "2",
       "displayName": "Mido",
       "followersCount": 0,
-      "images": [
-        "string"
-      ],
+      "images": ["string"],
       "verified": false,
       "type": "string"
     }
@@ -3625,9 +3555,7 @@
           "image": "string"
         }
       ],
-      "genres": [
-        "shaaby"
-      ],
+      "genres": ["shaaby"],
       "image": "https://i.scdn.co/image/ab67616d0000b273ef029742aa2f7342b3b5daaf",
       "name": "Insan",
       "release_date": "2020-03-07",
@@ -3993,13 +3921,7 @@
     "meId": "player"
   },
   "queue1": {
-    "tracks": [
-      "dkfjnc245",
-      "dkfjnc246",
-      "dkfjnc247",
-      "dkfjnc248",
-      "dkfjnc249"
-    ],
+    "tracks": ["dkfjnc245", "dkfjnc246", "dkfjnc247", "dkfjnc248", "dkfjnc249"],
     "total": 5
   },
   "dkfjnc245": {
@@ -4103,109 +4025,38 @@
     "id": "1"
   },
   "likedkfjnc245": {
-    "items": [
-      {}
-    ],
+    "items": [{}],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc2456": {
-    "items": [
-      {}
-    ],
+    "items": [{}],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc247": {},
   "likedkfjnc248": {
-    "items": [
-      {}
-    ],
+    "items": [{}],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc249": {},
   "checkkfjnc245": {
-    "IsFound": [
-      true
-    ]
+    "IsFound": [true]
   },
   "checkkfjnc246": {
-    "IsFound": [
-      false
-    ]
+    "IsFound": [false]
   },
   "checkkfjnc247": {
-    "IsFound": [
-      true
-    ]
+    "IsFound": [true]
   },
   "checkkfjnc248": {
-    "IsFound": [
-      false
-    ]
+    "IsFound": [false]
   },
   "checkkfjnc249": {
-    "IsFound": [
-      true
-    ]
-  },
-  "genres": {
-    "items": [
-      {
-        "id": "1",
-        "name": "Podcasts"
-      },
-      {
-        "id": "2",
-        "name": "Charts"
-      },
-      {
-        "id": "3",
-        "name": "New Releases"
-      },
-      {
-        "id": "4",
-        "name": "At Home"
-      },
-      {
-        "id": "5",
-        "name": "Hip-Hop"
-      },
-      {
-        "id": "6",
-        "name": "K-Pop"
-      },
-      {
-        "id": "7",
-        "name": "Sleep"
-      },
-      {
-        "id": "8",
-        "name": "Jazz"
-      },
-      {
-        "id": "9",
-        "name": "Soul"
-      },
-      {
-        "id": "10",
-        "name": "Punk"
-      },
-      {
-        "id": "11",
-        "name": "Metal"
-      },
-      {
-        "id": "12",
-        "name": "Party"
-      }
-    ],
-    "limit": 0,
-    "offset": 0,
-    "total": 0
+    "IsFound": [true]
   }
 }
