@@ -8,6 +8,12 @@ import RedirectPage from "./components/Account/General/RedirectPage";
 import Profile from "./pages/Profile/Profile";
 import Home from "./pages/Home/Home";
 import SeeAll from "./components/SeeAll/SeeAll";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams
+} from "react-router-dom";
 import WelcomeUser from "./pages/WelcomePage/welcomeUser";
 import WelcomeGuest from "./pages/WelcomePage/welcomeGuest";
 import Download from "./pages/RoutingPages/download";
