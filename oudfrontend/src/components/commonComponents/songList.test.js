@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import SongList from './songList';
 import Enzyme, { shallow } from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
