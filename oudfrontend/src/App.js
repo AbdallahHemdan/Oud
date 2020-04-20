@@ -33,11 +33,14 @@ import Islinked from './components/Login&Signup/linkisSent';
 function App() {
   return (
     <Router>
-    <Library/>
+    
       <div className="App">
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/library">
+            <Library/>
           </Route>
           <Route exact path="/search">
             <Search />
