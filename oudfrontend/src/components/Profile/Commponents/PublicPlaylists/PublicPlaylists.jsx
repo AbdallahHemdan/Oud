@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import { config } from "./../../../../utils/auth"
 import "./PublicPlaylists.css";
+
+
 
 function DummyPlayListCard(props) {
   return (
@@ -14,6 +16,11 @@ function DummyPlayListCard(props) {
   );
 }
 
+/**
+ * @type {Class}
+ * @returns {JSX} this the public playLists for the current user
+ */
+
 class PublicPlaylists extends Component {
   constructor(props) {
     super(props);
@@ -25,14 +32,19 @@ class PublicPlaylists extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:2022/playlists/" + this.props.userId)
+      .get(
+        "https://oud-zerobase.me/api/v1/users/" +
+        this.props.userId +
+        "/playlists",
+        config
+      )
       .then(response => {
         this.setState({
           items: response.data.items
         });
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
       });
   }
 

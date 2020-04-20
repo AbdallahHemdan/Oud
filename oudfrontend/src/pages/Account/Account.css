@@ -163,7 +163,11 @@ input[type="text"]:focus {
   padding-top: 10px;
   margin: auto;
 }
-
+@media only screen and (max-width: 1400px) {
+  .formSubmitErorr {
+    font-size: 14px;
+  }
+}
 @media only screen and (max-width: 1200px) {
   .mainContainer {
     width: 87%;

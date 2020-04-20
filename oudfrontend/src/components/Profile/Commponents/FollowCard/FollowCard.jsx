@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import userPlaceHolder from "../../../../assets/images/default-Profile.svg";
 import axios from "axios";
-
+import { config } from "./../../../../utils/auth"
 import "./FollowCard.css";
 
+/**
+ * @type {Class}
+ *
+ * @returns {JSX} the card that renders the person who is in followers list or the following list
+ * <FollowCard/>
+ */
 class FollowCard extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +19,6 @@ class FollowCard extends Component {
       signInId: "",
       name: "",
       photo: "",
-      followersCount: "",
       followStatus: "",
       mouseOn: "",
       isMe: ""
@@ -24,17 +30,19 @@ class FollowCard extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:2022/users/" + this.props.id)
+      .get("https://oud-zerobase.me/api/v1/users/" + this.props.id, config)
       .then(response => {
         this.setState({
           name: response.data.displayName,
-          photo: response.data.images[0],
-          followersCount: response.data.followersCount
+          photo: response.data.images[0]
         });
         let ids = this.props.id;
         //you should use the type and ids as query prams in the real API as here you can't make it just get the data
         axios
-          .get("http://localhost:2022/me/following/containes")
+          .get(
+            "https://oud-zerobase.me/api/v1/me/following/contains?type=user&ids=" + this.props.id,
+            config
+          )
           .then(response => {
             this.setState({ followStatus: response.data.ids[0] });
           })
@@ -47,9 +55,9 @@ class FollowCard extends Component {
       });
 
     axios
-      .get("http://localhost:2022/me")
+      .get("https://oud-zerobase.me/api/v1/me", config)
       .then(response => {
-        this.setState({ signInId: response.data.id });
+        this.setState({ signInId: response.data._id });
       })
       .catch(error => {
         console.log(error);
@@ -58,36 +66,40 @@ class FollowCard extends Component {
 
   handleClick(event) {
     /*
-      1) make put request if it was false 
-      2) make delet request if true
-      3) then change the state
+     1) make put request if it was false 
+     2) make delete request if true
+     3) then change the state
     */
     let ids = this.props.id;
-    //you should use the type and ids as query params in the real API as here
-    // you can't make it just get the data 😎😎
     if (this.state.followStatus) {
-      /*this should be in route me/following/ids=*,*,*,*&type=user/artist*/
       axios
-        .delete("http://localhost:2022/myFollowing/" + this.props.id)
+        .delete(
+          "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
+          this.props.id,
+          config
+        )
         .then(response => {
-          console.log(response);
+          this.setState({ followStatus: !this.state.followStatus });
         })
-        .catch(error => console.log(error));
+        .catch(error => console.log(error.response));
     } else {
       axios
-        .put("http://localhost:2022/me/following", {
-          ids: [ids]
-        })
+        .put(
+          "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
+          this.props.id,
+          {
+            ids: [this.props.userId]
+          },
+          config
+        )
         .then(response => {
-          console.log(response);
+          this.setState({ followStatus: !this.state.followStatus });
         })
         .catch(error => {
-          console.log(error);
+          console.log(error.response);
         });
     }
-    this.setState({ followStatus: !this.state.followStatus });
   }
-
   handleMouseOver(event) {
     this.setState({ mouseOn: true });
   }
@@ -100,14 +112,18 @@ class FollowCard extends Component {
       <div className="followCard" data-test="FollowCard">
         <img
           className="userImg-followCard"
-          src={this.state.photo}
+          src={
+            this.state.photo
+              ? "https://oud-zerobase.me/api/" + this.state.photo
+              : userPlaceHolder
+          }
           alt="user"
           data-test="followCardImage"
         />
         <div className="followCard-content">
           <Link
             id={"user" + this.props.id}
-            to={`/profile/${this.props.id}`}
+            to={`/profile/${this.props.id}/overview`}
             className="userName-followCard"
             data-test="followCardName"
           >
@@ -117,7 +133,7 @@ class FollowCard extends Component {
             className="folloewersCounter-followCard"
             data-test="followCardFollowers"
           >
-            {this.state.followersCount} FOLLOWERS
+            USER
           </p>
         </div>
 
@@ -138,11 +154,11 @@ class FollowCard extends Component {
               this.state.mouseOn ? (
                 <>UNFOLLOW</>
               ) : (
-                <> FOLLOWING </>
-              )
+                  <> FOLLOWING </>
+                )
             ) : (
-              <> FOLLOW</>
-            )}
+                <> FOLLOW</>
+              )}
           </button>
         ) : null}
       </div>

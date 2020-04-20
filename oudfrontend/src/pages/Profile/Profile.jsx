@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "../../components/Home/Sidebar/Sidebar";
-import Navbar from "../../components/Home/Navbar/Navbar";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import Navbar from "../../components/Navbar/Navbar";
 import UpperContainer from "../../components/Profile/Commponents/UpperContainer/UpperContainer";
 import LowerContainer from "../../components/Profile/Commponents/LowerContainer/LowerContainer";
 
@@ -15,7 +15,13 @@ function ActivityBar() {
     </div>
   );
 }
-
+/**
+ *
+ * @param {*} props
+ * @type {Function}
+ * @returns {jsx} Profile componenet
+ * <Profile/>
+ */
 function Profile(props) {
   return (
     <div className="dummyParent">
@@ -26,7 +32,6 @@ function Profile(props) {
           data-test="UpperContainer"
           userId={props.match.params.userId}
         />
-        {console.log(props)}
         <LowerContainer
           data-test="LowerContainer"
           userId={props.match.params.userId}

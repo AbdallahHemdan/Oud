@@ -1,23 +1,86 @@
 import React, { Component } from 'react'
-import Sidebar from "../../components/Home/Sidebar/Sidebar"
-import Navbar from "../../components/Home/Navbar/Navbar";
+import axios from "axios"
+import Sidebar from "../../components/Sidebar/Sidebar"
+import Navbar from "../../components/Navbar/Navbar"
+import BrowseAll from "./../../components/BrowseAll/BrowseAll"
+import RecentSearch from './../../components/RecentSearch/RecentSearch';
+import { base } from "./../../config/environment"
+import WebPlayer from '../../components/WebPlayer/WebPlayer'
 import "./Search.css"
+import LoadingSnipper from './../../components/LoadingSnipper/LoadingSnipper';
+
+let fetchCategoriesUrl = `${base}/browse/categories`;
 
 class Search extends Component {
-    render() {
-        return (
-            <div>
-                <Sidebar />
-                <Navbar />
-                <section className="main-content">
-                    <section className="music-component main">
-                        <div className="toto">Genres & Modes</div>
-                        <h3>Welcome to search page</h3>
-                    </section>
-                </section>
-            </div>
-        )
+  constructor(props) {
+    super(props)
+    this.state = {
+      /**
+       * An array of all categories of the music to display it in home page
+       * 
+       * @type {Array<object>} 
+       */
+      items: [],
+
+      /**
+       * The maximum number of categories to get.
+       * 
+       * @type {number}
+       */
+      limit: 0,
+
+      /**
+       * The index of the first categories to get.
+       * 
+       * @type {number}
+       */
+      offset: 0,
+      /**
+       * The total number of categories available to get.
+       * 
+       * @type {number}
+       */
+      total: 0,
+      /**
+       * Check if the data loaded from the backend or not
+       */
+      isLoading: true
     }
+  }
+  handleStoringPlaylists = ({ items, limit, offset, total }) => {
+    this.setState({ items, limit, offset, total, isLoading: false });
+  }
+  componentDidMount() {
+    axios.get(fetchCategoriesUrl)
+      .then((result) => {
+        this.handleStoringPlaylists(result.data);
+      }).catch((err) => {
+        console.log(err);
+      });
+  }
+  render() {
+    return (
+      <React.Fragment>
+        <Sidebar />
+        <Navbar isLoggedIn={false} isSearch={true} />
+        {
+          this.state.isLoading ?
+            <LoadingSnipper />
+            :
+            <React.Fragment>
+              <section
+                className="main-content"
+                data-testid="main-content"
+              >
+                <RecentSearch items={this.state.items} />
+                <BrowseAll items={this.state.items} />
+              </section>
+              <WebPlayer />
+            </React.Fragment>
+        }
+      </React.Fragment>
+    );
+  }
 }
 
 export default Search

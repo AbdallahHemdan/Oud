@@ -72,14 +72,12 @@ class Player extends Component {
    * @returns {void}
    */
   fetchPlayback = () => {
-    console.log("fetchPlayback");
     this.props
       .getRequest("http://localhost:2022/me/player")
       .then((response) => {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
           const track = data["item"];
-          console.log("url: " + track["audioUrl"]);
           this.setState({
             audioUrl: track["audioUrl"],
             progress: Math.floor(
@@ -190,8 +188,8 @@ class Player extends Component {
   playResumeRequest = (idx) => {
     return this.props.putRequest(
       "http://localhost:2022/me/player/play?deviceId=" +
-        this.props.deviceId +
-        "&queueIndex=0",
+      this.props.deviceId +
+      "&queueIndex=0",
       { offset: { position: idx } }
     );
   };
@@ -330,7 +328,7 @@ class Player extends Component {
     this.props
       .postRequest(
         "http://localhost:2022/me/player/previous?deviceId=" +
-          this.props.deviceId
+        this.props.deviceId
       )
       .then((response) => {
         this.props
@@ -411,7 +409,7 @@ class Player extends Component {
     this.props
       .putRequest(
         "http://localhost:2022/me/player/shuffle?deviceId=" +
-          this.props.deviceId
+        this.props.deviceId
       )
       .then((response) => {
         this.setState({

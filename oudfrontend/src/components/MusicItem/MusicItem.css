@@ -1,0 +1,52 @@
+.module {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.wrapper {
+  margin-top: 10px;
+}
+.wrapper_section_2 {
+  margin-top: 10px;
+}
+.wrapper h1 {
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-left: -15px;
+}
+
+.gray-white {
+  font-size: 30px;
+  color: #cec9c9;
+}
+
+.see-more {
+  margin-right: 50px;
+  font-size: 18px;
+  text-decoration: none;
+  color: rgb(190, 185, 185);
+  line-height: 2.5;
+}
+.see-more:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+.item-name {
+  display: flex;
+  font-size: 28px;
+  line-height: 1.6;
+  font-weight: 600;
+  letter-spacing: -0.36px;
+  color: #fff;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 70%;
+  flex: 1 0 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "./Home.css";
-import Sidebar from "../../components/Home/Sidebar/Sidebar";
-import Navbar from "../../components/Home/Navbar/Navbar";
-import MainContent from './../../components/Home/MainContent/MainContent';
-
+import Sidebar from "../../components/Sidebar/Sidebar";
+import Navbar from "../../components/Navbar/Navbar";
+import MainContent from "../../components/MainContent/MainContent"
+import { base } from "./../../config/environment"
 import axios from "axios"
-
+import WebPlayer from './../../components/WebPlayer/WebPlayer';
+import LoadingSnipper from './../../components/LoadingSnipper/LoadingSnipper';
+import { config, isLoggedIn } from "./../../utils/auth"
 
 /**
  * a string to store endpoint url of getting List of Categories
@@ -13,8 +15,8 @@ import axios from "axios"
  * @type {string}
  * 
  */
-let fetchCategoriesUrl = "http://localhost:2022/browse/categories";
-
+let fetchCategoriesUrl = `${base}/browse/categories`;
+let fetchCurrentUserInfo = `${base}/me`
 
 
 
@@ -71,7 +73,14 @@ class Home extends Component {
       /**
        * Check if the data loaded from the backend or not
        */
-      isLoading: true
+      isLoading: true,
+      userInfo: {},
+      _id: "",
+      username: "",
+      email: "",
+      displayName: "",
+      credit: 0,
+      images: []
     }
   }
 
@@ -87,8 +96,12 @@ class Home extends Component {
    * 
    * @return {void} returns nothing, it just store data in state
    */
-  handleStoringData = ({ items, limit, offset, total }) => {
+  handleStoringCategories = ({ items, limit, offset, total }) => {
     this.setState({ items, limit, offset, total, isLoading: false });
+  }
+  handleStoringUserInfo = ({ _id, username, email, displayName, credit, images }) => {
+    const userInfo = { _id, username, email, displayName, credit, images };
+    this.setState({ userInfo, _id, username, email, displayName, credit, images });
   }
 
   /**
@@ -97,7 +110,13 @@ class Home extends Component {
   componentDidMount() {
     axios.get(fetchCategoriesUrl) // get all categories
       .then((result) => {
-        this.handleStoringData(result.data);
+        this.handleStoringCategories(result.data);
+      }).catch((err) => {
+        console.log(err)
+      });
+    axios.get(fetchCurrentUserInfo, config)
+      .then((result) => {
+        this.handleStoringUserInfo(result.data);
       }).catch((err) => {
         console.log(err)
       });
@@ -110,14 +129,19 @@ class Home extends Component {
    * @returns {JSX} Component for App
    */
   render() {
-    if (this.state.isLoading) {
-      return <div>Loading !!</div>
-    }
+    console.log("Home state", this.state);
     return (
       <div>
         <Sidebar />
-        <Navbar isLoggedIn={true} />
-        <MainContent items={this.state.items} />
+        <Navbar userInfo={this.state.userInfo} isLoggedIn={isLoggedIn()} />
+        {
+          this.state.isLoading ?
+            <LoadingSnipper /> :
+            <React.Fragment>
+              <MainContent items={this.state.items} />
+              <WebPlayer />
+            </React.Fragment>
+        }
       </div >
     );
   }
