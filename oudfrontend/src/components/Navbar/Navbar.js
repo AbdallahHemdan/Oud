@@ -144,7 +144,7 @@ class Navbar extends Component {
             <ul className="navbar-nav mr-auto"></ul>
             {
               (this.state.isLoggedIn) ?
-                <AfterLogin data-testid="right-after-login" /> :
+                <AfterLogin data-testid="right-after-login" userInfo={this.props.userInfo} /> :
                 <BeforeLogin data-testid="right-before-login" />
             }
           </div>

@@ -71,7 +71,6 @@ class MusicItem extends Component {
    */
   componentDidMount() {
     let fetchPlaylistsUrlMocking = `${base}/browse/categories/${this.state._id}/playlists`
-    console.log("fetchPlaylistsUrlMocking", fetchPlaylistsUrlMocking)
     axios.get(fetchPlaylistsUrlMocking)
       .then((result) => {
         this.handleStoringPlaylists(result.data);
