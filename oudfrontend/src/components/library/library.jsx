@@ -6,12 +6,18 @@ import './library.css'
 import PropTypes from 'prop-types';
 import Albums from './components/albums/albums';
 import { Playlists } from './components/playlists/playlists';
-
+import { Auth } from '../../utils/auth';
 
 
 
 class Library extends Component{
-
+constructor(){
+    super();
+   /* if(Auth())
+        console.log("Authnticated")
+    else
+        window.location = '/login'*/
+}
 render(){
     return(
        
