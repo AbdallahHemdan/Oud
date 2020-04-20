@@ -67,3 +67,12 @@
 .artist-compilation {
   margin-top: 2%;
 }
+.artist-user .dropdown-menu {
+  background-color: black;
+}
+.artist-user .dropdown-item {
+  color: white;
+}
+.artist-user .dropdown-item:hover {
+  background-color: #ffc107;
+}

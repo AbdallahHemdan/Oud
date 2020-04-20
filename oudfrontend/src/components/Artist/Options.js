@@ -16,13 +16,13 @@ function Options(props) {
       </div>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="/">
-          Action
+          Start Radio
         </a>
         <a class="dropdown-item" href="/">
-          Another action
+          Follow
         </a>
         <a class="dropdown-item" href="/">
-          Something else here
+          Copy Artist Link
         </a>
       </div>
     </div>
