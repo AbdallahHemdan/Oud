@@ -4,6 +4,8 @@
     color: #fff;
     text-align: center;
     padding: 37px 0px;
+    z-index: 1;
+    width:100%;
 }
 
 .closeButton{
@@ -45,3 +47,25 @@
     font-weight: bold;
 }
 
+#cancelCreation{
+    z-index: 2;
+    border-style: solid;
+    border-width: 2px;
+    width: 150px;
+    border: 2px solid #f0a91a;
+    transition: all 0.4s linear;
+    border-radius: 80px !important;
+    border-radius: 0.85rem;
+    display: inline;
+    background-color: transparent;
+    color: #f0a91a;
+    margin:10px;
+}
+#cancelCreation:hover {
+    border: 2px solid #ffffff;
+}
+#ceatePlaylistBtn{
+    display: inline-block;
+    padding: 5px 10px;
+    height: 27px;
+}

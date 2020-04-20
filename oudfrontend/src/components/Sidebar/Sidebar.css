@@ -1,0 +1,131 @@
+.separator {
+  margin: 3rem 0;
+  border-bottom: 1px dashed #fff;
+}
+
+.text-uppercase {
+  letter-spacing: 0.1em;
+}
+
+.text-gray {
+  color: #aaa;
+}
+
+.vertical-nav {
+  min-width: 14rem;
+  width: 14rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+}
+
+.page-content {
+  width: calc(100% - 17rem);
+  margin-left: 17rem;
+  transition: all 0.4s;
+}
+
+#sidebar.active {
+  margin-left: -17rem;
+}
+
+#content.active {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .login-signup-btn {
+    width: 100%;
+    display: block;
+  }
+  .signin {
+    margin-bottom: 10px;
+  }
+  #sidebar {
+    margin-left: -17rem;
+  }
+  .fixed-top {
+    left: 0 !important;
+  }
+  .back-forward {
+    margin-left: 0 !important;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+
+  #content {
+    width: 100%;
+    margin: 0;
+  }
+  .main-content {
+    margin-top: 4em;
+    margin-left: 20px;
+  }
+  #content.active {
+    margin-left: 17rem;
+    width: calc(100% - 17rem);
+  }
+  .main {
+    margin-left: -14.5rem;
+  }
+}
+
+.wrapper {
+  margin-top: 50px;
+}
+.wrapper_section_2 {
+  margin-top: 10px;
+}
+.wrapper h1 {
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+.media-body {
+  margin-top: 0px;
+}
+
+.sidebar-icons {
+  margin-right: 10px;
+  color: #f9b835;
+}
+
+.bg-dark-hover:hover {
+  background-color: #242427 !important;
+  border-radius: 0.2em;
+}
+.bg-dark-hover:hover.sidebar-icons {
+  color: white;
+}
+.icon-sz {
+  font-size: 25px;
+}
+.text-white {
+  font-size: 30px;
+}
+
+.divider {
+  margin: 8px var(--left-sidebar-padding-right) 8px
+    var(--left-sidebar-padding-left);
+  border-color: #2c2b2b;
+  margin: 15px auto !important;
+  width: 90%;
+}
+
+.active-left-sidebar-ele {
+  border-left: 2px solid transparent;
+}
+
+.active-left-sidebar-ele:hover,
+.active-left-sidebar-ele:focus,
+.active-left-sidebar-ele:active {
+  border-left: 2px solid #916b49;
+}
+.bg-darky {
+  background: #000;
+}

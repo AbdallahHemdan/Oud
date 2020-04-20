@@ -1,0 +1,21 @@
+.myLibrary{
+  margin-left: 14rem;
+  margin-top: 60px;
+  background-color: #111113;
+}
+@media (max-width: 1200px) {
+    .myLibrary{ 
+      margin-right: 0;
+    }
+  }
+@media (max-width: 700px) {
+.myLibrary{
+    margin-left: 0;
+    margin-right: 0;
+}
+}
+@media (max-width: 480px) {
+.myLibrary{
+    margin-top: 100px;
+}
+}
