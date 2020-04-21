@@ -189,15 +189,6 @@ class Player extends Component {
       this.onEnd,
       this.onSeek
     );
-    // this.setState({
-    //   sound: setupHowler(
-    //     audio,
-    //     this.state,
-    //     this.onPlay,
-    //     this.onEnd,
-    //     this.onSeek
-    //   ),
-    // });
     sound.play();
     sound.volume(this.state.volume / 100);
     // sound.seek(this.state.current * 60);
@@ -519,6 +510,7 @@ class Player extends Component {
     return (
       <Fragment>
         <div
+          data-testid="extended-artist-art"
           className="extedned-thumb"
           style={{ height: this.state.thumbHeight }}
         >
