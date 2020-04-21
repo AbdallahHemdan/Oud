@@ -18,15 +18,13 @@ class AfterLogin extends Component {
   }
   handleStoringUserInfo = ({ displayName, images }) => {
     this.setState({ displayName, images });
-    console.log("After Login Navbar state", this.state)
   }
   componentDidMount() {
     axios.get(fetchUserInfo, config)
       .then((result) => {
-        console.log(result.data);
         this.handleStoringUserInfo(result.data);
       }).catch((err) => {
-
+        console.log(err)
       });
   }
 

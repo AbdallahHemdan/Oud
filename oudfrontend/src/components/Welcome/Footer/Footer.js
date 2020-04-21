@@ -94,7 +94,7 @@ function Footer() {
 
                 <ul className="list-unstyled ListMain hovergold">
                   <li className="ListItem">
-                    <Link data-testid="WePlayer" to="/web">
+                    <Link data-testid="WePlayer" to="/">
                       Web Player
                     </Link>
                   </li>

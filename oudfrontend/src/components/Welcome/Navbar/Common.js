@@ -6,7 +6,7 @@ class Common extends Component {
   render() {
     return (
       <React.Fragment>
-        <Link to="/welcome-guest" className="navbar-brand">
+        <Link to="/welcome" className="navbar-brand">
           <img
             className="img-responsive oudLogo"
             src={logo}

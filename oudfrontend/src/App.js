@@ -8,26 +8,26 @@ import RedirectPage from "./components/Account/General/RedirectPage";
 import Profile from "./pages/Profile/Profile";
 import Home from "./pages/Home/Home";
 import SeeAll from "./components/SeeAll/SeeAll";
-import WelcomeUser from "./pages/WelcomePage/welcomeUser";
-import WelcomeGuest from "./pages/WelcomePage/welcomeGuest";
 import Download from "./pages/RoutingPages/download";
 import Help from "./pages/RoutingPages/help";
 import Premium from "./pages/RoutingPages/premium";
 import Overview from "./pages/RoutingPages/OverView";
-import SignUp from "./pages/SignUpPage/index";
-import SignIn from "./pages/LoginPage/loginPage";
+import SignUp from "./pages/Signup/index";
+import SignIn from "./pages/Login/loginPage";
 import ForgotPassword from "./components/Login&Signup/ForgetPassword/ForgotPassword";
 import ResetPassword from "./components/Login&Signup/ForgetPassword/resetPassword";
 import Entered from "./components/Login&Signup/logined/entered";
 import Islinked from "./components/Login&Signup/linkisSent";
+import Welcome from './pages/Welcome/welcome';
+import "./App.css";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   useParams
 } from "react-router-dom";
-import "./App.css";
-import Welcome from './pages/WelcomePage/welcome';
+
+
 function App() {
   return (
     <Router>
@@ -61,12 +61,6 @@ function App() {
           </Route>
           <Route exact path="/welcome">
             <Welcome />
-          </Route>
-          <Route exact path="/welcome-guest">
-            <WelcomeGuest />
-          </Route>
-          <Route exact path="/welcome-user">
-            <WelcomeUser />
           </Route>
           <Route exact path="/signin">
             <SignIn />
