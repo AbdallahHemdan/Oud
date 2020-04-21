@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import NavBarFalse from "../../Welcome/welcome_false/Navbar/Navbar";
-import NavBarTrue from "../../Welcome/welcome_false/Navbar/Navbar";
+
 import OudCoin from "../../../assets/images/Oud Coin.svg";
 import feature1 from "../../../assets/images/benefit_1.png";
 import feature2 from "../../../assets/images/benefit_2.png";
@@ -75,7 +74,6 @@ class WhyGoPremium extends Component {
   render() {
     return (
       <div className="goPremiumContainer">
-        <NavBarFalse />
         <GoPremiumUpperContainer />
         <GoPremiumLoWerCotainer />
       </div>
