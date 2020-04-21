@@ -32,7 +32,7 @@ class Albums extends Component {
   componentDidMount() {
     const query = `${base}/artists/${
       this.props.artistId
-    }/albums?included_groups=${type[this.props.type]}`;
+    }/albums?included_groups=[${type[this.props.type]}]`;
     getRequest(query)
       .then((response) => {
         this.setState({

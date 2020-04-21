@@ -57,7 +57,7 @@ class RelatedArtists extends Component {
         description: "Artist Card",
         isPublic: true,
         type: "artist",
-        image: artist.images[0],
+        image: `https://oud-zerobase.me/api/${artist.images[1]}`,
       };
       items.push(item);
     });
