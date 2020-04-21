@@ -59,3 +59,38 @@
 .goPremium-cardparagraph {
   color: #916b49;
 }
+.goPremium-form {
+  width: 53%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 100px;
+  padding: 20px;
+  text-align: left;
+}
+.goPremium-formDiv {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.goPremium-formDiv ul {
+  margin-left: 15px;
+  padding-top: 20px;
+}
+.goPremium-formDiv li {
+  color: #916b49;
+  padding: 0 0 15px 0px;
+  list-style: none;
+  font-weight: 600;
+}
+.goPremium-getPremiumForm {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+.goPremium-footer {
+  padding-top: 40px;
+  height: 130px;
+  text-align: center;
+  color: black;
+}

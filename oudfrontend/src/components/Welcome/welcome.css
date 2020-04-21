@@ -13,7 +13,7 @@
   left: 0;
   z-index: 9999;
   width: 100%;
-  background-color: black;
+  transition: 0.5s;
 }
 .paddingNav {
   padding-left: 12.5%;
