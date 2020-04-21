@@ -5,8 +5,6 @@ import Popular from "./Popular";
 import Albums from "./Albums";
 import RelatedArtists from "./RelatedArtists";
 import PropTypes from "prop-types";
-import { createBrowserHistory } from "history";
-const newHistory = createBrowserHistory();
 /**
  * A function component to render the lower part of the artist page. Popular, Albums, Singles, Compilation, and Appears On
  * @author Ahmed Ashraf
@@ -19,76 +17,74 @@ const newHistory = createBrowserHistory();
 function LowerContainer(props) {
   return (
     <div className="LowerContainer" data-testid="LowerContainer">
-      <Router history={newHistory}>
-        <Switch>
-          <Route
-            data-testid="about-artist-lower"
-            exact
-            path={`/artist/:artistId/about`}
-            render={(prop) => (
-              <About {...prop} artistId={props.artistId} bio={props.bio} />
-            )}
-          />
-          {[`/artist/:artistId`, `/artist/:artistId/overview`].map(
-            (path, index) => (
-              <Route
-                data-testid="test-artist-lower"
-                exact
-                path={path}
-                key={index}
-                render={(prop) => (
-                  <Fragment>
-                    <Popular
-                      {...prop}
-                      artistId={props.artistId}
-                      data-testid="test-artist-lower"
-                    />
+      <Switch>
+        <Route
+          data-testid="about-artist-lower"
+          exact
+          path={`/artist/:artistId/about`}
+          render={(prop) => (
+            <About {...prop} artistId={props.artistId} bio={props.bio} />
+          )}
+        />
+        {[`/artist/:artistId`, `/artist/:artistId/overview`].map(
+          (path, index) => (
+            <Route
+              data-testid="test-artist-lower"
+              exact
+              path={path}
+              key={index}
+              render={(prop) => (
+                <Fragment>
+                  <Popular
+                    {...prop}
+                    artistId={props.artistId}
+                    data-testid="test-artist-lower"
+                  />
+                  <Albums
+                    {...prop}
+                    artistId={props.artistId}
+                    type={0}
+                    data-testid="test-artist-albums"
+                  />
+                  <div className="artist-singles">
                     <Albums
                       {...prop}
                       artistId={props.artistId}
-                      type={0}
-                      data-testid="test-artist-albums"
+                      type={1}
+                      data-testid="test-artist-singles"
                     />
-                    <div className="artist-singles">
-                      <Albums
-                        {...prop}
-                        artistId={props.artistId}
-                        type={1}
-                        data-testid="test-artist-singles"
-                      />
-                    </div>
-                    <div className="artist-compilation">
-                      <Albums
-                        {...prop}
-                        artistId={props.artistId}
-                        type={2}
-                        data-testid="test-artist-compilations"
-                      />
-                    </div>
-                    <div className="artist-appears-on">
-                      <Albums
-                        {...prop}
-                        artistId={props.artistId}
-                        type={3}
-                        data-testid="test-artist-appears-on"
-                      />
-                    </div>
-                  </Fragment>
-                )}
-              />
-            )
-          )}
+                  </div>
+                  <div className="artist-compilation">
+                    <Albums
+                      {...prop}
+                      artistId={props.artistId}
+                      type={2}
+                      data-testid="test-artist-compilations"
+                    />
+                  </div>
+                  <div className="artist-appears-on">
+                    <Albums
+                      {...prop}
+                      artistId={props.artistId}
+                      type={3}
+                      data-testid="test-artist-appears-on"
+                    />
+                  </div>
+                </Fragment>
+              )}
+            />
+          )
+        )}
 
-          <Route
-            data-testid="related-artist-lower"
-            exact
-            path={`/artist/:artistId/related`}
-            render={(prop) => (
-              <RelatedArtists {...prop} artistId={props.artistId} />
-            )}
-          />
-        </Switch>
-      </Router>
+        <Route
+          data-testid="related-artist-lower"
+          exact
+          path={`/artist/:artistId/related`}
+          render={(prop) => (
+            <RelatedArtists {...prop} artistId={props.artistId} />
+          )}
+        />
+      </Switch>
     </div>
   );
 }

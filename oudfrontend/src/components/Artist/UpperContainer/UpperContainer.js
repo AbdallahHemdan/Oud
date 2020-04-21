@@ -161,26 +161,25 @@ class UpperContainer extends Component {
               this.state.scrolled ? { marginTop: "0", marginLeft: "30px" } : {}
             }
           >
-            <Router history={newHistory}>
-              <Link
-                id="overview-upperContainer"
-                to={`/artist/${this.props.artistId}/overview`}
-              >
-                Overview
-              </Link>
-              <Link
-                id="publicPlaylists-upperContainer"
-                to={`/artist/${this.props.artistId}/related`}
-              >
-                Related Artists
-              </Link>
-              <Link
-                id="following-upperContainer"
-                to={`/artist/${this.props.artistId}/about`}
-              >
-                About
-              </Link>
-            </Router>
+            <Link
+              id="overview-upperContainer"
+              to={`/artist/${this.props.artistId}/overview`}
+            >
+              Overview
+            </Link>
+            <Link
+              id="publicPlaylists-upperContainer"
+              to={`/artist/${this.props.artistId}/related`}
+            >
+              Related Artists
+            </Link>
+            <Link
+              id="following-upperContainer"
+              to={`/artist/${this.props.artistId}/about`}
+            >
+              About
+            </Link>
+            {/* </Router> */}
           </div>
         </div>
         {this.state.scrolled && <div style={{ height: "250px" }}></div>}
