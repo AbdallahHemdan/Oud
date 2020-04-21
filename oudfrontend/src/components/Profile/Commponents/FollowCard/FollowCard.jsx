@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userPlaceHolder from "../../../../assets/images/default-Profile.svg";
 import axios from "axios";
-import { config } from "./../../../../utils/auth"
+import { config } from "./../../../../utils/auth";
 import "./FollowCard.css";
 
 /**
@@ -40,14 +40,15 @@ class FollowCard extends Component {
         //you should use the type and ids as query prams in the real API as here you can't make it just get the data
         axios
           .get(
-            "https://oud-zerobase.me/api/v1/me/following/contains?type=user&ids=" + this.props.id,
+            "https://oud-zerobase.me/api/v1/me/following/contains?type=user&ids=" +
+              this.props.id,
             config
           )
           .then(response => {
-            this.setState({ followStatus: response.data.ids[0] });
+            this.setState({ followStatus: response.data[0] });
           })
           .catch(error => {
-            console.log(error);
+            console.log(error.response);
           });
       })
       .catch(error => {
@@ -75,10 +76,11 @@ class FollowCard extends Component {
       axios
         .delete(
           "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
-          this.props.id,
+            this.props.id,
           config
         )
         .then(response => {
+          console.log(response);
           this.setState({ followStatus: !this.state.followStatus });
         })
         .catch(error => console.log(error.response));
@@ -86,13 +88,14 @@ class FollowCard extends Component {
       axios
         .put(
           "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
-          this.props.id,
+            this.props.id,
           {
-            ids: [this.props.userId]
+            ids: [this.props.id]
           },
           config
         )
         .then(response => {
+          console.log(response);
           this.setState({ followStatus: !this.state.followStatus });
         })
         .catch(error => {
@@ -106,8 +109,8 @@ class FollowCard extends Component {
   handleMouseOut() {
     this.setState({ mouseOn: false });
   }
-
   render() {
+    console.log(this.state.followStatus);
     return (
       <div className="followCard" data-test="FollowCard">
         <img
@@ -154,11 +157,11 @@ class FollowCard extends Component {
               this.state.mouseOn ? (
                 <>UNFOLLOW</>
               ) : (
-                  <> FOLLOWING </>
-                )
+                <> FOLLOWING </>
+              )
             ) : (
-                <> FOLLOW</>
-              )}
+              <> FOLLOW</>
+            )}
           </button>
         ) : null}
       </div>
