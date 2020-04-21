@@ -8,12 +8,6 @@ import RedirectPage from "./components/Account/General/RedirectPage";
 import Profile from "./pages/Profile/Profile";
 import Home from "./pages/Home/Home";
 import SeeAll from "./components/SeeAll/SeeAll";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useParams
-} from "react-router-dom";
 import WelcomeUser from "./pages/WelcomePage/welcomeUser";
 import WelcomeGuest from "./pages/WelcomePage/welcomeGuest";
 import Download from "./pages/RoutingPages/download";
@@ -26,8 +20,14 @@ import ForgotPassword from "./components/Login&Signup/ForgetPassword/ForgotPassw
 import ResetPassword from "./components/Login&Signup/ForgetPassword/resetPassword";
 import Entered from "./components/Login&Signup/logined/entered";
 import Islinked from "./components/Login&Signup/linkisSent";
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams
+} from "react-router-dom";
 import "./App.css";
+import Welcome from './pages/WelcomePage/welcome';
 function App() {
   return (
     <Router>
@@ -60,7 +60,7 @@ function App() {
             <AlbumRender />
           </Route>
           <Route exact path="/welcome">
-            <WelcomeGuest />
+            <Welcome />
           </Route>
           <Route exact path="/welcome-guest">
             <WelcomeGuest />
