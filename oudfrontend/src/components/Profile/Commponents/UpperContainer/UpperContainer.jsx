@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import userPlaceHolder from "../../../../assets/images/default-Profile.svg";
 import { Link } from "react-router-dom";
-import { config } from "./../../../../utils/auth"
+import { config, getToken } from "./../../../../utils/auth";
 import "./UpperContainer.css";
-
-
 
 /**
  * @type {Function}
@@ -43,7 +41,7 @@ class UpperContainer extends Component {
       axios
         .delete(
           "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
-          this.props.userId,
+            this.props.userId,
           config
         )
         .then(response => {
@@ -54,7 +52,7 @@ class UpperContainer extends Component {
       axios
         .put(
           "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
-          this.props.userId,
+            this.props.userId,
           {
             ids: [this.props.userId]
           },
@@ -84,13 +82,22 @@ class UpperContainer extends Component {
     if (event.target.files[0]) {
       fd.append("images", event.target.files[0], event.target.files[0].name);
 
-      axios
-        .patch("https://oud-zerobase.me/api/v1/me/profilePicture", fd, config)
+      axios({
+        url: `https://oud-zerobase.me/api/v1/me/profilePicture`,
+        method: "patch",
+        headers: {
+          authorization: config.headers.Authorization
+        },
+        data: fd
+      })
+        //.patch("https://oud-zerobase.me/api/v1/me/profilePicture", fd, config)
         .then(response => {
           console.log(response);
+          window.location = window.location;
         })
         .catch(error => {
           console.log(error.response);
+          window.location = window.location;
         });
     }
   }
@@ -104,11 +111,10 @@ class UpperContainer extends Component {
           photo: response.data.images[0]
         });
 
-        //you should use the type and ids as query prams in the real API as here you can't make it just get the data
         axios
           .get(
             "https://oud-zerobase.me/api/v1/me/following/contains?type=user&ids=" +
-            this.props.userId,
+              this.props.userId,
             config
           )
           .then(response => {
@@ -182,8 +188,8 @@ class UpperContainer extends Component {
                   ? "userImg-profile-scrolled"
                   : this.props.userId === this.state.signInId &&
                     !this.state.scrolled
-                    ? "userImg-profile-signedIn"
-                    : "userImg-profile"
+                  ? "userImg-profile-signedIn"
+                  : "userImg-profile"
               }
               src={
                 this.state.photo
@@ -216,30 +222,30 @@ class UpperContainer extends Component {
           </div>
 
           {this.props.userId !== this.state.signInId &&
-            this.state.signInId !== "" &&
-            !this.state.scrolled ? (
-              <button
-                id="follow-button-upperContainer"
-                className={
-                  this.state.followStatus
-                    ? "btn btn-outline-warning upperContainerFollowingButton"
-                    : "btn btn-outline-light upperContainerFollowButton"
-                }
-                onClick={this.handleClick}
-                onMouseOver={this.handleMouseOver}
-                onMouseOut={this.handleMouseOut}
-              >
-                {this.state.followStatus ? (
-                  this.state.mouseOn ? (
-                    <>UNFOLLOW</>
-                  ) : (
-                      <> FOLLOWING </>
-                    )
+          this.state.signInId !== "" &&
+          !this.state.scrolled ? (
+            <button
+              id="follow-button-upperContainer"
+              className={
+                this.state.followStatus
+                  ? "btn btn-outline-warning upperContainerFollowingButton"
+                  : "btn btn-outline-light upperContainerFollowButton"
+              }
+              onClick={this.handleClick}
+              onMouseOver={this.handleMouseOver}
+              onMouseOut={this.handleMouseOut}
+            >
+              {this.state.followStatus ? (
+                this.state.mouseOn ? (
+                  <>UNFOLLOW</>
                 ) : (
-                    <> FOLLOW</>
-                  )}
-              </button>
-            ) : null}
+                  <> FOLLOWING </>
+                )
+              ) : (
+                <> FOLLOW</>
+              )}
+            </button>
+          ) : null}
 
           <div
             data-test="profile-links"
