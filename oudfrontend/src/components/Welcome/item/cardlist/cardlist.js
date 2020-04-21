@@ -10,8 +10,8 @@ export const CardList = (props) => {
   return (
     <div className="container">
       <div className="cartList row ">
-        {props.MusicCard.map((MusicCard) => (
-          <Card data={MusicCard} />
+        {props.MusicCard.map((MusicCard, index) => (
+          <Card data={MusicCard} key={index} />
         ))}
       </div>
     </div>
