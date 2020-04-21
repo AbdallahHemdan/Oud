@@ -55,11 +55,11 @@ class AfterLogin extends Component {
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
           <Link
             data-testid="Account"
-            to="/overview"
+            to="/account"
             className="dropdown-item"
           >
             Account
-                     </Link>
+          </Link>
           <Link
             data-testid="LogOut"
             to="/signin"
