@@ -8,12 +8,6 @@ import RedirectPage from "./components/Account/General/RedirectPage";
 import Profile from "./pages/Profile/Profile";
 import Home from "./pages/Home/Home";
 import SeeAll from "./components/SeeAll/SeeAll";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useParams
-} from "react-router-dom";
 import WelcomeUser from "./pages/WelcomePage/welcomeUser";
 import WelcomeGuest from "./pages/WelcomePage/welcomeGuest";
 import Download from "./pages/RoutingPages/download";
@@ -26,6 +20,14 @@ import ForgotPassword from "./components/Login&Signup/ForgetPassword/ForgotPassw
 import ResetPassword from "./components/Login&Signup/ForgetPassword/resetPassword";
 import Entered from "./components/Login&Signup/logined/entered";
 import Islinked from "./components/Login&Signup/linkisSent";
+import WhyGoPremium from "./components/Premium/WhyGoPremium/WhyGoPremium";
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams
+} from "react-router-dom";
 
 import "./App.css";
 function App() {
@@ -45,6 +47,7 @@ function App() {
 
           <Route path="/profile/:userId" component={Profile} />
           <Route path="/account" component={Account} />
+          <Route path="/goPremium" component={WhyGoPremium} />
 
           <Route path="/RedirectPage">
             <RedirectPage />
