@@ -18,6 +18,7 @@ const SortableTrackContainer = SortableElement((props) => {
       idx={props.idx}
       playTrack={props.playTrack}
       playing={props.playing}
+      changePlayingState={props.changePlayingState}
       toggleDropdown={props.toggleDropdown}
       data-testid="track-component"
     />

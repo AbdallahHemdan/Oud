@@ -2,7 +2,7 @@ import axios from "axios";
 import { Howl } from "howler";
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzA2NzIzNywiZXhwIjoxNTg5NjU5MjM3fQ.e34kaGJ3ujZ-GT6vy1C2uNXo0W7bTi2wIdgY7h8euwg`,
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzQzNDMyNywiZXhwIjoxNTkwMDI2MzI3fQ.pgmf7Vfgy9dobeUVzOeXZRzSZzeQ_0sPf2ryhSblhZk`,
   },
 };
 function checkSavedTrack(id) {
@@ -47,11 +47,11 @@ function removeSavedTrack(id) {
     });
 }
 
-function setupHowler(state, onPlay, onEnd, onSeek) {
+function setupHowler(audio, state, onPlay, onEnd, onSeek) {
   console.log("setup howler");
-  console.log(state.audioUrl);
+  console.log(audio);
   const sound = new Howl({
-    src: [state.audioUrl],
+    src: [audio],
     autoplay: false,
     loop: state.repeatState,
     volume: Number(state.volume / 100).toFixed(2),

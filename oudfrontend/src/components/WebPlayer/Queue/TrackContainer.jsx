@@ -23,6 +23,7 @@ const TrackContainer = SortableContainer((props) => {
             id={track}
             playTrack={props.playTrack}
             playing={props.playing}
+            changePlayingState={props.changePlayingState}
             toggleDropdown={props.toggleDropdown}
           />
         );

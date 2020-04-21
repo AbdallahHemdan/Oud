@@ -8,7 +8,7 @@ import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
 const base = `https://oud-zerobase.me/api/v1`;
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzA2NzIzNywiZXhwIjoxNTg5NjU5MjM3fQ.e34kaGJ3ujZ-GT6vy1C2uNXo0W7bTi2wIdgY7h8euwg`,
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzQzNDMyNywiZXhwIjoxNTkwMDI2MzI3fQ.pgmf7Vfgy9dobeUVzOeXZRzSZzeQ_0sPf2ryhSblhZk`,
   },
 };
 /**
@@ -102,11 +102,20 @@ class WebPlayer extends Component {
               trackIdx = i;
               break;
             }
-          this.setState({
-            trackIdx: newQueue ? 0 : trackIdx,
-            queue: data["tracks"],
-            trackId: newQueue ? data["tracks"][0] : trackId,
-          });
+          this.setState(
+            {
+              trackIdx: newQueue ? 0 : trackIdx,
+              queue: data["tracks"],
+              trackId: newQueue ? data["tracks"][0] : trackId,
+            },
+            () => {
+              console.log("queue:");
+              console.log(this.state.queue);
+              console.log(
+                "idx after fetching the queue: " + this.state.trackIdx
+              );
+            }
+          );
         }
       })
       .catch(function (error) {
@@ -137,19 +146,22 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   getNext = () => {
+    console.log("before any thing: " + this.state.trackIdx);
     let idx = this.state.trackIdx + 1;
+    console.log("idx from get next before edit: " + idx);
     if (
       idx === this.state.queue.length &&
       this.playerElement.current.state.repeatState === 1
     ) {
       idx = 0;
-    } else idx = idx - 1;
+    } else if (idx === this.state.queue.length) idx = idx - 1;
 
     this.setState({
       trackIdx: idx,
       trackId: this.state.queue[idx],
     });
-    return this.state.trackId;
+    console.log("idx from get next: " + idx);
+    return idx;
   };
   /**
    * A function to fetch the previos track to the currently playing track
@@ -157,12 +169,14 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   getPrevious = () => {
+    console.log("before any thing: " + this.state.trackIdx);
     const idx = this.state.trackIdx - 1 < 0 ? 0 : this.state.trackIdx - 1;
     this.setState({
       trackIdx: idx,
       trackId: this.state.queue[idx],
     });
-    return this.state.trackId;
+    console.log("idx from get prev: " + idx);
+    return idx;
   };
   /**
    * A generic function to play a track from any location other than the queue and the player
@@ -321,6 +335,7 @@ class WebPlayer extends Component {
           trackIdx={this.state.trackIdx}
           deviceId={this.state.deviceId}
           playing={this.state.playing}
+          changePlayingState={this.changePlayingState}
           onChangeQueueOrder={this.onChangeQueueOrder}
           player={this.playerElement}
           removeTrack={this.removeTrack}
@@ -330,8 +345,9 @@ class WebPlayer extends Component {
         />
         <Player
           ref={this.playerElement}
-          deviceId={this.state.deviceId}
+          trackId={this.state.trackId}
           trackIdx={this.state.trackIdx}
+          playing={this.state.playing}
           queueElement={this.queueElement}
           getRequest={this.getRequest}
           putRequest={this.putRequest}

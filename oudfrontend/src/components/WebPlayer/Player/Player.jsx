@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 import { checkSavedTrack, setupHowler } from "../../../utils/Actions/Player";
 const base = `https://oud-zerobase.me/api/v1`;
+let sound = null;
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
  * @author Ahmed Ashraf
@@ -53,8 +54,7 @@ class Player extends Component {
    * @returns {number}. returns the progress percentage
    */
   getSoundProgress = () => {
-    const progress =
-      (this.state.sound.seek() / this.state.sound.duration()) * 100;
+    const progress = (sound.seek() / sound.duration()) * 100;
     return progress;
   };
 
@@ -64,7 +64,9 @@ class Player extends Component {
    * @returns {void}
    */
   componentDidMount() {
-    this.fetchPlayback();
+    this.fetchPlayback().then((audio) => {
+      console.log("success: " + audio);
+    });
   }
 
   onPlay = () => {
@@ -73,14 +75,14 @@ class Player extends Component {
       playing: true,
       progress: 0,
       current: Number(0).toFixed(2),
-      duration: Number(this.state.sound.duration() / 60).toFixed(2),
+      duration: Number(sound.duration() / 60).toFixed(2),
     });
-    this.state.sound.volume(this.state.volume / 100);
-    // this.state.sound.seek(this.state.current * 60);
+    sound.volume(this.state.volume / 100);
+    // sound.seek(this.state.current * 60);
     setInterval(() => {
-      if (this.state.sound && this.state.playing) {
+      if (sound && this.props.playing) {
         const progress = this.getSoundProgress();
-        const current = Number(this.state.sound.seek() / 60).toFixed(2);
+        const current = Number(sound.seek() / 60).toFixed(2);
         this.setState({
           progress: isNaN(progress) ? this.state.progress : progress,
           current: isNaN(current) ? this.state.current : current,
@@ -96,11 +98,11 @@ class Player extends Component {
       current: Number(0).toFixed(2),
     });
     if (this.state.repeatState === 1) this.handleNext();
-    else if (this.state.repeatState === 2) this.state.sound.loop(true);
-    else this.state.sound.loop(false);
+    else if (this.state.repeatState === 2) sound.loop(true);
+    else sound.loop(false);
   };
   onSeek = () => {
-    this.state.sound.volume(this.state.volume / 100);
+    sound.volume(this.state.volume / 100);
     this.setState({
       progress: this.getSoundProgress(),
     });
@@ -112,7 +114,7 @@ class Player extends Component {
    * @returns {void}
    */
   fetchPlayback = (outPlayer = false) => {
-    this.props
+    return this.props
       .getRequest(`${base}/me/player`)
       .then((response) => {
         const data = response["data"]["player"];
@@ -141,17 +143,22 @@ class Player extends Component {
             fetched: true,
             trackId: track["_id"],
           });
-          this.props.changePlayingState(data["isPlaying"]);
+          this.props.changePlayingState(false);
           this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
           // this.handleSaveToLikedSongs();
+          console.log("audio: ");
+          console.log(track["audioUrl"]);
+          return track["audioUrl"];
         }
       })
       .catch((error) => {
         console.log(error.response);
       });
+    console.log("playback: ");
+    console.log(this.state);
   };
   handleSaveToLikedSongs = () => {
-    checkSavedTrack(this.state.trackId)
+    checkSavedTrack(this.props.trackId)
       .then((isFound) => {
         if (isFound) {
           this.props.changeLovedState(true);
@@ -171,19 +178,31 @@ class Player extends Component {
    * @function
    * @returns {void}
    */
-  playTrack = (fromPlay = false) => {
-    if (this.state.sound) {
-      // this.state.sound.pause();
-      // this.state.sound.seek(0);
-      this.state.sound.unload();
+  playTrack = (audio) => {
+    if (sound) {
+      sound.unload();
     }
-    this.setState({
-      sound: setupHowler(this.state, this.onPlay, this.onEnd, this.onSeek),
-    });
-    this.state.sound.play();
-    this.state.sound.volume(this.state.volume / 100);
-    this.state.sound.seek(this.state.current * 60);
-    // if (fromPlay) this.state.sound.seek(this.state.current * 60);
+    console.log("state before howler: ");
+    console.log(this.state);
+    sound = setupHowler(
+      audio,
+      this.state,
+      this.onPlay,
+      this.onEnd,
+      this.onSeek
+    );
+    // this.setState({
+    //   sound: setupHowler(
+    //     audio,
+    //     this.state,
+    //     this.onPlay,
+    //     this.onEnd,
+    //     this.onSeek
+    //   ),
+    // });
+    sound.play();
+    sound.volume(this.state.volume / 100);
+    // sound.seek(this.state.current * 60);
   };
   /**
    * Handling the pause action. request from the back end to pause, pause the sound in the browser, and update the playing state
@@ -195,7 +214,7 @@ class Player extends Component {
     this.props
       .putRequest(`${base}/me/player/pause`)
       .then((resp) => {
-        this.state.sound.pause();
+        sound.pause();
         this.setState({ playing: false });
         this.props.changePlayingState(false);
       })
@@ -209,9 +228,9 @@ class Player extends Component {
    * @param {integer} idx zero-based index indicates the position of the track in the context array
    * @returns {object}
    */
-  playResumeRequest = (id) => {
+  playResumeRequest = (idx) => {
     return this.props.putRequest(`${base}/me/player/play`, {
-      offset: { uri: "oud:track:" + id },
+      offset: { position: idx },
     });
   };
   /**
@@ -222,12 +241,12 @@ class Player extends Component {
    * @param {integer} idx zero-based index indicates the position of the track in the context array
    * @returns {void}
    */
-  resume = (id = this.props.id) => {
-    this.playResumeRequest(id)
+  resume = (idx = this.props.trackIdx) => {
+    this.playResumeRequest(idx)
       .then((resp) => {
         this.props.changePlayingState(true);
         this.setState({ playing: true });
-        this.state.sound.play();
+        sound.play();
       })
       .catch((error) => {
         console.log(error.response.data.message);
@@ -241,14 +260,14 @@ class Player extends Component {
    * @param {integer} idx zero-based index indicates the position of the track in the context array
    * @returns {void}
    */
-  play = (id = this.props.id) => {
-    this.playResumeRequest(id)
+  play = (idx = this.props.trackIdx, audio = this.state.audioUrl) => {
+    this.playResumeRequest(idx)
       .then((resp) => {
-        this.playTrack(true);
-        // console.log(resp);
+        this.playTrack(audio);
+        console.log(resp);
       })
       .catch((error) => {
-        console.log(error.response.data.message);
+        console.log(error.response);
       });
   };
   getLoopState(repeatState) {
@@ -264,12 +283,24 @@ class Player extends Component {
    * @param {integer} idx zero-based index indicates the position of the track in the context array
    * @returns{void}
    */
-  handlePlayPause = (id = this.state.trackId, idx = this.props.idx) => {
-    if (id !== this.state.trackId) {
-      this.playResumeRequest(id)
+  handlePlayPause = (id = this.props.trackId, idx = this.props.trackIdx) => {
+    if (id !== this.props.trackId) {
+      console.log("play pause queue track idx: " + idx);
+      if (sound) {
+        sound.pause();
+        sound.unload();
+        this.setState({
+          progress: 0,
+          current: Number(0).toFixed(2),
+        });
+      }
+      this.playResumeRequest(idx)
         .then((resp) => {
-          this.fetchPlayback();
-          this.playTrack(true);
+          this.fetchPlayback().then((audio) => {
+            console.log("audio fron then: ");
+            console.log(audio);
+            setTimeout(() => this.playTrack(audio), 100);
+          });
         })
         .catch((error) => {
           console.log(error.response);
@@ -277,16 +308,16 @@ class Player extends Component {
       return;
     }
 
-    if (this.state.sound) {
-      this.state.sound.mute(this.state.muteState);
+    if (sound) {
+      sound.mute(this.state.muteState);
       const loop = this.getLoopState(this.state.repeatState);
-      this.state.sound.loop(loop);
-      if (this.state.sound.playing()) {
+      sound.loop(loop);
+      if (sound.playing()) {
         this.pause();
-      } else if (this.state.sound.state() === "loaded") {
-        this.resume(id);
+      } else if (sound.state() === "loaded") {
+        this.resume(idx);
       }
-    } else this.play(id);
+    } else this.play(idx);
   };
 
   /**
@@ -299,18 +330,18 @@ class Player extends Component {
     this.props
       .postRequest(`${base}/me/player/next`)
       .then((response) => {
-        const trackId = this.props.getNext();
-        this.setState({
-          trackId: trackId,
-        });
-        this.fetchPlayback();
+        const trackIdx = this.props.getNext();
         setTimeout(() => {
-          this.props.changePlayingState(false);
-          this.play(this.state.trackId);
+          this.fetchPlayback().then((audio) => {
+            setTimeout(() => {
+              this.props.changePlayingState(false);
+              this.play(trackIdx, audio);
+            }, 100);
+          });
         }, 100);
       })
       .catch(function (error) {
-        console.log(error.response.data.message);
+        console.log(error.response);
       });
   };
 
@@ -324,14 +355,14 @@ class Player extends Component {
     this.props
       .postRequest(`${base}/me/player/previous`)
       .then((response) => {
-        // const trackId = this.props.getPrevious();
-        // this.setState({
-        //   trackId: trackId,
-        // });
-        this.fetchPlayback();
+        const trackIdx = this.props.getPrevious();
         setTimeout(() => {
-          this.props.changePlayingState(false);
-          this.play(this.state.trackId);
+          this.fetchPlayback().then((audio) => {
+            setTimeout(() => {
+              this.props.changePlayingState(false);
+              this.play(trackIdx, audio);
+            }, 100);
+          });
         }, 100);
       })
       .catch(function (error) {
@@ -358,7 +389,7 @@ class Player extends Component {
     this.props
       .putRequest(`${base}/me/player/seek?positionMs=${position * 1000}`)
       .then((response) => {
-        if (this.state.sound) this.state.sound.seek(position);
+        if (sound) sound.seek(position);
         this.setState({
           progress: (position / (this.state.duration * 60)) * 100,
           current: Number(position / 60).toFixed(2),
@@ -390,7 +421,7 @@ class Player extends Component {
     this.props
       .putRequest(`${base}/me/player/shuffle?state=${!this.state.shuffleState}`)
       .then((response) => {
-        this.props.fetchQueue("0", this.state.trackId, false);
+        this.props.fetchQueue("0", this.props.trackId, false);
         this.setState({
           shuffleState: !this.state.shuffleState,
         });
@@ -418,7 +449,7 @@ class Player extends Component {
         this.setState({
           repeatState: repeatState,
         });
-        if (this.state.sound) this.state.sound.loop(loop);
+        if (sound) sound.loop(loop);
       })
       .catch(function (error) {
         console.log(error.response.data.message);
@@ -439,7 +470,7 @@ class Player extends Component {
       muteProgress: mute ? this.state.volume : 0,
       volume: mute ? 0 : this.state.muteProgress,
     });
-    if (this.state.sound) this.state.sound.mute(mute);
+    if (sound) sound.mute(mute);
   };
 
   /**
@@ -456,7 +487,7 @@ class Player extends Component {
     const offsetX = e.nativeEvent.offsetX;
     const percent = offsetX / width;
     const volume = parseInt(percent * 100);
-    if (this.state.sound) this.state.sound.volume(volume / 100);
+    if (sound) sound.volume(volume / 100);
     this.setState({
       volume: volume,
       muteState: volume === 0 ? true : false,
@@ -504,7 +535,7 @@ class Player extends Component {
         <div className="now-playing-bar-container" data-testid="web-palyer">
           <div className="now-playing-bar">
             <PlayingBarLeft
-              playing={this.state.playing}
+              playing={this.props.playing}
               display={this.state.thumbDisplay}
               art={this.state.art}
               handlePrev={() => this.handlePrev()}
@@ -572,10 +603,6 @@ class Player extends Component {
 }
 
 Player.propTypes = {
-  /**
-   * The id of the device of the user
-   */
-  deviceId: PropTypes.string.isRequired,
   /**
    * The index of the currently playing track
    */

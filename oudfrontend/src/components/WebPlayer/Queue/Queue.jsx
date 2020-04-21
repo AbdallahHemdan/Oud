@@ -164,6 +164,7 @@ class Queue extends Component {
               useDragHandle={true}
               playTrack={this.props.player}
               playing={this.props.playing}
+              changePlayingState={this.props.changePlayingState}
               toggleDropdown={this.toggleDropdown}
               data-testid="tracks-container"
             />

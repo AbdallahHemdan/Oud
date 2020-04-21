@@ -9,7 +9,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzA2NzIzNywiZXhwIjoxNTg5NjU5MjM3fQ.e34kaGJ3ujZ-GT6vy1C2uNXo0W7bTi2wIdgY7h8euwg`,
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzQzNDMyNywiZXhwIjoxNTkwMDI2MzI3fQ.pgmf7Vfgy9dobeUVzOeXZRzSZzeQ_0sPf2ryhSblhZk`,
   },
 };
 const DragHandle = sortableHandle(() => (
@@ -77,7 +77,8 @@ class Track extends Component {
    * @returns {void}
    */
   handlePlayButton = () => {
-    // this.togglePlay();
+    this.togglePlay();
+    this.props.changePlayingState(this.state.playing);
     this.props.playTrack.current.handlePlayPause(this.props.id, this.props.idx);
   };
   /**
@@ -113,7 +114,7 @@ class Track extends Component {
               <img
                 src={
                   this.props.playTrack.current.state.trackId ===
-                    this.props.id && this.state.playing
+                    this.props.id && this.props.playing
                     ? pause
                     : play
                 }
