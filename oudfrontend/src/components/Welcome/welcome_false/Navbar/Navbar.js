@@ -113,7 +113,6 @@ class Navbar extends React.Component {
             </ul>
           </div>
         </nav>
-        <div>{/* <NavbarRouter /> */}</div>
       </div>
     );
   }
