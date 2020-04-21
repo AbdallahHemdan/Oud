@@ -1,20 +1,8 @@
-import React, {Component} from 'react';
-// eslint-disable-next-line no-unused-vars
-import {Link} from 'react-router-dom';
-import Back from '../../../../assets/images/2685063.jpg';
-import '../../welcome.css';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import Back from './../../../assets/images/2685063.jpg';
 
-/**the body elements  */
-class Body extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  /**
-   * the render function
-   * @function
-   * @returns {JSX}
-   */
+class BeforeLogin extends Component {
   render() {
     return (
       <div className="BodyStyle">
@@ -36,8 +24,8 @@ class Body extends Component {
           </Link>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Body;
+export default BeforeLogin

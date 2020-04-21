@@ -13,7 +13,7 @@ class MainBrand extends Component {
     return (
       <div className="NavBarStyle">
         <div className="main-brand mainBrand barsection">
-          <Link className="navbar navbar-dark bg-dark" to="/welcome-guest">
+          <Link className="navbar navbar-dark bg-dark" to="/welcome">
             <img
               id="OudImage"
               data-testid="OudImage"

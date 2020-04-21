@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import img from '../../../../../assets/images/adeleImg.png';
-import '../../../welcome.css';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import img from './../../../../assets/images/adeleImg.png';
+import './../../welcome.css';
+import { Link } from 'react-router-dom';
 
 class Card extends Component {
   constructor(props) {
@@ -16,8 +16,8 @@ class Card extends Component {
     return (
       <div
         className="slider container relativeCONT"
-        onMouseEnter={() => this.setState({Toggle: true})}
-        onMouseLeave={() => this.setState({Toggle: false})}
+        onMouseEnter={() => this.setState({ Toggle: true })}
+        onMouseLeave={() => this.setState({ Toggle: false })}
       >
         <div key={MusicCard.id} className="slider container relativeCONT">
           <img
@@ -26,7 +26,7 @@ class Card extends Component {
             alt="music pic"
             className={`cardImage col-md-3 slide container ${
               this.state.Toggle && 'half'
-            }`}
+              }`}
           />
           <div className={`middle ${this.state.Toggle ? 'show' : 'hide'}`}>
             <h2 className="text">{MusicCard.name}</h2>
