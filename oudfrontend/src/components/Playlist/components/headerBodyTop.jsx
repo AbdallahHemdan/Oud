@@ -25,30 +25,17 @@ import {config} from "../../../utils/auth"
 class HeaderBodyTop extends Component{
     constructor(props){
         super(props)
-        this.state={
-            ownerName:'', 
+        this.state={ 
             redirect:null
         }
+        this.redirect = this.redirect.bind(this)
     }
     /**
      * ownerName is a state that carries the name of the owner of the playlist or album
      * @constant
      * @type {string}
      */
-    /**
-     * fetching the owner name and setting state
-     */
-    componentWillReceiveProps(nextProps){
-        const owner = nextProps.owner
-    axios.get(`${base}/users/`+owner, config)
-        .then((response) => {
-            const user = response.data;
-            this.setState({ownerName:user.displayName});
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }
+    
     redirect(route){
         this.setState({redirect:route})
     }
@@ -61,7 +48,7 @@ render(){
         <div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
             <h2 data-testid="title" className='gray-text'>{this.props.title}</h2>
             <span data-testid="credits" className="whiteText">By </span>
-            <button data-testid="owner" className='playlistAnchor songButton' >{this.state.ownerName}</button>
+            <button data-testid="owner" className='playlistAnchor songButton' onClick={()=>this.redirect(`/profile/${this.props.ownerId}`)}>{this.props.owner}</button>
         </div>
     );
 }

@@ -1,6 +1,7 @@
 const jwtDecode = require('jwt-decode');
 
 function getToken() {
+  
   return localStorage.getItem('accessToken');
 }
 

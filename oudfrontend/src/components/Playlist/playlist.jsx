@@ -57,7 +57,8 @@ class Playlist extends React.Component {
       playing: false,
       queued: false,
       clickID: "0",
-      displayAdd: false
+      displayAdd: false,
+      ownerName:''
     };
     this.addToQueue = this.addToQueue.bind(this);
     this.resume = this.resume.bind(this);
@@ -154,13 +155,12 @@ class Playlist extends React.Component {
       .then((response) => {
         const playlist = response.data;
         this.setState({ tracks: playlist.tracks });
-        this.setState({ recieved: true });
         this.setState({ playlist: playlist });
-        console.log(playlist.owner)
       })
       .catch((error) => {
         console.log(error);
       });
+      
     //not in the back yet
     axios
       .get(`${base}/me/playlists/contains/${this.props.id.id}`, config)
@@ -172,6 +172,20 @@ class Playlist extends React.Component {
       .catch((error) => {
         console.log(error);
       });
+  }
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.recieved === false){
+    axios.get(`${base}/users/`+this.state.playlist.owner, config)
+      .then((response) => {
+          const user = response.data;
+          this.setState({ownerName:user.displayName});
+          this.setState({recieved:true})
+          console.log(user.displayName)
+      })
+      .catch((error) => {
+          console.log(error);
+      });
+    }
   }
   /**
    * it changes the state so that all song will be marked as unclicked
@@ -190,7 +204,8 @@ class Playlist extends React.Component {
     const subPath = (base === prodUrl) ? subUrl : "";
     return (
       <div>
-        {this.state.displayAdd ? (
+      {this.state.recieved?
+        this.state.displayAdd ? (
           <AddToPlaylist
             display={this.state.displayAdd}
             close={this.closeAddToPlaylist.bind(this)}
@@ -225,7 +240,8 @@ class Playlist extends React.Component {
                       <HeaderBodyTop
                         data-testid="HeaderBodyTop"
                         title={this.state.playlist.name}
-                        owner={this.state.playlist.owner}
+                        owner={this.state.ownerName}
+                        ownerId = {this.state.playlist.owner}
                       />
                       <HeaderBodyBottom
                         data-testid="HeaderBodyBottom"
@@ -254,6 +270,8 @@ class Playlist extends React.Component {
             </div>
           </div>
           
+        ): (
+          <h1 data-testid="loading">LOADING ...</h1>
         )}
       </div>
     );

@@ -34,7 +34,8 @@ class HeaderBody extends Component{
     axios.get(`${base}/me/`, config)
         .then((response) => {
             const user = response.data;
-            this.setState({ownerName:user.displayName, id:user.id});
+            this.setState({displayName:user.displayName, id:user.id});
+            console.log(user.displayName)
         })
         .catch((error) => {
             console.log(error);
@@ -54,7 +55,7 @@ class HeaderBody extends Component{
         data-testid="owner"
         className="playlistAnchor songButton block"
         onClick={() => {
-          this.redirect(`/profile/${this.state.id}/overview`)
+          this.redirect(`/profile/${this.state.id}`)
         }}
       >
       {this.state.displayName}

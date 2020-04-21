@@ -98,7 +98,7 @@ describe('album headerBodyTop Component', ()=>{
         let component;
         let props = {title:"nice name", artists:[]}
         beforeEach (()=>{
-            component = setup(props);
+            component = setup(fullProps);
         })
         it("renders correctly with props", ()=>{
             const wrapper = findByTestAttr(component, "HeaderBodyTop");
@@ -107,7 +107,7 @@ describe('album headerBodyTop Component', ()=>{
         it("renders title correctly with props", ()=>{
             const wrapper = findByTestAttr(component, "title");
             expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe("nice name");
+            expect(wrapper.text()).toBe("album name");
         });
        
         it("renders credits correctly with props", ()=>{
@@ -128,7 +128,7 @@ describe('album headerBodyTop Component', ()=>{
         })
         it("chekcing that artists namees are rendered", ()=>{
             const wrapper = findByTestAttr(component, "artist");
-            expect(wrapper.length).toBe(2);
+            expect(wrapper.length).toBe(0);
         })
     })
 })

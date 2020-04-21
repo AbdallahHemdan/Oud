@@ -115,8 +115,7 @@ class SongList extends Component {
         data-testid="songsList"
         className="col-xs-8 col-md-6 col-lg-8 col-xl-8"
       >
-        {this.props.recieved ? (
-          this.props.tracks.map((track) => {
+        {this.props.tracks.map((track) => {
             return (
               <Song
                 data-testid="songElement"
@@ -127,14 +126,11 @@ class SongList extends Component {
                 handleClick={this.handleClick}
                 handlePlay={this.handlePlay}
                 addToPlaylist={() => this.props.addToPlaylist()}
-                albumName={this.props.albumName}
                 album={this.props.album}
               />
             );
           })
-        ) : (
-          <h1 data-testid="loading">LOADING ...</h1>
-        )}
+        }
       </div>
     );
   }

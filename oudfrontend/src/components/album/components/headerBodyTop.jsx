@@ -26,13 +26,15 @@ class HeaderBodyTop extends Component{
         super(props)
         this.state = {
             redirect : null,
-            artists:Array.isArray(props.artists)?props.artists:[],
+            artists:[],
             flag :false
         }
         
     }
-        
-    
+       
+    componentWillReceiveProps(nextProps){
+        this.setState({artists:nextProps.artists, flag:false})
+    }
     redirect(route){
         this.setState({redirect:route})
     }
@@ -40,23 +42,26 @@ class HeaderBodyTop extends Component{
         return(
         <span>, <button
             data-testid="artist" 
-            className='playlistAnchor songButton'>{artist.name}</button></span>
+            className='playlistAnchor songButton'
+            onClick={()=>this.redirect(`/artists/${artist.id}`)}>{artist.displayName}</button></span>
         );}
     withoutComma(artist){
-        this.setState({flag: true});
-        return(<span><button
+        console.log(artist)
+        return(<span> <button
             data-testid="artist"
-            className='playlistAnchor songButton'>{artist.name}</button></span>
+            className='playlistAnchor songButton'
+            onClick={()=>this.redirect(`/artists/${artist.id}`)}>{artist.displayName}</button></span>
         );}
     render(){   
         if (this.state.redirect) {
-            return <Redirect to={this.state.redirect} />;
+            return <Redirect to={this.state.redirect} />
           } 
         return(
             <div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
                 <h2 data-testid="title" className='gray-text'>{this.props.title}</h2>
                 <span data-testid="credits" className="whiteText">By </span>
                 {
+                    
                     this.state.artists.map((artist)=>{
                         return(
                         this.state.flag ? this.withComma(artist):this.withoutComma(artist)

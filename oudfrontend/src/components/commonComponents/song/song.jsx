@@ -58,13 +58,13 @@ class Song extends Component {
     this.state = {
       hover: false,
       track: this.props.track,
-      albumName: "",
       playing: false,
       displayDropdown: false,
       saved: false,
       queued: false,
       clicked: false,
       redirect: null,
+      duration:""
     };
   }
   /**
@@ -83,16 +83,6 @@ class Song extends Component {
    */
   componentDidMount() {
     axios
-      .get(`${base}/albums/${this.props.track.albumId}/`, config)
-      .then((response) => {
-        const album = response.data;
-        this.setState({ albumName: album.name });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    axios
       .get(
         `${base}/me/tracks/contains/${this.props.track.id}/`, config
       )
@@ -103,6 +93,14 @@ class Song extends Component {
       .catch((error) => {
         console.log(error);
       });
+      const duration = this.convertTime(this.state.track.duration)
+      this.setState({duration:duration})
+  }
+  convertTime(timeString){
+    let timeInt = parseInt(timeString)/1000
+    let minutes = parseInt(timeInt/60);
+    let seconds = timeInt - 60*minutes
+    return `${minutes}:${seconds}`
   }
   /**
    *if the recieved props is changed it sets state.clicked to true or
@@ -200,7 +198,6 @@ class Song extends Component {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
-    console.log(this.state.track.artists)
     return (
       <Router>
         <button
@@ -252,25 +249,25 @@ class Song extends Component {
                         }}
                         className="playlistAnchor songButton"
                       >
-                        {this.props.album?artist.displayName:artist.displayName}
+                        {artist.displayName}
                       </button>
-                      <span data-testid="comma" className="gray-text">
+                      {this.props.album?<span></span>:<span data-testid="comma" className="gray-text">
                         {" "}
                         •{" "}
-                      </span>
+                      </span>}
                     </span>
                   );
                 })}
               </span>
-              <button
+              {this.props.album?<span></span>:<button
                 data-testid="albumName"
                 onClick={() => {
                   this.redirect(`/albums/${this.state.track.albumId}`);
                 }}
                 className="playlistAnchor songButton"
               >
-                {this.props.album?this.props.albumName:this.state.albumName}
-              </button>
+                {this.state.track.album.name}
+              </button>}
             </p>
           </div>
 
@@ -334,7 +331,7 @@ class Song extends Component {
               data-testid="songTime"
               className={this.state.playing ? "goldText" : "whiteText"}
             >
-              {this.state.track.duration}
+              {this.state.duration}
             </p>
           </div>
         </button>

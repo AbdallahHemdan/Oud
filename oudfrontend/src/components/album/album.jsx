@@ -249,7 +249,6 @@ class Album extends React.Component {
                     clickedItemId={this.state.clickID}
                     className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
                     addToPlaylist={this.addToPlaylist.bind(this)}
-                    albumName={this.state.album.name}
                     album={true}
                   />
                 </div>
