@@ -60,7 +60,7 @@ export class AfterLogin extends Component {
                         <Link
                             className="dropdown-item element"
                             onClick={this.handleLogOut}
-                            to="/welcome-guest"
+                            to="/welcome"
                             data-testid="logout-dropdown-element"
                         >
                             Log out

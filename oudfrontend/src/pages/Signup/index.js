@@ -1,26 +1,24 @@
 import React, { Component } from 'react'
 import MainBrand from '../../components/Login&Signup/MainBrand';
 import SocialIcons from '../../components/Login&Signup/SocialIcons';
-import Signin from '../../components/Login&Signup/signin/signin';
-import { isLoggedIn } from "./../../utils/auth"
+import Signup from '../../components/Login&Signup/signup/signup';
+import { isLoggedIn } from "../../utils/auth"
 
-
-
-export class SignIn extends Component {
+class SignUp extends Component {
   render() {
     if (isLoggedIn()) {
-      window.location = "/"
+      window.location = "/";
     }
     return (
       <div className="container main-center">
         <MainBrand />
         <section className="social-form">
           <SocialIcons />
-          <Signin />
+          <Signup />
         </section>
       </div>
     )
   }
 }
 
-export default SignIn
+export default SignUp
