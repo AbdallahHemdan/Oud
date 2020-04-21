@@ -154,8 +154,6 @@ class Player extends Component {
       .catch((error) => {
         console.log(error.response);
       });
-    console.log("playback: ");
-    console.log(this.state);
   };
   handleSaveToLikedSongs = () => {
     checkSavedTrack(this.props.trackId)

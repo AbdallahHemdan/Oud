@@ -206,16 +206,6 @@ class WebPlayer extends Component {
         setTimeout(() => {
           player.playTrack();
         }, 100);
-
-        // if (
-        //   response["data"].hasOwnProperty("status") &&
-        //   response["data"]["status"] === "204"
-        // ) {
-        //   console.log("new context has fetched");
-        //   this.fetchQueue();
-        //   this.playerElement.fetchPlayback();
-        //   this.playerElement.playTrack();
-        // } else console.log(response);
       })
       .catch((error) => {
         console.log(error.response.data.message);
