@@ -11,11 +11,11 @@
 }
 .now-playing-bar-container {
   width: 100%;
-  background-color: #282828;
+  background-color: black;
   bottom: 0;
   position: fixed;
   min-width: 620px;
-  height: 80px;
+  height: 100px;
   z-index: 4;
 }
 .now-playing-bar {
@@ -63,7 +63,15 @@
   background-color: transparent;
   border: none;
   vertical-align: middle;
+  /* margin-right: 3%; */
 }
+/* .volume-bar .love,
+.volume-bar .queue,
+.volume-bar .shuffle,
+.volume-bar .repeat,
+.volume-bar .volume {
+  margin-left: 3%;
+} */
 .control-button img {
   width: 20px;
   height: 20px;
@@ -88,12 +96,13 @@
 .now-playing-bar-center .content .track-controls {
   width: 100%;
   position: relative;
-  left: 20%;
-  margin-bottom: 6px;
-  font-size: 18px;
+  left: 6%;
 }
 .now-playing-bar-center .track-info {
-  margin: auto;
+  left: 40%;
+  position: relative;
+  right: 50%;
+  width: 100%;
 }
 .now-playing-bar-center .track-info .track-name {
   color: #ffce00;
@@ -182,11 +191,9 @@ button:focus {
   text-align: center;
 }
 .progress-bar {
-  min-width: 125px;
   width: 100%;
   min-width: 4.5vw;
   height: 12px;
-
   display: inline-flex;
   cursor: pointer;
   background-color: transparent;
@@ -218,8 +225,8 @@ button:focus {
 }
 .thumb-img {
   position: relative;
-  min-width: 14rem;
   width: 14rem;
+  min-width: 14rem;
   max-width: 14rem;
   background-size: cover;
   width: -webkit-fill-available;
