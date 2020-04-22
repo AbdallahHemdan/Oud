@@ -7,6 +7,7 @@ import pause from "../../../assets/images/icons/pause.png";
 import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 import axios from "axios";
 import PropTypes from "prop-types";
+import { base } from "../../../config/environment";
 const config = {
   headers: {
     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzU4Nzk0MSwiZXhwIjoxNTkwMTc5OTQxfQ.3awxU23T7YRf5_mMqwK8igLlWcQsvG14c0xF55hPxkg`,
@@ -57,7 +58,7 @@ class Track extends Component {
    */
   fetchTrackInfo = () => {
     axios
-      .get("https://oud-zerobase.me/api/v1/tracks/" + this.props.id, config)
+      .get(`${base}/tracks/${this.props.id}`, config)
       .then((response) => {
         console.log("track");
         console.log(response);

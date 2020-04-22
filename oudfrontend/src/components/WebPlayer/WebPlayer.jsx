@@ -5,7 +5,7 @@ import Player from "./Player/Player";
 import Queue from "./Queue/Queue";
 import Swal from "sweetalert2";
 import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
-const base = `https://oud-zerobase.me/api/v1`;
+import { base } from "./../../config/environment";
 const config = {
   headers: {
     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzU4Nzk0MSwiZXhwIjoxNTkwMTc5OTQxfQ.3awxU23T7YRf5_mMqwK8igLlWcQsvG14c0xF55hPxkg`,

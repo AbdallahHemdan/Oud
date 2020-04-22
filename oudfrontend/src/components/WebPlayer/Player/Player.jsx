@@ -7,7 +7,7 @@ import extend from "../../../assets/images/icons/extend.png";
 import PropTypes from "prop-types";
 import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 import { checkSavedTrack, setupHowler } from "../../../utils/Actions/Player";
-const base = `https://oud-zerobase.me/api/v1`;
+import { base } from "./../../../config/environment";
 let sound = null;
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
