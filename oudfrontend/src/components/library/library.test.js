@@ -7,7 +7,7 @@ Enzyme.configure({adapter: new EnzymeAdapter()});
 
 
 const setup = () =>{
-    return shallow(<Library.WrappedComponent params={{router:jest.fn()}}/>);
+    return shallow(<Library.WrappedComponent/>);
 }
 
 const findByTestAttr=(wrapper, val)=>{

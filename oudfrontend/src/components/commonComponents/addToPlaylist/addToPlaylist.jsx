@@ -4,7 +4,7 @@ import axios from "axios";
 import {base} from "../../../config/environment"
 import {config} from "../../../utils/auth"
 import getUserId from "../../Profile/General/getUserId";
-
+import MusicCard from '../../MusicCard/MusicCard'
 
 /**
  * it is an overlay that is used to add song to a playlist
@@ -19,6 +19,7 @@ class addToPlaylist extends Component {
     this.state = {
       display: this.props.display,
       createPlaylist: false,
+      playlists:[]
     };
   }
   /**
@@ -31,7 +32,7 @@ class addToPlaylist extends Component {
     axios
       .get(`${base}/users/${id}/playlists/`, config)
       .then(function (response) {
-        console.log(response);
+        this.setState({playlists:response.data})
       })
       .catch(function (error) {
         console.log(error);
@@ -63,9 +64,10 @@ class addToPlaylist extends Component {
         className={
           this.state.display ? "createPlaylist" : "createPlaylist hide"
         }
+        data-testid='addToPlaylist'
       >
-        <CreatePlaylist display={this.state.createPlaylist} />
-        <button onClick={this.close.bind(this)} className="closeButton">
+        <CreatePlaylist display={this.state.createPlaylist} data-testid='createPlaylist'/>
+        <button onClick={this.close.bind(this)} className="closeButton" data-testid='closeButton'>
           <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
             <title>close</title>
             <path
@@ -76,13 +78,35 @@ class addToPlaylist extends Component {
           </svg>
         </button>
 
-        <h1 id="createPlaylistTitle">Add To playlist</h1>
-        <button className="playButton" onClick={this.createPlaylist.bind(this)}>
+        <h1 data-testid='title' id="createPlaylistTitle">Add To playlist</h1>
+        <button data-testid='createNew' className="playButton" onClick={this.createPlaylist.bind(this)}>
           NEW PLAYLIST
         </button>
 
         <div id="createPlaylistBigField">
           <div id="createPlaylistContainer"></div>
+          <div
+                className="wrapper"
+                data-testid="first-wrapper">
+                <div className="wrapper_section_2"
+                  data-testid="second-wrapper"
+                >
+                <div className="cards" data-testid="cards-wrapper">
+                    {this.state.playlists.map(item =>{
+                      return(
+                        <button className="invisibleButton"
+                        >
+                          <MusicCard item={item}
+                           key={item._id}
+                           playBtn={false}
+                          />
+                          </button>
+                          )
+                       
+                    })}
+                    </div>
+                </div>
+              </div>
         </div>
       </div>
     );
