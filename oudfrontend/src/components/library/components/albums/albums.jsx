@@ -25,16 +25,17 @@ export class Albums extends Component {
     render() {
         return (
 
-            <div>
-                <h1>Saved ALBUMS</h1>
+            <div data-testid='albums'>
+                <h1 data-testid='title'>Saved ALBUMS</h1>
                 {
                 (this.state.recieved)?this.state.albums.map(item =>{
                    return(<MusicCard item={item.album}
                     key={item._id}
                     playBtn={true}
+                    data-testid='cards'
                     />)
                }): (
-                <LoadingSnipper/>
+                <LoadingSnipper data-testid='loading'/>
                 )
                }
             </div>

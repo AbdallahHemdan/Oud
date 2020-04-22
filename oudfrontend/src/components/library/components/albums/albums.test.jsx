@@ -1,5 +1,5 @@
 import React from 'React'
-import Playlists from './playlists.jsx';
+import Albums from './albums.jsx';
 import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 
@@ -7,7 +7,7 @@ Enzyme.configure({adapter: new EnzymeAdapter()});
 
 
 const setup = () =>{
-    return shallow(<Playlists/>);
+    return shallow(<Albums/>);
 }
 
 const findByTestAttr=(wrapper, val)=>{
@@ -17,33 +17,33 @@ const findByTestAttr=(wrapper, val)=>{
 Rendering tests
 */
 
-describe('playlists Component', ()=>{
-    describe('testing library playlists renders Correctly', ()=>{
+describe('albums Component', ()=>{
+    describe('testing library albums renders Correctly', ()=>{
         let component;
         beforeEach (()=>{
             component = setup();
         })
-        it('renders playlists component', ()=>{
-            const wrapper = findByTestAttr(component, "playlists");
+        it('renders albums component', ()=>{
+            const wrapper = findByTestAttr(component, "albums");
             expect(wrapper.length).toBe(1);
         });
         it('renders title component', ()=>{
             const wrapper = findByTestAttr(component, "title");
             expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe(' Followed Playlists ')
+            expect(wrapper.text()).toBe('Saved ALBUMS')
         });
         it('renders 1 card component', ()=>{
-            component.setState({recieved:true , playlists:[1]})
+            component.setState({recieved:true , albums:[1]})
             const wrapper = findByTestAttr(component, "cards");
             expect(wrapper.length).toBe(1);
         });
         it('renders 2 cards component', ()=>{
-            component.setState({recieved:true , playlists:[1, 1]})
+            component.setState({recieved:true , albums:[1, 1]})
             const wrapper = findByTestAttr(component, "cards");
             expect(wrapper.length).toBe(2);
         });
         it('renders no cards component when recieved is false', ()=>{
-            component.setState({playlists:[1, 1]})
+            component.setState({albums:[1, 1]})
             const wrapper = findByTestAttr(component, "cards");
             expect(wrapper.length).toBe(0);
         });
