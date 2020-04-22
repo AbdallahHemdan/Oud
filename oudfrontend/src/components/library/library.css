@@ -4,6 +4,15 @@
   background-color: #111113;
 }
 
+.myLibrary h1 {
+  border-bottom: 1px solid #424242;
+  padding-bottom: 5px;
+  margin-left: 2rem;
+  display: flex;
+  flex-wrap: nowrap row;
+  
+}
+
 .upperContainer{
   height: 120px;
   background-image: linear-gradient(#424242, #111113);
