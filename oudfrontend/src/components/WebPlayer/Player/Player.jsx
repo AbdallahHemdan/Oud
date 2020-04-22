@@ -131,7 +131,9 @@ class Player extends Component {
             current: Number(data["progressMs"] / 60000).toFixed(2),
             trackName: response.data.player.item.name,
             artistName: response.data.player.item.artists[0].displayName,
-            art: `https://oud-zerobase.me/api/${response.data.player.item.artists[0].images[0]}`,
+            art: `https://oud-zerobase.me/api/${response.data.player.item.artists[0].images[0]}`
+              .replace(/ /g, "%20")
+              .replace(/\\/g, "/"),
             duration: Number(track["duration"] / 60000).toFixed(2),
             shuffleState: data["shuffleState"],
             repeatState:
@@ -322,6 +324,9 @@ class Player extends Component {
     this.props
       .postRequest(`${base}/me/player/next`)
       .then((response) => {
+        this.setState({
+          progress: 0,
+        });
         const trackIdx = this.props.getNext();
         setTimeout(() => {
           this.fetchPlayback().then((audio) => {
@@ -347,6 +352,9 @@ class Player extends Component {
     this.props
       .postRequest(`${base}/me/player/previous`)
       .then((response) => {
+        this.setState({
+          progress: 0,
+        });
         const trackIdx = this.props.getPrevious();
         setTimeout(() => {
           this.fetchPlayback().then((audio) => {

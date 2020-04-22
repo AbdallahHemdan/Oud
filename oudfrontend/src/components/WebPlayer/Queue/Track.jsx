@@ -59,13 +59,20 @@ class Track extends Component {
     axios
       .get("https://oud-zerobase.me/api/v1/tracks/" + this.props.id, config)
       .then((response) => {
+        console.log("track");
+        console.log(response);
         const track = response.data;
         this.setState({
-          image: `https://oud-zerobase.me/api/${track["artists"][0]["images"][0]}`,
+          image:
+            "https://oud-zerobase.me/api/" +
+            track["artists"][0]["images"][0]
+              .replace(/ /g, "%20")
+              .replace(/\\/g, "/"),
           trackName: track["name"],
           artistName: track["artists"][0]["displayName"],
           duration: Number(track["duration"] / 60000).toFixed(2),
         });
+        console.log(this.state.image);
       })
       .catch((error) => {
         console.log(error);
