@@ -2,17 +2,17 @@
   "1": {
     "items": [
       {
-        "id": "1",
-        "name": "Fitness Araby",
+        "_id": "1",
+        "name": "Mail Songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
-        "type": "playlist"
+        "type": "albums"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -22,41 +22,101 @@
         "type": "playlist"
       },
       {
-        "id": "3",
-        "name": "Islamic songs",
+        "_id": "3",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
-        "id": "4",
-        "name": "Rab songs",
+        "_id": "4",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
-        "id": "5",
-        "name": "Hamedo songs",
+        "_id": "5",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "_id": "6",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      },
+      {
+        "_id": "7",
+        "name": "Mail Songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout Mail music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "_id": "8",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "albums"
+      },
+      {
+        "_id": "9",
+        "name": "Arai songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best Arai songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "_id": "10",
+        "name": "Rap songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rap songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "_id": "11",
+        "name": "jazz songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best jazz songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "_id": "12",
+        "name": "Haly songs",
+        "owner": "Haly",
+        "collaborative": true,
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -69,17 +129,17 @@
   "2": {
     "items": [
       {
-        "id": "1",
-        "name": "Fitness Araby",
+        "_id": "1",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -89,41 +149,41 @@
         "type": "playlist"
       },
       {
-        "id": "3",
-        "name": "Islamic songs",
+        "_id": "3",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
-        "id": "4",
-        "name": "Rab songs",
+        "_id": "4",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
-        "id": "5",
-        "name": "Hamedo songs",
+        "_id": "5",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "_id": "6",
+        "name": "jazz songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -136,17 +196,17 @@
   "3": {
     "items": [
       {
-        "id": "1",
-        "name": "Fitness Araby",
+        "_id": "1",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -156,41 +216,41 @@
         "type": "playlist"
       },
       {
-        "id": "3",
-        "name": "Islamic songs",
+        "_id": "3",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
-        "id": "4",
-        "name": "Rab songs",
+        "_id": "4",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
-        "id": "5",
-        "name": "Hamedo songs",
+        "_id": "5",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "_id": "6",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -203,17 +263,17 @@
   "4": {
     "items": [
       {
-        "id": "1",
-        "name": "Fitness Araby",
+        "_id": "1",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -223,41 +283,41 @@
         "type": "playlist"
       },
       {
-        "id": "3",
-        "name": "Islamic songs",
+        "_id": "3",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
-        "id": "4",
-        "name": "Rab songs",
+        "_id": "4",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
-        "id": "5",
-        "name": "Hamedo songs",
+        "_id": "5",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "_id": "6",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -270,17 +330,17 @@
   "5": {
     "items": [
       {
-        "id": "1",
-        "name": "Fitness Araby",
+        "_id": "1",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -290,41 +350,41 @@
         "type": "playlist"
       },
       {
-        "id": "3",
-        "name": "Islamic songs",
+        "_id": "3",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
-        "id": "4",
-        "name": "Rab songs",
+        "_id": "4",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
-        "id": "5",
-        "name": "Hamedo songs",
+        "_id": "5",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "_id": "6",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -337,17 +397,17 @@
   "6": {
     "items": [
       {
-        "id": "1",
-        "name": "Fitness Araby",
+        "_id": "1",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -357,41 +417,41 @@
         "type": "playlist"
       },
       {
-        "id": "3",
-        "name": "Islamic songs",
+        "_id": "3",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
-        "id": "4",
-        "name": "Rab songs",
+        "_id": "4",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
-        "id": "5",
-        "name": "Hamedo songs",
+        "_id": "5",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "_id": "6",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -404,17 +464,17 @@
   "7": {
     "items": [
       {
-        "id": "1",
-        "name": "Fitness Araby",
+        "_id": "1",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -424,41 +484,41 @@
         "type": "playlist"
       },
       {
-        "id": "3",
-        "name": "Islamic songs",
+        "_id": "3",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
-        "id": "4",
-        "name": "Rab songs",
+        "_id": "4",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
-        "id": "5",
-        "name": "Hamedo songs",
+        "_id": "5",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "_id": "6",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -471,17 +531,17 @@
   "8": {
     "items": [
       {
-        "id": "1",
-        "name": "Fitness Araby",
+        "_id": "1",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -491,41 +551,41 @@
         "type": "playlist"
       },
       {
-        "id": "3",
-        "name": "Islamic songs",
+        "_id": "3",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
-        "id": "4",
-        "name": "Rab songs",
+        "_id": "4",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
-        "id": "5",
-        "name": "Hamedo songs",
+        "_id": "5",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "_id": "6",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -538,17 +598,17 @@
   "9": {
     "items": [
       {
-        "id": "1",
-        "name": "Fitness Araby",
+        "_id": "1",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -558,41 +618,41 @@
         "type": "playlist"
       },
       {
-        "id": "3",
-        "name": "Islamic songs",
+        "_id": "3",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
-        "id": "4",
-        "name": "Rab songs",
+        "_id": "4",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
-        "id": "5",
-        "name": "Hamedo songs",
+        "_id": "5",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "_id": "6",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -605,17 +665,17 @@
   "10": {
     "items": [
       {
-        "id": "1",
-        "name": "Fitness Araby",
+        "_id": "1",
+        "name": "Mail Music",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "Workout fitness music",
+        "description": "Workout Mail music",
         "public": true,
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "2",
+        "_id": "2",
         "name": "Segue o Baile",
         "owner": "Mahboub",
         "collaborative": true,
@@ -625,41 +685,41 @@
         "type": "playlist"
       },
       {
-        "id": "3",
-        "name": "Islamic songs",
+        "_id": "3",
+        "name": "Arai songs",
         "owner": "Oud",
         "collaborative": true,
-        "description": "list of best islamic songs",
+        "description": "list of best Arai songs",
         "public": true,
         "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
         "type": "playlist"
       },
       {
-        "id": "4",
-        "name": "Rab songs",
+        "_id": "4",
+        "name": "Rap songs",
         "owner": "Saied",
         "collaborative": true,
-        "description": "list of best Rab songs",
+        "description": "list of best Rap songs",
         "public": true,
         "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
         "type": "playlist"
       },
       {
-        "id": "5",
-        "name": "Hamedo songs",
+        "_id": "5",
+        "name": "jazz songs",
         "owner": "Hemdan",
         "collaborative": true,
-        "description": "list of best Hamedo songs",
+        "description": "list of best jazz songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
         "type": "playlist"
       },
       {
-        "id": "6",
-        "name": "CUFE songs",
-        "owner": "CUFE",
+        "_id": "6",
+        "name": "Haly songs",
+        "owner": "Haly",
         "collaborative": true,
-        "description": "list of best CUFE songs",
+        "description": "list of best Haly songs",
         "public": true,
         "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
         "type": "playlist"
@@ -670,30 +730,26 @@
     "total": 0
   },
   "me": {
-    "id": "1",
-    "username": "Ahmed Mahboub",
-    "birthDate": "1999-03-09",
+    "_id": "1",
+    "username": "Abdallah Hemdan",
+    "birthDate": "1999-05-01",
     "gender": "M",
-    "email": "ahmed.mahboub99@gmail.com",
-    "displayName": "Ahmed",
+    "email": "abdallah.ahmed.hemdan@gmail.com",
+    "displayName": "Hemdan",
     "role": "free",
-    "country": "Egypt",
+    "country": "EG",
     "credit": 0,
     "plan": null,
     "images": [
-      "https://vignette.wikia.nocookie.net/kimetsu-no-yaiba/images/8/8c/Tanjiro_with_longer_hair_and_dirty_face.png/revision/latest/top-crop/width/300/height/300?cb=20190420121127"
+      "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
     ],
     "followersCount": 0,
     "verified": false,
     "Artist": {
       "_id": "string",
       "followersCount": 0,
-      "genres": [
-        "string"
-      ],
-      "images": [
-        "string"
-      ],
+      "genres": ["string"],
+      "images": ["string"],
       "name": "string",
       "bio": "string",
       "popularSongs": [
@@ -720,19 +776,15 @@
     "type": "string"
   },
   "profile": {
-    "email": "ahmed.mahboub99@gmail.co",
+    "email": "ahmed.mahboub99@gmail.com",
     "passwordConfirm": "7_DummyPassword_5",
-    "gender": "M",
+    "gender": "F",
     "birthDate": "1999-03-09",
-    "country": "Egypt",
+    "country": "EG",
     "displayName": "Ahmed"
   },
   "updatePassword": {},
-  "followingMe": {
-    "ids": [
-      "4"
-    ]
-  },
+  "followingMe": {},
   "myFollowing": [
     {
       "id": "3",
@@ -996,11 +1048,9 @@
     }
   ],
   "ids": {
-    "ids": [
-      true
-    ]
+    "ids": [true]
   },
-  "playlists": [
+  "playlists2": [
     {
       "id": "1",
       "items": [
@@ -1008,9 +1058,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1021,9 +1069,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1034,9 +1080,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1047,9 +1091,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1060,9 +1102,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1073,9 +1113,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1094,9 +1132,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1107,9 +1143,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1120,9 +1154,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1133,9 +1165,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1146,9 +1176,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1159,9 +1187,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1180,9 +1206,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1193,9 +1217,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1206,9 +1228,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1219,9 +1239,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1232,9 +1250,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1245,9 +1261,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1266,9 +1280,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1279,9 +1291,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1292,9 +1302,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1305,9 +1313,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1318,9 +1324,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1331,9 +1335,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1352,9 +1354,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1365,9 +1365,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1378,9 +1376,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1391,9 +1387,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1404,9 +1398,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1417,9 +1409,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1433,64 +1423,1326 @@
     }
   ],
   "profilePicture": {},
+
+  "errors": [
+    {
+      "key": "200"
+    },
+    {
+      "key": "401"
+    },
+    {
+      "key": "429"
+    }
+  ],
+
   "categories": {
     "items": [
       {
-        "id": 1,
+        "_id": 1,
         "name": "Recently played",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/aratehortua/aratehortua2001/aratehortua200100022/138417489-vector-cartoon-low-poly-man-with-headphones-character.jpg"
       },
       {
-        "id": 2,
+        "_id": 2,
         "name": "Recommended playlists",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/belchonock/belchonock1801/belchonock180143844/94540927-musical-instruments-on-wooden-background.jpg"
       },
       {
-        "id": 3,
+        "_id": 3,
         "name": "New releases",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://media.altphotos.com/cache/images/2017/08/08/09/752/trumpet-outdoors-man.jpg"
       },
       {
         "id": 4,
-        "name": "Arabic Music",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "name": "Lolly Music",
+        "icon": "https://media.altphotos.com/cache/images/2017/02/03/16/752/woman-play-violin.jpg"
       },
       {
-        "id": 5,
+        "_id": 5,
         "name": "Throwback",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/luismolinero/luismolinero1802/luismolinero180202295/96452187-happy-young-beautiful-girl-with-her-cello-on-the-outside.jpg"
       },
       {
-        "id": 6,
+        "_id": 6,
         "name": "Popular playlists",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/akeeris/akeeris1505/akeeris150500143/40215848-piano-lesson-asian-boy-kid-activity-playing-piano-with-notes-smiling.jpg"
       },
       {
-        "id": 7,
+        "_id": 7,
         "name": "Editors' Picks",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/cherrymerry/cherrymerry1509/cherrymerry150900034/45248626-pretty-young-teen-girl-playing-acoustic-guitar-in-the-street-.jpg"
       },
       {
-        "id": 8,
+        "_id": 8,
         "name": "Workout",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/vadymvdrobot/vadymvdrobot1901/vadymvdrobot190104389/116701318-close-up-portrait-of-a-beautiful-young-woman-posing-with-a-violin-isolated-over-blue-background.jpg"
       },
       {
-        "id": 9,
+        "_id": 9,
         "name": "Mood",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/kenishirotie/kenishirotie1707/kenishirotie170700002/81237352-close-up-of-view-of-little-girl-s-hand-playing-ukulele.jpg"
       },
       {
-        "id": 10,
+        "_id": 10,
         "name": "Recommended radio",
-        "icon": "http://lorempixel.com/640/480/cats"
+        "icon": "https://previews.123rf.com/images/deagreez/deagreez1811/deagreez181102934/113111746-full-legs-body-size-beautiful-gorgeous-adorable-two-lady-isolate.jpg"
       }
     ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
-  "playlist": [
+  "playlists": [
+    {
+      "id": "1",
+      "name": "Jazz",
+      "owner": "1",
+      "collaborative": true,
+      "description": "Best music I have ever listened to",
+      "followersCount": 100,
+      "image": "https://angartwork.akamaized.net/webp/?id=1096371005&size=296",
+      "public": true,
+      "type": "trap",
+      "tracks": [
+        {
+          "id": "1",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "2",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "3",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "4",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "5",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "6",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "7",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "8",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "9",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "10",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "11",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "12",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "13",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "14",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "15",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "16",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "17",
+          "name": "Hat Sogara",
+          "artists": [
+            {
+              "id": "1",
+              "name": "Danny Willok",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "18",
+          "name": "واحد وعشرين",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Jazz",
+      "owner": "2",
+      "collaborative": true,
+      "description": "Best music I have ever listened to",
+      "followersCount": 100,
+      "image": "https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
+      "public": true,
+      "type": "trap",
+      "tracks": [
+        {
+          "id": "19",
+          "name": "إنسان",
+          "artists": [
+            {
+              "id": "5",
+              "name": "حمزة نمرة",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "20",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        },
+        {
+          "id": "22",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        },
+        {
+          "id": "23",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        },
+        {
+          "id": "25",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        },
+        {
+          "id": "26",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        },
+        {
+          "id": "27",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        },
+        {
+          "id": "28",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        },
+        {
+          "id": "29",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        },
+        {
+          "id": "30",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        },
+        {
+          "id": "31",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        },
+        {
+          "id": "32",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        },
+        {
+          "id": "33",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        },
+        {
+          "id": "34",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        }
+      ]
+    },
+    {
+      "name": "",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "jiyVgQx"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "DgzqHNc"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "VStfhC4"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "gV0TVvR"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "uhiz53t"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "1nWOMiK"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "eFs5yHC"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "XnoUCA4"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "L6GXfCp"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "vJrXlK7"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "5RkIxDc"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "93GDxL9"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "NxAKTmI"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "ASMKHmZ"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "3g7jOT2"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "QNZLOol"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "5ylPP_O"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "vEPUamA"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "Yojgykk"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "sPGrCAy"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "jV6Os6J"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "qv3ymVQ"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "zoVA5qO"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "-nRkO7A"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "2pSE57G"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "QypTlfw"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "rtiTOKQ"
+    },
+    {
+      "name": "vfmerkmfre",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "aHZggYs"
+    },
+    {
+      "name": "Hello, World",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "E1d2ZzA"
+    },
+    {
+      "name": "Hemdan",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "id": "r0uX3DD"
+    }
+  ],
+  "queue": {
+    "tracks": [
+      {
+        "id": "23",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      },
+      {
+        "id": "25",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      },
+      {
+        "id": "26",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      },
+      {
+        "id": "27",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      },
+      {
+        "id": "28",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      },
+      {
+        "id": "29",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      },
+      {
+        "id": "30",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      },
+      {
+        "id": "31",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      },
+      {
+        "id": "32",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      },
+      {
+        "id": "33",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      },
+      {
+        "id": "34",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      }
+    ],
+    "total": 11
+  },
+  "user": [
+    {
+      "id": "1",
+      "displayName": "Ahmed",
+      "followersCount": 5,
+      "images": ["string"],
+      "verified": false,
+      "type": "string"
+    },
+    {
+      "id": "2",
+      "displayName": "Mido",
+      "followersCount": 0,
+      "images": ["string"],
+      "verified": false,
+      "type": "string"
+    }
+  ],
+  "likedPlaylists": [
+    {
+      "id": "2",
+      "name": "Jazz",
+      "owner": "2",
+      "collaborative": true,
+      "description": "Best music I have ever listened to",
+      "followersCount": 100,
+      "image": "https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
+      "public": true,
+      "type": "trap",
+      "tracks": [
+        {
+          "id": "21",
+          "name": "إنسان",
+          "artists": [
+            {
+              "id": "5",
+              "name": "حمزة نمرة",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+        },
+        {
+          "id": "22",
+          "name": "سلاح التلميذ",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "albumId": "1",
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        }
+      ]
+    },
     {
       "id": "1",
       "name": "Jazz",
@@ -2190,859 +3442,6 @@
       ]
     }
   ],
-  "queue": {
-    "tracks": [
-      {
-        "id": "1",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "2",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "3",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "4",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "5",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "6",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "7",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "8",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "9",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "10",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "11",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "12",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "13",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "14",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "15",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "16",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "17",
-        "name": "Hat Sogara",
-        "artists": [
-          {
-            "id": "1",
-            "name": "Danny Willok",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Jazz",
-        "audioUrl": "www.Facebook.com"
-      },
-      {
-        "id": "18",
-        "name": "واحد وعشرين",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
-      }
-    ],
-    "total": 18
-  },
-  "user": [
-    {
-      "id": "1",
-      "displayName": "Ahmed",
-      "followersCount": 5,
-      "images": [
-        "string"
-      ],
-      "verified": false,
-      "type": "string"
-    },
-    {
-      "id": "2",
-      "displayName": "Mido",
-      "followersCount": 0,
-      "images": [
-        "string"
-      ],
-      "verified": false,
-      "type": "string"
-    }
-  ],
-  "likedPlaylists": [
-    {
-      "id": "2",
-      "name": "Jazz",
-      "owner": "2",
-      "collaborative": true,
-      "description": "Best music I have ever listened to",
-      "followersCount": 100,
-      "image": "https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
-      "public": true,
-      "type": "trap",
-      "tracks": [
-        {
-          "id": "21",
-          "name": "إنسان",
-          "artists": [
-            {
-              "id": "5",
-              "name": "حمزة نمرة",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "22",
-          "name": "سلاح التلميذ",
-          "artists": [
-            {
-              "id": "3",
-              "name": "ًWegz el wench",
-              "type": "Trap",
-              "image": "string"
-            },
-            {
-              "id": "4",
-              "name": "Amr Diab",
-              "type": "farafeery",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Trap",
-          "audioUrl": "www.facebook.com"
-        }
-      ]
-    },
-    {
-      "id": "1",
-      "name": "Jazz",
-      "owner": "1",
-      "collaborative": true,
-      "description": "Best music I have ever listened to",
-      "followersCount": 100,
-      "image": "https://angartwork.akamaized.net/webp/?id=1096371005&size=296",
-      "public": true,
-      "type": "trap",
-      "tracks": [
-        {
-          "id": "1",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "2",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "3",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "4",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "5",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "6",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "7",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "8",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "9",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "10",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "11",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "12",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "13",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "14",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "15",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "16",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "17",
-          "name": "Hat Sogara",
-          "artists": [
-            {
-              "id": "1",
-              "name": "Danny Willok",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Jazz",
-          "audioUrl": "www.Facebook.com"
-        },
-        {
-          "id": "18",
-          "name": "واحد وعشرين",
-          "artists": [
-            {
-              "id": "3",
-              "name": "ًWegz el wench",
-              "type": "Trap",
-              "image": "string"
-            },
-            {
-              "id": "4",
-              "name": "Amr Diab",
-              "type": "farafeery",
-              "image": "string"
-            }
-          ],
-          "albumId": "1",
-          "type": "Trap",
-          "audioUrl": "www.facebook.com"
-        }
-      ]
-    }
-  ],
   "likedSongs": {
     "items": [
       {
@@ -3209,9 +3608,7 @@
           "image": "string"
         }
       ],
-      "genres": [
-        "shaaby"
-      ],
+      "genres": ["shaaby"],
       "image": "https://i.scdn.co/image/ab67616d0000b273ef029742aa2f7342b3b5daaf",
       "name": "Insan",
       "release_date": "2020-03-07",
@@ -3574,16 +3971,10 @@
   "repeat": {},
   "volume": {},
   "play": {
-    "offset": {}
+    "meId": "player"
   },
   "queue1": {
-    "tracks": [
-      "dkfjnc245",
-      "dkfjnc246",
-      "dkfjnc247",
-      "dkfjnc248",
-      "dkfjnc249"
-    ],
+    "tracks": ["dkfjnc245", "dkfjnc246", "dkfjnc247", "dkfjnc248", "dkfjnc249"],
     "total": 5
   },
   "dkfjnc245": {
@@ -3594,7 +3985,7 @@
         "_id": "string",
         "name": "Maher Zain",
         "type": "string",
-        "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Islamic-Maher-Zain.jpg"
+        "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Arai-Maher-Zain.jpg"
       }
     ],
     "albumId": "kjhnm",
@@ -3611,7 +4002,7 @@
         "_id": "string",
         "name": "Maher Zain",
         "type": "string",
-        "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Islamic-Maher-Zain.jpg"
+        "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Arai-Maher-Zain.jpg"
       }
     ],
     "albumId": "kjhnm",
@@ -3686,41 +4077,41 @@
   "deldkfjnc249": {
     "id": "1"
   },
-  "likedkfjnc245": {},
-  "likedkfjnc246": {},
-  "likedkfjnc247": {},
-  "likedkfjnc248": {},
-  "likedkfjnc249": {
-    "items": [
-      {}
-    ],
+  "likedkfjnc245": {
+    "items": [{}],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
-  "checkkfjnc245": {
-    "IsFound": [
-      true
-    ]
+  "likedkfjnc2456": {
+    "items": [{}],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "likedkfjnc247": {},
+  "likedkfjnc248": {
+    "items": [{}],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "likedkfjnc249": {
+    "items": [{}],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
   },
   "checkkfjnc246": {
-    "IsFound": [
-      false
-    ]
+    "IsFound": [false]
   },
   "checkkfjnc247": {
-    "IsFound": [
-      true
-    ]
+    "IsFound": [true]
   },
   "checkkfjnc248": {
-    "IsFound": [
-      false
-    ]
+    "IsFound": [false]
   },
   "checkkfjnc249": {
-    "IsFound": [
-      true
-    ]
+    "IsFound": [true]
   }
 }

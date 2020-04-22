@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import Song from "./song/song";
 import PropTypes from "prop-types";
 import axios from "axios";
+import { base } from "../../config/environment"
+import { config } from "../../utils/auth"
+import LoadingSnipper from "../LoadingSnipper/LoadingSnipper";
+
 /**
  * this is a component that renders the list of songs in playlists, albums, likedSongs or a "loading" animation if the songs are not recieved
  * @author Ahmed Walid <ahmedwa1999@gmail.com>
@@ -42,6 +46,7 @@ class SongList extends Component {
     this.state = {
       clickedItemId: "0",
       playing: false,
+      playingItemId: "0",
     };
     this.handleClick = this.handleClick.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
@@ -85,8 +90,9 @@ class SongList extends Component {
    */
   handlePlay(id) {
     let playingId;
+    this.setState({ playingItemId: id });
     axios
-      .get("http://localhost:2022/player/currently-playing")
+      .get(`${base}/me/player/currently-playing`, config)
       .then((response) => {
         playingId = response.data.item.id;
       })
@@ -119,6 +125,7 @@ class SongList extends Component {
                 track={track}
                 index={index}
                 clickedId={this.state.clickedItemId}
+                playingItemId={this.state.playingItemId}
                 handleClick={this.handleClick}
                 handlePlay={this.handlePlay}
                 addToPlaylist={() => this.props.addToPlaylist()}
@@ -126,8 +133,8 @@ class SongList extends Component {
             );
           })
         ) : (
-          <h1 data-testid="loading">LOADING ...</h1>
-        )}
+            <LoadingSnipper />
+          )}
       </div>
     );
   }

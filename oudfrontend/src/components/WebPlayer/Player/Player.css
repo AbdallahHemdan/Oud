@@ -11,11 +11,11 @@
 }
 .now-playing-bar-container {
   width: 100%;
-  background-color: black;
+  background-color: #282828;
   bottom: 0;
   position: fixed;
   min-width: 620px;
-  height: 100px;
+  height: 80px;
   z-index: 4;
 }
 .now-playing-bar {
@@ -88,7 +88,9 @@
 .now-playing-bar-center .content .track-controls {
   width: 100%;
   position: relative;
-  left: 6%;
+  left: 20%;
+  margin-bottom: 6px;
+  font-size: 18px;
 }
 .now-playing-bar-center .track-info {
   margin: auto;
@@ -180,9 +182,11 @@ button:focus {
   text-align: center;
 }
 .progress-bar {
+  min-width: 125px;
   width: 100%;
   min-width: 4.5vw;
   height: 12px;
+
   display: inline-flex;
   cursor: pointer;
   background-color: transparent;

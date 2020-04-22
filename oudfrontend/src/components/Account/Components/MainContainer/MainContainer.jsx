@@ -1,5 +1,4 @@
 import React from "react";
-
 import PageContainer from "../PageContainer/PageContainer";
 import ImageContainer from "../ImageContainer/ImageContainer";
 
@@ -9,7 +8,8 @@ import "./MainContainer.css";
 /**
  * Main container : this is the container of the whole page
  * @type {Function}
- * @returns {HTMLElement} image container (in account overview and page container)
+ * @returns {jsx} image container (in account overview and page container)
+ * <MainContainer/>
  */
 function MainContainer() {
   return (

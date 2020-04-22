@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import CreatePlaylist from "../../CreatePlaylist/createPlaylist";
 import axios from "axios";
+import {base} from "../../../config/environment"
+import {config} from "../../../utils/auth"
+import getUserId from "../../Profile/General/getUserId";
+
 
 /**
  * it is an overlay that is used to add song to a playlist
@@ -23,8 +27,9 @@ class addToPlaylist extends Component {
    * @returns {void}
    */
   componentDidMount() {
+    const id = getUserId();
     axios
-      .get("http://localhost:2022/playlists/")
+      .get(`${base}/users/${id}/playlists/`, config)
       .then(function (response) {
         console.log(response);
       })

@@ -3,9 +3,12 @@ import "./song.css";
 import { BrowserRouter as Router, Redirect } from "react-router-dom";
 import axios from "axios";
 import PropTypes from "prop-types";
-import addToPlaylist from "../addToPlaylist/addToPlaylist";
 import play from "../../../assets/images/play.png";
 import musicIcon from "../../../assets/images/musicIcon.png";
+import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
+import {base} from "../../../config/environment"
+import {config} from "../../../utils/auth"
+
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -80,7 +83,7 @@ class Song extends Component {
    */
   componentDidMount() {
     axios
-      .get(`http://localhost:2022/albums/${this.props.track.albumId}/`)
+      .get(`${base}/albums/${this.props.track.albumId}/`, config)
       .then((response) => {
         const album = response.data;
         this.setState({ albumName: album.name });
@@ -88,9 +91,10 @@ class Song extends Component {
       .catch((error) => {
         console.log(error);
       });
+
     axios
       .get(
-        `http://localhost:2022//me/tracks/contains/${this.props.track.albumId}/`
+        `${base}/me/tracks/contains/${this.props.track.albumId}/`, config
       )
       .then((response) => {
         const isFound = response.data;
@@ -112,8 +116,12 @@ class Song extends Component {
       });
       this.hh();
     }
+    if (nextProps.playingItemId !== this.props.playingItemId) {
+      this.setState({
+        playing: nextProps.playingItemId === this.props.track.id ? true : false,
+      });
+    }
   }
-  handlePlay = () => {};
   /**
    * called when the play button of the song is clicked and it calls the passed function from parent
    * @param {void}
@@ -129,24 +137,10 @@ class Song extends Component {
   handleSaving() {
     this.toggleDropdown();
     if (this.state.saved === false) {
-      axios
-        .post(`http://localhost:2022/likedSongs/${this.state.track.id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      addToLikedSongs(this.state.track.id);
       this.setState({ saved: true });
     } else {
-      axios
-        .delete(`http://localhost:2022/likedSongs/${this.state.track.id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      removeLikedSong(this.state.track.id);
       this.setState({ saved: false });
     }
   }
@@ -158,7 +152,7 @@ class Song extends Component {
     this.toggleDropdown();
     if (this.state.queued === false) {
       axios
-        .post("http://localhost:2022/queue/", this.state.track)
+        .post(`${base}/me/queue/`, this.state.track, config)
         .then(function (response) {
           console.log(response);
         })
@@ -168,7 +162,7 @@ class Song extends Component {
       this.setState({ queued: true });
     } else {
       axios
-        .delete(`http://localhost:2022/queue/${this.state.track.id}`)
+        .delete(`${base}/me/queue/${this.state.track.id}`, config)
         .then(function (response) {
           console.log(response);
         })

@@ -3,8 +3,9 @@ import Country from "../../General/Country";
 import UserExperinceForm from "../UserExperinceForm/UserExperinceForm";
 import EditProfileTextElement from "../EditProfileTextElement/EditProfileTextElement";
 import axios from "axios";
-
+import { config } from "./../../../../utils/auth"
 import "./EditProfile.css";
+
 
 /**
  * @type {object}
@@ -13,15 +14,13 @@ import "./EditProfile.css";
  * @property {string} country
  * @property {string} gender
  * @property {string} displayName
- * @property {password} password and should not to be here
  */
 let ProfileInfo = {
   email: "",
   birthDate: "",
   country: "",
   gender: "",
-  displayName: "",
-  password: "7_DummyPassword_5" //this should not sotred in the db you should change this
+  displayName: ""
 };
 /**
  * @type {Function}
@@ -43,7 +42,7 @@ function EditCountry(props) {
 /**
  * @type {Function}
  * @param {*} props
- * @returns {HTMLElement} Edit gender feild
+ * @returns {jsx} Edit gender feild
  */
 function EditGendr(props) {
   return (
@@ -117,20 +116,23 @@ class EditProfile extends Component {
     this.handleCancel = this.handleCancel.bind(this);
   }
 
+  /**
+   * make get req to display the user Info to be edites
+   */
   componentDidMount() {
     axios
-      .get("http://localhost:2022/me")
+      .get("https://oud-zerobase.me/api/v1/me", config)
       .then(response => {
         ProfileInfo.displayName = response.data.displayName;
         ProfileInfo.email = response.data.email;
         ProfileInfo.gender = response.data.gender;
-        ProfileInfo.birthDate = response.data.birthDate;
+        ProfileInfo.birthDate = response.data.birthDate.substr(0, 10);
         ProfileInfo.country = response.data.country;
 
         this.setState({
           email: response.data.email,
           gender: response.data.gender,
-          dateOfBirth: response.data.birthDate,
+          dateOfBirth: response.data.birthDate.substr(0, 10),
           displayName: response.data.displayName,
           country: response.data.country
         });
@@ -139,6 +141,11 @@ class EditProfile extends Component {
         console.log(error);
       });
   }
+  /**
+   * handle change in email and validate the formate of the email
+   * @type {Function}
+   * @param {*} event
+   */
   emailHandelChange(event) {
     this.setState({ email: event.target.value });
     const emailRegex = RegExp(
@@ -150,15 +157,35 @@ class EditProfile extends Component {
       : "invalid email address";
     this.setState({ formErrors });
   }
+  /**
+   * set gender
+   * @type {Function}
+   * @param {*} event
+   */
   genderHandelChange(event) {
     this.setState({ gender: event.target.value });
   }
+  /**
+   * set date of birth
+   * @type {Function}
+   * @param {*} event
+   */
   dateOfBirthHandelChange(event) {
     this.setState({ dateOfBirth: event.target.value });
   }
+  /**
+   * set Country
+   * @type {Function}
+   * @param {*} event
+   */
   countryHandelChange(event) {
     this.setState({ country: event.target.value });
   }
+  /**
+   * set DisplayName
+   * @type {Function}
+   * @param {*} event
+   */
   displayNameHandelChange(event) {
     this.setState({ displayName: event.target.value });
     let formErrors = { ...this.state.formErrors };
@@ -166,15 +193,19 @@ class EditProfile extends Component {
       event.target.value.length < 3 ? "minimum 3 characaters required" : "";
     this.setState({ formErrors });
   }
+  /**
+   * set Password
+   * @type {Function}
+   * @param {*} event
+   */
   passwordHandelChange(event) {
-    this.setState({ oldPassword: event.target.value });
-    let formErrors = { ...this.state.formErrors };
-    formErrors.passwordErorr =
-      event.target.value !== ProfileInfo.password
-        ? "Invallid password not matched"
-        : "";
-    this.setState({ formErrors });
+    this.setState({ password: event.target.value });
   }
+  /**
+   * submit the profile inf to be edited (make put req to edit profile Info)
+   * @type {Function}
+   * @param {*} event
+   */
   handelSubmit(event) {
     event.preventDefault();
 
@@ -189,26 +220,33 @@ class EditProfile extends Component {
       this.setState({ formValid: "", password: "" });
     } else if (formValid(this.state)) {
       //make a update request
+
       axios
-        .put("http://localhost:2022/me/profile", {
-          email: this.state.email,
-          passwordConfirm: ProfileInfo.password,
-          gender: this.state.gender,
-          birthDate: this.state.dateOfBirth,
-          country: this.state.country,
-          displayName: this.state.displayName
-        })
+        .put(
+          "https://oud-zerobase.me/api/v1/me/profile",
+          {
+            email: this.state.email,
+            passwordConfirm: this.state.password,
+            gender: this.state.gender,
+            dateOfBirth: this.state.dateOfBirth,
+            country: this.state.country,
+            displayName: this.state.displayName
+          },
+          config
+        )
         .then(response => {
-          console.log(response);
+          this.setState({
+            formNotValid: "",
+            formSaved: "Profile saved successfully"
+          });
         })
         .catch(error => {
-          console.log(error);
+          console.log(error.response);
+          this.setState({
+            formNotValid: error.response.data.message,
+            formSaved: ""
+          });
         });
-
-      this.setState({
-        formNotValid: "",
-        formSaved: "Profile saved successfully"
-      });
     } else {
       this.setState({
         formNotValid: "please , check the required feilds",
@@ -216,6 +254,11 @@ class EditProfile extends Component {
       });
     }
   }
+  /**
+   * cancle any edit in the profile Info and set it to default
+   * @type {Function}
+   * @param {*} event
+   */
   handleCancel(event) {
     this.setState({
       email: ProfileInfo.email,
@@ -226,6 +269,10 @@ class EditProfile extends Component {
       password: ""
     });
   }
+  /**
+   * @returns {<EditPassword/>} which contain
+   *
+   */
   render() {
     const disablePassword =
       ProfileInfo.email === this.state.email &&

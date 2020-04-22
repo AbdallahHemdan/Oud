@@ -69,6 +69,7 @@ h2 {
   text-align: left;
 }
 .account {
+  padding-top: 60px;
   background-color: #916b49;
   background-image: linear-gradient(#916b49, #000000);
 }
@@ -163,7 +164,11 @@ input[type="text"]:focus {
   padding-top: 10px;
   margin: auto;
 }
-
+@media only screen and (max-width: 1400px) {
+  .formSubmitErorr {
+    font-size: 14px;
+  }
+}
 @media only screen and (max-width: 1200px) {
   .mainContainer {
     width: 87%;

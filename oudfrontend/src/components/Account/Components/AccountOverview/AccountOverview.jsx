@@ -3,6 +3,8 @@ import UserExperienceForm from "../UserExperinceForm/UserExperinceForm";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./AccountOverview.css";
+import { config } from "./../../../../utils/auth"
+
 
 /**
  * @param {string} email
@@ -132,10 +134,10 @@ class AccountOverview extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:2022/me")
+      .get("https://oud-zerobase.me/api/v1/me", config)
       .then(response => {
         ProfileInfo.email = response.data.email;
-        ProfileInfo.birthDate = response.data.birthDate;
+        ProfileInfo.birthDate = response.data.birthDate.substr(0, 10);
         ProfileInfo.country = response.data.country;
 
         this.setState({

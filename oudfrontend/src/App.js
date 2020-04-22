@@ -1,10 +1,120 @@
-import React from "react";
-//import logo from './logo.svg';
-import "./App.css";
-import Oud from "./Oud";
+import React, { Component } from "react";
+import Playlist from "./components/Playlist/playlist";
+import LikedSongs from "./components/likedSongs/likedSongs";
+import Album from "./components/album/album";
+import Search from "./pages/Search/Search";
+import Account from "./pages/Account/Account";
+import RedirectPage from "./components/Account/General/RedirectPage";
+import Profile from "./pages/Profile/Profile";
+import Home from "./pages/Home/Home";
+import SeeAll from "./components/SeeAll/SeeAll";
+import Download from "./pages/RoutingPages/download";
+import Help from "./pages/RoutingPages/help";
+import Premium from "./pages/RoutingPages/premium";
+import Overview from "./pages/RoutingPages/OverView";
+import SignUp from "./pages/Signup/index";
+import SignIn from "./pages/Login/loginPage";
+import ForgotPassword from "./components/Login&Signup/ForgetPassword/ForgotPassword";
+import ResetPassword from "./components/Login&Signup/ForgetPassword/resetPassword";
+import Entered from "./components/Login&Signup/logined/entered";
+import Islinked from "./components/Login&Signup/linkisSent";
+import WhyGoPremium from "./components/Premium/WhyGoPremium/WhyGoPremium";
+import WebPlayer from './components/WebPlayer/WebPlayer'
 
-function App() {
-  return <Oud />;
+import Welcome from "./pages/Welcome/welcome";
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams
+} from "react-router-dom";
+
+class App extends Component{
+  constructor() {
+    super();
+    this.webPlayer = React.createRef();
+  }
+  render(){
+  return (
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Home webPlayer={this.webPlayer}/>
+          </Route>
+          <Route exact path="/search">
+            <Search />
+          </Route>
+          <Route exact path="/genre/:genreName">
+            <SeeAll />
+          </Route>
+
+          <Route path="/profile/:userId" component={Profile} />
+          <Route path="/account" component={Account} />
+          <Route path="/goPremium" component={WhyGoPremium} />
+
+          <Route path="/RedirectPage">
+            <RedirectPage />
+          </Route>
+
+          <Route path={`/playlist/:id`} Component={<Playlist />}>
+            <PlaylistRender />
+          </Route>
+          <Route path="/likedSongs/">
+            <LikedSongs />
+          </Route>
+          <Route path="/albums/:id" Component={<Album />}>
+            <AlbumRender />
+          </Route>
+          <Route exact path="/welcome">
+            <Welcome />
+          </Route>
+          <Route exact path="/signin">
+            <SignIn />
+          </Route>
+          <Route exact path="/signup">
+            <SignUp />
+          </Route>
+          <Route exact path="/download">
+            <Download />
+          </Route>
+          <Route exact path="/help">
+            <Help />
+          </Route>
+          <Route exact path="/premium">
+            <Premium />
+          </Route>s/RoutingPages/help";
+import Premium f
+          <Route exact path="/overview">
+            <Overview />
+          </Route>
+          <Route exact path="/forgot-password">
+            <ForgotPassword />
+          </Route>
+          <Route exact path="/reset-password">
+            <ResetPassword />
+          </Route>
+          <Route exact path="/entered">
+            <Entered />
+          </Route>
+          <Route exact path="/islanded">
+            <Islinked />
+          </Route>
+        </Switch>
+        <WebPlayer ref={this.webPlayer} />
+      </div>
+    </Router>
+  );
+}
 }
 
 export default App;
+function PlaylistRender() {
+  let id = useParams();
+  return <Playlist id={id} />;
+}
+function AlbumRender() {
+  let id = useParams().id;
+  return <Album id={id} />;
+}

@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import FollowCard from "./../FollowCard/FollowCard";
 import axios from "axios";
+import { config } from "./../../../../utils/auth"
 
+
+/**
+ * @type {Class}
+ * @returns {JSX} this returns the list of the current user followers list
+ */
 class Followers extends Component {
   constructor(props) {
     super(props);
@@ -14,22 +20,27 @@ class Followers extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:2022/followers/" + this.props.userId)
+      .get(
+        "https://oud-zerobase.me/api/v1/users/" +
+        this.props.userId +
+        "/followers",
+        config
+      )
       .then(response => {
         this.setState({
           items: response.data.items
         });
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
       });
     axios
-      .get("http://localhost:2022/me")
+      .get("https://oud-zerobase.me/api/v1/me", config)
       .then(response => {
-        this.setState({ signInId: response.data.id });
+        this.setState({ signInId: response.data._id });
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
       });
   }
 

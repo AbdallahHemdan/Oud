@@ -121,7 +121,6 @@ class Player extends Component {
         const data = response["data"]["player"];
         if (!data.hasOwnProperty("status")) {
           const track = data["item"];
-
           this.setState({
             audioUrl: track["audioUrl"],
             progress: Math.floor(

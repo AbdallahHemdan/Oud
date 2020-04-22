@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import "./Home.css";
-import Sidebar from "../../components/Home/Sidebar/Sidebar";
-import Navbar from "../../components/Home/Navbar/Navbar";
-import MainContent from "./../../components/Home/MainContent/MainContent";
-
-import axios from "axios";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import Navbar from "../../components/Navbar/Navbar";
+import MainContent from "../../components/MainContent/MainContent"
+import { base } from "./../../config/environment"
+import axios from "axios"
+import LoadingSnipper from './../../components/LoadingSnipper/LoadingSnipper';
+import { config, isLoggedIn } from "./../../utils/auth"
 
 /**
  * a string to store endpoint url of getting List of Categories
@@ -12,7 +14,7 @@ import axios from "axios";
  * @type {string}
  *
  */
-let fetchCategoriesUrl = "http://localhost:2022/browse/categories";
+let fetchCategoriesUrl = `${base}/browse/categories`;
 
 /**
  * Component to render all the stuff in Home page
@@ -83,9 +85,10 @@ class Home extends Component {
    *
    * @return {void} returns nothing, it just store data in state
    */
-  handleStoringData = ({ items, limit, offset, total }) => {
+  handleStoringCategories = ({ items, limit, offset, total }) => {
     this.setState({ items, limit, offset, total, isLoading: false });
   };
+
 
   /**
    * Fetching data of all categories immediately after the component has been mount to the DOM tree
@@ -94,10 +97,9 @@ class Home extends Component {
     axios
       .get(fetchCategoriesUrl) // get all categories
       .then((result) => {
-        this.handleStoringData(result.data);
-      })
-      .catch((err) => {
-        console.log(err);
+        this.handleStoringCategories(result.data);
+      }).catch((err) => {
+        console.log(err)
       });
   }
 
@@ -108,18 +110,18 @@ class Home extends Component {
    * @returns {JSX} Component for App
    */
   render() {
-    if (this.state.isLoading) {
-      return <div>Loading !!</div>;
-    }
     return (
       <div>
         <Sidebar />
-        <Navbar isLoggedIn={true} />
-        <MainContent
-          items={this.state.items}
-          webPlayer={this.props.webPlayer}
-        />
-      </div>
+        <Navbar isLoggedIn={isLoggedIn()} />
+        {
+          this.state.isLoading ?
+            <LoadingSnipper /> :
+            <React.Fragment>
+              <MainContent items={this.state.items} />
+            </React.Fragment>
+        }
+      </div >
     );
   }
 }
