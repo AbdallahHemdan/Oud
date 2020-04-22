@@ -8,7 +8,7 @@ import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
 const base = `https://oud-zerobase.me/api/v1`;
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzQzNDMyNywiZXhwIjoxNTkwMDI2MzI3fQ.pgmf7Vfgy9dobeUVzOeXZRzSZzeQ_0sPf2ryhSblhZk`,
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzU4Nzk0MSwiZXhwIjoxNTkwMTc5OTQxfQ.3awxU23T7YRf5_mMqwK8igLlWcQsvG14c0xF55hPxkg`,
   },
 };
 /**

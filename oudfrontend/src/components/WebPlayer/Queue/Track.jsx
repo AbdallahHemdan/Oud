@@ -9,7 +9,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzQzNDMyNywiZXhwIjoxNTkwMDI2MzI3fQ.pgmf7Vfgy9dobeUVzOeXZRzSZzeQ_0sPf2ryhSblhZk`,
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzU4Nzk0MSwiZXhwIjoxNTkwMTc5OTQxfQ.3awxU23T7YRf5_mMqwK8igLlWcQsvG14c0xF55hPxkg`,
   },
 };
 const DragHandle = sortableHandle(() => (
@@ -61,9 +61,9 @@ class Track extends Component {
       .then((response) => {
         const track = response.data;
         this.setState({
-          image: track["artists"][0]["image"],
+          image: `https://oud-zerobase.me/api/${track["artists"][0]["images"][0]}`,
           trackName: track["name"],
-          artistName: "Oud Artist",
+          artistName: track["artists"][0]["displayName"],
           duration: Number(track["duration"] / 60000).toFixed(2),
         });
       })
@@ -103,7 +103,7 @@ class Track extends Component {
           <div className="play-art">
             <div
               className="track-art-work"
-              style={{ backgroundImage: `url(${placeHolder})` }}
+              style={{ backgroundImage: `url(${this.state.image})` }}
             ></div>
 
             <button

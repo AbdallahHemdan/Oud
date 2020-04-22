@@ -117,6 +117,7 @@ class Player extends Component {
     return this.props
       .getRequest(`${base}/me/player`)
       .then((response) => {
+        console.log(response);
         const data = response["data"]["player"];
         if (!data.hasOwnProperty("status")) {
           const track = data["item"];
@@ -129,7 +130,8 @@ class Player extends Component {
             playing: false, //outPlayer ? true : data["isPlaying"],
             current: Number(data["progressMs"] / 60000).toFixed(2),
             trackName: response.data.player.item.name,
-            artistName: "Oud Artist",
+            artistName: response.data.player.item.artists[0].displayName,
+            art: `https://oud-zerobase.me/api/${response.data.player.item.artists[0].images[0]}`,
             duration: Number(track["duration"] / 60000).toFixed(2),
             shuffleState: data["shuffleState"],
             repeatState:
@@ -218,6 +220,7 @@ class Player extends Component {
    * @returns {object}
    */
   playResumeRequest = (idx) => {
+    console.log("idx from request: " + idx);
     return this.props.putRequest(`${base}/me/player/play`, {
       offset: { position: idx },
     });
@@ -515,7 +518,11 @@ class Player extends Component {
           style={{ height: this.state.thumbHeight }}
         >
           <a href="/">
-            <img src={placeHolder} alt="Cinque Terre" className="thumb-img" />
+            <img
+              src={this.state.art}
+              alt="Cinque Terre"
+              className="thumb-img"
+            />
           </a>
           <button className="close-thumb" onClick={this.closeThumb}>
             <img src={extend} alt="Close Queue" />

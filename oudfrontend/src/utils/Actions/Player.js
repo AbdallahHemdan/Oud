@@ -1,16 +1,14 @@
 import axios from "axios";
 import { Howl } from "howler";
+const base = `https://oud-zerobase.me/api/v1`;
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzQzNDMyNywiZXhwIjoxNTkwMDI2MzI3fQ.pgmf7Vfgy9dobeUVzOeXZRzSZzeQ_0sPf2ryhSblhZk`,
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzU4Nzk0MSwiZXhwIjoxNTkwMTc5OTQxfQ.3awxU23T7YRf5_mMqwK8igLlWcQsvG14c0xF55hPxkg`,
   },
 };
 function checkSavedTrack(id) {
   return axios
-    .get(
-      "https://oud-zerobase.me/api/v1/me/tracks/contains?ids=[" + id + "]",
-      config
-    )
+    .get(`${base}/me/tracks/contains?ids=[${id}]`, config)
     .then((response) => {
       console.log("check is found resp: ");
       console.log(response);
@@ -25,7 +23,7 @@ function checkSavedTrack(id) {
 
 function saveTrack(id) {
   return axios
-    .put("https://oud-zerobase.me/api/v1/me/tracks?IDs=[" + id + "]", config)
+    .put(`${base}/me/tracks/contains?ids=[${id}]`, config)
     .then((response) => {
       if (!response["data"].hasOwnProperty("status")) return true;
       else return false;
@@ -37,7 +35,7 @@ function saveTrack(id) {
 
 function removeSavedTrack(id) {
   return axios
-    .delete("https://oud-zerobase.me/api/v1/me/tracks?IDs=[" + id + "]", config)
+    .delete(`${base}/me/tracks/contains?ids=[${id}]`, config)
     .then((response) => {
       return true;
       // if (response["data"]["status"] === "204") return true;

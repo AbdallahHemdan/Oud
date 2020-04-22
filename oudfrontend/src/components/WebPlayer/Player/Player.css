@@ -214,8 +214,9 @@ button:focus {
 }
 .thumb-img {
   position: relative;
-  /* bottom: 99px; */
-  /* max-width: 35%; */
+  min-width: 14rem;
+  width: 14rem;
+  max-width: 14rem;
   background-size: cover;
   width: -webkit-fill-available;
   height: 100%;

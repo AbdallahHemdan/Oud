@@ -19,7 +19,7 @@ function PlayingBarLeft(props) {
       <div className="content">
         <div className="ablum-link" style={{ display: props.display }}>
           <img
-            src={placeHolder}
+            src={props.art}
             className="album-art-work"
             alt="Album Art"
             data-testid="album-link-img"
