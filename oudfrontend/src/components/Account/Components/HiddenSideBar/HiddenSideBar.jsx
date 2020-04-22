@@ -1,5 +1,4 @@
 import React from "react";
-
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -12,7 +11,8 @@ import "./HiddenSideBar.css";
  * side bar Element
  * @type {Function}
  * @param {*} props
- * @returns {HTMLElement} element such that change Password , Edit Profile , Account Overview
+ * @returns {jsx} element such that change Password , Edit Profile , Account Overview
+ * <SideBarElenemt>
  */
 function SideBarElement(props) {
   let { url } = useRouteMatch();
@@ -29,7 +29,8 @@ function SideBarElement(props) {
 }
 /**
  * @type {Function}
- * @returns {HTMLElement} Hidden navigation Bar  (change Password , Edit Profile , Account Overview)
+ * @returns {jsx} Hidden navigation Bar  (change Password , Edit Profile , Account Overview)
+ * <HiddenSideBar/>
  */
 function HiddenSideBar() {
   return (

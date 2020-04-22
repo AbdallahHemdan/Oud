@@ -8,14 +8,20 @@ import Oud from "./../../../../assets/images/Oud2.png";
 
 import "./LowerContainer.css";
 
-function defaultProfile() {
-  return (
-    <div className="defaultProfile">
-      {" "}
-      <img className="defaultProfileImage" src={Oud} alt="Oud-logo"></img>{" "}
-    </div>
-  );
-}
+/**
+ * @type {Function}
+ * @returns {JSX} this the default page for current user "/profile/{userId}"  (❁´◡`❁)
+ */
+/**
+ * @type {Function}
+ * @returns {JSX} this returns one of the following
+ *
+ * @1)user's followers list
+ * @2)user's following list
+ * @3)user's public playlists
+ * @4)user's profile overview
+ * @5)defaul user route
+ */
 
 function LowerContainer(props) {
   return (
@@ -27,14 +33,12 @@ function LowerContainer(props) {
           path={`/profile/:userId/overview`}
           render={prop => <Overview {...prop} userId={props.userId} />}
         />
-
         <Route
           data-test="profilePublicPlaylists"
           exact
           path={`/profile/:userId/publicPlaylists`}
           render={prop => <PublicPlaylists {...prop} userId={props.userId} />}
         />
-
         <Route
           data-test="following"
           exact
@@ -52,7 +56,7 @@ function LowerContainer(props) {
           data-test="defualt-profile-page"
           exact
           path={`/profile/:userId`}
-          component={defaultProfile}
+          component={Overview}
         />
       </Switch>
     </div>

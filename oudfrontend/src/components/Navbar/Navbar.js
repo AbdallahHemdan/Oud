@@ -3,6 +3,13 @@ import "./Navbar.css";
 import { withRouter } from "react-router-dom";
 import { BeforeLogin } from "./BeforeLogin/BeforeLogin"
 import { AfterLogin } from "./AfterLogin/AfterLogin"
+import { config } from "./../../utils/auth"
+import { base } from "./../../config/environment"
+import axios from "axios"
+
+
+
+let fetchCurrentUserInfo = `${base}/me`
 
 /**
  * Component to render all the stuff in Home page
@@ -31,7 +38,14 @@ class Navbar extends Component {
        * @property {boolean} 
        * 
        */
-      isLoggedIn: this.props.isLoggedIn
+      isLoggedIn: this.props.isLoggedIn,
+      userInfo: {},
+      _id: "",
+      username: "",
+      email: "",
+      displayName: "",
+      credit: 0,
+      images: []
     }
   }
 
@@ -47,7 +61,10 @@ class Navbar extends Component {
   handleClickOnSearch = (newRoute) => {
     this.props.history.replace(`/${newRoute}`);
   }
-
+  handleStoringUserInfo = ({ _id, username, email, displayName, credit, images }) => {
+    const userInfo = { _id, username, email, displayName, credit, images };
+    this.setState({ userInfo, _id, username, email, displayName, credit, images });
+  }
   /**
    * A function to handle going back to last route we were used
    * 
@@ -72,6 +89,12 @@ class Navbar extends Component {
   }
 
   componentDidMount() {
+    axios.get(fetchCurrentUserInfo, config)
+      .then((result) => {
+        this.handleStoringUserInfo(result.data);
+      }).catch((err) => {
+        console.log(err)
+      });
     if (this.props.isSearch) {
       this.nameInput.focus();
     }
@@ -144,7 +167,7 @@ class Navbar extends Component {
             <ul className="navbar-nav mr-auto"></ul>
             {
               (this.state.isLoggedIn) ?
-                <AfterLogin data-testid="right-after-login" /> :
+                <AfterLogin data-testid="right-after-login" userInfo={this.state.userInfo} /> :
                 <BeforeLogin data-testid="right-before-login" />
             }
           </div>

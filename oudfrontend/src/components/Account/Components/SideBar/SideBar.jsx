@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import SideBarElements from "../../General/SideBarElements";
+import userPlaceHolder from "../../../../assets/images/default-Profile.svg";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import { config } from "./../../../../utils/auth"
 import "./SideBar.css";
 
 /**
@@ -36,22 +37,28 @@ class SideBar extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:2022/me")
+      .get("https://oud-zerobase.me/api/v1/me", config)
       .then(respose => {
         this.setState({ photo: respose.data.images[0] });
       })
 
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
       });
   }
-
+  /**
+   * @returns <SideBar/>
+   */
   render() {
     return (
       <div className="sideBar" data-test="sideBar">
         <img
           className="userImg"
-          src={this.state.photo}
+          src={
+            this.state.photo
+              ? "https://oud-zerobase.me/api/" + this.state.photo
+              : userPlaceHolder
+          }
           alt="user"
           data-test="userImg"
         />

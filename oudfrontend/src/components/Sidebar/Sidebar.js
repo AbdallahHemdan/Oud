@@ -35,7 +35,7 @@ class Sidebar extends Component {
       <div>
         <div className="vertical-nav bg-darky" id="sidebar">
           <div className="py-4 px-3 bg-darky" data-testid="oud-logo-component">
-            <Link to="/" data-testid="oud-logo-link">
+            <Link to="/welcome" data-testid="oud-logo-link">
               <div className="media-body">
                 <h2 className="font-weight-white mb-0">
                   <img
