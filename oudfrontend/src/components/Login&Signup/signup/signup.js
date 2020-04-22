@@ -117,9 +117,8 @@ class Signup extends Component {
    * @function
    * @returns {boolean} -if the two passwords are the same return true
    */
-  hasSamePassword = (event) => {
-    this.setState({ConfirmPassword: event.target.value});
-    if (this.state.Password !== event.target.value) {
+  hasSamePassword = () => {
+    if (this.state.Password !== this.state.ConfirmPassword) {
       return false;
     } else {
       return true;
@@ -181,9 +180,12 @@ class Signup extends Component {
       country: countryList.code(this.state.selectedCountry),
       gender: gen,
     };
-    let samePass = this.hasSamePassword();
     let errorMassage = '';
-    if (this.state.isVerified && samePass === true && this.validateAll()) {
+    if (
+      this.state.isVerified &&
+      this.hasSamePassword() === true &&
+      this.validateAll()
+    ) {
       axios
         .post('https://oud-zerobase.me/api/v1/users/signup', toSent)
         .then((response) => {
@@ -565,7 +567,7 @@ class Signup extends Component {
    * @returns {JSX}
    */
   confirmPassword() {
-    let same = this.hasSamePassword;
+    let same = this.hasSamePassword();
     return (
       <div className="form-group">
         <div className="input-group">
