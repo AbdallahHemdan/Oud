@@ -3,14 +3,6 @@ import Playlist from "./components/Playlist/playlist";
 import LikedSongs from "./components/likedSongs/likedSongs";
 import Album from "./components/album/album";
 import Library from "./components/library/library"
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useParams,
-  Redirect
-} from "react-router-dom";
-
 import Search from "./pages/Search/Search";
 import Account from "./pages/Account/Account";
 import RedirectPage from "./components/Account/General/RedirectPage";
