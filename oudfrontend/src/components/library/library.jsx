@@ -21,24 +21,29 @@ componentDidMount(){
     window.location = '/login'
 }
 render(){
-    return(
+    if (Auth())
+    {
+        return(
        
-        <div className=" myLibrary ">
-            <Sidebar />
-            <Navbar isLoggedIn={true} />
-            <div className=" upperContainer">
-                <div  className = "library-links">
-                    <Link to={'/collection/albums'}> ALBUMS </Link>
-                    <Link to={'/collection/playlists'}> PLAYLISTS </Link>
+            <div className=" myLibrary ">
+                <Sidebar />
+                <Navbar isLoggedIn={true} />
+                <div className=" upperContainer">
+                    <div  className = "library-links">
+                        <Link to={'/collection/albums'}> ALBUMS </Link>
+                        <Link to={'/collection/playlists'}> PLAYLISTS </Link>
+                    </div>
+                   
                 </div>
-               
+                    <Switch>
+                            <Route path='/collection/albums' component={Albums}/>
+                            <Route path='/collection/playlists' component={Playlists}/>
+                    </Switch>
             </div>
-                <Switch>
-                        <Route path='/collection/albums' component={Albums}/>
-                        <Route path='/collection/playlists' component={Playlists}/>
-                </Switch>
-        </div>
-    );
+        );
+    }
+    return (<div></div>)
+    
 }
 }
 
