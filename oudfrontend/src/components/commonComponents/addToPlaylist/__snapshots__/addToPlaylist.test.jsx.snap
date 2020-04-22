@@ -6,7 +6,7 @@ exports[`CreatePlaylist Component snapshot test renders correctly 1`] = `
   data-testid="addToPlaylist"
 >
   <div
-    className="createPlaylist hide"
+    className="createPlaylist"
     data-testid="createPlaylist"
   >
     <button

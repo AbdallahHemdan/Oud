@@ -17,7 +17,7 @@ class CreatePlaylist extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      display: false,
+      display: true,
       name: "",
     };
     this.close = this.close.bind(this)
