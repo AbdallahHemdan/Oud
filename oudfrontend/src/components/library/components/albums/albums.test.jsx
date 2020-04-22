@@ -2,6 +2,7 @@ import React from 'React'
 import Albums from './albums.jsx';
 import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
+import renderer from 'react-test-renderer';
 
 Enzyme.configure({adapter: new EnzymeAdapter()});
 
@@ -25,6 +26,33 @@ describe('albums Component', ()=>{
         })
         it('renders albums component', ()=>{
             const wrapper = findByTestAttr(component, "albums");
+            expect(wrapper.length).toBe(1);
+        });
+        it('does not render first-wrapper component', ()=>{
+            const wrapper = findByTestAttr(component, "first-wrapper");
+            expect(wrapper.length).toBe(0);
+        });
+        it('does not render second-wrapper component', ()=>{
+            const wrapper = findByTestAttr(component, "second-wrapper");
+            expect(wrapper.length).toBe(0);
+        });
+        it('does not render cards-wrapper component', ()=>{
+            const wrapper = findByTestAttr(component, "cards-wrapper");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders first-wrapper component when recieved = true', ()=>{
+            component.setState({recieved:true})
+            const wrapper = findByTestAttr(component, "first-wrapper");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders second-wrapper component', ()=>{
+            component.setState({recieved:true})
+            const wrapper = findByTestAttr(component, "second-wrapper");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders cards-wrapper component', ()=>{
+            component.setState({recieved:true})
+            const wrapper = findByTestAttr(component, "cards-wrapper");
             expect(wrapper.length).toBe(1);
         });
         it('renders title component', ()=>{
@@ -58,6 +86,14 @@ describe('albums Component', ()=>{
             expect(wrapper.length).toBe(1);
         });
         
+    });
+    describe('snapshot test', ()=>{
+        it('renders correctly', () => {
+            const tree = renderer
+              .create(<Albums/>)
+              .toJSON();
+            expect(tree).toMatchSnapshot();
+        });
     });
     
 });

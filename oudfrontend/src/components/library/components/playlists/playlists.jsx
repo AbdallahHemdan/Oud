@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { config } from '../../../../utils/auth'
 import { base } from '../../../../config/environment'
-import MusicCard from '../../../MusicCard/MusicCard'
 import LoadingSnipper from '../../../LoadingSnipper/LoadingSnipper';
-
+import CategoryBody from '../../../CategoryBody/CategoryBody'
 
 export class Playlists extends Component {
     constructor(){
@@ -25,17 +24,14 @@ export class Playlists extends Component {
         
     render() {
         return (
-            <div data-testid='playlists'>
-                 <h1 data-testid='title'> Followed Playlists </h1>
-               
-               {(this.state.recieved)?this.state.playlists.map(item =>{
-                   return(<MusicCard item={item}
-                    key={item._id}
-                    playBtn={true}
-                    data-testid='cards'
-                    />)
-               }): <LoadingSnipper data-testid='loading'/>}
-            </div>
+        <div data-testid='playlists'>
+          <h1 data-testid='title'> Followed Playlists </h1>
+        
+            {this.state.recieved?
+            <CategoryBody  playlists={this.state.playlists} data-testid='categoryBody'/>
+            :<LoadingSnipper data-testid='loading'/>
+            }
+        </div>
         )
     }
 }

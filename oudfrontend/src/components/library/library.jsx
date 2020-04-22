@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
-import {Link , Switch , Route ,withRouter} from 'react-router-dom'
+import {Link , Switch , Route ,withRouter, BrowserRouter} from 'react-router-dom'
 import './library.css'
 import Albums from './components/albums/albums';
 import { Playlists } from './components/playlists/playlists';
@@ -12,6 +12,9 @@ import { Auth } from '../../utils/auth';
 class Library extends Component{
 constructor(){
     super();
+    this.state={
+        signedIn:Auth()
+    }
 }
 componentDidMount(){
     if(Auth())
@@ -20,10 +23,10 @@ componentDidMount(){
     window.location = '/login'
 }
 render(){
-    if (Auth())
+    if (this.state.signedIn)
     {
         return(
-       
+            <BrowserRouter>
             <div className=" myLibrary " data-testid='myLibrary'>
                 <Sidebar />
                 <Navbar isLoggedIn={true} />
@@ -39,6 +42,7 @@ render(){
                             <Route path='/collection/playlists' component={Playlists}/>
                     </Switch>
             </div>
+            </BrowserRouter>
         );
     }
     return (<div></div>)
