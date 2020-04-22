@@ -3,8 +3,7 @@ import UserExperienceForm from "../UserExperinceForm/UserExperinceForm";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./AccountOverview.css";
-import { config } from "./../../../../utils/auth"
-
+import { config } from "./../../../../utils/auth";
 
 /**
  * @param {string} email
@@ -75,7 +74,7 @@ function YourPlan() {
         </div>
         <h2 className="playMusic">Free</h2>
       </div>
-      <Link to="/redirectPage">
+      <Link to="/goPremium">
         <button
           type="button"
           className="btn btn-outline-warning overviewButton"
