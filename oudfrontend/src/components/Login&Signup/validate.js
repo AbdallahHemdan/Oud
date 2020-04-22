@@ -48,7 +48,7 @@ export default class Validator {
       valid = false;
     }
     context.setState((prevState) => {
-      prevState.formErrors.DisplayNameError = errorMassage;
+      prevState.formErrors.displayNameError = errorMassage;
       return prevState;
     });
     return valid;
