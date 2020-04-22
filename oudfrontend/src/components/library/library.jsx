@@ -3,7 +3,6 @@ import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
 import {Link , Switch , Route ,withRouter} from 'react-router-dom'
 import './library.css'
-import PropTypes from 'prop-types';
 import Albums from './components/albums/albums';
 import { Playlists } from './components/playlists/playlists';
 import { Auth } from '../../utils/auth';
@@ -25,13 +24,13 @@ render(){
     {
         return(
        
-            <div className=" myLibrary ">
+            <div className=" myLibrary " data-testid='myLibrary'>
                 <Sidebar />
                 <Navbar isLoggedIn={true} />
-                <div className=" upperContainer">
-                    <div  className = "library-links">
-                        <Link to={'/collection/albums'}> ALBUMS </Link>
-                        <Link to={'/collection/playlists'}> PLAYLISTS </Link>
+                <div className=" upperContainer" >
+                    <div  className = "library-links" data-testid='linkContainer'>
+                        <Link to={'/collection/albums'} data-testid='libLink'> ALBUMS </Link>
+                        <Link to={'/collection/playlists'} data-testid='libLink'> PLAYLISTS </Link>
                     </div>
                    
                 </div>
