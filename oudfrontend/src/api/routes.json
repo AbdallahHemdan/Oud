@@ -53,7 +53,7 @@
   "/genres": "/genres",
   "/me/tracks": "/likedSongs",
   "/me/queue": "/queue",
-  "/me/playlists": "/likedPlaylists",
-  "/me/albums": "/likedAlbums",
+  "/me/playlists": "/myPlaylists",
+  "/me/albums": "/myAlbums",
   "/playlists": "/playlist"
 }
