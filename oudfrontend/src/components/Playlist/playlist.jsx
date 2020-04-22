@@ -11,7 +11,6 @@ import PropTypes from 'prop-types';
 import { resume, pause, addToQueue } from '../commonComponents/utils'
 import { base, subUrl, prodUrl } from "./../../config/environment"
 import {config} from "../../utils/auth"
-import {BrowserRouter} from 'react-router-dom'
 
 /**
  * @classdesc this is a component that renders playlist page

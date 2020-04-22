@@ -7,6 +7,7 @@ import RecentSearch from './../../components/RecentSearch/RecentSearch';
 import { base } from "./../../config/environment"
 import WebPlayer from '../../components/WebPlayer/WebPlayer'
 import "./Search.css"
+import LoadingSnipper from './../../components/LoadingSnipper/LoadingSnipper';
 
 let fetchCategoriesUrl = `${base}/browse/categories`;
 
@@ -47,7 +48,7 @@ class Search extends Component {
     }
   }
   handleStoringPlaylists = ({ items, limit, offset, total }) => {
-    this.setState({ items, limit, offset, total });
+    this.setState({ items, limit, offset, total, isLoading: false });
   }
   componentDidMount() {
     axios.get(fetchCategoriesUrl)
@@ -62,14 +63,21 @@ class Search extends Component {
       <React.Fragment>
         <Sidebar />
         <Navbar isLoggedIn={false} isSearch={true} />
-        <section
-          className="main-content"
-          data-testid="main-content"
-        >
-          <RecentSearch items={this.state.items} />
-          <BrowseAll items={this.state.items} />
-        </section>
-        <WebPlayer />
+        {
+          this.state.isLoading ?
+            <LoadingSnipper />
+            :
+            <React.Fragment>
+              <section
+                className="main-content"
+                data-testid="main-content"
+              >
+                <RecentSearch items={this.state.items} />
+                <BrowseAll items={this.state.items} />
+              </section>
+              <WebPlayer />
+            </React.Fragment>
+        }
       </React.Fragment>
     );
   }

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Redirect} from "react-router-dom";
-import { render } from 'enzyme';
 
 /**
  * this is a component that renders the Top of the body of playlists, albums, likedSongs

@@ -116,7 +116,6 @@ class Album extends React.Component {
    * @returns {void}
    */
   likeButtonClicked() {
-    const likedAlbum = this.state.album.id;
     if (this.state.liked === false) {
       this.setState({ liked: true });
       axios

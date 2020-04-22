@@ -44,7 +44,7 @@ function HeaderBodyBottom(props) {
       </button>
 
       <button data-testid="likeIcon" className="likeIcon" onClick={likeClicked}>
-        {liked ? <i class="fa fa-heart"></i>:<i className="far fa-heart"></i>}
+        {liked ? <i className="fa fa-heart"></i>:<i className="far fa-heart"></i>}
       </button>
       {album ? (
         <button className="likeIcon" onClick={addToPlaylist}>

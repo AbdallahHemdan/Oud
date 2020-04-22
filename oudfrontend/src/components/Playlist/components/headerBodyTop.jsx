@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import { Redirect } from "react-router-dom";
-import {base} from "../../../config/environment"
-import {config} from "../../../utils/auth"
 /**
  * this is a component that renders the Top of the body of playlists, albums, likedSongs
  * on clicking the name of the owner it takes you to his/her profile

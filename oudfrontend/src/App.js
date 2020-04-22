@@ -3,6 +3,8 @@ import "./App.css";
 import Playlist from "./components/Playlist/playlist";
 import LikedSongs from "./components/likedSongs/likedSongs";
 import Album from "./components/album/album";
+import Account from "./pages/Account/Account";
+import RedirectPage from "./components/Account/General/RedirectPage";
 import {
   BrowserRouter as Router,
   Route,
@@ -14,19 +16,20 @@ import Search from "./pages/Search/Search";
 import Profile from "./pages/Profile/Profile";
 import Home from "./pages/Home/Home";
 import SeeAll from './components/SeeAll/SeeAll';
-import WelcomeUser from './pages/WelcomePage/welcomeUser';
-import WelcomeGuest from './pages/WelcomePage/welcomeGuest';
-import Download from './pages/RoutingPages/download';
-import Help from './pages/RoutingPages/help';
-import Premium from './pages/RoutingPages/premium';
-import Overview from './pages/RoutingPages/OverView';
-import SignUp from './pages/SignUpPage/index';
-import SignIn from './pages/LoginPage/loginPage';
-import ForgotPassword from './components/Login&Signup/ForgetPassword/ForgotPassword';
-import ResetPassword from './components/Login&Signup/ForgetPassword/resetPassword';
-import Entered from './components/Login&Signup/logined/entered';
-import Islinked from './components/Login&Signup/linkisSent';
+import WelcomeUser from "./pages/WelcomePage/welcomeUser";
+import WelcomeGuest from "./pages/WelcomePage/welcomeGuest";
+import Download from "./pages/RoutingPages/download";
+import Help from "./pages/RoutingPages/help";
+import Premium from "./pages/RoutingPages/premium";
+import Overview from "./pages/RoutingPages/OverView";
+import SignUp from "./pages/SignUpPage/index";
+import SignIn from "./pages/LoginPage/loginPage";
+import ForgotPassword from "./components/Login&Signup/ForgetPassword/ForgotPassword";
+import ResetPassword from "./components/Login&Signup/ForgetPassword/resetPassword";
+import Entered from "./components/Login&Signup/logined/entered";
+import Islinked from "./components/Login&Signup/linkisSent";
 
+import "./App.css";
 function App() {
   return (
     <Router>
@@ -41,7 +44,14 @@ function App() {
           <Route exact path="/genre/:genreName">
             <SeeAll />
           </Route>
+
           <Route path="/profile/:userId" component={Profile} />
+          <Route path="/account" component={Account} />
+
+          <Route path="/RedirectPage">
+            <RedirectPage />
+          </Route>
+
           <Route path={`/playlist/:id`} Component={<Playlist />}>
             <PlaylistRender />
           </Route>

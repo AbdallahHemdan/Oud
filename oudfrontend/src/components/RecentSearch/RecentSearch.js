@@ -6,9 +6,7 @@ class RecentSearch extends Component {
     super(props)
     this.state = {
       items: [],
-      limit: 0,
-      offset: 0,
-      total: 0
+      limit: 0
     }
   }
   componentDidMount() {

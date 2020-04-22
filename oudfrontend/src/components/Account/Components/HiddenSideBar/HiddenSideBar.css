@@ -1,0 +1,75 @@
+.hiddenSideBar {
+  width: 100%;
+  padding-bottom: 0;
+  background-color: #7a5537;
+  visibility: hidden;
+  height: 0;
+}
+.dropDownGroupForHiddenSideBar {
+  width: 97%;
+  border-radius: 5px;
+  height: 50px;
+  margin: 15px 1.5%;
+}
+#dropdown-basic {
+  color: #000000;
+  background-color: #ffffff;
+  width: 5%;
+  margin-bottom: 0;
+  border: #ffffff;
+  height: 50px;
+  width: 5%;
+}
+.dropdownButtonSideBar {
+  color: #000000;
+  background-color: #ffffff;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 450;
+  width: 95%;
+  margin-bottom: 0;
+  border: #ffffff;
+  height: 50px;
+}
+.dropdownButtonSideBar:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.menuHiddenSideBar {
+  width: 100%;
+  background-color: #ffffff;
+  margin: 0 1% 0 0;
+  padding: 0 0 0 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  border-end-end-radius: 3%;
+  border-end-start-radius: 3%;
+}
+.listHiddenSideBar:hover,
+.listHiddenSideBar:active,
+.listHiddenSideBar:focus {
+  background-color: #ffce00;
+}
+.listHiddenSideBar {
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+.listHiddenSideBar a {
+  display: block;
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid hsla(0, 0%, 100%, 0.05);
+  margin: 0;
+  padding: 0;
+  color: #222326;
+  text-decoration: none;
+  padding-top: 10px;
+}
+
+.icons2 {
+  padding: 0 10px 0 10px;
+}

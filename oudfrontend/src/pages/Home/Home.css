@@ -5,3 +5,8 @@
   flex-wrap: wrap;
   flex-direction: row;
 }
+.container.container-half {
+  text-align: center;
+  margin-top: 10%;
+  color: #f9b835;
+}

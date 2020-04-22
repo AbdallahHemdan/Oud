@@ -8,7 +8,6 @@ import Navbar from "../Navbar/Navbar";
 import { resume, pause, addToQueue } from '../commonComponents/utils'
 import {base} from "../../config/environment"
 import {config} from "../../utils/auth"
-import {BrowserRouter} from 'react-router-dom'
 
 /**
  * @classdesc this is a component that renders likedSongs page
