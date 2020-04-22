@@ -7,10 +7,11 @@ import SongList from '../commonComponents/songList'
 import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist"
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
+import LoadingSnipper from "../LoadingSnipper/LoadingSnipper";
 import PropTypes from 'prop-types';
 import { resume, pause, addToQueue } from '../commonComponents/utils'
 import { base, subUrl, prodUrl } from "./../../config/environment"
-import {config} from "../../utils/auth"
+import { config, isLoggedIn } from "../../utils/auth"
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -164,7 +165,6 @@ class Playlist extends React.Component {
     axios
       .get(`${base}/me/playlists/contains/${this.props.id.id}`, config)
       .then((response) => {
-        console.log(response);
         const isFound = response.data;
         this.setState({ liked: isFound });
       })
@@ -211,8 +211,8 @@ class Playlist extends React.Component {
           />
         ) : (
           <div className="dummyParent">
-            <Sidebar />
-            <Navbar isLoggedIn={true} />
+              <Navbar isLoggedIn={isLoggedIn()} />
+              <Sidebar />
             <div className="profile-user">
               <div data-testid="playlist" className="playlist">
                 <div className="row">
@@ -255,7 +255,7 @@ class Playlist extends React.Component {
                   </div>
                   <SongList
                     data-testid="songList"
-                    recieved={this.state.recieved}
+                    recieved={true}
                     tracks={this.state.tracks}
                     pause={this.pause}
                     resume={this.resume}
@@ -270,8 +270,8 @@ class Playlist extends React.Component {
           </div>
           
         ): (
-          <h1 data-testid="loading">LOADING ...</h1>
-        )}
+            <LoadingSnipper />
+          )}
       </div>
     );
   }

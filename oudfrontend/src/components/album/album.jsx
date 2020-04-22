@@ -9,7 +9,7 @@ import { resume, pause, addToQueue } from '../commonComponents/utils'
 import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist"
 import PropTypes from 'prop-types';
 import { base, subUrl, prodUrl } from "./../../config/environment"
-import {config} from "../../utils/auth"
+import { config } from "../../utils/auth"
 
 /**
  * @classdesc this is a component that renders album page
@@ -161,7 +161,6 @@ class Album extends React.Component {
     axios
       .get(`${base}/me/albums/contains/${this.props.id}`, config)
       .then((response) => {
-        console.log(response);
         const isFound = response.data;
         this.setState({ liked: isFound });
       })
@@ -192,52 +191,52 @@ class Album extends React.Component {
             close={this.closeAddToPlaylist.bind(this)}
           />
         ) : (
-          <div className="dummyParent">
-            <Sidebar />
-            <Navbar isLoggedIn={true} />
-            <div className="profile-user">
-              <div data-testid="album" className="playlist">
-                <div className="row">
-                  <div
-                    data-testid="playlistHeader"
-                    onClick={this.markAllUnclicked.bind(this)}
-                    className="playlistHeader row col-xs-12 col-md-12 col-lg-4 col-xl-4"
-                  >
+            <div className="dummyParent">
+              <Sidebar />
+              <Navbar isLoggedIn={true} />
+              <div className="profile-user">
+                <div data-testid="album" className="playlist">
+                  <div className="row">
                     <div
-                      data-testid="playlistIamgeContainer"
-                      className="playlistImageContainer col col-lg-12 col-md-4 col-sm-4 col-xs-4"
+                      data-testid="playlistHeader"
+                      onClick={this.markAllUnclicked.bind(this)}
+                      className="playlistHeader row col-xs-12 col-md-12 col-lg-4 col-xl-4"
                     >
-                      <img
-                        data-testid="playlistIamge"
-                        src={`${subPath}${this.state.album.image}`}
-                        className="playlistImage"
-                        alt="album img"
-                      />
-                    </div>
-                    <div
-                      data-testid="playlistHeaderBody"
-                      className="playlistHeaderBody col col-lg-12 col-md-8 col-sm-8 col-xs-8"
-                    >
-                      <HeaderBodyTop
-                        data-testid="HeaderBodyTop"
-                        title={this.state.album.name}
-                        artists={this.state.artists}
-                      />
+                      <div
+                        data-testid="playlistIamgeContainer"
+                        className="playlistImageContainer col col-lg-12 col-md-4 col-sm-4 col-xs-4"
+                      >
+                        <img
+                          data-testid="playlistIamge"
+                          src={this.state.album.image}
+                          className="playlistImage"
+                          alt="album img"
+                        />
+                      </div>
+                      <div
+                        data-testid="playlistHeaderBody"
+                        className="playlistHeaderBody col col-lg-12 col-md-8 col-sm-8 col-xs-8"
+                      >
+                        <HeaderBodyTop
+                          data-testid="HeaderBodyTop"
+                          title={this.state.album.name}
+                          artists={this.state.artists}
+                        />
 
-                      <HeaderBodyBottom
-                        data-testid="HeaderBodyBottom"
-                        length={this.state.tracks.length}
-                        playClicked={this.playButtonClicked}
-                        likeClicked={this.likeButtonClicked}
-                        liked={this.state.liked}
-                        playing={this.state.playing}
-                        releaseDate={this.state.album.release_date}
-                        recieved={this.state.recieved}
-                        album={true}
-                        addToPlaylist={this.addToPlaylist.bind(this)}
-                      />
+                        <HeaderBodyBottom
+                          data-testid="HeaderBodyBottom"
+                          length={this.state.tracks.length}
+                          playClicked={this.playButtonClicked}
+                          likeClicked={this.likeButtonClicked}
+                          liked={this.state.liked}
+                          playing={this.state.playing}
+                          releaseDate={this.state.album.release_date}
+                          recieved={this.state.recieved}
+                          album={true}
+                          addToPlaylist={this.addToPlaylist.bind(this)}
+                        />
+                      </div>
                     </div>
-                  </div>
                   <SongList
                     data-testid="songList"
                     recieved={this.state.recieved}
@@ -253,8 +252,8 @@ class Album extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-        )}
+            </div>
+          )}
       </div>
     );
   }

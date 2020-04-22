@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Song from "./song/song";
 import PropTypes from "prop-types";
 import axios from "axios";
-import {base} from "../../config/environment"
-import {config} from "../../utils/auth"
+import { base } from "../../config/environment"
+import { config } from "../../utils/auth"
+import LoadingSnipper from "../LoadingSnipper/LoadingSnipper";
 
 /**
  * this is a component that renders the list of songs in playlists, albums, likedSongs or a "loading" animation if the songs are not recieved
@@ -66,6 +67,7 @@ class SongList extends Component {
     if (nextProps.clickedItemId !== this.state.clickedItemId) {
       this.setState({ clickedItemId: nextProps.clickedItemId });
     }
+    console.log(this.props.recieved)
   }
   /**
    * it adds all the songs after the calling song to the queue
@@ -115,7 +117,7 @@ class SongList extends Component {
         data-testid="songsList"
         className="col-xs-8 col-md-6 col-lg-8 col-xl-8"
       >
-        {this.props.tracks.map((track) => {
+        {this.props.recieved?this.props.tracks.map((track) => {
             return (
               <Song
                 data-testid="songElement"
@@ -130,7 +132,9 @@ class SongList extends Component {
               />
             );
           })
-        }
+         : (
+            <LoadingSnipper />
+          )}
       </div>
     );
   }

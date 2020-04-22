@@ -5,9 +5,9 @@ import Navbar from "../../components/Navbar/Navbar"
 import BrowseAll from "./../../components/BrowseAll/BrowseAll"
 import RecentSearch from './../../components/RecentSearch/RecentSearch';
 import { base } from "./../../config/environment"
-import WebPlayer from '../../components/WebPlayer/WebPlayer'
 import "./Search.css"
 import LoadingSnipper from './../../components/LoadingSnipper/LoadingSnipper';
+import { isLoggedIn } from '../../utils/auth'
 
 let fetchCategoriesUrl = `${base}/browse/categories`;
 
@@ -62,7 +62,7 @@ class Search extends Component {
     return (
       <React.Fragment>
         <Sidebar />
-        <Navbar isLoggedIn={false} isSearch={true} />
+        <Navbar isLoggedIn={isLoggedIn()} isSearch={true} />
         {
           this.state.isLoading ?
             <LoadingSnipper />
@@ -75,7 +75,6 @@ class Search extends Component {
                 <RecentSearch items={this.state.items} />
                 <BrowseAll items={this.state.items} />
               </section>
-              <WebPlayer />
             </React.Fragment>
         }
       </React.Fragment>

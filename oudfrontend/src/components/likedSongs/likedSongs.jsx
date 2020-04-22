@@ -6,8 +6,8 @@ import './likedSongs.css'
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
 import { resume, pause, addToQueue } from '../commonComponents/utils'
-import {base} from "../../config/environment"
-import {config} from "../../utils/auth"
+import { base } from "../../config/environment"
+import { config } from "../../utils/auth"
 
 /**
  * @classdesc this is a component that renders likedSongs page
@@ -117,7 +117,6 @@ class LikedSongs extends React.Component {
         this.setState({ recieved: true });
         this.setState({ items: items });
         this.destructuring(items);
-        console.log(items);
       })
       .catch((error) => {
         console.log(error);
@@ -128,7 +127,6 @@ class LikedSongs extends React.Component {
     items.map((item) => {
       tracks.push(item.track);
     });
-    console.log(tracks);
     this.setState({ tracks: tracks });
   }
 

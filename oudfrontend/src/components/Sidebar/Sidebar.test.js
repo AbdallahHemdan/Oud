@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer'
 import Sidebar from "./Sidebar";
-import { findByTestAttr } from "../../../utils/index";
+import { findByTestAttr } from "./../../utils/index";
 
 
 const setup = (props = {}) => {

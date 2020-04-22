@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import { base, subUrl, prodUrl } from "./../../../config/environment"
 
 export class AfterLogin extends Component {
+    handleLogOut = (e) => {
+        localStorage.removeItem("accessToken");
+    }
     render() {
         const userInformation = (this.props.userInfo) ? (this.props.userInfo) : null;
         const subPath = (base === prodUrl) ? subUrl : "";
-        console.log("User info from after login", this.props.userInfo);
         let profileImage = "https://oud-zerobase.me/api/uploads/users/default-Profile.svg",
             userId = "",
             displayName = "";
@@ -14,13 +16,8 @@ export class AfterLogin extends Component {
             profileImage = (this.props.userInfo.images !== undefined) ?
                 subPath + this.props.userInfo.images[0] :
                 "https://oud-zerobase.me/api/uploads/users/default-Profile.svg";
-            // if (this.props.userInfo._id !== undefined) {
             userId = this.props.userInfo._id;
-            // }
-            // if (this.props.userInfo.displayName !== undefined) {
             displayName = this.props.userInfo.displayName;
-            // }
-
         }
         return (
             <form
@@ -62,9 +59,12 @@ export class AfterLogin extends Component {
                         >Account</Link>
                         <Link
                             className="dropdown-item element"
-                            to="logout"
+                            onClick={this.handleLogOut}
+                            to="/welcome"
                             data-testid="logout-dropdown-element"
-                        >Log out</Link>
+                        >
+                            Log out
+                        </Link>
                     </div>
                 </div>
                 <a href={`/profile/${userId}`}>

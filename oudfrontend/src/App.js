@@ -16,28 +16,33 @@ import Search from "./pages/Search/Search";
 import Profile from "./pages/Profile/Profile";
 import Home from "./pages/Home/Home";
 import SeeAll from './components/SeeAll/SeeAll';
-import WelcomeUser from "./pages/WelcomePage/welcomeUser";
-import WelcomeGuest from "./pages/WelcomePage/welcomeGuest";
+import Library from "./components/library/library";
 import Download from "./pages/RoutingPages/download";
 import Help from "./pages/RoutingPages/help";
 import Premium from "./pages/RoutingPages/premium";
 import Overview from "./pages/RoutingPages/OverView";
-import SignUp from "./pages/SignUpPage/index";
-import SignIn from "./pages/LoginPage/loginPage";
+import SignUp from "./pages/Signup/index";
+import SignIn from "./pages/Login/loginPage";
 import ForgotPassword from "./components/Login&Signup/ForgetPassword/ForgotPassword";
 import ResetPassword from "./components/Login&Signup/ForgetPassword/resetPassword";
 import Entered from "./components/Login&Signup/logined/entered";
 import Islinked from "./components/Login&Signup/linkisSent";
+import WhyGoPremium from "./components/Premium/WhyGoPremium/WhyGoPremium";
 
+import Welcome from "./pages/Welcome/welcome";
 import "./App.css";
+
 function App() {
   return (
     <Router>
+    
       <div className="App">
         <Switch>
+          
           <Route exact path="/">
             <Home />
           </Route>
+          <Route path='/collection' component={Library} />
           <Route exact path="/search">
             <Search />
           </Route>
@@ -47,6 +52,7 @@ function App() {
 
           <Route path="/profile/:userId" component={Profile} />
           <Route path="/account" component={Account} />
+          <Route path="/goPremium" component={WhyGoPremium} />
 
           <Route path="/RedirectPage">
             <RedirectPage />
@@ -62,13 +68,7 @@ function App() {
             <AlbumRender />
           </Route>
           <Route exact path="/welcome">
-            <WelcomeGuest />
-          </Route>
-          <Route exact path="/welcome-guest">
-            <WelcomeGuest />
-          </Route>
-          <Route exact path="/welcome-user">
-            <WelcomeUser />
+            <Welcome />
           </Route>
           <Route exact path="/signin">
             <SignIn />
