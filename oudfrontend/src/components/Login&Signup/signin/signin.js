@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 
 import axios from 'axios';
 import Validator from '../validate';
-import {token} from '../../../utils/auth';
 /**the sign up section  */
 class SignIn extends Component {
   constructor(props) {
@@ -50,26 +49,10 @@ class SignIn extends Component {
     });
     return false;
   };
-  /**
-   * Password checker
-   * (here check if the entered password is correct under some restricts)
-   * 1)if it dose not enter any thing
-   * 2)if it under 8 latter's
-   * 3)if it more than 30 latter's
-   * 5)if it is valid
-   * 6)then it is correct
-   * @function
-   * @param {object} event - the entered password
-   * @returns {string} -change the error massages
-   *  */
-  PasswordHandel = (event) => {
-    this.setState({password: event.target.value});
-    Validator.validatePassword(event.target.value, this);
-  };
+
   validateAll = () => {
     let valid = true;
     valid &= Validator.validateEmail(this.state.email, this);
-    valid &= Validator.validatePassword(this.state.password, this);
     return valid;
   };
   /**

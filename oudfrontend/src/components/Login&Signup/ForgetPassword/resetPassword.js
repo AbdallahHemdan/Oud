@@ -3,7 +3,6 @@ import '../signup/signup.css';
 import MainBrand from '../MainBrand';
 import axios from 'axios';
 import {Redirect, withRouter} from 'react-router-dom';
-import ignoreQueryPrefix from 'qs';
 import Validator from './../validate';
 
 var qs = require('qs');
@@ -113,9 +112,7 @@ class ResetPassword extends Component {
           ConfirmPasswordError: '',
         },
       });
-      let restToken = qs.parse(this.props.location.search, {
-        ignoreQueryPrefix: true,
-      }).token;
+      let restToken = this.props.match.params.token;
       axios
         .patch(
           `https://oud-zerobase.me/api/v1/users/resetPassword/${restToken}`,

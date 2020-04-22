@@ -330,9 +330,16 @@
     top: 14%;
   }
 }
+
 .user-image {
   margin-top: -1px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
+}
+
+.oudLogoBody {
+  z-index: 9999;
+  width: 10%;
+  margin-bottom: 10px;
 }

@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
-import { isLoggedIn } from "./../../../utils/auth"
+import {isLoggedIn} from './../../../utils/auth';
 import BeforeLogin from './BeforeLogin';
 import AfterLogin from './AfterLogin';
 import Common from './Common';
 import CommonRight from './CommonRight';
 
 class Navbar extends Component {
-
   render() {
     return (
       <div>
@@ -18,15 +17,13 @@ class Navbar extends Component {
             <ul className="navbar-nav ml-auto nav-items font-weight-bold NavBarStyle_nav-items">
               <CommonRight />
               <li className="block NavBarStyle_block nav-item">{'|'}</li>
-              {
-                isLoggedIn() ? <AfterLogin /> : <BeforeLogin />
-              }
+              {isLoggedIn() ? <AfterLogin /> : <BeforeLogin />}
             </ul>
           </div>
         </nav>
       </div>
-    )
+    );
   }
 }
 
-export default Navbar
+export default Navbar;
