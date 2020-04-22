@@ -123,7 +123,7 @@ class ResetPassword extends Component {
             const authToken = response.data.token;
             localStorage.setItem('accessToken', authToken);
             console.log(response);
-            window.location = '/log-in';
+            window.location = '/signin';
           }
         })
         .catch((error) => {
