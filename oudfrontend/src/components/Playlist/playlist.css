@@ -5,6 +5,11 @@
   position: relative;
   min-height: 800px;
 }
+@media screen and (max-width: 483px) {
+  .playlist {
+    padding-top: 50px;
+  }
+}
 .playlistHeader {
   margin-bottom: 20px;
   padding-bottom: 20px;

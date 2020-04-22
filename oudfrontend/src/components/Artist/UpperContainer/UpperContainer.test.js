@@ -32,16 +32,7 @@ describe("artist from user view component: testing upper part", () => {
     ).toBe(true);
   });
   it("redndering the option dropdown", () => {
-    const wrapper = mount(
-      <UpperContainer
-        artistId={"1"}
-        username={"aashrafh"}
-        cover={""}
-        followStatus={true}
-        handleFollowClick={() => {}}
-      />
-    );
-    expect(wrapper.find(".dropdown").exists()).toBe(true);
+    expect(component.find(".artist-options-dropdown").exists()).toBe(true);
   });
   it("redndering the option dropdown", () => {
     const wrapper = mount(

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Switch, Route, Router } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import About from "./About";
 import Popular from "./Popular";
 import Albums from "./Albums";
@@ -38,6 +38,7 @@ function LowerContainer(props) {
                   <Popular
                     {...prop}
                     artistId={props.artistId}
+                    addToPlaylist={props.addToPlaylist}
                     data-testid="test-artist-lower"
                   />
                   <Albums

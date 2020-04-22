@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import AddToPlaylist from "../../commonComponents/addToPlaylist/addToPlaylist";
 import SongList from "../../commonComponents/songList";
 import { getRequest } from "../../../utils/requester";
 import { base } from "../../../config/environment";
@@ -42,25 +41,9 @@ class Popular extends Component {
         console.log(error.response);
       });
   }
-  // pause = () => {};
-  // resume = () => {};
-  // addToQueue = () => {};
-  /**
-   * A utility for the AddToPlaylist component to display the component
-   * @func
-   * @returns {void}
-   */
-  addToPlaylist = () => {
-    this.setState({ displayAdd: true });
-  };
-  /**
-   * A utility for the AddToPlaylist component to close the component
-   * @func
-   * @returns {void}
-   */
-  closeAddToPlaylist = () => {
-    this.setState({ displayAdd: false });
-  };
+  pause = () => {};
+  resume = () => {};
+  addToQueue = () => {};
   render() {
     return (
       <div className="artis-overview">
@@ -69,13 +52,6 @@ class Popular extends Component {
             Popular
           </h5>
         </div>
-        {this.state.displayAdd && (
-          <AddToPlaylist
-            data-testid="artist-top-tracks"
-            display={this.state.displayAdd}
-            close={this.closeAddToPlaylist}
-          />
-        )}
         <SongList
           data-testid="songList"
           recieved={this.state.recieved}
@@ -85,7 +61,7 @@ class Popular extends Component {
           addToQueue={this.addToQueue}
           clickedItemId={this.state.clickID}
           className="artist-pop col-xs-12 col-md-12 col-lg-8 col-xl-8"
-          addToPlaylist={this.addToPlaylist}
+          addToPlaylist={this.props.addToPlaylist}
           renderNames={true}
         />
       </div>

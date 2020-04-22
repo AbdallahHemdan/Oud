@@ -51,11 +51,8 @@ class Options extends Component {
         <div
           className="dropdown-menu"
           aria-labelledby="dropdownMenuButton"
-          data-testid="test-start-radio"
+          data-testid="test-options"
         >
-          <a className="dropdown-item" href="/">
-            Start Radio
-          </a>
           <div
             data-testid="test-follow"
             className="dropdown-item"

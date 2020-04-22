@@ -108,3 +108,22 @@
 .swal2-icon.swal2-success [class^="swal2-success-line"] {
   background-color: #ffce00;
 }
+.artist-user-view-page .createPlaylist {
+  z-index: 4;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+}
+.artist-user-view-page .profile-user {
+  width: 87%;
+}
+.artis-overview .col-xs-8,
+.artis-overview .col-md-6,
+.artis-overview .col-lg-8,
+.artis-overview .col-xl-8 {
+  width: 100%;
+  min-width: 100%;
+}

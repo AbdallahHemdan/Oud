@@ -4,7 +4,7 @@ import LowerContainer from "./LowerContainer/LowerContainer";
 import { base } from "../../config/environment";
 import { getRequest, deleteRequest, putRequest } from "../../utils/requester";
 import PropTypes from "prop-types";
-import axios from "axios";
+import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist";
 /**
  * A class component to control rendering the upper and lower parts of the artist page.
  * @author Ahmed Ashraf
@@ -25,6 +25,7 @@ class ArtistUserView extends Component {
       signInId: "",
       followStatus: false,
       bio: "",
+      displayAdd: false,
     };
   }
   /**
@@ -114,22 +115,51 @@ class ArtistUserView extends Component {
     }
     this.setState({ followStatus: !this.state.followStatus });
   };
+  /**
+   * A utility for the AddToPlaylist component to display the component
+   * @func
+   * @returns {void}
+   */
+  addToPlaylist = () => {
+    this.setState({ displayAdd: true });
+  };
+  /**
+   * A utility for the AddToPlaylist component to close the component
+   * @func
+   * @returns {void}
+   */
+  closeAddToPlaylist = () => {
+    this.setState({ displayAdd: false });
+  };
   render() {
     return (
-      <div className="profile-user" data-testid="artist-user-view">
-        <UpperContainer
-          data-testid="artist-upper-container"
-          artistId={this.props.artistId}
-          handleFollowClick={this.handleFollowClick}
-          followStatus={this.state.followStatus}
-          username={this.state.username}
-          cover={this.state.img}
-        />
-        <LowerContainer
-          data-testid="artist-lower-container"
-          artistId={this.props.artistId}
-          bio={this.state.bio}
-        />
+      <div
+        className="artist-user-view-page"
+        data-testid="artist-user-view-page"
+      >
+        {this.state.displayAdd && (
+          <AddToPlaylist
+            data-testid="artist-top-tracks"
+            display={this.state.displayAdd}
+            close={this.closeAddToPlaylist}
+          />
+        )}
+        <div className="profile-user" data-testid="artist-user-view">
+          <UpperContainer
+            data-testid="artist-upper-container"
+            artistId={this.props.artistId}
+            handleFollowClick={this.handleFollowClick}
+            followStatus={this.state.followStatus}
+            username={this.state.username}
+            cover={this.state.img}
+          />
+          <LowerContainer
+            data-testid="artist-lower-container"
+            artistId={this.props.artistId}
+            bio={this.state.bio}
+            addToPlaylist={this.addToPlaylist}
+          />
+        </div>
       </div>
     );
   }

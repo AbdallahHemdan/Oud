@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import { Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../Profile/Commponents/UpperContainer/UpperContainer.css";
 import Options from "./Options";
 import PropTypes from "prop-types";
-import { createBrowserHistory } from "history";
-
-const newHistory = createBrowserHistory();
 
 /**
  * A class component to control rendering the bottom parts; Albums, Singles, Compilations, and Appears On
@@ -82,10 +79,10 @@ class UpperContainer extends Component {
     if (this.props.userId === this.state.signInId)
       document.getElementById("avatar").click();
   }
-  // handlePlay = () => {};
+  handlePlay = () => {};
   render() {
     return (
-      <div className="artist-user">
+      <div className="artist-user" data-testid="artist-user-upper-container">
         <div
           className={this.state.scrolled ? "upperNav" : "upperContainerProfile"}
           data-testid="UpperContainer"
@@ -147,6 +144,7 @@ class UpperContainer extends Component {
                 )}
               </button>
               <Options
+                className="artist-options-dropdown"
                 followStatus={this.props.followStatus}
                 artistId={this.props.artistId}
                 handleFollowClick={this.handleFollowClick}

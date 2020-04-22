@@ -32,7 +32,8 @@ class Albums extends Component {
   componentDidMount() {
     const query = `${base}/artists/${
       this.props.artistId
-    }/albums?included_groups=[${type[this.props.type]}]`;
+    }/albums?included_groups=${type[this.props.type]}`;
+    console.log("album endpoint: " + query);
     getRequest(query)
       .then((response) => {
         this.setState({
@@ -62,7 +63,7 @@ class Albums extends Component {
         collaborative: album.artists[0].displayName,
         description: "Album for the artist",
         isPublic: true,
-        type: "album",
+        type: "albums",
         image: album.image,
       };
       items.push(item);
@@ -105,17 +106,6 @@ class Albums extends Component {
       ),
       seeMoreText: "See More",
     });
-  };
-  // pause = () => {};
-  // resume = () => {};
-  // addToQueue = () => {};
-  /**
-   * A function for the Playlist component  to handle display of the add to playlist
-   * @func
-   * @returns {void}
-   */
-  addToPlaylist = () => {
-    this.setState({ displayAdd: true });
   };
   render() {
     return (

@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import "./MusicCard.css";
-import { Link, withRouter } from "react-router-dom"
-
+import { Link, withRouter } from "react-router-dom";
 
 /**
- * Music card component which render and display the playlist card of a specific category 
- * 
+ * Music card component which render and display the playlist card of a specific category
+ *
  * @author Abdallah Hemdan
- * 
+ *
  * @component
- * 
+ *
  */
 
 class MusicCard extends Component {
   /**
    * @constructor
-   * 
+   *
    * @param {object} props - get musicItem (playlist date and props from the MusicItems component)
    * @param {string} id - The id of the playlist
    * @param {string} name - The name of the playlist
@@ -27,52 +26,49 @@ class MusicCard extends Component {
    * @param {string} type - The type of the playlist
    */
   constructor(props) {
-    super(props)
-    const
-      {
-        id,
-        name,
-        owner,
-        collaborative,
-        description,
-        isPublic,
-        type,
-        image
-
-      } = this.props.item;
+    super(props);
+    const {
+      id,
+      name,
+      owner,
+      collaborative,
+      description,
+      isPublic,
+      type,
+      image,
+    } = this.props.item;
     this.state = {
-
       /**
        * The id of the playlist
-       * 
+       *
        * @type {string}
        */
       id: id,
 
       /**
        * The name of the playlist
-       * 
+       *
        * @type {string}
        */
       name: name,
 
       /**
        * The owner of the playlist
-       * 
+       *
        * @type {string}
        */
       owner: owner,
 
       /**
        * Variable to check if the owner allows other users to modify the playlist.
-       * 
+       *
        * @type {boolean}
        */
       collaborative: collaborative,
 
       /**
        * The description of the playlist
-       * 
+       *
        * @type {string}
        */
       description: description,
@@ -80,105 +76,96 @@ class MusicCard extends Component {
       /**
        * The playlist’s public/private status: true the playlist is public,
        * false the playlist is private
-       * 
+       *
        * @type {boolean}
        */
       public: isPublic,
 
       /**
        * The image of the playlist
-       * 
+       *
        * @type {string}
        */
       image: image,
 
       /**
        * 	The object type: “playlist”
-       * 
+       *
        * @type {string}
        */
       type: type,
       playBtn: this.props.playBtn,
-      isHidden: this.props.isHidden
-    }
+      isHidden: this.props.isHidden,
+    };
   }
 
   /**
    * Function to handle navigation to the playlist page
    * on clicking on the music card
-   * 
+   *
    * @function
-   * 
+   *
    * @return {void}
-   * 
+   *
    */
   handlePlaylistClick = () => {
-    this.props.history.push(`${this.state.type}/${this.state.id}`);
-  }
+    this.props.history.push(`/${this.state.type}/${this.state.id}`);
+  };
 
   /**
    * Function to handle playing music on clicking on
    * play icon the music card
-   * 
+   *
    * @function
-   * 
+   *
    * @param {object} event - an event to use it in
-   * disabling the default of the propagation 
+   * disabling the default of the propagation
    */
   handlePlayClick = (e) => {
     e.stopPropagation();
     console.log("🎵 music is playing now");
-  }
+  };
 
   /**
    * @function
-   * 
+   *
    * @name render
-   * 
+   *
    * @description Render Music card components..
-   * 
+   *
    * @returns {JSX} Component for App
    */
   render() {
-    const cardClass = (this.state.isHidden) ? "hidden-card" : "card"
+    const cardClass = this.state.isHidden ? "hidden-card" : "card";
     return (
-      <div
-        className="card-container"
-        data-testid="card-container"
-      >
-        <div className={cardClass}
-          data-testid={cardClass}
-        >
+      <div className="card-container" data-testid="card-container">
+        <div className={cardClass} data-testid={cardClass}>
           <div
             className="overlayer"
             onClick={this.handlePlaylistClick}
             data-testid="overlay"
           >
-            {this.state.playBtn ? < button
-              className="play-btn"
-              onClick={this.handlePlayClick}
-              data-testid="play-btn"
-            >
-              <i
-                className="fa fa-play-circle play-circle"
-                data-testid="play-circle"
+            {this.state.playBtn ? (
+              <button
+                className="play-btn"
+                onClick={this.handlePlayClick}
+                data-testid="play-btn"
               >
-              </i>
-            </button>
-              :
-              null}
+                <i
+                  className="fa fa-play-circle play-circle"
+                  data-testid="play-circle"
+                ></i>
+              </button>
+            ) : null}
           </div>
           <img
             src={this.state.image}
             alt="playlist cover"
             data-testid="playlist-image"
           />
-          <div
-            className="title"
-            data-testid="playlist-title"
-          >
+          <div className="title" data-testid="playlist-title">
             <Link
-              to={`${this.state.type}/${this.state.id}`}
+              to={`/${this.state.type}/${this.state.id}`}
               className="playlist-link"
               data-testid="playlist-link"
             >
@@ -186,7 +173,7 @@ class MusicCard extends Component {
             </Link>
           </div>
         </div>
-      </div >
+      </div>
     );
   }
 }

@@ -12,16 +12,6 @@ import "./Artist.css";
  *  <Artist />
  * )
  */
-function ActivityBar() {
-  return (
-    <div className="DummyActivityBar">
-      <h5 style={{ textAlign: "center", padding: "10px 4px" }}>
-        Dummy ActivityBar
-      </h5>
-    </div>
-  );
-}
-
 function Artist(props) {
   return (
     <div className="dummyParent">
@@ -31,7 +21,7 @@ function Artist(props) {
         data-test="artist-upper-container"
         artistId={props.match.params.artistId}
       />
-      <ActivityBar />
+      {/* <ActivityBar /> */}
     </div>
   );
 }

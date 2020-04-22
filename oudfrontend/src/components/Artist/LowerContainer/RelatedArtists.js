@@ -57,7 +57,7 @@ class RelatedArtists extends Component {
         description: "Artist Card",
         isPublic: true,
         type: "artist",
-        image: `https://oud-zerobase.me/api/${artist.images[1]}`,
+        image: `${artist.images[0]}`,
       };
       items.push(item);
     });
@@ -65,6 +65,7 @@ class RelatedArtists extends Component {
       items: items,
     });
   };
+  //https://oud-zerobase.me/api/${artist.images[1]}
   /**
    * Pass a list of artists object and construct a list of tracks for the player
    * @func
@@ -88,9 +89,9 @@ class RelatedArtists extends Component {
       popularSongs: popularSongsIds,
     });
   };
-  // pause = () => {};
-  // resume = () => {};
-  // addToQueue = () => {};
+  pause = () => {};
+  resume = () => {};
+  addToQueue = () => {};
   render() {
     return (
       <div className="artis-overview">
@@ -98,7 +99,11 @@ class RelatedArtists extends Component {
           <div className="wrapper_section_2" data-testid="second-wrapper">
             <div className="cards" data-testid="cards-wrapper">
               {this.state.items.map((item, index) => {
-                return <MusicCard item={item} key={item.id} playBtn={true} />;
+                return (
+                  // <Link to={`/artist/${item.id}`}>
+                  <MusicCard item={item} key={item.id} playBtn={true} />
+                  // </Link>
+                );
               })}
             </div>
           </div>
