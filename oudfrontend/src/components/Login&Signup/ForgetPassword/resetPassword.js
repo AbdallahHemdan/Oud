@@ -1,41 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../signup/signup.css';
 import MainBrand from '../MainBrand';
 import axios from 'axios';
-import { Redirect, withRouter } from 'react-router-dom';
+import {Redirect, withRouter} from 'react-router-dom';
 import ignoreQueryPrefix from 'qs';
+import Validator from './../validate';
+
 var qs = require('qs');
-/**
- * the password validation
- * (check if the password is valid)
- * @function
- * @param {String} Password -user password
- * @returns {boolean} - returns if the password is valid
- * */
-function checkPassword(Password) {
-  let [isUppercase, isLowercase, isSpecialChar, isNumber] = [
-    false,
-    false,
-    false,
-    false,
-  ];
-  let str = Password + '0';
-  let patt1 = /[0-9]/g;
-  isNumber = str.match(patt1).length > 1;
 
-  patt1 = /[!@#$%^&*(),.?":{}_|<>]/g;
-  str = Password + '@';
-  isSpecialChar = str.match(patt1).length > 1;
-
-  for (let i = 0; i < Password.length; i++) {
-    if (Password[i] === Password[i].toUpperCase()) {
-      isUppercase = true;
-    } else if (Password[i] === Password[i].toLowerCase()) {
-      isLowercase = true;
-    }
-  }
-  return isSpecialChar && isNumber && isUppercase && isLowercase;
-}
 /** the forget password section  */
 class ResetPassword extends Component {
   constructor(props) {
@@ -52,52 +24,11 @@ class ResetPassword extends Component {
     };
   }
 
-  /**
-   * Password checker
-   * (here check if the entered password is correct under some restricts)
-   * 1)if it dose not enter any thing
-   * 2)if it under 8 latter's
-   * 3)if it more than 30 latter's
-   * 5)if it is valid
-   * 6)then it is correct
-   * @function
-   * @param {object} event - the entered password
-   * @returns {string} -change the error massages
-   *  */
   PasswordHandel = (event) => {
-    this.setState({ Password: event.target.value });
-
-    if (this.state.Password.length < 8) {
-      this.setState({
-        formErrors: {
-          PasswordError: 'minimum 8 characters required',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-        },
-      });
-    } else if (this.state.Password.length > 30) {
-      this.setState({
-        formErrors: {
-          PasswordError: 'maximum 30 characters',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-        },
-      });
-    } else if (!checkPassword(this.state.Password)) {
-      this.setState({
-        formErrors: {
-          PasswordError:
-            'Password should contain uppercase,lowercase and a number ',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-        },
-      });
-    } else {
-      this.setState({
-        formErrors: {
-          PasswordError: '',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-        },
-      });
-    }
+    this.setState({Password: event.target.value});
+    Validator.validatePassword(event.target.value, this);
   };
+
   /**
    * Password Validation
    * its validate the input password to be a strong password
@@ -107,7 +38,7 @@ class ResetPassword extends Component {
    * @returns {string}
    */
   ConfirmPasswordHandel = (event) => {
-    this.setState({ ConfirmPassword: event.target.value });
+    this.setState({ConfirmPassword: event.target.value});
 
     if (event.target.value !== this.state.Password) {
       this.setState({
@@ -302,10 +233,10 @@ class ResetPassword extends Component {
         </div>
         {this.hasSamePassword() === false
           ? this.state.formErrors.ConfirmPasswordError.length > 0 && (
-            <span className="error" htmlFor="register-confirmPassword">
-              {this.state.formErrors.ConfirmPasswordError}
-            </span>
-          )
+              <span className="error" htmlFor="register-confirmPassword">
+                {this.state.formErrors.ConfirmPasswordError}
+              </span>
+            )
           : null}
       </div>
     );

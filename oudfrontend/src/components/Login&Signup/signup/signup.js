@@ -117,8 +117,9 @@ class Signup extends Component {
    * @function
    * @returns {boolean} -if the two passwords are the same return true
    */
-  hasSamePassword = () => {
-    if (this.state.Password !== this.state.ConfirmPassword) {
+  hasSamePassword = (event) => {
+    this.setState({ConfirmPassword: event.target.value});
+    if (this.state.Password !== event.target.value) {
       return false;
     } else {
       return true;
@@ -180,13 +181,9 @@ class Signup extends Component {
       country: countryList.code(this.state.selectedCountry),
       gender: gen,
     };
-
+    let samePass = this.hasSamePassword();
     let errorMassage = '';
-    if (
-      this.state.isVerified &&
-      this.hasSamePassword() === true &&
-      this.validateAll()
-    ) {
+    if (this.state.isVerified && samePass === true && this.validateAll()) {
       axios
         .post('https://oud-zerobase.me/api/v1/users/signup', toSent)
         .then((response) => {
@@ -204,15 +201,13 @@ class Signup extends Component {
             errorMassage =
               'this email or username is used Please use another Email';
           }
-          console.log('eroror', error.response.data.message);
+          console.log('error', error.response.data.message);
           this.setState((prevState) => {
             prevState.formErrors.mainError = errorMassage;
             return prevState;
           });
         });
       console.log('state', this.state);
-    } else if (this.hasSamePassword() === false) {
-      errorMassage = 'Invalid  ,Password not matched';
     }
     this.setState((prevState) => {
       prevState.formErrors.ConfirmPasswordError = errorMassage;
@@ -570,6 +565,7 @@ class Signup extends Component {
    * @returns {JSX}
    */
   confirmPassword() {
+    let same = this.hasSamePassword;
     return (
       <div className="form-group">
         <div className="input-group">
@@ -584,7 +580,7 @@ class Signup extends Component {
             value={this.setState.ConfirmPassword}
           />
         </div>
-        {this.hasSamePassword() === false
+        {same === false
           ? this.state.formErrors.ConfirmPasswordError && (
               <span className="error" htmlFor="register-confirmPassword">
                 {this.state.formErrors.ConfirmPasswordError}

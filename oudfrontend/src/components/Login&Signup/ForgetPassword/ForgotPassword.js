@@ -33,7 +33,7 @@ class ForgotPassword extends Component {
         .post('https://oud-zerobase.me/api/v1/users/forgotPassword', toSend)
         .then((response) => {
           if (response.status === 200) {
-            window.location = '/Islinked';
+            window.location = '/welcome';
           }
         })
         .catch((error) => {
