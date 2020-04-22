@@ -18,7 +18,9 @@ import ForgotPassword from "./components/Login&Signup/ForgetPassword/ForgotPassw
 import ResetPassword from "./components/Login&Signup/ForgetPassword/resetPassword";
 import Entered from "./components/Login&Signup/logined/entered";
 import Islinked from "./components/Login&Signup/linkisSent";
-import Welcome from './pages/Welcome/welcome';
+import WhyGoPremium from "./components/Premium/WhyGoPremium/WhyGoPremium";
+
+import Welcome from "./pages/Welcome/welcome";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -26,7 +28,6 @@ import {
   Switch,
   useParams
 } from "react-router-dom";
-
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
 
           <Route path="/profile/:userId" component={Profile} />
           <Route path="/account" component={Account} />
+          <Route path="/goPremium" component={WhyGoPremium} />
 
           <Route path="/RedirectPage">
             <RedirectPage />
