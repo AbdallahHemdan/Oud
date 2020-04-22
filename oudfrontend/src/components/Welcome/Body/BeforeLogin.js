@@ -21,7 +21,7 @@ class BeforeLogin extends Component {
           </h6>
           <Link to="/SignUP">
             <button className="getOudBtn" data-testid="getOudBtn">
-              Get Oud Free
+              SIGNUP NOW
             </button>
           </Link>
         </div>

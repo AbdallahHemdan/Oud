@@ -5,7 +5,7 @@ import axios from 'axios';
 import {Redirect, withRouter} from 'react-router-dom';
 import Validator from './../validate';
 
-var qs = require('qs');
+
 
 /** the forget password section  */
 class ResetPassword extends Component {

@@ -162,21 +162,7 @@ class SignIn extends Component {
                   </span>
                 )}
               </div>
-              <div className="form-group">
-                <div className="custom-control custom-checkbox">
-                  <input
-                    style={{display: 'inline', width: '20px'}}
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="customControlInline"
-                    name="rememberMe"
-                    onChange={this.handleChange}
-                  />
-                  <label class="custom-control-label" for="customControlInline">
-                    Remember me
-                  </label>
-                </div>
-              </div>
+              <div className="form-group"></div>
               <section className="container main-center forgetLink">
                 <h6 className="hint-text-forgot">
                   <button

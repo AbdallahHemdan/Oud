@@ -201,12 +201,11 @@
   height: 2.5rem;
   border: none;
   border-radius: 50px;
-  font-size: 25px;
+  font-size: 20px;
   color: white;
-  font-family: 'Raleway',
-    sans-serif;
   align-items: center;
   align-content: center;
+  font-weight: bold;
   margin-top: 7px;
 }
 
