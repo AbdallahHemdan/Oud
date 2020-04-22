@@ -5,6 +5,23 @@ import { base } from '../../../../config/environment'
 import MusicCard from '../../../MusicCard/MusicCard'
 import LoadingSnipper from '../../../LoadingSnipper/LoadingSnipper';
 
+/**
+ * @classdesc this is a component that renders users favourite and created albums
+ * @author Ahmed Walid <ahmedwa1999@gmail.com>
+ * @class
+ * @property {object} state carries the state of the component
+ * @property {boolean} state.recieved it is false when the playlists are fetched successfully Otherwise, it carries the decode id 
+ * @property {object} state.albums carries the users favourite and created albums
+ * @returns {
+ *       <div>
+ *        <h1>Saved ALBUMS</h1>
+ *       
+ *           {this.state.recieved?
+ *           <CategoryBody  playlists={this.state.albums}/>
+ *           :<LoadingSnipper/>
+ *           }
+ *       </div>
+ */
 export class Albums extends Component {
     constructor(){
         super()

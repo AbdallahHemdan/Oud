@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Login&Signup/signup/signup.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Login&Signup/signup/signup.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+import './signup.css';
+import { Redirect } from 'react-router-dom';
+import _ from 'lodash';
+import Recaptcha from 'react-recaptcha';
+import axios from 'axios';
+import Validator from '../validate';
+const countryList = require('iso-3166-country-list');
+
+/**
+ * this class that have all function
+ */
+class Signup extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayName: '',
+      name: '',
+      email: '',
+      gender: '',
+      birthdata: '',
+      year: '',
+      month: '',
+      day: '',
+      roll: 'free',
+      PasswordType: 'Password',
+      showText: 'show',
+      isVerified: true,
+      agreeTerms: false,
+      Password: '',
+      ConfirmPassword: '',
+      selectedCountry: '',
+      formErrors: {
+        displayNameError: '',
+        mainError: '',
+        userNameError: '',
+        EmailError: '',
+        ConfirmPasswordError: '',
+        PasswordError: '',
+        GenderError: '',
+        BirthdataError: '',
+        TermsError: '',
+        countryError: '',
+      },
+      redirect: false,
+    };
+  }
+  userNameHandel = (event) => {
+    this.setState({ name: event.target.value });
+    Validator.validateUserName(event.target.value, this);
+  };
+
+  DisplaynameHandel = (event) => {
+    this.setState({ displayName: event.target.value });
+    Validator.validateDisplayName(event.target.value, this);
+  };
+  /**
+   * Email validation
+   * (check if the email is valid)
+   * @function
+   * @param {object} event -the entered email
+   * @returns {boolean} - return true if the email is valid
+   */
+  EmailHandel = (event) => {
+    this.setState({ email: event.target.value });
+    Validator.validateEmail(event.target.value, this);
+  };
+  /**
+   * Password checker
+   * (here check if the entered password is correct under some restricts)
+   * 1)if it under 8 latter's
+   * 2)if it more than 30 latter's
+   * 3)if it is valid
+   * 4)then it is correct
+   * @function
+   * @param {object} event - the entered password
+   * @returns {string} -change the error massages
+   *  */
+  PasswordHandel = (event) => {
+    this.setState({ Password: event.target.value });
+    Validator.validatePassword(event.target.value, this);
+  };
+
+  /**
+   * Password Validation
+   * its validate the input password to be a strong password
+   * and match the two passwords
+   * @function
+   * @param {object} event -the confirm password
+   * @returns {string}
+   */
+  ConfirmPasswordHandel = (event) => {
+    this.setState({ ConfirmPassword: event.target.value });
+    Validator.validateConfirmPassword(event.target.value, this);
+  };
+
+  genderHandel = (event) => {
+    this.setState({ gender: event.target.value });
+    Validator.validateGender(event.target.value, this);
+  };
+
+  countryHandel = (event) => {
+    this.setState({ selectedCountry: event.target.value });
+    Validator.validateCountry(event.target.value, this);
+  };
+
+  birthdataHandel = (event) => {
+    Validator.validateBirthdata(
+      this.state.year,
+      this.state.month,
+      this.state.day,
+      this
+    );
+  };
+  /**
+   * check if the two passwords are the same
+   * @function
+   * @returns {boolean} -if the two passwords are the same return true
+   */
+  hasSamePassword = () => {
+    if (this.state.Password !== this.state.ConfirmPassword) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+  validateAll = () => {
+    let value = true;
+    value &amp;= Validator.validateUserName(this.state.name, this);
+    value &amp;= Validator.validateEmail(this.state.email, this);
+    value &amp;= Validator.validatePassword(this.state.Password, this);
+    value &amp;= Validator.validateConfirmPassword(
+      this.state.ConfirmPassword,
+      this
+    );
+    value |= Validator.validateGender(this.state.gender, this);
+    value |= Validator.validateBirthdata(
+      this.state.year,
+      this.state.month,
+      this.state.day,
+      this
+    );
+    value &amp;= Validator.validateUserName(this.state.displayName, this);
+    value &amp;= Validator.validateCountry(this.state.selectedCountry, this);
+    return value;
+  };
+
+  /**
+   * this function activate when we click the submit button
+   * it's check if the password and the confirm password are the same
+   * then it send a request with all the data
+   * @function
+   * @param {object} e
+   * @returns {void}
+   */
+  handelSubmit = (e) => {
+    // It prevents a submit button from submitting a form
+    e.preventDefault();
+    let birth =
+      this.state.year +
+      '-' +
+      this.state.month +
+      '-' +
+      (this.state.day.length === 1 ? '0' : '') +
+      this.state.day;
+    let gen;
+    if (this.state.gender === '1') {
+      gen = 'M';
+    } else if (this.state.gender === '2') {
+      gen = 'F';
+    }
+    let toSent = {
+      username: this.state.name,
+      birthDate: birth,
+      email: this.state.email,
+      password: this.state.Password,
+      passwordConfirm: this.state.ConfirmPassword,
+      displayName: this.state.displayName,
+      role: 'free',
+      country: countryList.code(this.state.selectedCountry),
+      gender: gen,
+    };
+
+    let errorMassage = '';
+    if (
+      this.state.isVerified &amp;&amp;
+      this.hasSamePassword() === true &amp;&amp;
+      this.validateAll()
+    ) {
+      axios
+        .post('https://oud-zerobase.me/api/v1/users/signup', toSent)
+        .then((response) => {
+          if (response.status === 200) {
+            const authToken = response.data.token;
+            localStorage.setItem('accessToken', authToken);
+            console.log('token', authToken);
+            console.log(response);
+            window.location = '/';
+          }
+        })
+        .catch((error) => {
+          errorMassage = error.response.data.message;
+          if (error.response.data.message !== '') {
+            errorMassage =
+              'this email or username is used Please use another Email';
+          }
+          console.log('eroror', error.response.data.message);
+          this.setState((prevState) => {
+            prevState.formErrors.mainError = errorMassage;
+            return prevState;
+          });
+        });
+      console.log('state', this.state);
+    } else if (this.hasSamePassword() === false) {
+      errorMassage = 'Invalid  ,Password not matched';
+    }
+    this.setState((prevState) => {
+      prevState.formErrors.ConfirmPasswordError = errorMassage;
+      return prevState;
+    });
+  };
+
+  /**
+   * this function is for the show password button that check if i want it to be
+   * a password or to be a text input
+   * @function
+   * @param {object} e
+   * @returns {boolean} - if the the button is clicked it is check if i want to show the type is a password or as a text
+   */
+  handleShowPassword = () => {
+    this.setState({
+      PasswordType: this.state.PasswordType === 'text' ? 'Password' : 'text',
+      showText: this.state.showText === 'show' ? 'hide' : 'show',
+    });
+    return false;
+  };
+  /**
+   * this is a captcha
+   * a function to call it
+   * @function
+   * @returns {void}
+   */
+  callback = () => { };
+  /**
+   * this is a captcha
+   * a function to call it
+   * @function
+   * @param {object} action
+   * @returns {void}
+   * it is change if the user is not a robot
+   */
+  verifyCallback = (action) => {
+    if (action) {
+      this.setState({ isVerified: true });
+    }
+  };
+  /**
+   * this function activate on change
+   * @function
+   * @param {object} e
+   * @returns {void}
+   */
+  handleChange = (e) => {
+    console.log(this.state.agreeTerms);
+
+    let target = e.target;
+    let value = target.type === 'checkbox' ? target.checked : target.value;
+    let name = target.name;
+    this.setState({
+      [name]: value,
+    });
+  };
+  /**
+   * the render function
+   * here i call all the other component
+   * @function
+   * @returns {JSX}
+   */
+  render() {
+    return &lt;div>{this.signupForm()}&lt;/div>;
+  }
+  /**
+   * here i call all the form functions
+   * @function
+   * @returns {JSX}
+   */
+  signupForm() {
+    return (
+      &lt;section className="main-form container SignUpForm">
+        &lt;form onSubmit={this.handelSubmit} noValidate>
+          &lt;div>
+            {this.state.formErrors.mainError &amp;&amp; (
+              &lt;span className="hint error">
+                {this.state.formErrors.mainError}
+              &lt;/span>
+            )}
+          &lt;/div>
+          {this.displayName()}
+          {this.userName()}
+          {this.emailAddress()}
+          {this.Password()}
+          {this.confirmPassword()}
+          {this.gender()}
+          {this.country()}
+          {this.birthDate()}
+          {this.Recaptcha()}
+          {this.signUp()}
+        &lt;/form>
+      &lt;/section>
+    );
+  }
+
+  country() {
+    return (
+      &lt;div className="form-group">
+        &lt;select
+          data-testid="register-country"
+          className="form-control FormElement  form-col custom-select"
+          defaultValue="selecteCountry"
+          name="selectedCountry"
+          onChange={(this.handleChange, this.countryHandel)}
+        >
+          &lt;option value="">Select your country&lt;/option>
+          {countryList.names.map((value) => (
+            &lt;option key={value} value={value}>
+              {value}
+            &lt;/option>
+          ))}
+        &lt;/select>
+        &lt;div>
+          {this.state.formErrors.countryError &amp;&amp; (
+            &lt;span className="error" htmlFor="register-country">
+              {this.state.formErrors.countryError}
+            &lt;/span>
+          )}
+        &lt;/div>
+      &lt;/div>
+    );
+  }
+  /**
+   * this function is set the redirect to true the is allow me to go to anther page
+   * if it false the button will not work
+   * if true the button wil work and to the page
+   * @function
+   * @returns {void}
+   */
+  setRedirect = () => {
+    this.setState({
+      redirect: true,
+    });
+  };
+  /**
+   * this is the function that have the path of the page that i want to go
+   * @function
+   * @returns {void}
+   */
+  toSignIN = () => {
+    if (this.state.redirect) {
+      return &lt;Redirect to="/signin" />;
+    }
+  };
+  /**
+   * this part include (signup button ==> sign in button )
+   * sign up button => the submission button
+   * sign in button => the router to login page
+   * @function
+   * @returns {JSX}
+   */
+  signUp() {
+    return (
+      &lt;React.Fragment>
+        &lt;button
+          type="submit"
+          className="btn btn-block SignUpSubmit"
+          data-testid="SignUp-btn"
+        >
+          Sign Up
+        &lt;/button>
+        &lt;section className="or-seperator-2 OR-2">&lt;/section>
+        &lt;section>
+          {this.toSignIN()}
+          &lt;h6 className="hint-text hint ">Already registered?&lt;/h6>
+
+          &lt;button
+            data-testid="SignIN-btn"
+            type="button"
+            className="btn btn-block SignUpSubmit"
+            onClick={this.setRedirect}
+          >
+            SignIn
+          &lt;/button>
+        &lt;/section>
+      &lt;/React.Fragment>
+    );
+  }
+  /**
+   * the recaptcha call part
+   * @function
+   * @returns {JSX}
+   */
+  Recaptcha() {
+    return (
+      &lt;div className="rc-captcha container">
+        &lt;Recaptcha
+          sitekey="6Ld5Ht8UAAAAADUJ6PLpOY_x5YSBfe9fRsYDEiVv"
+          render="explicit"
+          onloadCallback={this.callback}
+          verifyCallback={this.verifyCallback}
+        />
+      &lt;/div>
+    );
+  }
+
+  /**
+   * Birth date
+   * here i call the year , month and day select box
+   * @function
+   * @returns {JSx}
+   */
+  birthDate() {
+    return (
+      &lt;div className="form-row" onSubmit={this.birthdataHandel}>
+        {this.year()}
+        {this.month()}
+        {this.day()}
+        &lt;div>
+          {this.state.formErrors.BirthdataError &amp;&amp; (
+            &lt;span className="error" data-testid="BirthDateTest">
+              {this.state.formErrors.BirthdataError}
+            &lt;/span>
+          )}
+        &lt;/div>
+      &lt;/div>
+    );
+  }
+  /**
+   * day select box
+   * @function
+   * @returns {JSX}
+   */
+  day() {
+    return (
+      &lt;div className="form-group col-md-4">
+        &lt;select
+          data-testid="register-dob-day"
+          id="inputDay"
+          className="form-control FormElement  form-col custom-select"
+          defaultValue="Day"
+          name="day"
+          onChange={this.handleChange}
+        >
+          &lt;option value="">Day&lt;/option>
+          {_.range(
+            1,
+            (this.state.year % 400 === 0 ||
+              (this.state.year % 4 === 0 &amp;&amp; this.state.year % 100 !== 0)) &amp;&amp;
+              this.state.month === '02'
+              ? 30
+              : this.state.month === '02'
+                ? 29
+                : this.state.month === '04' ||
+                  this.state.month === '06' ||
+                  this.state.month === '09' ||
+                  this.state.month === '11'
+                  ? 31
+                  : 32
+          ).map((value) => (
+            &lt;option key={value} value={value}>
+              {value}
+            &lt;/option>
+          ))}
+        &lt;/select>
+      &lt;/div>
+    );
+  }
+  /**
+   * month select box
+   * @function
+   * @returns {JSX}
+   */
+  month() {
+    return (
+      &lt;div className="form-group col-md-4">
+        &lt;select
+          data-testid="register-dob-month"
+          id="inputMonth"
+          className="form-control FormElement  form-col custom-select"
+          defaultValue="Month"
+          name="month"
+          onChange={this.handleChange}
+        >
+          &lt;option value="">Month&lt;/option>
+          &lt;option value="01">January&lt;/option>
+          &lt;option value="02">February&lt;/option>
+          &lt;option value="03">March&lt;/option>
+          &lt;option value="04">April&lt;/option>
+          &lt;option value="05">May&lt;/option>
+          &lt;option value="06">June&lt;/option>
+          &lt;option value="07">July&lt;/option>
+          &lt;option value="08">August&lt;/option>
+          &lt;option value="09">September&lt;/option>
+          &lt;option value="10">October&lt;/option>
+          &lt;option value="11">November&lt;/option>
+          &lt;option value="12">December&lt;/option>
+        &lt;/select>
+      &lt;/div>
+    );
+  }
+  /**
+   * year select box
+   * @function
+   * @returns {JSX}
+   */
+  year() {
+    return (
+      &lt;div className="form-group col-md-4">
+        &lt;select
+          data-testid="register-dob-year"
+          id="inputYear"
+          className="form-control FormElement  form-col custom-select"
+          defaultValue="Year"
+          name="year"
+          onChange={this.handleChange}
+        >
+          &lt;option value="">Year&lt;/option>
+          {_.range(2018, 1899).map((value) => (
+            &lt;option key={value} value={value}>
+              {value}
+            &lt;/option>
+          ))}
+        &lt;/select>
+      &lt;/div>
+    );
+  }
+  /**
+   * gender select box
+   * @function
+   * @returns {JSX}
+   */
+  gender() {
+    return (
+      &lt;div className="form-group">
+        &lt;select
+          required
+          data-testid="register-male"
+          id="inputGender"
+          className="form-control FormElement  form-col custom-select"
+          onChange={(this.handleChange, this.genderHandel)}
+          name="gender"
+        >
+          &lt;option value="">Gender&lt;/option>
+          &lt;option value="1" defaultValue>
+            Male
+          &lt;/option>
+          &lt;option value="2">Female&lt;/option>
+        &lt;/select>
+        &lt;div>
+          {this.state.formErrors.GenderError &amp;&amp; (
+            &lt;span className="error" htmlFor="register-male">
+              {this.state.formErrors.GenderError}
+            &lt;/span>
+          )}
+        &lt;/div>
+      &lt;/div>
+    );
+  }
+  /**
+   * confirm password text box
+   * @function
+   * @returns {JSX}
+   */
+  confirmPassword() {
+    return (
+      &lt;div className="form-group">
+        &lt;div className="input-group">
+          &lt;input
+            required
+            data-testid="register-confirmPassword"
+            type={this.state.PasswordType}
+            className="form-control FormElement"
+            placeholder={'confirm Password'}
+            onChange={(this.handleChange, this.ConfirmPasswordHandel)}
+            name="confirmPassword"
+            value={this.setState.ConfirmPassword}
+          />
+        &lt;/div>
+        {this.hasSamePassword() === false
+          ? this.state.formErrors.ConfirmPasswordError &amp;&amp; (
+            &lt;span className="error" htmlFor="register-confirmPassword">
+              {this.state.formErrors.ConfirmPasswordError}
+            &lt;/span>
+          )
+          : null}
+      &lt;/div>
+    );
+  }
+  /**
+   * password text box
+   * @function
+   * @returns {JSX}
+   */
+  Password() {
+    return (
+      &lt;div className="form-group">
+        &lt;div className="input-group">
+          &lt;input
+            required
+            data-testid="register-password"
+            type={this.state.PasswordType}
+            className="form-control FormElement"
+            placeholder={'Password'}
+            onChange={(this.handleChange, this.PasswordHandel)}
+            name="Password"
+            value={this.setState.Password}
+          />
+          {/* {
+            &lt;button
+              className="btn btn-outline-dark"
+              data-testid="showPass"
+              onClick={this.handleShowPassword}
+            >
+              {this.state.showText}
+            &lt;/button>
+          } */}
+        &lt;/div>
+        {this.state.formErrors.PasswordError &amp;&amp; (
+          &lt;span className="error" htmlFor="register-password">
+            {this.state.formErrors.PasswordError}
+          &lt;/span>
+        )}
+      &lt;/div>
+    );
+  }
+  /**
+   * email text box
+   * @function
+   * @returns {JSX}
+   */
+  emailAddress() {
+    return (
+      &lt;div className="form-group" data-testid="email">
+        &lt;input
+          required
+          data-testid="register-email"
+          type="email"
+          className="form-control FormElement"
+          placeholder="email@address.com"
+          onChange={(this.handleChange, this.EmailHandel)}
+          name="email"
+        />
+        {this.state.formErrors.EmailError &amp;&amp; (
+          &lt;span
+            className="error"
+            htmlFor="register-email"
+            data-testid="EmailError"
+          >
+            {this.state.formErrors.EmailError}
+          &lt;/span>
+        )}
+      &lt;/div>
+    );
+  }
+  /**
+   * user name text box
+   * @function
+   * @returns {JSX}
+   */
+  userName() {
+    return (
+      &lt;div className="form-group sm-8">
+        &lt;input
+          required
+          data-testid="register-username"
+          value={this.state.name}
+          label="name"
+          type="text"
+          className="form-control FormElement"
+          id="validationTextarea"
+          placeholder="Enter Username"
+          onChange={(this.handleChange, this.userNameHandel)}
+          name="name"
+        />
+        &lt;div>
+          {this.state.formErrors.userNameError &amp;&amp; (
+            &lt;span className="error" htmlFor="register-username">
+              {this.state.formErrors.userNameError}
+            &lt;/span>
+          )}
+        &lt;/div>
+      &lt;/div>
+    );
+  }
+  displayName() {
+    return (
+      &lt;div className="form-group sm-8">
+        &lt;input
+          required
+          data-testid="register-displayname"
+          value={this.state.displayname}
+          label="display name"
+          type="text"
+          className="form-control FormElement"
+          placeholder="What should we call you?"
+          onChange={(this.handleChange, this.DisplaynameHandel)}
+          name="name"
+        />
+        &lt;div>
+          {this.state.formErrors.displayNameError &amp;&amp; (
+            &lt;span className="error" htmlFor="register-displayname">
+              {this.state.formErrors.displayNameError}
+            &lt;/span>
+          )}
+        &lt;/div>
+      &lt;/div>
+    );
+  }
+}
+
+export default Signup;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AccountOverview.html">AccountOverview</a></li><li><a href="addToPlaylist.html">addToPlaylist</a></li><li><a href="Album.html">Album</a></li><li><a href="Albums.html">Albums</a></li><li><a href="ChangePassword.html">ChangePassword</a></li><li><a href="CreatePlaylist.html">CreatePlaylist</a></li><li><a href="EditProfile.html">EditProfile</a></li><li><a href="Facebook.html">Facebook</a></li><li><a href="FollowCard.html">FollowCard</a></li><li><a href="Followers.html">Followers</a></li><li><a href="Following.html">Following</a></li><li><a href="ForgotPassword.html">ForgotPassword</a></li><li><a href="GenreCard.html">GenreCard</a></li><li><a href="HeaderBody.html">HeaderBody</a></li><li><a href="HeaderBodyTop.html">HeaderBodyTop</a></li><li><a href="Home.html">Home</a></li><li><a href="Library.html">Library</a></li><li><a href="LikedSongs.html">LikedSongs</a></li><li><a href="MainBrand.html">MainBrand</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="MusicCard.html">MusicCard</a></li><li><a href="MusicItem.html">MusicItem</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="Player.html">Player</a></li><li><a href="PlayingBarRight.html">PlayingBarRight</a></li><li><a href="Playlist.html">Playlist</a></li><li><a href="Playlists.html">Playlists</a></li><li><a href="PublicPlaylists.html">PublicPlaylists</a></li><li><a href="Queue.html">Queue</a></li><li><a href="ResetPassword.html">ResetPassword</a></li><li><a href="SideBar.html">SideBar</a></li><li><a href="Sidebar_.html">Sidebar</a></li><li><a href="SignIn.html">SignIn</a></li><li><a href="Signup.html">Signup</a></li><li><a href="SocialIcons.html">SocialIcons</a></li><li><a href="Song.html">Song</a></li><li><a href="SongList.html">SongList</a></li><li><a href="Track.html">Track</a></li><li><a href="UpperContainer.html">UpperContainer</a></li><li><a href="UserExperienceForm.html">UserExperienceForm</a></li><li><a href="WebPlayer.html">WebPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addToQueue">addToQueue</a></li><li><a href="global.html#BeforeLogin">BeforeLogin</a></li><li><a href="global.html#CardList">CardList</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#EditCountry">EditCountry</a></li><li><a href="global.html#EditGendr">EditGendr</a></li><li><a href="global.html#EditProfileTextElement">EditProfileTextElement</a></li><li><a href="global.html#FeedBack">FeedBack</a></li><li><a href="global.html#fetchCategoriesUrl">fetchCategoriesUrl</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#formValid">formValid</a></li><li><a href="global.html#HeaderBodyBottom">HeaderBodyBottom</a></li><li><a href="global.html#HelpUs">HelpUs</a></li><li><a href="global.html#HiddenSideBar">HiddenSideBar</a></li><li><a href="global.html#ImageContainer">ImageContainer</a></li><li><a href="global.html#LowerContainer">LowerContainer</a></li><li><a href="global.html#MainContainer">MainContainer</a></li><li><a href="global.html#Overview">Overview</a></li><li><a href="global.html#PageContainer">PageContainer</a></li><li><a href="global.html#pause">pause</a></li><li><a href="global.html#PlayingBarCenter">PlayingBarCenter</a></li><li><a href="global.html#PlayingBarLeft">PlayingBarLeft</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#ProfileElement">ProfileElement</a></li><li><a href="global.html#ProfileInfo">ProfileInfo</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#resume">resume</a></li><li><a href="global.html#SideBarElement">SideBarElement</a></li><li><a href="global.html#SignOutEverywhere">SignOutEverywhere</a></li><li><a href="global.html#SortableTrackContainer">SortableTrackContainer</a></li><li><a href="global.html#ThankYou">ThankYou</a></li><li><a href="global.html#TrackContainer">TrackContainer</a></li><li><a href="global.html#YourPlan">YourPlan</a></li><li>{JSX}</li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Wed Apr 22 2020 21:05:29 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

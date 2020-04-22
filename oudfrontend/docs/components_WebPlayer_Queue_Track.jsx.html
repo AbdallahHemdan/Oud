@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/WebPlayer/Queue/Track.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/WebPlayer/Queue/Track.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from "react";
+import { sortableHandle } from "react-sortable-hoc";
+import ellipsis from "../../../assets/images/icons/ellipsis.png";
+import handler from "../../../assets/images/icons/handler.png";
+import play from "../../../assets/images/icons/play.png";
+import pause from "../../../assets/images/icons/pause.png";
+import axios from "axios";
+import PropTypes from "prop-types";
+const DragHandle = sortableHandle(() => (
+  &lt;span className="handler">
+    &lt;img src={handler} alt="Handler" />
+  &lt;/span>
+));
+/**
+ * The basic component in the Queue. I contains all the actions you can do for a track in the queue.
+ * @author Ahmed Ashraf
+ * @component
+ * @example
+ * return (
+ *  &lt;Track />
+ * )
+ */
+class Track extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      image: "",
+      trackName: "",
+      artistName: "",
+      duration: "",
+      playing: false,
+      thumb: play,
+    };
+  }
+  componentDidMount() {
+    this.fetchTrackInfo();
+  }
+  /**
+   * Fetching all the needing information to display a track to the user
+   * @function
+   * @returns {void}
+   */
+  fetchTrackInfo = () => {
+    axios
+      .get("http://localhost:2022/tracks/" + this.props.id)
+      .then((response) => {
+        const track = response["data"];
+        this.setState({
+          image: track["artists"][0]["image"],
+          trackName: track["name"],
+          artistName: track["artists"][0]["name"],
+          duration: Number(track["duartion"] / 60000).toFixed(2),
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  /**
+   * Handling the action on click on the play/pause button. It uses the player to handle it.
+   * @function
+   * @returns {void}
+   */
+  handlePlayButton = () => {
+    const playing = !this.state.playing;
+    const thumb = this.props.playing ? pause : play;
+    this.setState({
+      playing: playing,
+      thumb: thumb,
+    });
+    this.props.playTrack.current.handlePlayPause(this.props.id, this.props.idx);
+  };
+  /**
+   * Handling the opening/closing the dropdown list to make an action to the selected track.
+   * @function
+   * @returns {void}
+   */
+  handleDropdown = () => {
+    this.props.toggleDropdown(this.props.idx, this.props.id);
+  };
+  render() {
+    return (
+      &lt;div className="track">
+        &lt;DragHandle data-testid="handler-control" />
+        &lt;div className="content">
+          &lt;div className="play-art">
+            &lt;div
+              className="track-art-work"
+              style={{ backgroundImage: `url(${this.state.image})` }}
+            >&lt;/div>
+
+            &lt;button
+              className="play-pause"
+              onClick={this.handlePlayButton}
+              data-testid="queue-play-btn"
+            >
+              &lt;img src={this.state.thumb} alt="Pause" />
+            &lt;/button>
+          &lt;/div>
+
+          &lt;div className="track-name" data-testid="queue-track-name">
+            &lt;text title="Somthing Just Like This">
+              &lt;a href="https://www.facebook.com/">{this.state.trackName}&lt;/a>
+            &lt;/text>
+          &lt;/div>
+
+          &lt;div className="artist-name" data-testid="queue-artist-name">
+            &lt;text title="The Chainsmokers &amp; Coldplay">
+              &lt;a href="https://www.facebook.com/">{this.state.artistName}&lt;/a>
+            &lt;/text>
+          &lt;/div>
+
+          &lt;div className="duration">
+            &lt;text>{this.state.duration}&lt;/text>
+          &lt;/div>
+
+          &lt;div className="ellipsis-container">
+            &lt;button
+              className="ellipsis-icon"
+              onClick={this.handleDropdown}
+              data-testid="open-option-menu"
+            >
+              &lt;img src={ellipsis} alt="Show More" />
+            &lt;/button>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    );
+  }
+}
+Track.propTypes = {
+  /**
+   * The index of the  track
+   */
+  idx: PropTypes.number.isRequired,
+  /**
+   * The unique id of the track
+   */
+  id: PropTypes.string.isRequired,
+  /**
+   * A function to handle playing a track from the queue
+   */
+  playTrack: PropTypes.object.isRequired,
+  /**
+   * The playing state of the parent component
+   */
+  playing: PropTypes.bool.isRequired,
+  /**
+   * Open/Close the dropdown menu function.
+   */
+  toggleDropdown: PropTypes.func.isRequired,
+};
+export default Track;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AccountOverview.html">AccountOverview</a></li><li><a href="addToPlaylist.html">addToPlaylist</a></li><li><a href="Album.html">Album</a></li><li><a href="Albums.html">Albums</a></li><li><a href="ChangePassword.html">ChangePassword</a></li><li><a href="CreatePlaylist.html">CreatePlaylist</a></li><li><a href="EditProfile.html">EditProfile</a></li><li><a href="Facebook.html">Facebook</a></li><li><a href="FollowCard.html">FollowCard</a></li><li><a href="Followers.html">Followers</a></li><li><a href="Following.html">Following</a></li><li><a href="ForgotPassword.html">ForgotPassword</a></li><li><a href="GenreCard.html">GenreCard</a></li><li><a href="HeaderBody.html">HeaderBody</a></li><li><a href="HeaderBodyTop.html">HeaderBodyTop</a></li><li><a href="Home.html">Home</a></li><li><a href="Library.html">Library</a></li><li><a href="LikedSongs.html">LikedSongs</a></li><li><a href="MainBrand.html">MainBrand</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="MusicCard.html">MusicCard</a></li><li><a href="MusicItem.html">MusicItem</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="Player.html">Player</a></li><li><a href="PlayingBarRight.html">PlayingBarRight</a></li><li><a href="Playlist.html">Playlist</a></li><li><a href="Playlists.html">Playlists</a></li><li><a href="PublicPlaylists.html">PublicPlaylists</a></li><li><a href="Queue.html">Queue</a></li><li><a href="ResetPassword.html">ResetPassword</a></li><li><a href="SideBar.html">SideBar</a></li><li><a href="Sidebar_.html">Sidebar</a></li><li><a href="SignIn.html">SignIn</a></li><li><a href="Signup.html">Signup</a></li><li><a href="SocialIcons.html">SocialIcons</a></li><li><a href="Song.html">Song</a></li><li><a href="SongList.html">SongList</a></li><li><a href="Track.html">Track</a></li><li><a href="UpperContainer.html">UpperContainer</a></li><li><a href="UserExperienceForm.html">UserExperienceForm</a></li><li><a href="WebPlayer.html">WebPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addToQueue">addToQueue</a></li><li><a href="global.html#BeforeLogin">BeforeLogin</a></li><li><a href="global.html#CardList">CardList</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#EditCountry">EditCountry</a></li><li><a href="global.html#EditGendr">EditGendr</a></li><li><a href="global.html#EditProfileTextElement">EditProfileTextElement</a></li><li><a href="global.html#FeedBack">FeedBack</a></li><li><a href="global.html#fetchCategoriesUrl">fetchCategoriesUrl</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#formValid">formValid</a></li><li><a href="global.html#HeaderBodyBottom">HeaderBodyBottom</a></li><li><a href="global.html#HelpUs">HelpUs</a></li><li><a href="global.html#HiddenSideBar">HiddenSideBar</a></li><li><a href="global.html#ImageContainer">ImageContainer</a></li><li><a href="global.html#LowerContainer">LowerContainer</a></li><li><a href="global.html#MainContainer">MainContainer</a></li><li><a href="global.html#Overview">Overview</a></li><li><a href="global.html#PageContainer">PageContainer</a></li><li><a href="global.html#pause">pause</a></li><li><a href="global.html#PlayingBarCenter">PlayingBarCenter</a></li><li><a href="global.html#PlayingBarLeft">PlayingBarLeft</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#ProfileElement">ProfileElement</a></li><li><a href="global.html#ProfileInfo">ProfileInfo</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#resume">resume</a></li><li><a href="global.html#SideBarElement">SideBarElement</a></li><li><a href="global.html#SignOutEverywhere">SignOutEverywhere</a></li><li><a href="global.html#SortableTrackContainer">SortableTrackContainer</a></li><li><a href="global.html#ThankYou">ThankYou</a></li><li><a href="global.html#TrackContainer">TrackContainer</a></li><li><a href="global.html#YourPlan">YourPlan</a></li><li>{JSX}</li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Wed Apr 22 2020 21:05:29 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

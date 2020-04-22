@@ -7,7 +7,30 @@ import Albums from './components/albums/albums';
 import { Playlists } from './components/playlists/playlists';
 import { Auth } from '../../utils/auth';
 
-
+/**
+ * @classdesc this is a component that renders libray page
+ * @author Ahmed Walid <ahmedwa1999@gmail.com>
+ * @class
+ * @property {object} state carries the state of the component
+ * @property {int} state.signedIn it is null when the user is not signed in. Otherwise, it carries the decode id 
+ * @returns {
+*              <div>
+*               <Sidebar />
+*               <Navbar/>
+*               <div>
+*                   <div  className = "library-links" >
+*                       <Link to={'/collection/albums'}> ALBUMS </Link>
+*                       <Link to={'/collection/playlists'}> PLAYLISTS </Link>
+*                   </div>
+*                  
+*               </div>
+*                   <Switch>
+*                           <Route path='/collection/albums' component={Albums}/>
+*                           <Route path='/collection/playlists' component={Playlists}/>
+*                   </Switch>
+ *           </div>
+ *          }
+ */
 
 class Library extends Component{
 constructor(){
@@ -26,7 +49,6 @@ render(){
     if (this.state.signedIn)
     {
         return(
-            <BrowserRouter>
             <div className=" myLibrary " data-testid='myLibrary'>
                 <Sidebar />
                 <Navbar isLoggedIn={true} />
@@ -42,7 +64,6 @@ render(){
                             <Route path='/collection/playlists' component={Playlists}/>
                     </Switch>
             </div>
-            </BrowserRouter>
         );
     }
     return (<div></div>)
