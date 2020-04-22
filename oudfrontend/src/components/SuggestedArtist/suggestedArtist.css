@@ -1,0 +1,175 @@
+.CenterText {
+  color: white;
+  font-size: 200%;
+  text-align: center;
+}
+
+.FText {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+}
+
+.navtree {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+
+  display: block;
+}
+
+.SuggNav .FText {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+.SuggLogo {
+  width: 150px;
+  margin: 0 auto;
+  left: 0px;
+  right: 0px;
+}
+
+.NavBarStyle_bg-custom {
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 3px 8px -2px rgba(240, 235, 222, 0.1);
+}
+
+.navContants .CenterText {
+  text-align: center;
+}
+
+.subText {
+  color: white;
+  text-align: center;
+}
+
+.NavBarStyle_navbar-expand-lg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  background-color: black;
+}
+
+.NavBarStyle_navbar-brand {
+  text-align: left;
+}
+
+.SearchInp {
+  border-radius: 50px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  position: relative;
+  width: 110% !important;
+  height: 50px;
+  box-shadow: none;
+}
+
+.SearchInp:focus {
+  border: 15px;
+  color: black;
+  font-weight: bold;
+}
+
+/* .SuggFooter {
+  background-color: black;
+  color: aliceblue;
+  font-weight: bold;
+  position: fixed;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+} */
+
+/* .FinishBtn {
+  width: 20%;
+  height: 50px;
+  margin: 0 auto;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: goldenrod;
+  border-radius: 50px;
+  border-color: goldenrod;
+} */
+
+.ArtistImage {
+  width: 110%;
+  border-radius: 100%;
+  height: auto;
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.ArtistName {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ArtistImage .ArtistName {
+  display: block;
+}
+
+.overlay {
+  border-radius: 100%;
+  height: auto;
+  display: block;
+  backface-visibility: hidden;
+  position: absolute;
+  width: 37.5%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: goldenrod;
+  border-radius: 100%;
+  z-index: 99;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.show {
+  opacity: 100%;
+}
+
+.half {
+  opacity: 70%;
+  transition: .5s ease;
+  background-color: goldenrod;
+}
+
+.ArtistCard:hover .overlay {
+  opacity: 50%;
+}
+
+
+
+.ArtistMap {
+  width: 80%;
+  height: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  box-sizing: border-box;
+
+}
+
+.MainArtistC {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
+}
