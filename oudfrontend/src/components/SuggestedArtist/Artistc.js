@@ -8,8 +8,9 @@ import './suggestedArtist.css';
  */
 export default function Artistc(props) {
   return (
-    <div className="">
+    <div className="Artists">
       <div className="row ArtistMap">
+
         {props.MainArtistC.map((element, index) => (
           <ArtistCards data={element} key={index} />
         ))}

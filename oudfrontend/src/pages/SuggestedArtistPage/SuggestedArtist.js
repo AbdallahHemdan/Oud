@@ -11,12 +11,18 @@ export default class SuggestedArtist extends Component {
   isSelected = () => {
     return this.state.isSelected ? true : false;
   };
+  onClick = (event) => {
+    this.setState({isSelected: event.target.value});
+    if (event.target.value) {
+      event.target.value = !event.target.value;
+    }
+  };
   render() {
     return (
       <div>
         <SuggestedNavBar />
         <MainArtistC />
-        {/* {this.isSelected() ? <SuggestedFooterB /> : <SuggestedFooterT />} */}
+        {this.isSelected() ? <SuggestedFooterB /> : <SuggestedFooterT />}
       </div>
     );
   }

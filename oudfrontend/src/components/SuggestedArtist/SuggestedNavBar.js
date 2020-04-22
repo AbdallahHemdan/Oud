@@ -6,30 +6,51 @@ import './suggestedArtist.css';
 class SuggestedNavBar extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      scrolled: false,
+    };
   }
+
+  componentDidMount = () => {
+    window.addEventListener('scroll', () => {
+      const isTop = window.scrollY < 80;
+      if (isTop !== true) {
+        this.setState({scrolled: true});
+      } else this.setState({scrolled: false});
+    });
+  };
+
   render() {
     return (
-      <div className="SuggNav ">
+      <div className={`SuggNav ${this.state.scrolled ? 'navbarco' : ''}`}>
         <nav className=" navbar navbar-expand-lg  bg-custom NavBarStyle_bg-custom navtree">
           <div className="  navbar-nav ml-auto  font-weight-bold ">
-            <div className="FText ">
+            <div className="FText">
               <Link to="/welcome" className="navbar-brand ">
                 <img
-                  className="img-responsive SuggLogo"
+                  className={`img-responsive SuggLogo ${
+                    this.state.scrolled ? 'hideLogo dis' : 'show'
+                  }`}
                   src={logo}
                   alt="Oud logo"
                   data-testid="oudlogo"
+                  id="oudlogo"
                 />
               </Link>
-              <p className="CenterText">Let's get to know each other!</p>
+              <p
+                className={`CenterText  ${
+                  this.state.scrolled ? 'textTop' : 'show'
+                }`}
+              >
+                Let's get to know each other!
+              </p>
               <p className="subText container">
                 What are your favorite artists? The more you select, the better
                 your recommendations!
               </p>
-              <form class="form-inline container">
+              <form className="form-inline container">
                 <input
-                  class="form-control SearchInp"
+                  className="form-control SearchInp"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"

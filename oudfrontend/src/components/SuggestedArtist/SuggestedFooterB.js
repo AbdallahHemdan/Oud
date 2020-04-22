@@ -9,7 +9,7 @@ class SuggestedFooter extends Component {
   }
   render() {
     return (
-      <div className=" SuggFooter">
+      <div className="SuggFooter">
         <footer className="page-footer font-small unique-color-dark pt-4">
           <div className="container">
             <button className="FinishBtn">Finish</button>

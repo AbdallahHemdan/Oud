@@ -18,14 +18,29 @@
   margin: 0 auto;
   left: 0;
   right: 0;
-
   display: block;
+}
+
+.SuggNav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  margin-bottom: 200%;
+  background-color: black;
+  z-index: 9999;
+
+}
+
+.spacc {
+  margin-bottom: 300px;
 }
 
 .SuggNav .FText {
   margin: 0 auto;
   left: 0;
   right: 0;
+  margin-bottom: 20px;
+
 }
 
 .SuggLogo {
@@ -46,7 +61,6 @@
 
 .subText {
   color: white;
-  text-align: center;
 }
 
 .NavBarStyle_navbar-expand-lg {
@@ -79,7 +93,7 @@
   font-weight: bold;
 }
 
-/* .SuggFooter {
+.SuggFooter {
   background-color: black;
   color: aliceblue;
   font-weight: bold;
@@ -89,29 +103,34 @@
   right: 0;
   bottom: 0;
   width: 100%;
-  height: 80px;
-} */
+  height: 90px;
+}
 
-/* .FinishBtn {
+.FinishBtn {
   width: 20%;
   height: 50px;
   margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
   color: white;
   font-size: 15px;
   font-weight: bold;
   background-color: goldenrod;
   border-radius: 50px;
   border-color: goldenrod;
-} */
+}
 
 .ArtistImage {
-  width: 110%;
+  width: 100%;
   border-radius: 100%;
   height: auto;
   opacity: 1;
   display: block;
   transition: .5s ease;
   backface-visibility: hidden;
+  text-align: center;
+
 }
 
 .ArtistName {
@@ -123,19 +142,6 @@
   display: block;
 }
 
-.overlay {
-  border-radius: 100%;
-  height: auto;
-  display: block;
-  backface-visibility: hidden;
-  position: absolute;
-  width: 37.5%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: goldenrod;
-  border-radius: 100%;
-  z-index: 99;
-}
 
 .hide {
   opacity: 0;
@@ -143,7 +149,22 @@
 
 .show {
   opacity: 100%;
+
 }
+
+.hideLogo {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s,
+    opacity 0.5s linear;
+}
+
+.dis {
+  display: none;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+}
+
 
 .half {
   opacity: 70%;
@@ -151,20 +172,26 @@
   background-color: goldenrod;
 }
 
-.ArtistCard:hover .overlay {
-  opacity: 50%;
+
+
+.textTop {
+  top: 0
+}
+
+.ArtistCard:hover {
+  background: goldenrod;
+  border-radius: 50%;
 }
 
 
 
 .ArtistMap {
-  width: 80%;
+  width: auto;
   height: 100%;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   box-sizing: border-box;
-
 }
 
 .MainArtistC {
@@ -172,4 +199,85 @@
   left: 0;
   right: 0;
   display: block;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.Artists {
+  align-items: center;
+  align-self: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
+  margin-top: 30px;
+}
+
+.heart {
+  width: 10%;
+  border-radius: 500%;
+  height: auto;
+  display: block;
+  backface-visibility: hidden;
+  position: absolute;
+  width: 40.8%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: goldenrod;
+  border-radius: 100%;
+  z-index: 999;
+}
+
+@media (max-width:990px) {
+  .ArtistMap {
+    width: auto;
+    height: 100%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width:400px) {
+  .ArtistMap {
+    width: auto;
+    height: 100%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    box-sizing: border-box;
+  }
+}
+
+.spaceeee {
+  padding: 4%;
+}
+
+.clickedPic {
+  width: 3%;
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+
+  margin-top: -70px;
+  margin-left: 80px;
+}
+
+.showhaert {
+  opacity: 1;
+}
+
+.showbas {
+  background-color: goldenrod;
+  border-radius: 100%;
+}
+
+.asd {
+  opacity: 1;
+  background-color: goldenrod;
+  border-radius: 100%;
 }

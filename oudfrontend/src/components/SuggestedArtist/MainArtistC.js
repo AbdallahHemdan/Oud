@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import adele from './../../assets/images/adeleImg.png';
 import ArtistC from './Artistc';
 import './suggestedArtist.css';
+import axios from 'axios';
+
 
 class MainArtistC extends Component {
   constructor(props) {
@@ -186,10 +188,15 @@ class MainArtistC extends Component {
       ],
     };
   }
+  componentDidMount = () => {
+    axios.then()
+  };
   render() {
     return (
       <div className="MainArtistC">
+        <div className="spacc"></div>
         <ArtistC MainArtistC={this.state.MainArtistC}></ArtistC>
+        <div className="spaceeee"></div>
       </div>
     );
   }

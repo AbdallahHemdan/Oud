@@ -11,8 +11,8 @@ class SuggestedFooterT extends Component {
   }
   render() {
     return (
-      <div className=" SuggFooter">
-        <footer className="page-footer font-small unique-color-dark pt-4">
+      <div className="SuggFooter">
+        <footer className="page-footer ">
           <div className="container">
             <p>please chose at least 1 artist</p>
           </div>
