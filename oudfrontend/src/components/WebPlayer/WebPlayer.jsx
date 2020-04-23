@@ -8,7 +8,7 @@ import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
 import { base } from "./../../config/environment";
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzU4Nzk0MSwiZXhwIjoxNTkwMTc5OTQxfQ.3awxU23T7YRf5_mMqwK8igLlWcQsvG14c0xF55hPxkg`,
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzYwNzk4OCwiZXhwIjoxNTkwMTk5OTg4fQ.hEWUx1yLNpe199Gj29V52xQSCav5t0Buj_rqV9shokY`,
   },
 };
 /**
@@ -97,6 +97,7 @@ class WebPlayer extends Component {
         if (!data.hasOwnProperty("status")) {
           const size = data["total"];
           let trackIdx = 0;
+          console.log("track id: " + trackId);
           for (let i = 0; i < size; ++i)
             if (data["tracks"][i] === trackId) {
               trackIdx = i;

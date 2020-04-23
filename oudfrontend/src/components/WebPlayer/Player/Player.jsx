@@ -43,7 +43,7 @@ class Player extends Component {
       muteState: false,
       thumbHeight: 0,
       thumbDisplay: "initial",
-      art: "",
+      art: placeHolder,
       muteProgress: 0,
       loved: false,
     };

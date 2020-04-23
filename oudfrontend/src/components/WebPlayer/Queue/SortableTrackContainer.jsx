@@ -25,21 +25,9 @@ const SortableTrackContainer = SortableElement((props) => {
   );
 });
 SortableTrackContainer.propTypes = {
-  /**
-   * The index of the  track
-   */
   idx: PropTypes.number.isRequired,
-  /**
-   * The unique id of the track
-   */
   id: PropTypes.string.isRequired,
-  /**
-   * A function to handle playing a track from the queue
-   */
   playTrack: PropTypes.object.isRequired,
-  /**
-   * Open/Close the dropdown menu function.
-   */
   toggleDropdown: PropTypes.func.isRequired,
 };
 export default SortableTrackContainer;

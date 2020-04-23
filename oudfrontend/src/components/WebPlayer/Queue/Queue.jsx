@@ -6,7 +6,6 @@ import "./Queue.css";
 import { checkSavedTrack } from "../../../utils/Actions/Player";
 import Swal from "sweetalert2";
 import AddToPlaylist from "../../commonComponents/addToPlaylist/addToPlaylist";
-const arrayMove = require("array-move");
 
 /**
  * Component for Queue the track of the currently context.
@@ -150,12 +149,21 @@ class Queue extends Component {
     return (
       <div className="queue-add-to-playlist">
         <AddToPlaylist
+          data-testid="queue-add-to-playlist"
           display={this.state.displayAdd}
           close={this.closeAddToPlaylist.bind(this)}
         />
-        <div className="queue-container">
-          <div className="overlay" style={{ height: this.state.height }}>
-            <button className="close-btn" onClick={this.closeQueue}>
+        <div className="queue-container" data-testid="queue-container">
+          <div
+            className="overlay"
+            style={{ height: this.state.height }}
+            data-testid="overlay"
+          >
+            <button
+              className="close-btn"
+              onClick={this.closeQueue}
+              data-testid="close-btn"
+            >
               <img src={Extend} alt="Close Queue" />
             </button>
             <TrackContainer
@@ -169,13 +177,14 @@ class Queue extends Component {
               data-testid="tracks-container"
             />
             <div
+              data-testid="menu"
               className="menu"
               style={{
                 display: this.state.dropdown,
                 top: this.state.topIdx + "em",
               }}
             >
-              <div className="dropdown-menu">
+              <div className="dropdown-menu" data-testid="dropdown-menu">
                 <button
                   className="dropdown-btn"
                   onClick={this.removeTrack}
@@ -225,10 +234,6 @@ Queue.propTypes = {
    * The index of the currently playing track
    */
   trackIdx: PropTypes.number.isRequired,
-  /**
-   * The id of the device of the user
-   */
-  deviceId: PropTypes.string.isRequired,
   /**
    * A function to handle the change in the order of the tracks.
    */
