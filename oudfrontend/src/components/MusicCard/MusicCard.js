@@ -114,6 +114,7 @@ class MusicCard extends Component {
    */
   handlePlaylistClick = () => {
     this.props.history.push(`${this.state.type}/${this.state._id}`);
+    console.log(this.props.handleClickOutside)
   }
 
   /**
@@ -152,7 +153,8 @@ class MusicCard extends Component {
         >
           <div
             className="overlayer"
-            onClick={this.handlePlaylistClick}
+            onClick={ this.props.handleClickOutside ?  this.props.handleClickOutside : this.handlePlaylistClick}
+          
             data-testid="overlay"
           >
             {this.state.playBtn ? < button

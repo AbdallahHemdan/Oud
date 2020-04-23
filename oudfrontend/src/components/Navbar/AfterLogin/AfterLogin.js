@@ -40,7 +40,7 @@ export class AfterLogin extends Component {
                 <div className="dropdown show droppy"
                     data-testid="dropdown-wrapper"
                 >
-                    <a href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    <a href="https://example.com" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                         data-testid="profile-dropdown-link"
                     >
                         <img

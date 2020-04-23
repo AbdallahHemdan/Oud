@@ -5,7 +5,7 @@ import getUserId from "../Profile/General/getUserId";
 import {base} from "../../config/environment"
 import {config} from "../../utils/auth"
 import PropTypes from 'prop-types';
-
+import {Auth} from '../../utils/auth';
 /**
  * it is an overlay that is used to create a new playlist
  * @class
@@ -17,7 +17,7 @@ class CreatePlaylist extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      display: this.props.display,
+      display: true,
       name: "",
     };
     this.close = this.close.bind(this)
@@ -49,11 +49,9 @@ class CreatePlaylist extends Component {
     let playlist = {
       name: this.state.name,
       public: true,
-      collaborative: false,
-      description: "",
-      "image/png": "",
+      description: "A new playlist"
     };
-    let id = getUserId();
+    let id = Auth();
     axios
       .post(`${base}/users/${id}/playlists`, playlist, config)
       .then(function (response) {
@@ -69,7 +67,10 @@ class CreatePlaylist extends Component {
    * @returns {void}
    */
   close() {
+    if(this.props.close !== undefined)
+      {this.props.close()}
     this.setState({ display: false });
+    
   }
   render() {
     return (
@@ -106,7 +107,7 @@ class CreatePlaylist extends Component {
         <button data-testid='cancelButton' id="cancelCreation" onClick={()=>this.close()}>
           CANCEL
         </button>
-        <button data-testid='CreateButton' className="playButton" id="ceatePlaylistBtn" onClick={this.createPlaylist.bind(this)}>
+        <button data-testid='CreateButton'  id="cancelCreation" onClick={this.createPlaylist.bind(this)}>
           CREATE
         </button>
       </div>

@@ -22,10 +22,19 @@
 }
 #createPlaylistBigField{
     width: 100%;
-    padding: 0 20%;
+    padding: 20px 20%;
     background-color: #282828;
     min-height: 148px;
     margin-bottom: 28px;
+}
+#wrapperId{
+    width:100%;
+}
+#second-wrapperId{
+    width:100%;
+}
+#cardsId{
+    width: 100%;
 }
 #createPlaylistContainer{
     padding: 32px;

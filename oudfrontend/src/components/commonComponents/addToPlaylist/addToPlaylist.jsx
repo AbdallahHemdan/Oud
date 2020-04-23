@@ -5,7 +5,7 @@ import {base} from "../../../config/environment"
 import {config} from "../../../utils/auth"
 import getUserId from "../../Profile/General/getUserId";
 import MusicCard from '../../MusicCard/MusicCard'
-
+import {Auth} from '../../../utils/auth'
 /**
  * it is an overlay that is used to add song to a playlist
  * @class
@@ -19,6 +19,7 @@ class addToPlaylist extends Component {
     this.state = {
       display: this.props.display,
       createPlaylist: false,
+      recieved:false,
       playlists:[]
     };
   }
@@ -28,15 +29,15 @@ class addToPlaylist extends Component {
    * @returns {void}
    */
   componentDidMount() {
-    const id = getUserId();
-    axios
-      .get(`${base}/users/${id}/playlists/`, config)
-      .then(function (response) {
-        this.setState({playlists:response.data})
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    const id = Auth()
+      axios
+          .get(`${base}/users/${id}/playlists`, config)
+          .then((response) => {
+            this.setState({ playlists: response.data.items});
+          })
+          .catch((error) => {
+            console.log(error.response);
+          });
   }
   /**
    * closes the window by making state.display false
@@ -56,18 +57,22 @@ class addToPlaylist extends Component {
    * @returns {void}
    */
   createPlaylist() {
-    this.setState({ createPlaylist: true });
+    this.setState({ createPlaylist: !this.state.createPlaylist });
+    this.setState({display: true})
+  }
+  addSong(playlistId){
+
   }
   render() {
     return (
-      <div
+      <div>
+        {this.state.createPlaylist?<CreatePlaylist close={this.createPlaylist.bind(this)} data-testid='createPlaylist'/>
+        :<div
         className={
           this.state.display ? "createPlaylist" : "createPlaylist hide"
         }
         data-testid='addToPlaylist'
-      >
-        <CreatePlaylist display={this.state.createPlaylist} data-testid='createPlaylist'/>
-        <button onClick={this.close.bind(this)} className="closeButton" data-testid='closeButton'>
+      ><button onClick={this.close.bind(this)} className="closeButton" data-testid='closeButton'>
           <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
             <title>close</title>
             <path
@@ -84,19 +89,20 @@ class addToPlaylist extends Component {
         </button>
 
         <div id="createPlaylistBigField">
-          <div id="createPlaylistContainer"></div>
           <div
                 className="wrapper"
+                id="wrapperId"
                 data-testid="first-wrapper">
                 <div className="wrapper_section_2"
                   data-testid="second-wrapper"
+                  id="second-wrapperId"
                 >
-                <div className="cards" data-testid="cards-wrapper">
+                <div className="cards" id="cardsId" data-testid="cards-wrapper">
                     {this.state.playlists.map(item =>{
                       return(
                         <button className="invisibleButton"
                         >
-                          <MusicCard item={item}
+                          <MusicCard handleClickOutside={this.addSong(item._id)}  item={item}
                            key={item._id}
                            playBtn={false}
                           />
@@ -108,6 +114,7 @@ class addToPlaylist extends Component {
                 </div>
               </div>
         </div>
+      </div>}
       </div>
     );
   }

@@ -83,9 +83,10 @@
     padding-bottom: 10px;
 }
 
-.dropdown {
+.dropdowns {
     position: relative;
     font-size: 14px;
+    z-index: 3;
 }
 .dropdownContent {
     position: relative;

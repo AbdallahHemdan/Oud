@@ -272,7 +272,7 @@ class Song extends Component {
           </div>
 
           <div className="col-1">
-            <div data-testid="dropdown" className="dropdown">
+            <div data-testid="dropdown" className="dropdowns">
               <button
                 data-testid="dropdownButton"
                 onClick={this.toggleDropdown.bind(this)}

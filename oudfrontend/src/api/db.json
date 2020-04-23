@@ -2531,6 +2531,20 @@
       "image/png": "",
       "userId": "[object Promise]",
       "id": "JFS6S0M"
+    },
+    {
+      "name": "",
+      "public": true,
+      "description": "A new playlist",
+      "userId": "5ea1d86a624e045f61f3de44",
+      "id": "RvQTQGH"
+    },
+    {
+      "name": "",
+      "public": true,
+      "description": "A new playlist",
+      "userId": "5ea1d86a624e045f61f3de44",
+      "id": "3SdDffw"
     }
   ],
   "queue": {
