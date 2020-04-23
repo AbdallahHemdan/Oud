@@ -207,7 +207,7 @@
   position: absolute;
   /* display: inline-block; */
   float: right;
-  right: 30em;
+  right: 24em;
   top: 0;
 }
 .queue-container .overlay .menu .dropdown-menu {
@@ -217,12 +217,12 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 5;
-  width: 20rem;
+  width: 14rem;
 }
 .menu .dropdown-menu .dropdown-btn {
   background: transparent;
   border: none;
-  font-size: 1.5em;
+  font-size: 1em;
   color: whitesmoke;
   width: 100%;
 }

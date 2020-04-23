@@ -6,7 +6,7 @@ import "./Queue.css";
 import { checkSavedTrack } from "../../../utils/Actions/Player";
 import Swal from "sweetalert2";
 import AddToPlaylist from "../../commonComponents/addToPlaylist/addToPlaylist";
-
+const baseLink = "http://localhost:3000";
 /**
  * Component for Queue the track of the currently context.
  * @author Ahmed Ashraf
@@ -107,7 +107,7 @@ class Queue extends Component {
     });
   };
   copyLink = () => {
-    let link = "/tracks/" + this.state.trackId;
+    let link = `${baseLink}/track/${this.state.trackId}`;
     return navigator.clipboard.writeText(link).then(() => {
       this.setState({
         dropdown: "none",

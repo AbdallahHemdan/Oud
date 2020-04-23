@@ -49,6 +49,7 @@ class Player extends Component {
       context: "",
       actions: null,
       type: "track",
+      artistId: "",
     };
   }
   /**
@@ -61,6 +62,14 @@ class Player extends Component {
     return progress;
   };
 
+  constructLink = (artist = false) => {
+    const link = artist
+      ? `/artist/${this.state.artistId}`
+      : `/${this.state.context.split(":")[1]}/${
+          this.state.context.split(":")[2]
+        }`;
+    return link;
+  };
   /**
    * Fetching data immediately after the component has been mount to the DOM tree
    * It fetches the current playback and the current queue
@@ -143,6 +152,7 @@ class Player extends Component {
               response.data.player.item.type === "ad"
                 ? "Oud"
                 : response.data.player.item.artists[0].displayName,
+            artistId: response.data.player.item.artists[0]._id,
             art:
               response.data.player.item.type === "ad"
                 ? response.data.player.item.image
@@ -588,6 +598,7 @@ class Player extends Component {
                   ? Number(0).toFixed(2)
                   : this.state.duration
               }
+              constructLink={this.constructLink}
               setMouseDown={() => this.setMouseDown(true)}
               onProgressClick={(e) => this.onProgressClick(e)}
               mouseUp={(e) => {

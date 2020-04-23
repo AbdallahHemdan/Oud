@@ -99,16 +99,15 @@
   left: 6%;
 }
 .now-playing-bar-center .track-info {
-  left: 40%;
+  left: 5vw;
   position: relative;
-  right: 50%;
-  width: 100%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 .now-playing-bar-center .track-info .track-name {
   color: #ffce00;
   text-decoration: none;
-  position: relative;
-  float: left;
 }
 .now-playing-bar-center .track-info .track-name::after {
   content: "  .  ";
