@@ -37,9 +37,10 @@ class SearchCategory extends Component {
                       }
                       type={item.type}
                       image=
-                      {
-                        (this.props.type === "artist" || this.props.type === "profile")
-                          ? item.images[0] : item.image
+                      {(this.props.type === "artist" || this.props.type === "profile")
+                        ? item.images[0] :
+                        (this.props.name === "Tracks") ?
+                          (item.album.image) : (item.image)
                       }
                       playBtn={true}
                       key={index}

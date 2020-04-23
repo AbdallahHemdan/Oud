@@ -4112,37 +4112,97 @@
   "search": {
     "tracks": [
       {
-        "id": "1",
-        "name": "PlayList1",
-        "owner": "string",
-        "tracks": ["string"],
-        "collaborative": true,
-        "description": "string",
-        "public": false,
-        "image": "https://pbs.twimg.com/media/ETfaipsXkAATdUx.jpg",
-        "type": "string"
+        "_id": "1",
+        "name": "Allen",
+        "artists": [
+          {
+            "_id": "1",
+            "displayName": "Hemdan",
+            "type": "Lol",
+            "images": [
+              "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+              "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg"
+            ]
+          }
+        ],
+        "albumId": "1",
+        "album": {
+          "_id": "1",
+          "album_type": "AJ+",
+          "artists": [
+            "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+            "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg"
+          ],
+          "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+          "name": "Lolki",
+          "type": "Jazz",
+          "released": true
+        },
+        "type": "string",
+        "duartion": 0,
+        "views": 0
       },
       {
-        "id": "2",
-        "name": "PlayList2",
-        "owner": "string",
-        "tracks": ["string"],
-        "collaborative": true,
-        "description": "string",
-        "public": true,
-        "image": "https://pbs.twimg.com/media/ETffBfeX0AA5bOW.jpg",
-        "type": "string"
+        "_id": "2",
+        "name": "Switck",
+        "artists": [
+          {
+            "_id": "1",
+            "displayName": "Hemdan",
+            "type": "Lol",
+            "images": [
+              "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+              "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg"
+            ]
+          }
+        ],
+        "albumId": "1",
+        "album": {
+          "_id": "1",
+          "album_type": "AJ+",
+          "artists": [
+            "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+            "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg"
+          ],
+          "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+          "name": "Lolki",
+          "type": "Jazz",
+          "released": true
+        },
+        "type": "string",
+        "duartion": 0,
+        "views": 0
       },
       {
-        "id": "3",
-        "name": "PlayList3",
-        "owner": "string",
-        "tracks": ["string"],
-        "collaborative": true,
-        "description": "string",
-        "public": true,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuTALnEZHwlQ-HfzprquGqD5IejMPhtMl1WloBlKgm7ueylSXe&usqp=CAU",
-        "type": "string"
+        "_id": "3",
+        "name": "Mint",
+        "artists": [
+          {
+            "_id": "1",
+            "displayName": "Hemdan",
+            "type": "Lol",
+            "images": [
+              "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+              "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg"
+            ]
+          }
+        ],
+        "albumId": "1",
+        "album": {
+          "_id": "1",
+          "album_type": "AJ+",
+          "artists": [
+            "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+            "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg"
+          ],
+          "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+          "name": "Lolki",
+          "type": "Jazz",
+          "released": true
+        },
+        "type": "string",
+        "duartion": 0,
+        "views": 0
       }
     ],
     "albums": [
