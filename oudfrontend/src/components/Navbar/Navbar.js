@@ -45,7 +45,8 @@ class Navbar extends Component {
       email: "",
       displayName: "",
       credit: 0,
-      images: []
+      images: [],
+      timeOut: 0
     }
   }
 
@@ -61,6 +62,7 @@ class Navbar extends Component {
   handleClickOnSearch = (newRoute) => {
     this.props.history.replace(`/${newRoute}`);
   }
+
   handleStoringUserInfo = ({ _id, username, email, displayName, credit, images }) => {
     const userInfo = { _id, username, email, displayName, credit, images };
     this.setState({ userInfo, _id, username, email, displayName, credit, images });
@@ -114,6 +116,7 @@ class Navbar extends Component {
         >
           <form
             className="form-inline"
+            onSubmit={this.props.handleSubmit}
             data-testid="left-part"
           >
             <div
@@ -142,7 +145,12 @@ class Navbar extends Component {
               placeholder="&#xF002; Search for Artists, Songs"
               aria-label="Search"
               onClick={() => this.handleClickOnSearch('search')}
+              onChange={this.props.handleInput}
               data-testid="search-input"
+              value={this.props.value}
+              autoComplete="off"
+              onKeyUp={this.props.onKeyUp}
+              onKeyDown={this.props.onKeyDown}
             />
           </form>
           <button
@@ -154,6 +162,7 @@ class Navbar extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
             data-testid="toggle-btn"
+
           >
             <span className="navbar-toggler-icon toggler"></span>
           </button>
