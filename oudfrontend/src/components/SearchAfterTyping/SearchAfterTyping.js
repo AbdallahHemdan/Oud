@@ -35,8 +35,6 @@ class SearchAfterTyping extends Component {
       if (this.state.search !== this.props.search) {
         axios.get(fetchAllUrl)
           .then((result) => {
-            // console.log("Hi")
-            // console.log(result.data);
             this.handleStoringData(result.data);
           }).catch((err) => {
             console.log(err)
@@ -53,8 +51,15 @@ class SearchAfterTyping extends Component {
         {
           this.state.isLoading ?
             <h1 data-testid="loading"> Loading..</h1> :
-            // <LoadingSnipper /> :
             <React.Fragment>
+              <SearchCategory
+                search={this.state.search}
+                propsSearch={this.props.search}
+                name={"Tracks"}
+                items={this.state.tracks}
+                type="albums"
+                data-testid="search-tracks"
+              />
               <SearchCategory
                 search={this.state.search}
                 propsSearch={this.props.search}
