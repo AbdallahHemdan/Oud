@@ -8,6 +8,7 @@ class SignUp extends Component {
   render() {
     if (isLoggedIn()) {
       window.location = "/";
+      return (<div></div>)
     }
     return (
       <div className="container main-center">
