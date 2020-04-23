@@ -13,7 +13,7 @@ class SuggestedFooterT extends Component {
     return (
       <div className="SuggFooter">
         <footer className="page-footer ">
-          <div className="container TextFotter">
+          <div className="container TextFotter" data-testid="Footertext">
             <p>Select at least one artist or use the search bar.</p>
           </div>
         </footer>

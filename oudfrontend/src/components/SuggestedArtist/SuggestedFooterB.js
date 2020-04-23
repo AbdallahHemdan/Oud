@@ -5,29 +5,32 @@ import Axios from 'axios';
 import {base, subUrl, prodUrl} from './../../config/environment';
 import {config} from './../../utils/auth';
 
-const fetchUserInfo = `${base}/me/following`;
+const fetchUserInfo = `${base}/me/following ? type=artist`;
 
 class SuggestedFooter extends Component {
   constructor(props) {
     super(props);
-    this.state = {choo: true};
+    this.state = {choo: true, selectedIDS: []};
   }
 
   handelOnClick = () => {
-    let toSent = {
-      type: 'artist ',
-      ids: [],
-    };
-    Axios.put(fetchUserInfo, config, toSent)
-      .then((response) => {})
+    Axios.put(fetchUserInfo, config, this.state.selectedIDS)
+      .then((response) => {
+        window.location = '/';
+      })
       .catch((error) => {});
   };
+
   render() {
     return (
       <div className="SuggFooter">
         <footer className="page-footer font-small unique-color-dark pt-4">
           <div className="container">
-            <button className="FinishBtn" onClick={this.handelOnClick}>
+            <button
+              data-testid="FooterBtn"
+              className="FinishBtn"
+              onClick={this.handelOnClick}
+            >
               Finish
             </button>
           </div>

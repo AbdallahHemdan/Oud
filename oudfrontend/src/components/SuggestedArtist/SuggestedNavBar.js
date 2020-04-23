@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import logo from '../../assets/images/Logoc.png';
 import './suggestedArtist.css';
-
+/**
+ * @class
+ */
 class SuggestedNavBar extends Component {
   constructor(props) {
     super(props);
@@ -33,18 +35,19 @@ class SuggestedNavBar extends Component {
                   }`}
                   src={logo}
                   alt="Oud logo"
-                  data-testid="oudlogo"
+                  data-testid="oudlogoNvaBarSugg"
                   id="oudlogo"
                 />
               </Link>
               <p
+                data-testid="TextNvaBarSugg"
                 className={`CenterText  ${
                   this.state.scrolled ? 'textTop' : 'show'
                 }`}
               >
                 Let's get to know each other!
               </p>
-              <p className="subText container">
+              <p data-testid="TextNvaBarSugg" className="subText container">
                 What are your favorite artists? The more you select, the better
                 your recommendations!
               </p>

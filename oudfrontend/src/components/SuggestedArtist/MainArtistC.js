@@ -6,7 +6,7 @@ import axios from 'axios';
 import {base, subUrl, prodUrl} from './../../config/environment';
 import {config} from './../../utils/auth';
 
-const fetchUserInfo = `${base}/artists/random`;
+const fetchUserInfo = `${base}/artists/some`;
 class MainArtistC extends Component {
   constructor(props) {
     super(props);
@@ -16,15 +16,17 @@ class MainArtistC extends Component {
   }
 
   componentDidMount = () => {
+    // `${base}/SuggestedArtist`;
     axios
-      .get(`${base}/SuggestedArtist`, config)
+      .get(fetchUserInfo, config)
       .then((result) => {
-        console.log(result.data);
+        console.log('result', result.data);
         this.setState({artists: result.data});
       })
       .catch((err) => {
-        console.log(err);
+        console.log('error', err.result);
       });
+    console.log('state ', this.state.artists);
   };
   render() {
     return (

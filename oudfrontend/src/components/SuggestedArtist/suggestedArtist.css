@@ -120,22 +120,25 @@
   border-radius: 50px;
   border-color: goldenrod;
 }
+
 .ArtistImage {
   width: 200px;
+  height: 50% !important;
   border-radius: 100%;
-  height: auto;
   opacity: 1;
   display: block;
   transition: 0.5s ease;
   backface-visibility: hidden;
   text-align: center;
 }
+
 .ArtistText {
   justify-content: center;
   justify-items: center;
   text-align: center;
   margin-top: -70px;
 }
+
 .ArtistName {
   font-size: 20px;
   font-weight: bold;
@@ -168,8 +171,8 @@
 }
 
 .half {
-  opacity: 50%;
-  transition: 0.7s ease;
+  opacity: 100%;
+  transition: 1s ease;
   background-color: goldenrod;
   border-radius: 100%;
 }
@@ -177,6 +180,7 @@
 .textTop {
   top: 0;
 }
+
 .ArtistCard {
   margin: 0;
   padding: 0;
@@ -186,13 +190,13 @@
   background: goldenrod;
   border-radius: 50%;
 }
+
 .ArtistCard:not(:hover) {
   background: transparent;
 }
 
 .ArtistMap {
   width: auto;
-  height: 100%;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -238,20 +242,24 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
+
   .clickedPic {
     transform: translate(0, -11rem) !important;
   }
 }
+
 @media (max-width: 1100px) {
   .clickedPic {
     transform: translate(0, -10rem) !important;
   }
 }
+
 @media (max-width: 1000px) {
   .clickedPic {
     transform: translate(0, -9rem) !important;
   }
 }
+
 @media (max-width: 900px) {
   .clickedPic {
     transform: translate(0, -8rem) !important;
@@ -263,6 +271,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
   .clickedPic {
     transform: translate(0, -9rem) !important;
   }
@@ -288,6 +297,7 @@
   border-radius: 100%;
   transition: opacity 1s ease-out;
 }
+
 .TextFotter {
   text-align: center;
   margin-top: 20px;
@@ -305,6 +315,7 @@
   text-align: center;
   background-color: rgb(247, 215, 136);
 }
+
 .clickedPic {
   width: 4rem;
   display: flex;
@@ -312,5 +323,5 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: translate(0, -190%);
+  transform: translate(0, -200%);
 }

@@ -1,15 +1,20 @@
 import React, {Component} from 'react';
-import artist from './../../assets/images/adeleImg.png';
-import over from '../../assets/images/FC.png';
 import './suggestedArtist.css';
 import loved from './../../assets/images/H.png';
-import {logDOM} from '@testing-library/react';
+/**
+ *@class 
+ the artist card that have the structure of the one card 
+ */
 class ArtistCard extends Component {
+  /**
+   * constructor
+   * @param Toggle css 
+   */
   constructor(props) {
     super(props);
     this.state = {
       Toggle: true,
-      selected: true,
+      selected: false,
       isSelected: false,
       displayName: this.props.displayName,
       image: this.props.image,
@@ -23,8 +28,8 @@ class ArtistCard extends Component {
     return (
       <div
         className="container"
-        onMouseEnter={() => this.setState({Toggle: false, isSelected: true})}
-        onMouseLeave={() => this.setState({Toggle: true, isSelected: true})}
+        onMouseEnter={() => this.setState({Toggle: false})}
+        onMouseLeave={() => this.setState({Toggle: true})}
         onClick={() =>
           this.setState({
             selected: !this.state.selected,
@@ -43,6 +48,7 @@ class ArtistCard extends Component {
                     width: '100%',
                     height: '100%',
                   }}
+                  data-testid="artistImage"
                   className={`ArtistImage ${
                     this.state.Toggle || this.state.isSelected
                       ? 'show'
@@ -51,14 +57,10 @@ class ArtistCard extends Component {
                 ></img>
               </div>
             </div>
-            {/**className={`clickedPic ${
-                this.state.selected ? 'hide' : 'showhaert'
-              }`} */}
-
             <img
               alt=""
               src={loved}
-              className={`clickedPic  ${this.state.selected ? 'hide' : 'show'}`}
+              className={`clickedPic  ${this.state.selected ? 'show' : 'hide'}`}
             ></img>
           </div>
           <p className="ArtistText">{this.state.displayName}</p>

@@ -17,6 +17,11 @@ export default class SuggestedArtist extends Component {
       event.target.value = !event.target.value;
     }
   };
+  handelRenderComp = () => {
+    if (this.SuggestedFooterB.state.choo === true) {
+      
+    }
+  };
   render() {
     return (
       <div>
