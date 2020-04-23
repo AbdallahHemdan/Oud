@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import artist from './../../assets/images/adeleImg.png';
 import over from '../../assets/images/FC.png';
 import './suggestedArtist.css';
-import loved from './../../assets/images/icons/loved.png';
+import loved from './../../assets/images/H.png';
 import {logDOM} from '@testing-library/react';
 class ArtistCard extends Component {
   constructor(props) {
@@ -11,6 +11,8 @@ class ArtistCard extends Component {
       Toggle: true,
       selected: true,
       isSelected: false,
+      displayName: this.props.displayName,
+      image: this.props.image,
     };
   }
   toggleSelected = () => {
@@ -30,31 +32,36 @@ class ArtistCard extends Component {
           })
         }
       >
-        <div className="cardss" onClick={this.onClickImage}>
-          <div className="ArtistCard">
-            <div className={`${this.state.Toggle ? 'hide' : 'half'}`}></div>
-            <div className={this.state.isSelected ? 'asd' : ''}>
-              <img
-                alt=""
-                src={artist}
-                className={`ArtistImage ${
-                  this.state.Toggle || this.state.isSelected
-                    ? 'showbas'
-                    : 'half '
-                }
-              `}
-              ></img>
+        <div className="SingleCard" onClick={this.onClickImage}>
+          <div className="">
+            <div className={`${this.state.Toggle ? 'show' : 'half'}`}>
+              <div className={this.state.isSelected ? 'asd' : ''}>
+                <img
+                  alt=""
+                  src={this.state.image}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                  }}
+                  className={`ArtistImage ${
+                    this.state.Toggle || this.state.isSelected
+                      ? 'show'
+                      : 'half '
+                  }`}
+                ></img>
+              </div>
             </div>
-            {console.log('sa ', this.state.isSelected)}
+            {/**className={`clickedPic ${
+                this.state.selected ? 'hide' : 'showhaert'
+              }`} */}
+
             <img
               alt=""
               src={loved}
-              className={`clickedPic ${
-                this.state.selected ? 'hide' : 'showhaert'
-              }`}
+              className={`clickedPic  ${this.state.selected ? 'hide' : 'show'}`}
             ></img>
           </div>
-          <p className="ArtistImage">adale</p>
+          <p className="ArtistText">{this.state.displayName}</p>
         </div>
       </div>
     );

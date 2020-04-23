@@ -6,7 +6,7 @@ import MainArtistC from './../../components/SuggestedArtist/MainArtistC';
 export default class SuggestedArtist extends Component {
   constructor(props) {
     super(props);
-    this.state = {isSelected: true};
+    this.state = {isSelected: false};
   }
   isSelected = () => {
     return this.state.isSelected ? true : false;

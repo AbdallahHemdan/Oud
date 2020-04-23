@@ -28,7 +28,6 @@
   margin-bottom: 200%;
   background-color: black;
   z-index: 9999;
-
 }
 
 .spacc {
@@ -40,7 +39,6 @@
   left: 0;
   right: 0;
   margin-bottom: 20px;
-
 }
 
 .SuggLogo {
@@ -48,6 +46,7 @@
   margin: 0 auto;
   left: 0px;
   right: 0px;
+  transition: 0.5s ease;
 }
 
 .NavBarStyle_bg-custom {
@@ -104,6 +103,7 @@
   bottom: 0;
   width: 100%;
   height: 90px;
+  text-align: center;
 }
 
 .FinishBtn {
@@ -120,19 +120,22 @@
   border-radius: 50px;
   border-color: goldenrod;
 }
-
 .ArtistImage {
-  width: 100%;
+  width: 200px;
   border-radius: 100%;
   height: auto;
   opacity: 1;
   display: block;
-  transition: .5s ease;
+  transition: 0.5s ease;
   backface-visibility: hidden;
   text-align: center;
-
 }
-
+.ArtistText {
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  margin-top: -70px;
+}
 .ArtistName {
   font-size: 20px;
   font-weight: bold;
@@ -142,21 +145,20 @@
   display: block;
 }
 
-
 .hide {
   opacity: 0;
+  transition: opacity 0.5s ease-out;
 }
 
 .show {
-  opacity: 100%;
-
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
 }
 
 .hideLogo {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s,
-    opacity 0.5s linear;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .dis {
@@ -165,25 +167,28 @@
   opacity: 0;
 }
 
-
 .half {
-  opacity: 70%;
-  transition: .5s ease;
+  opacity: 50%;
+  transition: 0.7s ease;
   background-color: goldenrod;
+  border-radius: 100%;
 }
 
-
-
 .textTop {
-  top: 0
+  top: 0;
+}
+.ArtistCard {
+  margin: 0;
+  padding: 0;
 }
 
 .ArtistCard:hover {
   background: goldenrod;
   border-radius: 50%;
 }
-
-
+.ArtistCard:not(:hover) {
+  background: transparent;
+}
 
 .ArtistMap {
   width: auto;
@@ -222,31 +227,44 @@
   position: absolute;
   width: 40.8%;
   opacity: 0;
-  transition: .5s ease;
+  transition: 0.5s ease;
   background-color: goldenrod;
   border-radius: 100%;
   z-index: 999;
 }
 
-@media (max-width:990px) {
+@media (max-width: 1200px) {
   .ArtistMap {
-    width: auto;
-    height: 100%;
     display: grid;
-    grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
-    box-sizing: border-box;
+  }
+  .clickedPic {
+    transform: translate(0, -11rem) !important;
+  }
+}
+@media (max-width: 1100px) {
+  .clickedPic {
+    transform: translate(0, -10rem) !important;
+  }
+}
+@media (max-width: 1000px) {
+  .clickedPic {
+    transform: translate(0, -9rem) !important;
+  }
+}
+@media (max-width: 900px) {
+  .clickedPic {
+    transform: translate(0, -8rem) !important;
   }
 }
 
-@media (max-width:400px) {
+@media (max-width: 800px) {
   .ArtistMap {
-    width: auto;
-    height: 100%;
     display: grid;
-    grid-gap: 10px;
     grid-template-columns: 1fr 1fr;
-    box-sizing: border-box;
+  }
+  .clickedPic {
+    transform: translate(0, -9rem) !important;
   }
 }
 
@@ -254,25 +272,13 @@
   padding: 4%;
 }
 
-.clickedPic {
-  width: 3%;
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-
-  margin-top: -70px;
-  margin-left: 80px;
-}
-
-.showhaert {
-  opacity: 1;
+.SingleCard .clickedPic {
+  align-content: center;
+  margin: 0 auto;
 }
 
 .showbas {
-  background-color: goldenrod;
+  background-color: rgb(35, 33, 28);
   border-radius: 100%;
 }
 
@@ -280,4 +286,31 @@
   opacity: 1;
   background-color: goldenrod;
   border-radius: 100%;
+  transition: opacity 1s ease-out;
+}
+.TextFotter {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.s {
+  color: white;
+  width: 10%;
+  border-radius: 100%;
+  font-size: 20px;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgb(247, 215, 136);
+}
+.clickedPic {
+  width: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(0, -190%);
 }
