@@ -13,6 +13,7 @@ class AfterLogin extends Component {
     super(props);
     this.state = {
       displayName: "",
+      id: "",
       images: []
     };
   }
@@ -24,6 +25,7 @@ class AfterLogin extends Component {
       .get(fetchUserInfo, config)
       .then(result => {
         this.handleStoringUserInfo(result.data);
+        this.setState({ id: result.data._id });
       })
       .catch(err => {
         console.log(err);
@@ -60,7 +62,11 @@ class AfterLogin extends Component {
           {this.state.displayName}
         </Link>
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-          <Link data-testid="Account" to="/account" className="dropdown-item">
+          <Link
+            data-testid="Account"
+            to="/account/accountOverview"
+            className="dropdown-item"
+          >
             Account
           </Link>
           <Link
@@ -70,6 +76,9 @@ class AfterLogin extends Component {
             onClick={() => this.doLogOut()}
           >
             Log Out
+          </Link>
+          <Link to={"/profile/" + this.state.id} className="dropdown-item">
+            {this.state.displayName}
           </Link>
         </div>
       </li>

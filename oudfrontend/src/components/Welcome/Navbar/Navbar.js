@@ -16,7 +16,10 @@ class Navbar extends Component {
             this.props.alpha === 0
               ? {}
               : this.props.alpha === 1
-              ? { backgroundColor: "#916B49", boxShadow: "none" }
+              ? {
+                  backgroundImage: "linear-gradient(black, #16100b)",
+                  boxShadow: "none"
+                }
               : { backgroundColor: "black" }
           }
           className="navbar navbar-expand-lg navbar-dark bg-custom NavBarStyle_bg-custom NavBarStyle_navbar-brand NavBarStyle_navbar-expand-lg paddingNav"
