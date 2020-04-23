@@ -128,13 +128,18 @@ class Navbar extends Component {
                 onClick={this.handleGoBack}
                 data-testid="back-switch"
               >
-                <i className="fa fa-angle-left fa-lg left-arrow"></i>
+                <i className="fa fa-angle-left fa-lg left-arrow"
+                  data-testid="left-arrow-icon"
+                ></i>
               </div>
               <div
                 className="navbar-brand"
                 onClick={this.handleGoForward}
                 data-testid="forward-switch">
-                <i className="fa fa-angle-right fa-lg right-arrow"></i>
+                <i
+                  className="fa fa-angle-right fa-lg right-arrow"
+                  data-testid="right-arrow-icon"
+                ></i>
               </div>
             </div>
             <input

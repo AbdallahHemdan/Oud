@@ -3,12 +3,18 @@ import "./LoadingSnipper.css"
 class LoadingSnipper extends Component {
   render() {
     return (
-      <div className="spinner">
-        <div className="rect1"></div>
-        <div className="rect2"></div>
-        <div className="rect3"></div>
-        <div className="rect4"></div>
-        <div className="rect5"></div>
+      <div
+        className="spinner"
+        data-testid="snipper"
+      >
+        <div
+          className="rect1"
+          data-testid="snipper-1"
+        ></div>
+        <div className="rect2" data-testid="snipper-2"></div>
+        <div className="rect3" data-testid="snipper-3"></div>
+        <div className="rect4" data-testid="snipper-4"></div>
+        <div className="rect5" data-testid="snipper-5"></div>
       </div>
     )
   }
