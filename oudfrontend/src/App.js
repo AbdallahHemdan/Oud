@@ -20,7 +20,7 @@ import Entered from "./components/Login&Signup/logined/entered";
 import Islinked from "./components/Login&Signup/linkisSent";
 import WhyGoPremium from "./components/Premium/WhyGoPremium/WhyGoPremium";
 import GetPremium from "./components/Premium/GetPremium/GetPremium";
-
+import Ads from "./components/Premium/Ads/Ads";
 import Welcome from "./pages/Welcome/welcome";
 import "./App.css";
 import {
@@ -34,6 +34,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Ads />
         <Switch>
           <Route exact path="/">
             <Home />
