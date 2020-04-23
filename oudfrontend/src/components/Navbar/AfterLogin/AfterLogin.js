@@ -6,6 +6,12 @@ export class AfterLogin extends Component {
   handleLogOut = e => {
     localStorage.removeItem("accessToken");
   };
+  //author:Mahboub
+  //TODO
+  //Make Put request when backend finish
+  handlePrivateSession = event => {
+    console.log("should be put request");
+  };
   render() {
     const userInformation = this.props.userInfo ? this.props.userInfo : null;
     const subPath = base === prodUrl ? subUrl : "";
@@ -59,7 +65,7 @@ export class AfterLogin extends Component {
           >
             <Link
               className="dropdown-item element"
-              to="/account"
+              to="/account/accountOverview"
               data-testid="account-dropdown-element"
             >
               Account
@@ -72,6 +78,13 @@ export class AfterLogin extends Component {
             >
               Log out
             </Link>
+            <p
+              className="dropdown-item element"
+              style={{ cursor: "pointer", margin: "0px" }}
+              onClick={this.handlePrivateSession}
+            >
+              Private Session
+            </p>
           </div>
         </div>
         <a href={`/profile/${userId}`}>

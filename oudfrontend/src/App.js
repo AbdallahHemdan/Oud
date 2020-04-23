@@ -19,6 +19,7 @@ import ResetPassword from "./components/Login&Signup/ForgetPassword/resetPasswor
 import Entered from "./components/Login&Signup/logined/entered";
 import Islinked from "./components/Login&Signup/linkisSent";
 import WhyGoPremium from "./components/Premium/WhyGoPremium/WhyGoPremium";
+import GetPremium from "./components/Premium/GetPremium/GetPremium";
 
 import Welcome from "./pages/Welcome/welcome";
 import "./App.css";
@@ -47,6 +48,7 @@ function App() {
           <Route path="/profile/:userId" component={Profile} />
           <Route path="/account" component={Account} />
           <Route path="/goPremium" component={WhyGoPremium} />
+          <Route path="/getPremium" component={GetPremium} />
 
           <Route path="/RedirectPage">
             <RedirectPage />

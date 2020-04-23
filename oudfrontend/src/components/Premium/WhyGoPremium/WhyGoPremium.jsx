@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import NavBar from "../../Welcome/Navbar/Navbar";
 import OudCoin from "../../../assets/images/Oud Coin.svg";
 import OudLogo from "../../../assets/images/Oud.ico";
@@ -12,19 +13,18 @@ import "./WhyGoPremium.css";
 function GoPremiumUpperContainer() {
   return (
     <div className="goPremiumUpperContainer">
-      <h1 className="goPremium-title"> Get Premium free for 1 month</h1>
+      <h1 className="goPremium-title"> Get Premium for 1 month</h1>
 
-      <p className="goPremium-Price">
-        Just Oud-Conin 50/month after. Cancel anytime.
-      </p>
+      <p className="goPremium-Price">Just Oud-Conin 10/month.</p>
       <img src={OudCoin} style={{ width: "50px", margin: "-5px 0 5px 10px" }} />
-      <button
-        type="button"
-        className="btn btn-warning getPremium goPremium-getPremium"
-      >
-        GET PREMIUM
-      </button>
-
+      <Link to="/getPremium">
+        <button
+          type="button"
+          className="btn btn-warning getPremium goPremium-getPremium"
+        >
+          GET PREMIUM
+        </button>
+      </Link>
       <p className="goPremium-note">
         1 month free not available for users who have already tried Premium.
       </p>
@@ -78,7 +78,7 @@ function GoPremiumLoWerCotainer() {
           <div className="goPremium-formDiv">
             <p style={{ fontSize: "20px" }}>Oud Premium</p>
             <p style={{ fontSize: "30px", fontWeight: "700" }}>
-              Oud-Coins 50
+              Oud-Coins 10
               <span style={{ fontSize: "14px", fontWeight: "400" }}>
                 / month
               </span>
@@ -93,12 +93,14 @@ function GoPremiumLoWerCotainer() {
               <ListItem name={"High audio quality."} />
             </ul>
           </div>
-          <button
-            type="button"
-            className="btn btn-warning getPremium goPremium-getPremiumForm"
-          >
-            GET PREMIUM
-          </button>
+          <Link to="/getPremium">
+            <button
+              type="button"
+              className="btn btn-warning getPremium goPremium-getPremiumForm"
+            >
+              GET PREMIUM
+            </button>
+          </Link>
         </div>
       </div>
     </div>

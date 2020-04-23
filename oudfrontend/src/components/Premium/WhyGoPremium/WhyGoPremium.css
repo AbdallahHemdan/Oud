@@ -6,7 +6,8 @@
   padding-right: 12.5%;
   padding-top: 120px;
   padding-bottom: 10px;
-  background-color: #916b49;
+
+  background-image: linear-gradient(black, #916b49);
 }
 .goPremiumLowerContainer {
   padding-left: 12.5%;
@@ -93,4 +94,22 @@
   height: 130px;
   text-align: center;
   color: black;
+}
+@media only screen and (max-width: 1500px) {
+  .goPremium-featureCard {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .goPremium-form {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 760px) {
+  .goPremium-form {
+    width: 90%;
+  }
+  .goPremium-featureCard {
+    width: 100%;
+  }
 }
