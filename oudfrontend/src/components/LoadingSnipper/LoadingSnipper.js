@@ -1,6 +1,22 @@
 import React, { Component } from 'react'
 import "./LoadingSnipper.css"
+
+/**
+ * component to render the loading snipper
+ *
+ * @author Abdallah Hemdan
+ *
+ * @component
+ *
+ */
 class LoadingSnipper extends Component {
+  /**
+   * @function
+   * @name render
+   * @description Render all snipper items 
+   *
+   * @returns {JSX} Component for Home
+  */
   render() {
     return (
       <div

@@ -3,7 +3,7 @@ import "./RecentSearchCard.css";
 import { Link, withRouter } from "react-router-dom"
 import { base, subUrl, prodUrl } from "./../../config/environment"
 /**
- * Music card component which render and display the playlist card of a specific category 
+ * Recent Search card component which render and display the playlist card of a specific category 
  * @author Abdallah Hemdan
  * @component
  */
@@ -21,7 +21,7 @@ class RecentSearchCard extends Component {
 
   /**
    * Function to handle navigation to the playlist page
-   * on clicking on the music card
+   * on clicking on the Recent Search card
    * 
    * @function
    * 
@@ -38,8 +38,8 @@ class RecentSearchCard extends Component {
     }
   }
   /**
-   * Function to handle playing music on clicking on
-   * play icon the music card
+   * Function to handle playing Recent Search on clicking on
+   * play icon the Recent Search card
    * 
    * @function
    * 
@@ -48,7 +48,7 @@ class RecentSearchCard extends Component {
    */
   handlePlayClick = (e) => {
     e.stopPropagation();
-    console.log("🎵 music is playing now");
+    console.log("🎵 Recent Search is playing now");
   }
   componentDidMount() {
     const SearchItem = (this.props.item) ? (this.props.item) : null;
@@ -61,7 +61,7 @@ class RecentSearchCard extends Component {
    * 
    * @name render
    * 
-   * @description Render Music card components..
+   * @description Render Recent Search card components..
    * 
    * @returns {JSX} Component for App
    */
@@ -84,10 +84,6 @@ class RecentSearchCard extends Component {
                 data-testid="overlay"
               >
                 {
-                  // (
-                  //   this.state.type !== 'artist' &&
-                  //   this.state.type !== 'user'
-                  // ) ?
                   < button
                     className="play-btn"
                     onClick={this.handlePlayClick}
@@ -99,8 +95,6 @@ class RecentSearchCard extends Component {
                     >
                     </i>
                   </button>
-                  // :
-                  // null
                 }
               </div>
               <img
