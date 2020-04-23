@@ -177,7 +177,7 @@ class WebPlayer extends Component {
    * A generic function to play a track from any location other than the queue and the player
    * @function
    * @param {string} context OUD context
-   * @param {array} uris OUD uris
+   * @param {array} uris OUD uris, list of oud tracks uris
    * @param {number} offset indext of the track in the context
    * @param {number} position from where to start in the track. In milliseconds
    * @reutrns {void}
@@ -189,10 +189,16 @@ class WebPlayer extends Component {
     position = 0,
     isTracksList = false
   ) => {
-    this.putRequest(`${base}/me/player/play`, {
-      contextUri: contextUri,
-      offset: { position: offset },
-    })
+    const body = isTracksList
+      ? {
+          uris: uris,
+          offset: { position: offset },
+        }
+      : {
+          contextUri: contextUri,
+          offset: { position: offset },
+        };
+    this.putRequest(`${base}/me/player/play`, body)
       .then((response) => {
         // this.fetchQueue();
         let player = this.playerElement.current;
