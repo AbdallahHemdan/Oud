@@ -52,7 +52,7 @@ class SearchAfterTyping extends Component {
       <React.Fragment>
         {
           this.state.isLoading ?
-            <h1>Loading..</h1> :
+            <h1 data-testid="loading"> Loading..</h1> :
             // <LoadingSnipper /> :
             <React.Fragment>
               <SearchCategory
@@ -61,6 +61,7 @@ class SearchAfterTyping extends Component {
                 name={"Artists"}
                 items={this.state.artists}
                 type="artist"
+                data-testid="search-artists"
               />
               <SearchCategory
                 search={this.state.search}
@@ -68,6 +69,7 @@ class SearchAfterTyping extends Component {
                 name={"Albums"}
                 items={this.state.albums}
                 type="albums"
+                data-testid="search-albums"
               />
               <SearchCategory
                 search={this.state.search}
@@ -75,6 +77,7 @@ class SearchAfterTyping extends Component {
                 name={"Playlists"}
                 items={this.state.playlists}
                 type="playlist"
+                data-testid="search-playlists"
               />
               <SearchCategory
                 search={this.state.search}
@@ -82,6 +85,7 @@ class SearchAfterTyping extends Component {
                 name={"Users"}
                 items={this.state.users}
                 type="profile"
+                data-testid="search-users"
               />
             </React.Fragment>
         }
