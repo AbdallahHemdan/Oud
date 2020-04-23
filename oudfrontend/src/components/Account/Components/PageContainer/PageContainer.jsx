@@ -8,7 +8,8 @@ import { Route, Switch } from "react-router-dom";
 import "./PageContainer.css";
 /**
  * @type {Function}
- * @returns {HTMLElement} one of this routes [account Overview , edit Profile , change Password]
+ * @returns {jsx} one of this routes [account Overview , edit Profile , change Password]
+ * <PageContainer/>
  */
 function PageContainer() {
   return (

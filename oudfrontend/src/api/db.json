@@ -730,30 +730,26 @@
     "total": 0
   },
   "me": {
-    "id": "1",
-    "username": "Ahmed Mahboub",
-    "birthDate": "1999-03-09",
+    "_id": "1",
+    "username": "Abdallah Hemdan",
+    "birthDate": "1999-05-01",
     "gender": "M",
-    "email": "ahmed.mahboub99@gmail.com",
-    "displayName": "Ahmed",
+    "email": "abdallah.ahmed.hemdan@gmail.com",
+    "displayName": "Hemdan",
     "role": "free",
     "country": "EG",
     "credit": 0,
     "plan": null,
     "images": [
-      "https://vignette.wikia.nocookie.net/kimetsu-no-yaiba/images/8/8c/Tanjiro_with_longer_hair_and_dirty_face.png/revision/latest/top-crop/width/300/height/300?cb=20190420121127"
+      "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
     ],
     "followersCount": 0,
     "verified": false,
     "Artist": {
       "_id": "string",
       "followersCount": 0,
-      "genres": [
-        "string"
-      ],
-      "images": [
-        "string"
-      ],
+      "genres": ["string"],
+      "images": ["string"],
       "name": "string",
       "bio": "string",
       "popularSongs": [
@@ -788,11 +784,7 @@
     "displayName": "Ahmed"
   },
   "updatePassword": {},
-  "followingMe": {
-    "ids": [
-      "4"
-    ]
-  },
+  "followingMe": {},
   "myFollowing": [
     {
       "id": "3",
@@ -1056,9 +1048,7 @@
     }
   ],
   "ids": {
-    "ids": [
-      true
-    ]
+    "ids": [true]
   },
   "playlists2": [
     {
@@ -1068,9 +1058,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1081,9 +1069,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1094,9 +1080,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1107,9 +1091,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1120,9 +1102,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1133,9 +1113,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1154,9 +1132,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1167,9 +1143,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1180,9 +1154,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1193,9 +1165,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1206,9 +1176,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1219,9 +1187,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1240,9 +1206,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1253,9 +1217,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1266,9 +1228,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1279,9 +1239,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1292,9 +1250,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1305,9 +1261,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1326,9 +1280,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1339,9 +1291,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1352,9 +1302,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1365,9 +1313,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1378,9 +1324,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1391,9 +1335,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1412,9 +1354,7 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1425,9 +1365,7 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1438,9 +1376,7 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1451,9 +1387,7 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1464,9 +1398,7 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1477,9 +1409,7 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": [
-            "string"
-          ],
+          "tracks": ["string"],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1522,11 +1452,6 @@
         "_id": 3,
         "name": "New releases",
         "icon": "https://media.altphotos.com/cache/images/2017/08/08/09/752/trumpet-outdoors-man.jpg"
-      },
-      {
-        "id": 4,
-        "name": "Anacic Music",
-        "icon": "https://media.altphotos.com/cache/images/2017/02/03/16/752/woman-play-violin.jpg"
       },
       {
         "_id": 5,
@@ -2744,9 +2669,7 @@
       "id": "1",
       "displayName": "Ahmed",
       "followersCount": 5,
-      "images": [
-        "string"
-      ],
+      "images": ["string"],
       "verified": false,
       "type": "string"
     },
@@ -2754,9 +2677,7 @@
       "id": "2",
       "displayName": "Mido",
       "followersCount": 0,
-      "images": [
-        "string"
-      ],
+      "images": ["string"],
       "verified": false,
       "type": "string"
     }
@@ -3627,9 +3548,7 @@
           "image": "string"
         }
       ],
-      "genres": [
-        "shaaby"
-      ],
+      "genres": ["shaaby"],
       "image": "https://i.scdn.co/image/ab67616d0000b273ef029742aa2f7342b3b5daaf",
       "name": "Insan",
       "release_date": "2020-03-07",
@@ -3995,13 +3914,7 @@
     "meId": "player"
   },
   "queue1": {
-    "tracks": [
-      "dkfjnc245",
-      "dkfjnc246",
-      "dkfjnc247",
-      "dkfjnc248",
-      "dkfjnc249"
-    ],
+    "tracks": ["dkfjnc245", "dkfjnc246", "dkfjnc247", "dkfjnc248", "dkfjnc249"],
     "total": 5
   },
   "dkfjnc245": {
@@ -4105,61 +4018,454 @@
     "id": "1"
   },
   "likedkfjnc245": {
-    "items": [
-      {}
-    ],
+    "items": [{}],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc2456": {
-    "items": [
-      {}
-    ],
+    "items": [{}],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc247": {},
   "likedkfjnc248": {
-    "items": [
-      {}
-    ],
+    "items": [{}],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc249": {
+    "items": [{}],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
+  },
+  "checkkfjnc246": {
+    "IsFound": [false]
+  },
+  "checkkfjnc247": {
+    "IsFound": [true]
+  },
+  "checkkfjnc248": {
+    "IsFound": [false]
+  },
+  "checkkfjnc249": {
+    "IsFound": [true]
+  },
+  "recentsearch": {
     "items": [
-      {}
+      {
+        "_id": 1,
+        "displayName": "Recently played",
+        "type": "albums",
+        "images": [
+          "https://previews.123rf.com/images/aratehortua/aratehortua2001/aratehortua200100022/138417489-vector-cartoon-low-poly-man-with-headphones-character.jpg"
+        ]
+      },
+      {
+        "_id": 2,
+        "displayName": "Recommended playlists",
+        "type": "playlist",
+        "images": [
+          "https://previews.123rf.com/images/belchonock/belchonock1801/belchonock180143844/94540927-musical-instruments-on-wooden-background.jpg"
+        ]
+      },
+      {
+        "_id": 3,
+        "displayName": "New releases",
+        "type": "artist",
+        "images": [
+          "https://media.altphotos.com/cache/images/2017/08/08/09/752/trumpet-outdoors-man.jpg"
+        ]
+      },
+      {
+        "_id": 4,
+        "displayName": "Lolly Music",
+        "type": "playlist",
+        "images": [
+          "https://previews.123rf.com/images/cherrymerry/cherrymerry1509/cherrymerry150900034/45248626-pretty-young-teen-girl-playing-acoustic-guitar-in-the-street-.jpg"
+        ]
+      },
+      {
+        "_id": 5,
+        "displayName": "Throwback",
+        "type": "playlist",
+        "images": [
+          "https://previews.123rf.com/images/luismolinero/luismolinero1802/luismolinero180202295/96452187-happy-young-beautiful-girl-with-her-cello-on-the-outside.jpg"
+        ]
+      },
+      {
+        "_id": 6,
+        "displayName": "Popular playlists",
+        "type": "playlist",
+        "images": [
+          "https://previews.123rf.com/images/akeeris/akeeris1505/akeeris150500143/40215848-piano-lesson-asian-boy-kid-activity-playing-piano-with-notes-smiling.jpg"
+        ]
+      }
     ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
-  "checkkfjnc245": {
-    "IsFound": [
-      true
-    ]
-  },
-  "checkkfjnc246": {
-    "IsFound": [
-      false
-    ]
-  },
-  "checkkfjnc247": {
-    "IsFound": [
-      true
-    ]
-  },
-  "checkkfjnc248": {
-    "IsFound": [
-      false
-    ]
-  },
-  "checkkfjnc249": {
-    "IsFound": [
-      true
-    ]
+  "search": {
+    "tracks": [
+      {
+        "_id": "1",
+        "name": "Allen",
+        "artists": [
+          {
+            "_id": "1",
+            "displayName": "Hemdan",
+            "type": "Lol",
+            "images": [
+              "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+              "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg"
+            ]
+          }
+        ],
+        "albumId": "1",
+        "album": {
+          "_id": "1",
+          "album_type": "AJ+",
+          "artists": [
+            "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+            "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg"
+          ],
+          "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+          "name": "Lolki",
+          "type": "Jazz",
+          "released": true
+        },
+        "type": "string",
+        "duartion": 0,
+        "views": 0
+      },
+      {
+        "_id": "2",
+        "name": "Switck",
+        "artists": [
+          {
+            "_id": "1",
+            "displayName": "Hemdan",
+            "type": "Lol",
+            "images": [
+              "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+              "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg"
+            ]
+          }
+        ],
+        "albumId": "1",
+        "album": {
+          "_id": "1",
+          "album_type": "AJ+",
+          "artists": [
+            "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+            "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg"
+          ],
+          "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+          "name": "Lolki",
+          "type": "Jazz",
+          "released": true
+        },
+        "type": "string",
+        "duartion": 0,
+        "views": 0
+      },
+      {
+        "_id": "3",
+        "name": "Mint",
+        "artists": [
+          {
+            "_id": "1",
+            "displayName": "Hemdan",
+            "type": "Lol",
+            "images": [
+              "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+              "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg"
+            ]
+          }
+        ],
+        "albumId": "1",
+        "album": {
+          "_id": "1",
+          "album_type": "AJ+",
+          "artists": [
+            "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+            "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg"
+          ],
+          "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+          "name": "Lolki",
+          "type": "Jazz",
+          "released": true
+        },
+        "type": "string",
+        "duartion": 0,
+        "views": 0
+      }
+    ],
+    "albums": [
+      {
+        "_id": "1",
+        "name": "Insan",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "album_type": "album",
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "released": true,
+        "type": "Jazz"
+      },
+      {
+        "_id": "2",
+        "name": "AJ+ Hemdan",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "album_type": "album",
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "released": true,
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      }
+    ],
+    "artists": [
+      {
+        "_id": "1",
+        "genres": [],
+        "images": [
+          "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
+        ],
+        "displayName": "Hemdan",
+        "bio": "جامد",
+        "popularSongs": [],
+        "type": "artist"
+      },
+      {
+        "_id": "2",
+        "genres": [],
+        "images": [
+          "https://avatars1.githubusercontent.com/u/44725090?s=400&u=a2677e9cca270c39116195ba6e654fc7a06b8b0f&v=4"
+        ],
+        "displayName": "Arafat",
+        "bio": "جامد جامد",
+        "popularSongs": [],
+        "type": "artist"
+      },
+      {
+        "_id": "3",
+        "genres": [],
+        "images": [
+          "https://avatars3.githubusercontent.com/u/42722816?s=400&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
+        ],
+        "displayName": "Sedo",
+        "bio": "جامد جامد",
+        "popularSongs": [],
+        "type": "artist"
+      },
+      {
+        "_id": "4",
+        "genres": [],
+        "images": [
+          "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
+        ],
+        "displayName": "Ashraf",
+        "bio": "جامد جامد",
+        "popularSongs": [],
+        "type": "artist"
+      },
+      {
+        "_id": "5",
+        "genres": [],
+        "images": [
+          "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
+        ],
+        "displayName": "Walid",
+        "bio": "جامد جامد",
+        "popularSongs": [],
+        "type": "artist"
+      },
+      {
+        "_id": "6",
+        "genres": [],
+        "images": [
+          "https://scontent.fcai19-2.fna.fbcdn.net/v/t1.0-9/p960x960/75419075_1897719627038337_8834863021974093824_o.jpg?_nc_cat=101&_nc_sid=85a577&_nc_ohc=G4rymbtNixwAX-A4WIa&_nc_ht=scontent.fcai19-2.fna&_nc_tp=6&oh=995f072a66c21422eef2a0f4f9718d7a&oe=5EC6DD91"
+        ],
+        "displayName": "Mahboub",
+        "bio": "جامد جامد",
+        "popularSongs": [],
+        "type": "artist"
+      }
+    ],
+    "users": [
+      {
+        "_id": "1",
+        "displayName": "Abdallah Hemdan",
+        "followersCount": 0,
+        "images": [
+          "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
+        ],
+        "verified": false,
+        "type": "user"
+      },
+      {
+        "_id": "2",
+        "displayName": "Angela Yu",
+        "followersCount": 0,
+        "images": [
+          "https://avatars2.githubusercontent.com/u/4332182?s=400&u=9500cf9efe0264e8a38f6d9b61748073fd915f85&v=4"
+        ],
+        "verified": false,
+        "type": "user"
+      },
+      {
+        "_id": "3",
+        "displayName": "Fuboki 10",
+        "followersCount": 0,
+        "images": [
+          "https://avatars3.githubusercontent.com/u/35429211?s=400&u=9cee545bc05d72e1df089bb00c936a53295bc270&v=4"
+        ],
+        "verified": false,
+        "type": "user"
+      }
+    ],
+    "playlists": [
+      {
+        "_id": "1",
+        "name": "Jazz",
+        "owner": "1",
+        "collaborative": true,
+        "description": "Best music I have ever listened to",
+        "followersCount": 100,
+        "image": "https://angartwork.akamaized.net/webp/?id=1096371005&size=296",
+        "public": true,
+        "type": "trap",
+        "tracks": [
+          {
+            "id": "1",
+            "name": "Hat Sogara",
+            "artists": [
+              {
+                "id": "1",
+                "name": "Danny Willok",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "2",
+            "name": "Hat Sogara",
+            "artists": [
+              {
+                "id": "1",
+                "name": "Danny Willok",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          }
+        ]
+      },
+      {
+        "_id": "2",
+        "name": "Jazz",
+        "owner": "2",
+        "collaborative": true,
+        "description": "Best music I have ever listened to",
+        "followersCount": 100,
+        "image": "https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
+        "public": true,
+        "type": "trap",
+        "tracks": [
+          {
+            "id": "19",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "20",
+            "name": "سلاح التلميذ",
+            "artists": [
+              {
+                "id": "3",
+                "name": "ًWegz el wench",
+                "type": "Trap",
+                "image": "string"
+              },
+              {
+                "id": "4",
+                "name": "Amr Diab",
+                "type": "farafeery",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Trap",
+            "audioUrl": "www.facebook.com"
+          }
+        ]
+      }
+    ],
+    "limit": 0,
+    "offset": 0,
+    "total": 0
   }
 }

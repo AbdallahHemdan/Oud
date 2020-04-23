@@ -5,7 +5,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import MainContent from "../../components/MainContent/MainContent"
 import { base } from "./../../config/environment"
 import axios from "axios"
-import WebPlayer from './../../components/WebPlayer/WebPlayer';
+import LoadingSnipper from './../../components/LoadingSnipper/LoadingSnipper';
+import { config, isLoggedIn } from "./../../utils/auth"
 
 /**
  * a string to store endpoint url of getting List of Categories
@@ -87,9 +88,10 @@ class Home extends Component {
    * 
    * @return {void} returns nothing, it just store data in state
    */
-  handleStoringData = ({ items, limit, offset, total }) => {
+  handleStoringCategories = ({ items, limit, offset, total }) => {
     this.setState({ items, limit, offset, total, isLoading: false });
   }
+
 
   /**
    * Fetching data of all categories immediately after the component has been mount to the DOM tree
@@ -97,8 +99,7 @@ class Home extends Component {
   componentDidMount() {
     axios.get(fetchCategoriesUrl) // get all categories
       .then((result) => {
-        console.log("From Home ", result.data);
-        this.handleStoringData(result.data);
+        this.handleStoringCategories(result.data);
       }).catch((err) => {
         console.log(err)
       });
@@ -111,15 +112,17 @@ class Home extends Component {
    * @returns {JSX} Component for App
    */
   render() {
-    if (this.state.isLoading) {
-      return <div>Loading !!</div>
-    }
     return (
       <div>
         <Sidebar />
-        <Navbar isLoggedIn={true} />
-        <MainContent items={this.state.items} />
-        <WebPlayer />
+        <Navbar isLoggedIn={isLoggedIn()} />
+        {
+          this.state.isLoading ?
+            <LoadingSnipper /> :
+            <React.Fragment>
+              <MainContent items={this.state.items} />
+            </React.Fragment>
+        }
       </div >
     );
   }
