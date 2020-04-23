@@ -92,6 +92,7 @@ class MusicItem extends Component {
         <CategoryHeader
           name={this.state.name}
           _id={this.state._id}
+          playlists={this.state.playlists}
         />
         <CategoryBody
           playlists={this.state.playlists}
