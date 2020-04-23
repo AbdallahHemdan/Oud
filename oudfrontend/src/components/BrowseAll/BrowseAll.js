@@ -32,11 +32,11 @@ class BrowseAll extends Component {
                 data-testid="cards-wrapper"
               >
                 {
-                  this.props.items.map(item => {
+                  this.props.items.map((item, index) => {
                     return (
                       <GenreCard
                         item={item}
-                        key={item._id}
+                        key={index}
                       />
                     )
                   })
