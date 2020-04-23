@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./MusicItem.css";
-import { base } from "./../../config/environment"
-import CategoryHeader from './../CategoryHeader/CategoryHeader';
-import CategoryBody from './../CategoryBody/CategoryBody';
-import axios from "axios"
+import { base } from "./../../config/environment";
+import CategoryHeader from "./../CategoryHeader/CategoryHeader";
+import CategoryBody from "./../CategoryBody/CategoryBody";
+import axios from "axios";
 
 /**
  * component to render all the Category stuff which is a list of playlist associated with this category
@@ -32,8 +32,8 @@ class MusicItem extends Component {
     this.state = {
       /**
        * _id of the category
-       * 
-       * @type {string} 
+       *
+       * @type {string}
        */
 
       _id: _id,
@@ -70,30 +70,30 @@ class MusicItem extends Component {
    * @returns {void} - nothing to return, it just fetch data and set it in the state
    */
   componentDidMount() {
-    let fetchPlaylistsUrlMocking = `${base}/browse/categories/${this.state._id}/playlists`
-    axios.get(fetchPlaylistsUrlMocking)
+    let fetchPlaylistsUrlMocking = `${base}/browse/categories/${this.state._id}/playlists`;
+    axios
+      .get(fetchPlaylistsUrlMocking)
       .then((result) => {
         this.handleStoringPlaylists(result.data);
-      }).catch((err) => {
-        console.log(err)
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 
   /**
-     * @function
-     * @name render
-     * @description Render all the playlists of a specific category which it's defined by its _id 
-     * 
-     * @returns {JSX} Component for Home
-     */
+   * @function
+   * @name render
+   * @description Render all the playlists of a specific category which it's defined by its _id
+   *
+   * @returns {JSX} Component for Home
+   */
   render() {
     return (
       <div className="module">
-        <CategoryHeader
-          name={this.state.name}
-          _id={this.state._id}
-        />
+        <CategoryHeader name={this.state.name} _id={this.state._id} />
         <CategoryBody
+          webPlayer={this.props.webPlayer}
           playlists={this.state.playlists}
         />
       </div>
@@ -102,6 +102,3 @@ class MusicItem extends Component {
 }
 
 export default MusicItem;
-
-
-

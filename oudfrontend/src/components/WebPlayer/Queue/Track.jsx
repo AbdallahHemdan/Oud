@@ -86,6 +86,7 @@ class Track extends Component {
    */
   handlePlayButton = () => {
     this.togglePlay();
+    console.log("idx: " + this.props.idx);
     this.props.changePlayingState(this.state.playing);
     this.props.playTrack.current.handlePlayPause(this.props.id, this.props.idx);
   };

@@ -46,6 +46,7 @@ class Player extends Component {
       art: placeHolder,
       muteProgress: 0,
       loved: false,
+      context: "",
     };
   }
   /**
@@ -117,6 +118,7 @@ class Player extends Component {
     return this.props
       .getRequest(`${base}/me/player`)
       .then((response) => {
+        console.log("response");
         console.log(response);
         const data = response["data"]["player"];
         if (!data.hasOwnProperty("status")) {
@@ -145,6 +147,7 @@ class Player extends Component {
             muteState: false,
             fetched: true,
             trackId: track["_id"],
+            context: `oud:${response.data.player.context.type}:${response.data.player.context.id}`,
           });
           this.props.changePlayingState(false);
           this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
@@ -222,7 +225,8 @@ class Player extends Component {
    */
   playResumeRequest = (idx) => {
     console.log("idx from request: " + idx);
-    return this.props.putRequest(`${base}/me/player/play`, {
+    return this.props.putRequest(`${base}/me/player/play?queueIndex=0`, {
+      contextUri: this.state.context,
       offset: { position: idx },
     });
   };
@@ -277,7 +281,7 @@ class Player extends Component {
    * @returns{void}
    */
   handlePlayPause = (id = this.props.trackId, idx = this.props.trackIdx) => {
-    if (id !== this.props.trackId) {
+    if (idx !== this.props.trackIdx) {
       console.log("play pause queue track idx: " + idx);
       if (sound) {
         sound.pause();

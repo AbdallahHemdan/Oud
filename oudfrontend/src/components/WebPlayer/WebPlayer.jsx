@@ -192,21 +192,21 @@ class WebPlayer extends Component {
     contextUri = this.state.context,
     uris = [],
     offset = 0,
-    position = 0
+    position = 0,
+    isTracksList = false
   ) => {
-    this.putRequest(`${base}/me/player/play?queueIndex=0`, {
+    this.putRequest(`${base}/me/player/play`, {
       contextUri: contextUri,
-      uris: uris,
       offset: { position: offset },
-      positionMs: position,
     })
       .then((response) => {
         // this.fetchQueue();
         let player = this.playerElement.current;
-        player.fetchPlayback(true);
-        setTimeout(() => {
-          player.playTrack();
-        }, 100);
+        player.fetchPlayback(true).then((audioUrl) => {
+          setTimeout(() => {
+            player.playTrack(audioUrl);
+          }, 100);
+        });
       })
       .catch((error) => {
         console.log(error.response.data.message);

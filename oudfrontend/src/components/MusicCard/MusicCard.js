@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./MusicCard.css";
-import { Link, withRouter } from "react-router-dom"
-import { base, subUrl, prodUrl } from "./../../config/environment"
+import { Link, withRouter } from "react-router-dom";
+import { base, subUrl, prodUrl } from "./../../config/environment";
 
 /**
  * Music card component which render and display the playlist card of a specific category
@@ -27,23 +27,21 @@ class MusicCard extends Component {
    * @param {string} type - The type of the playlist
    */
   constructor(props) {
-    super(props)
-    const
-      {
-        _id,
-        name,
-        owner,
-        collaborative,
-        description,
-        isPublic,
-        type,
-        image
-
-      } = this.props.item;
+    super(props);
+    const {
+      _id,
+      name,
+      owner,
+      collaborative,
+      description,
+      isPublic,
+      type,
+      image,
+    } = this.props.item;
     this.state = {
       /**
        * The _id of the playlist
-       * 
+       *
        * @type {string}
        */
       _id: _id,
@@ -98,8 +96,8 @@ class MusicCard extends Component {
        */
       type: type,
       playBtn: this.props.playBtn,
-      isHidden: this.props.isHidden
-    }
+      isHidden: this.props.isHidden,
+    };
   }
 
   /**
@@ -113,7 +111,7 @@ class MusicCard extends Component {
    */
   handlePlaylistClick = () => {
     this.props.history.push(`${this.state.type}/${this.state._id}`);
-  }
+  };
 
   /**
    * Function to handle playing music on clicking on
@@ -127,10 +125,12 @@ class MusicCard extends Component {
   handlePlayClick = (e) => {
     e.stopPropagation();
 
-    const playlistId = this.state.id,
-      contextUri = {
-        context_uri: `oud:playlist:${playlistId}`,
-      };
+    //after everything is this id should be variable
+    const playlistId = "5e6dea511e17a305285ba616",
+      contextUri = `oud:playlist:${playlistId}`;
+    // {
+    //   context_uri: `oud:playlist:${playlistId}`,
+    // };
     this.props.webPlayer.current.playContext(contextUri, [], 0, 0);
     console.log("🎵 music is playing now");
   };
@@ -145,33 +145,28 @@ class MusicCard extends Component {
    * @returns {JSX} Component for App
    */
   render() {
-    const subPath = (base === prodUrl) ? subUrl : "";
-    const cardClass = (this.state.isHidden) ? "hidden-card" : "card"
+    const subPath = base === prodUrl ? subUrl : "";
+    const cardClass = this.state.isHidden ? "hidden-card" : "card";
     return (
-      <div
-        className="card-container"
-        data-testid="card-container"
-      >
-        <div className={cardClass}
-          data-testid={cardClass}
-        >
+      <div className="card-container" data-testid="card-container">
+        <div className={cardClass} data-testid={cardClass}>
           <div
             className="overlayer"
             onClick={this.handlePlaylistClick}
             data-testid="overlay"
           >
-            {this.state.playBtn ? < button
-              className="play-btn"
-              onClick={this.handlePlayClick}
-              data-testid="play-btn"
-            >
-              <i
-                className="fa fa-play-circle play-circle"
-                data-testid="play-circle"
-              ></i>
-            </button>
-              :
-              null}
+            {this.state.playBtn ? (
+              <button
+                className="play-btn"
+                onClick={this.handlePlayClick}
+                data-testid="play-btn"
+              >
+                <i
+                  className="fa fa-play-circle play-circle"
+                  data-testid="play-circle"
+                ></i>
+              </button>
+            ) : null}
           </div>
           <img
             src={`${subPath}${this.state.image}`}

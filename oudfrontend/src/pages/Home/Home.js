@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import "./Home.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
-import MainContent from "../../components/MainContent/MainContent"
-import { base } from "./../../config/environment"
-import axios from "axios"
-import LoadingSnipper from './../../components/LoadingSnipper/LoadingSnipper';
-import { config, isLoggedIn } from "./../../utils/auth"
+import MainContent from "../../components/MainContent/MainContent";
+import { base } from "./../../config/environment";
+import axios from "axios";
+import LoadingSnipper from "./../../components/LoadingSnipper/LoadingSnipper";
+import { config, isLoggedIn } from "./../../utils/auth";
 
 /**
  * a string to store endpoint url of getting List of Categories
@@ -89,7 +89,6 @@ class Home extends Component {
     this.setState({ items, limit, offset, total, isLoading: false });
   };
 
-
   /**
    * Fetching data of all categories immediately after the component has been mount to the DOM tree
    */
@@ -98,8 +97,9 @@ class Home extends Component {
       .get(fetchCategoriesUrl) // get all categories
       .then((result) => {
         this.handleStoringCategories(result.data);
-      }).catch((err) => {
-        console.log(err)
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 
@@ -114,14 +114,17 @@ class Home extends Component {
       <div>
         <Sidebar />
         <Navbar isLoggedIn={isLoggedIn()} />
-        {
-          this.state.isLoading ?
-            <LoadingSnipper /> :
-            <React.Fragment>
-              <MainContent items={this.state.items} />
-            </React.Fragment>
-        }
-      </div >
+        {this.state.isLoading ? (
+          <LoadingSnipper />
+        ) : (
+          <React.Fragment>
+            <MainContent
+              items={this.state.items}
+              webPlayer={this.props.webPlayer}
+            />
+          </React.Fragment>
+        )}
+      </div>
     );
   }
 }
