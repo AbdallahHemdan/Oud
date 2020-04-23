@@ -47,6 +47,8 @@ class Player extends Component {
       muteProgress: 0,
       loved: false,
       context: "",
+      actions: null,
+      type: "track",
     };
   }
   /**
@@ -99,7 +101,12 @@ class Player extends Component {
       current: Number(0).toFixed(2),
     });
     if (this.state.repeatState === 1) this.handleNext();
-    else if (this.state.repeatState === 2) sound.loop(true);
+    else if (this.state.type === "ad") {
+      this.setState({
+        actions: null,
+      });
+      this.handleNext();
+    } else if (this.state.repeatState === 2) sound.loop(true);
     else sound.loop(false);
   };
   onSeek = () => {
@@ -129,12 +136,19 @@ class Player extends Component {
               (data["progressMs"] / track["duartion"]) * 100
             ),
             playing: false, //outPlayer ? true : data["isPlaying"],
+            type: response.data.player.item.type,
             current: Number(data["progressMs"] / 60000).toFixed(2),
             trackName: response.data.player.item.name,
-            artistName: response.data.player.item.artists[0].displayName,
-            art: `https://oud-zerobase.me/api/${response.data.player.item.artists[0].images[0]}`
-              .replace(/ /g, "%20")
-              .replace(/\\/g, "/"),
+            artistName:
+              response.data.player.item.type === "ad"
+                ? "Oud"
+                : response.data.player.item.artists[0].displayName,
+            art:
+              response.data.player.item.type === "ad"
+                ? response.data.player.item.image
+                : `https://oud-zerobase.me/api/${response.data.player.item.artists[0].images[0]}`
+                    .replace(/ /g, "%20")
+                    .replace(/\\/g, "/"),
             duration: Number(track["duration"] / 60000).toFixed(2),
             shuffleState: data["shuffleState"],
             repeatState:
@@ -148,6 +162,7 @@ class Player extends Component {
             fetched: true,
             trackId: track["_id"],
             context: `oud:${response.data.player.context.type}:${response.data.player.context.id}`,
+            actions: response.data.player.actions,
           });
           this.props.changePlayingState(false);
           this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
@@ -222,7 +237,7 @@ class Player extends Component {
   playResumeRequest = (idx) => {
     console.log("idx from request: " + idx);
     return this.props.putRequest(`${base}/me/player/play?queueIndex=0`, {
-      contextUri: this.state.context,
+      // contextUri: this.state.context,
       offset: { position: idx },
     });
   };
@@ -277,6 +292,11 @@ class Player extends Component {
    * @returns{void}
    */
   handlePlayPause = (id = this.props.trackId, idx = this.props.trackIdx) => {
+    if (
+      this.state.actions &&
+      (!this.state.actions.pausing || !this.state.actions.pausing.resuming)
+    )
+      return;
     if (idx !== this.props.trackIdx) {
       if (sound) {
         sound.pause();
@@ -288,9 +308,11 @@ class Player extends Component {
       }
       this.playResumeRequest(idx)
         .then((resp) => {
-          this.fetchPlayback().then((audio) => {
-            setTimeout(() => this.playTrack(audio), 100);
-          });
+          setTimeout(() => {
+            this.fetchPlayback().then((audio) => {
+              setTimeout(() => this.playTrack(audio), 100);
+            });
+          }, 100);
         })
         .catch((error) => {
           console.log(error.response);
@@ -317,6 +339,7 @@ class Player extends Component {
    * @returns {void}
    */
   handleNext = () => {
+    if (this.state.actions && !this.state.actions.skipping_next) return;
     this.props
       .postRequest(`${base}/me/player/next`)
       .then((response) => {
@@ -345,6 +368,7 @@ class Player extends Component {
    * @returns {void}
    */
   handlePrev = () => {
+    if (this.state.actions && !this.state.actions.skipping_prev) return;
     this.props
       .postRequest(`${base}/me/player/previous`)
       .then((response) => {
@@ -374,6 +398,7 @@ class Player extends Component {
    * @returns {void}
    */
   onProgressClick = (e) => {
+    if (this.state.actions && !this.state.actions.seeking) return;
     // e.preventDefault();
     if (!this.state.mouseDown) return;
     const width = document.getElementById("progress-width").clientWidth;
@@ -414,6 +439,7 @@ class Player extends Component {
    * @returns {void}
    */
   handleShuffleState = () => {
+    if (this.state.actions && !this.state.actions.toggling_shuffle) return;
     this.props
       .putRequest(`${base}/me/player/shuffle?state=${!this.state.shuffleState}`)
       .then((response) => {
@@ -435,6 +461,12 @@ class Player extends Component {
    * @returns {void}
    */
   handleRepeatState = () => {
+    if (
+      this.state.actions &&
+      (!this.state.actions.toggling_repeat_context ||
+        !this.state.actions.toggling_repeat_track)
+    )
+      return;
     const repeatState = (this.state.repeatState + 1) % 3;
     const state =
       repeatState === 0 ? "off" : repeatState === 1 ? "context" : "track";

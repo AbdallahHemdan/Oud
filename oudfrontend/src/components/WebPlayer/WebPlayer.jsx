@@ -196,11 +196,13 @@ class WebPlayer extends Component {
       .then((response) => {
         // this.fetchQueue();
         let player = this.playerElement.current;
-        player.fetchPlayback(true).then((audioUrl) => {
-          setTimeout(() => {
-            player.playTrack(audioUrl);
-          }, 100);
-        });
+        setTimeout(() => {
+          player.fetchPlayback(true).then((audioUrl) => {
+            setTimeout(() => {
+              player.playTrack(audioUrl);
+            }, 100);
+          });
+        }, 100);
       })
       .catch((error) => {
         console.log(error.response.data.message);
