@@ -20,6 +20,7 @@
   "/browse/categories/9/playlists": "/9",
   "/browse/categories/10/playlists": "/10",
   "/me/player": "/player",
+  "/me/recentsearch": "recentsearch",
   "/me/player/currently-playing": "/currently-playing",
   "/me/player/next?deviceId=74ASZWbe4lXaubB36ztrGX": "/next",
   "/me/player/previous?deviceId=74ASZWbe4lXaubB36ztrGX": "/previous",

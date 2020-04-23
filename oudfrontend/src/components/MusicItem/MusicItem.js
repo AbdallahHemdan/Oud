@@ -90,8 +90,12 @@ class MusicItem extends Component {
    */
   render() {
     return (
-      <div className="module">
-        <CategoryHeader name={this.state.name} _id={this.state._id} />
+      <div className="module" data-testid="music-item-container">
+        <CategoryHeader
+          name={this.state.name}
+          _id={this.state._id}
+          playlists={this.state.playlists}
+        />
         <CategoryBody
           webPlayer={this.props.webPlayer}
           playlists={this.state.playlists}

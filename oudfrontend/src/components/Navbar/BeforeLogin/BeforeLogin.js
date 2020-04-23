@@ -16,7 +16,11 @@ function BeforeLogin(props) {
             className="form-inline my-2 my-lg-0"
             data-testid="before-login"
         >
-            <Link to="/signin" className="signup-signin-link" data-testid="login-link">
+            <Link
+                to="/signin"
+                className="signup-signin-link"
+                data-testid="login-link"
+            >
                 <button
                     className="btn oud-btn my-2 my-sm-0 mr-3 login-signup-btn signin"
                     type="submit"
@@ -35,7 +39,6 @@ function BeforeLogin(props) {
                     type="submit"
                     data-testid="signup-btn"
                 >
-
                     Sign up
                 </button>
             </Link>

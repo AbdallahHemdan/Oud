@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
-import GenreCard from "./../GenreCard/GenreCard"
+import Sidebar from './../Sidebar/Sidebar';
+import Navbar from './../Navbar/Navbar';
 import RecentSearchCard from "./../RecentSearchCard/RecentSearchCard"
-import LoadingSnipper from './../LoadingSnipper/LoadingSnipper';
 import axios from "axios"
 import { config } from "./../../utils/auth"
 import { base, prodUrl } from "./../../config/environment"
-import { Link } from 'react-router-dom';
-// import "./RecentSearch.css"
-
 const fetchRecentSearchesUrl = (base === prodUrl) ? `${base}/me/search/recent` : `${base}/recentsearch`;
 
-class RecentSearch extends Component {
+class SeeAllRecentSearches extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       items: [],
       limit: 0,
@@ -23,6 +21,7 @@ class RecentSearch extends Component {
   }
   handleStoringRecent = ({ items, limit, offset, total }) => {
     this.setState({ items, limit, offset, total, isLoading: false });
+    console.log("Recent Search state", this.state)
   }
   componentDidMount() {
     axios.get(fetchRecentSearchesUrl, config)
@@ -36,32 +35,24 @@ class RecentSearch extends Component {
   render() {
     return (
       <React.Fragment>
-        {
-          (this.state.isLoading) ?
-            <LoadingSnipper />
-            :
+        <Sidebar />
+        <Navbar isLoggedIn={true} />
+        <section
+          className="main-content"
+          data-testid="main-content"
+        >
+          <section
+            className="music-component main"
+            data-testid="music-content"
+          >
             <div className="module">
               <div className="row"
-                data-testid="category-header "
+                data-testid="category-header"
               >
-                <h1
-                  className="gray-white item-name"
+                <h1 className="gray-white item-name"
                   data-testid="category-title"
-                >
-                  Recent Search
-                  </h1>
-
-                {
-                  (this.state.items.length >= 6) ?
-                    <Link to={`/recent-search`}>
-                      <div className="see-more"
-                        data-testid="category-see-all"
-                      >See All</div>
-                    </Link> : null
-                }
+                >Recent Search</h1>
               </div>
-
-
               <div
                 className="wrapper"
                 data-testid="first-wrapper">
@@ -72,10 +63,10 @@ class RecentSearch extends Component {
                     data-testid="cards-wrapper"
                   >
                     {
-                      this.state.items.splice(0, 6).map((item, index) => {
+                      this.state.items.map((playlist, index) => {
                         return (
                           <RecentSearchCard
-                            item={item}
+                            item={playlist}
                             key={index}
                           />
                         )
@@ -85,10 +76,11 @@ class RecentSearch extends Component {
                 </div>
               </div>
             </div>
-        }
+          </section>
+        </section>
       </React.Fragment>
     )
   }
 }
 
-export default RecentSearch
+export default SeeAllRecentSearches

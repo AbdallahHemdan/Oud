@@ -13,6 +13,7 @@ function CategoryBody({ playlists, webPlayer }) {
                 item={playlist}
                 key={playlist._id}
                 playBtn={true}
+                data-testid="music-card-item"
               />
             );
           })}
