@@ -3,7 +3,7 @@ import UserExperienceForm from "../UserExperinceForm/UserExperinceForm";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./AccountOverview.css";
-import { config } from "./../../../../utils/auth";
+import { isLoggedIn, config } from "./../../../../utils/auth";
 
 /**
  * @param {string} email
@@ -20,7 +20,7 @@ let ProfileInfo = {
 /**
  * @type {Function}
  * @param {*} props
- * @returns {HTMLElement} Prfile Element such that name , birth date ,email ,etc
+ * @returns {JSX} Prfile Element such that name , birth date ,email ,etc
  */
 function ProfileElement(props) {
   return (
@@ -36,7 +36,7 @@ function ProfileElement(props) {
 }
 /**
  * @type {Function}
- * @returns {HTMLElement} Profile Data containes email , birth date , country
+ * @returns {JSX} Profile Data containes email , birth date , country
  */
 function Profile() {
   return (
@@ -58,7 +58,7 @@ function Profile() {
 }
 /**
  * @type {Function}
- * @returns {HTMLElement} your plan card
+ * @returns {JSX} your plan card
  */
 function YourPlan() {
   return (
@@ -85,10 +85,15 @@ function YourPlan() {
     </div>
   );
 }
+function LogOut() {
+  localStorage.removeItem("accessToken");
+  window.location = window.location;
+}
 /**
  * @type {Function}
- * @returns {HTMLElement} sign out everywhere card
+ * @returns {JSX} sign out everywhere card
  */
+
 function SignOutEverywhere() {
   return (
     <div className="accountCard">
@@ -104,20 +109,33 @@ function SignOutEverywhere() {
           from a partner device, check the device’s manufacturer guide.
         </p>
       </div>
-      <Link to="/redirectPage">
-        <button
-          type="button"
-          className="btn btn-outline-warning overviewButton"
-        >
-          SIGN OUT
-        </button>
-      </Link>
+
+      <button
+        type="button"
+        className="btn btn-outline-warning overviewButton"
+        onClick={LogOut}
+      >
+        SIGN OUT
+      </button>
     </div>
   );
 }
+
+function AllowNotifications() {
+  return (
+    <div className="accountCard">
+      <h2>Allow activity notifications</h2>
+      <p> keep following Your friends activities!</p>
+      <button type="button" className="btn btn-outline-warning overviewButton">
+        ALLOW
+      </button>
+    </div>
+  );
+}
+
 /**
  * @type {Class}
- * @returns {HTMLElement} Account over view Page
+ * @returns {JSX} Account over view Page
  */
 
 class AccountOverview extends Component {
@@ -156,6 +174,7 @@ class AccountOverview extends Component {
         <Profile data-test="Profile" />
         <YourPlan data-test="YourPlan" />
         <SignOutEverywhere data-test="SignOutEverywhere" />
+        <AllowNotifications />
         <UserExperienceForm data-test="UserExperienceForm" />
       </div>
     );
