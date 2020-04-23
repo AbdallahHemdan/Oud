@@ -100,7 +100,7 @@ class Song extends Component {
     let timeInt = parseInt(timeString)/1000
     let minutes = parseInt(timeInt/60);
     let seconds = timeInt - 60*minutes
-    return `${minutes}:${seconds}`
+    return `${minutes}:${parseInt(seconds)}`
   }
   /**
    *if the recieved props is changed it sets state.clicked to true or
