@@ -97,7 +97,7 @@ class Song extends Component {
       this.setState({duration:duration})
   }
   convertTime(timeString){
-    let timeInt = parseInt(timeString)/1000
+    let timeInt = parseInt(timeString/1000)
     let minutes = parseInt(timeInt/60);
     let seconds = timeInt - 60*minutes
     return `${minutes}:${parseInt(seconds)}`
