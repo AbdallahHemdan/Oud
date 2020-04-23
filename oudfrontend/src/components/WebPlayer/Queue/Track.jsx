@@ -60,8 +60,6 @@ class Track extends Component {
     axios
       .get(`${base}/tracks/${this.props.id}`, config)
       .then((response) => {
-        console.log("track");
-        console.log(response);
         const track = response.data;
         this.setState({
           image:
@@ -86,7 +84,6 @@ class Track extends Component {
    */
   handlePlayButton = () => {
     this.togglePlay();
-    console.log("idx: " + this.props.idx);
     this.props.changePlayingState(this.state.playing);
     this.props.playTrack.current.handlePlayPause(this.props.id, this.props.idx);
   };

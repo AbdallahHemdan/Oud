@@ -97,7 +97,6 @@ class WebPlayer extends Component {
         if (!data.hasOwnProperty("status")) {
           const size = data["total"];
           let trackIdx = 0;
-          console.log("track id: " + trackId);
           for (let i = 0; i < size; ++i)
             if (data["tracks"][i] === trackId) {
               trackIdx = i;
@@ -147,9 +146,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   getNext = () => {
-    console.log("before any thing: " + this.state.trackIdx);
     let idx = this.state.trackIdx + 1;
-    console.log("idx from get next before edit: " + idx);
     if (
       idx === this.state.queue.length &&
       this.playerElement.current.state.repeatState === 1
@@ -161,7 +158,6 @@ class WebPlayer extends Component {
       trackIdx: idx,
       trackId: this.state.queue[idx],
     });
-    console.log("idx from get next: " + idx);
     return idx;
   };
   /**
@@ -170,13 +166,11 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   getPrevious = () => {
-    console.log("before any thing: " + this.state.trackIdx);
     const idx = this.state.trackIdx - 1 < 0 ? 0 : this.state.trackIdx - 1;
     this.setState({
       trackIdx: idx,
       trackId: this.state.queue[idx],
     });
-    console.log("idx from get prev: " + idx);
     return idx;
   };
   /**

@@ -152,8 +152,6 @@ class Player extends Component {
           this.props.changePlayingState(false);
           this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
           // this.handleSaveToLikedSongs();
-          console.log("audio: ");
-          console.log(track["audioUrl"]);
           return track["audioUrl"];
         }
       })
@@ -186,8 +184,6 @@ class Player extends Component {
     if (sound) {
       sound.unload();
     }
-    console.log("state before howler: ");
-    console.log(this.state);
     sound = setupHowler(
       audio,
       this.state,
@@ -282,7 +278,6 @@ class Player extends Component {
    */
   handlePlayPause = (id = this.props.trackId, idx = this.props.trackIdx) => {
     if (idx !== this.props.trackIdx) {
-      console.log("play pause queue track idx: " + idx);
       if (sound) {
         sound.pause();
         sound.unload();
@@ -294,8 +289,6 @@ class Player extends Component {
       this.playResumeRequest(idx)
         .then((resp) => {
           this.fetchPlayback().then((audio) => {
-            console.log("audio fron then: ");
-            console.log(audio);
             setTimeout(() => this.playTrack(audio), 100);
           });
         })
