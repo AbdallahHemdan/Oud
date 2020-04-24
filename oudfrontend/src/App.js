@@ -18,9 +18,9 @@ import ForgotPassword from "./components/Login&Signup/ForgetPassword/ForgotPassw
 import ResetPassword from "./components/Login&Signup/ForgetPassword/resetPassword";
 import Entered from "./components/Login&Signup/logined/entered";
 import Islinked from "./components/Login&Signup/linkisSent";
-import WhyGoPremium from "./components/Premium/WhyGoPremium/WhyGoPremium";
-import GetPremium from "./components/Premium/GetPremium/GetPremium";
-import Ads from "./components/Premium/Ads/Ads";
+import WhyGoPremium from "./components/Premium/Component/WhyGoPremium/WhyGoPremium";
+import GetPremium from "./components/Premium/Component/GetPremium/GetPremium";
+import Ads from "./components/Premium/Component/Ads/Ads";
 import Welcome from "./pages/Welcome/welcome";
 import "./App.css";
 import {

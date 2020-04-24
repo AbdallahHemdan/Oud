@@ -1,16 +1,50 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { base, subUrl, prodUrl } from "./../../../config/environment";
+import axios from "axios";
+import { config } from "../../../utils/auth";
 
 export class AfterLogin extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { privateSession: false };
+  }
+  /**
+   * author: mahboub
+   * sets the state {privateSession} from axios
+   */
+  componentDidMount() {
+    axios
+      .get("https://oud-zerobase.me/api/v1/me", config)
+      .then(response => {
+        this.setState({ privateSession: response.data.privateSession });
+      })
+      .catch(error => {
+        console.log(error.response);
+      });
+  }
   handleLogOut = e => {
     localStorage.removeItem("accessToken");
   };
-  //author:Mahboub
-  //TODO
-  //Make Put request when backend finish
+  /**
+   * author: mahboub
+   * change the private session to be inverse the current value on click
+   */
   handlePrivateSession = event => {
-    console.log("should be put request");
+    axios
+      .put(
+        "https://oud-zerobase.me/api/v1/me/privateSession",
+        { privateSession: !this.state.privateSession },
+        config
+      )
+      .then(response => {
+        console.log(response);
+        window.location = window.location;
+      })
+      .catch(error => {
+        console.log(error.response);
+      });
   };
   render() {
     const userInformation = this.props.userInfo ? this.props.userInfo : null;
@@ -92,6 +126,12 @@ export class AfterLogin extends Component {
             {displayName}
           </h1>
         </a>
+        {this.state.privateSession && (
+          <i
+            class="fas fa-user-shield"
+            style={{ padding: "5px", color: "#FFCE00" }}
+          ></i>
+        )}
       </form>
     );
   }

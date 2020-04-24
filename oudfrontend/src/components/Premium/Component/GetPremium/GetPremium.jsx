@@ -1,11 +1,16 @@
 import React, { Component } from "react";
-import NavBar from "../../Welcome/Navbar/Navbar";
-import OudCoin from "../../../assets/images/Oud Coin.svg";
+import NavBar from "../../../Welcome/Navbar/Navbar";
+import OudCoin from "../../../../assets/images/Oud Coin.svg";
 import axios from "axios";
-import { config, isLoggedIn } from "./../../../utils/auth";
-import EditProfileTextElement from "./../../Account/Components/EditProfileTextElement/EditProfileTextElement";
+import { config, isLoggedIn } from "../../../../utils/auth";
+import EditProfileTextElement from "../../../../components/Account/Components/EditProfileTextElement/EditProfileTextElement";
 import "./GetPremium.css";
 
+/**
+ * @function
+ * @param {*} props
+ * renders the iamge for the feature
+ */
 function GetPremiumItem(props) {
   return (
     <span className="getPremium-item">
@@ -14,7 +19,10 @@ function GetPremiumItem(props) {
     </span>
   );
 }
-
+/**
+ * @function
+ * renders the upper part of the get permium page
+ */
 function GetPremiumUpperContainer() {
   return (
     <div className="getPremium-UppeerContainer">
@@ -27,7 +35,11 @@ function GetPremiumUpperContainer() {
     </div>
   );
 }
-
+/**
+ *
+ * @param {*} props
+ * renders the  part of the get permium page
+ */
 function GetPremiumLowerContainer(props) {
   return (
     <div className="getPremium-lowerContainer">
@@ -48,7 +60,7 @@ function GetPremiumLowerContainer(props) {
           </p>
 
           <EditProfileTextElement
-            id="displayName"
+            id="chargeId"
             value={props.value}
             class="editInput"
             type="text"
@@ -100,10 +112,22 @@ function GetPremiumLowerContainer(props) {
     </div>
   );
 }
+/**
+ * @class
+ * renders the get premium page
+ */
 class GetPremium extends Component {
   constructor(props) {
     super(props);
 
+    /**
+     * state:
+     * -couponeId: [string] id for chargeing coupone
+     * -formError:[string] message if the id is invalid or the id is used
+     * -subscribeMessage:[string] message if there is something wrong with subscribing paln
+     * -credit:[number] the number of the current oud coins for the current user
+     * -paln:[strinf] the end date for the premium plan
+     */
     this.state = {
       couponeId: "",
       formError: "",
@@ -115,6 +139,11 @@ class GetPremium extends Component {
     this.handleCouponeChange = this.handleCouponeChange.bind(this);
     this.handleClickStart = this.handleClickStart.bind(this);
   }
+  /**
+   * @function
+   * @param {*} event
+   * send request to get coins withe the input id
+   */
   handleSubmit(event) {
     event.preventDefault();
     axios
@@ -134,10 +163,18 @@ class GetPremium extends Component {
         this.setState({ formError: error.response.data.message });
       });
   }
+  /**
+   * @function
+   * @param {*} event
+   * set the couponeId with the input
+   */
   handleCouponeChange(event) {
     this.setState({ couponeId: event.target.value });
   }
 
+  /**
+   * sends request to set credit and plan
+   */
   componentDidMount() {
     axios
       .get("https://oud-zerobase.me/api/v1/me", config)
@@ -152,6 +189,11 @@ class GetPremium extends Component {
         console.log(error.response);
       });
   }
+  /**
+   *
+   * @param {*} event
+   * sends request to subscribe premium plan
+   */
   handleClickStart(event) {
     axios
       .patch("https://oud-zerobase.me/api/v1/me/premium/subscribe", {}, config)
@@ -163,16 +205,21 @@ class GetPremium extends Component {
         this.setState({ subscribeMessage: error.response.data.message });
       });
   }
+  /**
+   * @function
+   * renders the getPremium page
+   */
   render() {
     console.log(this.state);
     if (!isLoggedIn()) {
       window.location = "/signin";
     }
     return (
-      <div className="getPremium-Container">
+      <div className="getPremium-Container" data-test="getPremium">
         <NavBar alpha={0} />
-        <GetPremiumUpperContainer />
+        <GetPremiumUpperContainer data-test="getPremiumUpperContainer" />
         <GetPremiumLowerContainer
+          data-test="getPremiumLowerContainer"
           getCoins={this.handleSubmit}
           onChange={this.handleCouponeChange}
           onClick={this.handleClickStart}

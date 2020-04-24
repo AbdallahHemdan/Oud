@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import NavBar from "../../Welcome/Navbar/Navbar";
-import OudCoin from "../../../assets/images/Oud Coin.svg";
-import OudLogo from "../../../assets/images/Oud.ico";
-import feature1 from "../../../assets/images/benefit_1.png";
-import feature2 from "../../../assets/images/benefit_2.png";
-import feature3 from "../../../assets/images/benefit_3.png";
-import feature4 from "../../../assets/images/benefit_4.png";
+import NavBar from "../../../Welcome/Navbar/Navbar";
+import OudCoin from "../../../../assets/images/Oud Coin.svg";
+import OudLogo from "../../../../assets/images/Oud.ico";
+import feature1 from "../../../../assets/images/benefit_1.png";
+import feature2 from "../../../../assets/images/benefit_2.png";
+import feature3 from "../../../../assets/images/benefit_3.png";
+import feature4 from "../../../../assets/images/benefit_4.png";
 
 import "./WhyGoPremium.css";
 
+/**
+ * @function
+ * renders the upper part of the oPremium page
+ */
 function GoPremiumUpperContainer() {
   return (
     <div className="goPremiumUpperContainer">
@@ -31,7 +35,11 @@ function GoPremiumUpperContainer() {
     </div>
   );
 }
-
+/**
+ * @function
+ * @param {*} props
+ * renders a feature card that describe feature
+ */
 function FeatureCard(props) {
   return (
     <div className="goPremium-featureCard">
@@ -41,6 +49,11 @@ function FeatureCard(props) {
     </div>
   );
 }
+/**
+ * @function
+ * @param {*} props
+ * renders a feature card that describe feature
+ */
 function ListItem(props) {
   return (
     <li>
@@ -49,6 +62,10 @@ function ListItem(props) {
     </li>
   );
 }
+/**
+ * @function
+ * renders the lower part of go premium page
+ */
 function GoPremiumLoWerCotainer() {
   return (
     <div className="goPremiumLowerContainer">
@@ -107,6 +124,10 @@ function GoPremiumLoWerCotainer() {
   );
 }
 
+/**
+ * @function
+ * renders the footer for the go premium page
+ */
 function Footer() {
   var d = new Date();
   return (
@@ -118,15 +139,26 @@ function Footer() {
     </div>
   );
 }
-
+/**
+ * @class
+ * renders goPremium page
+ */
 class WhyGoPremium extends Component {
   constructor(props) {
     super(props);
 
+    /**
+     * state:
+     * scrolled:[number] if the page is scrolled  or not 1 - 0
+     */
     this.state = {
       scrolled: 1
     };
   }
+  /**
+   * @function
+   * if the page is scrooled set scrolled :0 else set the scrolled: 1
+   */
   componentDidMount() {
     window.addEventListener("scroll", () => {
       const isTop = window.scrollY < 80;
@@ -136,14 +168,17 @@ class WhyGoPremium extends Component {
       } else this.setState({ scrolled: 1 });
     });
   }
-
+  /**
+   * @function
+   * renders the goPremium page
+   */
   render() {
     return (
-      <div className="goPremiumContainer">
+      <div className="goPremiumContainer" data-test="goPremium">
         <NavBar alpha={this.state.scrolled} />
-        <GoPremiumUpperContainer />
-        <GoPremiumLoWerCotainer />
-        <Footer />
+        <GoPremiumUpperContainer data-test="goPremiumUpperContainer" />
+        <GoPremiumLoWerCotainer data-test="goPremiumLowerContainer" />
+        <Footer data-test="goPremiumFooter" />
       </div>
     );
   }
