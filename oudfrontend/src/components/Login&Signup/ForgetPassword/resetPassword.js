@@ -36,23 +36,9 @@ class ResetPassword extends Component {
    */
   ConfirmPasswordHandel = (event) => {
     this.setState({ConfirmPassword: event.target.value});
-
-    if (event.target.value !== this.state.Password) {
-      this.setState({
-        formErrors: {
-          PasswordError: this.state.formErrors.PasswordError,
-          ConfirmPasswordError: 'Invalid  ,Password not matched',
-        },
-      });
-    } else {
-      this.setState({
-        formErrors: {
-          PasswordError: this.state.formErrors.PasswordError,
-          ConfirmPasswordError: '',
-        },
-      });
-    }
+    Validator.validateConfirmPassword(event.target.value, this);
   };
+
   /**
    * check if the two passwords are the same
    * @function
@@ -111,6 +97,7 @@ class ResetPassword extends Component {
         },
       });
       let restToken = this.props.match.params.token;
+
       axios
         .patch(
           `https://oud-zerobase.me/api/v1/users/resetPassword/${restToken}`,

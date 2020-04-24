@@ -11,6 +11,8 @@ class IsEntered extends Component {
   componentDidMount = () => {
     let errorMassage = '';
     let restToken = this.props.match.params.token;
+    console.log('sadasdasdas', this.props.match);
+
     axios
       .patch(`https://oud-zerobase.me/api/v1/users/verify/${restToken}`)
       .then((req) => {
@@ -20,12 +22,12 @@ class IsEntered extends Component {
         console.log(req);
       })
       .catch((error) => {
-        errorMassage = error.req.data.message;
+        errorMassage = error.response.data.message;
         this.setState((prev) => {
           prev.formErrors = errorMassage;
           return prev;
         });
-        console.log(error.req);
+        console.log(error.response);
       });
   };
   render() {
