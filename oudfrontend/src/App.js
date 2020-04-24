@@ -22,6 +22,9 @@ import WhyGoPremium from "./components/Premium/Component/WhyGoPremium/WhyGoPremi
 import GetPremium from "./components/Premium/Component/GetPremium/GetPremium";
 import Ads from "./components/Premium/Component/Ads/Ads";
 import Welcome from "./pages/Welcome/welcome";
+import Welcome from "./pages/Welcome/welcome";
+import SeeAllRecentSearches from "./components/SeeAllRecentSearches/SeeAllRecentSearches";
+
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -45,7 +48,9 @@ function App() {
           <Route exact path="/genre/:genreName">
             <SeeAll />
           </Route>
-
+          <Route exact path="/recent-search">
+            <SeeAllRecentSearches />
+          </Route>
           <Route path="/profile/:userId" component={Profile} />
           <Route path="/account" component={Account} />
           <Route path="/goPremium" component={WhyGoPremium} />
@@ -54,7 +59,6 @@ function App() {
           <Route path="/RedirectPage">
             <RedirectPage />
           </Route>
-
           <Route path={`/playlist/:id`} Component={<Playlist />}>
             <PlaylistRender />
           </Route>
