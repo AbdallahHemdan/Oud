@@ -2,7 +2,7 @@ import React from 'react';
 import {shallow, mount} from 'enzyme';
 import * as renderer from 'react-test-renderer';
 import SuggestedNavBar from './SuggestedNavBar';
-import SuggestedFooterB from './SuggestedFooterB';
+import SuggestedFooterB from './SuggestedFooter';
 import SuggestedFooterT from './SuggestedFooterT';
 import SuggestedArtist from './../../pages/SuggestedArtistPage/SuggestedArtist';
 import ArtistCard from './Artistscards';

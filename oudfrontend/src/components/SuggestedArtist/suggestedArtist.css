@@ -172,7 +172,7 @@
 
 .half {
   opacity: 100%;
-  transition: 1s ease;
+  transition: 1.5s ease;
   background-color: goldenrod;
   border-radius: 100%;
 }

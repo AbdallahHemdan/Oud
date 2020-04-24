@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './suggestedArtist.css';
 import loved from './../../assets/images/H.png';
+import Axios from 'axios';
+
 /**
  *@class 
  the artist card that have the structure of the one card 
@@ -8,7 +10,7 @@ import loved from './../../assets/images/H.png';
 class ArtistCard extends Component {
   /**
    * constructor
-   * @param Toggle css 
+   * @param Toggle css
    */
   constructor(props) {
     super(props);
@@ -18,8 +20,20 @@ class ArtistCard extends Component {
       isSelected: false,
       displayName: this.props.displayName,
       image: this.props.image,
+      id: this.props.id,
     };
   }
+  handleSelect = () => {
+    this.setState({
+      selected: !this.state.selected,
+      isSelected: !this.state.isSelected,
+    });
+    this.props.handleSelect(this.props.id, this.state.selected);
+    this.props.handleRelated(this.props.id);
+    
+
+  };
+
   toggleSelected = () => {
     if (this.state.selected === false) this.setState({selected: true});
     else this.setState({selected: false});
@@ -30,14 +44,9 @@ class ArtistCard extends Component {
         className="container"
         onMouseEnter={() => this.setState({Toggle: false})}
         onMouseLeave={() => this.setState({Toggle: true})}
-        onClick={() =>
-          this.setState({
-            selected: !this.state.selected,
-            isSelected: !this.state.isSelected,
-          })
-        }
+        onClick={this.handleSelect}
       >
-        <div className="SingleCard" onClick={this.onClickImage}>
+        <div className="SingleCard">
           <div className="">
             <div className={`${this.state.Toggle ? 'show' : 'half'}`}>
               <div className={this.state.isSelected ? 'asd' : ''}>
