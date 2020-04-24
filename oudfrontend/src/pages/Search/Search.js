@@ -166,7 +166,9 @@ class Search extends Component {
   render() {
     return (
       <React.Fragment>
-        <Sidebar />
+        <Sidebar
+          data-testid="sidebar"
+        />
         <Navbar
           isLoggedIn={isLoggedIn()}
           isSearch={true}
@@ -175,35 +177,54 @@ class Search extends Component {
           value={this.state.search}
           onKeyUp={this.handleKeyUp}
           onKeyDown={this.handleKeyDown}
+          data-testid="navbar"
         />
         {
           this.state.isLoading ?
-            <LoadingSnipper /> :
-            <section
-              className="main-content"
-              data-testid="main-content"
-            >
+            (
+              <LoadingSnipper
+                data-testid="loading-snipper"
+              />
+            ) :
+            (
               <section
-                className="music-component main"
-                data-testid="music-content"
+                className="main-content"
+                data-testid="main-content"
               >
-                {
-                  this.state.search ?
-                    <SearchAfterTyping
-                      search={this.state.search}
-                      canSend={this.state.canSend}
-                    />
-                    :
-                    <React.Fragment>
-                      {
-                        this.state.isLoggedIn ?
-                          <RecentSearch /> : null
-                      }
-                      <BrowseAll items={this.state.items} />
-                    </React.Fragment>
-                }
+                <section
+                  className="music-component main"
+                  data-testid="music-content"
+                >
+                  {
+                    (this.state.search !== "") ?
+                      (
+                        <SearchAfterTyping
+                          data-testid="search-after-typing"
+                          search={this.state.search}
+                          canSend={this.state.canSend}
+                        />
+                      )
+                      :
+                      (
+                        <div
+                          data-testid="search-before-typing"
+                        >
+                          {
+                            this.state.isLoggedIn ?
+                              <RecentSearch
+                                data-testid="recent-search"
+                              /> : null
+                          }
+                          <BrowseAll
+                            items={this.state.items}
+                            data-testid="browse-all"
+                          />
+                        </div>
+                      )
+                  }
+                </section>
               </section>
-            </section>
+            )
         }
       </React.Fragment>
     );
