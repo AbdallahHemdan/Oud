@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from "axios";
 import { base, prodUrl } from "./../../config/environment"
 import SearchCategory from './../SearchCategory/SearchCategory';
+import PropTypes from "prop-types";
 
 /**
  *  component to render all the search results for specific search value
@@ -116,7 +117,7 @@ class SearchAfterTyping extends Component {
   */
   componentDidUpdate() {
     if (this.props.canSend) {
-      const fetchAllUrl = (base === prodUrl) ? `${base}/search/?q="${this.props.search}"` : `${base}/search`;
+      const fetchAllUrl = (base === prodUrl) ? `${base}/search/?q=${this.props.search}` : `${base}/search`;
       if (this.state.search !== this.props.search) {
         axios.get(fetchAllUrl)
           .then((result) => {
@@ -141,8 +142,10 @@ class SearchAfterTyping extends Component {
       <React.Fragment>
         {
           this.state.isLoading ?
-            <h1 data-testid="loading"> Loading..</h1> :
-            <React.Fragment>
+            <h1 data-testid="loading">Loading..</h1> :
+            <div
+              data-testid="search-results"
+            >
               <SearchCategory
                 search={this.state.search}
                 propsSearch={this.props.search}
@@ -183,11 +186,16 @@ class SearchAfterTyping extends Component {
                 type="profile"
                 data-testid="search-users"
               />
-            </React.Fragment>
+            </div>
         }
       </React.Fragment>
     )
   }
+}
+
+SearchAfterTyping.propTypes = {
+  search: PropTypes.string,
+  canSend: PropTypes.bool
 }
 
 export default SearchAfterTyping
