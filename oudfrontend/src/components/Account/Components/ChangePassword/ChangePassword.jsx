@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import EditProfileTextElement from "../EditProfileTextElement/EditProfileTextElement";
 import UserExperinceForm from "../UserExperinceForm/UserExperinceForm";
 import axios from "axios";
-
+import { config } from "./../../../../utils/auth"
 import "./ChangePassword.css";
+
+
 
 /**
  * just have a dummy password and should be changed
@@ -71,13 +73,12 @@ function checkPassword(password) {
 
 /**
  * @type {Class}
- * @returns {HTMLElement} change Password Page
+ * @returns {jsx} change Password Page
  */
 
 class ChangePassword extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       formNotValid: "",
       formSaved: "",
@@ -102,54 +103,58 @@ class ChangePassword extends Component {
 
   oldPasswordHandelChange(event) {
     this.setState({ oldPassword: event.target.value });
-    let formErrors = { ...this.state.formErrors };
-    formErrors.oldPasswordError =
-      event.target.value !== ProfileInfo.password
-        ? "Invallid password not matched"
-        : "";
-    this.setState({ formErrors });
   }
-
+  /**
+   * submit change password form to be edited (make patch req to change password)
+   * @type {Function}
+   * @param {*} event
+   */
   handelSubmit(event) {
     event.preventDefault();
 
     if (formValid(this.state)) {
       //make a request
       axios
-        .patch("http://localhost:2022/me/updatePassword", {
-          currentPassword: this.state.oldPassword,
-          password: this.state.password,
-          passwordConfirm: this.state.repeatPassword
-        })
+        .patch(
+          "https://oud-zerobase.me/api/v1/me/updatePassword",
+          {
+            currentPassword: this.state.oldPassword,
+            password: this.state.password,
+            passwordConfirm: this.state.repeatPassword
+          },
+          config
+        )
         .then(response => {
-          console.log(response);
+          this.setState({
+            formNotValid: "",
+            formSaved: "Password changed successfully"
+          });
         })
         .catch(error => {
-          console.log(error);
+          console.log(error.response);
+          this.setState({
+            formNotValid: error.response.data.message,
+            formSaved: ""
+          });
         });
-      this.setState({
-        formNotValid: "",
-        formSaved: "Password changed successfully"
-      });
-    } else {
-      this.setState({
-        formNotValid: "please , check the required feilds",
-        formSaved: ""
-      });
     }
   }
-
+  /**
+   * this function checks the new password format
+   * @this {Function}
+   * @param {*} event
+   */
   passwordHandelChange(event) {
     this.setState({ password: event.target.value });
     let formErrors = { ...this.state.formErrors };
 
-    if (this.state.password.length < 8) {
+    if (event.target.value < 8) {
       formErrors.passwordErorr = "minimum 8 characaters required";
       this.setState({ formErrors });
-    } else if (this.state.password.length > 30) {
+    } else if (event.target.value > 30) {
       formErrors.passwordErorr = "maximum 30 characaters";
       this.setState({ formErrors });
-    } else if (!checkPassword(this.state.password)) {
+    } else if (!checkPassword(event.target.value)) {
       formErrors.passwordErorr =
         "password should contain uppercase,lowercase,special character and a number";
       this.setState({ formErrors });
@@ -158,6 +163,11 @@ class ChangePassword extends Component {
       this.setState({ formErrors });
     }
   }
+  /**
+   * this function checks that confirm password matches the new password
+   * @this {Function}
+   * @param {*} event
+   */
   repeatPasswordHandelChange(event) {
     this.setState({ repeatPassword: event.target.value });
     let formErrors = { ...this.state.formErrors };
@@ -167,6 +177,11 @@ class ChangePassword extends Component {
         : "";
     this.setState({ formErrors });
   }
+  /**
+   * this function cancel changes in the change password
+   * @this {Function}
+   * @param {*} event
+   */
   handleCancle(event) {
     this.setState({
       formNotValid: "",
@@ -182,6 +197,11 @@ class ChangePassword extends Component {
       repeatPassword: ""
     });
   }
+  /**
+   * @returns {
+   *  <ChangePassword/>
+   * }
+   */
   render() {
     return (
       <div className="accountContainer" data-test="ChangePassword">

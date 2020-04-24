@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../signup/signup.css';
 import MainBrand from '../MainBrand';
 import axios from 'axios';
-import {Redirect, withRouter} from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import ignoreQueryPrefix from 'qs';
 var qs = require('qs');
 /**
@@ -65,7 +65,7 @@ class ResetPassword extends Component {
    * @returns {string} -change the error massages
    *  */
   PasswordHandel = (event) => {
-    this.setState({Password: event.target.value});
+    this.setState({ Password: event.target.value });
 
     if (this.state.Password.length < 8) {
       this.setState({
@@ -107,7 +107,7 @@ class ResetPassword extends Component {
    * @returns {string}
    */
   ConfirmPasswordHandel = (event) => {
-    this.setState({ConfirmPassword: event.target.value});
+    this.setState({ ConfirmPassword: event.target.value });
 
     if (event.target.value !== this.state.Password) {
       this.setState({
@@ -194,7 +194,6 @@ class ResetPassword extends Component {
           if (response.status === 200) {
             const authToken = response.data.token;
             localStorage.setItem('accessToken', authToken);
-            console.log('token', authToken);
             console.log(response);
             window.location = '/log-in';
           }
@@ -250,7 +249,7 @@ class ResetPassword extends Component {
 
                 <button
                   type="button"
-                  data-testid="restPass"
+                  data-testid="registerpassword"
                   className="btn SignUpSubmit btn-block"
                   onClick={this.handelSubmit}
                 >
@@ -303,10 +302,10 @@ class ResetPassword extends Component {
         </div>
         {this.hasSamePassword() === false
           ? this.state.formErrors.ConfirmPasswordError.length > 0 && (
-              <span className="error" htmlFor="register-confirmPassword">
-                {this.state.formErrors.ConfirmPasswordError}
-              </span>
-            )
+            <span className="error" htmlFor="register-confirmPassword">
+              {this.state.formErrors.ConfirmPasswordError}
+            </span>
+          )
           : null}
       </div>
     );

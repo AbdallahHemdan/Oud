@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Song from "./song/song";
 import PropTypes from "prop-types";
 import axios from "axios";
-import {base} from "../../config/environment"
-import {config} from "../../utils/auth"
+import { base } from "../../config/environment"
+import { config } from "../../utils/auth"
+import LoadingSnipper from "../LoadingSnipper/LoadingSnipper";
 
 /**
  * this is a component that renders the list of songs in playlists, albums, likedSongs or a "loading" animation if the songs are not recieved
@@ -131,8 +132,8 @@ class SongList extends Component {
             );
           })
         ) : (
-          <h1 data-testid="loading">LOADING ...</h1>
-        )}
+            <LoadingSnipper />
+          )}
       </div>
     );
   }
