@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import oud from './../../../assets/images/Oud.ico';
+import './../signup/signup.css';
 
 class IsEntered extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      formErrors: '',
-    };
+    this.state = {};
   }
   componentDidMount = () => {
-    let errorMassage = '';
     let restToken = this.props.match.params.token;
     console.log('sadasdasdas', this.props.match);
 
@@ -22,20 +21,17 @@ class IsEntered extends Component {
         console.log(req);
       })
       .catch((error) => {
-        errorMassage = error.response.data.message;
-        this.setState((prev) => {
-          prev.formErrors = errorMassage;
-          return prev;
-        });
         console.log(error.response);
       });
   };
   render() {
     return (
       <div>
-        {this.state.formErrors && (
-          <span className="error">{this.state.formErrors}</span>
-        )}
+        <img alt="oud" src={oud} className="LogoOfVerify" />
+        <div className="container">
+          <p className="e404">404</p>
+          <p className="pagenotfound">PAGE NOT FOUND </p>
+        </div>
       </div>
     );
   }

@@ -306,3 +306,32 @@ button.btn.btn-primary.btn-block {
   color: #f9b835 !important;
   text-decoration: none;
 }
+
+.LogoOfVerify {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
+  margin-top: 100px;
+}
+
+.e404,
+.pagenotfound {
+  text-align: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
+  color: white;
+  font-family: 'Raleway',
+    sans-serif;
+}
+
+.e404 {
+  font-size: 100px;
+
+}
+
+.pagenotfound {
+  font-size: 70px;
+}
