@@ -92,7 +92,6 @@ class Home extends Component {
     this.setState({ items, limit, offset, total, isLoading: false });
   }
 
-
   /**
    * Fetching data of all categories immediately after the component has been mount to the DOM tree
    */
@@ -114,13 +113,23 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Sidebar />
-        <Navbar isLoggedIn={isLoggedIn()} />
+        <Sidebar
+          data-testid="sidebar"
+        />
+        <Navbar
+          isLoggedIn={isLoggedIn()}
+          data-testid="navbar"
+        />
         {
           this.state.isLoading ?
-            <LoadingSnipper /> :
+            <LoadingSnipper
+              data-testid="loading"
+            /> :
             <React.Fragment>
-              <MainContent items={this.state.items} />
+              <MainContent
+                items={this.state.items}
+                data-testid="music-content"
+              />
             </React.Fragment>
         }
       </div >
