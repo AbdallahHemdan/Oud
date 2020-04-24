@@ -81,6 +81,8 @@ class RecentSearch extends Component {
   /**
    * Fetching Current user recent search items
    *
+   * @function
+   * 
    * @returns {void} - nothing to return, it just fetch data and set it in the state
   */
   componentDidMount() {
@@ -104,53 +106,55 @@ class RecentSearch extends Component {
       <React.Fragment>
         {
           (this.state.isLoading) ?
-            <LoadingSnipper />
+            (
+              <LoadingSnipper
+                data-testid="loading"
+              />
+            )
             :
-            <div className="module">
-              <div className="row"
-                data-testid="category-header "
-              >
-                <h1
-                  className="gray-white item-name"
-                  data-testid="category-title"
+            (
+              <div className="module">
+                <div className="row"
+                  data-testid="category-header"
                 >
-                  Recent Search
-                  </h1>
-
-                {
-                  (this.state.items.length >= 6) ?
-                    <Link to={`/recent-search`}>
-                      <div className="see-more"
-                        data-testid="category-see-all"
-                      >See All</div>
-                    </Link> : null
-                }
-              </div>
-
-
-              <div
-                className="wrapper"
-                data-testid="first-wrapper">
-                <div className="wrapper_section_2"
-                  data-testid="second-wrapper"
-                >
-                  <div className="cards"
-                    data-testid="cards-wrapper"
+                  <h1
+                    className="gray-white item-name"
+                    data-testid="category-title"
+                  >Recent Search</h1>
+                  {
+                    (this.state.items.length >= 6) ?
+                      <Link to={`/recent-search`}>
+                        <div className="see-more"
+                          data-testid="category-see-all"
+                        >See All</div>
+                      </Link> : null
+                  }
+                </div>
+                <div
+                  className="wrapper"
+                  data-testid="first-wrapper">
+                  <div className="wrapper_section_2"
+                    data-testid="second-wrapper"
                   >
-                    {
-                      this.state.items.splice(0, 6).map((item, index) => {
-                        return (
-                          <RecentSearchCard
-                            item={item}
-                            key={index}
-                          />
-                        )
-                      })
-                    }
+                    <div className="cards"
+                      data-testid="cards-wrapper"
+                    >
+                      {
+                        this.state.items.splice(0, 6).map((item, index) => {
+                          return (
+                            <RecentSearchCard
+                              item={item}
+                              key={index}
+                              data-testid="recent-search-card"
+                            />
+                          )
+                        })
+                      }
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )
         }
       </React.Fragment>
     )
