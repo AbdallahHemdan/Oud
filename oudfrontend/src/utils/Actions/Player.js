@@ -10,8 +10,6 @@ function checkSavedTrack(id) {
   return axios
     .get(`${base}/me/tracks/contains?ids=[${id}]`, config)
     .then((response) => {
-      console.log("check is found resp: ");
-      console.log(response);
       if (response["data"].hasOwnProperty("IsFound")) {
         return response["data"]["IsFound"][0];
       }

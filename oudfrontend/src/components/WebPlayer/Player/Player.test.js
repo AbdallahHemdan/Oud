@@ -270,6 +270,7 @@ describe("Testing Player Component and its childern; PlayingBarLeft, PlayingBarC
           setMouseDown={() => {}}
           onProgressClick={() => {}}
           mouseUp={() => {}}
+          constructLink={(state) => {}}
         />
       );
       expect(wrapper.find(".now-playing-bar-center").exists()).toBe(true);
@@ -285,6 +286,7 @@ describe("Testing Player Component and its childern; PlayingBarLeft, PlayingBarC
           setMouseDown={() => {}}
           onProgressClick={() => {}}
           mouseUp={() => {}}
+          constructLink={(state) => {}}
         />
       );
       expect(wrapper.find(".now-playing-bar-center").exists()).toBe(true);
@@ -300,6 +302,7 @@ describe("Testing Player Component and its childern; PlayingBarLeft, PlayingBarC
           setMouseDown={() => {}}
           onProgressClick={() => {}}
           mouseUp={() => {}}
+          constructLink={(state) => {}}
         />
       );
       expect(wrapper.find(".track-controls").exists()).toBe(true);
@@ -318,6 +321,7 @@ describe("Testing Player Component and its childern; PlayingBarLeft, PlayingBarC
           setMouseDown={() => {}}
           onProgressClick={() => {}}
           mouseUp={() => {}}
+          constructLink={(state) => {}}
         />
       );
       expect(wrapper.find(".now-playing-bar-center").exists()).toBe(true);
@@ -336,6 +340,7 @@ describe("Testing Player Component and its childern; PlayingBarLeft, PlayingBarC
           setMouseDown={() => {}}
           onVolumeClick={() => {}}
           mouseUp={() => {}}
+          constructLink={(state) => {}}
         />
       );
       expect(wrapper.find(".now-playing-bar-right").exists()).toBe(true);
@@ -354,6 +359,7 @@ describe("Testing Player Component and its childern; PlayingBarLeft, PlayingBarC
           setMouseDown={() => {}}
           onVolumeClick={() => {}}
           mouseUp={() => {}}
+          constructLink={(state) => {}}
         />
       );
       wrapper.instance().setState({
@@ -375,6 +381,7 @@ describe("Testing Player Component and its childern; PlayingBarLeft, PlayingBarC
           setMouseDown={() => {}}
           onVolumeClick={() => {}}
           mouseUp={() => {}}
+          constructLink={(state) => {}}
         />
       );
       expect(wrapper.find(".queue").exists()).toBe(true);
@@ -393,6 +400,7 @@ describe("Testing Player Component and its childern; PlayingBarLeft, PlayingBarC
           setMouseDown={() => {}}
           onVolumeClick={() => {}}
           mouseUp={() => {}}
+          constructLink={(state) => {}}
         />
       );
       expect(wrapper.find(".shuffle").exists()).toBe(true);
@@ -411,6 +419,7 @@ describe("Testing Player Component and its childern; PlayingBarLeft, PlayingBarC
           setMouseDown={() => {}}
           onVolumeClick={() => {}}
           mouseUp={() => {}}
+          constructLink={(state) => {}}
         />
       );
       expect(wrapper.find(".repeat").exists()).toBe(true);
@@ -429,6 +438,7 @@ describe("Testing Player Component and its childern; PlayingBarLeft, PlayingBarC
           setMouseDown={() => {}}
           onVolumeClick={() => {}}
           mouseUp={() => {}}
+          constructLink={(state) => {}}
         />
       );
       expect(wrapper.find(".volume").exists()).toBe(true);
@@ -447,6 +457,7 @@ describe("Testing Player Component and its childern; PlayingBarLeft, PlayingBarC
           setMouseDown={() => {}}
           onVolumeClick={() => {}}
           mouseUp={() => {}}
+          constructLink={(state) => {}}
         />
       );
       expect(wrapper.find(".progress-bar").exists()).toBe(true);
