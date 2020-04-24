@@ -13,16 +13,16 @@ class MusicCard extends Component {
       tracks: [],
       artist: [],
     };
-    axios
-      .get(`${base}/artists/some`, config)
-      .then((result) => {
-        console.log('result', result.data);
-        this.setState({artists: result.data});
-      })
-      .catch((err) => {
-        console.log('error111', err.result);
-      });
-    console.log(this.state.artist);
+    // axios
+    //   .get(`${base}/artists/some`, config)
+    //   .then((result) => {
+    //     console.log('result', result.data);
+    //     this.setState({artists: result.data});
+    //   })
+    //   .catch((err) => {
+    //     console.log('error111', err.result);
+    //   });
+    // console.log(this.state.artist);
   }
   componentDidMount() {
     // axios
