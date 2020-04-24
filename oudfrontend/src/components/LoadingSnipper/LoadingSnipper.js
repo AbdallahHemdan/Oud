@@ -23,10 +23,7 @@ class LoadingSnipper extends Component {
         className="spinner"
         data-testid="snipper"
       >
-        <div
-          className="rect1"
-          data-testid="snipper-1"
-        ></div>
+        <div className="rect1" data-testid="snipper-1"></div>
         <div className="rect2" data-testid="snipper-2"></div>
         <div className="rect3" data-testid="snipper-3"></div>
         <div className="rect4" data-testid="snipper-4"></div>
