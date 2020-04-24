@@ -11,7 +11,7 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-custom NavBarStyle_bg-custom NavBarStyle_navbar-brand NavBarStyle_navbar-expand-lg">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-custom NavBarStyle_bg-custom NavBarStyle_navbar-brand NavBarStyle_navbar-expand-lg paddingNav">
           <Common />
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto nav-items font-weight-bold NavBarStyle_nav-items">

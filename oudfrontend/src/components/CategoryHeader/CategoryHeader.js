@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 
-function CategoryHeader({ name, _id }) {
+function CategoryHeader({ name, _id, playlists }) {
   return (
     <div className="row"
       data-testid="category-header"
@@ -13,11 +13,16 @@ function CategoryHeader({ name, _id }) {
       >
         {name}
       </h1>
-      <Link to={`genre/${name.split(' ').join('-')}?_id=${_id}&name=${name.split(' ').join('-')}`}>
-        <div className="see-more"
-          data-testid="category-see-all"
-        >See All</div>
-      </Link>
+      {
+        (playlists.length >= 6) ?
+          <Link to={`genre/${name.split(' ').join('-')}?_id=${_id}&name=${name.split(' ').join('-')}`}>
+            <div className="see-more"
+              data-testid="category-see-all"
+            >See All</div>
+          </Link>
+          : null
+      }
+
     </div>
   )
 }

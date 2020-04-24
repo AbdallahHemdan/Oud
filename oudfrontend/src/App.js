@@ -21,6 +21,9 @@ import Islinked from './components/Login&Signup/linkisSent';
 import Welcome from './pages/Welcome/welcome';
 import SuggestedArtist from './pages/SuggestedArtistPage/SuggestedArtist';
 import './App.css';
+import SeeAllRecentSearches from './components/SeeAllRecentSearches/SeeAllRecentSearches';
+import WhyGoPremium from './components/Premium/WhyGoPremium/WhyGoPremium';
+import './App.css';
 import {
   BrowserRouter as Router,
   Route,
@@ -42,14 +45,15 @@ function App() {
           <Route exact path="/genre/:genreName">
             <SeeAll />
           </Route>
-
+          <Route exact path="/recent-search">
+            <SeeAllRecentSearches />
+          </Route>
           <Route path="/profile/:userId" component={Profile} />
           <Route path="/account" component={Account} />
-
+          <Route path="/goPremium" component={WhyGoPremium} />
           <Route path="/RedirectPage">
             <RedirectPage />
           </Route>
-
           <Route path={`/playlist/:id`} Component={<Playlist />}>
             <PlaylistRender />
           </Route>
@@ -86,9 +90,10 @@ function App() {
           <Route path="/resetpassword/:token">
             <ResetPassword />
           </Route>
-          <Route exact path="/entered">
-            <Entered />
-          </Route>
+          <Route
+            path="/verify/:token"
+            render={(props) => <Entered {...props} />}
+          />
           <Route exact path="/islanded">
             <Islinked />
           </Route>

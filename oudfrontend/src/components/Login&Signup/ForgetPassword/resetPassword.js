@@ -117,12 +117,10 @@ class ResetPassword extends Component {
           toSent
         )
         .then((response) => {
-          if (response.status === 200) {
-            const authToken = response.data.token;
-            localStorage.setItem('accessToken', authToken);
-            console.log(response);
-            window.location = '/signin';
-          }
+          const authToken = response.data.token;
+          localStorage.setItem('accessToken', authToken);
+          console.log(response);
+          window.location = '/signin';
         })
         .catch((error) => {
           errorMassage = error.response.data.message;

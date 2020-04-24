@@ -2,8 +2,6 @@ import React from 'react';
 import {shallow, mount} from 'enzyme';
 import * as renderer from 'react-test-renderer';
 import SuggestedNavBar from './SuggestedNavBar';
-import SuggestedFooterB from './SuggestedFooter';
-import SuggestedFooterT from './SuggestedFooterT';
 import SuggestedArtist from './../../pages/SuggestedArtistPage/SuggestedArtist';
 import ArtistCard from './Artistscards';
 
@@ -28,12 +26,12 @@ describe('Test the the Suggested artist page ', () => {
     beforeEach(() => {
       component = setup();
     });
-    it('test the render of the conditional rendering of the footer ', () => {
-      const buttoncomp = shallow(<SuggestedFooterB />);
-      const textcomp = shallow(<SuggestedFooterT />);
-      expect(buttoncomp.state().choo).toBeTruthy();
-      expect(textcomp.state().choo).toBeFalsy();
-    });
+    // it('test the render of the conditional rendering of the footer ', () => {
+    //   const buttoncomp = shallow(<SuggestedFooterB />);
+    //   const textcomp = shallow(<SuggestedFooterT />);
+    //   expect(buttoncomp.state().choo).toBeTruthy();
+    //   expect(textcomp.state().choo).toBeFalsy();
+    // });
   });
   describe('Test the Artist card ', () => {
     it('test the image click', () => {

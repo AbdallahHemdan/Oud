@@ -19,6 +19,7 @@ function CategoryBody({ playlists }) {
                   item={playlist}
                   key={playlist._id}
                   playBtn={true}
+                  data-testid="music-card-item"
                 />
               )
             })

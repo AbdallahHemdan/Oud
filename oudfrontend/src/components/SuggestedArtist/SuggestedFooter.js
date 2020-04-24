@@ -5,7 +5,7 @@ import Axios from 'axios';
 import {base, subUrl, prodUrl} from '../../config/environment';
 import {config} from '../../utils/auth';
 
-const fetchUserInfo = `${base}/me/following?type=artist`;
+const artist = `${base}/me/following?type=artist`;
 
 class SuggestedFooter extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class SuggestedFooter extends Component {
 
   handelOnClick = () => {
     let ids = this.state.selectedIDS;
-    Axios.put(fetchUserInfo, {ids}, config)
+    Axios.put(artist, {ids}, config)
       .then((response) => {
         console.log('res', response);
         window.location = '/';

@@ -25,6 +25,8 @@ function ActivityBar() {
 function Profile(props) {
   if (!isLoggedIn()) {
     window.location = "/signin"
+    return (<div></div>)
+
   }
   return (
     <div className="dummyParent">

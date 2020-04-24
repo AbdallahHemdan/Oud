@@ -98,7 +98,15 @@ class MusicCard extends Component {
        * @type {string}
        */
       type: type,
+      /**
+       * Variable to determine show or hide play button
+       * @type {Boolean}
+       */
       playBtn: this.props.playBtn,
+      /**
+       * Variable to determine show or hide card
+       * @type {Boolean}
+       */
       isHidden: this.props.isHidden
     }
   }

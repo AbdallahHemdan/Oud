@@ -15,7 +15,10 @@
   width: 100%;
   background-color: black;
 }
-
+.paddingNav {
+  padding-left: 12.5%;
+  padding-right: 8.8%;
+}
 .NavBarStyle_navbar-dark .NavBarStyle_navbar-nav .NavBarStyle_nav-link {
   color: #ffffff;
 }

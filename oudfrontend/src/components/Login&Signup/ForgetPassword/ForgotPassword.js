@@ -40,7 +40,7 @@ class ForgotPassword extends Component {
       axios
         .post(
           'https://oud-zerobase.me/api/v1/users/forgotPassword',
-          this.state.email
+          {email:this.state.email}
         )
         .then((response) => {
           if (response.status === 200) {

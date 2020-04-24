@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-var qs = require('qs');
 
 class IsEntered extends Component {
   constructor(props) {
@@ -11,16 +10,14 @@ class IsEntered extends Component {
   }
   componentDidMount = () => {
     let errorMassage = '';
-    let restToken = qs.parse(this.props.location.search, {
-      ignoreQueryPrefix: true,
-    }).token;
+    let restToken = this.props.match.params.token;
     axios
       .patch(`https://oud-zerobase.me/api/v1/users/verify/${restToken}`)
       .then((req) => {
-        if (req.status === 200) {
-          window.location = '/';
-          console.log(req);
-        }
+        const authToken = req.data.token;
+        localStorage.setItem('accessToken', authToken);
+        window.location = '/';
+        console.log(req);
       })
       .catch((error) => {
         errorMassage = error.req.data.message;
