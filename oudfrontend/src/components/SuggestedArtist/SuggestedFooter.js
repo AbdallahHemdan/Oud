@@ -15,8 +15,7 @@ class SuggestedFooter extends Component {
 
   handelOnClick = () => {
     let ids = this.state.selectedIDS;
-    console.log(ids);
-    Axios.put(fetchUserInfo, ids, config)
+    Axios.put(fetchUserInfo, {ids}, config)
       .then((response) => {
         console.log('res', response);
         window.location = '/';
