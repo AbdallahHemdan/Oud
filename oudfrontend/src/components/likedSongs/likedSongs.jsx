@@ -6,9 +6,9 @@ import './likedSongs.css'
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
 import { resume, pause, addToQueue } from '../commonComponents/utils'
-import {base} from "../../config/environment"
-import {config} from "../../utils/auth"
-
+import { base } from "../../config/environment"
+import { config, isLoggedIn } from "../../utils/auth"
+import {withRouter} from 'react-router-dom'
 /**
  * @classdesc this is a component that renders likedSongs page
  * @author Ahmed Walid <ahmedwa1999@gmail.com>
@@ -117,7 +117,6 @@ class LikedSongs extends React.Component {
         this.setState({ recieved: true });
         this.setState({ items: items });
         this.destructuring(items);
-        console.log(items);
       })
       .catch((error) => {
         console.log(error);
@@ -128,7 +127,6 @@ class LikedSongs extends React.Component {
     items.map((item) => {
       tracks.push(item.track);
     });
-    console.log(tracks);
     this.setState({ tracks: tracks });
   }
 
@@ -142,9 +140,9 @@ class LikedSongs extends React.Component {
 
   render() {
     return (
-      <div className="dummyParent">
-        <Sidebar />
-        <Navbar isLoggedIn={true} />
+      <div className="dummyParent" data-testid='wrapper'>
+        <Sidebar data-testid="sidebar"/>
+        <Navbar isLoggedIn={isLoggedIn()} data-testid="navBar"/>
         <div className="profile-user">
           <div data-testid="likedSongs" className="playlist">
             <div className="row">
@@ -194,4 +192,4 @@ class LikedSongs extends React.Component {
     );
   }
 }
-export default LikedSongs;
+export default withRouter(LikedSongs);

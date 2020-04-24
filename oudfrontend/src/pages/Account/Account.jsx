@@ -1,6 +1,9 @@
 import React from "react";
 import HiddenSideBar from "./../../components/Account/Components/HiddenSideBar/HiddenSideBar";
 import MainContainer from "./../../components/Account/Components/MainContainer/MainContainer";
+import Footer from './../../components/Welcome/Footer/Footer';
+import Navbar from "./../../components/Welcome/Navbar/Navbar"
+import { isLoggedIn } from "./../../utils/auth"
 
 import "./Account.css";
 
@@ -12,33 +15,7 @@ import "./Account.css";
  * TODO : change this to the real one when they merge it
  *
  */
-function Footer() {
-  return (
-    <footer>
-      <div className="Dummy">
-        <h1>Dummy Footer</h1>
-      </div>
-    </footer>
-  );
-}
 
-/**
- * Navigation Bar
- * @type {Function}
- * @returns {jsx} Dummy Navigation Bar
- * <NaveBar/>
- * TODO : change this to the real one when they merge it
- */
-
-function NavBar() {
-  return (
-    <header>
-      <div className="Dummy">
-        <h2>Dummy NavBar</h2>
-      </div>
-    </header>
-  );
-}
 
 /**
  * this is the account and this renders NavBar , Hidden sideBar , MainContainer , Footer
@@ -50,7 +27,7 @@ function NavBar() {
 function Account() {
   return (
     <div className="account" data-test="Account">
-      <NavBar data-test="NavBar" />
+      <Navbar data-test="NavBar" />
       <HiddenSideBar data-test="HiddenSideBar" />
       <MainContainer data-test="MainContainer" />
       <Footer data-test="Footer" />

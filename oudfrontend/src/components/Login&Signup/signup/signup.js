@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './signup.css';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import _ from 'lodash';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
@@ -46,12 +46,12 @@ class Signup extends Component {
     };
   }
   userNameHandel = (event) => {
-    this.setState({name: event.target.value});
+    this.setState({ name: event.target.value });
     Validator.validateUserName(event.target.value, this);
   };
 
   DisplaynameHandel = (event) => {
-    this.setState({displayName: event.target.value});
+    this.setState({ displayName: event.target.value });
     Validator.validateDisplayName(event.target.value, this);
   };
   /**
@@ -62,7 +62,7 @@ class Signup extends Component {
    * @returns {boolean} - return true if the email is valid
    */
   EmailHandel = (event) => {
-    this.setState({email: event.target.value});
+    this.setState({ email: event.target.value });
     Validator.validateEmail(event.target.value, this);
   };
   /**
@@ -77,7 +77,7 @@ class Signup extends Component {
    * @returns {string} -change the error massages
    *  */
   PasswordHandel = (event) => {
-    this.setState({Password: event.target.value});
+    this.setState({ Password: event.target.value });
     Validator.validatePassword(event.target.value, this);
   };
 
@@ -90,17 +90,17 @@ class Signup extends Component {
    * @returns {string}
    */
   ConfirmPasswordHandel = (event) => {
-    this.setState({ConfirmPassword: event.target.value});
+    this.setState({ ConfirmPassword: event.target.value });
     Validator.validateConfirmPassword(event.target.value, this);
   };
 
   genderHandel = (event) => {
-    this.setState({gender: event.target.value});
+    this.setState({ gender: event.target.value });
     Validator.validateGender(event.target.value, this);
   };
 
   countryHandel = (event) => {
-    this.setState({selectedCountry: event.target.value});
+    this.setState({ selectedCountry: event.target.value });
     Validator.validateCountry(event.target.value, this);
   };
 
@@ -187,7 +187,6 @@ class Signup extends Component {
       this.hasSamePassword() === true &&
       this.validateAll()
     ) {
-      console.log('toSent', toSent);
       axios
         .post('https://oud-zerobase.me/api/v1/users/signup', toSent)
         .then((response) => {
@@ -241,7 +240,7 @@ class Signup extends Component {
    * @function
    * @returns {void}
    */
-  callback = () => {};
+  callback = () => { };
   /**
    * this is a captcha
    * a function to call it
@@ -252,7 +251,7 @@ class Signup extends Component {
    */
   verifyCallback = (action) => {
     if (action) {
-      this.setState({isVerified: true});
+      this.setState({ isVerified: true });
     }
   };
   /**
@@ -458,13 +457,13 @@ class Signup extends Component {
               this.state.month === '02'
               ? 30
               : this.state.month === '02'
-              ? 29
-              : this.state.month === '04' ||
-                this.state.month === '06' ||
-                this.state.month === '09' ||
-                this.state.month === '11'
-              ? 31
-              : 32
+                ? 29
+                : this.state.month === '04' ||
+                  this.state.month === '06' ||
+                  this.state.month === '09' ||
+                  this.state.month === '11'
+                  ? 31
+                  : 32
           ).map((value) => (
             <option key={value} value={value}>
               {value}
@@ -587,10 +586,10 @@ class Signup extends Component {
         </div>
         {this.hasSamePassword() === false
           ? this.state.formErrors.ConfirmPasswordError && (
-              <span className="error" htmlFor="register-confirmPassword">
-                {this.state.formErrors.ConfirmPasswordError}
-              </span>
-            )
+            <span className="error" htmlFor="register-confirmPassword">
+              {this.state.formErrors.ConfirmPasswordError}
+            </span>
+          )
           : null}
       </div>
     );

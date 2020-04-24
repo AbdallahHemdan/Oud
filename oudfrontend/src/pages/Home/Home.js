@@ -5,7 +5,6 @@ import Navbar from "../../components/Navbar/Navbar";
 import MainContent from "../../components/MainContent/MainContent"
 import { base } from "./../../config/environment"
 import axios from "axios"
-import WebPlayer from './../../components/WebPlayer/WebPlayer';
 import LoadingSnipper from './../../components/LoadingSnipper/LoadingSnipper';
 import { config, isLoggedIn } from "./../../utils/auth"
 
@@ -16,7 +15,7 @@ import { config, isLoggedIn } from "./../../utils/auth"
  * 
  */
 let fetchCategoriesUrl = `${base}/browse/categories`;
-let fetchCurrentUserInfo = `${base}/me`
+
 
 
 
@@ -73,14 +72,7 @@ class Home extends Component {
       /**
        * Check if the data loaded from the backend or not
        */
-      isLoading: true,
-      userInfo: {},
-      _id: "",
-      username: "",
-      email: "",
-      displayName: "",
-      credit: 0,
-      images: []
+      isLoading: true
     }
   }
 
@@ -99,10 +91,7 @@ class Home extends Component {
   handleStoringCategories = ({ items, limit, offset, total }) => {
     this.setState({ items, limit, offset, total, isLoading: false });
   }
-  handleStoringUserInfo = ({ _id, username, email, displayName, credit, images }) => {
-    const userInfo = { _id, username, email, displayName, credit, images };
-    this.setState({ userInfo, _id, username, email, displayName, credit, images });
-  }
+
 
   /**
    * Fetching data of all categories immediately after the component has been mount to the DOM tree
@@ -111,12 +100,6 @@ class Home extends Component {
     axios.get(fetchCategoriesUrl) // get all categories
       .then((result) => {
         this.handleStoringCategories(result.data);
-      }).catch((err) => {
-        console.log(err)
-      });
-    axios.get(fetchCurrentUserInfo, config)
-      .then((result) => {
-        this.handleStoringUserInfo(result.data);
       }).catch((err) => {
         console.log(err)
       });
@@ -129,17 +112,15 @@ class Home extends Component {
    * @returns {JSX} Component for App
    */
   render() {
-    console.log("Home state", this.state);
     return (
       <div>
         <Sidebar />
-        <Navbar userInfo={this.state.userInfo} isLoggedIn={isLoggedIn()} />
+        <Navbar isLoggedIn={isLoggedIn()} />
         {
           this.state.isLoading ?
             <LoadingSnipper /> :
             <React.Fragment>
               <MainContent items={this.state.items} />
-              <WebPlayer />
             </React.Fragment>
         }
       </div >

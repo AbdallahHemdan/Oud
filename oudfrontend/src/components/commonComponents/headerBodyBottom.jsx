@@ -80,6 +80,7 @@ HeaderBodyBottom.propTypes = {
   releaseDate: PropTypes.string,
   recieved: PropTypes.bool,
   album: PropTypes.bool,
+  addToPlaylist:PropTypes.func
 };
 
 export default HeaderBodyBottom;

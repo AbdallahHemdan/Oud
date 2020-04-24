@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import {Redirect} from "react-router-dom";
 
 /**
- * this is a component that renders the Top of the body of playlists, albums, likedSongs
+ * this is a component that renders the Top of the body of albums
  * on clicking the name of the owner it takes you to his/her profile
  * @author Ahmed Walid <ahmedwa1999@gmail.com>
- * @func
+ * @class
  * @param {string} title the title of playlists, albums
  * @param {string} owner the Id of the owner of playlists or albums. It is used to fetch his/her name from the database
  * 
@@ -25,14 +25,15 @@ class HeaderBodyTop extends Component{
         super(props)
         this.state = {
             redirect : null,
-            artists:[],
-            flag :false
+            artists:[]
         }
         
     }
        
     componentWillReceiveProps(nextProps){
-        this.setState({artists:nextProps.artists, flag:false})
+        if(nextProps.artists !== this.state.artists){
+        this.setState({artists:nextProps.artists})
+        }
     }
     redirect(route){
         this.setState({redirect:route})

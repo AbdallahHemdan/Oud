@@ -10,7 +10,9 @@ import Navbar from "../Navbar/Navbar";
 import PropTypes from 'prop-types';
 import { resume, pause, addToQueue } from '../commonComponents/utils'
 import { base, subUrl, prodUrl } from "./../../config/environment"
-import {config} from "../../utils/auth"
+import { config, isLoggedIn } from "../../utils/auth"
+import LoadingSnipper from "../LoadingSnipper/LoadingSnipper";
+import {withRouter} from 'react-router-dom'
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -164,7 +166,6 @@ class Playlist extends React.Component {
     axios
       .get(`${base}/me/playlists/contains/${this.props.id.id}`, config)
       .then((response) => {
-        console.log(response);
         const isFound = response.data;
         this.setState({ liked: isFound });
       })
@@ -202,17 +203,18 @@ class Playlist extends React.Component {
   render() {
     const subPath = (base === prodUrl) ? subUrl : "";
     return (
-      <div>
+      <div data-testid='BigWrapper'>
       {this.state.recieved?
         this.state.displayAdd ? (
           <AddToPlaylist
             display={this.state.displayAdd}
             close={this.closeAddToPlaylist.bind(this)}
+            data-testid='addTo'
           />
         ) : (
-          <div className="dummyParent">
-            <Sidebar />
-            <Navbar isLoggedIn={true} />
+          <div className="dummyParent"> 
+          <Sidebar data-testid="sidebar"/>
+              <Navbar isLoggedIn={isLoggedIn()} data-testid="navBar"/>
             <div className="profile-user">
               <div data-testid="playlist" className="playlist">
                 <div className="row">
@@ -270,7 +272,7 @@ class Playlist extends React.Component {
           </div>
           
         ): (
-          <h1 data-testid="loading">LOADING ...</h1>
+          <LoadingSnipper data-testid='loading'/>
         )}
       </div>
     );
@@ -279,4 +281,4 @@ class Playlist extends React.Component {
 Playlist.propTypes = {
   id: PropTypes.objectOf(PropTypes.string),
 };
-export default Playlist;
+export default withRouter(Playlist);

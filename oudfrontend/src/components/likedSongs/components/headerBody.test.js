@@ -4,14 +4,19 @@ import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer';
 import checkPropTypes from 'check-prop-types'
+
 Enzyme.configure({adapter: new EnzymeAdapter()});
 
-const fullProps = {
-    length : 1,
+const trueProps = {
+    length:10, 
     playing:true,
-    playClicked : jest.fn()
+    playClicked:jest.fn()
 }
-
+const falseProps = {
+    length:5, 
+    playing:false,
+    playClicked:jest.fn()
+}
 const setup = (props={}) =>{
     return shallow(<HeaderBody {...props}/>);
 }
@@ -19,27 +24,97 @@ const setup = (props={}) =>{
 const findByTestAttr=(wrapper, val)=>{
     return wrapper.find(`[data-testid="${val}"]`);
 }
-describe('HeaderBody component', ()=>{
 
-    describe('rendering correctly without props', ()=>{
+describe('album headerBody Component', ()=>{
+    describe('test props', ()=>{
         let component;
         beforeEach (()=>{
             component = setup();
         });
-        it('renders headerBody', ()=>{
+
+        //sending true props
+        it('should not throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {...trueProps}, 'prop', HeaderBody.name);
+            expect(result).toBeUndefined();
+        })
+        it('should not throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {...falseProps}, 'prop', HeaderBody.name);
+            expect(result).toBeUndefined();
+        })
+
+        //sending false props to length
+        it('should throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {length:"jj"}, 'prop', HeaderBody.name);
+            expect(result).toBeDefined();
+        })
+        it('should throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {length:{}}, 'prop', HeaderBody.name);
+            expect(result).toBeDefined();
+        })
+        it('should throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {length:[]}, 'prop', HeaderBody.name);
+            expect(result).toBeDefined();
+        })
+        it('should throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {length:jest.fn()}, 'prop', HeaderBody.name);
+            expect(result).toBeDefined();
+        })
+        //sending false props to playing
+        it('should throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {playing:"jj"}, 'prop', HeaderBody.name);
+            expect(result).toBeDefined();
+        })
+        it('should throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {playing:{}}, 'prop', HeaderBody.name);
+            expect(result).toBeDefined();
+        })
+        it('should throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {playing:[]}, 'prop', HeaderBody.name);
+            expect(result).toBeDefined();
+        })
+        it('should throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {playing:jest.fn()}, 'prop', HeaderBody.name);
+            expect(result).toBeDefined();
+        })
+        //sending false props to playing
+        it('should throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {playClicked:"jj"}, 'prop', HeaderBody.name);
+            expect(result).toBeDefined();
+        })
+        it('should throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {playClicked:{}}, 'prop', HeaderBody.name);
+            expect(result).toBeDefined();
+        })
+        it('should throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {playClicked:[]}, 'prop', HeaderBody.name);
+            expect(result).toBeDefined();
+        })
+        it('should throw error', ()=>{
+            const result = checkPropTypes(HeaderBody.propTypes, {playClicked:55}, 'prop', HeaderBody.name);
+            expect(result).toBeDefined();
+        })
+    })
+
+    describe('testing HeaderBody Component without props',()=>{
+        let component;
+        beforeEach (()=>{
+            component = setup();
+        })
+        it("renders correctly without props", ()=>{
             const wrapper = findByTestAttr(component, "HeaderBody");
             expect(wrapper.length).toBe(1);
-        })
-        it('renders title', ()=>{
+        });
+
+        it("renders title correctly without props", ()=>{
             const wrapper = findByTestAttr(component, "title");
             expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe("Liked Songs")
-        })
-        it('renders play Button', ()=>{
-            const wrapper = findByTestAttr(component, "playButton");
+            expect(wrapper.text()).toBe("Liked Songs");
+        });
+        
+        it("renders credits correctly without props", ()=>{
+            const wrapper = findByTestAttr(component, "owner");
             expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe("PLAY")
-        })
+        });
         it("renders songs number correctly without props", ()=>{
             const wrapper = findByTestAttr(component, "songsNumber");
             expect(wrapper.length).toBe(1);
@@ -51,94 +126,63 @@ describe('HeaderBody component', ()=>{
             expect(wrapper.length).toBe(1);
             expect(wrapper.text()).toBe('song')
         });
-    })
-
-    describe('renders correctly with props', ()=>{
-        let component;
-        beforeEach (()=>{
-            component = setup(fullProps);
-        });
-        it('renders headerBody', ()=>{
-            const wrapper = findByTestAttr(component, "HeaderBody");
-            expect(wrapper.length).toBe(1);
-        })
-        it('renders title', ()=>{
-            const wrapper = findByTestAttr(component, "title");
-            expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe("Liked Songs")
-        })
-        it('renders play Button', ()=>{
+        it("renders credits correctly with props", ()=>{
             const wrapper = findByTestAttr(component, "playButton");
             expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe("PAUSE")
+        });
+    });
+    describe('testing HeaderBodyTop Component with trueProps',()=>{
+        let component;
+        beforeEach (()=>{
+            component = setup(trueProps);
         })
-        it('renders play button with playing = false', ()=>{
-            let comp = setup({playing:false})
-            const wrapper = findByTestAttr(comp, "playButton");
+        it("renders play button correctly with playing = true", ()=>{
+            component = setup(trueProps);
+            const wrapper = findByTestAttr(component, "playButton");
             expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe("PLAY")
-        })
-        it("renders songs number correctly with props", ()=>{
+            expect(wrapper.text()).toBe('PAUSE')
+        });
+        it("renders play button correctly with playing = false", ()=>{
+            component = setup(falseProps);
+            const wrapper = findByTestAttr(component, "playButton");
+            expect(wrapper.length).toBe(1);
+            expect(wrapper.text()).toBe('PLAY')
+        });
+        it("renders songs number correctly without props", ()=>{
             const wrapper = findByTestAttr(component, "songsNumber");
             expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe('1 ')
+            expect(wrapper.text()).toBe('10 ')
         });
     
-        it("renders literal correctly with length = 1", ()=>{
+        it("renders literal correctly without props", ()=>{
             const wrapper = findByTestAttr(component, "songsLiteral");
-            expect(wrapper.length).toBe(1);
-            expect(wrapper.text()).toBe('song')
-        });
-        it("renders literal correctly with length = 2", ()=>{
-            const comp = setup({length:2})
-            const wrapper = findByTestAttr(comp, "songsLiteral");
             expect(wrapper.length).toBe(1);
             expect(wrapper.text()).toBe('songs')
         });
-    })
+    });
+    describe('testing HeaderBodyTop Component with trueProps',()=>{
+        let component;
+        beforeEach (()=>{
+            component = setup(falseProps);
+        })
+        it("renders songs number correctly without props", ()=>{
+            const wrapper = findByTestAttr(component, "songsNumber");
+            expect(wrapper.length).toBe(1);
+            expect(wrapper.text()).toBe('5 ')
+        });
     
-    describe('testing Prop types', ()=>{
-        it('passing true props', ()=>{
-            const result = checkPropTypes(HeaderBody.propTypes, {...fullProps}, 'prop', HeaderBody.name);
-            expect(result).toBeUndefined();
-        })
-
-        //testing length prop by passing false data
-        it('should throw error', ()=>{
-            const result = checkPropTypes(HeaderBody.propTypes, {length:'3'}, 'prop', HeaderBody.name);
-            expect(result).toBeDefined();
-        })
-        it('should throw error', ()=>{
-            const result = checkPropTypes(HeaderBody.propTypes, {length:{}}, 'prop', HeaderBody.name);
-            expect(result).toBeDefined();
-        })
-
-        //testing length prop by passing false data
-        it('should throw error', ()=>{
-            const result = checkPropTypes(HeaderBody.propTypes, {playing:'3'}, 'prop', HeaderBody.name);
-            expect(result).toBeDefined();
-        })
-        it('should throw error', ()=>{
-            const result = checkPropTypes(HeaderBody.propTypes, {playing:{}}, 'prop', HeaderBody.name);
-            expect(result).toBeDefined();
-        })
-
-        //testing playClicked prop by passing false data
-        it('should throw error', ()=>{
-            const result = checkPropTypes(HeaderBody.propTypes, {playClicked:'3'}, 'prop', HeaderBody.name);
-            expect(result).toBeDefined();
-        })
-        it('should throw error', ()=>{
-            const result = checkPropTypes(HeaderBody.propTypes, {playClicked:{}}, 'prop', HeaderBody.name);
-            expect(result).toBeDefined();
-        })
-    })
+        it("renders literal correctly without props", ()=>{
+            const wrapper = findByTestAttr(component, "songsLiteral");
+            expect(wrapper.length).toBe(1);
+            expect(wrapper.text()).toBe('songs')
+        });
+    });
     describe('snapshot test', ()=>{
         it('renders correctly', () => {
             const tree = renderer
-              .create(<HeaderBody {...fullProps}/>)
+              .create(<HeaderBody {...trueProps}/>)
               .toJSON();
             expect(tree).toMatchSnapshot();
         });
     });
-});
+})

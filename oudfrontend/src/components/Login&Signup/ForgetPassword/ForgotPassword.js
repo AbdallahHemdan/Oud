@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import MainBrand from '../MainBrand';
 import axios from 'axios';
 import validator from '../validate';
@@ -28,17 +28,13 @@ class ForgotPassword extends Component {
       email: this.state.email,
     };
     let errorMassage = '';
-    console.log(this.EmailHandel);
     if (this.state.formErrors.EmailError === '' && this.validation()) {
       axios
         .post('https://oud-zerobase.me/api/v1/users/forgotPassword', toSend)
         .then((response) => {
-          console.log(response);
-          console.log(toSend);
           if (response.status === 200) {
             window.location = '/Islinked';
           }
-          console.log(response);
         })
         .catch((error) => {
           errorMassage = error.response.data.message;
@@ -51,7 +47,6 @@ class ForgotPassword extends Component {
         });
     }
 
-    console.log(this.state);
   };
   /**
    * Email validation
@@ -61,7 +56,7 @@ class ForgotPassword extends Component {
    * @returns {boolean} - return true if the email is valid
    */
   EmailHandel = (event) => {
-    this.setState({email: event.target.value});
+    this.setState({ email: event.target.value });
     validator.validateEmail(event.target.value, this);
   };
   validation = () => {

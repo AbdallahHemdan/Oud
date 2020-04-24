@@ -9,7 +9,7 @@ Enzyme.configure({adapter: new EnzymeAdapter()});
 
 
 const setup = (props={}) =>{
-    return shallow(<Album {...props}/>);
+    return shallow(<Album.WrappedComponent {...props}/>);
 }
 
 const findByTestAttr=(wrapper, val)=>{
@@ -18,11 +18,27 @@ const findByTestAttr=(wrapper, val)=>{
 const props = {id:'1'}
 describe('album Component', ()=>{
         
-    describe('renders correctly', ()=>{
+    describe('renders correctly with initial state', ()=>{
         let component;
         beforeEach (()=>{
             component = setup(props);
         })
+        it('renders album component', ()=>{
+            const wrapper = findByTestAttr(component, "BigWrapper");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders album component', ()=>{
+            const wrapper = findByTestAttr(component, "addTo");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders playlistHeader component', ()=>{
+            const wrapper = findByTestAttr(component, "sidebar");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders playlistIamge component', ()=>{
+            const wrapper = findByTestAttr(component, "navBar");
+            expect(wrapper.length).toBe(1);
+        });
         it('renders album component', ()=>{
             const wrapper = findByTestAttr(component, "album");
             expect(wrapper.length).toBe(1);
@@ -33,10 +49,6 @@ describe('album Component', ()=>{
         });
         it('renders playlistIamge component', ()=>{
             const wrapper = findByTestAttr(component, "playlistIamge");
-            expect(wrapper.length).toBe(1);
-        });
-        it('renders playlistIamgeContainer component', ()=>{
-            const wrapper = findByTestAttr(component, "playlistIamgeContainer");
             expect(wrapper.length).toBe(1);
         });
         it('renders playlistHeaderBody component', ()=>{
@@ -53,24 +65,133 @@ describe('album Component', ()=>{
         });
     
     })
+    describe('renders correctly with displayAdd = false', ()=>{
+        let component;
+        beforeEach (()=>{
+            component = setup(props);
+            component.setState({displayAdd:false})
+        })
+        it('renders album component', ()=>{
+            const wrapper = findByTestAttr(component, "BigWrapper");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders album component', ()=>{
+            const wrapper = findByTestAttr(component, "addTo");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders playlistHeader component', ()=>{
+            const wrapper = findByTestAttr(component, "sidebar");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders playlistIamge component', ()=>{
+            const wrapper = findByTestAttr(component, "navBar");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders album component', ()=>{
+            const wrapper = findByTestAttr(component, "album");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders playlistHeader component', ()=>{
+            const wrapper = findByTestAttr(component, "playlistHeader");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders playlistIamge component', ()=>{
+            const wrapper = findByTestAttr(component, "playlistIamge");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders playlistHeaderBody component', ()=>{
+            const wrapper = findByTestAttr(component, "playlistHeaderBody");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders HeaderBodyBottom component', ()=>{
+            const wrapper = findByTestAttr(component, "HeaderBodyBottom");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders songList component', ()=>{
+            const wrapper = findByTestAttr(component, "songList");
+            expect(wrapper.length).toBe(1);
+        });
+    
+    })
+    describe('renders correctly with displayAdd = false', ()=>{
+        let component;
+        beforeEach (()=>{
+            component = setup(props);
+            component.setState({displayAdd:true})
+        })
+        it('renders album component', ()=>{
+            const wrapper = findByTestAttr(component, "BigWrapper");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders album component', ()=>{
+            const wrapper = findByTestAttr(component, "addTo");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders playlistHeader component', ()=>{
+            const wrapper = findByTestAttr(component, "sidebar");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders playlistIamge component', ()=>{
+            const wrapper = findByTestAttr(component, "navBar");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders album component', ()=>{
+            const wrapper = findByTestAttr(component, "album");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders playlistHeader component', ()=>{
+            const wrapper = findByTestAttr(component, "playlistHeader");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders playlistIamge component', ()=>{
+            const wrapper = findByTestAttr(component, "playlistIamge");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders playlistHeaderBody component', ()=>{
+            const wrapper = findByTestAttr(component, "playlistHeaderBody");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders HeaderBodyBottom component', ()=>{
+            const wrapper = findByTestAttr(component, "HeaderBodyBottom");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders songList component', ()=>{
+            const wrapper = findByTestAttr(component, "songList");
+            expect(wrapper.length).toBe(0);
+        });
+    
+    })
     describe('checking propTypes', ()=>{
         
         it('should not throw a warning', ()=>{
-            const result = checkPropTypes(Album.propTypes, {...props}, 'prop', Album.name);
+            const result = checkPropTypes(Album.WrappedComponent.propTypes, {...props}, 'prop', Album.name);
             expect(result).toBeUndefined();
         });
         it('should throw a warning', ()=>{
-            const result = checkPropTypes(Album.propTypes, {id:true}, 'prop', Album.name);
+            const result = checkPropTypes(Album.WrappedComponent.propTypes, {id:true}, 'prop', Album.name);
             expect(result).toBeDefined();
         });
         it('should throw a warning', ()=>{
-            const result = checkPropTypes(Album.propTypes, {id:1}, 'prop', Album.name);
+            const result = checkPropTypes(Album.WrappedComponent.propTypes, {id:1}, 'prop', Album.name);
             expect(result).toBeDefined();
         });
         it('should throw a warning', ()=>{
-            const result = checkPropTypes(Album.propTypes, {id:{}}, 'prop', Album.name);
+            const result = checkPropTypes(Album.WrappedComponent.propTypes, {id:{}}, 'prop', Album.name);
             expect(result).toBeDefined();
         });
+        it('should throw a warning', ()=>{
+            const result = checkPropTypes(Album.WrappedComponent.propTypes, {id:[]}, 'prop', Album.name);
+            expect(result).toBeDefined();
+        });
+        
     });
+    /*describe('snapshot test', ()=>{
+        it('renders correctly', () => {
+            const tree = renderer
+              .create(<Album.WrappedComponent {...props}/>)
+              .toJSON();
+            expect(tree).toMatchSnapshot();
+        });
+    });*/
    
 })

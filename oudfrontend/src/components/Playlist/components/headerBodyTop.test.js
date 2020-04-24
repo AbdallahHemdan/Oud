@@ -3,6 +3,8 @@ import HeaderBodyTop from './headerBodyTop';
 import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import checkPropTypes from 'check-prop-types'
+import renderer from 'react-test-renderer';
+
 Enzyme.configure({adapter: new EnzymeAdapter()});
 
 
@@ -75,6 +77,14 @@ describe('HeaderBodyTop Component', ()=>{
             const result = checkPropTypes(HeaderBodyTop.propTypes, propsF, 'prop', HeaderBodyTop.name);
             console.log(result);
             expect(result).toBeDefined();
+        });
+    });
+    describe('snapshot test', ()=>{
+        it('renders correctly', () => {
+            const tree = renderer
+              .create(<HeaderBodyTop/>)
+              .toJSON();
+            expect(tree).toMatchSnapshot();
         });
     });
 });

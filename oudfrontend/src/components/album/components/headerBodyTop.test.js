@@ -9,18 +9,19 @@ Enzyme.configure({adapter: new EnzymeAdapter()});
 
 const fullProps = {
     title: 'album name',
-    artists:[{id: "3",
-    name: "ًWegz el wench",
-    type: "Trap",
-    image: "string"
-},
-{
-  id: "4",
-  name: "Amr Diab",
-  type: "farafeery",
-  image: "string"
-}]
-    
+    artists:[
+    {
+        id: "3",
+        name: "ًWegz el wench",
+        type: "Trap",
+        image: "string"
+    },
+    {
+        id: "4",
+        name: "Amr Diab",
+        type: "farafeery",
+        image: "string"
+    }]
 }
 
 const setup = (props={}) =>{
@@ -30,10 +31,7 @@ const setup = (props={}) =>{
 const findByTestAttr=(wrapper, val)=>{
     return wrapper.find(`[data-testid="${val}"]`);
 }
-let component;
-        beforeEach (()=>{
-            component = setup();
-        });
+
 describe('album headerBodyTop Component', ()=>{
     describe('test props', ()=>{
         let component;
@@ -96,9 +94,9 @@ describe('album headerBodyTop Component', ()=>{
     });
     describe('testing HeaderBodyTop Component with props',()=>{
         let component;
-        let props = {title:"nice name", artists:[]}
         beforeEach (()=>{
             component = setup(fullProps);
+            component.setState({artists:fullProps.artists})
         })
         it("renders correctly with props", ()=>{
             const wrapper = findByTestAttr(component, "HeaderBodyTop");
@@ -117,18 +115,7 @@ describe('album headerBodyTop Component', ()=>{
         });
         it("renders credits correctly with props", ()=>{
             const wrapper = findByTestAttr(component, "artist");
-            expect(wrapper.length).toBe(0);
+            expect(wrapper.length).toBe(2);
         });
     });
-    describe("checking that the artist names are rendered", ()=>{
-        let component;
-        let props = {...fullProps}
-        beforeEach (()=>{
-            component = setup(props);
-        })
-        it("chekcing that artists namees are rendered", ()=>{
-            const wrapper = findByTestAttr(component, "artist");
-            expect(wrapper.length).toBe(0);
-        })
-    })
 })

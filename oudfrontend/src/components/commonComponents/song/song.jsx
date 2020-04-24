@@ -8,6 +8,7 @@ import musicIcon from "../../../assets/images/musicIcon.png";
 import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
 import {base} from "../../../config/environment"
 import {config} from "../../../utils/auth"
+import { propTypes } from "react-recaptcha";
 
 
 /**
@@ -344,5 +345,8 @@ Song.propTypes = {
   handleClick: PropTypes.func,
   handlePlay: PropTypes.func,
   track: PropTypes.object,
+  playingItemId:PropTypes.string,
+  addToPlaylist:PropTypes.func,
+  album:PropTypes.bool
 };
 export default Song;

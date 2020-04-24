@@ -33,9 +33,39 @@ const fullProps = {
         },
       album : true,
       addToPlaylist:jest.fn()
+}
+const falseProps ={
+  clickedId: '0',
+  handleClick:jest.fn(),
+  handlePlay: jest.fn(),
+  track:{
+      "id": "19",
+      "name": "إنسان",
+      "artists": [
+          {
+              "id": "5",
+              "name": "حمزة نمرة",
+              "type": "shaaby",
+              "image": "string"
+          },
+          {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+          }
+          ],
+          "album":{
+            "name":"dddd"
+          },
+          "albumId": "1",
+          "type": "Jazz",
+          "audioUrl": "www.Facebook.com"
+      },
+    album : false,
+    addToPlaylist:jest.fn()
 
 }
-
 
 jest.mock('axios')
 const setup = (props) =>{
@@ -241,6 +271,25 @@ describe('song component', ()=>{
         const wrapper = findByTestAttr(component, "addToQueue")
         expect(wrapper.text()).toBe('Add to Queue')
       })
+      it('testing cconditional rendering of • when album=true',()=>{
+        const wrapper = findByTestAttr(component, "comma")
+        expect(wrapper.length).toBe(0)
+      })
+      it('testing cconditional rendering of • when album=false',()=>{
+        let component = shallow(<Song {...falseProps}/>)
+        const wrapper = findByTestAttr(component, "comma")
+        expect(wrapper.length).toBe(2)
+      })
+      it('testing cconditional does not render album name album=true',()=>{
+        const wrapper = findByTestAttr(component, "albumName")
+        expect(wrapper.length).toBe(0)
+      })
+      it('testing cconditional does not render album name album=false',()=>{
+        let component = shallow(<Song {...falseProps}/>)
+        const wrapper = findByTestAttr(component, "albumName")
+        expect(wrapper.length).toBe(1)
+        expect(wrapper.text()).toBe('dddd')
+      })
     })
     describe('testing prop types', ()=>{
         it('passing false props', ()=>{
@@ -286,6 +335,56 @@ describe('song component', ()=>{
         })
         it('passing false props', ()=>{
             const result = checkPropTypes(Song.propTypes, {handlePlay:{}}, 'prop', Song.name);
+            expect(result).toBeDefined();
+        })
+        it('passing false props', ()=>{
+          const result = checkPropTypes(Song.propTypes, {handlePlay:[]}, 'prop', Song.name);
+          expect(result).toBeDefined();
+        })
+        it('passing false props', ()=>{
+            const result = checkPropTypes(Song.propTypes, {handlePlay:55}, 'prop', Song.name);
+            expect(result).toBeDefined();
+        })
+        //wrong data for addToPlaylist
+        it('passing false props', ()=>{
+          const result = checkPropTypes(Song.propTypes, {addToPlaylist:0}, 'prop', Song.name);
+          expect(result).toBeDefined();
+        })
+        it('passing false props', ()=>{
+            const result = checkPropTypes(Song.propTypes, {addToPlaylist:false}, 'prop', Song.name);
+            expect(result).toBeDefined();
+        })
+        it('passing false props', ()=>{
+            const result = checkPropTypes(Song.propTypes, {addToPlaylist:{}}, 'prop', Song.name);
+            expect(result).toBeDefined();
+        })
+        it('passing false props', ()=>{
+          const result = checkPropTypes(Song.propTypes, {addToPlaylist:[]}, 'prop', Song.name);
+          expect(result).toBeDefined();
+        })
+        it('passing false props', ()=>{
+            const result = checkPropTypes(Song.propTypes, {addToPlaylist:55}, 'prop', Song.name);
+            expect(result).toBeDefined();
+        })
+        //wrong data for album
+        it('passing false props', ()=>{
+          const result = checkPropTypes(Song.propTypes, {album:0}, 'prop', Song.name);
+          expect(result).toBeDefined();
+        })
+        it('passing false props', ()=>{
+            const result = checkPropTypes(Song.propTypes, {album:jest.fn()}, 'prop', Song.name);
+            expect(result).toBeDefined();
+        })
+        it('passing false props', ()=>{
+            const result = checkPropTypes(Song.propTypes, {album:{}}, 'prop', Song.name);
+            expect(result).toBeDefined();
+        })
+        it('passing false props', ()=>{
+          const result = checkPropTypes(Song.propTypes, {album:[]}, 'prop', Song.name);
+          expect(result).toBeDefined();
+        })
+        it('passing false props', ()=>{
+            const result = checkPropTypes(Song.propTypes, {album:55}, 'prop', Song.name);
             expect(result).toBeDefined();
         })
     })

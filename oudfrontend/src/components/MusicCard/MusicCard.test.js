@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer'
-import MusicCard from "./MusicCard"
-import { findByTestAttr } from "../../../utils/index";
+import MusicCard from "./MusicCard.js"
+import { findByTestAttr } from "./../../utils/index";
 
 
 const setup = (props = {}) => {
@@ -42,15 +42,6 @@ describe('Music Card Component', () => {
         expect(wrapper.length).toBe(1);
     });
 
-    it('Should render play btn container in right way', () => {
-        const wrapper = findByTestAttr(component, "play-btn");
-        expect(wrapper.length).toBe(1);
-    });
-
-    it('Should render play-circle icon in right way', () => {
-        const wrapper = findByTestAttr(component, "play-circle");
-        expect(wrapper.length).toBe(1);
-    });
 
     it('Should render playlist image in right way', () => {
         const wrapper = findByTestAttr(component, "playlist-image");

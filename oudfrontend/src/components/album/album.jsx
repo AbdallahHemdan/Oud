@@ -9,7 +9,8 @@ import { resume, pause, addToQueue } from '../commonComponents/utils'
 import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist"
 import PropTypes from 'prop-types';
 import { base, subUrl, prodUrl } from "./../../config/environment"
-import {config} from "../../utils/auth"
+import {config, isLoggedIn} from "../../utils/auth"
+import {withRouter} from 'react-router-dom'
 
 /**
  * @classdesc this is a component that renders album page
@@ -149,10 +150,12 @@ class Album extends React.Component {
       .get(`${base}/albums/${this.props.id}`, config)
       .then((response) => {
         const album = response.data;
-        this.setState({ tracks: album.tracks.items });
-        this.setState({ artists: album.artists });
-        this.setState({ album: album });
-        this.setState({ recieved: true });
+        this.setState({ 
+          tracks: album.tracks.items,
+          artists: album.artists,
+          album: album,
+          recieved: true 
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -161,7 +164,6 @@ class Album extends React.Component {
     axios
       .get(`${base}/me/albums/contains/${this.props.id}`, config)
       .then((response) => {
-        console.log(response);
         const isFound = response.data;
         this.setState({ liked: isFound });
       })
@@ -185,24 +187,25 @@ class Album extends React.Component {
   render() {
     const subPath = (base === prodUrl) ? subUrl : "";
     return (
-      <div>
+      <div data-testid="BigWrapper">
         {this.state.displayAdd ? (
           <AddToPlaylist
             display={this.state.displayAdd}
             close={this.closeAddToPlaylist.bind(this)}
+            data-testid="addTo"
           />
         ) : (
-          <div className="dummyParent">
-            <Sidebar />
-            <Navbar isLoggedIn={true} />
-            <div className="profile-user">
-              <div data-testid="album" className="playlist">
-                <div className="row">
-                  <div
-                    data-testid="playlistHeader"
-                    onClick={this.markAllUnclicked.bind(this)}
-                    className="playlistHeader row col-xs-12 col-md-12 col-lg-4 col-xl-4"
-                  >
+            <div className="dummyParent">
+              <Sidebar data-testid="sidebar"/>
+              <Navbar isLoggedIn={isLoggedIn()} data-testid="navBar"/>
+              <div className="profile-user">
+                <div data-testid="album" className="playlist">
+                  <div className="row">
+                    <div
+                      data-testid="playlistHeader"
+                      onClick={this.markAllUnclicked.bind(this)}
+                      className="playlistHeader row col-xs-12 col-md-12 col-lg-4 col-xl-4"
+                    >
                     <div
                       data-testid="playlistIamgeContainer"
                       className="playlistImageContainer col col-lg-12 col-md-4 col-sm-4 col-xs-4"
@@ -223,38 +226,37 @@ class Album extends React.Component {
                         title={this.state.album.name}
                         artists={this.state.artists}
                       />
-
-                      <HeaderBodyBottom
-                        data-testid="HeaderBodyBottom"
-                        length={this.state.tracks.length}
-                        playClicked={this.playButtonClicked}
-                        likeClicked={this.likeButtonClicked}
-                        liked={this.state.liked}
-                        playing={this.state.playing}
-                        releaseDate={this.state.album.release_date}
+                        <HeaderBodyBottom
+                          data-testid="HeaderBodyBottom"
+                          length={this.state.tracks.length}
+                          playClicked={this.playButtonClicked}
+                          likeClicked={this.likeButtonClicked}
+                          liked={this.state.liked}
+                          playing={this.state.playing}
+                          releaseDate={this.state.album.release_date}
+                          recieved={this.state.recieved}
+                          album={true}
+                          addToPlaylist={this.addToPlaylist.bind(this)}
+                        />
+                        </div>
+                      </div>
+                    <SongList
+                        data-testid="songList"
                         recieved={this.state.recieved}
-                        album={true}
+                        tracks={this.state.tracks}
+                        pause={this.pause}
+                        resume={this.resume}
+                        addToQueue={this.addToQueue}
+                        clickedItemId={this.state.clickID}
+                        className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
                         addToPlaylist={this.addToPlaylist.bind(this)}
+                        album={true}
                       />
-                    </div>
-                  </div>
-                  <SongList
-                    data-testid="songList"
-                    recieved={this.state.recieved}
-                    tracks={this.state.tracks}
-                    pause={this.pause}
-                    resume={this.resume}
-                    addToQueue={this.addToQueue}
-                    clickedItemId={this.state.clickID}
-                    className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
-                    addToPlaylist={this.addToPlaylist.bind(this)}
-                    album={true}
-                  />
+                      </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
       </div>
     );
   }
@@ -262,4 +264,4 @@ class Album extends React.Component {
 Album.propTypes = {
   id: PropTypes.string,
 };
-export default Album;
+export default withRouter(Album);

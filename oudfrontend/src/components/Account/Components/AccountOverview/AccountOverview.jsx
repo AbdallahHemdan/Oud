@@ -136,7 +136,6 @@ class AccountOverview extends Component {
     axios
       .get("https://oud-zerobase.me/api/v1/me", config)
       .then(response => {
-        console.log(response);
         ProfileInfo.email = response.data.email;
         ProfileInfo.birthDate = response.data.birthDate.substr(0, 10);
         ProfileInfo.country = response.data.country;
