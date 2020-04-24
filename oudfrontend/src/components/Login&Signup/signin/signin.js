@@ -85,7 +85,7 @@ class SignIn extends Component {
         .catch((error) => {
           errorMassage = error.response.data.message;
           console.log('error', error.response.data.message);
-          this.setState((prevState) => { 
+          this.setState((prevState) => {
             prevState.formErrors.mainError = errorMassage;
             return prevState;
           });
@@ -117,7 +117,7 @@ class SignIn extends Component {
             <form onSubmit={this.handelSubmit} noValidate>
               <div className="form-group sm-8">
                 {this.state.formErrors.mainError && (
-                  <span className="error">
+                  <span className="error" data-testid="BackLoginErrorMessage">
                     {this.state.formErrors.mainError}
                   </span>
                 )}
@@ -191,15 +191,15 @@ class SignIn extends Component {
                     Don't have an account?
                     <br />
                   </h6>
-                  <button
-                    data-testid="SignUpBtn"
-                    type="button"
-                    className="btn SignUpSubmit btn-block"
-                  >
-                    <Link to="/SignUp" className="btn-style butt">
+                  <Link to="/SignUp" className="btn-style butt">
+                    <button
+                      data-testid="SignUpBtn"
+                      type="button"
+                      className="btn SignUpSubmit btn-block"
+                    >
                       SIGN UP
-                    </Link>
-                  </button>
+                    </button>
+                  </Link>
                 </span>
               </section>
             </form>

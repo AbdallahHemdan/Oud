@@ -18,7 +18,8 @@ class IsEntered extends Component {
       .patch(`https://oud-zerobase.me/api/v1/users/verify/${restToken}`)
       .then((req) => {
         if (req.status === 200) {
-          window.location = '/home';
+          window.location = '/';
+          console.log(req);
         }
       })
       .catch((error) => {

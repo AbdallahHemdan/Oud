@@ -5,8 +5,6 @@ import axios from 'axios';
 import {Redirect, withRouter} from 'react-router-dom';
 import Validator from './../validate';
 
-
-
 /** the forget password section  */
 class ResetPassword extends Component {
   constructor(props) {
@@ -166,18 +164,26 @@ class ResetPassword extends Component {
       <div className="container main-center forgetPage SignUpForm">
         <MainBrand />
         <section className="main-form container SignUpForm">
-          <h2 className="pass-reset">Password Reset</h2>
-          <h6 className="hint pass-massage">Enter your new password</h6>
+          <h2 className="pass-reset" data-testid="restPasswordText">
+            Password Reset
+          </h2>
+          <h6 className="hint pass-massage" data-testid="restPasswordText">
+            Enter your new password
+          </h6>
           <section className="main-form container">
             <form onSubmit={this.handelSubmit}>
               <div className="form-group sm-8">
                 {this.Password()}
-                <h6 className="hint pass-massage">Confirm your password</h6>
+                <h6
+                  className="hint pass-massage"
+                  data-testid="restPasswordText"
+                >
+                  Confirm your password
+                </h6>
                 {this.confirmPassword()}
-
                 <button
                   type="button"
-                  data-testid="registerpassword"
+                  data-testid="testIdOfButton"
                   className="btn SignUpSubmit btn-block"
                   onClick={this.handelSubmit}
                 >
@@ -186,7 +192,7 @@ class ResetPassword extends Component {
                 {this.toLogin()}
                 <button
                   type="button"
-                  data-testid="backToLogin"
+                  data-testid="testIdOfButton"
                   className="btn SignUpSubmit btn-block"
                   onClick={this.handelSubmit}
                 >
@@ -195,7 +201,7 @@ class ResetPassword extends Component {
               </div>
               <section className="or-seperator-2"></section>
               <section className="container main-center">
-                <h6 className="hint">
+                <h6 className="hint" data-testid="restPasswordText">
                   If you still need help, contact Oud team at
                   <button type="button" className="btn btn-outline-link">
                     <a href={'mailto:oudteam.sup@gmail.com'}>
@@ -211,7 +217,7 @@ class ResetPassword extends Component {
     );
   }
   /**
-   * confirm password text box
+   * @description confirm password text box
    * @function
    * @returns {JSX}
    */
@@ -220,7 +226,7 @@ class ResetPassword extends Component {
       <div className="form-group">
         <div className="input-group">
           <input
-            data-testid="registerConfirmPassword"
+            data-testid="registerPassword"
             type={this.state.PasswordType}
             className="form-control FormElement"
             placeholder={'confirm Password'}
@@ -248,7 +254,7 @@ class ResetPassword extends Component {
       <div className="form-group">
         <div className="input-group">
           <input
-            data-testid="registerpassword"
+            data-testid="registerPassword"
             type={this.state.PasswordType}
             className="form-control FormElement"
             placeholder={'Password'}

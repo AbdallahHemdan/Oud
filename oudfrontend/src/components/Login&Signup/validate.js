@@ -23,7 +23,7 @@ function checkPassword(Password) {
       isLowercase = true;
     }
   }
-  return isNumber && isUppercase && isLowercase;
+  return isNumber || isUppercase || isLowercase;
 }
 
 export default class Validator {

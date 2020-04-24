@@ -19,7 +19,7 @@ class Card extends Component {
         onMouseEnter={() => this.setState({Toggles: true})}
         onMouseLeave={() => this.setState({Toggles: false})}
       >
-        <div key={MusicCard.id} className="slider container relativeCONT">
+        <div  className="slider container relativeCONT">
           <img
             data-testid="image"
             src={img}
@@ -31,8 +31,8 @@ class Card extends Component {
           <div
             className={`middle ${this.state.Toggles ? 'showSong' : 'hideSong'}`}
           >
-            <h2 className="text">{MusicCard.name}</h2>
-            <h4 className="text">{MusicCard.actor}</h4>
+            <h2 className="text">{this.props.ArtistName}</h2>
+            <h4 className="text">{this.props.TrackName}</h4>
             <Link to="/webPlayer">
               <button className="PlayNow_btn"> Play Now</button>
             </Link>

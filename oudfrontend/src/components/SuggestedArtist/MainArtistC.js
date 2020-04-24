@@ -62,8 +62,6 @@ class MainArtistC extends Component {
         console.log(err.response);
       });
   };
-  componentDidMount = () => {};
-  componentDidUpdate() {}
   render() {
     return (
       <div className="MainArtistC">

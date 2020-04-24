@@ -60,6 +60,7 @@
   opacity: 40%;
   transition: 0.5s ease;
 }
+
 /****/
 .middle:hover .cardImage {
   background-color: black;
@@ -314,6 +315,10 @@
     width: 32%;
     font-size: 100%;
   }
+
+  .text {
+    font-size: 100%;
+  }
 }
 
 @media (max-width: 700px) {
@@ -332,6 +337,10 @@
   .welcomeTextUser {
     top: 8%;
   }
+  .text {
+    font-size: 150%;
+  }
+
 }
 
 @media (max-width: 550 px) {
