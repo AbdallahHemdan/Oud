@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
 import GenreCard from "./../GenreCard/GenreCard"
 
+/**
+  * @constructor
+  *
+  * @param {object} items - list of all items (categories)
+  */
 class BrowseAll extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-    }
-  }
-
+  /**
+   * @function
+   * 
+   * @name render
+   * 
+   * @description Render All categories and call music card to render each category
+   * 
+   * @returns {JSX} Component for App
+   */
   render() {
     return (
       <section

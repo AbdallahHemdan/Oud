@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search After Typing component snapshot test renders component correctly 1`] = `
+<h1
+  data-testid="loading"
+>
+  Loading..
+</h1>
+`;
