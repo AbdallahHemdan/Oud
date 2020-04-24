@@ -19,6 +19,7 @@ import ResetPassword from './components/Login&Signup/ForgetPassword/resetPasswor
 import Entered from './components/Login&Signup/logined/entered';
 import Islinked from './components/Login&Signup/linkisSent';
 import Welcome from './pages/Welcome/welcome';
+import SuggestedArtist from './pages/SuggestedArtistPage/SuggestedArtist';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -90,6 +91,9 @@ function App() {
           </Route>
           <Route exact path="/islanded">
             <Islinked />
+          </Route>
+          <Route exact path="/SuggestedArtist">
+            <SuggestedArtist />
           </Route>
         </Switch>
       </div>

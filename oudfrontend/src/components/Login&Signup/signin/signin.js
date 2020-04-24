@@ -85,7 +85,7 @@ class SignIn extends Component {
         .catch((error) => {
           errorMassage = error.response.data.message;
           console.log('error', error.response.data.message);
-          this.setState((prevState) => {
+          this.setState((prevState) => { 
             prevState.formErrors.mainError = errorMassage;
             return prevState;
           });

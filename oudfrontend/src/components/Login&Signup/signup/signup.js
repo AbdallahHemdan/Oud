@@ -194,7 +194,7 @@ class Signup extends Component {
             localStorage.setItem('accessToken', authToken);
             console.log('token', authToken);
             console.log(response);
-            window.location = '/';
+            window.location = '/SuggestedArtist';
           }
         })
         .catch((error) => {

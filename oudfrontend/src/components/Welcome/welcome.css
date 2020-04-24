@@ -55,6 +55,18 @@
   object-fit: cover;
 }
 
+.cardImage:hover {
+  background-color: black;
+  opacity: 40%;
+  transition: 0.5s ease;
+}
+/****/
+.middle:hover .cardImage {
+  background-color: black;
+  opacity: 40%;
+  transition: 0.5s ease-in-out;
+}
+
 .cardContent {
   position: absolute;
   z-index: 1;
@@ -111,11 +123,11 @@
   z-index: 999;
 }
 
-.hide {
+.hideSong {
   opacity: 0;
 }
 
-.show {
+.showSong {
   opacity: 100%;
 }
 
