@@ -7,21 +7,22 @@ const config = {
   },
 };
 function checkSavedTrack(id) {
+  console.log("check for saved: " + id);
   return axios
-    .get(`${base}/me/tracks/contains?ids=[${id}]`, config)
+    .get(`${base}/me/tracks/contains?ids=${id}`, config)
     .then((response) => {
-      if (response["data"].hasOwnProperty("IsFound")) {
-        return response["data"]["IsFound"][0];
-      }
+      console.log("check for saved: " + id);
+      console.log(response);
+      return response["data"][0];
     })
     .catch((error) => {
-      console.log(error.response.data.message);
+      console.log(error.response);
     });
 }
 
 function saveTrack(id) {
   return axios
-    .put(`${base}/me/tracks/contains?ids=[${id}]`, config)
+    .put(`${base}/me/tracks?ids=${id}`, {}, config)
     .then((response) => {
       if (!response["data"].hasOwnProperty("status")) return true;
       else return false;
@@ -33,7 +34,7 @@ function saveTrack(id) {
 
 function removeSavedTrack(id) {
   return axios
-    .delete(`${base}/me/tracks/contains?ids=[${id}]`, config)
+    .delete(`${base}/me/tracks?ids=${id}`, config)
     .then((response) => {
       return true;
       // if (response["data"]["status"] === "204") return true;

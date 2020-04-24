@@ -176,7 +176,7 @@ class Player extends Component {
           });
           this.props.changePlayingState(false);
           this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
-          // this.handleSaveToLikedSongs();
+          this.handleSaveToLikedSongs(track["_id"]);
           return track["audioUrl"];
         }
       })
@@ -184,8 +184,8 @@ class Player extends Component {
         console.log(error.response);
       });
   };
-  handleSaveToLikedSongs = () => {
-    checkSavedTrack(this.props.trackId)
+  handleSaveToLikedSongs = (trackId) => {
+    checkSavedTrack(trackId)
       .then((isFound) => {
         if (isFound) {
           this.props.changeLovedState(true);

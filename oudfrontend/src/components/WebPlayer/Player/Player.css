@@ -287,3 +287,10 @@ button:focus {
     margin: 0;
   }
 }
+.swal2-icon.swal2-success {
+  border-color: #ffce00 !important;
+  color: #ffce00 !important;
+}
+.swal2-icon.swal2-success [class^="swal2-success-line"] {
+  background-color: #ffce00 !important;
+}
