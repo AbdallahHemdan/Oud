@@ -21,7 +21,8 @@ class UpperContainer extends Component {
       signInId: "",
       followStatus: false,
       mouseOn: "",
-      scrolled: false
+      scrolled: false,
+      type: ""
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
@@ -40,7 +41,9 @@ class UpperContainer extends Component {
     if (this.state.followStatus) {
       axios
         .delete(
-          "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
+          "https://oud-zerobase.me/api/v1/me/following?type=" +
+            this.state.type +
+            "&ids=" +
             this.props.userId,
           config
         )
@@ -51,7 +54,9 @@ class UpperContainer extends Component {
     } else {
       axios
         .put(
-          "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
+          "https://oud-zerobase.me/api/v1/me/following?type=" +
+            this.state.type +
+            "&ids=" +
             this.props.userId,
           {
             ids: [this.props.userId]
@@ -101,13 +106,16 @@ class UpperContainer extends Component {
         this.setState({
           id: response.data._id,
           username: response.data.displayName,
-          photo: response.data.images[0]
+          photo: response.data.images[0],
+          type: response.data.type
         });
 
         //you should use the type and ids as query prams in the real API as here you can't make it just get the data
         axios
           .get(
-            "https://oud-zerobase.me/api/v1/me/following/contains?type=user&ids=" +
+            "https://oud-zerobase.me/api/v1/me/following/contains?type=" +
+              this.state.type +
+              "&ids=" +
               this.props.userId,
             config
           )
@@ -210,7 +218,9 @@ class UpperContainer extends Component {
             }
           >
             {!this.state.scrolled && (
-              <p className="userName-profile-padding">USER</p>
+              <p className="userName-profile-padding">
+                {this.state.type.toUpperCase()}
+              </p>
             )}
             <h1>{this.state.username}</h1>
           </div>
@@ -271,6 +281,12 @@ class UpperContainer extends Component {
               to={`/profile/${this.props.userId}/followers`}
             >
               FOLLOWERS
+            </Link>
+            <Link
+              id="followers-upperContainer"
+              to={`/profile/${this.props.userId}/artists`}
+            >
+              ARTISTS
             </Link>
           </div>
         </div>

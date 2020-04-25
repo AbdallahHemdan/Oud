@@ -22,7 +22,6 @@ import WhyGoPremium from "./components/Premium/Component/WhyGoPremium/WhyGoPremi
 import GetPremium from "./components/Premium/Component/GetPremium/GetPremium";
 import Ads from "./components/Premium/Component/Ads/Ads";
 import Welcome from "./pages/Welcome/welcome";
-import Welcome from "./pages/Welcome/welcome";
 import SeeAllRecentSearches from "./components/SeeAllRecentSearches/SeeAllRecentSearches";
 
 import "./App.css";

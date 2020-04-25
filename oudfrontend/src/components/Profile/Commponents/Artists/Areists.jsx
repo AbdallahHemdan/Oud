@@ -8,7 +8,7 @@ import { config } from "./../../../../utils/auth";
  * @returns {JSX} this returns the list of the current user following list
  */
 
-class Following extends Component {
+class Artists extends Component {
   constructor(props) {
     super(props);
 
@@ -30,7 +30,7 @@ class Following extends Component {
           .get(
             "https://oud-zerobase.me/api/v1/users/" +
               this.props.userId +
-              "/following?type=user",
+              "/following?type=artist",
             config
           )
           .then(response => {
@@ -56,7 +56,7 @@ class Following extends Component {
   render() {
     let count = 0; //just for mapping
     return (
-      <div data-test="Following">
+      <div data-test="Artists">
         {this.state.items.map(item => (
           <FollowCard
             id={item.id}
@@ -69,4 +69,4 @@ class Following extends Component {
   }
 }
 
-export default Following;
+export default Artists;

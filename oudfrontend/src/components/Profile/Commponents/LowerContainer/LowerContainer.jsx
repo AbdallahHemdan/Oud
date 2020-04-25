@@ -4,6 +4,7 @@ import Followers from "../Followers/Followers";
 import Following from "../Following/Following";
 import Overview from "../Overview/Overview";
 import PublicPlaylists from "../PublicPlaylists/PublicPlaylists";
+import Artists from "../Artists/Areists";
 import Oud from "./../../../../assets/images/Oud2.png";
 
 import "./LowerContainer.css";
@@ -51,6 +52,12 @@ function LowerContainer(props) {
           exact
           path={`/profile/:userId/followers`}
           render={prop => <Followers {...prop} userId={props.userId} />}
+        />
+        <Route
+          data-test="artists"
+          exact
+          path={`/profile/:userId/artists`}
+          render={prop => <Artists {...prop} userId={props.userId} />}
         />
         <Route
           data-test="defualt-profile-page"

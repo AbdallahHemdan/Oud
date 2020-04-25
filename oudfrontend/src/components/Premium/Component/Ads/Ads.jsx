@@ -4,6 +4,7 @@ import { config } from "../../../../utils/auth";
 import "./Ads.css";
 
 /**
+ * @type {Date}
  * date object to handle time
  */
 let d = new Date();
@@ -15,7 +16,7 @@ let ads = [
   "https://i.ytimg.com/vi/kpLCIeEOBgI/maxresdefault.jpg"
 ];
 /**
- * @type [Class]
+ * @class
  * @returns <Ads/> componenet
  */
 class Ads extends Component {
@@ -26,7 +27,7 @@ class Ads extends Component {
      * @param [role] : the role of the user preium / free
      */
     this.state = {
-      role: ""
+      role: "premium"
     };
   }
 
