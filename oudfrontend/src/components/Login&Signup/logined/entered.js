@@ -10,8 +10,6 @@ class IsEntered extends Component {
   }
   componentDidMount = () => {
     let restToken = this.props.match.params.token;
-    console.log('sadasdasdas', this.props.match);
-
     axios
       .patch(`https://oud-zerobase.me/api/v1/users/verify/${restToken}`)
       .then((req) => {
