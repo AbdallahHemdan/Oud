@@ -4,55 +4,51 @@ import {CardList} from './../item/cardlist/cardlist';
 import adele from './../../../assets/images/adeleImg.png';
 import Back from './../../../assets/images/2685063.jpg';
 import oud from './../../../assets/images/oud.png';
+import axios from 'axios';
+import {base, subUrl, prodUrl} from './../../../config/environment';
+import {config} from './../../../utils/auth';
+const getArtistLink = `${base}/artists/some`;
 class AfterLogin extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      MusicCard: [
-        {
-          id: '1',
-          picSrc: {adele},
-          name: 'Hello',
-          actor: 'adele',
-        },
-        {
-          id: '2',
-
-          picSrc: {adele},
-          name: 'Hello',
-          actor: 'adele',
-        },
-        {
-          id: '3',
-
-          picSrc: {adele},
-          name: 'Hello',
-          actor: 'adele',
-        },
-        {
-          id: '4',
-
-          picSrc: {adele},
-          name: 'Hello',
-          actor: 'adele',
-        },
-        {
-          id: '5',
-
-          picSrc: {adele},
-          name: 'Hello',
-          actor: 'adele',
-        },
-        {
-          id: '6',
-
-          picSrc: {adele},
-          name: 'Hello',
-          actor: 'adele',
-        },
-      ],
-    };
+    this.state = {tracks: [], artists: [], ids: []};
   }
+  handleStoringArtists = (artists) => {
+    this.setState({artists});
+    let ids = [];
+    this.state.artists.map((artist) => {
+      ids.push(artist.id);
+    });
+    this.setState({ids});
+  };
+  handleStoringTracks = (tracks) => {
+    this.setState({tracks});
+    let track = [];
+    this.state.tracks.map((tracks) => {
+      track.push(tracks);
+      console.log(this.state.tracks);
+    });
+    this.setState({track});
+  };
+  componentDidMount() {
+    axios
+      .get(getArtistLink, config)
+      .then((result) => {
+        this.handleStoringArtists(result.data);
+      })
+      .catch((error) => {
+        console.log('error111', error.response);
+      });
+    axios
+      .get(`${base}/artists/${this.state.id}/top-tracks`, config)
+      .then((response) => {
+        this.handleStoringTracks(response.data);
+      })
+      .catch((error) => {
+        console.log('error', error.response);
+      });
+  }
+
   render() {
     return (
       <div className="BodyStyle">
@@ -87,7 +83,7 @@ class AfterLogin extends Component {
         </div>
         <div className="container">
           <div className="MusicCard">
-            <CardList MusicCard={this.state.MusicCard}></CardList>
+            <CardList Artists={this.state.artists}></CardList>
           </div>
         </div>
       </div>

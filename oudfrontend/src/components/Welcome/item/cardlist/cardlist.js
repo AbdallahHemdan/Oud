@@ -13,15 +13,15 @@ export const CardList = (props) => {
   return (
     <div className="container">
       <div className="cartList row ">
-        {props.MusicCard.map((element, index) => (
+        {/* {props.MusicCard.map((element, index) => (
           <Card
-            Id={element.Id}
+            // Id={element.Id}
             // ArtistName={element.artists.displayName}
-            TrackName={element.name}
+            // TrackName={element.name}
             // Image={`${subPath}${element.artists.images[0]}`}
             key={index}
           />
-        ))}
+        ))} */}
       </div>
     </div>
   );

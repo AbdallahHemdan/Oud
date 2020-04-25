@@ -198,7 +198,7 @@ button.btn.btn-primary.btn-block {
 }
 
 .SignUpSubmit {
-  width: 330px;
+  width: 100%;
   color: #ffffff;
   background-color: #f9b835;
   border-radius: 50px;
@@ -211,6 +211,10 @@ button.btn.btn-primary.btn-block {
   display: block;
   margin-bottom: 20px;
   text-decoration: none;
+}
+
+.EmailtoHelp {
+  color: #f9b835;
 }
 
 .butt {

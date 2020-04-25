@@ -13,11 +13,7 @@ export default class Artistc extends Component {
     super(props);
     this.state = {artists: this.props.artists};
   }
-  /**
-   * here is the subpath of the image if it in the production or in the base
-   */
 
-  componentWillReceiveProps() {}
   render = () => {
     const subPath = base === prodUrl ? subUrl : '';
     return (
