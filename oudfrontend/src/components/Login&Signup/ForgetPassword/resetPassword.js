@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../signup/signup.css';
 import MainBrand from '../MainBrand';
 import axios from 'axios';
-import {Redirect, withRouter} from 'react-router-dom';
+import {Redirect, withRouter, Link} from 'react-router-dom';
 import Validator from './../validate';
 
 /** the forget password section  */
@@ -174,22 +174,22 @@ class ResetPassword extends Component {
                 >
                   Reset password
                 </button>
-                {this.toLogin()}
-                <button
-                  type="button"
-                  data-testid="testIdOfButton"
-                  className="btn SignUpSubmit btn-block"
-                  onClick={this.handelSubmit}
-                >
-                  Back to Login
-                </button>
+                <Link to="/signin">
+                  <button
+                    type="button"
+                    data-testid="testIdOfButton"
+                    className="btn SignUpSubmit btn-block"
+                  >
+                    Back to Login
+                  </button>
+                </Link>
               </div>
               <section className="or-seperator-2"></section>
               <section className="container main-center">
                 <h6 className="hint" data-testid="restPasswordText">
                   If you still need help, contact Oud team at
                   <button type="button" className="btn btn-outline-link">
-                    <a href={'mailto:oudteam.sup@gmail.com'}>
+                    <a href={'mailto:oudteam.sup@gmail.com'} className="EmailtoHelp">
                       oudteam.sup@gmail.com
                     </a>
                   </button>
