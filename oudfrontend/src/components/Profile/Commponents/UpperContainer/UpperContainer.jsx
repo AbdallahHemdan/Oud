@@ -282,12 +282,6 @@ class UpperContainer extends Component {
             >
               FOLLOWERS
             </Link>
-            <Link
-              id="followers-upperContainer"
-              to={`/profile/${this.props.userId}/artists`}
-            >
-              ARTISTS
-            </Link>
           </div>
         </div>
         {this.state.scrolled && <div style={{ height: "250px" }}></div>}

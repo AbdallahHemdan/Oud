@@ -14,6 +14,7 @@ class Following extends Component {
 
     this.state = {
       items: [],
+      artists: [],
       signInId: "0",
       type: ""
     };
@@ -42,6 +43,22 @@ class Following extends Component {
           .catch(error => {
             console.log(error.response);
           });
+        axios
+          .get(
+            "https://oud-zerobase.me/api/v1/users/" +
+              this.props.userId +
+              "/following?type=artist",
+            config
+          )
+          .then(response => {
+            this.setState({
+              artists: response.data.items
+            });
+            console.log(response.data.items);
+          })
+          .catch(error => {
+            console.log(error.response);
+          });
       });
     axios
       .get("https://oud-zerobase.me/api/v1/me", config)
@@ -57,6 +74,13 @@ class Following extends Component {
     let count = 0; //just for mapping
     return (
       <div data-test="Following">
+        {this.state.artists.map(item => (
+          <FollowCard
+            id={item.id}
+            signInId={this.state.signInId}
+            key={count++}
+          />
+        ))}
         {this.state.items.map(item => (
           <FollowCard
             id={item.id}
