@@ -24,8 +24,8 @@
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Running](#running)
-  - [Screenshots](#screenshots)
- - [File Structure](#file-structure)
+- [Screenshots](#screenshots)
+- [File Structure](#file-structure)
 - [Unit Testing](#unit-testing)
   - [Running Unit tests](#running-unit-tests)
   - [Generating Coverage Report](#generating-coverage-report)
@@ -128,6 +128,10 @@ $ npm run prod
 
 ![94688968_251064116040980_741229785270714368_n](https://user-images.githubusercontent.com/40190772/80294341-c0d8be80-8768-11ea-8f5f-7c64283ada45.png)
 ![101](https://user-images.githubusercontent.com/40190772/80294342-c1715500-8768-11ea-8d5a-f65901cde402.png)
+
+<hr />
+
+![71](https://user-images.githubusercontent.com/40190772/80294566-735d5100-876a-11ea-98e8-fd1990850aa5.png)
 
 
 </div>
