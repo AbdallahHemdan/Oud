@@ -112,6 +112,23 @@ $ npm run prod
 
 ![59](https://user-images.githubusercontent.com/40190772/80294155-b1587600-8766-11ea-87df-ee84c2612d3a.png)
 
+<hr />
+
+![102](https://user-images.githubusercontent.com/40190772/80294334-bb7b7400-8768-11ea-8132-a46f1579769a.png)
+
+<hr />
+
+![94604376_255790072229844_6882535695697575936_n](https://user-images.githubusercontent.com/40190772/80294339-bf0efb00-8768-11ea-96de-0e69c7fcd342.png)
+
+<hr />
+
+![94707053_226074958669096_6818316481399357440_n](https://user-images.githubusercontent.com/40190772/80294340-c0402800-8768-11ea-86ac-684f4ec55b6a.png)
+
+<hr />
+
+![94688968_251064116040980_741229785270714368_n](https://user-images.githubusercontent.com/40190772/80294341-c0d8be80-8768-11ea-8f5f-7c64283ada45.png)
+![101](https://user-images.githubusercontent.com/40190772/80294342-c1715500-8768-11ea-8d5a-f65901cde402.png)
+
 
 </div>
 
