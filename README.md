@@ -1,7 +1,8 @@
 <div align="center">
 <a href="" rel="noopener">
   
-<img width="302" alt="Logo With Title (4)" src="https://user-images.githubusercontent.com/40190772/80605428-5909c880-8a33-11ea-8cc9-052b3bc8510a.png">
+  ![Logo With Title (6)](https://user-images.githubusercontent.com/40190772/80605531-848cb300-8a33-11ea-9df6-d62152a6991d.png)
+
 
 </div>
 
