@@ -1,8 +1,8 @@
 <div align="center">
 <a href="" rel="noopener">
   
-![Oud](https://user-images.githubusercontent.com/40190772/79008099-ebb5f680-7b5c-11ea-926d-f79f25f3e47b.png)
-  
+<img width="302" alt="Logo With Title (4)" src="https://user-images.githubusercontent.com/40190772/80605428-5909c880-8a33-11ea-8cc9-052b3bc8510a.png">
+
 </div>
 
 <h3 align="center">Oud Front-End</h3>
