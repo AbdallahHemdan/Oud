@@ -141,9 +141,7 @@ $ npm run prod
 </div>
 
 ### Videos
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/1KOHOJDGaLeumGqQenzCeeShPqIudCJBX/preview" width="640" height="480"></iframe>
-  </div>
+- [Player](https://drive.google.com/file/d/1KOHOJDGaLeumGqQenzCeeShPqIudCJBX/preview)
 
 ## File Structure
                                     
