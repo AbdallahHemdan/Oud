@@ -158,8 +158,7 @@ $ npm run prod
         ├── build
         ├── public
         │   ├── favicon.ico	
-        │   ├── index.html
-        │   └── manifest.json	
+        │   └── index.html	
         └── src
             ├── assets
             │   ├── images
