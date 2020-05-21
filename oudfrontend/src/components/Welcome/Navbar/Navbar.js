@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
-import { isLoggedIn } from "./../../../utils/auth";
-import BeforeLogin from "./BeforeLogin";
-import AfterLogin from "./AfterLogin";
-import Common from "./Common";
-import CommonRight from "./CommonRight";
+import {isLoggedIn} from './../../../utils/auth';
+import BeforeLogin from './BeforeLogin';
+import AfterLogin from './AfterLogin';
+import Common from './Common';
+import CommonRight from './CommonRight';
 
 class Navbar extends Component {
   render() {
@@ -16,7 +16,7 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto nav-items font-weight-bold NavBarStyle_nav-items">
               <CommonRight />
-              <li className="block NavBarStyle_block nav-item">{"|"}</li>
+              <li className="block NavBarStyle_block nav-item">{'|'}</li>
               {isLoggedIn() ? <AfterLogin /> : <BeforeLogin />}
             </ul>
           </div>

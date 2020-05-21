@@ -56,5 +56,6 @@
   "/me/queue": "/queue",
   "/me/playlists": "/likedPlaylists",
   "/me/albums": "/likedAlbums",
-  "/playlists": "/playlist"
+  "/playlists": "/playlist",
+  "/artists/random": "/artists/random"
 }

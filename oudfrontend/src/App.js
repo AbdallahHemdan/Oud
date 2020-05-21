@@ -1,33 +1,35 @@
-import React from "react";
-import Playlist from "./components/Playlist/playlist";
-import LikedSongs from "./components/likedSongs/likedSongs";
-import Album from "./components/album/album";
-import Search from "./pages/Search/Search";
-import Account from "./pages/Account/Account";
-import RedirectPage from "./components/Account/General/RedirectPage";
-import Profile from "./pages/Profile/Profile";
-import Home from "./pages/Home/Home";
-import SeeAll from "./components/SeeAll/SeeAll";
-import Download from "./pages/RoutingPages/download";
-import Help from "./pages/RoutingPages/help";
-import Premium from "./pages/RoutingPages/premium";
-import Overview from "./pages/RoutingPages/OverView";
-import SignUp from "./pages/Signup/index";
-import SignIn from "./pages/Login/loginPage";
-import ForgotPassword from "./components/Login&Signup/ForgetPassword/ForgotPassword";
-import ResetPassword from "./components/Login&Signup/ForgetPassword/resetPassword";
-import Entered from "./components/Login&Signup/logined/entered";
-import Islinked from "./components/Login&Signup/linkisSent";
+import React from 'react';
+import Playlist from './components/Playlist/playlist';
+import LikedSongs from './components/likedSongs/likedSongs';
+import Album from './components/album/album';
+import Search from './pages/Search/Search';
+import Account from './pages/Account/Account';
+import RedirectPage from './components/Account/General/RedirectPage';
+import Profile from './pages/Profile/Profile';
+import Home from './pages/Home/Home';
+import SeeAll from './components/SeeAll/SeeAll';
+import Download from './pages/RoutingPages/download';
+import Help from './pages/RoutingPages/help';
+import Premium from './pages/RoutingPages/premium';
+import Overview from './pages/RoutingPages/OverView';
+import SignUp from './pages/Signup/index';
+import SignIn from './pages/Login/loginPage';
+import ForgotPassword from './components/Login&Signup/ForgetPassword/ForgotPassword';
+import ResetPassword from './components/Login&Signup/ForgetPassword/resetPassword';
+import Entered from './components/Login&Signup/logined/entered';
+import Islinked from './components/Login&Signup/linkisSent';
 import Welcome from './pages/Welcome/welcome';
-import SeeAllRecentSearches from "./components/SeeAllRecentSearches/SeeAllRecentSearches"
-import WhyGoPremium from "./components/Premium/WhyGoPremium/WhyGoPremium";
-import "./App.css";
+import SuggestedArtist from './pages/SuggestedArtistPage/SuggestedArtist';
+import './App.css';
+import SeeAllRecentSearches from './components/SeeAllRecentSearches/SeeAllRecentSearches';
+import WhyGoPremium from './components/Premium/WhyGoPremium/WhyGoPremium';
+import './App.css';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  useParams
-} from "react-router-dom";
+  useParams,
+} from 'react-router-dom';
 
 function App() {
   return (
@@ -85,14 +87,18 @@ function App() {
           <Route exact path="/forgot-password">
             <ForgotPassword />
           </Route>
-          <Route exact path="/reset-password">
+          <Route path="/resetpassword/:token">
             <ResetPassword />
           </Route>
-          <Route exact path="/entered">
-            <Entered />
-          </Route>
+          <Route
+            path="/verify/:token"
+            render={(props) => <Entered {...props} />}
+          />
           <Route exact path="/islanded">
             <Islinked />
+          </Route>
+          <Route exact path="/SuggestedArtist">
+            <SuggestedArtist />
           </Route>
         </Switch>
       </div>
