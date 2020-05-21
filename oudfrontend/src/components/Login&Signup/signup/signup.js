@@ -30,6 +30,7 @@ class Signup extends Component {
       Password: '',
       ConfirmPassword: '',
       selectedCountry: '',
+      userType: '',
       formErrors: {
         displayNameError: '',
         mainError: '',
@@ -169,6 +170,15 @@ class Signup extends Component {
     } else if (this.state.gender === '2') {
       gen = 'F';
     }
+    let usertype;
+    if (this.state.userType === '01') {
+      usertype = 'free';
+    } else if (this.state.userType === '02') {
+      usertype = 'premium';
+    } else if (this.state.userType === '03') {
+      usertype = 'artist';
+    }
+
     let toSent = {
       username: this.state.name,
       birthDate: birth,
@@ -176,7 +186,7 @@ class Signup extends Component {
       password: this.state.Password,
       passwordConfirm: this.state.ConfirmPassword,
       displayName: this.state.displayName,
-      role: 'free',
+      role: usertype,
       country: countryList.code(this.state.selectedCountry),
       gender: gen,
     };
@@ -300,7 +310,7 @@ class Signup extends Component {
           {this.gender()}
           {this.country()}
           {this.birthDate()}
-          {this.Recaptcha()}
+          {this.UserType()}
           {this.signUp()}
         </form>
       </section>
@@ -390,20 +400,21 @@ class Signup extends Component {
       </React.Fragment>
     );
   }
-  /**
-   * the recaptcha call part
-   * @function
-   * @returns {JSX}
-   */
-  Recaptcha() {
+  UserType() {
     return (
-      <div className="rc-captcha container">
-        <Recaptcha
-          sitekey="6Ld5Ht8UAAAAADUJ6PLpOY_x5YSBfe9fRsYDEiVv"
-          render="explicit"
-          onloadCallback={this.callback}
-          verifyCallback={this.verifyCallback}
-        />
+      <div className="form-group">
+        <select
+          data-testid="register-dob-month"
+          id="inputMonth"
+          className="form-control FormElement  form-col custom-select"
+          defaultValue="userType"
+          name="userType"
+          onChange={this.handleChange}
+        >
+          <option value="01">Free</option>
+          <option value="02">premium</option>
+          <option value="03">Artist</option>
+        </select>
       </div>
     );
   }
