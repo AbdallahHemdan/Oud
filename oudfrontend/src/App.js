@@ -9,8 +9,12 @@ import Profile from './pages/Profile/Profile';
 import Home from './pages/Home/Home';
 import SeeAll from './components/SeeAll/SeeAll';
 import Download from './pages/RoutingPages/download';
-import Help from './pages/RoutingPages/help';
+import Help from './components/Welcome/Footer/Help';
+import About from './components/Welcome/Footer/About';
+import ForArtist from './components/Welcome/Footer/ForArtist';
+import Features from './components/Welcome/Footer/Features';
 import Premium from './pages/RoutingPages/premium';
+import ContactUs from './components/Welcome/Footer/contactUs';
 import Overview from './pages/RoutingPages/OverView';
 import SignUp from './pages/Signup/index';
 import SignIn from './pages/Login/loginPage';
@@ -77,6 +81,18 @@ function App() {
           </Route>
           <Route exact path="/help">
             <Help />
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/artists">
+            <ForArtist />
+          </Route>
+          <Route exact path="/contactus">
+            <ContactUs />
+          </Route>
+          <Route exact path="/features">
+            <Features />
           </Route>
           <Route exact path="/premium">
             <Premium />

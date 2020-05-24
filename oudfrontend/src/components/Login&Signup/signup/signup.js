@@ -190,6 +190,8 @@ class Signup extends Component {
       country: countryList.code(this.state.selectedCountry),
       gender: gen,
     };
+    console.log(toSent);
+    
     let errorMassage = '';
     if (
       this.state.isVerified &&
@@ -404,8 +406,6 @@ class Signup extends Component {
     return (
       <div className="form-group">
         <select
-          data-testid="register-dob-month"
-          id="inputMonth"
           className="form-control FormElement  form-col custom-select"
           defaultValue="userType"
           name="userType"

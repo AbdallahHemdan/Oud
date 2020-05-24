@@ -10,7 +10,7 @@ export default class ForArtist extends Component {
     return (
       <div>
         <Navbar />
-        <div className="container HelpSection">
+        <div className="container HelpSection" id="gohere">
           <div className="Help_text">
             <p className="FAHead">Make OUD Yours.</p>
             <hr className="hrinFA" />
@@ -19,7 +19,9 @@ export default class ForArtist extends Component {
             <p className="Text1">
               25+ fans are waiting for you. Claim your profile to access OUD for
               Artists.
-              <button className="GETBTN">GET ACCESS</button>
+              <a href="/signup">
+                <button className="GETBTN">GET ACCESS</button>
+              </a>
             </p>
           </div>
           <div class="grid-container2">
@@ -55,7 +57,11 @@ export default class ForArtist extends Component {
             how to get the most out of OUD.
           </p>
           <div className="container">
-            <button className="GETBTN2">GET ACCESS</button>
+            <a href="/signup">
+              <button className="GETBTN2" to="/signin">
+                GET ACCESS
+              </button>
+            </a>
           </div>
         </div>
         <Footer />
