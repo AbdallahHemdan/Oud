@@ -6,9 +6,8 @@ import PropTypes from "prop-types";
 import play from "../../../assets/images/play.png";
 import musicIcon from "../../../assets/images/musicIcon.png";
 import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
-import {base} from "../../../config/environment"
-import {config} from "../../../utils/auth"
-
+import { base } from "../../../config/environment";
+import { config } from "../../../utils/auth";
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -64,7 +63,7 @@ class Song extends Component {
       saved: false,
       queued: false,
       clicked: false,
-      redirect: null,
+      redirect: null
     };
   }
   /**
@@ -84,23 +83,21 @@ class Song extends Component {
   componentDidMount() {
     axios
       .get(`${base}/albums/${this.props.track.albumId}/`, config)
-      .then((response) => {
+      .then(response => {
         const album = response.data;
         this.setState({ albumName: album.name });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
 
     axios
-      .get(
-        `${base}/me/tracks/contains/${this.props.track.albumId}/`, config
-      )
-      .then((response) => {
+      .get(`${base}/me/tracks/contains/${this.props.track.albumId}/`, config)
+      .then(response => {
         const isFound = response.data;
         this.setState({ saved: isFound });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }
@@ -112,13 +109,13 @@ class Song extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.clickedId !== this.props.clickedId) {
       this.setState({
-        clicked: nextProps.clickedId === this.props.track.id ? true : false,
+        clicked: nextProps.clickedId === this.props.track.id ? true : false
       });
       this.hh();
     }
     if (nextProps.playingItemId !== this.props.playingItemId) {
       this.setState({
-        playing: nextProps.playingItemId === this.props.track.id ? true : false,
+        playing: nextProps.playingItemId === this.props.track.id ? true : false
       });
     }
   }
@@ -153,20 +150,20 @@ class Song extends Component {
     if (this.state.queued === false) {
       axios
         .post(`${base}/me/queue/`, this.state.track, config)
-        .then(function (response) {
+        .then(function(response) {
           console.log(response);
         })
-        .catch(function (error) {
+        .catch(function(error) {
           console.log(error);
         });
       this.setState({ queued: true });
     } else {
       axios
         .delete(`${base}/me/queue/${this.state.track.id}`, config)
-        .then(function (response) {
+        .then(function(response) {
           console.log(response);
         })
-        .catch(function (error) {
+        .catch(function(error) {
           console.log(error);
         });
       this.setState({ queued: false });
@@ -240,7 +237,7 @@ class Song extends Component {
             </span>
             <p data-testid="aristsNames">
               <span>
-                {this.state.track.artists.map((artist) => {
+                {this.state.track.artists.map(artist => {
                   return (
                     <span>
                       <button
@@ -344,6 +341,6 @@ Song.propTypes = {
   clickedId: PropTypes.string,
   handleClick: PropTypes.func,
   handlePlay: PropTypes.func,
-  track: PropTypes.object,
+  track: PropTypes.object
 };
 export default Song;

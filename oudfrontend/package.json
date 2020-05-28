@@ -44,7 +44,8 @@
     "react-test-renderer": "^16.13.1",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
-    "socket.io-stream": "^0.9.1"
+    "socket.io-stream": "^0.9.1",
+    "sweetalert2": "^9.10.12"
   },
   "scripts": {
     "dev": "env-cmd -e  dev react-scripts start",
