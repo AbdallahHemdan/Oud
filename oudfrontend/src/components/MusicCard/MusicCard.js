@@ -95,6 +95,10 @@ class MusicCard extends Component {
        * @type {string}
        */
       type: type,
+      /**
+       * Variable to determine show or hide play button
+       * @type {Boolean}
+       */
       playBtn: this.props.playBtn,
       isHidden: this.props.isHidden,
     };
@@ -122,7 +126,7 @@ class MusicCard extends Component {
    * @param {object} event - an event to use it in
    * disabling the default of the propagation
    */
-  handlePlayClick = (e) => {
+  handlePlayClick = e => {
     e.stopPropagation();
 
     //after everything is this id should be variable

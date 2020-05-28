@@ -1,8 +1,11 @@
 <div align="center">
-<a href="" rel="noopener">
+<a href="https://github.com/AbdallahHemdan/oudFrontend" rel="noopener">
   
-![Oud](https://user-images.githubusercontent.com/40190772/79008099-ebb5f680-7b5c-11ea-926d-f79f25f3e47b.png)
-  
+  <img width="700" alt="Logo With Title (7)" src="https://user-images.githubusercontent.com/40190772/80605635-9ec69100-8a33-11ea-8dff-5453762373ea.png">
+
+
+
+
 </div>
 
 <h3 align="center">Oud Front-End</h3>
@@ -24,8 +27,9 @@
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Running](#running)
-  - [Screenshots](#screenshots)
- - [File Structure](#file-structure)
+- [Screenshots](#screenshots)
+- [Videos](#videos)
+- [File Structure](#file-structure)
 - [Unit Testing](#unit-testing)
   - [Running Unit tests](#running-unit-tests)
   - [Generating Coverage Report](#generating-coverage-report)
@@ -92,8 +96,52 @@ $ npm run prod
 
 ![image](https://user-images.githubusercontent.com/40190772/79008263-418a9e80-7b5d-11ea-9433-c8d7791a9b81.png)
 
+<hr />
+
+![25](https://user-images.githubusercontent.com/40190772/80294151-aa316800-8766-11ea-89dd-07cfc32b27f6.png)
+
+<hr />
+
+![62](https://user-images.githubusercontent.com/40190772/80294147-a6054a80-8766-11ea-95c5-187fb180b2b8.png)
+
+<hr />
+
+![55](https://user-images.githubusercontent.com/40190772/80294153-ae5d8580-8766-11ea-82a2-bab3d5e43f2b.png)
+
+<hr />
+
+![52](https://user-images.githubusercontent.com/40190772/80294154-b0bfdf80-8766-11ea-837f-05e2d94cbe2e.png)
+
+<hr />
+
+![59](https://user-images.githubusercontent.com/40190772/80294155-b1587600-8766-11ea-87df-ee84c2612d3a.png)
+
+<hr />
+
+![102](https://user-images.githubusercontent.com/40190772/80294334-bb7b7400-8768-11ea-8132-a46f1579769a.png)
+
+<hr />
+
+![94604376_255790072229844_6882535695697575936_n](https://user-images.githubusercontent.com/40190772/80294339-bf0efb00-8768-11ea-96de-0e69c7fcd342.png)
+
+<hr />
+
+![94707053_226074958669096_6818316481399357440_n](https://user-images.githubusercontent.com/40190772/80294340-c0402800-8768-11ea-86ac-684f4ec55b6a.png)
+
+<hr />
+
+![94688968_251064116040980_741229785270714368_n](https://user-images.githubusercontent.com/40190772/80294341-c0d8be80-8768-11ea-8f5f-7c64283ada45.png)
+![101](https://user-images.githubusercontent.com/40190772/80294342-c1715500-8768-11ea-8d5a-f65901cde402.png)
+
+<hr />
+
+![71](https://user-images.githubusercontent.com/40190772/80294566-735d5100-876a-11ea-98e8-fd1990850aa5.png)
+
 
 </div>
+
+### Videos
+- [Player](https://drive.google.com/file/d/1KOHOJDGaLeumGqQenzCeeShPqIudCJBX/preview)
 
 ## File Structure
                                     
@@ -191,7 +239,7 @@ Check out our [contributing guidelines](https://github.com/AbdallahHemdan/oudFro
     <a href="https://github.com/AbdallahHemdan" target="_black">
     <img src="https://avatars1.githubusercontent.com/u/40190772?s=460&v=4" width="150px;" alt="abdallah hemdan"/>
     <br />
-    <sub><b>Abdallah Hemdan</b></sub></a><a href="https://github.com/AbdallahHemdan/oudFrontend/commits/master?author=AbdallahHemdan" title="Code">💻</a><a href="https://github.com/AbdallahHemdan/oudFrontend/pulls?q=is%3Apr+author%3AAbdallahHemdan" title="Reviewed Pull Requests">👀</a><br />
+    <sub><b>Abdallah Hemdan</b></sub></a><a href="https://github.com/AbdallahHemdan/oudFrontend/commits/master?author=AbdallahHemdan" title="Leader">🎯</a><a href="https://github.com/AbdallahHemdan/oudFrontend/commits/master?author=AbdallahHemdan" title="Code">💻</a><a href="https://github.com/AbdallahHemdan/oudFrontend/pulls?q=is%3Apr+author%3AAbdallahHemdan" title="Reviewed Pull Requests">👀</a><br />
     </td>
     <td align="center"><a href="https://github.com/abdallahabusedo" target="_black"><img src="https://avatars3.githubusercontent.com/u/42722816?s=400&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4" width="150px;" alt="Abdallah Sbu Sedo"/><br /><sub><b>Abdallah Abu Sedo</b></sub></a><a href="https://github.com/AbdallahHemdan/oudFrontend/commits/master?author=abdallahabusedo" title="Code">💻</a><br /></td>
     <td align="center"><a href="https://github.com/lido22"  target="_black"><img src="https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4" width="150px;" alt="ahmed walid"/><br /><sub><b>Ahmed Walid</b></sub></a><a href="https://github.com/AbdallahHemdan/oudFrontend/commits/master?author=lido22" title="Code">💻</a><br /></td>

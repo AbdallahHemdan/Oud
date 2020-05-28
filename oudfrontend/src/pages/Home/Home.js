@@ -87,7 +87,7 @@ class Home extends Component {
    */
   handleStoringCategories = ({ items, limit, offset, total }) => {
     this.setState({ items, limit, offset, total, isLoading: false });
-  };
+  }
 
   /**
    * Fetching data of all categories immediately after the component has been mount to the DOM tree

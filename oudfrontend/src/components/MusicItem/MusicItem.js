@@ -22,7 +22,7 @@ class MusicItem extends Component {
    * @param {object} _id - get _id of an item from higher component (Home)
    * @param {object} name - get name of an item from higher component (Home)
    * @param {object} icon - get icon of an item from higher component (Home)
-   */
+  */
   constructor(props) {
     super(props);
 
@@ -68,7 +68,7 @@ class MusicItem extends Component {
    * Fetching category playlists data immediately after the component has been mount to the DOM tree
    *
    * @returns {void} - nothing to return, it just fetch data and set it in the state
-   */
+  */
   componentDidMount() {
     let fetchPlaylistsUrlMocking = `${base}/browse/categories/${this.state._id}/playlists`;
     axios

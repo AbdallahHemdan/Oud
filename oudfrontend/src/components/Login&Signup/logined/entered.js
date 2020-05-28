@@ -1,41 +1,35 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-var qs = require('qs');
+import oud from './../../../assets/images/Oud.ico';
+import './../signup/signup.css';
 
 class IsEntered extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      formErrors: '',
-    };
+    this.state = {};
   }
   componentDidMount = () => {
-    let errorMassage = '';
-    let restToken = qs.parse(this.props.location.search, {
-      ignoreQueryPrefix: true,
-    }).token;
+    let restToken = this.props.match.params.token;
     axios
       .patch(`https://oud-zerobase.me/api/v1/users/verify/${restToken}`)
       .then((req) => {
-        if (req.status === 200) {
-          window.location = '/home';
-        }
+        const authToken = req.data.token;
+        localStorage.setItem('accessToken', authToken);
+        window.location = '/';
+        console.log(req);
       })
       .catch((error) => {
-        errorMassage = error.req.data.message;
-        this.setState((prev) => {
-          prev.formErrors = errorMassage;
-          return prev;
-        });
-        console.log(error.req);
+        console.log(error.response);
       });
   };
   render() {
     return (
       <div>
-        {this.state.formErrors && (
-          <span className="error">{this.state.formErrors}</span>
-        )}
+        <img alt="oud" src={oud} className="LogoOfVerify" />
+        <div className="container">
+          <p className="e404">404</p>
+          <p className="pagenotfound">PAGE NOT FOUND </p>
+        </div>
       </div>
     );
   }

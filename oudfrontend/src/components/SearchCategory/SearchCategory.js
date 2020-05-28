@@ -1,6 +1,22 @@
 import React, { Component } from 'react'
 import SearchCard from "./../SearchCard/SearchCard"
+
+/**
+ * component to render Search Category component (Artist, Album, User, Playlist, Tracks)
+ *
+ * @author Abdallah Hemdan
+ *
+ * @component
+ *
+ */
 class SearchCategory extends Component {
+  /**
+  * @function
+  * @name render
+  * @description Render all the items of specific Search category..
+  *
+  * @returns {JSX} Component for Search
+  */
   render() {
     return (
       <div className="module">

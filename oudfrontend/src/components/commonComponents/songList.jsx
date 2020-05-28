@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Song from "./song/song";
 import PropTypes from "prop-types";
 import axios from "axios";
-import { base } from "../../config/environment"
-import { config } from "../../utils/auth"
+import { base } from "../../config/environment";
+import { config } from "../../utils/auth";
 import LoadingSnipper from "../LoadingSnipper/LoadingSnipper";
 
 /**
@@ -46,7 +46,7 @@ class SongList extends Component {
     this.state = {
       clickedItemId: "0",
       playing: false,
-      playingItemId: "0",
+      playingItemId: "0"
     };
     this.handleClick = this.handleClick.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
@@ -93,10 +93,10 @@ class SongList extends Component {
     this.setState({ playingItemId: id });
     axios
       .get(`${base}/me/player/currently-playing`, config)
-      .then((response) => {
+      .then(response => {
         playingId = response.data.item.id;
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
     if (id === playingId) {
@@ -126,15 +126,16 @@ class SongList extends Component {
                 index={index}
                 clickedId={this.state.clickedItemId}
                 playingItemId={this.state.playingItemId}
-                handleClick={this.handleClick}
                 handlePlay={this.handlePlay}
                 addToPlaylist={() => this.props.addToPlaylist()}
+                handleClick={this.handleClick}
+                renderNames={this.props.renderNames}
               />
             );
           })
         ) : (
-            <LoadingSnipper />
-          )}
+          <LoadingSnipper />
+        )}
       </div>
     );
   }
@@ -145,6 +146,6 @@ SongList.propTypes = {
   pause: PropTypes.func,
   resume: PropTypes.func,
   addToQueue: PropTypes.func,
-  clickedItemId: PropTypes.string,
+  clickedItemId: PropTypes.string
 };
 export default SongList;

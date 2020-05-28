@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import "./RecentSearchCard.css";
 import { Link, withRouter } from "react-router-dom"
 import { base, subUrl, prodUrl } from "./../../config/environment"
+import PropTypes from "prop-types";
 /**
- * Music card component which render and display the playlist card of a specific category 
+ * Recent Search card component which render and display the playlist card of a specific category 
  * @author Abdallah Hemdan
  * @component
  */
@@ -21,7 +22,7 @@ class RecentSearchCard extends Component {
 
   /**
    * Function to handle navigation to the playlist page
-   * on clicking on the music card
+   * on clicking on the Recent Search card
    * 
    * @function
    * 
@@ -38,8 +39,8 @@ class RecentSearchCard extends Component {
     }
   }
   /**
-   * Function to handle playing music on clicking on
-   * play icon the music card
+   * Function to handle playing Recent Search on clicking on
+   * play icon the Recent Search card
    * 
    * @function
    * 
@@ -48,7 +49,7 @@ class RecentSearchCard extends Component {
    */
   handlePlayClick = (e) => {
     e.stopPropagation();
-    console.log("🎵 music is playing now");
+    console.log("🎵 Recent Search is playing now");
   }
   componentDidMount() {
     const SearchItem = (this.props.item) ? (this.props.item) : null;
@@ -61,13 +62,12 @@ class RecentSearchCard extends Component {
    * 
    * @name render
    * 
-   * @description Render Music card components..
+   * @description Render Recent Search card components..
    * 
    * @returns {JSX} Component for App
    */
   render() {
     const subPath = (base === prodUrl) ? subUrl : "";
-    const cardClass = (this.state.isHidden) ? "hidden-card" : "card"
     return (
       <React.Fragment>
         {
@@ -75,19 +75,15 @@ class RecentSearchCard extends Component {
             className="card-container"
             data-testid="card-container"
           >
-            <div className={cardClass}
-              data-testid={cardClass}
+            <div className="card"
+              data-testid="card"
             >
               <div
                 className="overlayer"
                 onClick={this.handlePlaylistClick}
-                data-testid="overlay"
+                data-testid="overlayer"
               >
                 {
-                  // (
-                  //   this.state.type !== 'artist' &&
-                  //   this.state.type !== 'user'
-                  // ) ?
                   < button
                     className="play-btn"
                     onClick={this.handlePlayClick}
@@ -99,8 +95,6 @@ class RecentSearchCard extends Component {
                     >
                     </i>
                   </button>
-                  // :
-                  // null
                 }
               </div>
               <img
@@ -116,9 +110,7 @@ class RecentSearchCard extends Component {
                   to={`${this.state.type}/${this.state._id}`}
                   className="playlist-link"
                   data-testid="playlist-link"
-                >
-                  {this.state.displayName}
-                </Link>
+                >{this.state.displayName}</Link>
               </div>
             </div>
           </ div>
@@ -127,5 +119,7 @@ class RecentSearchCard extends Component {
     );
   }
 }
-
+RecentSearchCard.propTypes = {
+  item: PropTypes.object
+}
 export default withRouter(RecentSearchCard);

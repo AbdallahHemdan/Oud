@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './signup.css';
-import { Redirect } from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import _ from 'lodash';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
@@ -30,6 +30,7 @@ class Signup extends Component {
       Password: '',
       ConfirmPassword: '',
       selectedCountry: '',
+      userType: '',
       formErrors: {
         displayNameError: '',
         mainError: '',
@@ -46,12 +47,12 @@ class Signup extends Component {
     };
   }
   userNameHandel = (event) => {
-    this.setState({ name: event.target.value });
+    this.setState({name: event.target.value});
     Validator.validateUserName(event.target.value, this);
   };
 
   DisplaynameHandel = (event) => {
-    this.setState({ displayName: event.target.value });
+    this.setState({displayName: event.target.value});
     Validator.validateDisplayName(event.target.value, this);
   };
   /**
@@ -62,7 +63,7 @@ class Signup extends Component {
    * @returns {boolean} - return true if the email is valid
    */
   EmailHandel = (event) => {
-    this.setState({ email: event.target.value });
+    this.setState({email: event.target.value});
     Validator.validateEmail(event.target.value, this);
   };
   /**
@@ -77,7 +78,7 @@ class Signup extends Component {
    * @returns {string} -change the error massages
    *  */
   PasswordHandel = (event) => {
-    this.setState({ Password: event.target.value });
+    this.setState({Password: event.target.value});
     Validator.validatePassword(event.target.value, this);
   };
 
@@ -90,17 +91,17 @@ class Signup extends Component {
    * @returns {string}
    */
   ConfirmPasswordHandel = (event) => {
-    this.setState({ ConfirmPassword: event.target.value });
+    this.setState({ConfirmPassword: event.target.value});
     Validator.validateConfirmPassword(event.target.value, this);
   };
 
   genderHandel = (event) => {
-    this.setState({ gender: event.target.value });
+    this.setState({gender: event.target.value});
     Validator.validateGender(event.target.value, this);
   };
 
   countryHandel = (event) => {
-    this.setState({ selectedCountry: event.target.value });
+    this.setState({selectedCountry: event.target.value});
     Validator.validateCountry(event.target.value, this);
   };
 
@@ -140,7 +141,7 @@ class Signup extends Component {
       this.state.day,
       this
     );
-    value &= Validator.validateUserName(this.state.displayName, this);
+    value &= Validator.validateDisplayName(this.state.displayName, this);
     value &= Validator.validateCountry(this.state.selectedCountry, this);
     return value;
   };
@@ -169,6 +170,15 @@ class Signup extends Component {
     } else if (this.state.gender === '2') {
       gen = 'F';
     }
+    let usertype;
+    if (this.state.userType === '01') {
+      usertype = 'free';
+    } else if (this.state.userType === '02') {
+      usertype = 'premium';
+    } else if (this.state.userType === '03') {
+      usertype = 'artist';
+    }
+
     let toSent = {
       username: this.state.name,
       birthDate: birth,
@@ -176,11 +186,10 @@ class Signup extends Component {
       password: this.state.Password,
       passwordConfirm: this.state.ConfirmPassword,
       displayName: this.state.displayName,
-      role: 'free',
+      role: usertype,
       country: countryList.code(this.state.selectedCountry),
       gender: gen,
     };
-
     let errorMassage = '';
     if (
       this.state.isVerified &&
@@ -195,7 +204,7 @@ class Signup extends Component {
             localStorage.setItem('accessToken', authToken);
             console.log('token', authToken);
             console.log(response);
-            window.location = '/';
+            window.location = '/SuggestedArtist';
           }
         })
         .catch((error) => {
@@ -204,15 +213,13 @@ class Signup extends Component {
             errorMassage =
               'this email or username is used Please use another Email';
           }
-          console.log('eroror', error.response.data.message);
+          console.log('error', error.response.data.message);
           this.setState((prevState) => {
             prevState.formErrors.mainError = errorMassage;
             return prevState;
           });
         });
       console.log('state', this.state);
-    } else if (this.hasSamePassword() === false) {
-      errorMassage = 'Invalid  ,Password not matched';
     }
     this.setState((prevState) => {
       prevState.formErrors.ConfirmPasswordError = errorMassage;
@@ -240,7 +247,7 @@ class Signup extends Component {
    * @function
    * @returns {void}
    */
-  callback = () => { };
+  callback = () => {};
   /**
    * this is a captcha
    * a function to call it
@@ -251,7 +258,7 @@ class Signup extends Component {
    */
   verifyCallback = (action) => {
     if (action) {
-      this.setState({ isVerified: true });
+      this.setState({isVerified: true});
     }
   };
   /**
@@ -303,7 +310,7 @@ class Signup extends Component {
           {this.gender()}
           {this.country()}
           {this.birthDate()}
-          {this.Recaptcha()}
+          {this.UserType()}
           {this.signUp()}
         </form>
       </section>
@@ -393,20 +400,21 @@ class Signup extends Component {
       </React.Fragment>
     );
   }
-  /**
-   * the recaptcha call part
-   * @function
-   * @returns {JSX}
-   */
-  Recaptcha() {
+  UserType() {
     return (
-      <div className="rc-captcha container">
-        <Recaptcha
-          sitekey="6Ld5Ht8UAAAAADUJ6PLpOY_x5YSBfe9fRsYDEiVv"
-          render="explicit"
-          onloadCallback={this.callback}
-          verifyCallback={this.verifyCallback}
-        />
+      <div className="form-group">
+        <select
+          data-testid="register-dob-month"
+          id="inputMonth"
+          className="form-control FormElement  form-col custom-select"
+          defaultValue="userType"
+          name="userType"
+          onChange={this.handleChange}
+        >
+          <option value="01">Free</option>
+          <option value="02">premium</option>
+          <option value="03">Artist</option>
+        </select>
       </div>
     );
   }
@@ -457,13 +465,13 @@ class Signup extends Component {
               this.state.month === '02'
               ? 30
               : this.state.month === '02'
-                ? 29
-                : this.state.month === '04' ||
-                  this.state.month === '06' ||
-                  this.state.month === '09' ||
-                  this.state.month === '11'
-                  ? 31
-                  : 32
+              ? 29
+              : this.state.month === '04' ||
+                this.state.month === '06' ||
+                this.state.month === '09' ||
+                this.state.month === '11'
+              ? 31
+              : 32
           ).map((value) => (
             <option key={value} value={value}>
               {value}
@@ -570,6 +578,7 @@ class Signup extends Component {
    * @returns {JSX}
    */
   confirmPassword() {
+    let same = this.hasSamePassword();
     return (
       <div className="form-group">
         <div className="input-group">
@@ -584,12 +593,12 @@ class Signup extends Component {
             value={this.setState.ConfirmPassword}
           />
         </div>
-        {this.hasSamePassword() === false
+        {same === false
           ? this.state.formErrors.ConfirmPasswordError && (
-            <span className="error" htmlFor="register-confirmPassword">
-              {this.state.formErrors.ConfirmPasswordError}
-            </span>
-          )
+              <span className="error" htmlFor="register-confirmPassword">
+                {this.state.formErrors.ConfirmPasswordError}
+              </span>
+            )
           : null}
       </div>
     );
