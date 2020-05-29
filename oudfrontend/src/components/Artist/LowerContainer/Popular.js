@@ -76,6 +76,7 @@ class Popular extends Component {
           addToPlaylist={this.props.addToPlaylist}
           removeSong={this.removeSong}
           renderNames={true}
+          authId={this.props.artistId}
         />
       </div>
     );

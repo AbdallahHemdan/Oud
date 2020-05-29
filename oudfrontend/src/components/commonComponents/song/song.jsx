@@ -7,7 +7,7 @@ import play from "../../../assets/images/play.png";
 import musicIcon from "../../../assets/images/musicIcon.png";
 import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
 import { base } from "../../../config/environment";
-import { config } from "../../../utils/auth";
+import { config, Auth } from "../../../utils/auth";
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -196,6 +196,11 @@ class Song extends Component {
   removeSong = () => {
     this.props.removeSong(this.props.clickedId);
   };
+  checkAuth = () => {
+    console.log("Auth res:");
+    console.log(Auth());
+    return Auth() === this.props.authId;
+  };
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
@@ -324,13 +329,15 @@ class Song extends Component {
                 >
                   Add to Playlist
                 </button>
-                <button
-                  data-testid="remove-song"
-                  className="SongDropdownItem songButton"
-                  onClick={this.removeSong}
-                >
-                  Remove the Song
-                </button>
+                {this.checkAuth() && (
+                  <button
+                    data-testid="remove-song"
+                    className="SongDropdownItem songButton"
+                    onClick={this.removeSong}
+                  >
+                    Remove the Song
+                  </button>
+                )}
               </div>
             </div>
           </div>

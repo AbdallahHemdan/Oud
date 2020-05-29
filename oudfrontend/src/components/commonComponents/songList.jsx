@@ -131,6 +131,7 @@ class SongList extends Component {
                 removeSong={this.props.removeSong}
                 handleClick={this.handleClick}
                 renderNames={this.props.renderNames}
+                authId={this.props.authId}
               />
             );
           })

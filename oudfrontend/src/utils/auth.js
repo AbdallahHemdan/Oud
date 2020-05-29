@@ -12,6 +12,7 @@ function Auth() {
   try {
     if (!getToken()) return null;
     let decoded = jwtDecode(getToken());
+    console.log(decoded.id);
     return decoded.id;
   } catch {
     return null;
