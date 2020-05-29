@@ -1,10 +1,11 @@
 import axios from "axios";
-const config = {
-  headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGFmYTA2NDVmNDU3MTYwNzVmZiIsImlhdCI6MTU4Njg5MzE0MywiZXhwIjoxNTg5NDg1MTQzfQ.ON2Ef2vgOV1_6EokwvD3mlUzgAn0pb5WPCy5qBWj2QA`,
-  },
-};
-const getRequest = (endpoint) => {
+import { config } from "./../utils/auth";
+// const config = {
+//   headers: {
+//     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGFmYTA2NDVmNDU3MTYwNzVmZiIsImlhdCI6MTU4Njg5MzE0MywiZXhwIjoxNTg5NDg1MTQzfQ.ON2Ef2vgOV1_6EokwvD3mlUzgAn0pb5WPCy5qBWj2QA`,
+//   },
+// };
+const getRequest = endpoint => {
   return axios.get(endpoint, config);
 };
 /**
@@ -13,7 +14,7 @@ const getRequest = (endpoint) => {
  * @param {string} endpoint the required endpoint to implement an action
  * @returns {object}
  */
-const deleteRequest = (endpoint) => {
+const deleteRequest = endpoint => {
   return axios.delete(endpoint, config);
 };
 /**

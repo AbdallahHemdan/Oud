@@ -1,11 +1,11 @@
-import jwtDecode from 'jwt-decode';
+import jwtDecode from "jwt-decode";
 
 function getToken() {
-  return localStorage.getItem('accessToken');
+  return localStorage.getItem("accessToken");
 }
 
 const config = {
-  headers: { Authorization: `Bearer ${getToken()}` },
+  headers: { authorization: `Bearer ${getToken()}` }
 };
 
 function Auth() {
@@ -18,7 +18,7 @@ function Auth() {
   }
 }
 function isLoggedIn() {
-  return (getToken()) ? true : false;
+  return getToken() ? true : false;
 }
 
 const _config = config;

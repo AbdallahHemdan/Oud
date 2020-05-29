@@ -19,7 +19,7 @@ class Popular extends Component {
       recieved: false,
       tracks: [],
       clickID: "0",
-      displayAdd: false,
+      displayAdd: false
     };
   }
   /**
@@ -29,15 +29,15 @@ class Popular extends Component {
    */
   componentDidMount() {
     getRequest(`${base}/artists/${this.props.artistId}/top-tracks`)
-      .then((response) => {
+      .then(response => {
         this.setState({
           tracks: response.data.tracks,
-          recieved: true,
+          recieved: true
         });
         console.log("fetched artist tracks");
         console.log(response);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error.response);
       });
   }
@@ -72,6 +72,6 @@ Popular.propTypes = {
   /**
    * The unique idetifier of the author
    */
-  artistId: PropTypes.string.isRequired,
+  artistId: PropTypes.string.isRequired
 };
 export default Popular;
