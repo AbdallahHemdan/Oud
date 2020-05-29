@@ -30,13 +30,13 @@ class Options extends Component {
         icon: "success",
         showConfirmButton: false,
         timer: 1000,
-        confirmButtonColor: "#ffce00",
+        confirmButtonColor: "#ffce00"
       });
     });
   };
   render() {
     return (
-      <div className="dropdown">
+      <div className="dropdown" style={{ float: "left" }}>
         <div
           className="artist-ellipsis-container"
           data-toggle="dropdown"
@@ -87,6 +87,6 @@ Options.propTypes = {
   /**
    * A function to handle the follow click on the whole artist page
    */
-  handleFollowClick: PropTypes.func.isRequired,
+  handleFollowClick: PropTypes.func.isRequired
 };
 export default Options;

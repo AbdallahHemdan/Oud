@@ -91,6 +91,9 @@
 .artist-compilation {
   margin-top: 2%;
 }
+/* .artist-options-dropdown .dropdwon {
+  float: left;
+} */
 .artist-user .dropdown-menu {
   background-color: black;
 }

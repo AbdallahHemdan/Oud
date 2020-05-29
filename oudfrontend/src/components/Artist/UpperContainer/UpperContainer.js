@@ -23,7 +23,7 @@ class UpperContainer extends Component {
       signInId: "",
       mouseOn: "",
       scrolled: false,
-      openDrop: false,
+      openDrop: false
     };
     this.upload = this.upload.bind(this);
   }
@@ -32,7 +32,7 @@ class UpperContainer extends Component {
       return {
         id: nextProps.id,
         username: nextProps.displayName,
-        signInId: nextProps.id,
+        signInId: nextProps.id
       };
     }
     return null;
@@ -51,7 +51,7 @@ class UpperContainer extends Component {
    * @function
    * @returns {void}
    */
-  handleFollowClick = (event) => {
+  handleFollowClick = event => {
     this.props.handleFollowClick(event);
   };
   /**
@@ -59,7 +59,7 @@ class UpperContainer extends Component {
    * @function
    * @returns {void}
    */
-  handleMouseOver = (event) => {
+  handleMouseOver = event => {
     this.setState({ mouseOn: true });
   };
   /**
@@ -67,7 +67,7 @@ class UpperContainer extends Component {
    * @function
    * @returns {void}
    */
-  handleMouseOut = (event) => {
+  handleMouseOut = event => {
     this.setState({ mouseOn: false });
   };
   /**
@@ -90,7 +90,7 @@ class UpperContainer extends Component {
             this.state.scrolled
               ? { backgroundColor: "#000000" }
               : {
-                  backgroundImage: `url(${this.props.cover})`,
+                  backgroundImage: `url(${this.props.cover})`
                 }
           }
         >
@@ -156,7 +156,9 @@ class UpperContainer extends Component {
             data-testid="profile-links"
             className="profile-links"
             style={
-              this.state.scrolled ? { marginTop: "0", marginLeft: "30px" } : {}
+              this.state.scrolled
+                ? { marginTop: "0", marginLeft: "30px", paddingTop: "inherit" }
+                : { paddingTop: "inherit" }
             }
           >
             <Link
@@ -207,6 +209,6 @@ UpperContainer.propTypes = {
   /**
    * A function to handle the follow click on the whole artist page
    */
-  handleFollowClick: PropTypes.func.isRequired,
+  handleFollowClick: PropTypes.func.isRequired
 };
 export default UpperContainer;
