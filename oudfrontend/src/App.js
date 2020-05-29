@@ -50,7 +50,7 @@ function App() {
           <Route exact path="/recent-search">
             <SeeAllRecentSearches />
           </Route>
-          <Route path="/artist/:userId" component={Artist} />
+          <Route path="/artist/:artistId" component={Artist} />
           <Route path="/profile/:userId" component={Profile} />
           <Route path="/account" component={Account} />
           <Route path="/goPremium" component={WhyGoPremium} />

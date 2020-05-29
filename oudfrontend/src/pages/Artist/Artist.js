@@ -13,6 +13,7 @@ import "./Artist.css";
  * )
  */
 function Artist(props) {
+  console.log(props.match.params.artistId);
   return (
     <div className="dummyParent">
       <Sidebar />

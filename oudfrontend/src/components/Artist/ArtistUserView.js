@@ -25,7 +25,7 @@ class ArtistUserView extends Component {
       signInId: "",
       followStatus: false,
       bio: "",
-      displayAdd: false,
+      displayAdd: false
     };
   }
   /**
@@ -34,33 +34,34 @@ class ArtistUserView extends Component {
    * @returns {void}
    */
   componentDidMount() {
+    console.log(`${base}/artists/${this.props.artistId}`);
     getRequest(`${base}/artists/${this.props.artistId}`)
-      .then((response) => {
+      .then(response => {
         this.setState({
           id: response.data.id,
           username: response.data.displayName,
           bio: response.data.bio,
-          img: response.data.images[1],
+          img: response.data.images[1]
         });
         getRequest(
           `${base}/me/following/containes?type=artist&ids=[${this.props.artistId}]`
         )
-          .then((response) => {
+          .then(response => {
             this.setState({ followStatus: response.data.ids[0] });
           })
-          .catch((error) => {
+          .catch(error => {
             console.log(error);
           });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error.response);
       });
 
     getRequest(`${base}/me`)
-      .then((response) => {
+      .then(response => {
         this.setState({ signInId: response.data.id });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }
@@ -72,13 +73,13 @@ class ArtistUserView extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.artistId !== this.props.artistId) {
       getRequest(`${base}/artists/${this.props.artistId}`)
-        .then((response) => {
+        .then(response => {
           this.setState({
             id: response.data.id,
-            username: response.data.displayName,
+            username: response.data.displayName
           });
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     }
@@ -88,7 +89,7 @@ class ArtistUserView extends Component {
    * @func
    * @returns {void}
    */
-  handleFollowClick = (event) => {
+  handleFollowClick = event => {
     /*
      1) make put request if it was false 
      2) make delet request if true
@@ -98,18 +99,18 @@ class ArtistUserView extends Component {
     if (this.state.followStatus) {
       /*this shouild be in route me/following/ids=*,*,*,*&type=user/artist*/
       deleteRequest(`${base}/me/following?type=artist&ids[${this.state.id}]`)
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => console.log(error));
+        .catch(error => console.log(error));
     } else {
       putRequest(`${base}/me/following?type=artist`, {
-        ids: [this.state.id],
+        ids: [this.state.id]
       })
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     }
@@ -168,6 +169,6 @@ ArtistUserView.propTypes = {
   /**
    * The unique idetifier of the author
    */
-  artistId: PropTypes.string.isRequired,
+  artistId: PropTypes.string.isRequired
 };
 export default ArtistUserView;
