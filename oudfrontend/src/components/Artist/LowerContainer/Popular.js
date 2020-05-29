@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SongList from "../../commonComponents/songList";
-import { getRequest } from "../../../utils/requester";
+import { getRequest, deleteRequest } from "../../../utils/requester";
 import { base } from "../../../config/environment";
 import PropTypes from "prop-types";
 /**
@@ -27,7 +27,7 @@ class Popular extends Component {
    * @func
    * @returns {void}
    */
-  componentDidMount() {
+  fetchTopTrack = () => {
     getRequest(`${base}/artists/${this.props.artistId}/top-tracks`)
       .then(response => {
         this.setState({
@@ -40,10 +40,22 @@ class Popular extends Component {
       .catch(error => {
         console.log(error.response);
       });
+  };
+  componentDidMount() {
+    this.fetchTopTrack();
   }
   pause = () => {};
   resume = () => {};
   addToQueue = () => {};
+  removeSong = trackId => {
+    deleteRequest(`${base}/tracks/${trackId}`)
+      .then(() => {
+        this.fetchTopTrack();
+      })
+      .catch(error => {
+        console.log(error.response);
+      });
+  };
   render() {
     return (
       <div className="artis-overview">
@@ -62,6 +74,7 @@ class Popular extends Component {
           clickedItemId={this.state.clickID}
           className="artist-pop col-xs-12 col-md-12 col-lg-8 col-xl-8"
           addToPlaylist={this.props.addToPlaylist}
+          removeSong={this.removeSong}
           renderNames={true}
         />
       </div>

@@ -193,6 +193,9 @@ class Song extends Component {
   addToPlaylist() {
     this.toggleDropdown();
   }
+  removeSong = () => {
+    this.props.removeSong(this.props.clickedId);
+  };
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
@@ -320,6 +323,13 @@ class Song extends Component {
                   onClick={() => this.props.addToPlaylist()}
                 >
                   Add to Playlist
+                </button>
+                <button
+                  data-testid="remove-song"
+                  className="SongDropdownItem songButton"
+                  onClick={this.removeSong}
+                >
+                  Remove the Song
                 </button>
               </div>
             </div>
