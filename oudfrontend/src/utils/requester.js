@@ -1,5 +1,5 @@
 import axios from "axios";
-import { config } from "./../utils/auth";
+import { config, isLoggedIn } from "./../utils/auth";
 // const config = {
 //   headers: {
 //     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGFmYTA2NDVmNDU3MTYwNzVmZiIsImlhdCI6MTU4Njg5MzE0MywiZXhwIjoxNTg5NDg1MTQzfQ.ON2Ef2vgOV1_6EokwvD3mlUzgAn0pb5WPCy5qBWj2QA`,
@@ -47,4 +47,9 @@ const postRequest = (endpoint, body = {}) => {
 const patchRequest = (endpoint, body = {}) => {
   return axios.patch(endpoint, body, config);
 };
+
+// const isArtist = () => {
+//   if (isLoggedIn()) {
+//   }
+// };
 export { getRequest, deleteRequest, putRequest, postRequest, patchRequest };

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Playlist from "./components/Playlist/playlist";
 import LikedSongs from "./components/likedSongs/likedSongs";
+import CreateAlbum from "./components/CreateAlbum/CreateAlbum";
 import Album from "./components/album/album";
 import Search from "./pages/Search/Search";
 import Account from "./pages/Account/Account";
@@ -60,9 +61,15 @@ function App() {
           <Route path={`/playlist/:id`} Component={<Playlist />}>
             <PlaylistRender />
           </Route>
+          <Route path="/create-album/">
+            <CreateAlbum />
+          </Route>
           <Route path="/likedSongs/">
             <LikedSongs />
           </Route>
+          {/* <Route path="/create-playlist/">
+            <CreatePlaylist display={true} />
+          </Route> */}
           <Route path="/albums/:id" Component={<Album />}>
             <AlbumRender />
           </Route>

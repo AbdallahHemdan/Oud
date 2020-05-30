@@ -47,15 +47,6 @@ class Popular extends Component {
   pause = () => {};
   resume = () => {};
   addToQueue = () => {};
-  // removeSong = trackId => {
-  //   deleteRequest(`${base}/tracks/${trackId}`)
-  //     .then(() => {
-  //       this.fetchTopTrack();
-  //     })
-  //     .catch(error => {
-  //       console.log(error.response);
-  //     });
-  // };
   render() {
     return (
       <div className="artis-overview">
