@@ -6,6 +6,7 @@ import { base } from "../../config/environment";
 import { config } from "../../utils/auth";
 import { getRequest, postRequest } from "../../utils/requester";
 import { createBrowserHistory } from "history";
+import Swal from "sweetalert2";
 let history = createBrowserHistory();
 
 /**
@@ -56,6 +57,13 @@ class CreateAlbum extends Component {
     let id = getUserId();
     postRequest(`${base}/me/artists/albums`, album)
       .then(response => {
+        Swal.fire({
+          title: "Done!",
+          text: "Album Added Successfully!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000
+        });
         this.handleClose();
       })
       .catch(error => {
