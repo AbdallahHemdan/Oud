@@ -4,6 +4,7 @@ import axios from "axios";
 import getUserId from "../Profile/General/getUserId";
 import { base } from "../../config/environment";
 import { config } from "../../utils/auth";
+import { getRequest } from "../../utils/requester";
 
 /**
  * it is an overlay that is used to create a new playlist
@@ -17,51 +18,86 @@ class CreateAlbum extends Component {
     super(props);
     this.state = {
       display: "createPlaylist",
-      name: "",
+      name: "Album Name",
       artists: [],
       genres: [],
+      genre: "",
       albumType: "",
+      type: "",
       releaseDate: ""
     };
   }
-
+  componentDidMount() {
+    this.loadGenres();
+  }
   /**
    * updates the state to the contents of the textbox
    * @param {event} e the event of changing the text
    * @returns {void}
    */
-  updateName(e) {
+  updateName = e => {
     const name = e.target.value;
     this.setState({ name: name });
-  }
+  };
   /**
    * creates a playlist object and sends to the database
    * @returns {void}
    */
-  createAlbum() {
-    let playlist = {
-      name: this.state.name,
-      public: true,
-      collaborative: false,
-      description: "",
-      "image/png": ""
-    };
-    let id = getUserId();
-    axios
-      .post(`${base}/users/${id}/playlists`, playlist, config)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }
+  createAlbum = () => {
+    console.log("state after submit: ");
+    const state = this.state;
+    console.log(state);
+    // let playlist = {
+    //   name: this.state.name,
+    //   public: true,
+    //   collaborative: false,
+    //   description: "",
+    //   "image/png": ""
+    // };
+    // let id = getUserId();
+    // axios
+    //   .post(`${base}/users/${id}/playlists`, playlist, config)
+    //   .then(function(response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function(error) {
+    //     console.log(error);
+    //   });
+  };
   /**
    * closes the window by making state.display false
    * @returns {void}
    */
   handleClose = () => {
     this.setState({ display: "createPlaylist hide" });
+  };
+
+  loadGenres = () => {
+    getRequest(`${base}/genres`)
+      .then(response => {
+        let genres = [];
+        response.data.items.forEach(genre => {
+          genres.push(genre);
+        });
+        this.setState({
+          genres: genres
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+  updateGenre = e => {
+    const genre = e.target.value;
+    this.setState({ genre: genre });
+  };
+  updateType = e => {
+    const type = e.target.value;
+    this.setState({ tyep: type });
+  };
+  updateTime = e => {
+    const time = e.target.value;
+    this.setState({ releaseDate: time });
   };
   render() {
     return (
@@ -89,6 +125,7 @@ class CreateAlbum extends Component {
                 className="form-control"
                 id="albumName"
                 placeholder="Album Name"
+                onChange={this.updateName}
               />
             </div>
           </div>
@@ -97,12 +134,15 @@ class CreateAlbum extends Component {
               Genres
             </label>
             <div className="col-10">
-              <select className="form-control" id="genres">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+              <select
+                className="form-control"
+                id="genres"
+                onChange={this.updateGenre}
+              >
+                <option>Choose Genre</option>
+                {this.state.genres.map(genre => {
+                  return <option>{genre.name}</option>;
+                })}
               </select>
             </div>
           </div>
@@ -111,7 +151,12 @@ class CreateAlbum extends Component {
               Album Type
             </label>
             <div className="col-10">
-              <select className="form-control" id="albumType">
+              <select
+                className="form-control"
+                id="albumType"
+                onChange={this.updateType}
+              >
+                <option>Choose Type</option>
                 <option>Single</option>
                 <option>Album</option>
                 <option>Compilaion</option>
@@ -128,6 +173,7 @@ class CreateAlbum extends Component {
                 type="date"
                 value="2020-05-07"
                 id="releaseDate"
+                onChange={this.updateTime}
               />
             </div>
           </div>
