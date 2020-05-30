@@ -8,6 +8,7 @@ import musicIcon from "../../../assets/images/musicIcon.png";
 import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
 import { base } from "../../../config/environment";
 import { config, Auth } from "../../../utils/auth";
+import { deleteRequest } from "../../../utils/requester";
 import Swal from "sweetalert2";
 
 /**
@@ -196,35 +197,42 @@ class Song extends Component {
     this.toggleDropdown();
   }
   removeSong = () => {
-    this.props.removeSong(this.props.clickedId);
+    deleteRequest(`${base}/tracks/${this.props.track._id}`)
+      .then(() => {
+        console.log("success");
+      })
+      .catch(error => {
+        console.log(error.response);
+      });
   };
   checkAuth = () => {
-    const authNotNull = Auth() === null ? false : true,
-      sameTrack = false,
-      artists = this.props.track.artists,
-      auth = Auth();
-    for (let i = 0; i < artists.length; i++) {
-      if (auth === artists[i]._id) {
-        sameTrack = true;
-        break;
-      }
-    }
-    this.setState({
-      update: !this.state.update
-    });
+    // const authNotNull = Auth() === null ? false : true,
+    //   sameTrack = false,
+    //   artists = this.props.track.artists,
+    //   auth = Auth();
+    // for (let i = 0; i < artists.length; i++) {
+    //   if (auth === artists[i]._id) {
+    //     sameTrack = true;
+    //     break;
+    //   }
+    // }
+    // this.setState({
+    //   update: !this.state.update
+    // });
 
-    if (authNotNull && sameTrack) {
-      Swal.fire({
-        title: "Done!",
-        text: "Song Deleted Successfully!",
-        icon: "success",
-        showConfirmButton: false,
-        timer: 1000
-      });
-      this.props.fetchContext();
-      return true;
-    }
-    return false; //change it to false;
+    // if (authNotNull && sameTrack) {
+    //   Swal.fire({
+    //     title: "Done!",
+    //     text: "Song Deleted Successfully!",
+    //     icon: "success",
+    //     showConfirmButton: false,
+    //     timer: 1000
+    //   });
+    //   this.removeSong();
+    //   this.props.fetchContext();
+    //   return true;
+    // }
+    return true; //change it to false;
   };
   render() {
     if (this.state.redirect) {
