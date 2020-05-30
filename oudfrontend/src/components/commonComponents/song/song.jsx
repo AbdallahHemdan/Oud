@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "./song.css";
 import { BrowserRouter as Router, Redirect } from "react-router-dom";
 import axios from "axios";
@@ -8,6 +8,7 @@ import musicIcon from "../../../assets/images/musicIcon.png";
 import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
 import { base } from "../../../config/environment";
 import { config, Auth } from "../../../utils/auth";
+import Swal from "sweetalert2";
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -64,7 +65,8 @@ class Song extends Component {
       saved: false,
       queued: false,
       clicked: false,
-      redirect: null
+      redirect: null,
+      update: false
     };
   }
   /**
@@ -197,8 +199,6 @@ class Song extends Component {
     this.props.removeSong(this.props.clickedId);
   };
   checkAuth = () => {
-    // console.log("Auth res:");
-    // console.log(Auth());
     // const authNotNull = Auth() === null ? false : true,
     //   sameTrack = false,
     //   artists = this.props.track.artists,
@@ -209,7 +209,21 @@ class Song extends Component {
     //     break;
     //   }
     // }
-    // return authNotNull && sameTrack;
+    // this.setState({
+    //   update: !this.state.update
+    // });
+
+    // if(authNotNull && sameTrack){
+    //   Swal.fire({
+    //     title: "Done!",
+    //     text: "Song Deleted Successfully!",
+    //     icon: "success",
+    //     showConfirmButton: false,
+    //     timer: 1000,
+    //   });
+    //   return true;
+    // }
+    // return false;
     return true;
   };
   render() {
@@ -340,14 +354,23 @@ class Song extends Component {
                 >
                   Add to Playlist
                 </button>
+                <button
+                  data-testid="edit-song"
+                  className="SongDropdownItem songButton"
+                  onClick={this.removeSong}
+                >
+                  Edit the Song
+                </button>
                 {this.checkAuth() && (
-                  <button
-                    data-testid="remove-song"
-                    className="SongDropdownItem songButton"
-                    onClick={this.removeSong}
-                  >
-                    Remove the Song
-                  </button>
+                  <Fragment>
+                    <button
+                      data-testid="remove-song"
+                      className="SongDropdownItem songButton"
+                      onClick={this.removeSong}
+                    >
+                      Remove the Song
+                    </button>
+                  </Fragment>
                 )}
               </div>
             </div>
