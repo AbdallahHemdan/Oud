@@ -78,7 +78,10 @@ class CreateAlbum extends Component {
     this.setState({ display: "createPlaylist hide" });
     history.goBack();
   };
-
+  /**
+   * loads all of the genres from the database to be displayed to the user
+   * @returns {void}
+   */
   loadGenres = () => {
     getRequest(`${base}/genres`)
       .then(response => {
@@ -94,14 +97,29 @@ class CreateAlbum extends Component {
         console.log(error);
       });
   };
+  /**
+   * updates the state to the contents of the genre choice
+   * @param {event} e the event of changing the text
+   * @returns {void}
+   */
   updateGenre = e => {
     const genre = e.target.value;
     this.setState({ genre: genre });
   };
+  /**
+   * updates the state to the contents of the type choice
+   * @param {event} e the event of changing the text
+   * @returns {void}
+   */
   updateType = e => {
     const type = e.target.value;
     this.setState({ tyep: type });
   };
+  /**
+   * updates the state to the contents of the release time
+   * @param {event} e the event of changing the text
+   * @returns {void}
+   */
   updateTime = e => {
     const time = e.target.value;
     this.setState({ releaseDate: time });
