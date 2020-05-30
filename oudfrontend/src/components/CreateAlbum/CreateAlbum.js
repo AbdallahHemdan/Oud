@@ -1,18 +1,15 @@
 import React, { Component } from "react";
-// import "./createPlaylist.css";
-import axios from "axios";
 import getUserId from "../Profile/General/getUserId";
 import { base } from "../../config/environment";
-import { config } from "../../utils/auth";
 import { getRequest, postRequest } from "../../utils/requester";
 import { createBrowserHistory } from "history";
 import Swal from "sweetalert2";
 let history = createBrowserHistory();
 
 /**
- * it is an overlay that is used to create a new playlist
+ * @author Ahmed Ashraf Hamdy
+ * @description it is an overlay that is used to create a new album
  * @class
- * @param {boolean} display true ifthe component is to be visible
  * @property {boolean} display true when the component is visible
  * @property {string} name name of the new playlist
  */
