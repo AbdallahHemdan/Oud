@@ -78,7 +78,7 @@ class CreateAlbum extends Component {
         </button>
         <h1 id="createPlaylistTitle">Create new Album</h1>
 
-        <form>
+        <form style={{ marginLeft: "38%" }}>
           <div className="form-group row">
             <label for="albumName" className="col-2 col-form-label">
               Album Name
