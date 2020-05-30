@@ -128,10 +128,7 @@ class SongList extends Component {
                 playingItemId={this.state.playingItemId}
                 handlePlay={this.handlePlay}
                 addToPlaylist={() => this.props.addToPlaylist()}
-                removeSong={this.props.removeSong}
                 handleClick={this.handleClick}
-                renderNames={this.props.renderNames}
-                authId={this.props.authId}
               />
             );
           })

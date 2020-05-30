@@ -197,9 +197,20 @@ class Song extends Component {
     this.props.removeSong(this.props.clickedId);
   };
   checkAuth = () => {
-    console.log("Auth res:");
-    console.log(Auth());
-    return Auth() === this.props.authId;
+    // console.log("Auth res:");
+    // console.log(Auth());
+    // const authNotNull = Auth() === null ? false : true,
+    //   sameTrack = false,
+    //   artists = this.props.track.artists,
+    //   auth = Auth();
+    // for (let i = 0; i < artists.length; i++) {
+    //   if (auth === artists[i]._id) {
+    //     sameTrack = true;
+    //     break;
+    //   }
+    // }
+    // return authNotNull && sameTrack;
+    return true;
   };
   render() {
     if (this.state.redirect) {
