@@ -123,8 +123,12 @@ class CreateAlbum extends Component {
   };
   render() {
     return (
-      <div className={this.state.display}>
-        <button onClick={this.handleClose} className="closeButton">
+      <div className={this.state.display} data-testid="createAlbum">
+        <button
+          onClick={this.handleClose}
+          className="closeButton"
+          data-testid="createAlbumCloseBtn"
+        >
           <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
             <title>close</title>
             <path
@@ -136,8 +140,8 @@ class CreateAlbum extends Component {
         </button>
         <h1 id="createPlaylistTitle">Create new Album</h1>
 
-        <form style={{ marginLeft: "38%" }}>
-          <div className="form-group row">
+        <form style={{ marginLeft: "38%" }} data-testid="createAbumForm">
+          <div className="form-group row" data-testid="createAlbumName">
             <label for="albumName" className="col-2 col-form-label">
               Album Name
             </label>
@@ -151,7 +155,7 @@ class CreateAlbum extends Component {
               />
             </div>
           </div>
-          <div className="form-group row">
+          <div className="form-group row" data-testid="createAlbumGenres">
             <label for="genres" className="col-2 col-form-label">
               Genres
             </label>
@@ -168,7 +172,7 @@ class CreateAlbum extends Component {
               </select>
             </div>
           </div>
-          <div className="form-group row">
+          <div className="form-group row" data-testid="createAlbumType">
             <label for="albumType" className="col-2 col-form-label">
               Album Type
             </label>
@@ -185,7 +189,7 @@ class CreateAlbum extends Component {
               </select>
             </div>
           </div>
-          <div class="form-group row">
+          <div class="form-group row" data-testid="createAlbumReleaseDate">
             <label for="releaseDate" className="col-2 col-form-label">
               Release Date
             </label>
@@ -200,13 +204,18 @@ class CreateAlbum extends Component {
             </div>
           </div>
         </form>
-        <button id="cancelCreation" onClick={this.handleClose}>
+        <button
+          id="cancelCreation"
+          onClick={this.handleClose}
+          data-testid="createAlbumCancel"
+        >
           CANCEL
         </button>
         <button
           className="playButton"
           id="ceatePlaylistBtn"
           onClick={this.createAlbum}
+          data-testid="createAlbumCreate"
         >
           CREATE
         </button>
