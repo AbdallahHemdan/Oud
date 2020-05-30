@@ -128,6 +128,7 @@ class SongList extends Component {
                 playingItemId={this.state.playingItemId}
                 handlePlay={this.handlePlay}
                 addToPlaylist={() => this.props.addToPlaylist()}
+                fetchContext={this.props.fetchContext}
                 handleClick={this.handleClick}
               />
             );

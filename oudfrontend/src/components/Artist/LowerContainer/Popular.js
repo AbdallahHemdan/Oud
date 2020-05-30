@@ -47,15 +47,15 @@ class Popular extends Component {
   pause = () => {};
   resume = () => {};
   addToQueue = () => {};
-  removeSong = trackId => {
-    deleteRequest(`${base}/tracks/${trackId}`)
-      .then(() => {
-        this.fetchTopTrack();
-      })
-      .catch(error => {
-        console.log(error.response);
-      });
-  };
+  // removeSong = trackId => {
+  //   deleteRequest(`${base}/tracks/${trackId}`)
+  //     .then(() => {
+  //       this.fetchTopTrack();
+  //     })
+  //     .catch(error => {
+  //       console.log(error.response);
+  //     });
+  // };
   render() {
     return (
       <div className="artis-overview">
@@ -74,9 +74,8 @@ class Popular extends Component {
           clickedItemId={this.state.clickID}
           className="artist-pop col-xs-12 col-md-12 col-lg-8 col-xl-8"
           addToPlaylist={this.props.addToPlaylist}
-          removeSong={this.removeSong}
+          fetchContext={this.fetchTopTrack}
           renderNames={true}
-          authId={this.props.artistId}
         />
       </div>
     );

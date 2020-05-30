@@ -199,32 +199,32 @@ class Song extends Component {
     this.props.removeSong(this.props.clickedId);
   };
   checkAuth = () => {
-    // const authNotNull = Auth() === null ? false : true,
-    //   sameTrack = false,
-    //   artists = this.props.track.artists,
-    //   auth = Auth();
-    // for (let i = 0; i < artists.length; i++) {
-    //   if (auth === artists[i]._id) {
-    //     sameTrack = true;
-    //     break;
-    //   }
-    // }
-    // this.setState({
-    //   update: !this.state.update
-    // });
+    const authNotNull = Auth() === null ? false : true,
+      sameTrack = false,
+      artists = this.props.track.artists,
+      auth = Auth();
+    for (let i = 0; i < artists.length; i++) {
+      if (auth === artists[i]._id) {
+        sameTrack = true;
+        break;
+      }
+    }
+    this.setState({
+      update: !this.state.update
+    });
 
-    // if(authNotNull && sameTrack){
-    //   Swal.fire({
-    //     title: "Done!",
-    //     text: "Song Deleted Successfully!",
-    //     icon: "success",
-    //     showConfirmButton: false,
-    //     timer: 1000,
-    //   });
-    //   return true;
-    // }
-    // return false;
-    return true;
+    if (authNotNull && sameTrack) {
+      Swal.fire({
+        title: "Done!",
+        text: "Song Deleted Successfully!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1000
+      });
+      this.props.fetchContext();
+      return true;
+    }
+    return false; //change it to false;
   };
   render() {
     if (this.state.redirect) {
