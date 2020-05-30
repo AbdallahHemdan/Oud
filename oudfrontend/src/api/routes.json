@@ -87,5 +87,6 @@
   "/me/playlists": "/likedPlaylists",
   "/me/albums": "/likedAlbums",
   "/playlists": "/playlist",
-  "/artists/random": "/artists/random"
+  "/artists/random": "/artists/random",
+  "/me/artists/albums": "/addAlbum"
 }

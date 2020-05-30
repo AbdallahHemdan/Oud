@@ -4,7 +4,7 @@ import axios from "axios";
 import getUserId from "../Profile/General/getUserId";
 import { base } from "../../config/environment";
 import { config } from "../../utils/auth";
-import { getRequest } from "../../utils/requester";
+import { getRequest, postRequest } from "../../utils/requester";
 import { createBrowserHistory } from "history";
 let history = createBrowserHistory();
 
@@ -46,25 +46,21 @@ class CreateAlbum extends Component {
    * @returns {void}
    */
   createAlbum = () => {
-    console.log("state after submit: ");
-    const state = this.state;
-    console.log(state);
-    // let playlist = {
-    //   name: this.state.name,
-    //   public: true,
-    //   collaborative: false,
-    //   description: "",
-    //   "image/png": ""
-    // };
-    // let id = getUserId();
-    // axios
-    //   .post(`${base}/users/${id}/playlists`, playlist, config)
-    //   .then(function(response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   });
+    let album = {
+      name: this.state.name,
+      artists: this.state.artists,
+      genres: this.state.genre,
+      album_type: this.state.type,
+      release_date: this.state.releaseDate
+    };
+    let id = getUserId();
+    postRequest(`${base}/me/artists/albums`, album)
+      .then(response => {
+        this.handleClose();
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
   /**
    * closes the window by making state.display false

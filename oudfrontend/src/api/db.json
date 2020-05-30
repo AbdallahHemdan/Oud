@@ -6483,5 +6483,12 @@
     "limit": 0,
     "offset": 0,
     "total": 0
+  },
+  "addAlbum": {
+    "name": "Ahmed Album",
+    "artists": ["1"],
+    "genres": ["1"],
+    "album_type": "Sad",
+    "release_date": "07-05-2120"
   }
 }
