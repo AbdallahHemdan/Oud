@@ -5,6 +5,8 @@ import getUserId from "../Profile/General/getUserId";
 import { base } from "../../config/environment";
 import { config } from "../../utils/auth";
 import { getRequest } from "../../utils/requester";
+import { createBrowserHistory } from "history";
+let history = createBrowserHistory();
 
 /**
  * it is an overlay that is used to create a new playlist
@@ -70,6 +72,7 @@ class CreateAlbum extends Component {
    */
   handleClose = () => {
     this.setState({ display: "createPlaylist hide" });
+    history.goBack();
   };
 
   loadGenres = () => {
