@@ -52,6 +52,9 @@ function HeaderBodyBottom(props) {
           <button className="likeIcon" onClick={props.changeEditAlbumState}>
             <i class="fa fa-pencil-square-o"></i>
           </button>
+          <button className="likeIcon" onClick={props.delelteAlbum}>
+            <i class="fa fa-trash-alt"></i>
+          </button>
         </Fragment>
       ) : (
         <span></span>

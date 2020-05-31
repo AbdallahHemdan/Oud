@@ -11,6 +11,10 @@ import PropTypes from "prop-types";
 import { base } from "../../config/environment";
 import { config } from "../../utils/auth";
 import CreateAlbum from "../CreateAlbum/CreateAlbum";
+import { deleteRequest } from "../../utils/requester";
+import Swal from "sweetalert2";
+import { createBrowserHistory } from "history";
+let history = createBrowserHistory();
 
 /**
  * @classdesc this is a component that renders album page
@@ -48,6 +52,7 @@ class Album extends React.Component {
    */
   constructor(props) {
     super(props);
+    // const history = useHistory();
     this.state = {
       tracks: [],
       artists: [],
@@ -191,6 +196,22 @@ class Album extends React.Component {
       updateAlbum: !this.state.updateAlbum
     });
   };
+  delelteAlbum = () => {
+    deleteRequest(`${base}/me/artists/albums/${this.props.id}`)
+      .then(response => {
+        Swal.fire({
+          title: "Done!",
+          text: "Album Deleted Successfully!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000
+        });
+        history.goBack();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
   render() {
     return (
       <div>
@@ -250,6 +271,7 @@ class Album extends React.Component {
                         recieved={this.state.recieved}
                         album={true}
                         changeEditAlbumState={this.changeEditAlbumState}
+                        delelteAlbum={this.delelteAlbum}
                         addToPlaylist={this.addToPlaylist.bind(this)}
                       />
                     </div>
