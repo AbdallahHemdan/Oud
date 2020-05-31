@@ -10,6 +10,7 @@ import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist";
 import PropTypes from "prop-types";
 import { base } from "../../config/environment";
 import { config } from "../../utils/auth";
+import CreateAlbum from "../CreateAlbum/CreateAlbum";
 
 /**
  * @classdesc this is a component that renders album page
@@ -56,7 +57,8 @@ class Album extends React.Component {
       playing: false,
       queued: false,
       clickID: "0",
-      displayAdd: false
+      displayAdd: false,
+      updateAlbum: false
     };
     this.addToQueue = this.addToQueue.bind(this);
     this.resume = this.resume.bind(this);
@@ -184,6 +186,11 @@ class Album extends React.Component {
   closeAddToPlaylist() {
     this.setState({ displayAdd: false });
   }
+  changeEditAlbumState = () => {
+    this.setState({
+      updateAlbum: !this.state.updateAlbum
+    });
+  };
   render() {
     return (
       <div>
@@ -191,6 +198,13 @@ class Album extends React.Component {
           <AddToPlaylist
             display={this.state.displayAdd}
             close={this.closeAddToPlaylist.bind(this)}
+          />
+        ) : this.state.updateAlbum ? (
+          <CreateAlbum
+            endpoint={`${base}/me/artists/albums/${this.props.id}`}
+            title="Edit Album"
+            update={true}
+            onClose={this.changeEditAlbumState}
           />
         ) : (
           <div className="dummyParent">
@@ -235,6 +249,7 @@ class Album extends React.Component {
                         releaseDate={this.state.album.release_date}
                         recieved={this.state.recieved}
                         album={true}
+                        changeEditAlbumState={this.changeEditAlbumState}
                         addToPlaylist={this.addToPlaylist.bind(this)}
                       />
                     </div>

@@ -33,6 +33,7 @@ import {
   useParams
 } from "react-router-dom";
 import Artist from "./pages/Artist/Artist";
+import { base } from "./config/environment";
 
 function App() {
   return (
@@ -62,7 +63,11 @@ function App() {
             <PlaylistRender />
           </Route>
           <Route path="/create-album/">
-            <CreateAlbum />
+            <CreateAlbum
+              endpoint={`${base}/me/artists/albums`}
+              title="Create new Album"
+              update={false}
+            />
           </Route>
           <Route path="/likedSongs/">
             <LikedSongs />

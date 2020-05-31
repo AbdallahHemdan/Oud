@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import getUserId from "../Profile/General/getUserId";
 import { base } from "../../config/environment";
-import { getRequest, postRequest } from "../../utils/requester";
+import { getRequest, postRequest, patchRequest } from "../../utils/requester";
 import { createBrowserHistory } from "history";
 import Swal from "sweetalert2";
 let history = createBrowserHistory();
@@ -51,21 +51,35 @@ class CreateAlbum extends Component {
       album_type: this.state.type,
       release_date: this.state.releaseDate
     };
-    let id = getUserId();
-    postRequest(`${base}/me/artists/albums`, album)
-      .then(response => {
-        Swal.fire({
-          title: "Done!",
-          text: "Album Added Successfully!",
-          icon: "success",
-          showConfirmButton: false,
-          timer: 1000
-        });
-        this.handleClose();
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    this.props.update
+      ? patchRequest(this.props.endpoint, album) //
+          .then(response => {
+            Swal.fire({
+              title: "Done!",
+              text: "Album Added Successfully!",
+              icon: "success",
+              showConfirmButton: false,
+              timer: 1000
+            });
+            this.handleClose();
+          })
+          .catch(error => {
+            console.log(error);
+          })
+      : postRequest(this.props.endpoint, album) //
+          .then(response => {
+            Swal.fire({
+              title: "Done!",
+              text: "Album Added Successfully!",
+              icon: "success",
+              showConfirmButton: false,
+              timer: 1000
+            });
+            this.handleClose();
+          })
+          .catch(error => {
+            console.log(error);
+          });
   };
   /**
    * closes the window by making state.display false
@@ -73,7 +87,7 @@ class CreateAlbum extends Component {
    */
   handleClose = () => {
     this.setState({ display: "createPlaylist hide" });
-    history.goBack();
+    this.props.update ? this.props.onClose() : history.goBack();
   };
   /**
    * loads all of the genres from the database to be displayed to the user
@@ -138,7 +152,7 @@ class CreateAlbum extends Component {
             ></path>
           </svg>
         </button>
-        <h1 id="createPlaylistTitle">Create new Album</h1>
+        <h1 id="createPlaylistTitle">{this.props.title}</h1>
 
         <form style={{ marginLeft: "38%" }} data-testid="createAbumForm">
           <div className="form-group row" data-testid="createAlbumName">

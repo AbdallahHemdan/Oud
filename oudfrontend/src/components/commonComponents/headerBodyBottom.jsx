@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 /**
  * this is a component that renders the bottom of the body of playlists, albums, likedSongs
@@ -18,7 +18,6 @@ import PropTypes from "prop-types";
  * <p></p>
  * </div>}
  */
-
 function HeaderBodyBottom(props) {
   const {
     length,
@@ -29,9 +28,8 @@ function HeaderBodyBottom(props) {
     releaseDate,
     recieved,
     album,
-    addToPlaylist,
+    addToPlaylist
   } = props;
-
   return (
     <div data-testid="HeaderBodyBottom" class="playlistHeaderBodyBottom">
       <button
@@ -47,9 +45,14 @@ function HeaderBodyBottom(props) {
         {liked ? <i className="far fa-heart"></i> : <i class="fa fa-heart"></i>}
       </button>
       {album ? (
-        <button className="likeIcon" onClick={addToPlaylist}>
-          <i class="fa fa-plus"></i>
-        </button>
+        <Fragment>
+          <button className="likeIcon" onClick={addToPlaylist}>
+            <i class="fa fa-plus"></i>
+          </button>
+          <button className="likeIcon" onClick={props.changeEditAlbumState}>
+            <i class="fa fa-pencil-square-o"></i>
+          </button>
+        </Fragment>
       ) : (
         <span></span>
       )}
@@ -79,7 +82,7 @@ HeaderBodyBottom.propTypes = {
   playClicked: PropTypes.func,
   releaseDate: PropTypes.string,
   recieved: PropTypes.bool,
-  album: PropTypes.bool,
+  album: PropTypes.bool
 };
 
 export default HeaderBodyBottom;
