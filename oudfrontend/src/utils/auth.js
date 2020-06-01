@@ -1,4 +1,6 @@
 import jwtDecode from "jwt-decode";
+import { getRequest } from "./requester";
+import { base } from "./../config/environment";
 
 function getToken() {
   return localStorage.getItem("accessToken");
@@ -22,6 +24,15 @@ function isLoggedIn() {
   return getToken() ? true : false;
 }
 
+function isArtist() {
+  return getRequest(`${base}/me`)
+    .then(response => {
+      return response.data.role === "artist";
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
 const _config = config;
 export { _config as config };
 export const token = getToken();
