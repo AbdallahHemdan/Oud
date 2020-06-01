@@ -7,9 +7,8 @@ import play from "../../../assets/images/play.png";
 import musicIcon from "../../../assets/images/musicIcon.png";
 import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
 import { base } from "../../../config/environment";
-import { config, Auth } from "../../../utils/auth";
+import { config, isArtist } from "../../../utils/auth";
 import { deleteRequest } from "../../../utils/requester";
-import Swal from "sweetalert2";
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -67,7 +66,8 @@ class Song extends Component {
       queued: false,
       clicked: false,
       redirect: null,
-      update: false
+      update: false,
+      isArtist: false
     };
   }
   /**
@@ -104,7 +104,17 @@ class Song extends Component {
       .catch(error => {
         console.log(error);
       });
+    this.checkArtist();
   }
+  checkArtist = () => {
+    isArtist()
+      .then(res => {
+        this.setState({ isArtist: res });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
   /**
    *if the recieved props is changed it sets state.clicked to true or
    *false and calls hh()
@@ -205,35 +215,35 @@ class Song extends Component {
         console.log(error.response);
       });
   };
-  checkAuth = () => {
-    // const authNotNull = Auth() === null ? false : true,
-    //   sameTrack = false,
-    //   artists = this.props.track.artists,
-    //   auth = Auth();
-    // for (let i = 0; i < artists.length; i++) {
-    //   if (auth === artists[i]._id) {
-    //     sameTrack = true;
-    //     break;
-    //   }
-    // }
-    // this.setState({
-    //   update: !this.state.update
-    // });
+  // checkAuth = () => {
+  //   const authNotNull = Auth() === null ? false : true,
+  //     sameTrack = false,
+  //     artists = this.props.track.artists,
+  //     auth = Auth();
+  //   for (let i = 0; i < artists.length; i++) {
+  //     if (auth === artists[i]._id) {
+  //       sameTrack = true;
+  //       break;
+  //     }
+  //   }
+  //   this.setState({
+  //     update: !this.state.update
+  //   });
 
-    // if (authNotNull && sameTrack) {
-    //   Swal.fire({
-    //     title: "Done!",
-    //     text: "Song Deleted Successfully!",
-    //     icon: "success",
-    //     showConfirmButton: false,
-    //     timer: 1000
-    //   });
-    //   this.removeSong();
-    //   this.props.fetchContext();
-    //   return true;
-    // }
-    return true; //change it to false;
-  };
+  //   if (authNotNull && sameTrack) {
+  //     Swal.fire({
+  //       title: "Done!",
+  //       text: "Song Deleted Successfully!",
+  //       icon: "success",
+  //       showConfirmButton: false,
+  //       timer: 1000
+  //     });
+  //     this.removeSong();
+  //     this.props.fetchContext();
+  //     return true;
+  //   }
+  //   return true; //change it to false;
+  // };
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
@@ -362,15 +372,15 @@ class Song extends Component {
                 >
                   Add to Playlist
                 </button>
-                <button
-                  data-testid="edit-song"
-                  className="SongDropdownItem songButton"
-                  onClick={this.removeSong}
-                >
-                  Edit the Song
-                </button>
-                {this.checkAuth() && (
+                {this.state.isArtist && (
                   <Fragment>
+                    <button
+                      data-testid="edit-song"
+                      className="SongDropdownItem songButton"
+                      onClick={this.editSong}
+                    >
+                      Edit the Song
+                    </button>
                     <button
                       data-testid="remove-song"
                       className="SongDropdownItem songButton"
