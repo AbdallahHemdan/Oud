@@ -18,6 +18,9 @@ import PropTypes from "prop-types";
  * <p></p>
  * </div>}
  */
+// function checkArtist(){
+//   isArtist().then(artist)
+// }
 function HeaderBodyBottom(props) {
   const {
     length,
@@ -49,12 +52,16 @@ function HeaderBodyBottom(props) {
           <button className="likeIcon" onClick={addToPlaylist}>
             <i class="fa fa-plus"></i>
           </button>
-          <button className="likeIcon" onClick={props.changeEditAlbumState}>
-            <i class="fa fa-pencil-square-o"></i>
-          </button>
-          <button className="likeIcon" onClick={props.delelteAlbum}>
-            <i class="fa fa-trash-alt"></i>
-          </button>
+          {props.isArtist && (
+            <Fragment>
+              <button className="likeIcon" onClick={props.changeEditAlbumState}>
+                <i class="fa fa-pencil-square-o"></i>
+              </button>
+              <button className="likeIcon" onClick={props.delelteAlbum}>
+                <i class="fa fa-trash-alt"></i>
+              </button>
+            </Fragment>
+          )}
         </Fragment>
       ) : (
         <span></span>

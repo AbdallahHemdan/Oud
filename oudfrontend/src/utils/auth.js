@@ -40,3 +40,5 @@ const _Auth = Auth;
 export { _Auth as Auth };
 const _isLoggedIn = isLoggedIn;
 export { _isLoggedIn as isLoggedIn };
+const _isArtist = isArtist;
+export { _isArtist as isArtist };

@@ -13,6 +13,7 @@ import { config } from "../../utils/auth";
 import CreateAlbum from "../CreateAlbum/CreateAlbum";
 import { deleteRequest } from "../../utils/requester";
 import Swal from "sweetalert2";
+import { isArtist } from "./../../utils/auth";
 import { createBrowserHistory } from "history";
 let history = createBrowserHistory();
 
@@ -63,7 +64,8 @@ class Album extends React.Component {
       queued: false,
       clickID: "0",
       displayAdd: false,
-      updateAlbum: false
+      updateAlbum: false,
+      isArtist: false
     };
     this.addToQueue = this.addToQueue.bind(this);
     this.resume = this.resume.bind(this);
@@ -177,6 +179,7 @@ class Album extends React.Component {
       .catch(error => {
         console.log(error);
       });
+    this.checkArtist();
   }
   /**
    * it changes the state so that all song will be marked as unclicked
@@ -207,6 +210,15 @@ class Album extends React.Component {
           timer: 1000
         });
         history.goBack();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+  checkArtist = () => {
+    isArtist()
+      .then(res => {
+        this.setState({ isArtist: res });
       })
       .catch(error => {
         console.log(error);
@@ -270,6 +282,7 @@ class Album extends React.Component {
                         releaseDate={this.state.album.release_date}
                         recieved={this.state.recieved}
                         album={true}
+                        isArtist={this.state.isArtist}
                         changeEditAlbumState={this.changeEditAlbumState}
                         delelteAlbum={this.delelteAlbum}
                         addToPlaylist={this.addToPlaylist.bind(this)}
