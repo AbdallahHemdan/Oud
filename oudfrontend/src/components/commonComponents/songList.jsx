@@ -126,6 +126,7 @@ class SongList extends Component {
               <Song
                 data-testid="songElement"
                 key={track.id}
+                ownerId = {this.props.ownerId}
                 track={track}
                 clickedId={this.state.clickedItemId}
                 playingItemId={this.state.playingItemId}

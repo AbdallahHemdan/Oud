@@ -7,7 +7,7 @@ import play from "../../../assets/images/play.png";
 import musicIcon from "../../../assets/images/musicIcon.png";
 import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
 import {base} from "../../../config/environment"
-import {config} from "../../../utils/auth"
+import {config, Auth} from "../../../utils/auth"
 
 
 /**
@@ -64,7 +64,8 @@ class Song extends Component {
       queued: false,
       clicked: false,
       redirect: null,
-      duration:""
+      duration:"",
+      isMySong:false
     };
   }
   /**
@@ -95,7 +96,12 @@ class Song extends Component {
       });
       const duration = this.convertTime(this.state.track.duration)
       this.setState({duration:duration})
+
+      if(Auth() == this.props.ownerId){
+        this.setState({isMySong : true})
+      }
   }
+  
   convertTime(timeString){
     let timeInt = parseInt(timeString)/1000
     let minutes = parseInt(timeInt/60);
@@ -193,7 +199,9 @@ class Song extends Component {
   }
   addToPlaylist() {
     this.toggleDropdown();
-    this.props.addToPlaylist(this.state.track.id)
+    
+    this.props.addToPlaylist(this.state.track.id,this.state.isMySong)
+   
   }
   render() {
     if (this.state.redirect) {
@@ -321,7 +329,7 @@ class Song extends Component {
                   className="SongDropdownItem songButton"
                   onClick={this.addToPlaylist.bind(this)}
                 >
-                  Add to Playlist
+                  {this.state.isMySong?"Remove From Playlist":"Add to Playlist"}
                 </button>
               </div>
             </div>

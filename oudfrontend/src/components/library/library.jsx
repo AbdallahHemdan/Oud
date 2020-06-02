@@ -40,14 +40,14 @@ constructor(){
     }
 }
 componentDidMount(){
-    if(Auth())
+    //if(Auth())
     this.props.history.replace('/collection/albums')
-    else
-    window.location = '/login'
+    //else
+    //window.location = '/login'
 }
 render(){
-    if (this.state.signedIn)
-    {
+    //if (this.state.signedIn)
+    //{
         return(
             <div className=" myLibrary " data-testid='myLibrary'>
                 <Sidebar />
@@ -65,7 +65,7 @@ render(){
                     </Switch>
             </div>
         );
-    }
+    //}
     return (<div></div>)
     
 }

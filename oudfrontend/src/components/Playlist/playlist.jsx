@@ -59,7 +59,7 @@ class Playlist extends React.Component {
       clickID: "0",
       displayAdd: false,
       ownerName:'',
-      toBeAdded:{}
+      toBeAdded:[]
     };
     this.addToQueue = this.addToQueue.bind(this);
     this.resume = this.resume.bind(this);
@@ -195,8 +195,21 @@ class Playlist extends React.Component {
   markAllUnclicked() {
     this.setState({ clickID: "0" });
   }
-  addToPlaylist(track) {
-    this.setState({ displayAdd: true, toBeAdded:track });
+  addToPlaylist(id, flag) {
+    let trackId = []
+    trackId.push(id)
+    if(flag){
+      this.setState({ displayAdd: true, toBeAdded:trackId });
+    }
+    else{
+      axios
+      .delete(`${base}/playlists/${this.state.playlist.id}/${trackId}`, config)
+      .then((response) => {
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    }
   }
   closeAddToPlaylist() {
     this.setState({ displayAdd: false });
@@ -260,6 +273,7 @@ class Playlist extends React.Component {
                   <SongList
                     data-testid="songList"
                     recieved={true}
+                    ownerId = {this.state.playlist.owner}
                     tracks={this.state.tracks}
                     pause={this.pause}
                     resume={this.resume}

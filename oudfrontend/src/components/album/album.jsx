@@ -57,6 +57,7 @@ class Album extends React.Component {
       queued: false,
       clickID: "0",
       displayAdd: false,
+      toBeAdded:[]
     };
     this.addToQueue = this.addToQueue.bind(this);
     this.resume = this.resume.bind(this);
@@ -176,8 +177,10 @@ class Album extends React.Component {
   markAllUnclicked() {
     this.setState({ clickID: "0" });
   }
-  addToPlaylist(id) {
-    this.setState({ displayAdd: true, toBeAdded:id });
+  addToPlaylist(id, flag) {
+    let trackId = []
+    trackId.push(id)
+    this.setState({ displayAdd: true, toBeAdded:trackId });
   }
   closeAddToPlaylist() {
     this.setState({ displayAdd: false });
@@ -188,6 +191,7 @@ class Album extends React.Component {
       <div>
         {this.state.displayAdd ? (
           <AddToPlaylist
+            track = {this.state.toBeAdded}
             display={this.state.displayAdd}
             close={this.closeAddToPlaylist.bind(this)}
           />
