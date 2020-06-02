@@ -15,7 +15,8 @@ class SongInfo extends Component {
     this.state = {
       display: "createPlaylist",
       name: "Album Name",
-      artists: []
+      artists: [],
+      chosenArtists: []
     };
   }
   /**
@@ -51,7 +52,22 @@ class SongInfo extends Component {
     const name = e.target.value;
     this.setState({ name: name });
   };
-  updateArtists = () => {};
+  /**
+   * updates the state to the contents of the choen artist
+   * @param {event} e the event of changing the text
+   * @returns {void}
+   */
+  updateArtists = e => {
+    const _id = e.target.value;
+    if (this.state.chosenArtists.find(elem => elem === _id) !== undefined) {
+      this.setState({
+        chosenArtists: this.state.chosenArtists.filter(
+          (value, index, arr) => value === _id
+        )
+      });
+    } else this.state.chosenArtists.push(_id);
+    console.log(this.state.chosenArtists);
+  };
   /**
    * closes the window by making state.display false
    * @returns {void}
