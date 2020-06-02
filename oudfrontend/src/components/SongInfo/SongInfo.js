@@ -18,6 +18,10 @@ class SongInfo extends Component {
       artists: []
     };
   }
+  /**
+   * get some artists to display to the artist to choose the owners of the song
+   * @returns {void}
+   */
   getArtists = () => {
     getRequest(`${base}/artists/some`)
       .then(response => {
@@ -47,6 +51,7 @@ class SongInfo extends Component {
     const name = e.target.value;
     this.setState({ name: name });
   };
+  updateArtists = () => {};
   /**
    * closes the window by making state.display false
    * @returns {void}
@@ -105,12 +110,11 @@ class SongInfo extends Component {
                 <option disabled selected>
                   Choose Artist
                 </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                {/* {this.state.genres.map(genre => {
-                  return <option>{genre.name}</option>;
-                })} */}
+                {this.state.artists.map(artist => {
+                  return (
+                    <option value={artist._id}>{artist.displayName}</option>
+                  );
+                })}
               </select>
             </div>
             {this.props.newSong ? (
