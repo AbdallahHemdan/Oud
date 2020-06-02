@@ -112,11 +112,14 @@ class SongInfo extends Component {
     };
     postRequest(`${base}/me/artists/albums/${this.props.albumId}/tracks`, info)
       .then(response => {
+        const binaryDate = new FormData();
+        binaryDate.append("file", this.state.binaryFile);
         postRequest(
           `${base}/tracks/${
             response.data.tracks.items[response.data.tracks.items.length - 1]
               ._id
-          }`
+          }`,
+          binaryDate
         )
           .then(res => {
             Swal.fire({
