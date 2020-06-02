@@ -60,11 +60,11 @@ class SongInfo extends Component {
   updateArtists = e => {
     const _id = e.target.value;
     if (this.state.chosenArtists.find(elem => elem === _id) !== undefined) {
-      this.setState({
-        chosenArtists: this.state.chosenArtists.filter(
-          (value, index, arr) => value === _id
-        )
-      });
+      for (let i = 0; i < this.state.chosenArtists.length; i++)
+        if (this.state.chosenArtists[i] === _id) {
+          this.state.chosenArtists.splice(i, 1);
+          break;
+        }
     } else this.state.chosenArtists.push(_id);
     console.log(this.state.chosenArtists);
   };
