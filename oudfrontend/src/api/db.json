@@ -6497,5 +6497,242 @@
     "genres": "Sad",
     "album_type": "",
     "release_date": "2020-04-26"
-  }
+  },
+  "some": [
+    {
+      "_id": "1",
+      "genres": [
+        {
+          "_id": "string",
+          "name": "string"
+        }
+      ],
+      "images": ["string"],
+      "displayName": "Ahmed Ashraf",
+      "bio": "string",
+      "popularSongs": [
+        {
+          "_id": "string",
+          "name": "string",
+          "artists": [
+            {
+              "_id": "string",
+              "displayName": "string",
+              "type": "string",
+              "images": ["string"]
+            }
+          ],
+          "albumId": "string",
+          "album": {
+            "_id": "string",
+            "album_type": "string",
+            "artists": [
+              {
+                "_id": "string",
+                "displayName": "string",
+                "type": "string",
+                "images": ["string"]
+              }
+            ],
+            "image": "string",
+            "name": "string",
+            "type": "string",
+            "released": true
+          },
+          "type": "string",
+          "duartion": 0,
+          "views": 0
+        }
+      ],
+      "type": "string"
+    },
+    {
+      "_id": "2",
+      "genres": [
+        {
+          "_id": "string",
+          "name": "string"
+        }
+      ],
+      "images": ["string"],
+      "displayName": "Ahmed Mahboub",
+      "bio": "string",
+      "popularSongs": [
+        {
+          "_id": "string",
+          "name": "string",
+          "artists": [
+            {
+              "_id": "string",
+              "displayName": "string",
+              "type": "string",
+              "images": ["string"]
+            }
+          ],
+          "albumId": "string",
+          "album": {
+            "_id": "string",
+            "album_type": "string",
+            "artists": [
+              {
+                "_id": "string",
+                "displayName": "string",
+                "type": "string",
+                "images": ["string"]
+              }
+            ],
+            "image": "string",
+            "name": "string",
+            "type": "string",
+            "released": true
+          },
+          "type": "string",
+          "duartion": 0,
+          "views": 0
+        }
+      ],
+      "type": "string"
+    },
+    {
+      "_id": "3",
+      "genres": [
+        {
+          "_id": "string",
+          "name": "string"
+        }
+      ],
+      "images": ["string"],
+      "displayName": "Ahmed Walid",
+      "bio": "string",
+      "popularSongs": [
+        {
+          "_id": "string",
+          "name": "string",
+          "artists": [
+            {
+              "_id": "string",
+              "displayName": "string",
+              "type": "string",
+              "images": ["string"]
+            }
+          ],
+          "albumId": "string",
+          "album": {
+            "_id": "string",
+            "album_type": "string",
+            "artists": [
+              {
+                "_id": "string",
+                "displayName": "string",
+                "type": "string",
+                "images": ["string"]
+              }
+            ],
+            "image": "string",
+            "name": "string",
+            "type": "string",
+            "released": true
+          },
+          "type": "string",
+          "duartion": 0,
+          "views": 0
+        }
+      ],
+      "type": "string"
+    },
+    {
+      "_id": "4",
+      "genres": [
+        {
+          "_id": "string",
+          "name": "string"
+        }
+      ],
+      "images": ["string"],
+      "displayName": "Abdullah Hemdan",
+      "bio": "string",
+      "popularSongs": [
+        {
+          "_id": "string",
+          "name": "string",
+          "artists": [
+            {
+              "_id": "string",
+              "displayName": "string",
+              "type": "string",
+              "images": ["string"]
+            }
+          ],
+          "albumId": "string",
+          "album": {
+            "_id": "string",
+            "album_type": "string",
+            "artists": [
+              {
+                "_id": "string",
+                "displayName": "string",
+                "type": "string",
+                "images": ["string"]
+              }
+            ],
+            "image": "string",
+            "name": "string",
+            "type": "string",
+            "released": true
+          },
+          "type": "string",
+          "duartion": 0,
+          "views": 0
+        }
+      ],
+      "type": "string"
+    },
+    {
+      "_id": "5",
+      "genres": [
+        {
+          "_id": "string",
+          "name": "string"
+        }
+      ],
+      "images": ["string"],
+      "displayName": "Abdullah Abu Sedo",
+      "bio": "string",
+      "popularSongs": [
+        {
+          "_id": "string",
+          "name": "string",
+          "artists": [
+            {
+              "_id": "string",
+              "displayName": "string",
+              "type": "string",
+              "images": ["string"]
+            }
+          ],
+          "albumId": "string",
+          "album": {
+            "_id": "string",
+            "album_type": "string",
+            "artists": [
+              {
+                "_id": "string",
+                "displayName": "string",
+                "type": "string",
+                "images": ["string"]
+              }
+            ],
+            "image": "string",
+            "name": "string",
+            "type": "string",
+            "released": true
+          },
+          "type": "string",
+          "duartion": 0,
+          "views": 0
+        }
+      ],
+      "type": "string"
+    }
+  ]
 }
