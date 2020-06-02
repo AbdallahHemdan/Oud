@@ -203,18 +203,23 @@ class SongInfo extends Component {
               </select>
             </div>
             {this.props.newSong ? (
-              <div className="form-group row" data-testid="songInfoBinary">
+              <div
+                className="form-group row"
+                data-testid="songInfoBinary"
+                style={{ marginLeft: "2rem" }}
+              >
                 <label for="binaryObject" className="col-2 col-form-label">
                   Add File
                 </label>
-                <div className="col-10">
+                <div className="col-10" style={{ margin: "auto" }}>
                   <input
                     type="file"
                     name="file"
-                    className="form-control"
+                    // className="form-control"
                     id="binaryObject"
                     placeholder="Song File"
                     onChange={this.handleBinary}
+                    style={{ marginLeft: "3rem" }}
                   />
                 </div>
               </div>
