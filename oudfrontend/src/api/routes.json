@@ -92,5 +92,8 @@
   "/me/artists/albums/1": "/editAlbum",
   "/me/artists/albums/2": "/editAlbum",
   "/me/artists/albums/3": "/editAlbum",
+  "/me/artists/albums/1/tracks": "/editAlbumTracks",
+  "/me/artists/albums/2/tracks": "/editAlbumTracks",
+  "/me/artists/albums/3/tracks": "/editAlbumTracks",
   "/artists/some": "/some"
 }
