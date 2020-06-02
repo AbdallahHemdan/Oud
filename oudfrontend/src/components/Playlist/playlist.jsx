@@ -58,13 +58,15 @@ class Playlist extends React.Component {
       queued: false,
       clickID: "0",
       displayAdd: false,
-      ownerName:''
+      ownerName:'',
+      toBeAdded:{}
     };
     this.addToQueue = this.addToQueue.bind(this);
     this.resume = this.resume.bind(this);
     this.pause = this.pause.bind(this);
     this.playButtonClicked = this.playButtonClicked.bind(this);
     this.likeButtonClicked = this.likeButtonClicked.bind(this);
+    this.addToPlaylist=this.addToPlaylist.bind(this)
   }
   /**
    * add the tracks to queue and resume the player
@@ -193,8 +195,8 @@ class Playlist extends React.Component {
   markAllUnclicked() {
     this.setState({ clickID: "0" });
   }
-  addToPlaylist() {
-    this.setState({ displayAdd: true });
+  addToPlaylist(track) {
+    this.setState({ displayAdd: true, toBeAdded:track });
   }
   closeAddToPlaylist() {
     this.setState({ displayAdd: false });
@@ -206,8 +208,10 @@ class Playlist extends React.Component {
       {this.state.recieved?
         this.state.displayAdd ? (
           <AddToPlaylist
+            track = {this.state.toBeAdded}
             display={this.state.displayAdd}
             close={this.closeAddToPlaylist.bind(this)}
+            
           />
         ) : (
           <div className="dummyParent">
@@ -262,7 +266,7 @@ class Playlist extends React.Component {
                     addToQueue={this.addToQueue}
                     clickedItemId={this.state.clickID}
                     className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
-                    addToPlaylist={this.addToPlaylist.bind(this)}
+                    addToPlaylist={this.addToPlaylist}
                   />
                 </div>
               </div>

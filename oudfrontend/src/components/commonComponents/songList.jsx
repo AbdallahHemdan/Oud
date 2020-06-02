@@ -51,6 +51,7 @@ class SongList extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.handleQueue = this.handleQueue.bind(this);
+    this.addToPlaylist = this.addToPlaylist.bind(this);
   }
   /**
    * it sets the state tothe new ID so it is sent to all the songs
@@ -111,6 +112,9 @@ class SongList extends Component {
       this.handleQueue(id);
     }
   }
+  addToPlaylist(id){
+    this.props.addToPlaylist(id);
+  }
   render() {
     return (
       <div
@@ -127,7 +131,7 @@ class SongList extends Component {
                 playingItemId={this.state.playingItemId}
                 handleClick={this.handleClick}
                 handlePlay={this.handlePlay}
-                addToPlaylist={() => this.props.addToPlaylist()}
+                addToPlaylist={this.addToPlaylist}
                 album={this.props.album}
               />
             );

@@ -63,6 +63,7 @@ class Album extends React.Component {
     this.pause = this.pause.bind(this);
     this.playButtonClicked = this.playButtonClicked.bind(this);
     this.likeButtonClicked = this.likeButtonClicked.bind(this);
+    this.addToPlaylist=this.addToPlaylist.bind(this)
   }
   /**
    * add the tracks to queue and resume the player
@@ -175,8 +176,8 @@ class Album extends React.Component {
   markAllUnclicked() {
     this.setState({ clickID: "0" });
   }
-  addToPlaylist() {
-    this.setState({ displayAdd: true });
+  addToPlaylist(id) {
+    this.setState({ displayAdd: true, toBeAdded:id });
   }
   closeAddToPlaylist() {
     this.setState({ displayAdd: false });
@@ -233,7 +234,7 @@ class Album extends React.Component {
                           releaseDate={this.state.album.release_date}
                           recieved={this.state.recieved}
                           album={true}
-                          addToPlaylist={this.addToPlaylist.bind(this)}
+                          addToPlaylist={this.addToPlaylist}
                         />
                       </div>
                     </div>
@@ -246,7 +247,7 @@ class Album extends React.Component {
                     addToQueue={this.addToQueue}
                     clickedItemId={this.state.clickID}
                     className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
-                    addToPlaylist={this.addToPlaylist.bind(this)}
+                    addToPlaylist={this.addToPlaylist}
                     album={true}
                   />
                 </div>

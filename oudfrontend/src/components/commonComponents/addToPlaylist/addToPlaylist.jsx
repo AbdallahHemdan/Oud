@@ -31,8 +31,9 @@ class addToPlaylist extends Component {
   componentDidMount() {
     const id = Auth()
       axios
-          .get(`${base}/users/${id}/playlists`, config)
+          .get(`${base}/users/1/playlists`, config)
           .then((response) => {
+            console.log(response.date)
             this.setState({ playlists: response.data.items});
           })
           .catch((error) => {
@@ -61,7 +62,13 @@ class addToPlaylist extends Component {
     this.setState({display: true})
   }
   addSong(playlistId){
-
+    axios
+    .post(`${base}/playlists/${playlistId}/${this.props.track}`, config)
+    .then((response) => {
+    })
+    .catch((error) => {
+      console.log(error.response);
+    });
   }
   render() {
     return (
@@ -102,7 +109,7 @@ class addToPlaylist extends Component {
                       return(
                         <button className="invisibleButton"
                         >
-                          <MusicCard handleClickOutside={this.addSong(item._id)}  item={item}
+                          <MusicCard handleClickOutside={()=>this.addSong(item._id)}  item={item}
                            key={item._id}
                            playBtn={false}
                           />

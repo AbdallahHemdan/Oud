@@ -55,5 +55,6 @@
   "/me/queue": "/queue",
   "/me/playlists": "/myPlaylists",
   "/me/albums": "/myAlbums",
-  "/playlists": "/playlist"
+  "/playlists": "/playlist",
+  "/users/1/playlists":"/myPlaylists"
 }
