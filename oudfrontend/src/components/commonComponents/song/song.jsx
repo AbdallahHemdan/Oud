@@ -254,7 +254,15 @@ class Song extends Component {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
-    if (this.state.songInfo) return <Redirect to="/song-info" />;
+    if (this.state.songInfo)
+      return (
+        <Redirect
+          to={{
+            pathname: "/song-info",
+            state: { id: this.props.track.id }
+          }}
+        />
+      );
     return (
       <Router>
         <button

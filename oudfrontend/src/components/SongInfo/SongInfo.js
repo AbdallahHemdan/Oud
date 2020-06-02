@@ -76,6 +76,35 @@ class SongInfo extends Component {
     this.setState({ display: "createPlaylist hide" });
     this.props.update ? this.props.onClose() : this.props.history.goBack();
   };
+  /**
+   * make the final request to update the info in the database
+   * @returns{void}
+   */
+  handleUpdateSong = () => {
+    console.log("id: ");
+    console.log(this.props.songId);
+    const data = {
+      name: this.state.name,
+      artists: this.state.chosenArtists.toString()
+    };
+    patchRequest(`${base}/tracks/${this.props.location.state.id}`, data)
+      .then(response => {
+        Swal.fire({
+          title: "Done!",
+          text: "Song Updated Successfully!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000
+        });
+        this.handleClose();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+  handlSubmit = () => {
+    this.props.newSong ? this.handleAddSong() : this.handleUpdateSong();
+  };
   render() {
     return (
       <div className={this.state.display} data-testid="songInfo">
@@ -161,7 +190,7 @@ class SongInfo extends Component {
         <button
           className="playButton"
           id="ceatePlaylistBtn"
-          onClick={this.createAlbum}
+          onClick={this.handlSubmit}
           data-testid="songInfoCreate"
         >
           {this.props.newSong ? "ADD" : "UPDATE"}

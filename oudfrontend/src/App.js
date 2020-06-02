@@ -72,9 +72,16 @@ function App() {
               update={false}
             />
           </Route>
-          <Route path="/song-info/">
-            <SongInfo history={history} />
-          </Route>
+          <Route
+            path="/song-info/"
+            render={props => (
+              <SongInfo
+                {...props}
+                history={history}
+                songId={props.location.state.id}
+              />
+            )}
+          />
           <Route path="/likedSongs/">
             <LikedSongs />
           </Route>
