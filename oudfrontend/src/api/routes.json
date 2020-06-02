@@ -55,6 +55,5 @@
   "/me/tracks": "/likedSongs",
   "/me/queue": "/queue",
   "/me/playlists": "/likedPlaylists",
-  "/me/albums": "/likedAlbums",
-  "/playlists": "/playlist"
+  "/me/albums": "/likedAlbums"
 }

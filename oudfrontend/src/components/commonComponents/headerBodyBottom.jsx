@@ -28,8 +28,7 @@ function HeaderBodyBottom(props) {
     playing,
     releaseDate,
     recieved,
-    album,
-    addToPlaylist,
+    album
   } = props;
 
   return (
@@ -46,13 +45,6 @@ function HeaderBodyBottom(props) {
       <button data-testid="likeIcon" className="likeIcon" onClick={likeClicked}>
         {liked ? <i className="fa fa-heart"></i>:<i className="far fa-heart"></i>}
       </button>
-      {album ? (
-        <button className="likeIcon" onClick={addToPlaylist}>
-          <i class="fa fa-plus"></i>
-        </button>
-      ) : (
-        <span></span>
-      )}
       <p>
         <span data-testid="releaseDate" className="gray-text">
           {recieved ? releaseDate.slice(6, 10) : ""}
@@ -79,8 +71,7 @@ HeaderBodyBottom.propTypes = {
   playClicked: PropTypes.func,
   releaseDate: PropTypes.string,
   recieved: PropTypes.bool,
-  album: PropTypes.bool,
-  addToPlaylist:PropTypes.func
+  album: PropTypes.bool
 };
 
 export default HeaderBodyBottom;

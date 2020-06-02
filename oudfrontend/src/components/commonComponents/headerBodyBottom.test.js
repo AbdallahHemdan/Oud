@@ -14,8 +14,7 @@ const fullProps = {
     playClicked : jest.fn(), 
     releaseDate:'05-06-2011',
     recieved: true,
-    album: true,
-    addToPlaylist:jest.fn()
+    album: true
 }
 const setup = (props={}) =>{
     return shallow(<HeaderBodyBottom {...props}/>);
@@ -278,25 +277,7 @@ describe('HeaderBodyBottom component', ()=>{
             console.log(result);
             expect(result).toBeDefined();
         });
-        it('should not throw a warning', ()=>{
-            const result = checkPropTypes(HeaderBodyBottom.propTypes, {addToPlaylist:jest.fn()}, 'prop', HeaderBodyBottom.name);
-            expect(result).toBeUndefined();
-        });
-        it('should throw a warning', ()=>{
-            const result = checkPropTypes(HeaderBodyBottom.propTypes, {addToPlaylist:{}}, 'prop', HeaderBodyBottom.name);
-            console.log(result);
-            expect(result).toBeDefined();
-        });
-        it('should throw a warning', ()=>{
-            const result = checkPropTypes(HeaderBodyBottom.propTypes, {addToPlaylist:1}, 'prop', HeaderBodyBottom.name);
-            console.log(result);
-            expect(result).toBeDefined();
-        });
-        it('should throw a warning', ()=>{
-            const result = checkPropTypes(HeaderBodyBottom.propTypes, {addToPlaylist:true}, 'prop', HeaderBodyBottom.name);
-            console.log(result);
-            expect(result).toBeDefined();
-        });
+        
     });
     describe('snapshot test', ()=>{
         it('renders correctly', () => {
