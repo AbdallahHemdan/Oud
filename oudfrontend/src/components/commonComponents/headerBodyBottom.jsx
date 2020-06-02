@@ -49,11 +49,11 @@ function HeaderBodyBottom(props) {
       </button>
       {album ? (
         <Fragment>
-          <button className="likeIcon" onClick={addToPlaylist}>
-            <i class="fa fa-plus"></i>
-          </button>
           {props.isArtist && (
             <Fragment>
+              <button className="likeIcon" onClick={props.addSong}>
+                <i class="fa fa-plus"></i>
+              </button>
               <button className="likeIcon" onClick={props.changeEditAlbumState}>
                 <i class="fa fa-pencil-square-o"></i>
               </button>

@@ -15,6 +15,7 @@ import { deleteRequest } from "../../utils/requester";
 import Swal from "sweetalert2";
 import { isArtist } from "./../../utils/auth";
 import { createBrowserHistory } from "history";
+import SongInfo from "./../SongInfo/SongInfo";
 let history = createBrowserHistory();
 
 /**
@@ -65,7 +66,8 @@ class Album extends React.Component {
       clickID: "0",
       displayAdd: false,
       updateAlbum: false,
-      isArtist: false
+      isArtist: false,
+      addSong: false
     };
     this.addToQueue = this.addToQueue.bind(this);
     this.resume = this.resume.bind(this);
@@ -224,6 +226,16 @@ class Album extends React.Component {
         console.log(error);
       });
   };
+  addSong = () => {
+    this.setState({
+      addSong: true
+    });
+  };
+  closeAddSong = () => {
+    this.setState({
+      addSong: false
+    });
+  };
   render() {
     return (
       <div>
@@ -239,6 +251,8 @@ class Album extends React.Component {
             update={true}
             onClose={this.changeEditAlbumState}
           />
+        ) : this.state.addSong ? (
+          <SongInfo closeAddSong={this.closeAddSong} newSong={true} />
         ) : (
           <div className="dummyParent">
             <Sidebar />
@@ -286,6 +300,7 @@ class Album extends React.Component {
                         changeEditAlbumState={this.changeEditAlbumState}
                         delelteAlbum={this.delelteAlbum}
                         addToPlaylist={this.addToPlaylist.bind(this)}
+                        addSong={this.addSong}
                       />
                     </div>
                   </div>

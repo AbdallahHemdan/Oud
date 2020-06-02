@@ -74,7 +74,9 @@ class SongInfo extends Component {
    */
   handleClose = () => {
     this.setState({ display: "createPlaylist hide" });
-    this.props.update ? this.props.onClose() : this.props.history.goBack();
+    this.props.newSong
+      ? this.props.closeAddSong()
+      : this.props.history.goBack();
   };
   /**
    * make the final request to update the info in the database
@@ -165,11 +167,12 @@ class SongInfo extends Component {
             {this.props.newSong ? (
               <div className="form-group row" data-testid="songInfoBinary">
                 <label for="binaryObject" className="col-2 col-form-label">
-                  Name
+                  Add File
                 </label>
                 <div className="col-10">
                   <input
-                    type="text"
+                    type="file"
+                    name="file"
                     className="form-control"
                     id="binaryObject"
                     placeholder="Song File"
