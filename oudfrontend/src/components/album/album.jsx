@@ -252,7 +252,11 @@ class Album extends React.Component {
             onClose={this.changeEditAlbumState}
           />
         ) : this.state.addSong ? (
-          <SongInfo closeAddSong={this.closeAddSong} newSong={true} />
+          <SongInfo
+            closeAddSong={this.closeAddSong}
+            newSong={true}
+            albumId={this.props.id}
+          />
         ) : (
           <div className="dummyParent">
             <Sidebar />

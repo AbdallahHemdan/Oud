@@ -16,7 +16,8 @@ class SongInfo extends Component {
       display: "createPlaylist",
       name: "Album Name",
       artists: [],
-      chosenArtists: []
+      chosenArtists: [],
+      binaryFile: null
     };
   }
   /**
@@ -104,8 +105,45 @@ class SongInfo extends Component {
         console.log(error);
       });
   };
+  handleAddSong = () => {
+    const info = {
+      name: this.state.name,
+      artists: this.state.chosenArtists.toString()
+    };
+    postRequest(`${base}/me/artists/albums/${this.props.albumId}/tracks`, info)
+      .then(response => {
+        postRequest(
+          `${base}/tracks/${
+            response.data.tracks.items[response.data.tracks.items.length - 1]
+              ._id
+          }`
+        )
+          .then(res => {
+            Swal.fire({
+              title: "Done!",
+              text: "Song Added Successfully!",
+              icon: "success",
+              showConfirmButton: false,
+              timer: 1000
+            });
+            this.handleClose();
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
   handlSubmit = () => {
     this.props.newSong ? this.handleAddSong() : this.handleUpdateSong();
+  };
+  handleBinary = e => {
+    console.log(e.target.files[0]);
+    this.setState({
+      binaryFile: e.target.files[0]
+    });
   };
   render() {
     return (
