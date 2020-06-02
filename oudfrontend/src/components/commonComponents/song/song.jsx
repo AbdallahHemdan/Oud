@@ -67,7 +67,8 @@ class Song extends Component {
       clicked: false,
       redirect: null,
       update: false,
-      isArtist: false
+      isArtist: false,
+      songInfo: false
     };
   }
   /**
@@ -244,10 +245,16 @@ class Song extends Component {
   //   }
   //   return true; //change it to false;
   // };
+  editSong = () => {
+    this.setState({
+      songInfo: true
+    });
+  };
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
+    if (this.state.songInfo) return <Redirect to="/song-info" />;
     return (
       <Router>
         <button
@@ -381,6 +388,7 @@ class Song extends Component {
                     >
                       Edit the Song
                     </button>
+
                     <button
                       data-testid="remove-song"
                       className="SongDropdownItem songButton"

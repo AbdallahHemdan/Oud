@@ -34,6 +34,9 @@ import {
 } from "react-router-dom";
 import Artist from "./pages/Artist/Artist";
 import { base } from "./config/environment";
+import SongInfo from "./components/SongInfo/SongInfo";
+import { createBrowserHistory } from "history";
+let history = createBrowserHistory();
 
 function App() {
   return (
@@ -68,6 +71,9 @@ function App() {
               title="Create new Album"
               update={false}
             />
+          </Route>
+          <Route path="/song-info/">
+            <SongInfo history={history} />
           </Route>
           <Route path="/likedSongs/">
             <LikedSongs />
