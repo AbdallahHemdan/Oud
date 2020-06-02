@@ -164,7 +164,7 @@ class SongInfo extends Component {
           onClick={this.createAlbum}
           data-testid="songInfoCreate"
         >
-          UPDATE
+          {this.props.newSong ? "ADD" : "UPDATE"}
         </button>
       </div>
     );
