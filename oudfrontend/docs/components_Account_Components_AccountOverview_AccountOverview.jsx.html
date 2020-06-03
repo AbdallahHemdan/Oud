@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Account/Components/AccountOverview/AccountOverview.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Account/Components/AccountOverview/AccountOverview.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from "react";
+import UserExperienceForm from "../UserExperinceForm/UserExperinceForm";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import "./AccountOverview.css";
+
+/**
+ * @param {string} email
+ * @param {Date} birthDate
+ * @param {string} country
+ *
+ * @type {object}
+ */
+let ProfileInfo = {
+  email: "",
+  birthDate: "",
+  country: ""
+};
+/**
+ * @type {Function}
+ * @param {*} props
+ * @returns {HTMLElement} Prfile Element such that name , birth date ,email ,etc
+ */
+function ProfileElement(props) {
+  return (
+    &lt;div className="profileElement">
+      &lt;div className="profileData">
+        &lt;p className="metaData"> {props.mataData} &lt;/p>
+      &lt;/div>
+      &lt;div className="profileData">
+        &lt;p>{props.data}&lt;/p>
+      &lt;/div>
+    &lt;/div>
+  );
+}
+/**
+ * @type {Function}
+ * @returns {HTMLElement} Profile Data containes email , birth date , country
+ */
+function Profile() {
+  return (
+    &lt;div className="accountCard">
+      &lt;h2>Profile&lt;/h2>
+      &lt;ProfileElement mataData="Email" data={ProfileInfo.email} />
+      &lt;ProfileElement mataData="Date of birth" data={ProfileInfo.birthDate} />
+      &lt;ProfileElement mataData="Country" data={ProfileInfo.country} />
+      &lt;Link to="editProfile">
+        &lt;button
+          type="button"
+          className="btn btn-outline-warning overviewButton"
+        >
+          EDIT BROFILE
+        &lt;/button>
+      &lt;/Link>
+    &lt;/div>
+  );
+}
+/**
+ * @type {Function}
+ * @returns {HTMLElement} your plan card
+ */
+function YourPlan() {
+  return (
+    &lt;div className="accountCard">
+      &lt;h2>Your plan&lt;/h2>
+
+      &lt;div className="oudFree">
+        &lt;h2>Oud Free &lt;/h2>
+      &lt;/div>
+      &lt;div className="plan">
+        &lt;div className="playMusic line">
+          &lt;p>Play music in shuffle mode only, with ads.&lt;/p>
+        &lt;/div>
+        &lt;h2 className="playMusic">Free&lt;/h2>
+      &lt;/div>
+      &lt;Link to="/redirectPage">
+        &lt;button
+          type="button"
+          className="btn btn-outline-warning overviewButton"
+        >
+          JOIN PREMIUM
+        &lt;/button>
+      &lt;/Link>
+    &lt;/div>
+  );
+}
+/**
+ * @type {Function}
+ * @returns {HTMLElement} sign out everywhere card
+ */
+function SignOutEverywhere() {
+  return (
+    &lt;div className="accountCard">
+      &lt;h2>Sign out everywhere&lt;/h2>
+      &lt;p>
+        Sign out wherever you have Oud open, including the web, mobile, desktop
+        or any other devices.
+      &lt;/p>
+      &lt;div className="note">
+        &lt;p>
+          Note: This doesn’t include partner devices, such as Sonos and
+          PlayStation. For more information about logging out (or unlinking) Oud
+          from a partner device, check the device’s manufacturer guide.
+        &lt;/p>
+      &lt;/div>
+      &lt;Link to="/redirectPage">
+        &lt;button
+          type="button"
+          className="btn btn-outline-warning overviewButton"
+        >
+          SIGN OUT
+        &lt;/button>
+      &lt;/Link>
+    &lt;/div>
+  );
+}
+/**
+ * @type {Class}
+ * @returns {HTMLElement} Account over view Page
+ */
+
+class AccountOverview extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: "",
+      dateOfBirth: "",
+      country: ""
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:2022/me")
+      .then(response => {
+        ProfileInfo.email = response.data.email;
+        ProfileInfo.birthDate = response.data.birthDate;
+        ProfileInfo.country = response.data.country;
+
+        this.setState({
+          email: response.data.email,
+          dateOfBirth: response.data.birthDate,
+          country: response.data.country
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  render() {
+    return (
+      &lt;div className="accountContainer" data-test="accountContainer">
+        &lt;h1 style={{ color: "black" }}>Account overview&lt;/h1>
+        &lt;Profile data-test="Profile" />
+        &lt;YourPlan data-test="YourPlan" />
+        &lt;SignOutEverywhere data-test="SignOutEverywhere" />
+        &lt;UserExperienceForm data-test="UserExperienceForm" />
+      &lt;/div>
+    );
+  }
+}
+export default AccountOverview;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="ActivityBar.html">ActivityBar</a></li><li><a href="Albums.html">Albums</a></li><li><a href="ArtistUserView.html">ArtistUserView</a></li><li><a href="GenreCard.html">GenreCard</a></li><li><a href="Home.html">Home</a></li><li><a href="LowerContainer.html">LowerContainer</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="MusicCard.html">MusicCard</a></li><li><a href="MusicItem.html">MusicItem</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="Options.html">Options</a></li><li><a href="Player.html">Player</a></li><li><a href="PlayingBarCenter.html">PlayingBarCenter</a></li><li><a href="PlayingBarLeft.html">PlayingBarLeft</a></li><li><a href="PlayingBarRight.html">PlayingBarRight</a></li><li><a href="Popular.html">Popular</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RelatedArtists.html">RelatedArtists</a></li><li><a href="Sidebar.html">Sidebar</a></li><li><a href="SortableTrackContainer.html">SortableTrackContainer</a></li><li><a href="Track.html">Track</a></li><li><a href="TrackContainer.html">TrackContainer</a></li><li><a href="UpperContainer.html">UpperContainer</a></li><li><a href="WebPlayer.html">WebPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addToQueue">addToQueue</a></li><li><a href="global.html#AfterLogin">AfterLogin</a></li><li><a href="global.html#BeforeLogin">BeforeLogin</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#deleteRequest">deleteRequest</a></li><li><a href="global.html#EditCountry">EditCountry</a></li><li><a href="global.html#EditGendr">EditGendr</a></li><li><a href="global.html#EditProfileTextElement">EditProfileTextElement</a></li><li><a href="global.html#FeedBack">FeedBack</a></li><li><a href="global.html#fetchCategoriesUrl">fetchCategoriesUrl</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#formValid">formValid</a></li><li><a href="global.html#HeaderBody">HeaderBody</a></li><li><a href="global.html#HeaderBodyBottom">HeaderBodyBottom</a></li><li><a href="global.html#HeaderBodyTop">HeaderBodyTop</a></li><li><a href="global.html#HelpUs">HelpUs</a></li><li><a href="global.html#HiddenSideBar">HiddenSideBar</a></li><li><a href="global.html#ImageContainer">ImageContainer</a></li><li><a href="global.html#MainContainer">MainContainer</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#PageContainer">PageContainer</a></li><li><a href="global.html#patchRequest">patchRequest</a></li><li><a href="global.html#pause">pause</a></li><li><a href="global.html#postRequest">postRequest</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#ProfileElement">ProfileElement</a></li><li><a href="global.html#putRequest">putRequest</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#resume">resume</a></li><li><a href="global.html#SideBarElement">SideBarElement</a></li><li><a href="global.html#SignOutEverywhere">SignOutEverywhere</a></li><li><a href="global.html#ThankYou">ThankYou</a></li><li><a href="global.html#YourPlan">YourPlan</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Apr 20 2020 22:26:13 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

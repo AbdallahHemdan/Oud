@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "./createPlaylist.css";
 import axios from "axios";
 import getUserId from "../Profile/General/getUserId";
-import {base} from "../../config/environment"
-import {config} from "../../utils/auth"
+import { base } from "../../config/environment";
+import { config } from "../../utils/auth";
 
 /**
  * it is an overlay that is used to create a new playlist
@@ -17,7 +17,7 @@ class CreatePlaylist extends Component {
     super(props);
     this.state = {
       display: false,
-      name: "",
+      name: ""
     };
   }
   /**
@@ -49,15 +49,15 @@ class CreatePlaylist extends Component {
       public: true,
       collaborative: false,
       description: "",
-      "image/png": "",
+      "image/png": ""
     };
     let id = getUserId();
     axios
       .post(`${base}/users/${id}/playlists`, playlist, config)
-      .then(function (response) {
+      .then(function(response) {
         console.log(response);
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error);
       });
   }
@@ -101,7 +101,11 @@ class CreatePlaylist extends Component {
         <button id="cancelCreation" onClick={this.close.bind(this)}>
           CANCEL
         </button>
-        <button className="playButton" id="ceatePlaylistBtn" onClick={this.createPlaylist.bind(this)}>
+        <button
+          className="playButton"
+          id="ceatePlaylistBtn"
+          onClick={this.createPlaylist.bind(this)}
+        >
           CREATE
         </button>
       </div>

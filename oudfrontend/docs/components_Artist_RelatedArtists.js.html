@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Artist/RelatedArtists.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Artist/RelatedArtists.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from "react";
+import MusicCard from "./../MusicCard/MusicCard";
+import { getRequest } from "./../../utils/requester";
+import { base } from "./../../config/environment";
+import PropTypes from "prop-types";
+/**
+ * A class component to render the related artists
+ * @author Ahmed Ashraf
+ * @component
+ * @example
+ * return (
+ *  &lt;RelatedArtists artistId={"1"} />
+ * )
+ */
+class RelatedArtists extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      artists: [],
+      items: [],
+      popularSongs: [],
+    };
+  }
+  /**
+   * Fetch related artists from the server and store the needed information in the state of the component
+   * @func
+   * @returns {void}
+   */
+  componentDidMount() {
+    getRequest(`${base}/artists/${this.props.artistId}/related-artists`)
+      .then((response) => {
+        this.setState({
+          artists: response.data.artists,
+        });
+        this.constructArtistItems(this.state.artists);
+        this.constructTracksItems(this.state.artists);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  }
+  /**
+   * Pass a list of artists object and construct a list of album items to be suitable for the MusicCard component
+   * @func
+   * @param artists list of the fethed artists objects
+   * @returns {void}
+   */
+  constructArtistItems = (artists) => {
+    let items = [];
+    artists.forEach((artist) => {
+      const item = {
+        id: artist._id,
+        name: artist.displayName,
+        owner: artist.displayName,
+        collaborative: artist.displayName,
+        description: "Artist Card",
+        isPublic: true,
+        type: "artist",
+        image: artist.images[0],
+      };
+      items.push(item);
+    });
+    this.setState({
+      items: items,
+    });
+  };
+  /**
+   * Pass a list of artists object and construct a list of tracks for the player
+   * @func
+   * @param artists list of the fethed artists objects
+   * @returns {void}
+   */
+  constructTracksItems = (artists) => {
+    let popularSongsForEachArtist = [];
+    artists.forEach((artist) =>
+      popularSongsForEachArtist.push(artist.popularSongs)
+    );
+    let popularSongsIds = [];
+    popularSongsForEachArtist.forEach((popularSongs) => {
+      let tracks = [];
+      popularSongs.forEach((song) => {
+        tracks.push(song._id);
+      });
+      popularSongsIds.push(tracks);
+    });
+    this.setState({
+      popularSongs: popularSongsIds,
+    });
+  };
+  // pause = () => {};
+  // resume = () => {};
+  // addToQueue = () => {};
+  render() {
+    return (
+      &lt;div className="artis-overview">
+        &lt;div className="wrapper" data-testid="first-wrapper">
+          &lt;div className="wrapper_section_2" data-testid="second-wrapper">
+            &lt;div className="cards" data-testid="cards-wrapper">
+              {this.state.items.map((item, index) => {
+                return &lt;MusicCard item={item} key={item.id} playBtn={true} />;
+              })}
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    );
+  }
+}
+RelatedArtists.propTypes = {
+  /**
+   * The unique idetifier of the author
+   */
+  artistId: PropTypes.string.isRequired,
+};
+export default RelatedArtists;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="ActivityBar.html">ActivityBar</a></li><li><a href="Albums.html">Albums</a></li><li><a href="ArtistUserView.html">ArtistUserView</a></li><li><a href="GenreCard.html">GenreCard</a></li><li><a href="Home.html">Home</a></li><li><a href="LowerContainer.html">LowerContainer</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="MusicCard.html">MusicCard</a></li><li><a href="MusicItem.html">MusicItem</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="Options.html">Options</a></li><li><a href="Player.html">Player</a></li><li><a href="PlayingBarCenter.html">PlayingBarCenter</a></li><li><a href="PlayingBarLeft.html">PlayingBarLeft</a></li><li><a href="PlayingBarRight.html">PlayingBarRight</a></li><li><a href="Popular.html">Popular</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RelatedArtists.html">RelatedArtists</a></li><li><a href="Sidebar.html">Sidebar</a></li><li><a href="SortableTrackContainer.html">SortableTrackContainer</a></li><li><a href="Track.html">Track</a></li><li><a href="TrackContainer.html">TrackContainer</a></li><li><a href="UpperContainer.html">UpperContainer</a></li><li><a href="WebPlayer.html">WebPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addToQueue">addToQueue</a></li><li><a href="global.html#AfterLogin">AfterLogin</a></li><li><a href="global.html#BeforeLogin">BeforeLogin</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#deleteRequest">deleteRequest</a></li><li><a href="global.html#EditCountry">EditCountry</a></li><li><a href="global.html#EditGendr">EditGendr</a></li><li><a href="global.html#EditProfileTextElement">EditProfileTextElement</a></li><li><a href="global.html#FeedBack">FeedBack</a></li><li><a href="global.html#fetchCategoriesUrl">fetchCategoriesUrl</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#formValid">formValid</a></li><li><a href="global.html#HeaderBody">HeaderBody</a></li><li><a href="global.html#HeaderBodyBottom">HeaderBodyBottom</a></li><li><a href="global.html#HeaderBodyTop">HeaderBodyTop</a></li><li><a href="global.html#HelpUs">HelpUs</a></li><li><a href="global.html#HiddenSideBar">HiddenSideBar</a></li><li><a href="global.html#ImageContainer">ImageContainer</a></li><li><a href="global.html#MainContainer">MainContainer</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#PageContainer">PageContainer</a></li><li><a href="global.html#patchRequest">patchRequest</a></li><li><a href="global.html#pause">pause</a></li><li><a href="global.html#postRequest">postRequest</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#ProfileElement">ProfileElement</a></li><li><a href="global.html#putRequest">putRequest</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#resume">resume</a></li><li><a href="global.html#SideBarElement">SideBarElement</a></li><li><a href="global.html#SignOutEverywhere">SignOutEverywhere</a></li><li><a href="global.html#ThankYou">ThankYou</a></li><li><a href="global.html#YourPlan">YourPlan</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Apr 20 2020 22:26:13 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

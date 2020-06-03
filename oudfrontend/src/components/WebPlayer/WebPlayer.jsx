@@ -3,6 +3,14 @@ import { Component } from "react";
 import axios from "axios";
 import Player from "./Player/Player";
 import Queue from "./Queue/Queue";
+import Swal from "sweetalert2";
+import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
+import { base } from "./../../config/environment";
+const config = {
+  headers: {
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzYwNzk4OCwiZXhwIjoxNTkwMTk5OTg4fQ.hEWUx1yLNpe199Gj29V52xQSCav5t0Buj_rqV9shokY`,
+  },
+};
 /**
  * Component controlling the Player and Qeueu Components. It masters all the logic behind the web player.
  * @author Ahmed Ashraf
@@ -34,7 +42,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   getRequest = (endpoint) => {
-    return axios.get(endpoint);
+    return axios.get(endpoint, config);
   };
   /**
    * Axios DELETE request
@@ -43,7 +51,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   deleteRequest = (endpoint) => {
-    return axios.delete(endpoint, {});
+    return axios.delete(endpoint, config);
   };
   /**
    * Axios PUT request
@@ -53,7 +61,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   putRequest = (endpoint, body = {}) => {
-    return axios.put(endpoint, body);
+    return axios.put(endpoint, body, config);
   };
   /**
    * Axios POST request
@@ -63,7 +71,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   postRequest = (endpoint, body = {}) => {
-    return axios.post(endpoint, body);
+    return axios.post(endpoint, body, config);
   };
   /**
    * Axios PATCH request
@@ -73,7 +81,7 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   patchRequest = (endpoint, body = {}) => {
-    return axios.patch(endpoint, body);
+    return axios.patch(endpoint, body, config);
   };
   /**
    * A function to fetch the queue immediately afer the player has mounted.
@@ -82,8 +90,8 @@ class WebPlayer extends Component {
    * @param {number} trackId the id of the currently fetched track in the Player component
    * @returns {void}
    */
-  fetchQueue = (queueIndex = "0", trackId = "") => {
-    this.getRequest("http://localhost:2022/me/queue?queueIndex=" + queueIndex)
+  fetchQueue = (queueIndex = "0", trackId = "", newQueue = false) => {
+    this.getRequest(`${base}/me/queue?queueIndex=${queueIndex}`)
       .then((response) => {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
@@ -94,16 +102,24 @@ class WebPlayer extends Component {
               trackIdx = i;
               break;
             }
-
-          this.setState({
-            trackIdx: trackIdx,
-            queue: data["tracks"],
-            trackId: trackId,
-          });
+          this.setState(
+            {
+              trackIdx: newQueue ? 0 : trackIdx,
+              queue: data["tracks"],
+              trackId: newQueue ? data["tracks"][0] : trackId,
+            },
+            () => {
+              console.log("queue:");
+              console.log(this.state.queue);
+              console.log(
+                "idx after fetching the queue: " + this.state.trackIdx
+              );
+            }
+          );
         }
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error.response);
       });
   };
   /**
@@ -122,7 +138,7 @@ class WebPlayer extends Component {
     this.setState({
       trackIdx: trackIdx,
     });
-    return this.getRequest("http://localhost:2022/tracks/" + trackId);
+    return this.getRequest(`${base}/tracks/${trackId}`);
   };
   /**
    * A function to fetch the next track to the currently playing track
@@ -130,12 +146,19 @@ class WebPlayer extends Component {
    * @returns {object}
    */
   getNext = () => {
-    const idx = (this.state.trackIdx + 1) % this.state.queue.length;
+    let idx = this.state.trackIdx + 1;
+    if (
+      idx === this.state.queue.length &&
+      this.playerElement.current.state.repeatState === 1
+    ) {
+      idx = 0;
+    } else if (idx === this.state.queue.length) idx = idx - 1;
+
     this.setState({
       trackIdx: idx,
       trackId: this.state.queue[idx],
     });
-    return this.fetchTrack(this.state.queue[this.state.trackIdx]);
+    return idx;
   };
   /**
    * A function to fetch the previos track to the currently playing track
@@ -148,72 +171,13 @@ class WebPlayer extends Component {
       trackIdx: idx,
       trackId: this.state.queue[idx],
     });
-    return this.fetchTrack(this.state.queue[this.state.trackIdx]);
-  };
-  /**
-   * Given an array of track objects, update the state with the needed information from them.
-   * @function
-   * @param {array} tracks array of json track objects
-   * @reutrns {void}
-   */
-  createQeueu = (tracks) => {
-    let queue = [];
-    tracks.forEach((element) => {
-      queue.push(element["_id"]);
-    });
-    this.setState({
-      queue: queue,
-    });
-  };
-  //the following two functions are to be replaced with Hemdan and Walid functions in integration, they are just dummy
-  fetchAlbum = (id) => {
-    this.getRequest("http://localhost:2022/albums/" + id)
-      .then((response) => {
-        const tracks = response["data"]["tracks"]["items"];
-        this.createQeueu(tracks);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  fetchPlaylist = (id) => {
-    this.getRequest("http://localhost:2022/playlists/" + id)
-      .then((response) => {
-        const tracks = response["data"]["tracks"]["items"];
-        this.createQeueu(tracks);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  /**
-   * Given a context uri, fetch the related context and make it the queue
-   * @function
-   * @param {string} contextUri OUD uri
-   * @reutrns {void}
-   */
-  getContextQueue = (contextUri) => {
-    this.setState({
-      context: contextUri,
-    });
-    const context = contextUri.split(":");
-    const type = context[1];
-    switch (type) {
-      case "album":
-        this.fetchAlbum(context[2]);
-        break;
-      case "playlist":
-        this.fetchPlaylist(context[2]);
-        break;
-      default:
-        break;
-    }
+    return idx;
   };
   /**
    * A generic function to play a track from any location other than the queue and the player
    * @function
    * @param {string} context OUD context
-   * @param {array} uris OUD uris
+   * @param {array} uris OUD uris, list of oud tracks uris
    * @param {number} offset indext of the track in the context
    * @param {number} position from where to start in the track. In milliseconds
    * @reutrns {void}
@@ -222,29 +186,32 @@ class WebPlayer extends Component {
     contextUri = this.state.context,
     uris = [],
     offset = 0,
-    position = 0
+    position = 0,
+    isTracksList = false
   ) => {
-    this.putRequest(
-      "http://localhost:2022/me/player/play?deviceId=" +
-      this.state.deviceId +
-      "&queueIndex=0",
-      {
-        contextUri: {
-          context_uri: contextUri,
-        },
-        uris: uris,
-        offset: { position: offset },
-        positionMs: position,
-      }
-    )
+    const body = isTracksList
+      ? {
+          uris: uris,
+          offset: { position: offset },
+        }
+      : {
+          contextUri: contextUri,
+          offset: { position: offset },
+        };
+    this.putRequest(`${base}/me/player/play`, body)
       .then((response) => {
-        console.log("context: " + contextUri);
-        this.getContextQueue(contextUri);
-        this.playerElement.play();
+        // this.fetchQueue();
+        let player = this.playerElement.current;
+        setTimeout(() => {
+          player.fetchPlayback(true).then((audioUrl) => {
+            setTimeout(() => {
+              player.playTrack(audioUrl);
+            }, 100);
+          });
+        }, 100);
       })
       .catch((error) => {
-        console.log("I'm here ha ha ha");
-        console.log(error);
+        console.log(error.response.data.message);
       });
   };
   /**
@@ -253,32 +220,19 @@ class WebPlayer extends Component {
    * @param {array} queue the currently playing queue
    * @returns {void}
    */
-  onChangeQueueOrder = (queue) => {
-    let oldIdx = this.state.trackIdx,
-      newIdx = this.state.trackIdx;
-    for (let i = 0; i < queue.length; ++i)
-      if (queue[i] === this.state.trackId) newIdx = i;
-
-    this.setState({
-      queue: queue,
-      trackIdx: newIdx,
-    });
-    // this.patchRequest(
-    //   "http://localhost:2022/me/queue?queueIndex=0&trackIndex=" +
-    //     oldIdx +
-    //     "&newIndex=" +
-    //     newIdx
-    // )
-    //   .then(response => {
-    //     this.this.setState({
-    //       queue: queue,
-    //       trackIdx: newIdx
-    //     });
-    //     console.log(response);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
+  onChangeQueueOrder = (
+    oldIdx = this.state.trackIdx,
+    newIdx = this.state.trackIdx
+  ) => {
+    this.patchRequest(
+      `${base}/me/queue?queueIndex=0&trackIndex=${oldIdx}&newIndex=${newIdx}`
+    )
+      .then((response) => {
+        this.fetchQueue(0, this.state.trackId);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
   };
   /**
    * Change the playing state as there are many stuff depend on that in the UI
@@ -286,9 +240,27 @@ class WebPlayer extends Component {
    * @param {boot} playing playing state of the track
    * @returns {void}
    */
-  changePlayingState = (playing) => {
+  changePlayingState = (
+    playing,
+    idx = this.state.trackIdx,
+    id = this.state.trackId
+  ) => {
     this.setState({
       playing: playing,
+      trackIdx: idx,
+      trackId: id,
+    });
+  };
+  togglePlayingState = () => {
+    this.setState({
+      playing: !this.state.playing,
+    });
+
+    return this.state.playing;
+  };
+  changeLovedState = (state) => {
+    this.setState({
+      loved: state,
     });
   };
   /**
@@ -299,64 +271,52 @@ class WebPlayer extends Component {
    * @returns {void}
    */
   removeTrack = (idx, id) => {
-    let queue = this.state.queue;
-    queue.splice(idx, 1);
-    this.setState({
-      queue: queue,
-    });
-    // this.deleteRequest("http://localhost:2022/me/queue?trackId=" + id)
-    //   .then((response) => {
-    //     console.log(response);
-    //     let queue = this.state.queue;
-    //     queue.splice(idx, 1);
-    //     this.setState({
-    //       queue: queue,
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-  };
-
-  addRemoveSavedSong = (status) => {
-    status
-      ? this.putRequest(
-        "http://localhost:2022/me/tracks?IDs=[" + this.state.trackId + "]"
-      )
-      : this.deleteRequest(
-        "http://localhost:2022/me/tracks?IDs=[" + this.state.trackId + "]"
-      )
-        .then((response) => {
-          if (!response["data"].hasOwnProperty("status")) {
-            this.setState({
-              loved: status,
-            });
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-  };
-  chekckSavedSong = (trackId) => {
-    this.getRequest("http://localhost:2022/me/tracks?ids=[" + trackId + "]")
+    //
+    this.deleteRequest(`${base}/me/queue?trackId=${id}`)
       .then((response) => {
-        const isFound = response["data"]["IsFound"][0];
-        this.setState({
-          loved: isFound,
+        this.fetchQueue(0, this.state.trackId);
+        Swal.fire({
+          title: "Done!",
+          text: "Track Deleted Successfully from your Queue!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000,
         });
-
-        // if (response["data"].hasOwnProperty("IsFound")) {
-        //   const isFound = response["data"]["IsFound"][0];
-        //   this.setState({
-        //     loved: isFound,
-        //   });
-        //   console.log("id from check: " + trackId);
-        // }
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response);
       });
-    return this.state.loved;
+  };
+  likeSong = (trackId, queue = false) => {
+    saveTrack(trackId).then((done) => {
+      if (done) {
+        this.setState({
+          loved: queue ? this.state.loved : true,
+        });
+        Swal.fire({
+          title: "Done!",
+          text: "Added to your Liked Songs!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      }
+    });
+  };
+  unlikeSong = (trackId, queue = false) => {
+    removeSavedTrack(trackId).then((done) => {
+      if (done)
+        this.setState({
+          loved: queue ? this.state.loved : false,
+        });
+      Swal.fire({
+        title: "Done!",
+        text: "Removed from your Liked Songs!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    });
   };
   render() {
     return (
@@ -367,18 +327,20 @@ class WebPlayer extends Component {
           trackId={this.state.trackId}
           trackIdx={this.state.trackIdx}
           deviceId={this.state.deviceId}
+          playing={this.state.playing}
+          changePlayingState={this.changePlayingState}
           onChangeQueueOrder={this.onChangeQueueOrder}
           player={this.playerElement}
-          playing={this.state.playing}
           removeTrack={this.removeTrack}
-          addRemoveSavedSong={this.addRemoveSavedSong}
-          chekckSavedSong={this.chekckSavedSong}
+          likeSong={this.likeSong}
+          unlikeSong={this.unlikeSong}
           data-testid="queue-container"
         />
         <Player
           ref={this.playerElement}
-          deviceId={this.state.deviceId}
+          trackId={this.state.trackId}
           trackIdx={this.state.trackIdx}
+          playing={this.state.playing}
           queueElement={this.queueElement}
           getRequest={this.getRequest}
           putRequest={this.putRequest}
@@ -388,8 +350,10 @@ class WebPlayer extends Component {
           getPrevious={this.getPrevious}
           changePlayingState={this.changePlayingState}
           fetchTrack={this.fetchTrack}
-          addRemoveSavedSong={this.addRemoveSavedSong}
-          chekckSavedSong={this.chekckSavedSong}
+          likeSong={this.likeSong}
+          unlikeSong={this.unlikeSong}
+          loved={this.state.loved}
+          changeLovedState={this.changeLovedState}
           data-testid="player-container"
         />
       </Fragment>

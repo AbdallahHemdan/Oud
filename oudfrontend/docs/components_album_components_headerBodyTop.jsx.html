@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/album/components/headerBodyTop.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/album/components/headerBodyTop.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import PropTypes from 'prop-types';
+import {useHistory} from "react-router-dom";
+
+/**
+ * this is a component that renders the Top of the body of playlists, albums, likedSongs
+ * on clicking the name of the owner it takes you to his/her profile
+ * @author Ahmed Walid &lt;ahmedwa1999@gmail.com>
+ * @func
+ * @param {string} title the title of playlists, albums
+ * @param {string} owner the Id of the owner of playlists or albums. It is used to fetch his/her name from the database
+ * 
+ * @returns {
+ *              &lt;Router>
+ *               &lt;div>
+ *                  &lt;h2>&lt;/h2>
+ *                  &lt;span>&lt;/span>
+ *                  &lt;Link>&lt;/Link> "A react router component"
+ *               &lt;/div>
+ *          &lt;/Router>
+ *          }
+ */
+function  HeaderBodyTop(props)
+{
+        const title = props.title
+        var artists= Array.isArray(props.artists)?props.artists:[]
+        let history = useHistory()
+        let flag = false
+        function withComma(artist){
+            return(
+            &lt;span>, &lt;button
+             data-testid="artist" 
+             onClick={()=>{history.push(`/artist/${artist.id}`)}}
+             className='playlistAnchor songButton'>{artist.name}&lt;/button>&lt;/span>
+            );}
+        function withoutComma(artist){
+            flag= true;
+            return(&lt;span>&lt;button
+             onClick={()=>{history.push(`/artist/${artist.id}`)}}
+             data-testid="artist"
+              className='playlistAnchor songButton'>{artist.name}&lt;/button>&lt;/span>
+            );}
+        
+        return(
+            &lt;div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
+                &lt;h2 data-testid="title" className='gray-text'>{title}&lt;/h2>
+                &lt;span data-testid="credits" className="whiteText">By &lt;/span>
+                {
+                    artists.map((artist)=>{
+                        return(
+                        flag ? withComma(artist):withoutComma(artist)
+                        )}
+                        )}
+            &lt;/div>
+        );
+    //}
+}
+
+HeaderBodyTop.propTypes = {
+    title: PropTypes.string,
+    artists:PropTypes.array
+}
+
+export default HeaderBodyTop;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="ActivityBar.html">ActivityBar</a></li><li><a href="Albums.html">Albums</a></li><li><a href="ArtistUserView.html">ArtistUserView</a></li><li><a href="GenreCard.html">GenreCard</a></li><li><a href="Home.html">Home</a></li><li><a href="LowerContainer.html">LowerContainer</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="MusicCard.html">MusicCard</a></li><li><a href="MusicItem.html">MusicItem</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="Options.html">Options</a></li><li><a href="Player.html">Player</a></li><li><a href="PlayingBarCenter.html">PlayingBarCenter</a></li><li><a href="PlayingBarLeft.html">PlayingBarLeft</a></li><li><a href="PlayingBarRight.html">PlayingBarRight</a></li><li><a href="Popular.html">Popular</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RelatedArtists.html">RelatedArtists</a></li><li><a href="Sidebar.html">Sidebar</a></li><li><a href="SortableTrackContainer.html">SortableTrackContainer</a></li><li><a href="Track.html">Track</a></li><li><a href="TrackContainer.html">TrackContainer</a></li><li><a href="UpperContainer.html">UpperContainer</a></li><li><a href="WebPlayer.html">WebPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addToQueue">addToQueue</a></li><li><a href="global.html#AfterLogin">AfterLogin</a></li><li><a href="global.html#BeforeLogin">BeforeLogin</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#deleteRequest">deleteRequest</a></li><li><a href="global.html#EditCountry">EditCountry</a></li><li><a href="global.html#EditGendr">EditGendr</a></li><li><a href="global.html#EditProfileTextElement">EditProfileTextElement</a></li><li><a href="global.html#FeedBack">FeedBack</a></li><li><a href="global.html#fetchCategoriesUrl">fetchCategoriesUrl</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#formValid">formValid</a></li><li><a href="global.html#HeaderBody">HeaderBody</a></li><li><a href="global.html#HeaderBodyBottom">HeaderBodyBottom</a></li><li><a href="global.html#HeaderBodyTop">HeaderBodyTop</a></li><li><a href="global.html#HelpUs">HelpUs</a></li><li><a href="global.html#HiddenSideBar">HiddenSideBar</a></li><li><a href="global.html#ImageContainer">ImageContainer</a></li><li><a href="global.html#MainContainer">MainContainer</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#PageContainer">PageContainer</a></li><li><a href="global.html#patchRequest">patchRequest</a></li><li><a href="global.html#pause">pause</a></li><li><a href="global.html#postRequest">postRequest</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#ProfileElement">ProfileElement</a></li><li><a href="global.html#putRequest">putRequest</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#resume">resume</a></li><li><a href="global.html#SideBarElement">SideBarElement</a></li><li><a href="global.html#SignOutEverywhere">SignOutEverywhere</a></li><li><a href="global.html#ThankYou">ThankYou</a></li><li><a href="global.html#YourPlan">YourPlan</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Apr 20 2020 22:26:13 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -14,12 +14,12 @@ function PlayingBarCenter(props) {
         <div className="track-controls">
           <div className="track-info">
             <Router history={history}>
-              <Link to="/">
+              <Link to={props.constructLink(false)}>
                 <strong className="track-name" data-testid="track-name-link">
                   {props.trackName}
                 </strong>
               </Link>
-              <Link to="/">
+              <Link to={props.constructLink(true)}>
                 <strong className="artist-name" data-testid="artist-name-link">
                   {props.artistName}
                 </strong>
@@ -74,11 +74,11 @@ PlayingBarCenter.propTypes = {
   /**
    * the percentage of played duration of the track
    */
-  progress: PropTypes.number.isRequired,
+  progress: PropTypes.any.isRequired,
   /**
    * total time of the track
    */
-  duration: PropTypes.string.isRequired,
+  duration: PropTypes.any.isRequired,
   /**
    * function to check if the mouse clicked or not
    */

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Navbar/Navbar.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Navbar/Navbar.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from "react";
+import "./Navbar.css";
+import { withRouter } from "react-router-dom";
+import { BeforeLogin } from "./BeforeLogin/BeforeLogin"
+import { AfterLogin } from "./AfterLogin/AfterLogin"
+
+/**
+ * Component to render all the stuff in Home page
+ *
+ *
+ * @author Abdallah Hemdan
+ *
+ * @component
+ *
+ */
+
+class Navbar extends Component {
+  /**
+   * @constructor
+   *
+   * @param {object} props - get props from higher components
+   * @param {boolean} isLoggedIn - bool to indicate wether a use is logged in or not
+   */
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      /**
+       * A variable to check if the user is logged or not to use it in enabling or disabling some data and navbar view
+       * 
+       * @property {boolean} 
+       * 
+       */
+      isLoggedIn: this.props.isLoggedIn
+    }
+  }
+
+  /**
+   * A function to handle switch current route to search route on clicking in search bar
+   *
+   * @function
+   *
+   * @param {string} newRoute - new route to change to it
+   * 
+   * @returns {void} returns nothing, it just handle changing the routes
+   */
+  handleClickOnSearch = (newRoute) => {
+    this.props.history.replace(`/${newRoute}`);
+  }
+
+  /**
+   * A function to handle going back to last route we were used
+   * 
+   * @function
+   * 
+   * @returns {void} returns nothing, it just handle changing the routes to last one back
+   * 
+   */
+  handleGoBack = () => {
+    this.props.history.goBack();
+  }
+
+  /**
+   * A function to handle going forward to the last route we were used
+   * 
+   * @function
+   * 
+   * @returns {void } returns nothing, it just handle changing the routes to last one forward
+   */
+  handleGoForward = () => {
+    this.props.history.goForward();
+  }
+
+  componentDidMount() {
+    if (this.props.isSearch) {
+      this.nameInput.focus();
+    }
+  }
+  /**
+   * @function
+   * @name render
+   * @description Render all Navbar components
+   * @returns {JSX} Component for Home
+   */
+  render() {
+    return (
+      &lt;div>
+        &lt;nav
+          className="navbar navbar-expand-lg navbar-dark bg-darky fixed-top oud-nav"
+          data-testid="home-nav"
+        >
+          &lt;form
+            className="form-inline"
+            data-testid="left-part"
+          >
+            &lt;div
+              className="back-forward nav-back-forward"
+              data-testid="nav-back-forward"
+            >
+              &lt;div
+                className="navbar-brand"
+                onClick={this.handleGoBack}
+                data-testid="back-switch"
+              >
+                &lt;i className="fa fa-angle-left fa-lg left-arrow">&lt;/i>
+              &lt;/div>
+              &lt;div
+                className="navbar-brand"
+                onClick={this.handleGoForward}
+                data-testid="forward-switch">
+                &lt;i className="fa fa-angle-right fa-lg right-arrow">&lt;/i>
+              &lt;/div>
+            &lt;/div>
+            &lt;input
+              type="search"
+              className="search-input empty"
+              id="iconified"
+              ref={(input) => { this.nameInput = input; }}
+              placeholder="&amp;#xF002; Search for Artists, Songs"
+              aria-label="Search"
+              onClick={() => this.handleClickOnSearch('search')}
+              data-testid="search-input"
+            />
+          &lt;/form>
+          &lt;button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            data-testid="toggle-btn"
+          >
+            &lt;span className="navbar-toggler-icon toggler">&lt;/span>
+          &lt;/button>
+
+          &lt;div
+            className="collapse navbar-collapse login-signup"
+            id="navbarSupportedContent"
+            data-testid="right-part"
+          >
+            &lt;ul className="navbar-nav mr-auto">&lt;/ul>
+            &lt;ul className="navbar-nav mr-auto">&lt;/ul>
+            {
+              (this.state.isLoggedIn) ?
+                &lt;AfterLogin data-testid="right-after-login" /> :
+                &lt;BeforeLogin data-testid="right-before-login" />
+            }
+          &lt;/div>
+        &lt;/nav>
+      &lt;/div >
+    );
+  }
+}
+
+
+export default withRouter(Navbar);
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="ActivityBar.html">ActivityBar</a></li><li><a href="Albums.html">Albums</a></li><li><a href="ArtistUserView.html">ArtistUserView</a></li><li><a href="GenreCard.html">GenreCard</a></li><li><a href="Home.html">Home</a></li><li><a href="LowerContainer.html">LowerContainer</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="MusicCard.html">MusicCard</a></li><li><a href="MusicItem.html">MusicItem</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="Options.html">Options</a></li><li><a href="Player.html">Player</a></li><li><a href="PlayingBarCenter.html">PlayingBarCenter</a></li><li><a href="PlayingBarLeft.html">PlayingBarLeft</a></li><li><a href="PlayingBarRight.html">PlayingBarRight</a></li><li><a href="Popular.html">Popular</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RelatedArtists.html">RelatedArtists</a></li><li><a href="Sidebar.html">Sidebar</a></li><li><a href="SortableTrackContainer.html">SortableTrackContainer</a></li><li><a href="Track.html">Track</a></li><li><a href="TrackContainer.html">TrackContainer</a></li><li><a href="UpperContainer.html">UpperContainer</a></li><li><a href="WebPlayer.html">WebPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addToQueue">addToQueue</a></li><li><a href="global.html#AfterLogin">AfterLogin</a></li><li><a href="global.html#BeforeLogin">BeforeLogin</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#deleteRequest">deleteRequest</a></li><li><a href="global.html#EditCountry">EditCountry</a></li><li><a href="global.html#EditGendr">EditGendr</a></li><li><a href="global.html#EditProfileTextElement">EditProfileTextElement</a></li><li><a href="global.html#FeedBack">FeedBack</a></li><li><a href="global.html#fetchCategoriesUrl">fetchCategoriesUrl</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#formValid">formValid</a></li><li><a href="global.html#HeaderBody">HeaderBody</a></li><li><a href="global.html#HeaderBodyBottom">HeaderBodyBottom</a></li><li><a href="global.html#HeaderBodyTop">HeaderBodyTop</a></li><li><a href="global.html#HelpUs">HelpUs</a></li><li><a href="global.html#HiddenSideBar">HiddenSideBar</a></li><li><a href="global.html#ImageContainer">ImageContainer</a></li><li><a href="global.html#MainContainer">MainContainer</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#PageContainer">PageContainer</a></li><li><a href="global.html#patchRequest">patchRequest</a></li><li><a href="global.html#pause">pause</a></li><li><a href="global.html#postRequest">postRequest</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#ProfileElement">ProfileElement</a></li><li><a href="global.html#putRequest">putRequest</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#resume">resume</a></li><li><a href="global.html#SideBarElement">SideBarElement</a></li><li><a href="global.html#SignOutEverywhere">SignOutEverywhere</a></li><li><a href="global.html#ThankYou">ThankYou</a></li><li><a href="global.html#YourPlan">YourPlan</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Apr 20 2020 22:26:13 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

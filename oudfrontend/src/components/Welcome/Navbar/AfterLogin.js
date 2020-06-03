@@ -1,38 +1,40 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import mask from './../../../assets/images/mask.png';
-import axios from "axios"
-import { base, subUrl, prodUrl } from "./../../../config/environment"
-import { config } from "./../../../utils/auth"
-
+import axios from 'axios';
+import {base, subUrl, prodUrl} from './../../../config/environment';
+import {config} from './../../../utils/auth';
 
 const fetchUserInfo = `${base}/me`;
 
 class AfterLogin extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      displayName: "",
-      images: []
-    }
+      displayName: '',
+      images: [],
+      
+    };
   }
-  handleStoringUserInfo = ({ displayName, images }) => {
-    this.setState({ displayName, images });
-  }
+  handleStoringUserInfo = ({displayName, images}) => {
+    this.setState({displayName, images});
+  };
   componentDidMount() {
-    axios.get(fetchUserInfo, config)
+    axios
+      .get(fetchUserInfo, config)
       .then((result) => {
         this.handleStoringUserInfo(result.data);
-      }).catch((err) => {
-        console.log(err)
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 
   doLogOut = () => {
-    localStorage.removeItem("accessToken");
-  }
+    localStorage.removeItem('accessToken');
+  };
   render() {
-    const subPath = (base === prodUrl) ? subUrl : "";
+    const subPath = base === prodUrl ? subUrl : '';
     return (
       <li className="nav-item dropdown">
         <Link
@@ -50,14 +52,11 @@ class AfterLogin extends Component {
             alt="Profile Icon"
             data-testid="profImage"
           />
-          <span>&nbsp;&nbsp;</span>{this.state.displayName}
+          <span>&nbsp;&nbsp;</span>
+          {this.state.displayName}
         </Link>
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-          <Link
-            data-testid="Account"
-            to="/account"
-            className="dropdown-item"
-          >
+          <Link data-testid="Account" to="/account" className="dropdown-item">
             Account
           </Link>
           <Link
@@ -70,8 +69,8 @@ class AfterLogin extends Component {
           </Link>
         </div>
       </li>
-    )
+    );
   }
 }
 
-export default AfterLogin
+export default AfterLogin;

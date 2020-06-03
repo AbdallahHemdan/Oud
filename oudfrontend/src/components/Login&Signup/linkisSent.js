@@ -17,4 +17,4 @@ class IsLinked extends Component {
   }
 }
 
-export default withRouter(IsLinked);
+ export default withRouter(IsLinked);
