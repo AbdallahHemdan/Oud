@@ -4,8 +4,15 @@ import ellipsis from "../../../assets/images/icons/ellipsis.png";
 import handler from "../../../assets/images/icons/handler.png";
 import play from "../../../assets/images/icons/play.png";
 import pause from "../../../assets/images/icons/pause.png";
+import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 import axios from "axios";
 import PropTypes from "prop-types";
+import { base } from "../../../config/environment";
+const config = {
+  headers: {
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzYwNzk4OCwiZXhwIjoxNTkwMTk5OTg4fQ.hEWUx1yLNpe199Gj29V52xQSCav5t0Buj_rqV9shokY`,
+  },
+};
 const DragHandle = sortableHandle(() => (
   <span className="handler">
     <img src={handler} alt="Handler" />
@@ -28,12 +35,21 @@ class Track extends Component {
       trackName: "",
       artistName: "",
       duration: "",
-      playing: false,
+      resume: false,
       thumb: play,
+      playing: false,
     };
   }
   componentDidMount() {
     this.fetchTrackInfo();
+  }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.tracks !== prevState.tracks) {
+      return {
+        playing: nextProps.playing,
+      };
+    }
+    return null;
   }
   /**
    * Fetching all the needing information to display a track to the user
@@ -42,15 +58,20 @@ class Track extends Component {
    */
   fetchTrackInfo = () => {
     axios
-      .get("http://localhost:2022/tracks/" + this.props.id)
+      .get(`${base}/tracks/${this.props.id}`, config)
       .then((response) => {
-        const track = response["data"];
+        const track = response.data;
         this.setState({
-          image: track["artists"][0]["image"],
+          image:
+            "https://oud-zerobase.me/api/" +
+            track["artists"][0]["images"][0]
+              .replace(/ /g, "%20")
+              .replace(/\\/g, "/"),
           trackName: track["name"],
-          artistName: track["artists"][0]["name"],
-          duration: Number(track["duartion"] / 60000).toFixed(2),
+          artistName: track["artists"][0]["displayName"],
+          duration: Number(track["duration"] / 60000).toFixed(2),
         });
+        console.log(this.state.image);
       })
       .catch((error) => {
         console.log(error);
@@ -62,12 +83,8 @@ class Track extends Component {
    * @returns {void}
    */
   handlePlayButton = () => {
-    const playing = !this.state.playing;
-    const thumb = this.props.playing ? pause : play;
-    this.setState({
-      playing: playing,
-      thumb: thumb,
-    });
+    this.togglePlay();
+    this.props.changePlayingState(this.state.playing);
     this.props.playTrack.current.handlePlayPause(this.props.id, this.props.idx);
   };
   /**
@@ -77,6 +94,12 @@ class Track extends Component {
    */
   handleDropdown = () => {
     this.props.toggleDropdown(this.props.idx, this.props.id);
+  };
+  togglePlay = () => {
+    this.setState({
+      playing: !this.state.playing,
+    });
+    return;
   };
   render() {
     return (
@@ -94,24 +117,36 @@ class Track extends Component {
               onClick={this.handlePlayButton}
               data-testid="queue-play-btn"
             >
-              <img src={this.state.thumb} alt="Pause" />
+              <img
+                src={
+                  this.props.playTrack.current.state.trackId ===
+                    this.props.id && this.props.playing
+                    ? pause
+                    : play
+                }
+                alt="Pause"
+              />
             </button>
           </div>
 
           <div className="track-name" data-testid="queue-track-name">
-            <text title="Somthing Just Like This">
+            <strong title={this.state.trackName}>
               <a href="https://www.facebook.com/">{this.state.trackName}</a>
-            </text>
+            </strong>
           </div>
 
           <div className="artist-name" data-testid="queue-artist-name">
-            <text title="The Chainsmokers & Coldplay">
+            <strong title={this.state.artistName}>
               <a href="https://www.facebook.com/">{this.state.artistName}</a>
-            </text>
+            </strong>
           </div>
 
           <div className="duration">
-            <text>{this.state.duration}</text>
+            <strong>
+              {isNaN(this.state.duration)
+                ? Number(0).toFixed(2)
+                : this.state.duration}
+            </strong>
           </div>
 
           <div className="ellipsis-container">
@@ -141,10 +176,6 @@ Track.propTypes = {
    * A function to handle playing a track from the queue
    */
   playTrack: PropTypes.object.isRequired,
-  /**
-   * The playing state of the parent component
-   */
-  playing: PropTypes.bool.isRequired,
   /**
    * Open/Close the dropdown menu function.
    */

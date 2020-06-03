@@ -1,13 +1,13 @@
-import React from 'react';
-import SongList from '../commonComponents/songList'
-import HeaderBody from './components/headerBody'
-import axios from 'axios';
-import './likedSongs.css'
+import React from "react";
+import SongList from "../commonComponents/songList";
+import HeaderBody from "./components/headerBody";
+import axios from "axios";
+import "./likedSongs.css";
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
-import { resume, pause, addToQueue } from '../commonComponents/utils'
-import { base } from "../../config/environment"
-import { config } from "../../utils/auth"
+import { resume, pause, addToQueue } from "../commonComponents/utils";
+import { base } from "../../config/environment";
+import { config } from "../../utils/auth";
 
 /**
  * @classdesc this is a component that renders likedSongs page
@@ -47,7 +47,7 @@ class LikedSongs extends React.Component {
       items: [],
       playing: false,
       queued: false,
-      clickID: "0",
+      clickID: "0"
     };
     this.addToQueue = this.addToQueue.bind(this);
     this.resume = this.resume.bind(this);
@@ -109,22 +109,25 @@ class LikedSongs extends React.Component {
    * @func
    * @returns {void}
    */
-  componentDidMount() {
+  fetchItems = () => {
     axios
       .get(`${base}/me/tracks`, config)
-      .then((response) => {
+      .then(response => {
         const items = response.data.items;
         this.setState({ recieved: true });
         this.setState({ items: items });
         this.destructuring(items);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
+  };
+  componentDidMount() {
+    this.fetchItems();
   }
   destructuring(items) {
     var tracks = [];
-    items.map((item) => {
+    items.map(item => {
       tracks.push(item.track);
     });
     this.setState({ tracks: tracks });
@@ -182,6 +185,7 @@ class LikedSongs extends React.Component {
                 resume={this.resume}
                 addToQueue={this.addToQueue}
                 clickedItemId={this.state.clickID}
+                fetchContext={this.fetchItems}
                 className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
               />
             </div>
