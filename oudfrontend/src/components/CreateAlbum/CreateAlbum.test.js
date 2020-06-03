@@ -19,7 +19,7 @@ describe("Create Albuum Component", () => {
       album_type: "Sad",
       release_date: "05-08-2120"
     };
-    component = setup(props);
+    component = setup(album);
   });
 
   it("Should render Create Album container in right way", () => {

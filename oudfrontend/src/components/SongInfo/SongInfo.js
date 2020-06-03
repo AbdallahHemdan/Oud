@@ -165,7 +165,7 @@ class SongInfo extends Component {
             ></path>
           </svg>
         </button>
-        <h1 id="createPlaylistTitle">
+        <h1 id="createPlaylistTitle" data-testid="formName">
           {this.props.newSong ? "Add Song" : "Update Song"}
         </h1>
 
