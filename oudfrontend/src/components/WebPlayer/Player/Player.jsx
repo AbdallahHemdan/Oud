@@ -149,25 +149,25 @@ class Player extends Component {
             type: response.data.player.item.type,
             current: Number(data["progressMs"] / 60000).toFixed(2),
             trackName: response.data.player.item.name,
-            artistName:
-              response.data.player.item.type === "ad"
-                ? "Oud"
-                : response.data.player.item.artists[0].displayName,
-            artistId: response.data.player.item.artists[0]._id,
-            art:
-              response.data.player.item.type === "ad"
-                ? response.data.player.item.image
-                : `https://oud-zerobase.me/api/${response.data.player.item.artists[0].images[0]}`
-                    .replace(/ /g, "%20")
-                    .replace(/\\/g, "/"),
-            duration: Number(track["duration"] / 60000).toFixed(2),
-            shuffleState: data["shuffleState"],
-            repeatState:
-              data["repeatState"] === "off"
-                ? 0
-                : data["repeatState"] === "context"
-                ? 1
-                : 2,
+            // artistName:
+            //   response.data.player.item.type === "ad"
+            //     ? "Oud"
+            //     : response.data.player.item.artists[0].displayName,
+            // artistId: response.data.player.item.artists[0]._id,
+            // art:
+            //   response.data.player.item.type === "ad"
+            //     ? response.data.player.item.image
+            //     : `https://oud-zerobase.me/api/${response.data.player.item.artists[0].images[0]}`
+            //         .replace(/ /g, "%20")
+            //         .replace(/\\/g, "/"),
+            // duration: Number(track["duration"] / 60000).toFixed(2),
+            // shuffleState: data["shuffleState"],
+            // repeatState:
+            //   data["repeatState"] === "off"
+            //     ? 0
+            //     : data["repeatState"] === "context"
+            //     ? 1
+            //     : 2,
             volume: 100,
             muteState: false,
             fetched: true,
@@ -177,6 +177,7 @@ class Player extends Component {
           },
           () => console.log("stated")
         );
+        console.log("Done");
         this.props.changePlayingState(false);
         this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
         this.handleSaveToLikedSongs(track["_id"]);
