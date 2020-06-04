@@ -28,8 +28,6 @@ class Sidebar extends Component {
   }
   componentDidMount() {
     this.checkArtist();
-    console.log("A7A");
-    console.log(this.state.isArtist);
   }
   checkArtist = () => {
     isArtist()
