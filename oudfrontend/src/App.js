@@ -19,12 +19,15 @@ import ForgotPassword from "./components/Login&Signup/ForgetPassword/ForgotPassw
 import ResetPassword from "./components/Login&Signup/ForgetPassword/resetPassword";
 import Entered from "./components/Login&Signup/logined/entered";
 import Islinked from "./components/Login&Signup/linkisSent";
+import WhyGoPremium from "./components/Premium/Component/WhyGoPremium/WhyGoPremium";
+import GetPremium from "./components/Premium/Component/GetPremium/GetPremium";
 import Welcome from "./pages/Welcome/welcome";
 import SuggestedArtist from "./pages/SuggestedArtistPage/SuggestedArtist";
 import "./App.css";
 import SeeAllRecentSearches from "./components/SeeAllRecentSearches/SeeAllRecentSearches";
 import WhyGoPremium from "./components/Premium/WhyGoPremium/WhyGoPremium";
 import WebPlayer from "./components/WebPlayer/WebPlayer";
+
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -42,6 +45,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Ads />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -59,6 +63,8 @@ function App() {
           <Route path="/profile/:userId" component={Profile} />
           <Route path="/account" component={Account} />
           <Route path="/goPremium" component={WhyGoPremium} />
+          <Route path="/getPremium" component={GetPremium} />
+
           <Route path="/RedirectPage">
             <RedirectPage />
           </Route>

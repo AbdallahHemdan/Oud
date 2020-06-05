@@ -16,7 +16,7 @@ function ImageContainer() {
           Premium lets you play any song, anytime. You can even listen when
           you’re offline. No restrictions. No ads
         </p>
-        <Link to="/redirectPage">
+        <Link to="/goPremium">
           <button
             type="button"
             className="btn btn-warning getPremium"
