@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Facebook from './signin/Facebook';
 import axios from 'axios';
 import '../../components/Login&Signup/signup/signup.css';
@@ -21,14 +21,15 @@ class SocialIcons extends Component {
       access_token: this.state.access_token,
     };
     axios
-      .post('http://oud-zerobase.me/api/v1/auth/facebook', toSent)
+      .post('https://oud-zerobase.me/api/v1/auth/facebook', toSent)
       .then((response) => {
+        console.log(response);
         const authToken = response.accessToken;
-        this.setState({ access_token: authToken });
-        window.location = '/home';
+        this.setState({access_token: authToken});
+        window.location = '/';
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response);
       });
   };
   /**

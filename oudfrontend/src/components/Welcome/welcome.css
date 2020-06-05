@@ -58,6 +58,19 @@
   object-fit: cover;
 }
 
+.cardImage:hover {
+  background-color: black;
+  opacity: 40%;
+  transition: 0.5s ease;
+}
+
+/****/
+.middle:hover .cardImage {
+  background-color: black;
+  opacity: 40%;
+  transition: 0.5s ease-in-out;
+}
+
 .cardContent {
   position: absolute;
   z-index: 1;
@@ -106,7 +119,7 @@
 .middle {
   transition: 0.5s ease;
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -114,11 +127,11 @@
   z-index: 999;
 }
 
-.hide {
+.hideSong {
   opacity: 0;
 }
 
-.show {
+.showSong {
   opacity: 100%;
 }
 
@@ -179,6 +192,7 @@
 
 .backGround {
   width: 100%;
+  margin-top: 70px;
 }
 
 .BodyStyle {
@@ -192,7 +206,7 @@
   margin: 0 auto;
   left: 0;
   right: 0;
-  top: 14%;
+  top: 12%;
   text-align: center;
   color: white;
 }
@@ -203,11 +217,11 @@
   height: 2.5rem;
   border: none;
   border-radius: 50px;
-  font-size: 25px;
+  font-size: 20px;
   color: white;
-  font-family: "Lalezar", cursive;
   align-items: center;
   align-content: center;
+  font-weight: bold;
   margin-top: 7px;
 }
 
@@ -220,7 +234,7 @@
   margin: 0 auto;
   left: 0;
   right: 0;
-  top: 30%;
+  top: 24%;
   text-align: center;
   color: white;
 }
@@ -280,7 +294,7 @@
 
 @media (max-width: 1100px) {
   .welcomeTextUser {
-    top: 14%;
+    top: 12%;
   }
 
   .welcomeTextUser button {
@@ -289,7 +303,7 @@
   }
 
   .welcomeTextGeust {
-    top: 30%;
+    top: 24%;
   }
 
   h1 {
@@ -302,6 +316,10 @@
 
   .welcomeTextGeust button {
     width: 32%;
+    font-size: 100%;
+  }
+
+  .text {
     font-size: 100%;
   }
 }
@@ -320,22 +338,37 @@
   }
 
   .welcomeTextUser {
-    top: 14%;
+    top: 8%;
   }
+  .text {
+    font-size: 150%;
+  }
+
 }
 
 @media (max-width: 550 px) {
   .welcomeTextUser {
-    top: 14%;
+    top: 12%;
   }
 
   .welcomeTextGeust {
-    top: 14%;
+    top: 16%;
+  }
+
+  .oudLogoBody {
+    width: 10%;
   }
 }
+
 .user-image {
   margin-top: -1px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
+}
+
+.oudLogoBody {
+  z-index: 9999;
+  width: 20%;
+  margin-bottom: 10px;
 }

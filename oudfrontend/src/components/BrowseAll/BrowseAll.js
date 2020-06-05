@@ -1,53 +1,23 @@
-import React, { Component } from 'react'
-import GenreCard from "./../GenreCard/GenreCard"
+import React from 'react'
+import BrowseAllHeader from './BrowseAllHeader';
+import BrowseAllContent from './BrowseAllContent';
 
-class BrowseAll extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-    }
-  }
-
-  render() {
-    return (
-      <section
-        className="music-component main"
-        data-testid="music-content"
-      >
-        <div className="module">
-          <div className="row"
-            data-testid="category-header"
-          >
-            <div className="sub-header"
-              data-testid="category-title"
-            >Browse all</div>
-          </div>
-          <div
-            className="wrapper"
-            data-testid="first-wrapper">
-            <div className="wrapper_section_2"
-              data-testid="second-wrapper"
-            >
-              <div className="cards"
-                data-testid="cards-wrapper"
-              >
-                {
-                  this.props.items.map((item, index) => {
-                    return (
-                      <GenreCard
-                        item={item}
-                        key={index}
-                      />
-                    )
-                  })
-                }
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    )
-  }
+/**
+  *
+  * @param {object} items - list of all items (categories)
+  */
+const BrowseAll = ({ items }) => {
+  return (
+    <section
+      className="music-component main"
+      data-testid="music-content"
+    >
+      <div className="module">
+        <BrowseAllHeader />
+        <BrowseAllContent items={items} />
+      </div>
+    </section>
+  )
 }
 
 export default BrowseAll

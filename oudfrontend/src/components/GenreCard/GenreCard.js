@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./GenreCard.css";
 import { Link, withRouter } from "react-router-dom"
 import { base, subUrl, prodUrl } from "./../../config/environment"
+import PropTypes from "prop-types";
 
 /**
  * Genre card component which render and display the playlist card of a specific category 
@@ -84,7 +85,7 @@ class GenreCard extends Component {
           <div
             className="overlayer"
             onClick={this.handlePlaylistClick}
-            data-testid="overlay"
+            data-testid="overlayer"
           >
           </div>
           <img
@@ -100,9 +101,7 @@ class GenreCard extends Component {
               to={`${this.state.type}/${this.state._id}`}
               className="playlist-link"
               data-testid="playlist-link"
-            >
-              {this.state.name}
-            </Link>
+            >{this.state.name}</Link>
           </div>
         </div >
       </div>
@@ -110,4 +109,7 @@ class GenreCard extends Component {
   }
 }
 
+GenreCard.propTypes = {
+  item: PropTypes.object
+}
 export default withRouter(GenreCard);

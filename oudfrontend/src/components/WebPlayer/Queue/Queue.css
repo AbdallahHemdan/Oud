@@ -1,5 +1,5 @@
 .queue-container {
-  background-color: #424242;
+  background-color: black;
   bottom: 100px;
   position: fixed;
   z-index: 3;
@@ -9,7 +9,7 @@
   position: fixed;
   bottom: 75px;
   right: 0;
-  background-color: #424242;
+  background-color: black;
   /* background-color: rgba(0, 0, 0, 0.9); */
   overflow-y: scroll;
   overflow-x: hidden;
@@ -32,7 +32,7 @@
 .queue-container .overlay a {
   padding: 8px;
   text-decoration: none;
-  font-size: 36px;
+  font-size: 26px;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -61,7 +61,7 @@
   top: 60px;
 }
 .track {
-  background: #424242;
+  background: black;
   width: 100%;
   z-index: 5;
   height: 4.56em;
@@ -72,6 +72,8 @@
   box-shadow: none;
   border: none;
   margin-bottom: 0.5em;
+  /* opacity: 1 !important;
+  visibility: visible !important; */
 }
 .track:hover {
   background: #292929;
@@ -106,7 +108,7 @@
   display: initial;
   padding: 8px;
   text-decoration: none;
-  font-size: 36px;
+  font-size: 26px;
   color: rgb(245, 243, 243);
   animation: trackmove;
 }
@@ -134,7 +136,7 @@
 .track .content .artist-name a {
   padding: 8px;
   text-decoration: none;
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: #a0a0a0;
 }
 .open-nav-btn {
@@ -146,6 +148,7 @@
   cursor: row-resize;
   display: inherit;
   height: 24px;
+  width: 40px;
   background-size: cover;
   position: relative;
   top: 32%;
@@ -204,7 +207,7 @@
   position: absolute;
   /* display: inline-block; */
   float: right;
-  right: 30em;
+  right: 24em;
   top: 0;
 }
 .queue-container .overlay .menu .dropdown-menu {
@@ -214,12 +217,12 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 5;
-  width: 20rem;
+  width: 14rem;
 }
 .menu .dropdown-menu .dropdown-btn {
   background: transparent;
   border: none;
-  font-size: 1.5em;
+  font-size: 1em;
   color: whitesmoke;
   width: 100%;
 }
@@ -246,7 +249,11 @@
     font-size: 18px;
   }
 }
-
+.queue-add-to-playlist .createPlaylist {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+}
 @media screen and (max-height: 450px) {
   .track .content .artist-name,
   .track .content .track-name {
@@ -283,7 +290,6 @@
     display: none;
   }
 }
-
 @media screen and (max-width: 1261px) {
   .track .content .duration {
     margin-top: -11%;
@@ -305,3 +311,10 @@
     right: -59%;
   }
 } */
+.queue-add-to-playlist .createPlaylist {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}

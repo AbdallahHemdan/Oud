@@ -1,15 +1,22 @@
-import React from 'react';
-import axios from 'axios';
-import HeaderBodyBottom from '../commonComponents/headerBodyBottom'
-import HeaderBodyTop from './components/headerBodyTop'
-import SongList from '../commonComponents/songList'
+import React from "react";
+import axios from "axios";
+import HeaderBodyBottom from "../commonComponents/headerBodyBottom";
+import HeaderBodyTop from "./components/headerBodyTop";
+import SongList from "../commonComponents/songList";
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
-import { resume, pause, addToQueue } from '../commonComponents/utils'
-import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist"
-import PropTypes from 'prop-types';
-import { base } from '../../config/environment'
-import { config } from "../../utils/auth"
+import { resume, pause, addToQueue } from "../commonComponents/utils";
+import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist";
+import PropTypes from "prop-types";
+import { base } from "../../config/environment";
+import { config } from "../../utils/auth";
+import CreateAlbum from "../CreateAlbum/CreateAlbum";
+import { deleteRequest } from "../../utils/requester";
+import Swal from "sweetalert2";
+import { isArtist } from "./../../utils/auth";
+import { createBrowserHistory } from "history";
+import SongInfo from "./../SongInfo/SongInfo";
+let history = createBrowserHistory();
 
 /**
  * @classdesc this is a component that renders album page
@@ -47,6 +54,7 @@ class Album extends React.Component {
    */
   constructor(props) {
     super(props);
+    // const history = useHistory();
     this.state = {
       tracks: [],
       artists: [],
@@ -57,6 +65,9 @@ class Album extends React.Component {
       queued: false,
       clickID: "0",
       displayAdd: false,
+      updateAlbum: false,
+      isArtist: false,
+      addSong: false
     };
     this.addToQueue = this.addToQueue.bind(this);
     this.resume = this.resume.bind(this);
@@ -121,10 +132,10 @@ class Album extends React.Component {
       this.setState({ liked: true });
       axios
         .post(`${base}/me/albums/`, likedAlbum.id, config)
-        .then(function (response) {
+        .then(function(response) {
           console.log(response);
         })
-        .catch(function (error) {
+        .catch(function(error) {
           console.log(error);
         });
     } else {
@@ -132,10 +143,10 @@ class Album extends React.Component {
 
       axios
         .delete(`${base}/me/albums/${this.props.id}`, config)
-        .then(function (response) {
+        .then(function(response) {
           console.log(response);
         })
-        .catch(function (error) {
+        .catch(function(error) {
           console.log(error);
         });
     }
@@ -145,29 +156,32 @@ class Album extends React.Component {
    * @func
    * @returns {void}
    */
-  componentDidMount() {
+  fetchAlbumTracks = () => {
     axios
       .get(`${base}/albums/${this.props.id}`, config)
-      .then((response) => {
+      .then(response => {
         const album = response.data;
         this.setState({ tracks: album.tracks.items });
         this.setState({ artists: album.artists });
         this.setState({ album: album });
         this.setState({ recieved: true });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
-
+  };
+  componentDidMount() {
+    this.fetchAlbumTracks();
     axios
       .get(`${base}/me/albums/contains/${this.props.id}`, config)
-      .then((response) => {
+      .then(response => {
         const isFound = response.data;
         this.setState({ liked: isFound });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
+    this.checkArtist();
   }
   /**
    * it changes the state so that all song will be marked as unclicked
@@ -182,6 +196,46 @@ class Album extends React.Component {
   closeAddToPlaylist() {
     this.setState({ displayAdd: false });
   }
+  changeEditAlbumState = () => {
+    this.setState({
+      updateAlbum: !this.state.updateAlbum
+    });
+  };
+  delelteAlbum = () => {
+    deleteRequest(`${base}/me/artists/albums/${this.props.id}`)
+      .then(response => {
+        Swal.fire({
+          title: "Done!",
+          text: "Album Deleted Successfully!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000
+        });
+        history.goBack();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+  checkArtist = () => {
+    isArtist()
+      .then(res => {
+        this.setState({ isArtist: res });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+  addSong = () => {
+    this.setState({
+      addSong: true
+    });
+  };
+  closeAddSong = () => {
+    this.setState({
+      addSong: false
+    });
+  };
   render() {
     return (
       <div>
@@ -190,74 +244,92 @@ class Album extends React.Component {
             display={this.state.displayAdd}
             close={this.closeAddToPlaylist.bind(this)}
           />
+        ) : this.state.updateAlbum ? (
+          <CreateAlbum
+            endpoint={`${base}/me/artists/albums/${this.props.id}`}
+            title="Edit Album"
+            update={true}
+            onClose={this.changeEditAlbumState}
+          />
+        ) : this.state.addSong ? (
+          <SongInfo
+            closeAddSong={this.closeAddSong}
+            newSong={true}
+            albumId={this.props.id}
+          />
         ) : (
-            <div className="dummyParent">
-              <Sidebar />
-              <Navbar isLoggedIn={true} />
-              <div className="profile-user">
-                <div data-testid="album" className="playlist">
-                  <div className="row">
+          <div className="dummyParent">
+            <Sidebar />
+            <Navbar isLoggedIn={true} />
+            <div className="profile-user">
+              <div data-testid="album" className="playlist">
+                <div className="row">
+                  <div
+                    data-testid="playlistHeader"
+                    onClick={this.markAllUnclicked.bind(this)}
+                    className="playlistHeader row col-xs-12 col-md-12 col-lg-4 col-xl-4"
+                  >
                     <div
-                      data-testid="playlistHeader"
-                      onClick={this.markAllUnclicked.bind(this)}
-                      className="playlistHeader row col-xs-12 col-md-12 col-lg-4 col-xl-4"
+                      data-testid="playlistIamgeContainer"
+                      className="playlistImageContainer col col-lg-12 col-md-4 col-sm-4 col-xs-4"
                     >
-                      <div
-                        data-testid="playlistIamgeContainer"
-                        className="playlistImageContainer col col-lg-12 col-md-4 col-sm-4 col-xs-4"
-                      >
-                        <img
-                          data-testid="playlistIamge"
-                          src={this.state.album.image}
-                          className="playlistImage"
-                          alt="album img"
-                        />
-                      </div>
-                      <div
-                        data-testid="playlistHeaderBody"
-                        className="playlistHeaderBody col col-lg-12 col-md-8 col-sm-8 col-xs-8"
-                      >
-                        <HeaderBodyTop
-                          data-testid="HeaderBodyTop"
-                          title={this.state.album.name}
-                          artists={this.state.artists}
-                        />
-
-                        <HeaderBodyBottom
-                          data-testid="HeaderBodyBottom"
-                          length={this.state.tracks.length}
-                          playClicked={this.playButtonClicked}
-                          likeClicked={this.likeButtonClicked}
-                          liked={this.state.liked}
-                          playing={this.state.playing}
-                          releaseDate={this.state.album.release_date}
-                          recieved={this.state.recieved}
-                          album={true}
-                          addToPlaylist={this.addToPlaylist.bind(this)}
-                        />
-                      </div>
+                      <img
+                        data-testid="playlistIamge"
+                        src={this.state.album.image}
+                        className="playlistImage"
+                        alt="album img"
+                      />
                     </div>
-                    <SongList
-                      data-testid="songList"
-                      recieved={this.state.recieved}
-                      tracks={this.state.tracks}
-                      pause={this.pause}
-                      resume={this.resume}
-                      addToQueue={this.addToQueue}
-                      clickedItemId={this.state.clickID}
-                      className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
-                      addToPlaylist={this.addToPlaylist.bind(this)}
-                    />
+                    <div
+                      data-testid="playlistHeaderBody"
+                      className="playlistHeaderBody col col-lg-12 col-md-8 col-sm-8 col-xs-8"
+                    >
+                      <HeaderBodyTop
+                        data-testid="HeaderBodyTop"
+                        title={this.state.album.name}
+                        artists={this.state.artists}
+                      />
+
+                      <HeaderBodyBottom
+                        data-testid="HeaderBodyBottom"
+                        length={this.state.tracks.length}
+                        playClicked={this.playButtonClicked}
+                        likeClicked={this.likeButtonClicked}
+                        liked={this.state.liked}
+                        playing={this.state.playing}
+                        releaseDate={this.state.album.release_date}
+                        recieved={this.state.recieved}
+                        album={true}
+                        isArtist={this.state.isArtist}
+                        changeEditAlbumState={this.changeEditAlbumState}
+                        delelteAlbum={this.delelteAlbum}
+                        addToPlaylist={this.addToPlaylist.bind(this)}
+                        addSong={this.addSong}
+                      />
+                    </div>
                   </div>
+                  <SongList
+                    data-testid="songList"
+                    recieved={this.state.recieved}
+                    tracks={this.state.tracks}
+                    pause={this.pause}
+                    resume={this.resume}
+                    addToQueue={this.addToQueue}
+                    clickedItemId={this.state.clickID}
+                    className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
+                    addToPlaylist={this.addToPlaylist.bind(this)}
+                    fetchContext={this.fetchAlbumTracks}
+                  />
                 </div>
               </div>
             </div>
-          )}
+          </div>
+        )}
       </div>
     );
   }
 }
 Album.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string
 };
 export default Album;
