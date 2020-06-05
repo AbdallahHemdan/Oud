@@ -21,14 +21,12 @@ import Entered from "./components/Login&Signup/logined/entered";
 import Islinked from "./components/Login&Signup/linkisSent";
 import WhyGoPremium from "./components/Premium/Component/WhyGoPremium/WhyGoPremium";
 import GetPremium from "./components/Premium/Component/GetPremium/GetPremium";
+import Ads from "./components/Premium/Component/Ads/Ads";
 import Welcome from "./pages/Welcome/welcome";
 import SuggestedArtist from "./pages/SuggestedArtistPage/SuggestedArtist";
-import "./App.css";
 import SeeAllRecentSearches from "./components/SeeAllRecentSearches/SeeAllRecentSearches";
-import WhyGoPremium from "./components/Premium/WhyGoPremium/WhyGoPremium";
 import WebPlayer from "./components/WebPlayer/WebPlayer";
 
-import "./App.css";
 import {
   BrowserRouter as Router,
   Route,
@@ -39,6 +37,8 @@ import Artist from "./pages/Artist/Artist";
 import { base } from "./config/environment";
 import SongInfo from "./components/SongInfo/SongInfo";
 import { createBrowserHistory } from "history";
+import "./App.css";
+
 let history = createBrowserHistory();
 
 function App() {

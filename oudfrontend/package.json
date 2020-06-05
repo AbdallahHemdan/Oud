@@ -42,7 +42,7 @@
     "react-scripts": "3.4.0",
     "react-sortable-hoc": "^1.11.0",
     "react-test-renderer": "^16.13.1",
-    "sweetalert2": "^9.10.10"
+    "sweetalert2": "^9.14.0"
   },
   "scripts": {
     "dev": "env-cmd -e  dev react-scripts start",
