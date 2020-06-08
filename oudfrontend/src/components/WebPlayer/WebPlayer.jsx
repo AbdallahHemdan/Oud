@@ -9,7 +9,7 @@ import { base } from "./../../config/environment";
 // import { config } from "./../../utils/auth";
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU5MTIyNzczNiwiZXhwIjoxNTkzODE5NzM2fQ.7GCVh4FFBu69EEoVLSocqBXDkicgPzmYMSFgya3l_Kc`
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU5MTYyMTQxOSwiZXhwIjoxNTk0MjEzNDE5fQ.fj3N3Pc89Pf_xlt7fGmXw1SINTecUB4-y3pihAAPjC8`
   }
 };
 /**
@@ -29,7 +29,6 @@ class WebPlayer extends Component {
       trackIdx: 0,
       trackId: "",
       queue: [],
-      deviceId: "74ASZWbe4lXaubB36ztrGX",
       playing: false,
       loved: false
     };
