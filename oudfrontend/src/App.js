@@ -54,13 +54,16 @@ function App() {
           <Route path="/RedirectPage">
             <RedirectPage />
           </Route>
-          <Route path={`/playlist/:id`} Component={<Playlist />}>
+          <Route exact path={`/playlist/:id`} Component={<Playlist />}>
             <PlaylistRender />
           </Route>
-          <Route path="/likedSongs/">
+          <Route exact path="/likedSongs/">
             <LikedSongs />
           </Route>
-          <Route path="/albums/:id" Component={<Album />}>
+          <Route exact path="/albums/:id/:songId" Component={<Album />}>
+            <AlbumRender2 />
+          </Route>
+          <Route exact path="/albums/:id" Component={<Album />}>
             <AlbumRender />
           </Route>
           <Route exact path="/welcome">
@@ -110,5 +113,10 @@ function PlaylistRender() {
 }
 function AlbumRender() {
   let id = useParams().id;
-  return <Album id={id} />;
+  return <Album id={id} songId = {null}/>;
+}
+function AlbumRender2() {
+  let id = useParams().id;
+  let songId = useParams().songId;
+  return <Album id={id} songId={songId}/>;
 }

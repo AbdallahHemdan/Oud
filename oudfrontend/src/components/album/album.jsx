@@ -59,6 +59,9 @@ class Album extends React.Component {
       clickID: "0",
       displayAdd: false,
     };
+    console.log(this.props.id)
+    console.log(this.props.songId)
+
     this.addToQueue = this.addToQueue.bind(this);
     this.resume = this.resume.bind(this);
     this.pause = this.pause.bind(this);
@@ -166,6 +169,22 @@ class Album extends React.Component {
       .then((response) => {
         const isFound = response.data;
         this.setState({ liked: isFound });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      if(this.props.songId !== null)
+        this.playOnLoading()
+  }
+  playOnLoading(){
+    let body ={
+      contextUri: `oud:album:${this.props.id}`,
+      offset: {"uri":`oud:track:${this.props.songId}`}
+    }
+    axios
+      .put(`${base}/me/player/play/`, body,config)
+      .then((response) => {
+      
       })
       .catch((error) => {
         console.log(error);

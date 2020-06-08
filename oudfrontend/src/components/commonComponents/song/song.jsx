@@ -9,6 +9,7 @@ import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
 import {base} from "../../../config/environment"
 import {config} from "../../../utils/auth"
 import { propTypes } from "react-recaptcha";
+import copy from "copy-to-clipboard";  
 
 
 /**
@@ -185,16 +186,21 @@ class Song extends Component {
       this.setState({ displayDropdown: false });
     }
   }
-  /**
-   * called when the options button is clicked to toggle state.displayDropdown
-   * @param {void}
-   */
+
   toggleDropdown() {
     this.setState({ displayDropdown: !this.state.displayDropdown });
   }
+
   addToPlaylist() {
     this.toggleDropdown();
   }
+
+  copyLink(){
+    let link = base+'/albums/'+this.state.track.albumId+'/'+this.state.track.id;
+    this.toggleDropdown();
+    copy(link);
+  }
+
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
@@ -322,6 +328,13 @@ class Song extends Component {
                   onClick={() => this.props.addToPlaylist()}
                 >
                   Add to Playlist
+                </button>
+                <button
+                  data-testid="addToPlaylist"
+                  className="SongDropdownItem songButton"
+                  onClick={() => this.copyLink()}
+                >
+                  Copy Song Link
                 </button>
               </div>
             </div>
