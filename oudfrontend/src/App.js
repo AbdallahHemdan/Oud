@@ -37,11 +37,11 @@ import { base } from "./config/environment";
 import SongInfo from "./components/SongInfo/SongInfo";
 import { createBrowserHistory } from "history";
 let history = createBrowserHistory();
-
+const webPlayer = React.createRef();
 class App extends Component {
   constructor() {
     super();
-    this.webPlayer = React.createRef();
+    // this.webPlayer = React.createRef();
   }
   render() {
     return (
@@ -49,7 +49,7 @@ class App extends Component {
         <div className="App">
           <Switch>
             <Route exact path="/">
-              <Home webPlayer={this.webPlayer} />
+              <Home webPlayer={webPlayer} />
             </Route>
             <Route exact path="/search">
               <Search />
@@ -67,8 +67,11 @@ class App extends Component {
             <Route path="/RedirectPage">
               <RedirectPage />
             </Route>
-            <Route path={`/playlist/:id`} Component={<Playlist />}>
-              <PlaylistRender />
+            <Route
+              path={`/playlist/:id`}
+              Component={<Playlist webPlayer={webPlayer} />}
+            >
+              <PlaylistRender props={this} />
             </Route>
             <Route path="/create-album/">
               <CreateAlbum
@@ -88,10 +91,13 @@ class App extends Component {
               )}
             />
             <Route path="/likedSongs/">
-              <LikedSongs webPlayer={this.webPlayer} />
+              <LikedSongs webPlayer={webPlayer} />
             </Route>
-            <Route path="/albums/:id" Component={<Album />}>
-              <AlbumRender />
+            <Route
+              path="/albums/:id"
+              Component={<Album webPlayer={webPlayer} />}
+            >
+              <AlbumRender webPlayer={webPlayer} />
             </Route>
             <Route exact path="/welcome">
               <Welcome />
@@ -131,7 +137,7 @@ class App extends Component {
               <SuggestedArtist />
             </Route>
           </Switch>
-          <WebPlayer ref={this.webPlayer} />
+          <WebPlayer ref={webPlayer} />
         </div>
       </Router>
     );
@@ -139,11 +145,12 @@ class App extends Component {
 }
 
 export default App;
-function PlaylistRender() {
+function PlaylistRender(props) {
+  console.log(props);
   let id = useParams();
-  return <Playlist id={id} webPlayer={this.webPlayer} />;
+  return <Playlist id={id} webPlayer={webPlayer} />;
 }
-function AlbumRender() {
+function AlbumRender(props) {
   let id = useParams().id;
-  return <Album id={id} webPlayer={this.webPlayer} />;
+  return <Album id={id} webPlayer={webPlayer} />;
 }
