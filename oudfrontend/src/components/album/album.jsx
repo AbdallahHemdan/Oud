@@ -319,6 +319,9 @@ class Album extends React.Component {
                     className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
                     addToPlaylist={this.addToPlaylist.bind(this)}
                     fetchContext={this.fetchAlbumTracks}
+                    contextId={this.props.id}
+                    contextType="album"
+                    webPlayer={this.props.webPlayer}
                   />
                 </div>
               </div>

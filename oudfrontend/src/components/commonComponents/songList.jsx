@@ -89,26 +89,33 @@ class SongList extends Component {
    * @param {sttring} id the id of the calling song
    */
   handlePlay(id) {
-    let playingId;
-    this.setState({ playingItemId: id });
-    axios
-      .get(`${base}/me/player/currently-playing`, config)
-      .then(response => {
-        playingId = response.data.item.id;
-      })
-      .catch(error => {
-        console.log(error);
-      });
-    if (id === playingId) {
-      this.setState({ playing: !this.state.playing });
-      if (this.state.playing === true) {
-        this.props.play();
-      } else {
-        this.props.pause();
-      }
+    if (
+      this.props.contextType === "album" ||
+      this.props.contextType === "playlist"
+    ) {
+      const contextUri = `oud:${this.props.contextType}:${this.props.contextId}`;
+      this.props.webPlayer.current.playContext(
+        contextUri,
+        [],
+        this.props.clickedItemId,
+        0
+      );
     } else {
-      this.handleQueue(id);
+      let uris = [];
+      this.props.tracks.forEach(track => {
+        uris.push(`oud:track:${track.id}`);
+      });
+      this.props.webPlayer.current.playContext(
+        null,
+        uris,
+        this.props.clickedItemId,
+        0,
+        true
+      );
     }
+    this.setState({
+      playing: !this.state.playing
+    });
   }
   render() {
     return (

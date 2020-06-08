@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 import { checkSavedTrack, setupHowler } from "../../../utils/Actions/Player";
 import { base } from "./../../../config/environment";
+import { getRequest } from "./../../../utils/requester";
 let sound = null;
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
@@ -133,8 +134,7 @@ class Player extends Component {
    * @returns {void}
    */
   fetchPlayback = (outPlayer = false) => {
-    return this.props
-      .getRequest(`${base}/me/player`)
+    return getRequest(`${base}/me/player`)
       .then(response => {
         const data = response.data.player;
         console.log("date: ");
@@ -249,7 +249,6 @@ class Player extends Component {
    * @returns {object}
    */
   playResumeRequest = idx => {
-    console.log("idx from request: " + idx);
     return this.props.putRequest(`${base}/me/player/play?queueIndex=0`, {
       // contextUri: this.state.context,
       offset: { position: idx }

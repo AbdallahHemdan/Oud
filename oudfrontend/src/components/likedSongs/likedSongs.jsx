@@ -187,6 +187,9 @@ class LikedSongs extends React.Component {
                 clickedItemId={this.state.clickID}
                 fetchContext={this.fetchItems}
                 className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
+                contextId={null}
+                contextType="LIKED"
+                webPlayer={this.props.webPlayer}
               />
             </div>
           </div>

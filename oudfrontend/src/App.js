@@ -88,7 +88,7 @@ class App extends Component {
               )}
             />
             <Route path="/likedSongs/">
-              <LikedSongs />
+              <LikedSongs webPlayer={this.webPlayer} />
             </Route>
             <Route path="/albums/:id" Component={<Album />}>
               <AlbumRender />
@@ -141,9 +141,9 @@ class App extends Component {
 export default App;
 function PlaylistRender() {
   let id = useParams();
-  return <Playlist id={id} />;
+  return <Playlist id={id} webPlayer={this.webPlayer} />;
 }
 function AlbumRender() {
   let id = useParams().id;
-  return <Album id={id} />;
+  return <Album id={id} webPlayer={this.webPlayer} />;
 }
