@@ -29,8 +29,14 @@ describe('CreatePlaylist Component', ()=>{
             component = setup();
         })
         it('renders createPlaylist component', ()=>{
+            component.setState({createPlaylist:true})
             const wrapper = findByTestAttr(component, "createPlaylist");
             expect(wrapper.length).toBe(1);
+        });
+        it('renders createPlaylist component', ()=>{
+            component.setState({createPlaylist:false})
+            const wrapper = findByTestAttr(component, "createPlaylist");
+            expect(wrapper.length).toBe(0);
         });
         it('renders createPlaylist component', ()=>{
             const wrapper = findByTestAttr(component, "closeButton");

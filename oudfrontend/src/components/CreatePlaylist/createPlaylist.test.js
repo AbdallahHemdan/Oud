@@ -26,6 +26,7 @@ describe('CreatePlaylist Component', ()=>{
             component = setup();
         })
         it('renders createPlaylist component', ()=>{
+            
             const wrapper = findByTestAttr(component, "createPlaylist");
             expect(wrapper.length).toBe(1);
         });

@@ -61,9 +61,8 @@ exports[`CreatePlaylist Component snapshot test  correctly 1`] = `
     CANCEL
   </button>
   <button
-    className="playButton"
     data-testid="CreateButton"
-    id="ceatePlaylistBtn"
+    id="cancelCreation"
     onClick={[Function]}
   >
     CREATE
