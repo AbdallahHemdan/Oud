@@ -83,6 +83,7 @@ class Player extends Component {
   }
 
   onPlay = () => {
+    console.log("PLAy Action");
     this.props.changePlayingState(true);
     this.setState({
       playing: true,
@@ -149,25 +150,25 @@ class Player extends Component {
             type: response.data.player.item.type,
             current: Number(data["progressMs"] / 60000).toFixed(2),
             trackName: response.data.player.item.name,
-            // artistName:
-            //   response.data.player.item.type === "ad"
-            //     ? "Oud"
-            //     : response.data.player.item.artists[0].displayName,
-            // artistId: response.data.player.item.artists[0]._id,
+            artistName:
+              response.data.player.item.type === "ad"
+                ? "Oud"
+                : response.data.player.item.artists[0].displayName,
+            artistId: response.data.player.item.artists[0]._id,
             // art:
             //   response.data.player.item.type === "ad"
             //     ? response.data.player.item.image
             //     : `https://oud-zerobase.me/api/${response.data.player.item.artists[0].images[0]}`
             //         .replace(/ /g, "%20")
             //         .replace(/\\/g, "/"),
-            // duration: Number(track["duration"] / 60000).toFixed(2),
-            // shuffleState: data["shuffleState"],
-            // repeatState:
-            //   data["repeatState"] === "off"
-            //     ? 0
-            //     : data["repeatState"] === "context"
-            //     ? 1
-            //     : 2,
+            duration: Number(track["duration"] / 60000).toFixed(2),
+            shuffleState: data["shuffleState"],
+            repeatState:
+              data["repeatState"] === "off"
+                ? 0
+                : data["repeatState"] === "context"
+                ? 1
+                : 2,
             volume: 100,
             muteState: false,
             fetched: true,
@@ -305,11 +306,6 @@ class Player extends Component {
    * @returns{void}
    */
   handlePlayPause = (id = this.props.trackId, idx = this.props.trackIdx) => {
-    if (
-      this.state.actions &&
-      (!this.state.actions.pausing || !this.state.actions.pausing.resuming)
-    )
-      return;
     if (idx !== this.props.trackIdx) {
       if (sound) {
         sound.pause();
@@ -352,7 +348,6 @@ class Player extends Component {
    * @returns {void}
    */
   handleNext = () => {
-    if (this.state.actions && !this.state.actions.skipping_next) return;
     this.props
       .postRequest(`${base}/me/player/next`)
       .then(response => {
@@ -381,7 +376,6 @@ class Player extends Component {
    * @returns {void}
    */
   handlePrev = () => {
-    if (this.state.actions && !this.state.actions.skipping_prev) return;
     this.props
       .postRequest(`${base}/me/player/previous`)
       .then(response => {
@@ -411,12 +405,9 @@ class Player extends Component {
    * @returns {void}
    */
   onProgressClick = e => {
-    if (this.state.actions && !this.state.actions.seeking) return;
-    // e.preventDefault();
     if (!this.state.mouseDown) return;
     const width = document.getElementById("progress-width").clientWidth;
     const offsetX = e.nativeEvent.offsetX;
-    // const offsetWidth = e.nativeEvent.target.offsetWidth;
     const percent = offsetX / width;
     const position = percent * this.state.duration * 60;
 
@@ -452,7 +443,6 @@ class Player extends Component {
    * @returns {void}
    */
   handleShuffleState = () => {
-    if (this.state.actions && !this.state.actions.toggling_shuffle) return;
     this.props
       .putRequest(`${base}/me/player/shuffle?state=${!this.state.shuffleState}`)
       .then(response => {
@@ -474,12 +464,6 @@ class Player extends Component {
    * @returns {void}
    */
   handleRepeatState = () => {
-    if (
-      this.state.actions &&
-      (!this.state.actions.toggling_repeat_context ||
-        !this.state.actions.toggling_repeat_track)
-    )
-      return;
     const repeatState = (this.state.repeatState + 1) % 3;
     const state =
       repeatState === 0 ? "off" : repeatState === 1 ? "context" : "track";

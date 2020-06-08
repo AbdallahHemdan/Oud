@@ -32,7 +32,7 @@ class Track extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: "",
+      image: placeHolder,
       trackName: "",
       artistName: "",
       duration: "",
@@ -63,11 +63,11 @@ class Track extends Component {
       .then(response => {
         const track = response.data;
         this.setState({
-          image:
-            "https://oud-zerobase.me/api/" +
-            track["artists"][0]["images"][0]
-              .replace(/ /g, "%20")
-              .replace(/\\/g, "/"),
+          // image:
+          //   "https://oud-zerobase.me/api/" +
+          //   track["artists"][0]["images"][0]
+          //     .replace(/ /g, "%20")
+          //     .replace(/\\/g, "/"),
           trackName: track["name"],
           artistName: track["artists"][0]["displayName"],
           duration: Number(track["duration"] / 60000).toFixed(2)
