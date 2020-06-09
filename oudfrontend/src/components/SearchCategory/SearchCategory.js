@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SearchCard from "./../SearchCard/SearchCard"
+import { base, prodUrl } from "./../../config/environment"
 
 /**
  * component to render Search Category component (Artist, Album, User, Playlist, Tracks)
@@ -31,7 +32,8 @@ class SearchCategory extends Component {
     } else if (this.props.name === "Users") {
       data = this.props.items.users;
     }
-    const dataLoadedOrNot = (this.props.search === this.props.propsSearch && (this.props.items.total));
+    const dataLoadedOrNot = (((this.props.search === this.props.propsSearch) && (this.props.items.total))) || (base !== prodUrl);
+    console.log("data loaded or not", dataLoadedOrNot);
 
     return (
       <div className="module">

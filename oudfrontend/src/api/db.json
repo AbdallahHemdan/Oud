@@ -4500,349 +4500,359 @@
     "total": 0
   },
   "search": {
-    "tracks": [
-      {
-        "_id": "1",
-        "name": "Allen",
-        "artists": [
-          {
+    "tracks": {
+      "tracks": [
+        {
+          "_id": "1",
+          "name": "Allen",
+          "artists": [
+            {
+              "_id": "1",
+              "displayName": "Hemdan",
+              "type": "Lol",
+              "images": [
+                "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+                "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg"
+              ]
+            }
+          ],
+          "albumId": "1",
+          "album": {
             "_id": "1",
-            "displayName": "Hemdan",
-            "type": "Lol",
-            "images": [
+            "album_type": "AJ+",
+            "artists": [
               "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
               "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg"
-            ]
-          }
-        ],
-        "albumId": "1",
-        "album": {
-          "_id": "1",
-          "album_type": "AJ+",
-          "artists": [
-            "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
-            "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg"
-          ],
-          "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
-          "name": "Lolki",
-          "type": "Jazz",
-          "released": true
+            ],
+            "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+            "name": "Lolki",
+            "type": "Jazz",
+            "released": true
+          },
+          "type": "string",
+          "duartion": 0,
+          "views": 0
         },
-        "type": "string",
-        "duartion": 0,
-        "views": 0
-      },
-      {
-        "_id": "2",
-        "name": "Switck",
-        "artists": [
-          {
+        {
+          "_id": "2",
+          "name": "Switck",
+          "artists": [
+            {
+              "_id": "1",
+              "displayName": "Hemdan",
+              "type": "Lol",
+              "images": [
+                "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+                "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg"
+              ]
+            }
+          ],
+          "albumId": "1",
+          "album": {
             "_id": "1",
-            "displayName": "Hemdan",
-            "type": "Lol",
-            "images": [
+            "album_type": "AJ+",
+            "artists": [
               "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
               "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg"
-            ]
-          }
-        ],
-        "albumId": "1",
-        "album": {
-          "_id": "1",
-          "album_type": "AJ+",
-          "artists": [
-            "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
-            "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg"
-          ],
-          "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
-          "name": "Lolki",
-          "type": "Jazz",
-          "released": true
+            ],
+            "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+            "name": "Lolki",
+            "type": "Jazz",
+            "released": true
+          },
+          "type": "string",
+          "duartion": 0,
+          "views": 0
         },
-        "type": "string",
-        "duartion": 0,
-        "views": 0
-      },
-      {
-        "_id": "3",
-        "name": "Mint",
-        "artists": [
-          {
+        {
+          "_id": "3",
+          "name": "Mint",
+          "artists": [
+            {
+              "_id": "1",
+              "displayName": "Hemdan",
+              "type": "Lol",
+              "images": [
+                "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+                "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg"
+              ]
+            }
+          ],
+          "albumId": "1",
+          "album": {
             "_id": "1",
-            "displayName": "Hemdan",
-            "type": "Lol",
-            "images": [
+            "album_type": "AJ+",
+            "artists": [
               "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
               "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg"
-            ]
-          }
-        ],
-        "albumId": "1",
-        "album": {
+            ],
+            "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+            "name": "Lolki",
+            "type": "Jazz",
+            "released": true
+          },
+          "type": "string",
+          "duartion": 0,
+          "views": 0
+        }
+      ]
+    },
+    "albums": {
+      "albums": [
+        {
           "_id": "1",
-          "album_type": "AJ+",
+          "name": "Insan",
           "artists": [
-            "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
-            "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg"
+            {
+              "id": "5",
+              "name": "حمزة نمرة",
+              "type": "shaaby",
+              "image": "string"
+            },
+            {
+              "id": "2",
+              "name": "Sardeena",
+              "type": "Shaaby",
+              "image": "string"
+            }
           ],
-          "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
-          "name": "Lolki",
-          "type": "Jazz",
-          "released": true
+          "album_type": "album",
+          "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+          "released": true,
+          "type": "Jazz"
         },
-        "type": "string",
-        "duartion": 0,
-        "views": 0
-      }
-    ],
-    "albums": [
-      {
-        "_id": "1",
-        "name": "Insan",
-        "artists": [
-          {
-            "id": "5",
-            "name": "حمزة نمرة",
-            "type": "shaaby",
-            "image": "string"
-          },
-          {
-            "id": "2",
-            "name": "Sardeena",
-            "type": "Shaaby",
-            "image": "string"
-          }
-        ],
-        "album_type": "album",
-        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
-        "released": true,
-        "type": "Jazz"
-      },
-      {
-        "_id": "2",
-        "name": "AJ+ Hemdan",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-        ],
-        "album_type": "album",
-        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
-        "released": true,
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
-      }
-    ],
-    "artists": [
-      {
-        "_id": "1",
-        "genres": [],
-        "images": [
-          "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
-        ],
-        "displayName": "Hemdan",
-        "bio": "جامد",
-        "popularSongs": [],
-        "type": "artist"
-      },
-      {
-        "_id": "2",
-        "genres": [],
-        "images": [
-          "https://avatars0.githubusercontent.com/u/43186742?s=400&u=25ff1f315462c75d0b86f1f3c4779a341133095b&v=4"
-        ],
-        "displayName": "Mahboub",
-        "bio": "جامد جامد",
-        "popularSongs": [],
-        "type": "artist"
-      },
-      {
-        "_id": "3",
-        "genres": [],
-        "images": [
-          "https://avatars3.githubusercontent.com/u/42722816?s=400&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
-        ],
-        "displayName": "Sedo",
-        "bio": "جامد جامد",
-        "popularSongs": [],
-        "type": "artist"
-      },
-      {
-        "_id": "4",
-        "genres": [],
-        "images": [
-          "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
-        ],
-        "displayName": "Ashraf",
-        "bio": "جامد جامد",
-        "popularSongs": [],
-        "type": "artist"
-      },
-      {
-        "_id": "5",
-        "genres": [],
-        "images": [
-          "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
-        ],
-        "displayName": "Walid",
-        "bio": "جامد جامد",
-        "popularSongs": [],
-        "type": "artist"
-      }
-    ],
-    "users": [
-      {
-        "_id": "1",
-        "displayName": "Abdallah Hemdan",
-        "followersCount": 0,
-        "images": [
-          "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
-        ],
-        "verified": false,
-        "type": "user"
-      },
-      {
-        "_id": "2",
-        "displayName": "Angela Yu",
-        "followersCount": 0,
-        "images": [
-          "https://avatars2.githubusercontent.com/u/4332182?s=400&u=9500cf9efe0264e8a38f6d9b61748073fd915f85&v=4"
-        ],
-        "verified": false,
-        "type": "user"
-      },
-      {
-        "_id": "3",
-        "displayName": "Fuboki 10",
-        "followersCount": 0,
-        "images": [
-          "https://avatars3.githubusercontent.com/u/35429211?s=400&u=9cee545bc05d72e1df089bb00c936a53295bc270&v=4"
-        ],
-        "verified": false,
-        "type": "user"
-      }
-    ],
-    "playlists": [
-      {
-        "_id": "1",
-        "name": "Jazz",
-        "owner": "1",
-        "collaborative": true,
-        "description": "Best music I have ever listened to",
-        "followersCount": 100,
-        "image": "https://angartwork.akamaized.net/webp/?id=1096371005&size=296",
-        "public": true,
-        "type": "trap",
-        "tracks": [
-          {
-            "id": "1",
-            "name": "Hat Sogara",
-            "artists": [
-              {
-                "id": "1",
-                "name": "Danny Willok",
-                "type": "shaaby",
-                "image": "string"
-              },
-              {
-                "id": "2",
-                "name": "Sardeena",
-                "type": "Shaaby",
-                "image": "string"
-              }
-            ],
-            "albumId": "1",
-            "type": "Jazz",
-            "audioUrl": "www.Facebook.com"
-          },
-          {
-            "id": "2",
-            "name": "Hat Sogara",
-            "artists": [
-              {
-                "id": "1",
-                "name": "Danny Willok",
-                "type": "shaaby",
-                "image": "string"
-              },
-              {
-                "id": "2",
-                "name": "Sardeena",
-                "type": "Shaaby",
-                "image": "string"
-              }
-            ],
-            "albumId": "1",
-            "type": "Jazz",
-            "audioUrl": "www.Facebook.com"
-          }
-        ]
-      },
-      {
-        "_id": "2",
-        "name": "Jazz",
-        "owner": "2",
-        "collaborative": true,
-        "description": "Best music I have ever listened to",
-        "followersCount": 100,
-        "image": "https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
-        "public": true,
-        "type": "trap",
-        "tracks": [
-          {
-            "id": "19",
-            "name": "إنسان",
-            "artists": [
-              {
-                "id": "5",
-                "name": "حمزة نمرة",
-                "type": "shaaby",
-                "image": "string"
-              },
-              {
-                "id": "2",
-                "name": "Sardeena",
-                "type": "Shaaby",
-                "image": "string"
-              }
-            ],
-            "albumId": "1",
-            "type": "Jazz",
-            "audioUrl": "www.Facebook.com"
-          },
-          {
-            "id": "20",
-            "name": "سلاح التلميذ",
-            "artists": [
-              {
-                "id": "3",
-                "name": "ًWegz el wench",
-                "type": "Trap",
-                "image": "string"
-              },
-              {
-                "id": "4",
-                "name": "Amr Diab",
-                "type": "farafeery",
-                "image": "string"
-              }
-            ],
-            "albumId": "1",
-            "type": "Trap",
-            "audioUrl": "www.facebook.com"
-          }
-        ]
-      }
-    ],
+        {
+          "_id": "2",
+          "name": "AJ+ Hemdan",
+          "artists": [
+            {
+              "id": "3",
+              "name": "ًWegz el wench",
+              "type": "Trap",
+              "image": "string"
+            },
+            {
+              "id": "4",
+              "name": "Amr Diab",
+              "type": "farafeery",
+              "image": "string"
+            }
+          ],
+          "album_type": "album",
+          "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+          "released": true,
+          "type": "Trap",
+          "audioUrl": "www.facebook.com"
+        }
+      ]
+    },
+    "artists": {
+      "artists": [
+        {
+          "_id": "1",
+          "genres": [],
+          "images": [
+            "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
+          ],
+          "displayName": "Hemdan",
+          "bio": "جامد",
+          "popularSongs": [],
+          "type": "artist"
+        },
+        {
+          "_id": "2",
+          "genres": [],
+          "images": [
+            "https://avatars0.githubusercontent.com/u/43186742?s=400&u=25ff1f315462c75d0b86f1f3c4779a341133095b&v=4"
+          ],
+          "displayName": "Mahboub",
+          "bio": "جامد جامد",
+          "popularSongs": [],
+          "type": "artist"
+        },
+        {
+          "_id": "3",
+          "genres": [],
+          "images": [
+            "https://avatars3.githubusercontent.com/u/42722816?s=400&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
+          ],
+          "displayName": "Sedo",
+          "bio": "جامد جامد",
+          "popularSongs": [],
+          "type": "artist"
+        },
+        {
+          "_id": "4",
+          "genres": [],
+          "images": [
+            "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
+          ],
+          "displayName": "Ashraf",
+          "bio": "جامد جامد",
+          "popularSongs": [],
+          "type": "artist"
+        },
+        {
+          "_id": "5",
+          "genres": [],
+          "images": [
+            "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
+          ],
+          "displayName": "Walid",
+          "bio": "جامد جامد",
+          "popularSongs": [],
+          "type": "artist"
+        }
+      ]
+    },
+    "users": {
+      "users": [
+        {
+          "_id": "1",
+          "displayName": "Abdallah Hemdan",
+          "followersCount": 0,
+          "images": [
+            "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
+          ],
+          "verified": false,
+          "type": "user"
+        },
+        {
+          "_id": "2",
+          "displayName": "Angela Yu",
+          "followersCount": 0,
+          "images": [
+            "https://avatars2.githubusercontent.com/u/4332182?s=400&u=9500cf9efe0264e8a38f6d9b61748073fd915f85&v=4"
+          ],
+          "verified": false,
+          "type": "user"
+        },
+        {
+          "_id": "3",
+          "displayName": "Fuboki 10",
+          "followersCount": 0,
+          "images": [
+            "https://avatars3.githubusercontent.com/u/35429211?s=400&u=9cee545bc05d72e1df089bb00c936a53295bc270&v=4"
+          ],
+          "verified": false,
+          "type": "user"
+        }
+      ]
+    },
+    "playlists": {
+      "playlists": [
+        {
+          "_id": "1",
+          "name": "Jazz",
+          "owner": "1",
+          "collaborative": true,
+          "description": "Best music I have ever listened to",
+          "followersCount": 100,
+          "image": "https://angartwork.akamaized.net/webp/?id=1096371005&size=296",
+          "public": true,
+          "type": "trap",
+          "tracks": [
+            {
+              "id": "1",
+              "name": "Hat Sogara",
+              "artists": [
+                {
+                  "id": "1",
+                  "name": "Danny Willok",
+                  "type": "shaaby",
+                  "image": "string"
+                },
+                {
+                  "id": "2",
+                  "name": "Sardeena",
+                  "type": "Shaaby",
+                  "image": "string"
+                }
+              ],
+              "albumId": "1",
+              "type": "Jazz",
+              "audioUrl": "www.Facebook.com"
+            },
+            {
+              "id": "2",
+              "name": "Hat Sogara",
+              "artists": [
+                {
+                  "id": "1",
+                  "name": "Danny Willok",
+                  "type": "shaaby",
+                  "image": "string"
+                },
+                {
+                  "id": "2",
+                  "name": "Sardeena",
+                  "type": "Shaaby",
+                  "image": "string"
+                }
+              ],
+              "albumId": "1",
+              "type": "Jazz",
+              "audioUrl": "www.Facebook.com"
+            }
+          ]
+        },
+        {
+          "_id": "2",
+          "name": "Jazz",
+          "owner": "2",
+          "collaborative": true,
+          "description": "Best music I have ever listened to",
+          "followersCount": 100,
+          "image": "https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
+          "public": true,
+          "type": "trap",
+          "tracks": [
+            {
+              "id": "19",
+              "name": "إنسان",
+              "artists": [
+                {
+                  "id": "5",
+                  "name": "حمزة نمرة",
+                  "type": "shaaby",
+                  "image": "string"
+                },
+                {
+                  "id": "2",
+                  "name": "Sardeena",
+                  "type": "Shaaby",
+                  "image": "string"
+                }
+              ],
+              "albumId": "1",
+              "type": "Jazz",
+              "audioUrl": "www.Facebook.com"
+            },
+            {
+              "id": "20",
+              "name": "سلاح التلميذ",
+              "artists": [
+                {
+                  "id": "3",
+                  "name": "ًWegz el wench",
+                  "type": "Trap",
+                  "image": "string"
+                },
+                {
+                  "id": "4",
+                  "name": "Amr Diab",
+                  "type": "farafeery",
+                  "image": "string"
+                }
+              ],
+              "albumId": "1",
+              "type": "Trap",
+              "audioUrl": "www.facebook.com"
+            }
+          ]
+        }
+      ]
+    },
     "limit": 0,
     "offset": 0,
     "total": 0
