@@ -15,7 +15,7 @@ import "./Search.css"
  * @type {string}
  */
 
-let fetchCategoriesUrl = `${base}/browse/categories`;
+const fetchCategoriesUrl = `${base}/browse/categories`;
 class Search extends Component {
   constructor(props) {
     super(props)
