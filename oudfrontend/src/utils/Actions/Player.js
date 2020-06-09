@@ -23,7 +23,11 @@ function checkSavedTrack(id) {
 
 function saveTrack(id) {
   return axios
-    .put(`${base}/me/tracks?ids=${id}`, {}, config)
+    .put(
+      `${base}/me/tracks?ids=${id}`,
+      { items: [{}], limit: 0, offset: 0, total: 0 },
+      config
+    )
     .then(response => {
       if (!response["data"].hasOwnProperty("status")) return true;
       else return false;

@@ -5,7 +5,7 @@ import Player from "./Player/Player";
 import Queue from "./Queue/Queue";
 import Swal from "sweetalert2";
 import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
-import { base } from "./../../config/environment";
+import { base, mockUrl } from "./../../config/environment";
 // import { config } from "./../../utils/auth";
 const config = {
   headers: {
@@ -306,19 +306,23 @@ class WebPlayer extends Component {
     });
   };
   unlikeSong = (trackId, queue = false) => {
-    removeSavedTrack(trackId).then(done => {
-      if (done)
-        this.setState({
-          loved: queue ? this.state.loved : false
+    removeSavedTrack(trackId)
+      .then(done => {
+        if (done || base === mockUrl)
+          this.setState({
+            loved: queue ? this.state.loved : false
+          });
+        Swal.fire({
+          title: "Done!",
+          text: "Removed from your Liked Songs!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000
         });
-      Swal.fire({
-        title: "Done!",
-        text: "Removed from your Liked Songs!",
-        icon: "success",
-        showConfirmButton: false,
-        timer: 1000
+      })
+      .catch(error => {
+        console.log(error.response.data.message);
       });
-    });
   };
   render() {
     return (
