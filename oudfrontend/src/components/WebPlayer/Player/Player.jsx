@@ -7,7 +7,7 @@ import extend from "../../../assets/images/icons/extend.png";
 import PropTypes from "prop-types";
 import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 import { checkSavedTrack, setupHowler } from "../../../utils/Actions/Player";
-import { base } from "./../../../config/environment";
+import { base, mock, mockUrl } from "./../../../config/environment";
 import { getRequest } from "./../../../utils/requester";
 let sound = null;
 /**
@@ -409,9 +409,12 @@ class Player extends Component {
     const offsetX = e.nativeEvent.offsetX;
     const percent = offsetX / width;
     const position = percent * this.state.duration * 60;
-
+    const endpoint =
+      base === mockUrl
+        ? `${base}/me/player/seek`
+        : `${base}/me/player/seek?positionMs=${position * 1000}`;
     this.props
-      .putRequest(`${base}/me/player/seek?positionMs=${position * 1000}`)
+      .putRequest(endpoint)
       .then(response => {
         if (sound) sound.seek(position);
         this.setState({

@@ -200,7 +200,7 @@ class WebPlayer extends Component {
           contextUri: contextUri,
           offset: { position: offset }
         };
-    this.putRequest(`${base}/me/player/play`, body)
+    this.putRequest(`${base}/me/player/play?queueIndex=0`, body)
       .then(response => {
         // this.fetchQueue();
         let player = this.playerElement.current;
