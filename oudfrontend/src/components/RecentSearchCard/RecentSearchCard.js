@@ -16,7 +16,8 @@ class RecentSearchCard extends Component {
       _id: "",
       displayName: "",
       type: "",
-      images: ["https://oud-zerobase.me/api/uploads/users/default-Profile.svg"]
+      images: ["https://oud-zerobase.me/api/uploads/users/default-Profile.svg"],
+      isDataLoaded: false
     }
   }
 
@@ -57,6 +58,12 @@ class RecentSearchCard extends Component {
       this.handleStoringItems(SearchItem);
     }
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.item.artists !== this.props.item.artists) {
+      this.setState({ isDataLoaded: true });
+    }
+  }
   /**
    * @function
    * 
@@ -68,6 +75,20 @@ class RecentSearchCard extends Component {
    */
   render() {
     const subPath = (base === prodUrl) ? subUrl : "";
+    let defaultImg = "https://oud-zerobase.me/api/uploads/users/default-Profile.svg";
+    if (this.props.item && this.props.item.images && this.props.item.images[0]) {
+      const nname = (this.props.item.type === "Artist")
+        ? this.props.item.displayName :
+        this.props.item.name;
+      console.log(`Images of ${nname}`, this.props.item);
+      defaultImg = `${subPath}${this.props.item.images[0]}`;
+    }
+    if (this.props.item && this.props.item.type === "track" && this.props.item.artists) {
+      defaultImg = `${subPath}${this.props.item.artists[0].images[0]}`;
+    }
+    if (this.props.item && (this.props.item.type === "album" || this.props.item.type === "playlist") && this.props.item.image) {
+      defaultImg = `${subPath}${this.props.item.image} `
+    }
     return (
       <React.Fragment>
         {
@@ -98,7 +119,7 @@ class RecentSearchCard extends Component {
                 }
               </div>
               <img
-                src={`${subPath}${this.state.images[0]}`}
+                src={`${defaultImg} `}
                 alt="playlist cover"
                 data-testid="playlist-image"
               />
@@ -107,15 +128,20 @@ class RecentSearchCard extends Component {
                 data-testid="playlist-title"
               >
                 <Link
-                  to={`${this.state.type}/${this.state._id}`}
+                  to={`${this.state.type} /${this.state._id}`}
                   className="playlist-link"
                   data-testid="playlist-link"
-                >{this.state.displayName}</Link>
-              </div>
-            </div>
-          </ div>
+                >
+                  {(this.props.item.type === "Artist")
+                    ? this.props.item.displayName :
+                    this.props.item.name
+                  }
+                </Link >
+              </div >
+            </div >
+          </ div >
         }
-      </React.Fragment>
+      </React.Fragment >
     );
   }
 }
