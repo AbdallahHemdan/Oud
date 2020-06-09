@@ -189,8 +189,13 @@ class WebPlayer extends Component {
     uris = [],
     offset = 0,
     position = 0,
-    isTracksList = false
+    isTracksList = false, 
+    resume = false
   ) => {
+    if(resume) {
+      this.playerElement.current.handlePlayPause();
+      return;
+    }
     const body = isTracksList
       ? {
           uris: uris,

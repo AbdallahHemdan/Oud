@@ -234,6 +234,8 @@ class Playlist extends React.Component {
                         liked={this.state.liked}
                         playing={this.state.playing}
                         album={false}
+                        context={`oud:playlist:${this.props.id.id}`}
+                        webPlayer={this.props.webPlayer}
                       />
                     </div>
                   </div>

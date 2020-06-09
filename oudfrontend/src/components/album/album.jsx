@@ -305,6 +305,9 @@ class Album extends React.Component {
                         delelteAlbum={this.delelteAlbum}
                         addToPlaylist={this.addToPlaylist.bind(this)}
                         addSong={this.addSong}
+                        contextId={this.props.id}
+                        context={`oud:album:${this.props.id}`}
+                        webPlayer={this.props.webPlayer}
                       />
                     </div>
                   </div>

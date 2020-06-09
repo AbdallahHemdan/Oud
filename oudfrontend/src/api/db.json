@@ -2495,6 +2495,69 @@
   "queue": {
     "tracks": [
       {
+        "id": "19",
+        "name": "إنسان",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
+          },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
+      },
+      {
+        "id": "20",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      },
+      {
+        "id": "22",
+        "name": "سلاح التلميذ",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "albumId": "1",
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      },
+      {
         "id": "23",
         "name": "سلاح التلميذ",
         "artists": [
@@ -2702,7 +2765,7 @@
         ],
         "albumId": "1",
         "type": "Trap",
-        "image": "string"
+        "audioUrl": "www.facebook.com"
       },
       {
         "id": "34",
@@ -2726,9 +2789,7 @@
         "audioUrl": "www.facebook.com"
       }
     ],
-    "albumId": "1",
-    "type": "Trap",
-    "audioUrl": "www.facebook.com"
+    "total": 14
   },
   "user": [
     {
