@@ -8,45 +8,42 @@ const setup = (props = {}) => {
   return component;
 };
 
+
+const item = {
+  item: {
+    _id: 1,
+    name: "Recently played",
+    icon: "http://lorempixel.com/640/480/cats",
+  },
+};
+
 describe("Music Item component", () => {
   let component;
   beforeEach(() => {
-    const props = {
-      item: {
-        id: 1,
-        name: "Recently played",
-        icon: "http://lorempixel.com/640/480/cats",
-      },
-    };
+    const props = item;
     component = setup(props);
   });
-  it("Should render category Header in right way", () => {
+
+  it('Should the category header in right way', () => {
     const wrapper = findByTestAttr(component, "category-header");
     expect(wrapper.length).toBe(1);
   });
-
-  it("Should render category title in right way", () => {
-    const wrapper = findByTestAttr(component, "category-title");
+  it('Should the category body in right way', () => {
+    const wrapper = findByTestAttr(component, "category-body");
+    expect(wrapper.length).toBe(1);
+  });
+  it('Should the music item container in right way', () => {
+    const wrapper = findByTestAttr(component, "music-item-container");
     expect(wrapper.length).toBe(1);
   });
 
-  it("Should render category see all in right way", () => {
-    const wrapper = findByTestAttr(component, "category-see-all");
-    expect(wrapper.length).toBe(1);
+  describe('snapshot test', () => {
+    it('renders component correctly', () => {
+      const wrapper = shallow(
+        <MusicItem item={item} />
+      )
+      expect(wrapper).toMatchSnapshot()
+    });
   });
 
-  it("Should render first wrapper in right way", () => {
-    const wrapper = findByTestAttr(component, "first-wrapper");
-    expect(wrapper.length).toBe(1);
-  });
-
-  it("Should render second wrapper in right way", () => {
-    const wrapper = findByTestAttr(component, "second-wrapper");
-    expect(wrapper.length).toBe(1);
-  });
-
-  it("Should render music cards wrapper in right way", () => {
-    const wrapper = findByTestAttr(component, "cards-wrapper");
-    expect(wrapper.length).toBe(1);
-  });
 });
