@@ -92,7 +92,6 @@ class Search extends Component {
    * @returns {void}
    */
   handleInput = (e) => {
-    console.log("Handle Input", e.target.value);
     let search = e.target.value;
     this.setState(prevState => {
       return { ...prevState, search }

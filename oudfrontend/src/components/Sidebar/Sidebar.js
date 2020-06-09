@@ -28,9 +28,8 @@ class Sidebar extends Component {
   }
   componentDidMount() {
     this.checkArtist();
-    console.log("A7A");
-    console.log(this.state.isArtist);
   }
+
   checkArtist = () => {
     isArtist()
       .then(res => {
@@ -106,14 +105,14 @@ class Sidebar extends Component {
                     />
                   ) : null
                 ) : (
-                  <SidebarElement
-                    route={route}
-                    iconClasses={iconClasses}
-                    name={name}
-                    key={index}
-                    data-testid="second-sidebar-element"
-                  />
-                );
+                    <SidebarElement
+                      route={route}
+                      iconClasses={iconClasses}
+                      name={name}
+                      key={index}
+                      data-testid="second-sidebar-element"
+                    />
+                  );
               }
             )}
             <hr className="divider" data-testid="divider" />
