@@ -32,13 +32,14 @@ class SearchCategory extends Component {
     } else if (this.props.name === "Users") {
       data = this.props.items.users;
     }
+
     const dataLoadedOrNot = (((this.props.search === this.props.propsSearch) && (this.props.items.total))) || (base !== prodUrl);
     console.log("data loaded or not", dataLoadedOrNot);
 
     return (
       <div className="module">
         <div className="row"
-          data-testid="category-header "
+          data-testid="category-header"
         >
           <h1
             className="gray-white item-name"

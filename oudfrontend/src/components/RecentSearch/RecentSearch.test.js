@@ -20,28 +20,29 @@ describe('Recent Search', () => {
   })
 
   it('Should render loading in case of loading data', () => {
-    component.setState({ isLoading: true })
+    component.setState({ isLoading: true, items: [1, 2, 3] })
     const wrapper = findByTestAttr(component, "loading");
     expect(component.state().isLoading).toBeTruthy();
+    expect(component.state().items).toBeTruthy();
     expect(wrapper.length).toBe(1);
   });
 
   it('Should render category header in right way', () => {
-    component.setState({ isLoading: false })
+    component.setState({ isLoading: false, items: [1, 2, 3] })
     const wrapper = findByTestAttr(component, "category-header");
     expect(component.state().isLoading).toBeFalsy();
     expect(wrapper.length).toBe(1);
   });
 
   it('Should render category header in right way', () => {
-    component.setState({ isLoading: false })
+    component.setState({ isLoading: false, items: [1, 2, 3] })
     const wrapper = findByTestAttr(component, "category-title");
     expect(component.state().isLoading).toBeFalsy();
     expect(wrapper.length).toBe(1);
   });
 
   it('Should render recent search text in right way', () => {
-    component.setState({ isLoading: false })
+    component.setState({ isLoading: false, items: [1, 2, 3] })
     const wrapper = findByTestAttr(component, "category-title");
     expect(component.state().isLoading).toBeFalsy();
     expect(wrapper.text()).toBe('Recent Search');
@@ -62,21 +63,21 @@ describe('Recent Search', () => {
   });
 
   it('Should render first wrapper right way', () => {
-    component.setState({ isLoading: false })
+    component.setState({ isLoading: false, items: [1, 2, 3] })
     const wrapper = findByTestAttr(component, "first-wrapper");
     expect(component.state().isLoading).toBeFalsy();
     expect(wrapper.length).toBe(1);
   });
 
   it('Should render second wrapper right way', () => {
-    component.setState({ isLoading: false })
+    component.setState({ isLoading: false, items: [1, 2, 3] })
     const wrapper = findByTestAttr(component, "second-wrapper");
     expect(component.state().isLoading).toBeFalsy();
     expect(wrapper.length).toBe(1);
   });
 
   it('Should render Card wrapper in right way', () => {
-    component.setState({ isLoading: false })
+    component.setState({ isLoading: false, items: [1, 2, 3] })
     const wrapper = findByTestAttr(component, "cards-wrapper");
     expect(component.state().isLoading).toBeFalsy();
     expect(wrapper.length).toBe(1);
