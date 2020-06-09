@@ -330,7 +330,7 @@ class Song extends Component {
                   Add to Playlist
                 </button>
                 <button
-                  data-testid="addToPlaylist"
+                  data-testid="copy"
                   className="SongDropdownItem songButton"
                   onClick={() => this.copyLink()}
                 >

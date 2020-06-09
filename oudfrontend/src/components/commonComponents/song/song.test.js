@@ -138,6 +138,10 @@ describe('song component', ()=>{
         expect(wrapper.length).toBe(1)
       })
       it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "copy")
+        expect(wrapper.length).toBe(1)
+      })
+      it('renders without errors', ()=>{
         const wrapper = findByTestAttr(component, "songTime")
         expect(wrapper.length).toBe(1)
       })

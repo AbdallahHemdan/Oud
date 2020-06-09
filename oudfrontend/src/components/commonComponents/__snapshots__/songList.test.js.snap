@@ -128,6 +128,13 @@ exports[`SongList Component snapshot test renders correctly 1`] = `
           >
             Add to Playlist
           </button>
+          <button
+            className="SongDropdownItem songButton"
+            data-testid="copy"
+            onClick={[Function]}
+          >
+            Copy Song Link
+          </button>
         </div>
       </div>
     </div>
@@ -264,6 +271,13 @@ exports[`SongList Component snapshot test renders correctly 1`] = `
             onClick={[Function]}
           >
             Add to Playlist
+          </button>
+          <button
+            className="SongDropdownItem songButton"
+            data-testid="copy"
+            onClick={[Function]}
+          >
+            Copy Song Link
           </button>
         </div>
       </div>
