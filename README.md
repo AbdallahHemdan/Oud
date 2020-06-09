@@ -49,6 +49,7 @@
 ### Build with
 - [React JS](https://reactjs.org/)
 - [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+- [HowlerJS](https://github.com/goldfire/howler.js/)
 - [Bootstrap](https://getbootstrap.com/)
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://enzymejs.github.io/enzyme/)
