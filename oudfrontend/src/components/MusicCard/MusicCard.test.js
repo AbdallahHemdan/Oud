@@ -35,7 +35,9 @@ describe("Music Card Component", () => {
   });
 
   it("Should render play-circle icon in right way", () => {
+    component.setState({ playBtn: true });
     const wrapper = findByTestAttr(component, "play-circle");
+    expect(component.state().playBtn).toBeTruthy();
     expect(wrapper.length).toBe(1);
   });
 
