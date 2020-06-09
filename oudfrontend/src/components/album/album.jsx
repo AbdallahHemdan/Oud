@@ -77,7 +77,6 @@ class Album extends React.Component {
   addToQueue(tracks, length) {
     this.setState({ queued: true });
     addToQueue(tracks, length);
-    this.resume();
   }
   /**
    * Called Whenever the user clicked on the PLAY button and it adds all the songs of the playlist to the queue by a post request
@@ -125,7 +124,6 @@ class Album extends React.Component {
       axios
         .put(`${base}/me/albums/${this.props.id}`, config)
         .then(function (response) {
-          console.log(response);
         })
         .catch(function (error) {
           console.log(error);
@@ -136,7 +134,6 @@ class Album extends React.Component {
       axios
         .delete(`${base}/me/albums/${this.props.id}`, config)
         .then(function (response) {
-          console.log(response);
         })
         .catch(function (error) {
           console.log(error);
@@ -171,7 +168,6 @@ class Album extends React.Component {
         this.setState({ liked: isFound });
       })
       .catch((error) => {
-        console.log(error);
       });
       if(this.props.songId !== null)
         this.playOnLoading()
@@ -187,7 +183,6 @@ class Album extends React.Component {
       
       })
       .catch((error) => {
-        console.log(error);
       });
   }
   /**

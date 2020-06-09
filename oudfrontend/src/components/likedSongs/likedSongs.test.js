@@ -53,12 +53,35 @@ describe('album Component', ()=>{
     
     })
     
-   /* describe('snapshot test', ()=>{
-        it('renders correctly', () => {
-            const tree = renderer
-              .create(<LikedSongs.WrappedComponent/>)
-              .toJSON();
-            expect(tree).toMatchSnapshot();
+    describe('calling functions', ()=>{
+        let component;
+        beforeEach (()=>{
+            component = setup();
+        })
+        it('calling markAllUnclicked', ()=>{
+            component.setState({clickID:'1'})
+            component.instance().markAllUnclicked();
+            component.instance().markAllUnclicked();
+            expect(component.state().clickID).toBe('0');
         });
-    });*/
+        it('calling playButtonClicked', ()=>{
+            component.setState({queued:false, playing:false})
+            component.instance().playButtonClicked();
+            expect(component.state().queued).toBe(true);
+            expect(component.state().playing).toBe(true);
+        });
+        it('calling playButtonClicked', ()=>{
+            component.setState({queued:true, playing:true})
+            component.instance().playButtonClicked();
+            expect(component.state().queued).toBe(true);
+            expect(component.state().playing).toBe(false);
+        });
+        it('calling destructuring', ()=>{
+            const items = [{track:"Ahmed"}]
+            component.setState({queued:true, playing:true})
+            component.instance().destructuring(items);
+            expect(component.state().tracks).toStrictEqual(["Ahmed"])
+        });
+    });
+   
 })

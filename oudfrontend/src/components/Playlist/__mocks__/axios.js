@@ -10,6 +10,7 @@ export default {
           "public": true,
           "type": "trap",
           "name":"ahmed",
+          "displayName":"ajmed",
           "tracks": [
             {
               "id": "21",

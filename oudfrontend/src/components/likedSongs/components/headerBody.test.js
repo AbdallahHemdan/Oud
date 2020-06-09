@@ -1,10 +1,9 @@
 import React from 'React'
 import HeaderBody from './headerBody'
-import Enzyme, {shallow} from 'enzyme'
+import Enzyme, {shallow, mount} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer';
 import checkPropTypes from 'check-prop-types'
-
 Enzyme.configure({adapter: new EnzymeAdapter()});
 
 const trueProps = {
@@ -130,6 +129,42 @@ describe('album headerBody Component', ()=>{
             const wrapper = findByTestAttr(component, "playButton");
             expect(wrapper.length).toBe(1);
         });
+        
+    });
+    describe('testing link to owner',()=>{
+        let component;
+        beforeEach (()=>{
+            component = setup();
+            const wrapp = findByTestAttr(component, "owner");
+            wrapp.simulate('click')
+        })
+        it("renders correctly without props", ()=>{
+            const wrapper = findByTestAttr(component, "HeaderBody");
+            expect(wrapper.length).toBe(0);
+        });
+
+        it("renders title correctly without props", ()=>{
+            const wrapper = findByTestAttr(component, "title");
+            expect(wrapper.length).toBe(0);
+        });
+        
+        it("renders credits correctly without props", ()=>{
+            const wrapper = findByTestAttr(component, "owner");
+            expect(wrapper.length).toBe(0);
+        });
+        it("renders songs number correctly without props", ()=>{
+            const wrapper = findByTestAttr(component, "songsNumber");
+            expect(wrapper.length).toBe(0);
+        });
+    
+        it("renders literal correctly without props", ()=>{
+            const wrapper = findByTestAttr(component, "songsLiteral");
+            expect(wrapper.length).toBe(0);
+        });
+        it("renders credits correctly with props", ()=>{
+            const wrapper = findByTestAttr(component, "playButton");
+            expect(wrapper.length).toBe(0);
+        });
     });
     describe('testing HeaderBodyTop Component with trueProps',()=>{
         let component;
@@ -159,8 +194,13 @@ describe('album headerBody Component', ()=>{
             expect(wrapper.length).toBe(1);
             expect(wrapper.text()).toBe('songs')
         });
+        /*it("renders literal correctly without props", ()=>{
+            const wrapper = findByTestAttr(component, "playButton");
+            wrapper.simulate('click');
+            expect(trueProps.playClicked).toHaveBeenCalled();
+        });*/
     });
-    describe('testing HeaderBodyTop Component with trueProps',()=>{
+    describe('testing HeaderBodyTop Component with falseProps',()=>{
         let component;
         beforeEach (()=>{
             component = setup(falseProps);

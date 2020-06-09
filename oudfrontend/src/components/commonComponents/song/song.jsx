@@ -258,7 +258,7 @@ class Song extends Component {
                       >
                         {artist.displayName}
                       </button>
-                      {this.props.album?<span></span>:<span data-testid="comma" className="gray-text">
+                      {this.props.album?<span>  </span>:<span data-testid="comma" className="gray-text">
                         {" "}
                         •{" "}
                       </span>}

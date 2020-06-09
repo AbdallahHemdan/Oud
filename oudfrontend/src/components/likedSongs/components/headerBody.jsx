@@ -35,7 +35,6 @@ class HeaderBody extends Component{
         .then((response) => {
             const user = response.data;
             this.setState({displayName:user.displayName, id:user.id});
-            console.log(user.displayName)
         })
         .catch((error) => {
             console.log(error);

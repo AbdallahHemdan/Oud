@@ -65,7 +65,6 @@ class LikedSongs extends React.Component {
   addToQueue(tracks, length) {
     this.setState({ queued: true });
     addToQueue(tracks, length);
-    this.resume();
   }
   /**
    * Called Whenever the user clicked on the PLAY button and it adds all the songs of the playlist to the queue by a post request
@@ -113,8 +112,8 @@ class LikedSongs extends React.Component {
     axios
       .get(`${base}/me/tracks`, config)
       .then((response) => {
-        const items = response.data.items;
         this.setState({ recieved: true });
+        const items = response.data.items;
         this.setState({ items: items });
         this.destructuring(items);
       })

@@ -185,13 +185,49 @@ describe('album Component', ()=>{
         });
         
     });
-    /*describe('snapshot test', ()=>{
-        it('renders correctly', () => {
-            const tree = renderer
-              .create(<Album.WrappedComponent {...props}/>)
-              .toJSON();
-            expect(tree).toMatchSnapshot();
+    describe('calling functions', ()=>{
+        let component;
+        beforeEach (()=>{
+            component = setup(props);
+        })
+        it('calling closeAddToPlaylist', ()=>{
+            component.setState({displayAdd:true})
+            component.instance().closeAddToPlaylist();
+            expect(component.state().displayAdd).toBe(false);
         });
-    });*/
+        it('calling markAllUnclicked', ()=>{
+            component.setState({clickID:'1'})
+            component.instance().markAllUnclicked();
+            component.instance().markAllUnclicked();
+            expect(component.state().clickID).toBe('0');
+        });
+        it('calling addToPlaylist', ()=>{
+            component.setState({displayAdd:false})
+            component.instance().addToPlaylist();
+            expect(component.state().displayAdd).toBe(true);
+        });
+        it('calling likeButtonClicked', ()=>{
+            component.setState({liked:false})
+            component.instance().likeButtonClicked();
+            expect(component.state().liked).toBe(true);
+        });
+        it('calling likeButtonClicked', ()=>{
+            component.setState({liked:true})
+            component.instance().likeButtonClicked();
+            expect(component.state().liked).toBe(false);
+        });
+        it('calling playButtonClicked', ()=>{
+            component.setState({queued:false, playing:false})
+            component.instance().playButtonClicked();
+            expect(component.state().queued).toBe(true);
+            expect(component.state().playing).toBe(true);
+        });
+        it('calling playButtonClicked', ()=>{
+            component.setState({queued:true, playing:true})
+            component.instance().playButtonClicked();
+            expect(component.state().queued).toBe(true);
+            expect(component.state().playing).toBe(false);
+        });
+    });
    
 })

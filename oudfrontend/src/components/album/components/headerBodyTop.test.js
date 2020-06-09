@@ -23,7 +23,16 @@ const fullProps = {
         image: "string"
     }]
 }
-
+const halfProps={
+    title: 'album name',
+    artists:[
+    {
+        id: "3",
+        name: "ًWegz el wench",
+        type: "Trap",
+        image: "string"
+    }]
+}
 const setup = (props={}) =>{
     return shallow(<HeaderBodyTop {...props}/>);
 }
@@ -88,7 +97,11 @@ describe('album headerBodyTop Component', ()=>{
             expect(wrapper.text()).toBe("By ")
         });
         it("renders credits correctly with props", ()=>{
-            const wrapper = findByTestAttr(component, "artist");
+            const wrapper = findByTestAttr(component, "artist1");
+            expect(wrapper.length).toBe(0);
+        });
+        it("renders credits correctly with props", ()=>{
+            const wrapper = findByTestAttr(component, "artist2");
             expect(wrapper.length).toBe(0);
         });
     });
@@ -114,8 +127,76 @@ describe('album headerBodyTop Component', ()=>{
             expect(wrapper.text()).toBe("By ")
         });
         it("renders credits correctly with props", ()=>{
-            const wrapper = findByTestAttr(component, "artist");
+            const wrapper = findByTestAttr(component, "artist1");
+            expect(wrapper.length).toBe(0);
+        });
+        it("renders credits correctly with props", ()=>{
+            const wrapper = findByTestAttr(component, "artist2");
             expect(wrapper.length).toBe(2);
+        });
+    });
+    describe('componentWillReceiveProps()', () => {
+        it('change the display state', () => {
+            let artists = [
+                {
+                    id: "3",
+                    name: "ًWegz el wench",
+                    type: "Trap",
+                    image: "string"
+                }]
+            const component = shallow(<HeaderBodyTop artists={artists} title= 'album name' />);
+            expect(component.state().artists).toStrictEqual([]);
+            artists = [{
+                id: "4",
+                name: "Amr Diab",
+                type: "farafeery",
+                image: "string"
+            }]
+            component.setProps({ artists:artists, title:'album name'});
+        })
+        it('does not change the display state', () => {
+            let artists = [
+                {
+                    id: "3",
+                    name: "ًWegz el wench",
+                    type: "Trap",
+                    image: "string"
+                }]
+            const component = shallow(<HeaderBodyTop artists={artists} title= 'album name' />);
+            expect(component.state().artists).toStrictEqual([]);
+            component.setProps({ title:'album', artists: artists });
+            expect(component.state().artists).toStrictEqual(artists);
+        })
+    });
+    describe('testing that the link to artist works',()=>{
+        let component;
+        beforeEach (()=>{
+            component = setup(fullProps);
+            component.setState({artists:fullProps.artists})
+            const wrapp = findByTestAttr(component, "artist2");
+            wrapp.first().simulate('click')
+        })
+        it("renders correctly without props", ()=>{
+            const wrapper = findByTestAttr(component, "HeaderBodyTop");
+            expect(wrapper.length).toBe(0);
+        });
+
+        it("renders title correctly without props", ()=>{
+            const wrapper = findByTestAttr(component, "title");
+            expect(wrapper.length).toBe(0);
+        });
+        
+        it("renders credits correctly without props", ()=>{
+            const wrapper = findByTestAttr(component, "credits");
+            expect(wrapper.length).toBe(0);
+        });
+        it("renders credits correctly with props", ()=>{
+            const wrapper = findByTestAttr(component, "artist1");
+            expect(wrapper.length).toBe(0);
+        });
+        it("renders credits correctly with props", ()=>{
+            const wrapper = findByTestAttr(component, "artist2");
+            expect(wrapper.length).toBe(0);
         });
     });
 })

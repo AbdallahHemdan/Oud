@@ -76,7 +76,6 @@ class Playlist extends React.Component {
   addToQueue(tracks, length) {
     this.setState({ queued: true });
     addToQueue(tracks, length);
-    this.resume();
   }
   /**
    * Called Whenever the user clicked on the PLAY button and it adds all the songs of the playlist to the queue by a post request
@@ -129,20 +128,16 @@ class Playlist extends React.Component {
       axios
         .delete(`${base}/me/playlists/${this.props.id.id}`, config)
         .then(function (response) {
-          console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
         });
     }
-    //not in backend yet
+    
     axios
       .post(`${base}/me/playlists/`, this.props.id.id, config)
       .then(function (response) {
-        console.log(response);
       })
       .catch(function (error) {
-        console.log(error);
       });
   }
   /**
@@ -170,17 +165,15 @@ class Playlist extends React.Component {
         this.setState({ liked: isFound });
       })
       .catch((error) => {
-        console.log(error);
       });
   }
   componentDidUpdate(prevProps, prevState){
     if(prevState.recieved === false){
     axios.get(`${base}/users/`+this.state.playlist.owner, config)
       .then((response) => {
-          const user = response.data;
-          this.setState({ownerName:user.displayName});
           this.setState({recieved:true})
-          console.log(user.displayName)
+          const user = response.data;
+          this.setState({ownerName:user.displayName});     
       })
       .catch((error) => {
           console.log(error);

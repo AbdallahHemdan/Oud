@@ -38,17 +38,17 @@ class HeaderBodyTop extends Component{
     redirect(route){
         this.setState({redirect:route})
     }
-    withComma(artist){
+   /* withComma(artist){
         return(
         <span>, <button
-            data-testid="artist" 
+            data-testid="artist1" 
             className='playlistAnchor songButton'
             onClick={()=>this.redirect(`/artists/${artist.id}`)}>{artist.displayName}</button></span>
-        );}
+        );}*/
     withoutComma(artist){
         console.log(artist)
         return(<span> <button
-            data-testid="artist"
+            data-testid="artist2"
             className='playlistAnchor songButton'
             onClick={()=>this.redirect(`/artists/${artist.id}`)}>{artist.displayName}</button></span>
         );}
@@ -64,7 +64,7 @@ class HeaderBodyTop extends Component{
                     
                     this.state.artists.map((artist)=>{
                         return(
-                        this.state.flag ? this.withComma(artist):this.withoutComma(artist)
+                        this.withoutComma(artist)
                         )}
                         )}
             </div>
