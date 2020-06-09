@@ -174,6 +174,8 @@ class LikedSongs extends React.Component {
                     length={this.state.tracks.length}
                     playClicked={this.playButtonClicked.bind(this)}
                     playing={this.state.playing}
+                    tracks={this.state.tracks}
+                    webPlayer={this.props.webPlayer}
                   />
                 </div>
               </div>
@@ -187,6 +189,9 @@ class LikedSongs extends React.Component {
                 clickedItemId={this.state.clickID}
                 fetchContext={this.fetchItems}
                 className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
+                contextId={null}
+                contextType="LIKED"
+                webPlayer={this.props.webPlayer}
               />
             </div>
           </div>

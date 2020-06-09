@@ -7,7 +7,8 @@ import extend from "../../../assets/images/icons/extend.png";
 import PropTypes from "prop-types";
 import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 import { checkSavedTrack, setupHowler } from "../../../utils/Actions/Player";
-import { base } from "./../../../config/environment";
+import { base, mock, mockUrl } from "./../../../config/environment";
+import { getRequest } from "./../../../utils/requester";
 let sound = null;
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
@@ -49,7 +50,7 @@ class Player extends Component {
       context: "",
       actions: null,
       type: "track",
-      artistId: "",
+      artistId: ""
     };
   }
   /**
@@ -76,18 +77,20 @@ class Player extends Component {
    * @returns {void}
    */
   componentDidMount() {
-    this.fetchPlayback().then((audio) => {
+    this.fetchPlayback().then(audio => {
       console.log("success: " + audio);
+      console.log(this.state);
     });
   }
 
   onPlay = () => {
+    console.log("PLAy Action");
     this.props.changePlayingState(true);
     this.setState({
       playing: true,
       progress: 0,
       current: Number(0).toFixed(2),
-      duration: Number(sound.duration() / 60).toFixed(2),
+      duration: Number(sound.duration() / 60).toFixed(2)
     });
     sound.volume(this.state.volume / 100);
     // sound.seek(this.state.current * 60);
@@ -97,7 +100,7 @@ class Player extends Component {
         const current = Number(sound.seek() / 60).toFixed(2);
         this.setState({
           progress: isNaN(progress) ? this.state.progress : progress,
-          current: isNaN(current) ? this.state.current : current,
+          current: isNaN(current) ? this.state.current : current
         });
       }
     }, 100);
@@ -107,12 +110,12 @@ class Player extends Component {
     this.setState({
       playing: false,
       progress: 0,
-      current: Number(0).toFixed(2),
+      current: Number(0).toFixed(2)
     });
     if (this.state.repeatState === 1) this.handleNext();
     else if (this.state.type === "ad") {
       this.setState({
-        actions: null,
+        actions: null
       });
       this.handleNext();
     } else if (this.state.repeatState === 2) sound.loop(true);
@@ -121,7 +124,7 @@ class Player extends Component {
   onSeek = () => {
     sound.volume(this.state.volume / 100);
     this.setState({
-      progress: this.getSoundProgress(),
+      progress: this.getSoundProgress()
     });
   };
   /**
@@ -131,15 +134,14 @@ class Player extends Component {
    * @returns {void}
    */
   fetchPlayback = (outPlayer = false) => {
-    return this.props
-      .getRequest(`${base}/me/player`)
-      .then((response) => {
-        console.log("response");
-        console.log(response);
-        const data = response["data"]["player"];
-        if (!data.hasOwnProperty("status")) {
-          const track = data["item"];
-          this.setState({
+    return getRequest(`${base}/me/player`)
+      .then(response => {
+        const data = response.data.player;
+        console.log("date: ");
+        console.log(data);
+        const track = data["item"];
+        this.setState(
+          {
             audioUrl: track["audioUrl"],
             progress: Math.floor(
               (data["progressMs"] / track["duartion"]) * 100
@@ -153,12 +155,12 @@ class Player extends Component {
                 ? "Oud"
                 : response.data.player.item.artists[0].displayName,
             artistId: response.data.player.item.artists[0]._id,
-            art:
-              response.data.player.item.type === "ad"
-                ? response.data.player.item.image
-                : `https://oud-zerobase.me/api/${response.data.player.item.artists[0].images[0]}`
-                    .replace(/ /g, "%20")
-                    .replace(/\\/g, "/"),
+            // art:
+            //   response.data.player.item.type === "ad"
+            //     ? response.data.player.item.image
+            //     : `https://oud-zerobase.me/api/${response.data.player.item.artists[0].images[0]}`
+            //         .replace(/ /g, "%20")
+            //         .replace(/\\/g, "/"),
             duration: Number(track["duration"] / 60000).toFixed(2),
             shuffleState: data["shuffleState"],
             repeatState:
@@ -172,26 +174,28 @@ class Player extends Component {
             fetched: true,
             trackId: track["_id"],
             context: `oud:${response.data.player.context.type}:${response.data.player.context.id}`,
-            actions: response.data.player.actions,
-          });
-          this.props.changePlayingState(false);
-          this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
-          this.handleSaveToLikedSongs(track["_id"]);
-          return track["audioUrl"];
-        }
+            actions: response.data.player.actions
+          },
+          () => console.log("stated")
+        );
+        console.log("Done");
+        this.props.changePlayingState(false);
+        this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
+        this.handleSaveToLikedSongs(track["_id"]);
+        return track["audioUrl"];
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error.response);
       });
   };
-  handleSaveToLikedSongs = (trackId) => {
+  handleSaveToLikedSongs = trackId => {
     checkSavedTrack(trackId)
-      .then((isFound) => {
+      .then(isFound => {
         if (isFound) {
           this.props.changeLovedState(true);
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error.response.data.message);
       });
   };
@@ -205,7 +209,7 @@ class Player extends Component {
    * @function
    * @returns {void}
    */
-  playTrack = (audio) => {
+  playTrack = audio => {
     if (sound) {
       sound.unload();
     }
@@ -229,12 +233,12 @@ class Player extends Component {
   pause = () => {
     this.props
       .putRequest(`${base}/me/player/pause`)
-      .then((resp) => {
+      .then(resp => {
         sound.pause();
         this.setState({ playing: false });
         this.props.changePlayingState(false);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error.response.data.message);
       });
   };
@@ -244,11 +248,10 @@ class Player extends Component {
    * @param {integer} idx zero-based index indicates the position of the track in the context array
    * @returns {object}
    */
-  playResumeRequest = (idx) => {
-    console.log("idx from request: " + idx);
+  playResumeRequest = idx => {
     return this.props.putRequest(`${base}/me/player/play?queueIndex=0`, {
       // contextUri: this.state.context,
-      offset: { position: idx },
+      offset: { position: idx }
     });
   };
   /**
@@ -261,12 +264,12 @@ class Player extends Component {
    */
   resume = (idx = this.props.trackIdx) => {
     this.playResumeRequest(idx)
-      .then((resp) => {
+      .then(resp => {
         this.props.changePlayingState(true);
         this.setState({ playing: true });
         sound.play();
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error.response.data.message);
       });
   };
@@ -280,11 +283,11 @@ class Player extends Component {
    */
   play = (idx = this.props.trackIdx, audio = this.state.audioUrl) => {
     this.playResumeRequest(idx)
-      .then((resp) => {
+      .then(resp => {
         this.playTrack(audio);
         console.log(resp);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error.response);
       });
   };
@@ -302,29 +305,24 @@ class Player extends Component {
    * @returns{void}
    */
   handlePlayPause = (id = this.props.trackId, idx = this.props.trackIdx) => {
-    if (
-      this.state.actions &&
-      (!this.state.actions.pausing || !this.state.actions.pausing.resuming)
-    )
-      return;
     if (idx !== this.props.trackIdx) {
       if (sound) {
         sound.pause();
         sound.unload();
         this.setState({
           progress: 0,
-          current: Number(0).toFixed(2),
+          current: Number(0).toFixed(2)
         });
       }
       this.playResumeRequest(idx)
-        .then((resp) => {
+        .then(resp => {
           setTimeout(() => {
-            this.fetchPlayback().then((audio) => {
+            this.fetchPlayback().then(audio => {
               setTimeout(() => this.playTrack(audio), 100);
             });
           }, 100);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
         });
       return;
@@ -349,16 +347,15 @@ class Player extends Component {
    * @returns {void}
    */
   handleNext = () => {
-    if (this.state.actions && !this.state.actions.skipping_next) return;
     this.props
       .postRequest(`${base}/me/player/next`)
-      .then((response) => {
+      .then(response => {
         this.setState({
-          progress: 0,
+          progress: 0
         });
         const trackIdx = this.props.getNext();
         setTimeout(() => {
-          this.fetchPlayback().then((audio) => {
+          this.fetchPlayback().then(audio => {
             setTimeout(() => {
               this.props.changePlayingState(false);
               this.play(trackIdx, audio);
@@ -366,7 +363,7 @@ class Player extends Component {
           });
         }, 100);
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error.response);
       });
   };
@@ -378,16 +375,15 @@ class Player extends Component {
    * @returns {void}
    */
   handlePrev = () => {
-    if (this.state.actions && !this.state.actions.skipping_prev) return;
     this.props
       .postRequest(`${base}/me/player/previous`)
-      .then((response) => {
+      .then(response => {
         this.setState({
-          progress: 0,
+          progress: 0
         });
         const trackIdx = this.props.getPrevious();
         setTimeout(() => {
-          this.fetchPlayback().then((audio) => {
+          this.fetchPlayback().then(audio => {
             setTimeout(() => {
               this.props.changePlayingState(false);
               this.play(trackIdx, audio);
@@ -395,7 +391,7 @@ class Player extends Component {
           });
         }, 100);
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error.response.data.message);
       });
   };
@@ -407,26 +403,26 @@ class Player extends Component {
    * @function
    * @returns {void}
    */
-  onProgressClick = (e) => {
-    if (this.state.actions && !this.state.actions.seeking) return;
-    // e.preventDefault();
+  onProgressClick = e => {
     if (!this.state.mouseDown) return;
     const width = document.getElementById("progress-width").clientWidth;
     const offsetX = e.nativeEvent.offsetX;
-    // const offsetWidth = e.nativeEvent.target.offsetWidth;
     const percent = offsetX / width;
     const position = percent * this.state.duration * 60;
-
+    const endpoint =
+      base === mockUrl
+        ? `${base}/me/player/seek`
+        : `${base}/me/player/seek?positionMs=${position * 1000}`;
     this.props
-      .putRequest(`${base}/me/player/seek?positionMs=${position * 1000}`)
-      .then((response) => {
+      .putRequest(endpoint)
+      .then(response => {
         if (sound) sound.seek(position);
         this.setState({
           progress: (position / (this.state.duration * 60)) * 100,
-          current: Number(position / 60).toFixed(2),
+          current: Number(position / 60).toFixed(2)
         });
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error.response);
       });
   };
@@ -436,9 +432,9 @@ class Player extends Component {
    * @function
    * @returns {void}
    */
-  setMouseDown = (cond) => {
+  setMouseDown = cond => {
     this.setState({
-      mouseDown: cond,
+      mouseDown: cond
     });
   };
 
@@ -449,16 +445,15 @@ class Player extends Component {
    * @returns {void}
    */
   handleShuffleState = () => {
-    if (this.state.actions && !this.state.actions.toggling_shuffle) return;
     this.props
       .putRequest(`${base}/me/player/shuffle?state=${!this.state.shuffleState}`)
-      .then((response) => {
+      .then(response => {
         this.props.fetchQueue("0", this.props.trackId, false);
         this.setState({
-          shuffleState: !this.state.shuffleState,
+          shuffleState: !this.state.shuffleState
         });
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error.response.data.message);
       });
   };
@@ -471,25 +466,19 @@ class Player extends Component {
    * @returns {void}
    */
   handleRepeatState = () => {
-    if (
-      this.state.actions &&
-      (!this.state.actions.toggling_repeat_context ||
-        !this.state.actions.toggling_repeat_track)
-    )
-      return;
     const repeatState = (this.state.repeatState + 1) % 3;
     const state =
       repeatState === 0 ? "off" : repeatState === 1 ? "context" : "track";
     this.props
       .putRequest(`${base}/me/player/repeat?state=${state}`)
-      .then((response) => {
+      .then(response => {
         const loop = this.getLoopState(state);
         this.setState({
-          repeatState: repeatState,
+          repeatState: repeatState
         });
         if (sound) sound.loop(loop);
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error.response.data.message);
       });
   };
@@ -506,7 +495,7 @@ class Player extends Component {
     this.setState({
       muteState: mute,
       muteProgress: mute ? this.state.volume : 0,
-      volume: mute ? 0 : this.state.muteProgress,
+      volume: mute ? 0 : this.state.muteProgress
     });
     if (sound) sound.mute(mute);
   };
@@ -518,7 +507,7 @@ class Player extends Component {
    * @function
    * @returns {void}
    */
-  onVolumeClick = (e) => {
+  onVolumeClick = e => {
     // e.preventDefault();
     if (!this.state.mouseDown) return;
     const width = document.getElementById("volume-width").clientWidth;
@@ -528,7 +517,7 @@ class Player extends Component {
     if (sound) sound.volume(volume / 100);
     this.setState({
       volume: volume,
-      muteState: volume === 0 ? true : false,
+      muteState: volume === 0 ? true : false
     });
   };
 
@@ -540,7 +529,7 @@ class Player extends Component {
   closeThumb = () => {
     this.setState({
       thumbHeight: 0,
-      thumbDisplay: "initial",
+      thumbDisplay: "initial"
     });
   };
 
@@ -552,7 +541,7 @@ class Player extends Component {
   openThumb = () => {
     this.setState({
       thumbHeight: "25%",
-      thumbDisplay: "none",
+      thumbDisplay: "none"
     });
   };
   render() {
@@ -600,13 +589,13 @@ class Player extends Component {
               }
               constructLink={this.constructLink}
               setMouseDown={() => this.setMouseDown(true)}
-              onProgressClick={(e) => this.onProgressClick(e)}
-              mouseUp={(e) => {
+              onProgressClick={e => this.onProgressClick(e)}
+              mouseUp={e => {
                 this.onProgressClick(e);
                 document.addEventListener(
                   "mouseup",
                   this.setState({
-                    mouseDown: false,
+                    mouseDown: false
                   })
                 );
               }}
@@ -627,13 +616,13 @@ class Player extends Component {
               handleRepeatState={this.handleRepeatState}
               handleMuteState={this.handleMuteState}
               setMouseDown={() => this.setMouseDown(true)}
-              onVolumeClick={(e) => this.onVolumeClick(e)}
-              mouseUp={(e) => {
+              onVolumeClick={e => this.onVolumeClick(e)}
+              mouseUp={e => {
                 this.onVolumeClick(e);
                 document.addEventListener(
                   "mouseup",
                   this.setState({
-                    mouseDown: false,
+                    mouseDown: false
                   })
                 );
               }}
@@ -687,7 +676,7 @@ Player.propTypes = {
   /**
    * A function to fetch any track given the id as a parameter
    */
-  fetchTrack: PropTypes.func.isRequired,
+  fetchTrack: PropTypes.func.isRequired
 };
 
 export default Player;

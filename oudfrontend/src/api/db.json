@@ -748,8 +748,12 @@
     "Artist": {
       "_id": "string",
       "followersCount": 0,
-      "genres": ["string"],
-      "images": ["string"],
+      "genres": [
+        "string"
+      ],
+      "images": [
+        "string"
+      ],
       "name": "string",
       "bio": "string",
       "popularSongs": [
@@ -1048,7 +1052,9 @@
     }
   ],
   "ids": {
-    "ids": [true]
+    "ids": [
+      true
+    ]
   },
   "playlists2": [
     {
@@ -1058,7 +1064,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1069,7 +1077,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1080,7 +1090,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1091,7 +1103,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1102,7 +1116,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1113,7 +1129,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1132,7 +1150,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1143,7 +1163,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1154,7 +1176,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1165,7 +1189,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1176,7 +1202,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1187,7 +1215,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1206,7 +1236,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1217,7 +1249,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1228,7 +1262,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1239,7 +1275,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1250,7 +1288,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1261,7 +1301,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1280,7 +1322,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1291,7 +1335,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1302,7 +1348,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1313,7 +1361,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1324,7 +1374,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1335,7 +1387,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1354,7 +1408,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1365,7 +1421,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1376,7 +1434,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1387,7 +1447,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1398,7 +1460,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1409,7 +1473,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -2429,218 +2495,113 @@
   "queue": {
     "tracks": [
       {
-        "id": "23",
-        "name": "سلاح التلميذ",
+        "id": "2",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "25",
-        "name": "سلاح التلميذ",
+        "id": "11",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "26",
-        "name": "سلاح التلميذ",
+        "id": "3",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "27",
-        "name": "سلاح التلميذ",
+        "id": "4",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "28",
-        "name": "سلاح التلميذ",
+        "id": "5",
+        "name": "Hat Sogara",
         "artists": [
           {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
+            "id": "1",
+            "name": "Danny Willok",
+            "type": "shaaby",
             "image": "string"
           },
           {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
             "image": "string"
           }
         ],
         "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
+        "type": "Jazz",
+        "audioUrl": "www.Facebook.com"
       },
       {
-        "id": "29",
-        "name": "سلاح التلميذ",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
-      },
-      {
-        "id": "30",
-        "name": "سلاح التلميذ",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
-      },
-      {
-        "id": "31",
-        "name": "سلاح التلميذ",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
-      },
-      {
-        "id": "32",
-        "name": "سلاح التلميذ",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Trap",
-        "audioUrl": "www.facebook.com"
-      },
-      {
-        "id": "33",
-        "name": "سلاح التلميذ",
-        "artists": [
-          {
-            "id": "3",
-            "name": "ًWegz el wench",
-            "type": "Trap",
-            "image": "string"
-          },
-          {
-            "id": "4",
-            "name": "Amr Diab",
-            "type": "farafeery",
-            "image": "string"
-          }
-        ],
-        "albumId": "1",
-        "type": "Trap",
-        "image": "string"
-      },
-      {
-        "id": "34",
-        "name": "سلاح التلميذ",
+        "id": "12",
+        "name": "واحد وعشرين",
         "artists": [
           {
             "id": "3",
@@ -2660,16 +2621,16 @@
         "audioUrl": "www.facebook.com"
       }
     ],
-    "albumId": "1",
-    "type": "Trap",
-    "audioUrl": "www.facebook.com"
+    "total": 6
   },
   "user": [
     {
       "id": "1",
       "displayName": "Ahmed",
       "followersCount": 5,
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "verified": false,
       "type": "string"
     },
@@ -2677,7 +2638,9 @@
       "id": "2",
       "displayName": "Mido",
       "followersCount": 0,
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "verified": false,
       "type": "string"
     }
@@ -3603,7 +3566,9 @@
           "image": "string"
         }
       ],
-      "genres": ["shaaby"],
+      "genres": [
+        "shaaby"
+      ],
       "image": "https://i.scdn.co/image/ab67616d0000b273ef029742aa2f7342b3b5daaf",
       "name": "Insan",
       "release_date": "2020-03-07",
@@ -3936,7 +3901,7 @@
         "artists": [
           {
             "_id": "21",
-            "name": "ماهر زين",
+            "displayName": "ماهر زين",
             "type": "string",
             "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Islamic-Maher-Zain.jpg"
           }
@@ -3973,10 +3938,26 @@
   "repeat": {},
   "volume": {},
   "play": {
-    "meId": "player"
+    "uris": [
+      "oud:track:2",
+      "oud:track:11",
+      "oud:track:3",
+      "oud:track:4",
+      "oud:track:5",
+      "oud:track:12"
+    ],
+    "offset": {
+      "position": 0
+    }
   },
   "queue1": {
-    "tracks": ["dkfjnc245", "dkfjnc246", "dkfjnc247", "dkfjnc248", "dkfjnc249"],
+    "tracks": [
+      "dkfjnc245",
+      "dkfjnc246",
+      "dkfjnc247",
+      "dkfjnc248",
+      "dkfjnc249"
+    ],
     "total": 5
   },
   "dkfjnc245": {
@@ -3985,7 +3966,7 @@
     "artists": [
       {
         "_id": "string",
-        "name": "Maher Zain",
+        "displayName": "Maher Zain",
         "type": "string",
         "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Arai-Maher-Zain.jpg"
       }
@@ -4002,7 +3983,7 @@
     "artists": [
       {
         "_id": "string",
-        "name": "Maher Zain",
+        "displayName": "Maher Zain",
         "type": "string",
         "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Arai-Maher-Zain.jpg"
       }
@@ -4019,7 +4000,7 @@
     "artists": [
       {
         "_id": "string",
-        "name": "Wegz",
+        "displayName": "Wegz",
         "type": "string",
         "image": "https://1.bp.blogspot.com/-UiyeZ3BS-vU/XkofO3B9dyI/AAAAAAAAAxs/Qq4zCnTnuZ4lrYv_T7TZ-lkuWScalDtSwCPcBGAYYCw/s320/unnamed.jpg"
       }
@@ -4036,7 +4017,7 @@
     "artists": [
       {
         "_id": "string",
-        "name": "Hamza Namra",
+        "displayName": "Hamza Namra",
         "type": "string",
         "image": "https://www.dw.com/image/18376104_303.jpg"
       }
@@ -4053,7 +4034,7 @@
     "artists": [
       {
         "_id": "string",
-        "name": "Hamza Namra",
+        "displayName": "Hamza Namra",
         "type": "string",
         "image": "https://www.dw.com/image/18376104_303.jpg"
       }
@@ -4080,41 +4061,62 @@
     "id": "1"
   },
   "likedkfjnc245": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
-  "likedkfjnc2456": {
-    "items": [{}],
+  "likedkfjnc246": {
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc247": {},
   "likedkfjnc248": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc249": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
+  "checkkfjnc245": {
+    "IsFound": [
+      true
+    ]
+  },
   "checkkfjnc246": {
-    "IsFound": [false]
+    "IsFound": [
+      false
+    ]
   },
   "checkkfjnc247": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   },
   "checkkfjnc248": {
-    "IsFound": [false]
+    "IsFound": [
+      false
+    ]
   },
   "checkkfjnc249": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   },
   "SuggestedArtist": [
     {
@@ -4123,7 +4125,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4131,7 +4135,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4139,7 +4145,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4147,7 +4155,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4155,7 +4165,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4163,7 +4175,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4171,7 +4185,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4179,7 +4195,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4187,7 +4205,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4195,7 +4215,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4203,7 +4225,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4211,7 +4235,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4219,7 +4245,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4227,7 +4255,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4235,7 +4265,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4243,7 +4275,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4251,7 +4285,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4259,7 +4295,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4267,7 +4305,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4275,7 +4315,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4283,7 +4325,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4291,7 +4335,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4299,7 +4345,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4307,7 +4355,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4315,7 +4365,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4323,7 +4375,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4331,7 +4385,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4339,7 +4395,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4347,7 +4405,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4355,7 +4415,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4363,7 +4425,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4371,7 +4435,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4379,7 +4445,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4387,7 +4455,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4395,7 +4465,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4403,7 +4475,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     }
   ],
   "MusicCardAthome": [
@@ -4500,359 +4574,360 @@
     "total": 0
   },
   "search": {
-    "tracks": {
-      "tracks": [
-        {
-          "_id": "1",
-          "name": "Allen",
-          "artists": [
-            {
-              "_id": "1",
-              "displayName": "Hemdan",
-              "type": "Lol",
-              "images": [
-                "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
-                "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg"
-              ]
-            }
-          ],
-          "albumId": "1",
-          "album": {
+    "tracks": [
+      {
+        "_id": "1",
+        "name": "Allen",
+        "artists": [
+          {
             "_id": "1",
-            "album_type": "AJ+",
-            "artists": [
+            "displayName": "Hemdan",
+            "type": "Lol",
+            "images": [
               "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
               "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg"
-            ],
-            "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
-            "name": "Lolki",
-            "type": "Jazz",
-            "released": true
-          },
-          "type": "string",
-          "duartion": 0,
-          "views": 0
-        },
-        {
-          "_id": "2",
-          "name": "Switck",
+            ]
+          }
+        ],
+        "albumId": "1",
+        "album": {
+          "_id": "1",
+          "album_type": "AJ+",
           "artists": [
-            {
-              "_id": "1",
-              "displayName": "Hemdan",
-              "type": "Lol",
-              "images": [
-                "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
-                "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg"
-              ]
-            }
+            "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+            "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg"
           ],
-          "albumId": "1",
-          "album": {
+          "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+          "name": "Lolki",
+          "type": "Jazz",
+          "released": true
+        },
+        "type": "string",
+        "duartion": 0,
+        "views": 0
+      },
+      {
+        "_id": "2",
+        "name": "Switck",
+        "artists": [
+          {
             "_id": "1",
-            "album_type": "AJ+",
-            "artists": [
+            "displayName": "Hemdan",
+            "type": "Lol",
+            "images": [
               "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
               "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg"
-            ],
-            "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
-            "name": "Lolki",
-            "type": "Jazz",
-            "released": true
-          },
-          "type": "string",
-          "duartion": 0,
-          "views": 0
-        },
-        {
-          "_id": "3",
-          "name": "Mint",
+            ]
+          }
+        ],
+        "albumId": "1",
+        "album": {
+          "_id": "1",
+          "album_type": "AJ+",
           "artists": [
-            {
-              "_id": "1",
-              "displayName": "Hemdan",
-              "type": "Lol",
-              "images": [
-                "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
-                "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg"
-              ]
-            }
+            "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+            "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg"
           ],
-          "albumId": "1",
-          "album": {
+          "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+          "name": "Lolki",
+          "type": "Jazz",
+          "released": true
+        },
+        "type": "string",
+        "duartion": 0,
+        "views": 0
+      },
+      {
+        "_id": "3",
+        "name": "Mint",
+        "artists": [
+          {
             "_id": "1",
-            "album_type": "AJ+",
-            "artists": [
+            "displayName": "Hemdan",
+            "type": "Lol",
+            "images": [
               "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
               "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg"
-            ],
-            "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
-            "name": "Lolki",
-            "type": "Jazz",
-            "released": true
+            ]
+          }
+        ],
+        "albumId": "1",
+        "album": {
+          "_id": "1",
+          "album_type": "AJ+",
+          "artists": [
+            "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+            "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg"
+          ],
+          "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+          "name": "Lolki",
+          "type": "Jazz",
+          "released": true
+        },
+        "type": "string",
+        "duartion": 0,
+        "views": 0
+      }
+    ],
+    "albums": [
+      {
+        "_id": "1",
+        "name": "Insan",
+        "artists": [
+          {
+            "id": "5",
+            "name": "حمزة نمرة",
+            "type": "shaaby",
+            "image": "string"
           },
-          "type": "string",
-          "duartion": 0,
-          "views": 0
-        }
-      ]
-    },
-    "albums": {
-      "albums": [
-        {
-          "_id": "1",
-          "name": "Insan",
-          "artists": [
-            {
-              "id": "5",
-              "name": "حمزة نمرة",
-              "type": "shaaby",
-              "image": "string"
-            },
-            {
-              "id": "2",
-              "name": "Sardeena",
-              "type": "Shaaby",
-              "image": "string"
-            }
-          ],
-          "album_type": "album",
-          "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
-          "released": true,
-          "type": "Jazz"
-        },
-        {
-          "_id": "2",
-          "name": "AJ+ Hemdan",
-          "artists": [
-            {
-              "id": "3",
-              "name": "ًWegz el wench",
-              "type": "Trap",
-              "image": "string"
-            },
-            {
-              "id": "4",
-              "name": "Amr Diab",
-              "type": "farafeery",
-              "image": "string"
-            }
-          ],
-          "album_type": "album",
-          "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
-          "released": true,
-          "type": "Trap",
-          "audioUrl": "www.facebook.com"
-        }
-      ]
-    },
-    "artists": {
-      "artists": [
-        {
-          "_id": "1",
-          "genres": [],
-          "images": [
-            "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
-          ],
-          "displayName": "Hemdan",
-          "bio": "جامد",
-          "popularSongs": [],
-          "type": "artist"
-        },
-        {
-          "_id": "2",
-          "genres": [],
-          "images": [
-            "https://avatars0.githubusercontent.com/u/43186742?s=400&u=25ff1f315462c75d0b86f1f3c4779a341133095b&v=4"
-          ],
-          "displayName": "Mahboub",
-          "bio": "جامد جامد",
-          "popularSongs": [],
-          "type": "artist"
-        },
-        {
-          "_id": "3",
-          "genres": [],
-          "images": [
-            "https://avatars3.githubusercontent.com/u/42722816?s=400&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
-          ],
-          "displayName": "Sedo",
-          "bio": "جامد جامد",
-          "popularSongs": [],
-          "type": "artist"
-        },
-        {
-          "_id": "4",
-          "genres": [],
-          "images": [
-            "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
-          ],
-          "displayName": "Ashraf",
-          "bio": "جامد جامد",
-          "popularSongs": [],
-          "type": "artist"
-        },
-        {
-          "_id": "5",
-          "genres": [],
-          "images": [
-            "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
-          ],
-          "displayName": "Walid",
-          "bio": "جامد جامد",
-          "popularSongs": [],
-          "type": "artist"
-        }
-      ]
-    },
-    "users": {
-      "users": [
-        {
-          "_id": "1",
-          "displayName": "Abdallah Hemdan",
-          "followersCount": 0,
-          "images": [
-            "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
-          ],
-          "verified": false,
-          "type": "user"
-        },
-        {
-          "_id": "2",
-          "displayName": "Angela Yu",
-          "followersCount": 0,
-          "images": [
-            "https://avatars2.githubusercontent.com/u/4332182?s=400&u=9500cf9efe0264e8a38f6d9b61748073fd915f85&v=4"
-          ],
-          "verified": false,
-          "type": "user"
-        },
-        {
-          "_id": "3",
-          "displayName": "Fuboki 10",
-          "followersCount": 0,
-          "images": [
-            "https://avatars3.githubusercontent.com/u/35429211?s=400&u=9cee545bc05d72e1df089bb00c936a53295bc270&v=4"
-          ],
-          "verified": false,
-          "type": "user"
-        }
-      ]
-    },
-    "playlists": {
-      "playlists": [
-        {
-          "_id": "1",
-          "name": "Jazz",
-          "owner": "1",
-          "collaborative": true,
-          "description": "Best music I have ever listened to",
-          "followersCount": 100,
-          "image": "https://angartwork.akamaized.net/webp/?id=1096371005&size=296",
-          "public": true,
-          "type": "trap",
-          "tracks": [
-            {
-              "id": "1",
-              "name": "Hat Sogara",
-              "artists": [
-                {
-                  "id": "1",
-                  "name": "Danny Willok",
-                  "type": "shaaby",
-                  "image": "string"
-                },
-                {
-                  "id": "2",
-                  "name": "Sardeena",
-                  "type": "Shaaby",
-                  "image": "string"
-                }
-              ],
-              "albumId": "1",
-              "type": "Jazz",
-              "audioUrl": "www.Facebook.com"
-            },
-            {
-              "id": "2",
-              "name": "Hat Sogara",
-              "artists": [
-                {
-                  "id": "1",
-                  "name": "Danny Willok",
-                  "type": "shaaby",
-                  "image": "string"
-                },
-                {
-                  "id": "2",
-                  "name": "Sardeena",
-                  "type": "Shaaby",
-                  "image": "string"
-                }
-              ],
-              "albumId": "1",
-              "type": "Jazz",
-              "audioUrl": "www.Facebook.com"
-            }
-          ]
-        },
-        {
-          "_id": "2",
-          "name": "Jazz",
-          "owner": "2",
-          "collaborative": true,
-          "description": "Best music I have ever listened to",
-          "followersCount": 100,
-          "image": "https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
-          "public": true,
-          "type": "trap",
-          "tracks": [
-            {
-              "id": "19",
-              "name": "إنسان",
-              "artists": [
-                {
-                  "id": "5",
-                  "name": "حمزة نمرة",
-                  "type": "shaaby",
-                  "image": "string"
-                },
-                {
-                  "id": "2",
-                  "name": "Sardeena",
-                  "type": "Shaaby",
-                  "image": "string"
-                }
-              ],
-              "albumId": "1",
-              "type": "Jazz",
-              "audioUrl": "www.Facebook.com"
-            },
-            {
-              "id": "20",
-              "name": "سلاح التلميذ",
-              "artists": [
-                {
-                  "id": "3",
-                  "name": "ًWegz el wench",
-                  "type": "Trap",
-                  "image": "string"
-                },
-                {
-                  "id": "4",
-                  "name": "Amr Diab",
-                  "type": "farafeery",
-                  "image": "string"
-                }
-              ],
-              "albumId": "1",
-              "type": "Trap",
-              "audioUrl": "www.facebook.com"
-            }
-          ]
-        }
-      ]
-    },
+          {
+            "id": "2",
+            "name": "Sardeena",
+            "type": "Shaaby",
+            "image": "string"
+          }
+        ],
+        "album_type": "album",
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "released": true,
+        "type": "Jazz"
+      },
+      {
+        "_id": "2",
+        "name": "AJ+ Hemdan",
+        "artists": [
+          {
+            "id": "3",
+            "name": "ًWegz el wench",
+            "type": "Trap",
+            "image": "string"
+          },
+          {
+            "id": "4",
+            "name": "Amr Diab",
+            "type": "farafeery",
+            "image": "string"
+          }
+        ],
+        "album_type": "album",
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "released": true,
+        "type": "Trap",
+        "audioUrl": "www.facebook.com"
+      }
+    ],
+    "artists": [
+      {
+        "_id": "1",
+        "genres": [],
+        "images": [
+          "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
+        ],
+        "displayName": "Hemdan",
+        "bio": "جامد",
+        "popularSongs": [],
+        "type": "artist"
+      },
+      {
+        "_id": "2",
+        "genres": [],
+        "images": [
+          "https://avatars1.githubusercontent.com/u/44725090?s=400&u=a2677e9cca270c39116195ba6e654fc7a06b8b0f&v=4"
+        ],
+        "displayName": "Arafat",
+        "bio": "جامد جامد",
+        "popularSongs": [],
+        "type": "artist"
+      },
+      {
+        "_id": "3",
+        "genres": [],
+        "images": [
+          "https://avatars3.githubusercontent.com/u/42722816?s=400&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
+        ],
+        "displayName": "Sedo",
+        "bio": "جامد جامد",
+        "popularSongs": [],
+        "type": "artist"
+      },
+      {
+        "_id": "4",
+        "genres": [],
+        "images": [
+          "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
+        ],
+        "displayName": "Ashraf",
+        "bio": "جامد جامد",
+        "popularSongs": [],
+        "type": "artist"
+      },
+      {
+        "_id": "5",
+        "genres": [],
+        "images": [
+          "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
+        ],
+        "displayName": "Walid",
+        "bio": "جامد جامد",
+        "popularSongs": [],
+        "type": "artist"
+      },
+      {
+        "_id": "6",
+        "genres": [],
+        "images": [
+          "https://scontent.fcai19-2.fna.fbcdn.net/v/t1.0-9/p960x960/75419075_1897719627038337_8834863021974093824_o.jpg?_nc_cat=101&_nc_sid=85a577&_nc_ohc=G4rymbtNixwAX-A4WIa&_nc_ht=scontent.fcai19-2.fna&_nc_tp=6&oh=995f072a66c21422eef2a0f4f9718d7a&oe=5EC6DD91"
+        ],
+        "displayName": "Mahboub",
+        "bio": "جامد جامد",
+        "popularSongs": [],
+        "type": "artist"
+      }
+    ],
+    "users": [
+      {
+        "_id": "1",
+        "displayName": "Abdallah Hemdan",
+        "followersCount": 0,
+        "images": [
+          "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
+        ],
+        "verified": false,
+        "type": "user"
+      },
+      {
+        "_id": "2",
+        "displayName": "Angela Yu",
+        "followersCount": 0,
+        "images": [
+          "https://avatars2.githubusercontent.com/u/4332182?s=400&u=9500cf9efe0264e8a38f6d9b61748073fd915f85&v=4"
+        ],
+        "verified": false,
+        "type": "user"
+      },
+      {
+        "_id": "3",
+        "displayName": "Fuboki 10",
+        "followersCount": 0,
+        "images": [
+          "https://avatars3.githubusercontent.com/u/35429211?s=400&u=9cee545bc05d72e1df089bb00c936a53295bc270&v=4"
+        ],
+        "verified": false,
+        "type": "user"
+      }
+    ],
+    "playlists": [
+      {
+        "_id": "1",
+        "name": "Jazz",
+        "owner": "1",
+        "collaborative": true,
+        "description": "Best music I have ever listened to",
+        "followersCount": 100,
+        "image": "https://angartwork.akamaized.net/webp/?id=1096371005&size=296",
+        "public": true,
+        "type": "trap",
+        "tracks": [
+          {
+            "id": "1",
+            "name": "Hat Sogara",
+            "artists": [
+              {
+                "id": "1",
+                "name": "Danny Willok",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "2",
+            "name": "Hat Sogara",
+            "artists": [
+              {
+                "id": "1",
+                "name": "Danny Willok",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          }
+        ]
+      },
+      {
+        "_id": "2",
+        "name": "Jazz",
+        "owner": "2",
+        "collaborative": true,
+        "description": "Best music I have ever listened to",
+        "followersCount": 100,
+        "image": "https://img1.wsimg.com/isteam/ip/8203b8d1-fa5f-419d-a67f-e7d2656bf2ed/MEK_9025-1111.jpg",
+        "public": true,
+        "type": "trap",
+        "tracks": [
+          {
+            "id": "19",
+            "name": "إنسان",
+            "artists": [
+              {
+                "id": "5",
+                "name": "حمزة نمرة",
+                "type": "shaaby",
+                "image": "string"
+              },
+              {
+                "id": "2",
+                "name": "Sardeena",
+                "type": "Shaaby",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Jazz",
+            "audioUrl": "www.Facebook.com"
+          },
+          {
+            "id": "20",
+            "name": "سلاح التلميذ",
+            "artists": [
+              {
+                "id": "3",
+                "name": "ًWegz el wench",
+                "type": "Trap",
+                "image": "string"
+              },
+              {
+                "id": "4",
+                "name": "Amr Diab",
+                "type": "farafeery",
+                "image": "string"
+              }
+            ],
+            "albumId": "1",
+            "type": "Trap",
+            "audioUrl": "www.facebook.com"
+          }
+        ]
+      }
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
@@ -5013,7 +5088,9 @@
     }
   ],
   "followArtist": {
-    "ids": ["1"]
+    "ids": [
+      "1"
+    ]
   },
   "unfollowArtist": {},
   "top-tracks": {
@@ -5136,7 +5213,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5152,7 +5231,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5168,7 +5249,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5184,7 +5267,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5200,7 +5285,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5216,7 +5303,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5232,7 +5321,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5248,7 +5339,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5264,7 +5357,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5280,7 +5375,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5296,7 +5393,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5312,7 +5411,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5328,7 +5429,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5344,7 +5447,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5360,7 +5465,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5376,7 +5483,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5392,7 +5501,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5408,7 +5519,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5424,7 +5537,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5440,7 +5555,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5476,7 +5593,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5489,7 +5608,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5525,7 +5646,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5538,7 +5661,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5574,7 +5699,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5587,7 +5714,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5623,7 +5752,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5636,7 +5767,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5672,7 +5805,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5685,7 +5820,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5721,7 +5858,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5734,7 +5873,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5770,7 +5911,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5783,7 +5926,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5819,7 +5964,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5832,7 +5979,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5868,7 +6017,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5881,7 +6032,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5917,7 +6070,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5930,7 +6085,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5966,7 +6123,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5979,7 +6138,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6015,7 +6176,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6028,7 +6191,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6064,7 +6229,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6077,7 +6244,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6113,7 +6282,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6126,7 +6297,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6162,7 +6335,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6175,7 +6350,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6211,7 +6388,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6224,7 +6403,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6260,7 +6441,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6273,7 +6456,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6309,7 +6494,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6322,7 +6509,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6358,7 +6547,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6371,7 +6562,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6407,7 +6600,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6420,7 +6615,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6507,7 +6704,9 @@
           "name": "string"
         }
       ],
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "displayName": "Ahmed Ashraf",
       "bio": "string",
       "popularSongs": [
@@ -6519,7 +6718,9 @@
               "_id": "string",
               "displayName": "string",
               "type": "string",
-              "images": ["string"]
+              "images": [
+                "string"
+              ]
             }
           ],
           "albumId": "string",
@@ -6531,7 +6732,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "image": "string",
@@ -6554,7 +6757,9 @@
           "name": "string"
         }
       ],
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "displayName": "Ahmed Mahboub",
       "bio": "string",
       "popularSongs": [
@@ -6566,7 +6771,9 @@
               "_id": "string",
               "displayName": "string",
               "type": "string",
-              "images": ["string"]
+              "images": [
+                "string"
+              ]
             }
           ],
           "albumId": "string",
@@ -6578,7 +6785,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "image": "string",
@@ -6601,7 +6810,9 @@
           "name": "string"
         }
       ],
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "displayName": "Ahmed Walid",
       "bio": "string",
       "popularSongs": [
@@ -6613,7 +6824,9 @@
               "_id": "string",
               "displayName": "string",
               "type": "string",
-              "images": ["string"]
+              "images": [
+                "string"
+              ]
             }
           ],
           "albumId": "string",
@@ -6625,7 +6838,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "image": "string",
@@ -6648,7 +6863,9 @@
           "name": "string"
         }
       ],
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "displayName": "Abdullah Hemdan",
       "bio": "string",
       "popularSongs": [
@@ -6660,7 +6877,9 @@
               "_id": "string",
               "displayName": "string",
               "type": "string",
-              "images": ["string"]
+              "images": [
+                "string"
+              ]
             }
           ],
           "albumId": "string",
@@ -6672,7 +6891,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "image": "string",
@@ -6695,7 +6916,9 @@
           "name": "string"
         }
       ],
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "displayName": "Abdullah Abu Sedo",
       "bio": "string",
       "popularSongs": [
@@ -6707,7 +6930,9 @@
               "_id": "string",
               "displayName": "string",
               "type": "string",
-              "images": ["string"]
+              "images": [
+                "string"
+              ]
             }
           ],
           "albumId": "string",
@@ -6719,7 +6944,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "image": "string",

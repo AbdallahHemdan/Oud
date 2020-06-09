@@ -8,10 +8,12 @@ import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { base } from "../../../config/environment";
+// import { config } from "./../../../utils/auth";
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzYwNzk4OCwiZXhwIjoxNTkwMTk5OTg4fQ.hEWUx1yLNpe199Gj29V52xQSCav5t0Buj_rqV9shokY`,
-  },
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU5MTYyMTQxOSwiZXhwIjoxNTk0MjEzNDE5fQ.fj3N3Pc89Pf_xlt7fGmXw1SINTecUB4-y3pihAAPjC8`,
+    "Access-Control-Allow-Origin": "*"
+  }
 };
 const DragHandle = sortableHandle(() => (
   <span className="handler">
@@ -31,13 +33,13 @@ class Track extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: "",
+      image: placeHolder,
       trackName: "",
       artistName: "",
       duration: "",
       resume: false,
       thumb: play,
-      playing: false,
+      playing: false
     };
   }
   componentDidMount() {
@@ -46,7 +48,7 @@ class Track extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.tracks !== prevState.tracks) {
       return {
-        playing: nextProps.playing,
+        playing: nextProps.playing
       };
     }
     return null;
@@ -59,21 +61,21 @@ class Track extends Component {
   fetchTrackInfo = () => {
     axios
       .get(`${base}/tracks/${this.props.id}`, config)
-      .then((response) => {
+      .then(response => {
         const track = response.data;
         this.setState({
-          image:
-            "https://oud-zerobase.me/api/" +
-            track["artists"][0]["images"][0]
-              .replace(/ /g, "%20")
-              .replace(/\\/g, "/"),
+          // image:
+          //   "https://oud-zerobase.me/api/" +
+          //   track["artists"][0]["images"][0]
+          //     .replace(/ /g, "%20")
+          //     .replace(/\\/g, "/"),
           trackName: track["name"],
           artistName: track["artists"][0]["displayName"],
-          duration: Number(track["duration"] / 60000).toFixed(2),
+          duration: Number(track["duration"] / 60000).toFixed(2)
         });
         console.log(this.state.image);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   };
@@ -97,7 +99,7 @@ class Track extends Component {
   };
   togglePlay = () => {
     this.setState({
-      playing: !this.state.playing,
+      playing: !this.state.playing
     });
     return;
   };
@@ -179,6 +181,6 @@ Track.propTypes = {
   /**
    * Open/Close the dropdown menu function.
    */
-  toggleDropdown: PropTypes.func.isRequired,
+  toggleDropdown: PropTypes.func.isRequired
 };
 export default Track;

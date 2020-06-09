@@ -4,12 +4,18 @@ import axios from "axios";
 import Player from "./Player/Player";
 import Queue from "./Queue/Queue";
 import Swal from "sweetalert2";
-import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
-import { base } from "./../../config/environment";
+import {
+  saveTrack,
+  removeSavedTrack,
+  setPlaying
+} from "../../utils/Actions/Player";
+import { base, mockUrl } from "./../../config/environment";
+// import { config } from "./../../utils/auth";
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU4NzYwNzk4OCwiZXhwIjoxNTkwMTk5OTg4fQ.hEWUx1yLNpe199Gj29V52xQSCav5t0Buj_rqV9shokY`,
-  },
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU5MTYyMTQxOSwiZXhwIjoxNTk0MjEzNDE5fQ.fj3N3Pc89Pf_xlt7fGmXw1SINTecUB4-y3pihAAPjC8`,
+    "Access-Control-Allow-Origin": "*"
+  }
 };
 /**
  * Component controlling the Player and Qeueu Components. It masters all the logic behind the web player.
@@ -28,9 +34,8 @@ class WebPlayer extends Component {
       trackIdx: 0,
       trackId: "",
       queue: [],
-      deviceId: "74ASZWbe4lXaubB36ztrGX",
       playing: false,
-      loved: false,
+      loved: false
     };
     this.queueElement = React.createRef();
     this.playerElement = React.createRef();
@@ -41,7 +46,7 @@ class WebPlayer extends Component {
    * @param {string} endpoint the required endpoint to implement an action
    * @returns {object}
    */
-  getRequest = (endpoint) => {
+  getRequest = endpoint => {
     return axios.get(endpoint, config);
   };
   /**
@@ -50,7 +55,7 @@ class WebPlayer extends Component {
    * @param {string} endpoint the required endpoint to implement an action
    * @returns {object}
    */
-  deleteRequest = (endpoint) => {
+  deleteRequest = endpoint => {
     return axios.delete(endpoint, config);
   };
   /**
@@ -91,8 +96,9 @@ class WebPlayer extends Component {
    * @returns {void}
    */
   fetchQueue = (queueIndex = "0", trackId = "", newQueue = false) => {
+    console.log("fetching queue...");
     this.getRequest(`${base}/me/queue?queueIndex=${queueIndex}`)
-      .then((response) => {
+      .then(response => {
         const data = response["data"];
         if (!data.hasOwnProperty("status")) {
           const size = data["total"];
@@ -106,7 +112,7 @@ class WebPlayer extends Component {
             {
               trackIdx: newQueue ? 0 : trackIdx,
               queue: data["tracks"],
-              trackId: newQueue ? data["tracks"][0] : trackId,
+              trackId: newQueue ? data["tracks"][0] : trackId
             },
             () => {
               console.log("queue:");
@@ -118,7 +124,7 @@ class WebPlayer extends Component {
           );
         }
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error.response);
       });
   };
@@ -128,7 +134,7 @@ class WebPlayer extends Component {
    * @param {number} trackId the id of the wanted track
    * @returns {object}
    */
-  fetchTrack = (trackId) => {
+  fetchTrack = trackId => {
     let trackIdx = this.state.trackIdx;
     for (let i = 0; i < this.state.queue.length; ++i)
       if (this.state.queue[i] === trackId) {
@@ -136,7 +142,7 @@ class WebPlayer extends Component {
         break;
       }
     this.setState({
-      trackIdx: trackIdx,
+      trackIdx: trackIdx
     });
     return this.getRequest(`${base}/tracks/${trackId}`);
   };
@@ -156,7 +162,7 @@ class WebPlayer extends Component {
 
     this.setState({
       trackIdx: idx,
-      trackId: this.state.queue[idx],
+      trackId: this.state.queue[idx]
     });
     return idx;
   };
@@ -169,7 +175,7 @@ class WebPlayer extends Component {
     const idx = this.state.trackIdx - 1 < 0 ? 0 : this.state.trackIdx - 1;
     this.setState({
       trackIdx: idx,
-      trackId: this.state.queue[idx],
+      trackId: this.state.queue[idx]
     });
     return idx;
   };
@@ -187,30 +193,35 @@ class WebPlayer extends Component {
     uris = [],
     offset = 0,
     position = 0,
-    isTracksList = false
+    isTracksList = false,
+    resume = false
   ) => {
+    if (resume) {
+      this.playerElement.current.handlePlayPause();
+      return;
+    }
     const body = isTracksList
       ? {
           uris: uris,
-          offset: { position: offset },
+          offset: { position: offset }
         }
       : {
           contextUri: contextUri,
-          offset: { position: offset },
+          offset: { position: offset }
         };
-    this.putRequest(`${base}/me/player/play`, body)
-      .then((response) => {
+    this.putRequest(`${base}/me/player/play?queueIndex=0`, body)
+      .then(response => {
         // this.fetchQueue();
         let player = this.playerElement.current;
         setTimeout(() => {
-          player.fetchPlayback(true).then((audioUrl) => {
+          player.fetchPlayback(true).then(audioUrl => {
             setTimeout(() => {
               player.playTrack(audioUrl);
             }, 100);
           });
         }, 100);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error.response.data.message);
       });
   };
@@ -227,10 +238,10 @@ class WebPlayer extends Component {
     this.patchRequest(
       `${base}/me/queue?queueIndex=0&trackIndex=${oldIdx}&newIndex=${newIdx}`
     )
-      .then((response) => {
+      .then(response => {
         this.fetchQueue(0, this.state.trackId);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error.response);
       });
   };
@@ -248,19 +259,18 @@ class WebPlayer extends Component {
     this.setState({
       playing: playing,
       trackIdx: idx,
-      trackId: id,
+      trackId: id
     });
   };
   togglePlayingState = () => {
     this.setState({
-      playing: !this.state.playing,
+      playing: !this.state.playing
     });
-
     return this.state.playing;
   };
-  changeLovedState = (state) => {
+  changeLovedState = state => {
     this.setState({
-      loved: state,
+      loved: state
     });
   };
   /**
@@ -273,50 +283,54 @@ class WebPlayer extends Component {
   removeTrack = (idx, id) => {
     //
     this.deleteRequest(`${base}/me/queue?trackId=${id}`)
-      .then((response) => {
+      .then(response => {
         this.fetchQueue(0, this.state.trackId);
         Swal.fire({
           title: "Done!",
           text: "Track Deleted Successfully from your Queue!",
           icon: "success",
           showConfirmButton: false,
-          timer: 1000,
+          timer: 1000
         });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error.response);
       });
   };
   likeSong = (trackId, queue = false) => {
-    saveTrack(trackId).then((done) => {
+    saveTrack(trackId).then(done => {
       if (done) {
         this.setState({
-          loved: queue ? this.state.loved : true,
+          loved: queue ? this.state.loved : true
         });
         Swal.fire({
           title: "Done!",
           text: "Added to your Liked Songs!",
           icon: "success",
           showConfirmButton: false,
-          timer: 1000,
+          timer: 1000
         });
       }
     });
   };
   unlikeSong = (trackId, queue = false) => {
-    removeSavedTrack(trackId).then((done) => {
-      if (done)
-        this.setState({
-          loved: queue ? this.state.loved : false,
+    removeSavedTrack(trackId)
+      .then(done => {
+        if (done || base === mockUrl)
+          this.setState({
+            loved: queue ? this.state.loved : false
+          });
+        Swal.fire({
+          title: "Done!",
+          text: "Removed from your Liked Songs!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000
         });
-      Swal.fire({
-        title: "Done!",
-        text: "Removed from your Liked Songs!",
-        icon: "success",
-        showConfirmButton: false,
-        timer: 1000,
+      })
+      .catch(error => {
+        console.log(error.response.data.message);
       });
-    });
   };
   render() {
     return (
