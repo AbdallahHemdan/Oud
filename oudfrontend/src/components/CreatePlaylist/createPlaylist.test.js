@@ -20,15 +20,21 @@ Rendering tests
 */
 
 describe('CreatePlaylist Component', ()=>{
-    describe('testing that CreatePlaylist renders Correctly', ()=>{
+    describe('testing that CreatePlaylist renders Correctly when display = true', ()=>{
         let component;
         beforeEach (()=>{
             component = setup();
+            component.setState({display:true})
         })
         it('renders createPlaylist component', ()=>{
             
             const wrapper = findByTestAttr(component, "createPlaylist");
             expect(wrapper.length).toBe(1);
+        });
+        it('not render empty component', ()=>{
+            
+            const wrapper = findByTestAttr(component, "empty");
+            expect(wrapper.length).toBe(0);
         });
         it('renders closeButton component', ()=>{
             const wrapper = findByTestAttr(component, "closeButton");
@@ -57,6 +63,52 @@ describe('CreatePlaylist Component', ()=>{
         it('renders CreateButton component', ()=>{
             const wrapper = findByTestAttr(component, "CreateButton");
             expect(wrapper.length).toBe(1);
+        });
+        
+    });
+    describe('testing that CreatePlaylist renders Correctly when display = false', ()=>{
+        let component;
+        beforeEach (()=>{
+            component = setup();
+            component.setState({display:false})
+        })
+        it('renders createPlaylist component', ()=>{
+            
+            const wrapper = findByTestAttr(component, "createPlaylist");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders empty component', ()=>{
+            
+            const wrapper = findByTestAttr(component, "empty");
+            expect(wrapper.length).toBe(1);
+        });
+        it('renders closeButton component', ()=>{
+            const wrapper = findByTestAttr(component, "closeButton");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders title component', ()=>{
+            const wrapper = findByTestAttr(component, "title");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders inputContainer component', ()=>{
+            const wrapper = findByTestAttr(component, "inputContainer");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders inputHeader component', ()=>{
+            const wrapper = findByTestAttr(component, "inputHeader");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders input component', ()=>{
+            const wrapper = findByTestAttr(component, "input");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders CancelButton component', ()=>{
+            const wrapper = findByTestAttr(component, "cancelButton");
+            expect(wrapper.length).toBe(0);
+        });
+        it('renders CreateButton component', ()=>{
+            const wrapper = findByTestAttr(component, "CreateButton");
+            expect(wrapper.length).toBe(0);
         });
         
     });
@@ -130,6 +182,14 @@ describe('CreatePlaylist Component', ()=>{
             const result = checkPropTypes(CreatePlaylist.propTypes, {display:"gg"}, 'prop', CreatePlaylist.name);
             expect(result).toBeDefined();
         });
+    });
+    describe('componentWillReceiveProps()', () => {
+        it('change the display state', () => {
+            const component = shallow(<CreatePlaylist display={true}/>);
+            expect(component.state().display).toBe(true);
+            component.setProps({ display:false });
+            expect(component.state().display).toBe(false);
+        })
     });
     describe('snapshot test', ()=>{
         it(' correctly', () => {

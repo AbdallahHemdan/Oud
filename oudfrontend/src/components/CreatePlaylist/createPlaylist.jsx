@@ -73,11 +73,11 @@ class CreatePlaylist extends Component {
     
   }
   render() {
-    return (
+    if(this.state.display)
+    {return (
       <div
-        className={
-          this.state.display ? "createPlaylist" : "createPlaylist hide"
-        }
+        className="createPlaylist"
+        
         data-testid='createPlaylist'
       >
         <button onClick={this.close.bind(this)} className="closeButton" data-testid='closeButton'>
@@ -112,6 +112,10 @@ class CreatePlaylist extends Component {
         </button>
       </div>
     );
+  }
+  else{
+    return(<div data-testid='empty'></div>)
+  }
   }
 }
 CreatePlaylist.propTypes ={

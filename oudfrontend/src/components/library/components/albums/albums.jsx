@@ -28,7 +28,6 @@ export class Albums extends Component {
         this.state = { albums:[],recieved:false}
     }
     componentDidMount() {
-        console.log(base);
         axios
           .get(`${base}/me/albums`, config)
           .then((response) => {

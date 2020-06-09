@@ -87,6 +87,15 @@ describe('albums Component', ()=>{
         });
         
     });
+    describe('testing library albums renders Correctly', ()=>{
+        let component;
+        beforeEach (()=>{
+            component = setup();
+        })
+        it('checking that recieved is equal to true', ()=>{
+            expect(component.state().recieved).toBe(false);
+        });
+    });
     describe('snapshot test', ()=>{
         it('renders correctly', () => {
             const tree = renderer
