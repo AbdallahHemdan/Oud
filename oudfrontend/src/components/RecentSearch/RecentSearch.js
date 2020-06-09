@@ -75,7 +75,7 @@ class RecentSearch extends Component {
    *
    */
   handleStoringRecent = ({ items, limit, offset, total }) => {
-    this.setState({ items, limit, offset, total, isLoading: false });
+    this.setState({ items, limit, offset, total });
   }
 
   /**
@@ -93,6 +93,12 @@ class RecentSearch extends Component {
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  componentDidUpdate(prevProps, preState) {
+    if (preState.items !== this.state.items) {
+      this.setState({ isLoading: false });
+    }
   }
   /**
    * @function
