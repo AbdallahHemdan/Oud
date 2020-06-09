@@ -1,6 +1,6 @@
 import axios from "axios";
 import { base } from "../../config/environment"
-
+import {config} from "../../utils/auth"
 /**
  * @file this file contains three functions used in Playlist, Album, LikedSongs
  *
@@ -15,7 +15,7 @@ import { base } from "../../config/environment"
 
 export function addToQueue(tracks, length) {
   axios
-    .post(`${base}/me/queue/`, {
+    .post(`${base}/me/queue/`, config,{
       tracks: tracks,
       total: length,
     })
@@ -32,7 +32,7 @@ export function addToQueue(tracks, length) {
  */
 export function pause() {
   axios
-    .post(`${base}/me/player/pause/`)
+    .post(`${base}/me/player/pause/`,config)
     .then(function (response) {
       console.log(response);
     })
@@ -47,11 +47,19 @@ export function pause() {
  */
 export function resume() {
   axios
-    .post(`${base}/me/player/play/`)
+    .post(`${base}/me/player/play/`,config)
     .then(function (response) {
       console.log(response);
     })
     .catch(function (error) {
       console.log(error);
     });
+}
+export function addSong(playlistId, track){
+  axios
+  .post(`${base}/playlists/${playlistId}/${track}`, config)
+  .then((response) => {
+  })
+  .catch((error) => {
+  });
 }

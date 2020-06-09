@@ -31,8 +31,9 @@ export class Albums extends Component {
         axios
           .get(`${base}/me/albums`, config)
           .then((response) => {
-            this.setState({ albums: response.data.items });
             this.setState({recieved:true})
+            this.setState({ albums: response.data.items });
+            
           })
           .catch((error) => {
             console.log(error.response);

@@ -3,7 +3,7 @@ import CreatePlaylist from "../../CreatePlaylist/createPlaylist";
 import axios from "axios";
 import {base} from "../../../config/environment"
 import {config} from "../../../utils/auth"
-import getUserId from "../../Profile/General/getUserId";
+import {addSong} from "../utils"
 import MusicCard from '../../MusicCard/MusicCard'
 import {Auth} from '../../../utils/auth'
 /**
@@ -61,15 +61,7 @@ class addToPlaylist extends Component {
     this.setState({ createPlaylist: !this.state.createPlaylist });
     this.setState({display: true})
   }
-  addSong(playlistId){
-    axios
-    .post(`${base}/playlists/${playlistId}/${this.props.track}`, config)
-    .then((response) => {
-    })
-    .catch((error) => {
-      console.log(error.response);
-    });
-  }
+  
   render() {
     return (
       <div>
@@ -107,9 +99,9 @@ class addToPlaylist extends Component {
                 <div className="cards" id="cardsId" data-testid="cards-wrapper">
                     {this.state.playlists.map(item =>{
                       return(
-                        <button className="invisibleButton"
+                        <button className="invisibleButton" data-testid="card"
                         >
-                          <MusicCard handleClickOutside={()=>this.addSong(item._id)}  item={item}
+                          <MusicCard handleClickOutside={()=>addSong(item._id, this.props.track)}  item={item}
                            key={item._id}
                            playBtn={false}
                           />

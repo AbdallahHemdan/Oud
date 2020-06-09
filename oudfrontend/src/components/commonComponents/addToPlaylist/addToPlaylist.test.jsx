@@ -1,10 +1,9 @@
 import React from 'React'
 import AddToPlaylist from './addToPlaylist';
-import Enzyme, {shallow} from 'enzyme'
+import Enzyme, {shallow, mount} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer';
-import checkPropTypes from 'check-prop-types'
-import { propTypes } from 'react-recaptcha';
+import sinon from 'sinon'
 
 Enzyme.configure({adapter: new EnzymeAdapter()});
 const props={
@@ -68,6 +67,10 @@ describe('CreatePlaylist Component', ()=>{
             const wrapper = findByTestAttr(component, "cards-wrapper");
             expect(wrapper.length).toBe(1);
         });
+        it('renders createPlaylist component', ()=>{
+            const wrapper = findByTestAttr(component, "cards");
+            expect(wrapper.length).toBe(0);
+        });
         
     });
     describe('testing that CreatePlaylist renders Correctly', ()=>{
@@ -90,6 +93,20 @@ describe('CreatePlaylist Component', ()=>{
             wrapper.simulate('click')
             expect(component.state().createPlaylist).toBeTruthy();
         });
+    });
+    describe('componentWillReceiveProps()', () => {
+        it('change the display state', () => {
+            const component = shallow(<AddToPlaylist display={true}/>);
+            expect(component.state().display).toBe(true);
+            component.setProps({ display:false });
+            expect(component.state().display).toBe(false);
+        })
+        it('does not change the display state', () => {
+            const component = shallow(<AddToPlaylist display={true}/>);
+            expect(component.state().display).toBe(true);
+            component.setProps({ display:true });
+            expect(component.state().display).toBe(true);
+        })
     });
     describe('snapshot test', ()=>{
         it('renders correctly', () => {

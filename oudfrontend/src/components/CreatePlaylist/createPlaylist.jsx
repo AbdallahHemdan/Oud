@@ -58,7 +58,6 @@ class CreatePlaylist extends Component {
         console.log(response);
       })
       .catch(function (error) {
-        console.log(error);
       });
       this.close()
   }

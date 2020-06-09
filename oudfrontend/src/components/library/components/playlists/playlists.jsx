@@ -31,8 +31,9 @@ export class Playlists extends Component {
         axios
           .get(`${base}/me/playlists`, config)
           .then((response) => {
-            this.setState({ playlists: response.data.items});
             this.setState({recieved:true});
+            this.setState({ playlists: response.data.items});
+            
           })
           .catch((error) => {
             console.log(error.response);

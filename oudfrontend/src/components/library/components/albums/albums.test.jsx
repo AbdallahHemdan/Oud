@@ -29,14 +29,17 @@ describe('albums Component', ()=>{
             expect(wrapper.length).toBe(1);
         });
         it('does not render first-wrapper component', ()=>{
+            component.setState({recieved:false})
             const wrapper = findByTestAttr(component, "first-wrapper");
             expect(wrapper.length).toBe(0);
         });
         it('does not render second-wrapper component', ()=>{
+            component.setState({recieved:false})
             const wrapper = findByTestAttr(component, "second-wrapper");
             expect(wrapper.length).toBe(0);
         });
         it('does not render cards-wrapper component', ()=>{
+            component.setState({recieved:false})
             const wrapper = findByTestAttr(component, "cards-wrapper");
             expect(wrapper.length).toBe(0);
         });
@@ -71,7 +74,7 @@ describe('albums Component', ()=>{
             expect(wrapper.length).toBe(2);
         });
         it('renders no cards component when recieved is false', ()=>{
-            component.setState({albums:[1, 1]})
+            component.setState({albums:[1, 1], recieved: false})
             const wrapper = findByTestAttr(component, "cards");
             expect(wrapper.length).toBe(0);
         });
@@ -93,7 +96,7 @@ describe('albums Component', ()=>{
             component = setup();
         })
         it('checking that recieved is equal to true', ()=>{
-            expect(component.state().recieved).toBe(false);
+            expect(component.state().recieved).toBe(true);
         });
     });
     describe('snapshot test', ()=>{

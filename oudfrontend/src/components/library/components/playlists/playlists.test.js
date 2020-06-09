@@ -40,7 +40,7 @@ describe('playlists Component', ()=>{
             expect(wrapper.length).toBe(1);
         });
         it('renders no cards component when recieved is false', ()=>{
-            component.setState({playlists:[1, 1]})
+            component.setState({playlists:[1, 1], recieved: false})
             const wrapper = findByTestAttr(component, "categoryBody");
             expect(wrapper.length).toBe(0);
         });

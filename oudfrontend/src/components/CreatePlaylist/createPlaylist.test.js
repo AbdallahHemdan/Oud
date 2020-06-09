@@ -159,7 +159,18 @@ describe('CreatePlaylist Component', ()=>{
             wrapper.simulate('click')
             expect(component.state().display).toBeFalsy();
         });
-
+        it('create Button', ()=>{
+            const wrapper = findByTestAttr(component, "CreateButton");
+            expect(component.state().display).toBeTruthy();
+            wrapper.simulate('click')
+            expect(component.state().display).toBeFalsy();
+        });
+        it('text change', ()=>{
+            const wrapper = findByTestAttr(component, "input");
+            expect(component.state().name).toBe("");
+            wrapper.simulate('change', { target: { value: 'Hello' } })
+            expect(component.state().name).toBe("Hello");
+        });
     })
     describe('testing proptypes', ()=>{
         let component;
@@ -189,6 +200,12 @@ describe('CreatePlaylist Component', ()=>{
             expect(component.state().display).toBe(true);
             component.setProps({ display:false });
             expect(component.state().display).toBe(false);
+        })
+        it('does not change the display state', () => {
+            const component = shallow(<CreatePlaylist display={true}/>);
+            expect(component.state().display).toBe(true);
+            component.setProps({ display:true });
+            expect(component.state().display).toBe(true);
         })
     });
     describe('snapshot test', ()=>{
