@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page Component snapshot test of Home renders component correctly 1`] = `ShallowWrapper {}`;
