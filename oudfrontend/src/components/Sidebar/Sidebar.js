@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import "./Sidebar.css";
-import oudIcon from "../../assets/images/logo.svg"
+import oudIcon from "../../assets/images/logo.svg";
 import { Link } from "react-router-dom";
-import { firstSidebarElements, secondSidebarElements, SidebarElement } from "./SidebarElements"
-
+import {
+  firstSidebarElements,
+  secondSidebarElements,
+  SidebarElement
+} from "./SidebarElements";
+import { isArtist } from "./../../utils/auth";
 
 /**
  * Sidebar component which contains all sidebar stuff
@@ -12,16 +16,29 @@ import { firstSidebarElements, secondSidebarElements, SidebarElement } from "./S
 class Sidebar extends Component {
   /**
    * @constructor
-   * 
+   *
    * @param {object} props - get props from higher component
    */
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-
-    }
+      isArtist: false
+    };
   }
+  componentDidMount() {
+    this.checkArtist();
+  }
+
+  checkArtist = () => {
+    isArtist()
+      .then(res => {
+        this.setState({ isArtist: res });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   /**
    * @function
@@ -53,19 +70,17 @@ class Sidebar extends Component {
             className="nav flex-column bg-dark mb-0 ml-2"
             data-testid="first-sidebar-elements"
           >
-            {
-              firstSidebarElements.map(({ route, iconClasses, name }, index) => {
-                return (
-                  <SidebarElement
-                    route={route}
-                    iconClasses={iconClasses}
-                    name={name}
-                    key={index}
-                    data-testid="first-sidebar-element"
-                  />
-                )
-              })
-            }
+            {firstSidebarElements.map(({ route, iconClasses, name }, index) => {
+              return (
+                <SidebarElement
+                  route={route}
+                  iconClasses={iconClasses}
+                  name={name}
+                  key={index}
+                  data-testid="first-sidebar-element"
+                />
+              );
+            })}
           </ul>
           <p
             className="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0"
@@ -77,23 +92,30 @@ class Sidebar extends Component {
             className="nav flex-column bg-darky mb-0 ml-2"
             data-testid="second-sidebar-elements"
           >
-            {
-              secondSidebarElements.map(({ route, iconClasses, name }, index) => {
-                return (
-                  <SidebarElement
-                    route={route}
-                    iconClasses={iconClasses}
-                    name={name}
-                    key={index}
-                    data-testid="second-sidebar-element"
-                  />
-                )
-              })
-            }
-            <hr
-              className="divider"
-              data-testid="divider"
-            />
+            {secondSidebarElements.map(
+              ({ route, iconClasses, name }, index) => {
+                return index === 1 ? (
+                  this.state.isArtist ? (
+                    <SidebarElement
+                      route={route}
+                      iconClasses={iconClasses}
+                      name={name}
+                      key={index}
+                      data-testid="second-sidebar-element"
+                    />
+                  ) : null
+                ) : (
+                    <SidebarElement
+                      route={route}
+                      iconClasses={iconClasses}
+                      name={name}
+                      key={index}
+                      data-testid="second-sidebar-element"
+                    />
+                  );
+              }
+            )}
+            <hr className="divider" data-testid="divider" />
           </ul>
         </div>
       </div>

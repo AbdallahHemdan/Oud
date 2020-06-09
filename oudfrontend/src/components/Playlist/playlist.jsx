@@ -1,10 +1,10 @@
-import React from 'react';
-import './playlist.css';
-import axios from 'axios';
-import HeaderBodyBottom from '../commonComponents/headerBodyBottom'
-import HeaderBodyTop from './components/headerBodyTop'
-import SongList from '../commonComponents/songList'
-import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist"
+import React from "react";
+import "./playlist.css";
+import axios from "axios";
+import HeaderBodyBottom from "../commonComponents/headerBodyBottom";
+import HeaderBodyTop from "./components/headerBodyTop";
+import SongList from "../commonComponents/songList";
+import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist";
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
 import PropTypes from 'prop-types';
@@ -13,6 +13,7 @@ import { base, subUrl, prodUrl } from "./../../config/environment"
 import { config, isLoggedIn } from "../../utils/auth"
 import LoadingSnipper from "../LoadingSnipper/LoadingSnipper";
 import {withRouter} from 'react-router-dom'
+import { deleteRequest } from "../../utils/requester";
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -145,22 +146,23 @@ class Playlist extends React.Component {
    * @func
    * @returns {void}
    */
-  componentDidMount() {
+  fetchPlaylistTracks = () => {
     axios
       .get(`${base}/playlists/${this.props.id.id}`, config)
-      .then((response) => {
+      .then(response => {
         const playlist = response.data;
         this.setState({ tracks: playlist.tracks });
         this.setState({ playlist: playlist });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
-      
-    //not in the back yet
+  };
+  componentDidMount() {
+    this.fetchPlaylistTracks();
     axios
       .get(`${base}/me/playlists/contains/${this.props.id.id}`, config)
-      .then((response) => {
+      .then(response => {
         const isFound = response.data;
         this.setState({ liked: isFound });
       })
@@ -245,6 +247,8 @@ class Playlist extends React.Component {
                         liked={this.state.liked}
                         playing={this.state.playing}
                         album={false}
+                        context={`oud:playlist:${this.props.id.id}`}
+                        webPlayer={this.props.webPlayer}
                       />
                     </div>
                   </div>
@@ -258,6 +262,10 @@ class Playlist extends React.Component {
                     clickedItemId={this.state.clickID}
                     className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
                     addToPlaylist={this.addToPlaylist.bind(this)}
+                    fetchContext={this.fetchPlaylistTracks}
+                    contextId={this.props.id.id}
+                    contextType="playlist"
+                    webPlayer={this.props.webPlayer}
                   />
                 </div>
               </div>
@@ -272,6 +280,6 @@ class Playlist extends React.Component {
   }
 }
 Playlist.propTypes = {
-  id: PropTypes.objectOf(PropTypes.string),
+  id: PropTypes.objectOf(PropTypes.string)
 };
 export default withRouter(Playlist);

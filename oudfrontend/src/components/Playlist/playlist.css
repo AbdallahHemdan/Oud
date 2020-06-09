@@ -6,8 +6,8 @@
   min-height: 800px;
 }
 @media screen and (max-width: 483px) {
-  .playlist{
-    padding-top:50px;
+  .playlist {
+    padding-top: 50px;
   }
 }
 .playlistHeader {

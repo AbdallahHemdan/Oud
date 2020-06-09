@@ -6,6 +6,7 @@ import pause from "../../../assets/images/icons/pause.png";
 import play from "../../../assets/images/icons/play.png";
 import previous from "../../../assets/images/icons/previous.png";
 import next from "../../../assets/images/icons/next.png";
+import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 
 /**
  * Component for controling the left part of the player: artist link, and previous, play/pause, and next buttons

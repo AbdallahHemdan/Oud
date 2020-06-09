@@ -1,16 +1,23 @@
-import React from 'react';
-import axios from 'axios';
-import HeaderBodyBottom from '../commonComponents/headerBodyBottom'
-import HeaderBodyTop from './components/headerBodyTop'
-import SongList from '../commonComponents/songList'
+import React from "react";
+import axios from "axios";
+import HeaderBodyBottom from "../commonComponents/headerBodyBottom";
+import HeaderBodyTop from "./components/headerBodyTop";
+import SongList from "../commonComponents/songList";
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
-import { resume, pause, addToQueue } from '../commonComponents/utils'
-import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist"
-import PropTypes from 'prop-types';
 import { base, subUrl, prodUrl } from "./../../config/environment"
 import {config, isLoggedIn} from "../../utils/auth"
 import {withRouter} from 'react-router-dom'
+import { resume, pause, addToQueue } from "../commonComponents/utils";
+import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist";
+import PropTypes from "prop-types";
+import CreateAlbum from "../CreateAlbum/CreateAlbum";
+import { deleteRequest } from "../../utils/requester";
+import Swal from "sweetalert2";
+import { isArtist } from "./../../utils/auth";
+import { createBrowserHistory } from "history";
+import SongInfo from "./../SongInfo/SongInfo";
+let history = createBrowserHistory();
 
 /**
  * @classdesc this is a component that renders album page
@@ -48,6 +55,7 @@ class Album extends React.Component {
    */
   constructor(props) {
     super(props);
+    // const history = useHistory();
     this.state = {
       tracks: [],
       artists: [],
@@ -58,6 +66,9 @@ class Album extends React.Component {
       queued: false,
       clickID: "0",
       displayAdd: false,
+      updateAlbum: false,
+      isArtist: false,
+      addSong: false
     };
     console.log(this.props.id)
     console.log(this.props.songId)
@@ -122,10 +133,11 @@ class Album extends React.Component {
     if (this.state.liked === false) {
       this.setState({ liked: true });
       axios
-        .put(`${base}/me/albums/${this.props.id}`, config)
-        .then(function (response) {
+        .post(`${base}/me/albums/`, likedAlbum.id, config)
+        .then(function(response) {
+          console.log(response);
         })
-        .catch(function (error) {
+        .catch(function(error) {
           console.log(error);
         });
     } else {
@@ -135,7 +147,7 @@ class Album extends React.Component {
         .delete(`${base}/me/albums/${this.props.id}`, config)
         .then(function (response) {
         })
-        .catch(function (error) {
+        .catch(function(error) {
           console.log(error);
         });
     }
@@ -145,10 +157,10 @@ class Album extends React.Component {
    * @func
    * @returns {void}
    */
-  componentDidMount() {
+  fetchAlbumTracks = () => {
     axios
       .get(`${base}/albums/${this.props.id}`, config)
-      .then((response) => {
+      .then(response => {
         const album = response.data;
         this.setState({ 
           tracks: album.tracks.items,
@@ -157,13 +169,15 @@ class Album extends React.Component {
           recieved: true 
         });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
-
+  };
+  componentDidMount() {
+    this.fetchAlbumTracks();
     axios
       .get(`${base}/me/albums/contains/${this.props.id}`, config)
-      .then((response) => {
+      .then(response => {
         const isFound = response.data;
         this.setState({ liked: isFound });
       })
@@ -184,6 +198,7 @@ class Album extends React.Component {
       })
       .catch((error) => {
       });
+    this.checkArtist();
   }
   /**
    * it changes the state so that all song will be marked as unclicked
@@ -198,6 +213,46 @@ class Album extends React.Component {
   closeAddToPlaylist() {
     this.setState({ displayAdd: false });
   }
+  changeEditAlbumState = () => {
+    this.setState({
+      updateAlbum: !this.state.updateAlbum
+    });
+  };
+  delelteAlbum = () => {
+    deleteRequest(`${base}/me/artists/albums/${this.props.id}`)
+      .then(response => {
+        Swal.fire({
+          title: "Done!",
+          text: "Album Deleted Successfully!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000
+        });
+        history.goBack();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+  checkArtist = () => {
+    isArtist()
+      .then(res => {
+        this.setState({ isArtist: res });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+  addSong = () => {
+    this.setState({
+      addSong: true
+    });
+  };
+  closeAddSong = () => {
+    this.setState({
+      addSong: false
+    });
+  };
   render() {
     const subPath = (base === prodUrl) ? subUrl : "";
     return (
@@ -208,18 +263,31 @@ class Album extends React.Component {
             close={this.closeAddToPlaylist.bind(this)}
             data-testid="addTo"
           />
+        ) : this.state.updateAlbum ? (
+          <CreateAlbum
+            endpoint={`${base}/me/artists/albums/${this.props.id}`}
+            title="Edit Album"
+            update={true}
+            onClose={this.changeEditAlbumState}
+          />
+        ) : this.state.addSong ? (
+          <SongInfo
+            closeAddSong={this.closeAddSong}
+            newSong={true}
+            albumId={this.props.id}
+          />
         ) : (
-            <div className="dummyParent">
-              <Sidebar data-testid="sidebar"/>
-              <Navbar isLoggedIn={isLoggedIn()} data-testid="navBar"/>
-              <div className="profile-user">
-                <div data-testid="album" className="playlist">
-                  <div className="row">
-                    <div
-                      data-testid="playlistHeader"
-                      onClick={this.markAllUnclicked.bind(this)}
-                      className="playlistHeader row col-xs-12 col-md-12 col-lg-4 col-xl-4"
-                    >
+          <div className="dummyParent">
+            <Sidebar data-testid="sidebar"/>
+            <Navbar isLoggedIn={isLoggedIn()} data-testid="navBar"/>
+            <div className="profile-user">
+              <div data-testid="album" className="playlist">
+                <div className="row">
+                  <div
+                    data-testid="playlistHeader"
+                    onClick={this.markAllUnclicked.bind(this)}
+                    className="playlistHeader row col-xs-12 col-md-12 col-lg-4 col-xl-4"
+                  >
                     <div
                       data-testid="playlistIamgeContainer"
                       className="playlistImageContainer col col-lg-12 col-md-4 col-sm-4 col-xs-4"
@@ -240,42 +308,54 @@ class Album extends React.Component {
                         title={this.state.album.name}
                         artists={this.state.artists}
                       />
-                        <HeaderBodyBottom
-                          data-testid="HeaderBodyBottom"
-                          length={this.state.tracks.length}
-                          playClicked={this.playButtonClicked}
-                          likeClicked={this.likeButtonClicked}
-                          liked={this.state.liked}
-                          playing={this.state.playing}
-                          releaseDate={this.state.album.release_date}
-                          recieved={this.state.recieved}
-                          album={true}
-                          addToPlaylist={this.addToPlaylist.bind(this)}
-                        />
-                        </div>
-                      </div>
-                    <SongList
-                        data-testid="songList"
+
+                      <HeaderBodyBottom
+                        data-testid="HeaderBodyBottom"
+                        length={this.state.tracks.length}
+                        playClicked={this.playButtonClicked}
+                        likeClicked={this.likeButtonClicked}
+                        liked={this.state.liked}
+                        playing={this.state.playing}
+                        releaseDate={this.state.album.release_date}
                         recieved={this.state.recieved}
-                        tracks={this.state.tracks}
-                        pause={this.pause}
-                        resume={this.resume}
-                        addToQueue={this.addToQueue}
-                        clickedItemId={this.state.clickID}
-                        className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
-                        addToPlaylist={this.addToPlaylist.bind(this)}
                         album={true}
+                        isArtist={this.state.isArtist}
+                        changeEditAlbumState={this.changeEditAlbumState}
+                        delelteAlbum={this.delelteAlbum}
+                        addToPlaylist={this.addToPlaylist.bind(this)}
+                        addSong={this.addSong}
+                        contextId={this.props.id}
+                        context={`oud:album:${this.props.id}`}
+                        webPlayer={this.props.webPlayer}
                       />
-                      </div>
+                    </div>
+                  </div>
+                  <SongList
+                    data-testid="songList"
+                    recieved={this.state.recieved}
+                    tracks={this.state.tracks}
+                    pause={this.pause}
+                    resume={this.resume}
+                    addToQueue={this.addToQueue}
+                    clickedItemId={this.state.clickID}
+                    className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
+                    addToPlaylist={this.addToPlaylist.bind(this)}
+                    album={true}
+                    fetchContext={this.fetchAlbumTracks}
+                    contextId={this.props.id}
+                    contextType="album"
+                    webPlayer={this.props.webPlayer}
+                  />
                 </div>
               </div>
             </div>
-          )}
+          </div>
+        )}
       </div>
     );
   }
 }
 Album.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string
 };
 export default withRouter(Album);

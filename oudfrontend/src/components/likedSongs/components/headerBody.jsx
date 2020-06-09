@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { Redirect, BrowserRouter} from "react-router-dom";
+import { createBrowserHistory } from "history";
 import PropTypes from "prop-types";
 import {config} from '../../../utils/auth'
 import {base} from '../../../config/environment'
@@ -17,7 +18,7 @@ import axios from 'axios'
  * <p></p>
  * </div>}
  */
-
+let history = createBrowserHistory();
 class HeaderBody extends Component{
   constructor(props){
     super(props);
@@ -40,6 +41,24 @@ class HeaderBody extends Component{
             console.log(error);
         });
   }
+  handlePlayClick = e => {
+    e.stopPropagation();
+    if (!this.state.start) this.setState({ start: true });
+    let uris = [];
+    this.props.tracks.forEach(track => {
+      uris.push(`oud:track:${track.id}`);
+    });
+    this.props.webPlayer.current.playContext(
+      null,
+      uris,
+      this.props.clickedItemId,
+      0,
+      true,
+      this.state.start
+    );
+    this.props.playClicked();
+    console.log("🎵 music is playing now");
+  };
   render(){
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;

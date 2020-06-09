@@ -18,31 +18,16 @@ const SortableTrackContainer = SortableElement((props) => {
       idx={props.idx}
       playTrack={props.playTrack}
       playing={props.playing}
+      changePlayingState={props.changePlayingState}
       toggleDropdown={props.toggleDropdown}
       data-testid="track-component"
     />
   );
 });
 SortableTrackContainer.propTypes = {
-  /**
-   * The index of the  track
-   */
   idx: PropTypes.number.isRequired,
-  /**
-   * The unique id of the track
-   */
   id: PropTypes.string.isRequired,
-  /**
-   * A function to handle playing a track from the queue
-   */
   playTrack: PropTypes.object.isRequired,
-  /**
-   * The playing state of the parent component
-   */
-  playing: PropTypes.bool.isRequired,
-  /**
-   * Open/Close the dropdown menu function.
-   */
   toggleDropdown: PropTypes.func.isRequired,
 };
 export default SortableTrackContainer;

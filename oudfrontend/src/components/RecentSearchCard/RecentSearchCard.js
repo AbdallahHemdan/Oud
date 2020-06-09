@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import "./RecentSearchCard.css";
 import { Link, withRouter } from "react-router-dom"
 import { base, subUrl, prodUrl } from "./../../config/environment"
+import PropTypes from "prop-types";
 /**
- * Music card component which render and display the playlist card of a specific category 
+ * Recent Search card component which render and display the playlist card of a specific category 
  * @author Abdallah Hemdan
  * @component
  */
@@ -15,13 +16,14 @@ class RecentSearchCard extends Component {
       _id: "",
       displayName: "",
       type: "",
-      images: ["https://oud-zerobase.me/api/uploads/users/default-Profile.svg"]
+      images: ["https://oud-zerobase.me/api/uploads/users/default-Profile.svg"],
+      isDataLoaded: false
     }
   }
 
   /**
    * Function to handle navigation to the playlist page
-   * on clicking on the music card
+   * on clicking on the Recent Search card
    * 
    * @function
    * 
@@ -38,8 +40,8 @@ class RecentSearchCard extends Component {
     }
   }
   /**
-   * Function to handle playing music on clicking on
-   * play icon the music card
+   * Function to handle playing Recent Search on clicking on
+   * play icon the Recent Search card
    * 
    * @function
    * 
@@ -48,7 +50,7 @@ class RecentSearchCard extends Component {
    */
   handlePlayClick = (e) => {
     e.stopPropagation();
-    console.log("🎵 music is playing now");
+    console.log("🎵 Recent Search is playing now");
   }
   componentDidMount() {
     const SearchItem = (this.props.item) ? (this.props.item) : null;
@@ -56,18 +58,37 @@ class RecentSearchCard extends Component {
       this.handleStoringItems(SearchItem);
     }
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.item.artists !== this.props.item.artists) {
+      this.setState({ isDataLoaded: true });
+    }
+  }
   /**
    * @function
    * 
    * @name render
    * 
-   * @description Render Music card components..
+   * @description Render Recent Search card components..
    * 
    * @returns {JSX} Component for App
    */
   render() {
     const subPath = (base === prodUrl) ? subUrl : "";
-    const cardClass = (this.state.isHidden) ? "hidden-card" : "card"
+    let defaultImg = "https://oud-zerobase.me/api/uploads/users/default-Profile.svg";
+    if (this.props.item && this.props.item.images && this.props.item.images[0]) {
+      const nname = (this.props.item.type === "Artist")
+        ? this.props.item.displayName :
+        this.props.item.name;
+      console.log(`Images of ${nname}`, this.props.item);
+      defaultImg = `${subPath}${this.props.item.images[0]}`;
+    }
+    if (this.props.item && this.props.item.type === "track" && this.props.item.artists) {
+      defaultImg = `${subPath}${this.props.item.artists[0].images[0]}`;
+    }
+    if (this.props.item && (this.props.item.type === "album" || this.props.item.type === "playlist") && this.props.item.image) {
+      defaultImg = `${subPath}${this.props.item.image} `
+    }
     return (
       <React.Fragment>
         {
@@ -75,19 +96,15 @@ class RecentSearchCard extends Component {
             className="card-container"
             data-testid="card-container"
           >
-            <div className={cardClass}
-              data-testid={cardClass}
+            <div className="card"
+              data-testid="card"
             >
               <div
                 className="overlayer"
                 onClick={this.handlePlaylistClick}
-                data-testid="overlay"
+                data-testid="overlayer"
               >
                 {
-                  // (
-                  //   this.state.type !== 'artist' &&
-                  //   this.state.type !== 'user'
-                  // ) ?
                   < button
                     className="play-btn"
                     onClick={this.handlePlayClick}
@@ -99,12 +116,10 @@ class RecentSearchCard extends Component {
                     >
                     </i>
                   </button>
-                  // :
-                  // null
                 }
               </div>
               <img
-                src={`${subPath}${this.state.images[0]}`}
+                src={`${defaultImg} `}
                 alt="playlist cover"
                 data-testid="playlist-image"
               />
@@ -113,19 +128,24 @@ class RecentSearchCard extends Component {
                 data-testid="playlist-title"
               >
                 <Link
-                  to={`${this.state.type}/${this.state._id}`}
+                  to={`${this.state.type} /${this.state._id}`}
                   className="playlist-link"
                   data-testid="playlist-link"
                 >
-                  {this.state.displayName}
-                </Link>
-              </div>
-            </div>
-          </ div>
+                  {(this.props.item.type === "Artist")
+                    ? this.props.item.displayName :
+                    this.props.item.name
+                  }
+                </Link >
+              </div >
+            </div >
+          </ div >
         }
-      </React.Fragment>
+      </React.Fragment >
     );
   }
 }
-
+RecentSearchCard.propTypes = {
+  item: PropTypes.object
+}
 export default withRouter(RecentSearchCard);

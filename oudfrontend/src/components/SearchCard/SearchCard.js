@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./SearchCard.css";
 import { Link, withRouter } from "react-router-dom"
 import { base, subUrl, prodUrl } from "./../../config/environment"
+import { config } from "./../../utils/auth";
+import PropTypes from "prop-types";
+import axios from 'axios';
 
 /**
  * Music card component which render and display the playlist card of a specific category 
@@ -49,6 +52,20 @@ class SearchCard extends Component {
    * 
    */
   handlePlaylistClick = () => {
+    if (base === prodUrl) { // in production mode
+      console.log("Congratulations, All is done");
+      const requestUrl = `${base}/me/search/recent`;
+      const recentSearchedData = {
+        id: this.state.id,
+        type: this.state.type
+      };
+      axios.put(requestUrl, recentSearchedData, config)
+        .then((result) => {
+          console.log(result)
+        }).catch((err) => {
+          console.log(err);
+        });
+    }
     this.props.history.push(`${this.state.type}/${this.state.id}`);
   }
 
@@ -60,6 +77,7 @@ class SearchCard extends Component {
    * 
    * @param {object} event - an event to use it in
    * disabling the default of the propagation 
+   * 
    */
   handlePlayClick = (e) => {
     e.stopPropagation();
@@ -78,7 +96,6 @@ class SearchCard extends Component {
   render() {
     const subPath = (base === prodUrl) ? subUrl : "";
     const cardClass = (this.state.isHidden) ? "hidden-card" : "card"
-    // console.log("State of Search Card", this.state);
     return (
       <div
         className="card-container"
@@ -90,21 +107,24 @@ class SearchCard extends Component {
           <div
             className="overlayer"
             onClick={this.handlePlaylistClick}
-            data-testid="overlay"
+            data-testid="overlayer"
           >
-            {this.state.playBtn ? < button
-              className="play-btn"
-              onClick={this.handlePlayClick}
-              data-testid="play-btn"
-            >
-              <i
-                className="fa fa-play-circle play-circle"
-                data-testid="play-circle"
-              >
-              </i>
-            </button>
-              :
-              null}
+            {
+              this.state.playBtn ?
+                < button
+                  className="play-btn"
+                  onClick={this.handlePlayClick}
+                  data-testid="play-btn"
+                >
+                  <i
+                    className="fa fa-play-circle play-circle"
+                    data-testid="play-circle"
+                  >
+                  </i>
+                </button>
+                :
+                null
+            }
           </div>
           <img
             src={`${subPath}${this.state.image}`}
@@ -119,14 +139,16 @@ class SearchCard extends Component {
               to={`${this.state.type}/${this.state.id}`}
               className="playlist-link"
               data-testid="playlist-link"
-            >
-              {this.state.name}
-            </Link>
+            >{this.state.name}</Link>
           </div>
         </div>
       </div >
     );
   }
+}
+
+SearchCard.propTypes = {
+  item: PropTypes.object
 }
 
 export default withRouter(SearchCard);

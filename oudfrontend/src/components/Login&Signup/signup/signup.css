@@ -198,7 +198,7 @@ button.btn.btn-primary.btn-block {
 }
 
 .SignUpSubmit {
-  width: 330px;
+  width: 100%;
   color: #ffffff;
   background-color: #f9b835;
   border-radius: 50px;
@@ -211,6 +211,10 @@ button.btn.btn-primary.btn-block {
   display: block;
   margin-bottom: 20px;
   text-decoration: none;
+}
+
+.EmailtoHelp {
+  color: #f9b835;
 }
 
 .butt {
@@ -305,4 +309,33 @@ button.btn.btn-primary.btn-block {
 .hovergold li a:hover {
   color: #f9b835 !important;
   text-decoration: none;
+}
+
+.LogoOfVerify {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
+  margin-top: 100px;
+}
+
+.e404,
+.pagenotfound {
+  text-align: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
+  color: white;
+  font-family: 'Raleway',
+    sans-serif;
+}
+
+.e404 {
+  font-size: 100px;
+
+}
+
+.pagenotfound {
+  font-size: 70px;
 }
