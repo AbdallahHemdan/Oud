@@ -1,5 +1,5 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { Component } from "react";
+import { createBrowserHistory } from "history";
 import PropTypes from "prop-types";
 /**
  * this is a component that renders the bottom of the body of playlists, albums, likedSongs
@@ -14,38 +14,64 @@ import PropTypes from "prop-types";
  * <p></p>
  * </div>}
  */
-
-function HeaderBody(props) {
-  const { length, playClicked, playing } = props;
-  let history = useHistory();
-  return (
-    <div data-testid="HeaderBody">
-      <h2 data-testid="title" className="gray-text likedSongsTitle">
-        Liked Songs
-      </h2>
-      <button
-        data-testid="owner"
-        className="playlistAnchor songButton block"
-        onClick={() => {
-          history.push("/profile/1/overview");
-        }}
-      >
-        Ahmed{/*userName*/}
-      </button>
-      <button
-        onClick={playClicked}
-        data-testid="playButton"
-        className="playButton"
-        variant="outline-success"
-      >
-        {playing ? "PAUSE" : "PLAY"}
-      </button>
-      <p className="likedSongsTitle gray-text">
-        <span data-testid="songsNumber">{length} </span>
-        <span data-testid="songsLiteral">{length > 1 ? "songs" : "song"}</span>
-      </p>
-    </div>
-  );
+let history = createBrowserHistory();
+class HeaderBody extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      start: false
+    };
+  }
+  handlePlayClick = e => {
+    e.stopPropagation();
+    if (!this.state.start) this.setState({ start: true });
+    let uris = [];
+    this.props.tracks.forEach(track => {
+      uris.push(`oud:track:${track.id}`);
+    });
+    this.props.webPlayer.current.playContext(
+      null,
+      uris,
+      this.props.clickedItemId,
+      0,
+      true,
+      this.state.start
+    );
+    this.props.playClicked();
+    console.log("🎵 music is playing now");
+  };
+  render() {
+    return (
+      <div data-testid="HeaderBody">
+        <h2 data-testid="title" className="gray-text likedSongsTitle">
+          Liked Songs
+        </h2>
+        <button
+          data-testid="owner"
+          className="playlistAnchor songButton block"
+          onClick={() => {
+            history.push("/profile/1/overview");
+          }}
+        >
+          Ahmed{/*userName*/}
+        </button>
+        <button
+          onClick={this.handlePlayClick}
+          data-testid="playButton"
+          className="playButton"
+          variant="outline-success"
+        >
+          {this.props.playing ? "PAUSE" : "PLAY"}
+        </button>
+        <p className="likedSongsTitle gray-text">
+          <span data-testid="songsNumber">{this.props.length} </span>
+          <span data-testid="songsLiteral">
+            {this.props.length > 1 ? "songs" : "song"}
+          </span>
+        </p>
+      </div>
+    );
+  }
 }
 
 HeaderBody.propTypes = {

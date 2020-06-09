@@ -4,7 +4,11 @@ import axios from "axios";
 import Player from "./Player/Player";
 import Queue from "./Queue/Queue";
 import Swal from "sweetalert2";
-import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
+import {
+  saveTrack,
+  removeSavedTrack,
+  setPlaying
+} from "../../utils/Actions/Player";
 import { base, mockUrl } from "./../../config/environment";
 // import { config } from "./../../utils/auth";
 const config = {
@@ -189,10 +193,10 @@ class WebPlayer extends Component {
     uris = [],
     offset = 0,
     position = 0,
-    isTracksList = false, 
+    isTracksList = false,
     resume = false
   ) => {
-    if(resume) {
+    if (resume) {
       this.playerElement.current.handlePlayPause();
       return;
     }
@@ -262,7 +266,6 @@ class WebPlayer extends Component {
     this.setState({
       playing: !this.state.playing
     });
-
     return this.state.playing;
   };
   changeLovedState = state => {
