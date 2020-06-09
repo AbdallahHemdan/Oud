@@ -5,19 +5,20 @@ import HeaderBodyTop from "./components/headerBodyTop";
 import SongList from "../commonComponents/songList";
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
-import { base, subUrl, prodUrl } from "./../../config/environment"
-import {config, isLoggedIn} from "../../utils/auth"
-import {withRouter} from 'react-router-dom'
-import { resume, pause, addToQueue } from "../commonComponents/utils";
-import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist";
-import PropTypes from "prop-types";
 import CreateAlbum from "../CreateAlbum/CreateAlbum";
 import { deleteRequest } from "../../utils/requester";
 import Swal from "sweetalert2";
 import { isArtist } from "./../../utils/auth";
 import { createBrowserHistory } from "history";
 import SongInfo from "./../SongInfo/SongInfo";
+import { resume, pause, addToQueue } from '../commonComponents/utils'
+import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist"
+import PropTypes from 'prop-types';
+import { base, subUrl, prodUrl } from "./../../config/environment"
+import {config, isLoggedIn} from "../../utils/auth"
+import {withRouter} from 'react-router-dom'
 let history = createBrowserHistory();
+
 
 /**
  * @classdesc this is a component that renders album page
@@ -70,8 +71,6 @@ class Album extends React.Component {
       isArtist: false,
       addSong: false
     };
-    console.log(this.props.id)
-    console.log(this.props.songId)
 
     this.addToQueue = this.addToQueue.bind(this);
     this.resume = this.resume.bind(this);
@@ -133,12 +132,10 @@ class Album extends React.Component {
     if (this.state.liked === false) {
       this.setState({ liked: true });
       axios
-        .post(`${base}/me/albums/`, likedAlbum.id, config)
-        .then(function(response) {
-          console.log(response);
+        .put(`${base}/me/albums/${this.props.id}`, config)
+        .then(function (response) {
         })
         .catch(function(error) {
-          console.log(error);
         });
     } else {
       this.setState({ liked: false });
@@ -148,7 +145,6 @@ class Album extends React.Component {
         .then(function (response) {
         })
         .catch(function(error) {
-          console.log(error);
         });
     }
   }
@@ -170,7 +166,6 @@ class Album extends React.Component {
         });
       })
       .catch(error => {
-        console.log(error);
       });
   };
   componentDidMount() {
@@ -231,7 +226,6 @@ class Album extends React.Component {
         history.goBack();
       })
       .catch(error => {
-        console.log(error);
       });
   };
   checkArtist = () => {
@@ -240,7 +234,6 @@ class Album extends React.Component {
         this.setState({ isArtist: res });
       })
       .catch(error => {
-        console.log(error);
       });
   };
   addSong = () => {
@@ -340,11 +333,11 @@ class Album extends React.Component {
                     clickedItemId={this.state.clickID}
                     className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
                     addToPlaylist={this.addToPlaylist.bind(this)}
-                    album={true}
                     fetchContext={this.fetchAlbumTracks}
                     contextId={this.props.id}
                     contextType="album"
                     webPlayer={this.props.webPlayer}
+                    album={true}
                   />
                 </div>
               </div>

@@ -1,7 +1,6 @@
 import React from 'React'
-import renderer from 'react-test-renderer';
 import Album from './album';
-import Enzyme, {shallow, mount} from 'enzyme'
+import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import checkPropTypes from 'check-prop-types'
 
@@ -227,6 +226,26 @@ describe('album Component', ()=>{
             component.instance().playButtonClicked();
             expect(component.state().queued).toBe(true);
             expect(component.state().playing).toBe(false);
+        });
+        it('calling changeEditAlbumState', ()=>{
+            component.setState({updateAlbum:false})
+            component.instance().changeEditAlbumState();
+            expect(component.state().updateAlbum).toBe(true);
+        });
+        it('calling changeEditAlbumState', ()=>{
+            component.setState({updateAlbum:true})
+            component.instance().changeEditAlbumState();
+            expect(component.state().updateAlbum).toBe(false);
+        });
+        it('calling addSong', ()=>{
+            component.setState({addSong:false})
+            component.instance().addSong();
+            expect(component.state().addSong).toBe(true);
+        });
+        it('calling closeAddSong', ()=>{
+            component.setState({addSong:true})
+            component.instance().closeAddSong();
+            expect(component.state().addSong).toBe(false);
         });
     });
    

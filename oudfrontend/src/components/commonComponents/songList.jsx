@@ -142,7 +142,7 @@ class SongList extends Component {
             );
           })
         ) : (
-          <LoadingSnipper />
+          <LoadingSnipper data-testid="loading"/>
         )}
       </div>
     );
