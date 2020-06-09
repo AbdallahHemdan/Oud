@@ -34,7 +34,6 @@ class SearchCategory extends Component {
     }
 
     const dataLoadedOrNot = (((this.props.search === this.props.propsSearch) && (this.props.items.total))) || (base !== prodUrl);
-    console.log("data loaded or not", dataLoadedOrNot);
 
     return (
       <div className="module">
@@ -70,7 +69,7 @@ class SearchCategory extends Component {
                           (this.props.type === "artist" || this.props.type === "profile") ?
                             item.displayName : item.name
                         }
-                        type={item.type}
+                        type={(item.type === "User") ? "profile" : item.type}
                         image=
                         {(this.props.type === "artist" || this.props.type === "profile")
                           ? item.images[0] :
