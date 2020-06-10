@@ -67,13 +67,11 @@ describe('album Component', ()=>{
         it('calling playButtonClicked', ()=>{
             component.setState({queued:false, playing:false})
             component.instance().playButtonClicked();
-            expect(component.state().queued).toBe(true);
             expect(component.state().playing).toBe(true);
         });
         it('calling playButtonClicked', ()=>{
             component.setState({queued:true, playing:true})
             component.instance().playButtonClicked();
-            expect(component.state().queued).toBe(true);
             expect(component.state().playing).toBe(false);
         });
         it('calling destructuring', ()=>{

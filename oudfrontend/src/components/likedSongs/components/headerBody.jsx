@@ -25,7 +25,8 @@ class HeaderBody extends Component{
     this.state = {
       redirect:null,
       displayName:'',
-      id:''
+      id:'',
+      start:false
     }
   }
   redirect(route){
@@ -57,7 +58,6 @@ class HeaderBody extends Component{
       this.state.start
     );
     this.props.playClicked();
-    console.log("🎵 music is playing now");
   };
   render(){
     if (this.state.redirect) {
@@ -79,7 +79,7 @@ class HeaderBody extends Component{
       {this.state.displayName}
       </button>
       <button
-        onClick={()=>this.props.playClicked}
+        onClick={()=>this.handlePlayClick}
         data-testid="playButton"
         className="playButton"
         variant="outline-success"

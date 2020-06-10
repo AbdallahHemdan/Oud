@@ -9,7 +9,9 @@ Enzyme.configure({adapter: new EnzymeAdapter()});
 const trueProps = {
     length:10, 
     playing:true,
-    playClicked:jest.fn()
+    playClicked:jest.fn(),
+    tracks:[{id:1}],
+    webPlayer:{current:{playContext:jest.fn()}}
 }
 const falseProps = {
     length:5, 
@@ -194,11 +196,17 @@ describe('album headerBody Component', ()=>{
             expect(wrapper.length).toBe(1);
             expect(wrapper.text()).toBe('songs')
         });
-        /*it("renders literal correctly without props", ()=>{
+        it("calling playButton", ()=>{
+            component.setState({start:true})
             const wrapper = findByTestAttr(component, "playButton");
             wrapper.simulate('click');
-            expect(trueProps.playClicked).toHaveBeenCalled();
-        });*/
+            expect(component.state().start).toBeTruthy();
+        });
+        it('calling handlePlayClick ', ()=>{
+            component.setState({start:false})
+            component.instance().handlePlayClick({stopPropagation:jest.fn()});
+            expect(component.state().start).toBe(true);
+        });
     });
     describe('testing HeaderBodyTop Component with falseProps',()=>{
         let component;

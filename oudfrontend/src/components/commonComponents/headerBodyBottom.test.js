@@ -14,7 +14,9 @@ const fullProps = {
     playClicked : jest.fn(), 
     releaseDate:'05-06-2011',
     recieved: true,
-    album: true
+    album: true,
+    tracks:[{id:1}],
+    webPlayer:{current:{playContext:jest.fn()}}
 }
 const setup = (props={}) =>{
     return shallow(<HeaderBodyBottom {...props}/>);
@@ -278,6 +280,17 @@ describe('HeaderBodyBottom component', ()=>{
             expect(result).toBeDefined();
         });
         
+    });
+    describe('calling functions', ()=>{
+        let component;
+        beforeEach(()=>{
+            component = setup(fullProps)
+        });
+        it('calling handlePlayClick ', ()=>{
+            component.setState({start:false})
+            component.instance().handlePlayClick({stopPropagation:jest.fn()});
+            expect(component.state().start).toBe(true);
+        });
     });
     describe('snapshot test', ()=>{
         it('renders correctly', () => {

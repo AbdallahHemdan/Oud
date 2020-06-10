@@ -38,7 +38,6 @@ class HeaderBodyBottom extends Component {
       this.state.start
     );
     this.props.playClicked();
-    console.log("🎵 music is playing now");
   };
   render() {
     return (

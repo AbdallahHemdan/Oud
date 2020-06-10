@@ -8,7 +8,6 @@ import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist";
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
 import PropTypes from 'prop-types';
-import { resume, pause, addToQueue } from '../commonComponents/utils'
 import { base, subUrl, prodUrl } from "./../../config/environment"
 import { config, isLoggedIn } from "../../utils/auth"
 import LoadingSnipper from "../LoadingSnipper/LoadingSnipper";
@@ -62,58 +61,17 @@ class Playlist extends React.Component {
       displayAdd: false,
       ownerName:''
     };
-    this.addToQueue = this.addToQueue.bind(this);
-    this.resume = this.resume.bind(this);
-    this.pause = this.pause.bind(this);
     this.playButtonClicked = this.playButtonClicked.bind(this);
     this.likeButtonClicked = this.likeButtonClicked.bind(this);
   }
   /**
-   * add the tracks to queue and resume the player
-   * @param {Array.<track>} tracks
-   * @param {number} length
-   * @returns {void}
-   */
-  addToQueue(tracks, length) {
-    this.setState({ queued: true });
-    addToQueue(tracks, length);
-  }
-  /**
-   * Called Whenever the user clicked on the PLAY button and it adds all the songs of the playlist to the queue by a post request
+   * Called Whenever the user clicked on the PLAY button 
    * @func
    * @returns {void}
    */
   playButtonClicked() {
-    //all the three requests should be put requests
-    if (this.state.queued === false) {
-      const tracks = this.state.tracks;
-      const length = this.state.tracks.length;
-      this.addToQueue(tracks, length);
-    }
-    if (this.state.playing === true) {
-      this.pause();
-    } else {
-      this.resume();
-    }
+    this.setState({playing:!this.state.playing})
   }
-  /**
-   * pauses the player
-   * @returns {void}
-   */
-  pause() {
-    pause();
-    this.setState({ playing: false });
-  }
-  /**
-   * resumes the player
-   * @returns {void}
-   *
-   */
-  resume() {
-    resume();
-    this.setState({ playing: true });
-  }
-
   /**
    * Called Whenever the user clicked on the like button and it adds the playlist to the likedPlaylists
    * if it is not already there otherwise it removes it from there by a delete request
@@ -256,9 +214,6 @@ class Playlist extends React.Component {
                     data-testid="songList"
                     recieved={this.state.recieved}
                     tracks={this.state.tracks}
-                    pause={this.pause}
-                    resume={this.resume}
-                    addToQueue={this.addToQueue}
                     clickedItemId={this.state.clickID}
                     className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
                     addToPlaylist={this.addToPlaylist.bind(this)}

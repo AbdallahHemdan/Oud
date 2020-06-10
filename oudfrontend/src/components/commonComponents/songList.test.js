@@ -61,7 +61,9 @@ const fullProps = {
     pause: jest.fn(),
     resume: jest.fn(),
     addToQueue: jest.fn(),
-    clickedItemId: '0'
+    clickedItemId: '0',
+    
+    webPlayer:{current:{playContext:jest.fn()}}
 }
 const setup = (props = {}) => {
     return shallow(<SongList {...props} />);
@@ -223,6 +225,44 @@ describe('SongList Component', () => {
         it('should throw a warning', () => {
             const result = checkPropTypes(SongList.propTypes, props00, 'prop', SongList.name);
             expect(result).toBeDefined();
+        });
+    });
+    describe('calling functions', ()=>{
+        let component;
+        beforeEach(()=>{
+            component = setup(fullProps)
+        });
+        it('calling handleClick ', ()=>{
+            component.setState({clickedItemId:'0'})
+            component.instance().handleClick('2');
+            expect(component.state().clickedItemId).toBe('2');
+        });
+        it('change the recieved props', () => {
+            component.setState({clickedItemId:'0'})
+            component.setProps({clickedItemId:'2'})
+            expect(component.state().clickedItemId).toBe('2');
+        })
+        it('change the recieved props', () => {
+            component.setState({clickedItemId:'0'})
+            component.setProps({clickedItemId:'0'})
+            expect(component.state().clickedItemId).toBe('0');
+        })
+        it('calling handlePlay ', ()=>{
+            const comp = setup({...fullProps, contextType:'album'})
+            comp.setState({playing:true})
+            comp.instance().handlePlay('19');
+            expect(comp.state().playing).toBe(false);
+        });
+        it('calling handlePlay ', ()=>{
+            component.setState({playing:true})
+            component.instance().handlePlay('19');
+            expect(component.state().playing).toBe(false);
+        });
+        it('calling handlePlay ', ()=>{
+            const comp = setup({...fullProps, contextType:'playlist'})
+            comp.setState({playing:false})
+            comp.instance().handlePlay('19');
+            expect(comp.state().playing).toBe(true);
         });
     });
     describe('snapshot test', () => {

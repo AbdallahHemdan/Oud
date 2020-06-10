@@ -99,7 +99,7 @@ class App extends Component {
               <LikedSongs webPlayer={webPlayer} />
             </Route>
             <Route
-              path="/albums/:id"
+              exact path="/albums/:id"
               Component={<Album webPlayer={webPlayer} />}
             >
               <AlbumRender webPlayer={webPlayer} />

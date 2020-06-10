@@ -70,7 +70,8 @@ class Song extends Component {
       duration:"",
       update: false,
       isArtist: false,
-      songInfo: false
+      songInfo: false,
+      link:''
     };
   }
   /**
@@ -105,8 +106,8 @@ class Song extends Component {
         this.setState({ saved: isFound });
       })
       .catch(error => {
-        console.log(error);
       });
+      this.checkArtist();
       const duration = this.convertTime(this.state.track.duration)
       this.setState({duration:duration})
   }
@@ -115,7 +116,6 @@ class Song extends Component {
     let minutes = parseInt(timeInt/60);
     let seconds = timeInt - 60*minutes
     return `${minutes}:${parseInt(seconds)}`
-    this.checkArtist();
   }
   checkArtist = () => {
     isArtist()
@@ -123,7 +123,6 @@ class Song extends Component {
         this.setState({ isArtist: res });
       })
       .catch(error => {
-        console.log(error);
       });
   };
   /**
@@ -177,20 +176,16 @@ class Song extends Component {
       axios
         .post(`${base}/me/queue/`, this.state.track, config)
         .then(function(response) {
-          console.log(response);
         })
         .catch(function(error) {
-          console.log(error);
         });
       this.setState({ queued: true });
     } else {
       axios
         .delete(`${base}/me/queue/${this.state.track.id}`, config)
         .then(function(response) {
-          console.log(response);
         })
         .catch(function(error) {
-          console.log(error);
         });
       this.setState({ queued: false });
     }
@@ -212,55 +207,20 @@ class Song extends Component {
   toggleDropdown() {
     this.setState({ displayDropdown: !this.state.displayDropdown });
   }
-
-  addToPlaylist() {
-    this.toggleDropdown();
-  }
-
   copyLink(){
     let link = base+'/albums/'+this.state.track.albumId+'/'+this.state.track.id;
     this.toggleDropdown();
+    this.setState({link:link})
     copy(link);
   }
 
   removeSong = () => {
     deleteRequest(`${base}/tracks/${this.props.track._id}`)
       .then(() => {
-        console.log("success");
       })
       .catch(error => {
-        console.log(error.response);
       });
   };
-  // checkAuth = () => {
-  //   const authNotNull = Auth() === null ? false : true,
-  //     sameTrack = false,
-  //     artists = this.props.track.artists,
-  //     auth = Auth();
-  //   for (let i = 0; i < artists.length; i++) {
-  //     if (auth === artists[i]._id) {
-  //       sameTrack = true;
-  //       break;
-  //     }
-  //   }
-  //   this.setState({
-  //     update: !this.state.update
-  //   });
-
-  //   if (authNotNull && sameTrack) {
-  //     Swal.fire({
-  //       title: "Done!",
-  //       text: "Song Deleted Successfully!",
-  //       icon: "success",
-  //       showConfirmButton: false,
-  //       timer: 1000
-  //     });
-  //     this.removeSong();
-  //     this.props.fetchContext();
-  //     return true;
-  //   }
-  //   return true; //change it to false;
-  // };
   editSong = () => {
     this.setState({
       songInfo: true

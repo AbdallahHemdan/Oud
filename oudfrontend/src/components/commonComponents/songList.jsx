@@ -50,7 +50,6 @@ class SongList extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
-    this.handleQueue = this.handleQueue.bind(this);
   }
   /**
    * it sets the state tothe new ID so it is sent to all the songs
@@ -69,23 +68,7 @@ class SongList extends Component {
     }
   }
   /**
-   * it adds all the songs after the calling song to the queue
-   * @param {string} id the id of the calling song
-   */
-  handleQueue(id) {
-    let flag = false;
-    let queue = [];
-    for (let i = 0; i < this.props.tracks.length; i++) {
-      if (flag || this.props.tracks[i].id === id) {
-        flag = true;
-        queue.push(this.props.tracks[i]);
-      }
-    }
-    this.props.addToQueue(queue, queue.length);
-  }
-  /**
    * if the calling song is playing it pauses/resums the player
-   * otherwise, it calls handleQueue
    * @param {sttring} id the id of the calling song
    */
   handlePlay(id) {

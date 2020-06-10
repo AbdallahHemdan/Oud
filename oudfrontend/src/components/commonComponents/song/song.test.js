@@ -5,6 +5,7 @@ import EnzymeAdapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer';
 import checkPropTypes from 'check-prop-types'
 import axios from 'axios'
+import { isCompositeComponent } from 'react-dom/test-utils';
 Enzyme.configure({adapter: new EnzymeAdapter()});
 const fullProps = {
     clickedId: '0',
@@ -105,14 +106,10 @@ describe('song component', ()=>{
         const wrapper = findByTestAttr(component, "artistName")
         expect(wrapper.length).toBe(2)
       })
-      /*it('renders without errors', ()=>{
-        const wrapper = findByTestAttr(component, "comma")
-        expect(wrapper.length).toBe(2)
-      })
       it('renders without errors', ()=>{
         const wrapper = findByTestAttr(component, "albumName")
-        expect(wrapper.length).toBe(1)
-      })*/
+        expect(wrapper.length).toBe(0)
+      })
       it('renders without errors', ()=>{
         const wrapper = findByTestAttr(component, "dropdown")
         expect(wrapper.length).toBe(1)
@@ -152,6 +149,62 @@ describe('song component', ()=>{
         beforeEach (()=>{
             component = setup(fullProps);
         })
+      it('playSongClicked', () => {
+        component.setState({playing:true})
+        component.instance().playSongClicked()
+        expect(component.state().playing).toBe(false);
+      })
+      it('handleSaving', () => {
+        component.setState({saved:true})
+        component.instance().handleSaving()
+        expect(component.state().saved).toBe(false);
+      })
+      it('handleSaving', () => {
+        component.setState({saved:false})
+        component.instance().handleSaving()
+        expect(component.state().saved).toBe(true);
+      })
+      it('handleQueue', () => {
+        component.setState({queued:false})
+        component.instance().handleQueue()
+        expect(component.state().queued).toBe(true);
+      })
+      it('handleQueue', () => {
+        component.setState({queued:true})
+        component.instance().handleQueue()
+        expect(component.state().queued).toBe(false);
+      })
+      it('redirect', () => {
+        component.setState({redirect:""})
+        component.instance().redirect('root')
+        expect(component.state().redirect).toBe("root");
+      })
+      it('hh', () => {
+        component.setState({displayDropdown:true, clicked:true})
+        component.instance().hh()
+        expect(component.state().displayDropdown).toBe(false);
+      })
+      it('toggleDropdown', () => {
+        component.setState({displayDropdown:true})
+        component.instance().toggleDropdown()
+        expect(component.state().displayDropdown).toBe(false);
+      })
+      it('editSong ', () => {
+        component.setState({songInfo:false})
+        component.instance().editSong()
+        expect(component.state().songInfo).toBe(true);
+      })
+      it('playSongClicked', () => {
+        component.setState({playing:false})
+        component.instance().playSongClicked()
+        expect(component.state().playing).toBe(true);
+      })
+      it('copy link', ()=>{
+        const wrapper = findByTestAttr(component, "copy")
+        expect(component.state().link).toBe("")
+        wrapper.simulate('click');
+        expect(component.state().displayDropdown).toContain("/")
+      })
       it('toggle dropdown', ()=>{
         const wrapper = findByTestAttr(component, "dropdownButton")
         expect(component.state().displayDropdown).toBeFalsy()
@@ -295,6 +348,197 @@ describe('song component', ()=>{
         expect(wrapper.text()).toBe('dddd')
       })
     })
+    describe('testing redirecting to song Info', ()=>{
+      let component;
+        beforeEach (()=>{
+            component = setup(fullProps);
+            component.setState({songInfo:true})
+        })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "song")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "playButton")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "playButtonImage")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "songName")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "aristsNames")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "artistName")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "dropdown")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "dropdownButton")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "dropdownList")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "saveSong")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "addToQueue")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "addToPlaylist")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "copy")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "songTime")
+        expect(wrapper.length).toBe(0)
+      })
+    })
+    describe('testing redirecting to artist', ()=>{
+      let component;
+        beforeEach (()=>{
+            component = setup(fullProps);
+            const wrap = findByTestAttr(component, "artistName")
+            wrap.first().simulate('click')
+        })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "song")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "playButton")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "playButtonImage")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "songName")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "aristsNames")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "artistName")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "dropdown")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "dropdownButton")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "dropdownList")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "saveSong")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "addToQueue")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "addToPlaylist")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "copy")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "songTime")
+        expect(wrapper.length).toBe(0)
+      })
+    })
+    describe('testing redirecting to album', ()=>{
+      let component;
+        beforeEach (()=>{
+            component = setup(falseProps);
+            const wrap = findByTestAttr(component, "albumName")
+            wrap.simulate('click')
+        })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "song")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "playButton")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "playButtonImage")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "songName")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "aristsNames")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "artistName")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "dropdown")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "dropdownButton")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "dropdownList")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "saveSong")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "addToQueue")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "addToPlaylist")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "copy")
+        expect(wrapper.length).toBe(0)
+      })
+      it('renders without errors', ()=>{
+        const wrapper = findByTestAttr(component, "songTime")
+        expect(wrapper.length).toBe(0)
+      })
+    })
     describe('testing prop types', ()=>{
         it('passing false props', ()=>{
             const result = checkPropTypes(Song.propTypes, {...fullProps}, 'prop', Song.name);
@@ -392,6 +636,29 @@ describe('song component', ()=>{
             expect(result).toBeDefined();
         })
     })
+    describe('componentWillReceiveProps()', () => {
+      let component;
+      beforeEach (()=>{
+          component = setup(fullProps);
+          component.setState({recieved:false, displayAdd:false})
+      })
+      it('change the clickedId ', () => {
+          component.setProps({clickedId:'1'})
+          expect(component.state().clicked).toBe(false);
+      })
+      it('change the clickedId ', () => {
+        component.setProps({clickedId:'19'})
+        expect(component.state().clicked).toBe(true);
+      })
+      it('change the playingItemId ', () => {
+        component.setProps({playingItemId:'1'})
+        expect(component.state().playing).toBe(false);
+      })
+      it('change the playingItemId ', () => {
+        component.setProps({playingItemId:'19'})
+        expect(component.state().playing).toBe(true);
+      })
+  });
     describe('snapshot test', ()=>{
         it('renders correctly', () => {
             const tree = renderer

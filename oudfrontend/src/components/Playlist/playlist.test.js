@@ -432,11 +432,6 @@ describe('Playlist Component', ()=>{
             component.setState({recieved:true });
             expect(component.state().ownerName).toBe("");
         })
-        /*it('does not change the display state', () => {
-            expect(component.state()).toStrictEqual([]);
-            component.setProps({  });
-            expect(component.state()).toStrictEqual();
-        })*/
     });
     describe('checking propTypes', ()=>{
         const propsT = {id:{id :'1'}}
@@ -496,15 +491,14 @@ describe('Playlist Component', ()=>{
         it('calling playButtonClicked', ()=>{
             component.setState({queued:false, playing:false})
             component.instance().playButtonClicked();
-            expect(component.state().queued).toBe(true);
             expect(component.state().playing).toBe(true);
         });
         it('calling playButtonClicked', ()=>{
             component.setState({queued:true, playing:true})
             component.instance().playButtonClicked();
-            expect(component.state().queued).toBe(true);
             expect(component.state().playing).toBe(false);
         });
+        
     });
     describe('snapshot test', ()=>{
         it('renders correctly', () => {

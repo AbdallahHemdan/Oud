@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 import { isArtist } from "./../../utils/auth";
 import { createBrowserHistory } from "history";
 import SongInfo from "./../SongInfo/SongInfo";
-import { resume, pause, addToQueue } from '../commonComponents/utils'
 import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist"
 import PropTypes from 'prop-types';
 import { base, subUrl, prodUrl } from "./../../config/environment"
@@ -71,56 +70,18 @@ class Album extends React.Component {
       isArtist: false,
       addSong: false
     };
-
-    this.addToQueue = this.addToQueue.bind(this);
-    this.resume = this.resume.bind(this);
-    this.pause = this.pause.bind(this);
     this.playButtonClicked = this.playButtonClicked.bind(this);
     this.likeButtonClicked = this.likeButtonClicked.bind(this);
   }
   /**
-   * add the tracks to queue and resume the player
-   * @param {Array.<track>} tracks
-   * @param {number} length
-   * @returns {void}
-   */
-  addToQueue(tracks, length) {
-    this.setState({ queued: true });
-    addToQueue(tracks, length);
-  }
-  /**
-   * Called Whenever the user clicked on the PLAY button and it adds all the songs of the playlist to the queue by a post request
+   * Called Whenever the user clicked on the PLAY button
    * @func
    * @returns {void}
    */
   playButtonClicked() {
     //all the three requests should be put requests
-    if (this.state.queued === false) {
-      const tracks = this.state.tracks;
-      const length = this.state.tracks.length;
-      this.addToQueue(tracks, length);
-    }
-    if (this.state.playing === true) {
-      this.pause();
-    } else {
-      this.resume();
-    }
-  }
-  /**
-   * pauses the player
-   * @returns {void}
-   */
-  pause() {
-    pause();
-    this.setState({ playing: false });
-  }
-  /**
-   * resume the player
-   * @returns {void}
-   */
-  resume() {
-    resume();
-    this.setState({ playing: true });
+    this.setState({ playing: !this.state.playing });
+    
   }
   /**
    * Called Whenever the user clicked on the like button and it adds the playlist to the likedPlaylists
@@ -128,7 +89,7 @@ class Album extends React.Component {
    * @func
    * @returns {void}
    */
-  likeButtonClicked() {
+  likeButtonClicked(){
     if (this.state.liked === false) {
       this.setState({ liked: true });
       axios
@@ -186,6 +147,7 @@ class Album extends React.Component {
       contextUri: `oud:album:${this.props.id}`,
       offset: {"uri":`oud:track:${this.props.songId}`}
     }
+    console.log('playing')
     axios
       .put(`${base}/me/player/play/`, body,config)
       .then((response) => {
@@ -327,9 +289,6 @@ class Album extends React.Component {
                     data-testid="songList"
                     recieved={this.state.recieved}
                     tracks={this.state.tracks}
-                    pause={this.pause}
-                    resume={this.resume}
-                    addToQueue={this.addToQueue}
                     clickedItemId={this.state.clickID}
                     className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
                     addToPlaylist={this.addToPlaylist.bind(this)}
