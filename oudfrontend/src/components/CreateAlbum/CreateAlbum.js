@@ -54,13 +54,6 @@ class CreateAlbum extends Component {
     this.props.update
       ? patchRequest(this.props.endpoint, album) //
           .then(response => {
-            Swal.fire({
-              title: "Done!",
-              text: "Album Added Successfully!",
-              icon: "success",
-              showConfirmButton: false,
-              timer: 1000
-            });
             this.handleClose();
           })
           .catch(error => {
@@ -80,6 +73,13 @@ class CreateAlbum extends Component {
           .catch(error => {
             console.log(error);
           });
+    Swal.fire({
+      title: "Done!",
+      text: "Album Added Successfully!",
+      icon: "success",
+      showConfirmButton: false,
+      timer: 1000
+    });
   };
   /**
    * closes the window by making state.display false

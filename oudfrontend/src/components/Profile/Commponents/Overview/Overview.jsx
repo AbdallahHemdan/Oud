@@ -8,6 +8,12 @@ import "./Overview.css";
  * @returns {JSX} this the profile overview for current user which just calls the public playlists
  */
 
+// <Link
+//   to={`/profile/${props.userId}/publicPlaylists`}
+//   className="SEE-ALL-Overview"
+// >
+//   SEE ALL
+// </Link>
 function Overview(props) {
   return (
     <div data-test="Overview">
@@ -15,12 +21,6 @@ function Overview(props) {
         <h5 data-test="title" style={{ width: "50%" }}>
           Public Playlists
         </h5>
-        <Link
-          to={`/profile/${props.userId}/publicPlaylists`}
-          className="SEE-ALL-Overview"
-        >
-          SEE ALL
-        </Link>
       </div>
       <PublicPlaylists data-test="PublicPlaylists" userId={props.userId} />
     </div>

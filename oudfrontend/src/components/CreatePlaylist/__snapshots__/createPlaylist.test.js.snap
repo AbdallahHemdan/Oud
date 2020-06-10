@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatePlaylist Component snapshot test  correctly 1`] = `
+<div
+  className="createPlaylist"
+  data-testid="createPlaylist"
+>
+  <button
+    className="closeButton"
+    data-testid="closeButton"
+    onClick={[Function]}
+  >
+    <svg
+      height="32"
+      width="32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title>
+        close
+      </title>
+      <path
+        d="M31.098 29.794L16.955 15.65 31.097 1.51 29.683.093 15.54 14.237 1.4.094-.016 1.508 14.126 15.65-.016 29.795l1.414 1.414L15.54 17.065l14.144 14.143"
+        fill="#fff"
+        fillRule="evenodd"
+      />
+    </svg>
+  </button>
+  <h1
+    data-testid="title"
+    id="createPlaylistTitle"
+  >
+    Create new playlist
+  </h1>
+  <div
+    id="createPlaylistBigField"
+  >
+    <div
+      data-testid="inputContainer"
+      id="createPlaylistContainer"
+    >
+      <p
+        className="gray-text"
+        data-testid="inputHeader"
+      >
+        Playlist Name
+      </p>
+      <input
+        data-testid="input"
+        id="cretePLaylistName"
+        onChange={[Function]}
+        placeholder="New Playlist"
+        type="text"
+      />
+    </div>
+  </div>
+  <button
+    data-testid="cancelButton"
+    id="cancelCreation"
+    onClick={[Function]}
+  >
+    CANCEL
+  </button>
+  <button
+    data-testid="CreateButton"
+    id="cancelCreation"
+    onClick={[Function]}
+  >
+    CREATE
+  </button>
+</div>
+`;

@@ -3,7 +3,8 @@ import { Howl } from "howler";
 import { base } from "./../../config/environment";
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU5MTIyNzczNiwiZXhwIjoxNTkzODE5NzM2fQ.7GCVh4FFBu69EEoVLSocqBXDkicgPzmYMSFgya3l_Kc`
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU5MTYyMTQxOSwiZXhwIjoxNTk0MjEzNDE5fQ.fj3N3Pc89Pf_xlt7fGmXw1SINTecUB4-y3pihAAPjC8`,
+    "Access-Control-Allow-Origin": "*"
   }
 };
 function checkSavedTrack(id) {
@@ -22,7 +23,11 @@ function checkSavedTrack(id) {
 
 function saveTrack(id) {
   return axios
-    .put(`${base}/me/tracks?ids=${id}`, {}, config)
+    .put(
+      `${base}/me/tracks?ids=${id}`,
+      { items: [{}], limit: 0, offset: 0, total: 0 },
+      config
+    )
     .then(response => {
       if (!response["data"].hasOwnProperty("status")) return true;
       else return false;

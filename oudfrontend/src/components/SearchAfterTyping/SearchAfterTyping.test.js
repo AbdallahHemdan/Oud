@@ -15,6 +15,7 @@ const item = {
   search: "Amr",
   canSend: true,
 }
+
 describe('Search After Typing component', () => {
   let component;
   beforeEach(() => {
@@ -29,42 +30,7 @@ describe('Search After Typing component', () => {
     expect(component.state().isLoading).toBeTruthy();
     expect(wrapper.length).toBe(1);
   });
-  it('Should render search results wrapper in right way', () => {
-    component.setState({ isLoading: false })
-    const wrapper = findByTestAttr(component, "search-results");
-    expect(component.state().isLoading).toBeFalsy();
-    expect(wrapper.length).toBe(1);
-  });
-  it('Should render search result tracks in right way', () => {
-    component.setState({ isLoading: false })
-    const wrapper = findByTestAttr(component, "search-tracks");
-    expect(component.state().isLoading).toBeFalsy();
-    expect(wrapper.length).toBe(1);
-  });
-  it('Should render search result artists in right way', () => {
-    component.setState({ isLoading: false })
-    const wrapper = findByTestAttr(component, "search-artists");
-    expect(component.state().isLoading).toBeFalsy();
-    expect(wrapper.length).toBe(1);
-  });
-  it('Should render search result albums in right way', () => {
-    component.setState({ isLoading: false })
-    const wrapper = findByTestAttr(component, "search-albums");
-    expect(component.state().isLoading).toBeFalsy();
-    expect(wrapper.length).toBe(1);
-  });
-  it('Should render search result playlists in right way', () => {
-    component.setState({ isLoading: false })
-    const wrapper = findByTestAttr(component, "search-playlists");
-    expect(component.state().isLoading).toBeFalsy();
-    expect(wrapper.length).toBe(1);
-  });
-  it('Should render search result users in right way', () => {
-    component.setState({ isLoading: false })
-    const wrapper = findByTestAttr(component, "search-users");
-    expect(component.state().isLoading).toBeFalsy();
-    expect(wrapper.length).toBe(1);
-  });
+
 
   describe('snapshot test', () => {
     it('renders component correctly', () => {
@@ -75,6 +41,7 @@ describe('Search After Typing component', () => {
       expect(tree).toMatchSnapshot();
     });
   });
+
   describe('testing prop types', () => {
     it('should pass true props', () => {
       const result = checkPropTypes(SearchAfterTyping.propTypes, { ...item }, 'prop', SearchAfterTyping.name);
@@ -122,6 +89,3 @@ describe('Search After Typing component', () => {
     });
   })
 });
-
-
-

@@ -7,7 +7,8 @@ import extend from "../../../assets/images/icons/extend.png";
 import PropTypes from "prop-types";
 import placeHolder from "../../../assets/images/icons/placeholderdark.png";
 import { checkSavedTrack, setupHowler } from "../../../utils/Actions/Player";
-import { base } from "./../../../config/environment";
+import { base, mock, mockUrl } from "./../../../config/environment";
+import { getRequest } from "./../../../utils/requester";
 let sound = null;
 /**
  * Component for playing the audio Oud website, It contains all the player controls.
@@ -83,6 +84,7 @@ class Player extends Component {
   }
 
   onPlay = () => {
+    console.log("PLAy Action");
     this.props.changePlayingState(true);
     this.setState({
       playing: true,
@@ -132,8 +134,7 @@ class Player extends Component {
    * @returns {void}
    */
   fetchPlayback = (outPlayer = false) => {
-    return this.props
-      .getRequest(`${base}/me/player`)
+    return getRequest(`${base}/me/player`)
       .then(response => {
         const data = response.data.player;
         console.log("date: ");
@@ -154,12 +155,12 @@ class Player extends Component {
                 ? "Oud"
                 : response.data.player.item.artists[0].displayName,
             artistId: response.data.player.item.artists[0]._id,
-            art:
-              response.data.player.item.type === "ad"
-                ? response.data.player.item.image
-                : `https://oud-zerobase.me/api/${response.data.player.item.artists[0].images[0]}`
-                    .replace(/ /g, "%20")
-                    .replace(/\\/g, "/"),
+            // art:
+            //   response.data.player.item.type === "ad"
+            //     ? response.data.player.item.image
+            //     : `https://oud-zerobase.me/api/${response.data.player.item.artists[0].images[0]}`
+            //         .replace(/ /g, "%20")
+            //         .replace(/\\/g, "/"),
             duration: Number(track["duration"] / 60000).toFixed(2),
             shuffleState: data["shuffleState"],
             repeatState:
@@ -177,6 +178,7 @@ class Player extends Component {
           },
           () => console.log("stated")
         );
+        console.log("Done");
         this.props.changePlayingState(false);
         this.props.fetchQueue("0", track["_id"], outPlayer ? true : false);
         this.handleSaveToLikedSongs(track["_id"]);
@@ -247,7 +249,6 @@ class Player extends Component {
    * @returns {object}
    */
   playResumeRequest = idx => {
-    console.log("idx from request: " + idx);
     return this.props.putRequest(`${base}/me/player/play?queueIndex=0`, {
       // contextUri: this.state.context,
       offset: { position: idx }
@@ -304,11 +305,6 @@ class Player extends Component {
    * @returns{void}
    */
   handlePlayPause = (id = this.props.trackId, idx = this.props.trackIdx) => {
-    if (
-      this.state.actions &&
-      (!this.state.actions.pausing || !this.state.actions.pausing.resuming)
-    )
-      return;
     if (idx !== this.props.trackIdx) {
       if (sound) {
         sound.pause();
@@ -351,7 +347,6 @@ class Player extends Component {
    * @returns {void}
    */
   handleNext = () => {
-    if (this.state.actions && !this.state.actions.skipping_next) return;
     this.props
       .postRequest(`${base}/me/player/next`)
       .then(response => {
@@ -380,7 +375,6 @@ class Player extends Component {
    * @returns {void}
    */
   handlePrev = () => {
-    if (this.state.actions && !this.state.actions.skipping_prev) return;
     this.props
       .postRequest(`${base}/me/player/previous`)
       .then(response => {
@@ -410,17 +404,17 @@ class Player extends Component {
    * @returns {void}
    */
   onProgressClick = e => {
-    if (this.state.actions && !this.state.actions.seeking) return;
-    // e.preventDefault();
     if (!this.state.mouseDown) return;
     const width = document.getElementById("progress-width").clientWidth;
     const offsetX = e.nativeEvent.offsetX;
-    // const offsetWidth = e.nativeEvent.target.offsetWidth;
     const percent = offsetX / width;
     const position = percent * this.state.duration * 60;
-
+    const endpoint =
+      base === mockUrl
+        ? `${base}/me/player/seek`
+        : `${base}/me/player/seek?positionMs=${position * 1000}`;
     this.props
-      .putRequest(`${base}/me/player/seek?positionMs=${position * 1000}`)
+      .putRequest(endpoint)
       .then(response => {
         if (sound) sound.seek(position);
         this.setState({
@@ -451,7 +445,6 @@ class Player extends Component {
    * @returns {void}
    */
   handleShuffleState = () => {
-    if (this.state.actions && !this.state.actions.toggling_shuffle) return;
     this.props
       .putRequest(`${base}/me/player/shuffle?state=${!this.state.shuffleState}`)
       .then(response => {
@@ -473,12 +466,6 @@ class Player extends Component {
    * @returns {void}
    */
   handleRepeatState = () => {
-    if (
-      this.state.actions &&
-      (!this.state.actions.toggling_repeat_context ||
-        !this.state.actions.toggling_repeat_track)
-    )
-      return;
     const repeatState = (this.state.repeatState + 1) % 3;
     const state =
       repeatState === 0 ? "off" : repeatState === 1 ? "context" : "track";

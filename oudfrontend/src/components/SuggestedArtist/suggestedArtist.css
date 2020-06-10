@@ -122,8 +122,8 @@
 }
 
 .ArtistImage {
-  width: 200px;
-  height: 50% !important;
+  width: 150px;
+  height: 200px;
   border-radius: 100%;
   opacity: 1;
   display: block;
@@ -138,8 +138,9 @@
   text-align: center;
   margin-top: -50px;
   color: white;
-  font-size: larger;font-weight: bold;
-  
+  font-size: larger;
+  font-weight: bold;
+
 }
 
 .ArtistName {
@@ -327,4 +328,17 @@
   align-items: center;
   justify-content: center;
   transform: translate(0, -200%);
+}
+
+.circular--portrait {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circular--portrait img {
+  width: 100%;
+  height: auto;
 }

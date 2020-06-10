@@ -50,7 +50,6 @@ class SongList extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
-    this.handleQueue = this.handleQueue.bind(this);
   }
   /**
    * it sets the state tothe new ID so it is sent to all the songs
@@ -67,48 +66,40 @@ class SongList extends Component {
     if (nextProps.clickedItemId !== this.state.clickedItemId) {
       this.setState({ clickedItemId: nextProps.clickedItemId });
     }
-  }
-  /**
-   * it adds all the songs after the calling song to the queue
-   * @param {string} id the id of the calling song
-   */
-  handleQueue(id) {
-    let flag = false;
-    let queue = [];
-    for (let i = 0; i < this.props.tracks.length; i++) {
-      if (flag || this.props.tracks[i].id === id) {
-        flag = true;
-        queue.push(this.props.tracks[i]);
-      }
-    }
-    this.props.addToQueue(queue, queue.length);
+    console.log(this.props.recieved)
   }
   /**
    * if the calling song is playing it pauses/resums the player
-   * otherwise, it calls handleQueue
    * @param {sttring} id the id of the calling song
    */
   handlePlay(id) {
-    let playingId;
-    this.setState({ playingItemId: id });
-    axios
-      .get(`${base}/me/player/currently-playing`, config)
-      .then(response => {
-        playingId = response.data.item.id;
-      })
-      .catch(error => {
-        console.log(error);
-      });
-    if (id === playingId) {
-      this.setState({ playing: !this.state.playing });
-      if (this.state.playing === true) {
-        this.props.play();
-      } else {
-        this.props.pause();
-      }
+    if (
+      this.props.contextType === "album" ||
+      this.props.contextType === "playlist"
+    ) {
+      const contextUri = `oud:${this.props.contextType}:${this.props.contextId}`;
+      this.props.webPlayer.current.playContext(
+        contextUri,
+        [],
+        this.props.clickedItemId,
+        0
+      );
     } else {
-      this.handleQueue(id);
+      let uris = [];
+      this.props.tracks.forEach(track => {
+        uris.push(`oud:track:${track.id}`);
+      });
+      this.props.webPlayer.current.playContext(
+        null,
+        uris,
+        this.props.clickedItemId,
+        0,
+        true
+      );
     }
+    this.setState({
+      playing: !this.state.playing
+    });
   }
   render() {
     return (
@@ -122,19 +113,22 @@ class SongList extends Component {
               <Song
                 data-testid="songElement"
                 key={track.id}
+                ownerId = {this.props.ownerId}
                 track={track}
                 index={index}
                 clickedId={this.state.clickedItemId}
                 playingItemId={this.state.playingItemId}
                 handlePlay={this.handlePlay}
-                addToPlaylist={() => this.props.addToPlaylist()}
+                addToPlaylist={this.props.addToPlaylist}
+                album={this.props.album}
+                albumId={this.props.albumId}
                 fetchContext={this.props.fetchContext}
                 handleClick={this.handleClick}
               />
             );
-          })
-        ) : (
-          <LoadingSnipper />
+          }))
+        : (
+          <LoadingSnipper data-testid="loading"/>
         )}
       </div>
     );

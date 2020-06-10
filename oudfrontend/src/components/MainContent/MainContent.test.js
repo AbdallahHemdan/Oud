@@ -8,7 +8,7 @@ const setup = (props = {}) => {
   return component;
 };
 
-describe("Name of the group", () => {
+describe("Main content component", () => {
   let component;
   beforeEach(() => {
     const props = {

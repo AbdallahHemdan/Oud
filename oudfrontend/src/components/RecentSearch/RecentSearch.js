@@ -75,7 +75,7 @@ class RecentSearch extends Component {
    *
    */
   handleStoringRecent = ({ items, limit, offset, total }) => {
-    this.setState({ items, limit, offset, total, isLoading: false });
+    this.setState({ items, limit, offset, total });
   }
 
   /**
@@ -94,6 +94,12 @@ class RecentSearch extends Component {
         console.log(err);
       });
   }
+
+  componentDidUpdate(prevProps, preState) {
+    if (preState.items !== this.state.items) {
+      this.setState({ isLoading: false });
+    }
+  }
   /**
    * @function
    * @name render
@@ -105,56 +111,58 @@ class RecentSearch extends Component {
     return (
       <React.Fragment>
         {
-          (this.state.isLoading) ?
+          (this.state.isLoading && this.state.items.length) ?
             (
               <LoadingSnipper
                 data-testid="loading"
               />
             )
             :
-            (
-              <div className="module">
-                <div className="row"
-                  data-testid="category-header"
-                >
-                  <h1
-                    className="gray-white item-name"
-                    data-testid="category-title"
-                  >Recent Search</h1>
-                  {
-                    (this.state.items.length >= 6) ?
-                      <Link to={`/recent-search`}>
-                        <div className="see-more"
-                          data-testid="category-see-all"
-                        >See All</div>
-                      </Link> : null
-                  }
-                </div>
-                <div
-                  className="wrapper"
-                  data-testid="first-wrapper">
-                  <div className="wrapper_section_2"
-                    data-testid="second-wrapper"
+            (this.state.items.length) ?
+              (
+                <div className="module">
+                  <div className="row"
+                    data-testid="category-header"
                   >
-                    <div className="cards"
-                      data-testid="cards-wrapper"
+                    <h1
+                      className="gray-white item-name"
+                      data-testid="category-title"
+                    >Recent Search</h1>
+                    {
+                      (this.state.items.length >= 6) ?
+                        <Link to={`/recent-search`}>
+                          <div className="see-more"
+                            data-testid="category-see-all"
+                          >See All</div>
+                        </Link> : null
+                    }
+                  </div>
+                  <div
+                    className="wrapper"
+                    data-testid="first-wrapper">
+                    <div className="wrapper_section_2"
+                      data-testid="second-wrapper"
                     >
-                      {
-                        this.state.items.splice(0, 6).map((item, index) => {
-                          return (
-                            <RecentSearchCard
-                              item={item}
-                              key={index}
-                              data-testid="recent-search-card"
-                            />
-                          )
-                        })
-                      }
+                      <div className="cards"
+                        data-testid="cards-wrapper"
+                      >
+                        {
+                          (this.state.items) ?
+                            (this.state.items.splice(0, 6).map((item, index) => {
+                              return (
+                                <RecentSearchCard
+                                  item={item}
+                                  key={index}
+                                  data-testid="recent-search-card"
+                                />
+                              )
+                            })) : null
+                        }
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )
+              ) : null
         }
       </React.Fragment>
     )

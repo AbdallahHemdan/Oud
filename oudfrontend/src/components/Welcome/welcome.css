@@ -13,12 +13,14 @@
   left: 0;
   z-index: 9999;
   width: 100%;
-  background-color: black;
+  transition: 0.5s;
 }
+
 .paddingNav {
   padding-left: 12.5%;
   padding-right: 8.8%;
 }
+
 .NavBarStyle_navbar-dark .NavBarStyle_navbar-nav .NavBarStyle_nav-link {
   color: #ffffff;
 }
@@ -340,6 +342,7 @@
   .welcomeTextUser {
     top: 8%;
   }
+
   .text {
     font-size: 150%;
   }
@@ -371,4 +374,178 @@
   z-index: 9999;
   width: 20%;
   margin-bottom: 10px;
+}
+
+.HelpSection {
+  margin-top: 100px;
+}
+
+.aboutSection {
+  margin-top: 200px;
+}
+
+.HelpLogo {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: block;
+  width: 30%;
+}
+
+.Help_text {
+  margin-top: 30px;
+  text-align: center;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+.grid-container>div {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.ContactImage {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.grid-container a {
+  color: #e2a731;
+}
+
+@media (max-width:1200px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+  }
+}
+
+@media (max-width:780px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+  }
+
+}
+
+.AboutHead {
+  float: left;
+  text-align: left;
+}
+
+.AboutPara {
+  color: white;
+  float: left;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+}
+
+.AboutPara a {
+  color: #e2a731;
+}
+
+.FAHead {
+  color: white;
+  font-size: 100px;
+}
+
+.hrinFA {
+  border: 0.5px solid gray;
+}
+
+.Text1 {
+  margin-bottom: 0px;
+  font-weight: 400;
+  font-size: 20px;
+  color: #fff;
+}
+
+
+.GETBTN {
+  float: right;
+  background-color: #e2a731;
+  border-radius: 100px;
+  border: 1px solid black;
+  color: white;
+  padding: 5px;
+  margin: 2px;
+}
+
+.grid-container2 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+
+  padding: 10px;
+  margin-top: 50px;
+}
+
+.grid-container2>div {
+
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.FAImage {
+  max-width: 250px;
+}
+
+.TSEction {
+  background-color: #f9b835;
+  color: white;
+  text-align: center;
+}
+
+.TSEText {
+  color: white;
+  font-size: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  max-width: 800px;
+}
+
+.GETBTN2 {
+  background-color: white;
+  border-radius: 100px;
+  border: 1px solid white;
+  color: black;
+  padding: 5px;
+  margin: 5px;
+  margin-bottom: 30px;
+  width: 40%;
+}
+
+@media (max-width:980px) {
+  .grid-container2 {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+  }
+
+  .grid-container2 h6 {
+    font-size: 30px;
+  }
+
+}
+
+@media (max-width:1110px) {
+  .grid-container h6 {
+    font-size: 20px;
+  }
 }

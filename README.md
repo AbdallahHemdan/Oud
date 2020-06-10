@@ -49,6 +49,7 @@
 ### Build with
 - [React JS](https://reactjs.org/)
 - [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+- [HowlerJS](https://github.com/goldfire/howler.js/)
 - [Bootstrap](https://getbootstrap.com/)
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://enzymejs.github.io/enzyme/)
@@ -103,6 +104,19 @@ $ npm run prod
 <hr />
 
 ![25](https://user-images.githubusercontent.com/40190772/80294151-aa316800-8766-11ea-89dd-07cfc32b27f6.png)
+
+<hr />
+
+![chrome_1JjJ8yfh7A](https://user-images.githubusercontent.com/40190772/84220765-e54be880-aad3-11ea-8b58-6e1d32654290.png)
+
+
+<hr />
+
+![image](https://user-images.githubusercontent.com/40190772/84220506-40311000-aad3-11ea-866e-06e33a1adbf3.png)
+
+<hr />
+
+![image](https://user-images.githubusercontent.com/40190772/84220551-563ed080-aad3-11ea-8e68-e85759a8f596.png)
 
 <hr />
 

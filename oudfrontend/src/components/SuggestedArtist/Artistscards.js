@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './suggestedArtist.css';
-import loved from './../../assets/images/icons/H.png'
+import loved from './../../assets/images/icons/H.png';
 import Axios from 'axios';
 
 /**
@@ -30,8 +30,6 @@ class ArtistCard extends Component {
     });
     this.props.handleSelect(this.props.id, this.state.selected);
     this.props.handleRelated(this.props.id);
-    
-
   };
 
   toggleSelected = () => {
@@ -50,20 +48,22 @@ class ArtistCard extends Component {
           <div className="">
             <div className={`${this.state.Toggle ? 'show' : 'half'}`}>
               <div className={this.state.isSelected ? 'asd' : ''}>
-                <img
-                  alt=""
-                  src={this.state.image}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                  }}
-                  data-testid="artistImage"
-                  className={`ArtistImage ${
-                    this.state.Toggle || this.state.isSelected
-                      ? 'show'
-                      : 'half '
-                  }`}
-                ></img>
+                <div className="circular--portrait">
+                  <img
+                    alt=""
+                    src={this.state.image}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                    }}
+                    data-testid="artistImage"
+                    className={`ArtistImage ${
+                      this.state.Toggle || this.state.isSelected
+                        ? 'show'
+                        : 'half '
+                    }`}
+                  ></img>
+                </div>
               </div>
             </div>
             <img

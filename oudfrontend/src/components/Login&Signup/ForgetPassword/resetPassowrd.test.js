@@ -1,19 +1,34 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import * as renderer from 'react-test-renderer';
+import {findByTestAttr} from './../../../utils/index';
 import ResetPassword from './resetPassword.js';
-
+import {MemoryRouter} from 'react-router-dom';
+const setup = (props = {}) => {
+  const component = shallow(<ResetPassword.WrappedComponent {...props} />);
+  return component;
+};
 describe('test for restpassword ', () => {
-  describe('test the render ', () => {
-    it('test the render of the buttons', () => {
-      console.log('as', <ResetPassword.WrappedComponent />);
-      const component = shallow(<ResetPassword.WrappedComponent />);
-      const button = component.find(`[data-testid="testIdOfButton"]`);
-      expect(button.length).toBe(2);
-      const Text = component.find(`[data-testid="restPasswordText"]`);
-      expect(Text.length).toBe(4);
-      const input = component.find(`[data-testid="registerPassword"]`);
-      expect(input.length).toBe(2);
+  let component;
+  beforeEach(() => {
+    const props = {};
+    component = setup(props);
+  });
+  it('Render the restPasswordText text box ', () => {
+    const wrapper = findByTestAttr(component, 'restPasswordText');
+    expect(wrapper.length).toBe(4);
+  });
+  it('Render the testIdOfButton text box ', () => {
+    const wrapper = findByTestAttr(component, 'testIdOfButton');
+    expect(wrapper.length).toBe(2);
+  });
+  it('Render the registerPassword text box ', () => {
+    const wrapper = findByTestAttr(component, 'registerPassword');
+    expect(wrapper.length).toBe(2);
+  });
+  describe('Snapshot test', () => {
+    it('renders component correctly', () => {
+      const wrapper = shallow(<ResetPassword />);
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });

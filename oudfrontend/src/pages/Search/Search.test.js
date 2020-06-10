@@ -69,6 +69,5 @@ describe('Search Page Component', () => {
     expect(component.state().isLoading).toBeFalsy();
     expect(wrapper.length).toBe(1);
   });
-
 });
 

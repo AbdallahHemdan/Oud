@@ -5,6 +5,8 @@ import Popular from "./Popular";
 import Albums from "./Albums";
 import RelatedArtists from "./RelatedArtists";
 import PropTypes from "prop-types";
+import Statistics from './../../Statistics/Statistics';
+
 /**
  * A function component to render the lower part of the artist page. Popular, Albums, Singles, Compilation, and Appears On
  * @author Ahmed Ashraf
@@ -83,6 +85,19 @@ function LowerContainer(props) {
           path={`/artist/:artistId/related`}
           render={(prop) => (
             <RelatedArtists {...prop} artistId={props.artistId} />
+          )}
+        />
+        <Route
+          data-testid="statistics-lower"
+          exact
+          path={`/artist/:artistId/statistics`}
+          render={(prop) => (
+            <Statistics
+              {...prop}
+              artistId={props.artistId}
+              username={props.username}
+              img={props.img}
+            />
           )}
         />
       </Switch>

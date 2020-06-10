@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatePlaylist Component snapshot test renders correctly 1`] = `
+<div>
+  <div
+    className="createPlaylist hide"
+    data-testid="addToPlaylist"
+  >
+    <button
+      className="closeButton"
+      data-testid="closeButton"
+      onClick={[Function]}
+    >
+      <svg
+        height="32"
+        width="32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          close
+        </title>
+        <path
+          d="M31.098 29.794L16.955 15.65 31.097 1.51 29.683.093 15.54 14.237 1.4.094-.016 1.508 14.126 15.65-.016 29.795l1.414 1.414L15.54 17.065l14.144 14.143"
+          fill="#fff"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+    <h1
+      data-testid="title"
+      id="createPlaylistTitle"
+    >
+      Add To playlist
+    </h1>
+    <button
+      className="playButton"
+      data-testid="createNew"
+      onClick={[Function]}
+    >
+      NEW PLAYLIST
+    </button>
+    <div
+      id="createPlaylistBigField"
+    >
+      <div
+        className="wrapper"
+        data-testid="first-wrapper"
+        id="wrapperId"
+      >
+        <div
+          className="wrapper_section_2"
+          data-testid="second-wrapper"
+          id="second-wrapperId"
+        >
+          <div
+            className="cards"
+            data-testid="cards-wrapper"
+            id="cardsId"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

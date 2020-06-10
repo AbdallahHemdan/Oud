@@ -67,8 +67,13 @@ function Footer() {
 
                 <ul className="list-unstyled ListMain hovergold">
                   <li className="ListItem">
-                    <Link data-testid="Artists" to="/artists">
+                    <Link data-testid="Artists" to="/artists#gohere">
                       For Artists
+                    </Link>
+                  </li>
+                  <li className="ListItem">
+                    <Link data-testid="contact_us" to="/contactus">
+                      contact us
                     </Link>
                   </li>
                 </ul>

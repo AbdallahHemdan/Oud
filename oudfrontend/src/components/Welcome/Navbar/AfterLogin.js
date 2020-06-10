@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import mask from './../../../assets/images/mask.png';
-import axios from 'axios';
-import {base, subUrl, prodUrl} from './../../../config/environment';
-import {config} from './../../../utils/auth';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import mask from "./../../../assets/images/mask.png";
+import axios from "axios";
+import { base, subUrl, prodUrl } from "./../../../config/environment";
+import { config } from "./../../../utils/auth";
+import userPlaceHolder from "../../../assets/images/default-Profile.svg";
 
 const fetchUserInfo = `${base}/me`;
 
@@ -11,30 +12,31 @@ class AfterLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayName: '',
-      images: [],
-      
+      displayName: "",
+      id: "",
+      images: []
     };
   }
-  handleStoringUserInfo = ({displayName, images}) => {
-    this.setState({displayName, images});
+  handleStoringUserInfo = ({ displayName, images }) => {
+    this.setState({ displayName, images });
   };
   componentDidMount() {
     axios
       .get(fetchUserInfo, config)
-      .then((result) => {
+      .then(result => {
         this.handleStoringUserInfo(result.data);
+        this.setState({ id: result.data._id });
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   }
 
   doLogOut = () => {
-    localStorage.removeItem('accessToken');
+    localStorage.removeItem("accessToken");
   };
   render() {
-    const subPath = base === prodUrl ? subUrl : '';
+    const subPath = base === prodUrl ? subUrl : "";
     return (
       <li className="nav-item dropdown">
         <Link
@@ -48,7 +50,11 @@ class AfterLogin extends Component {
         >
           <img
             className="img-responsive user-image"
-            src={`${subPath}${this.state.images[0]}`}
+            src={
+              this.state.images[0]
+                ? `${subPath}${this.state.images[0]}`
+                : userPlaceHolder
+            }
             alt="Profile Icon"
             data-testid="profImage"
           />
@@ -56,7 +62,11 @@ class AfterLogin extends Component {
           {this.state.displayName}
         </Link>
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-          <Link data-testid="Account" to="/account" className="dropdown-item">
+          <Link
+            data-testid="Account"
+            to="/account/accountOverview"
+            className="dropdown-item"
+          >
             Account
           </Link>
           <Link
@@ -66,6 +76,9 @@ class AfterLogin extends Component {
             onClick={() => this.doLogOut()}
           >
             Log Out
+          </Link>
+          <Link to={"/profile/" + this.state.id} className="dropdown-item">
+            {this.state.displayName}
           </Link>
         </div>
       </li>

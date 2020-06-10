@@ -159,6 +159,8 @@ class ArtistUserView extends Component {
             artistId={this.props.artistId}
             bio={this.state.bio}
             addToPlaylist={this.addToPlaylist}
+            username={this.state.username}
+            img={this.state.img}
           />
         </div>
       </div>

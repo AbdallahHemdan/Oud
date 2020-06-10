@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SearchCard from "./../SearchCard/SearchCard"
+import { base, prodUrl } from "./../../config/environment"
 
 /**
  * component to render Search Category component (Artist, Album, User, Playlist, Tracks)
@@ -18,17 +19,33 @@ class SearchCategory extends Component {
   * @returns {JSX} Component for Search
   */
   render() {
+    let data;
+    if (this.props.name === "Tracks") {
+      data = this.props.items.tracks;
+    } else if (this.props.name === "Artists") {
+      data = this.props.items.artists;
+    } else if (this.props.name === "Albums") {
+      data = this.props.items.albums;
+    }
+    else if (this.props.name === "Playlists") {
+      data = this.props.items.playlists;
+    } else if (this.props.name === "Users") {
+      data = this.props.items.users;
+    }
+
+    const dataLoadedOrNot = (((this.props.search === this.props.propsSearch) && (this.props.items.total))) || (base !== prodUrl);
+
     return (
       <div className="module">
         <div className="row"
-          data-testid="category-header "
+          data-testid="category-header"
         >
           <h1
             className="gray-white item-name"
             data-testid="category-title"
           >
             {
-              (this.props.search === this.props.propsSearch) ? this.props.name : null
+              dataLoadedOrNot ? this.props.name : null
             }
           </h1>
         </div>
@@ -42,27 +59,28 @@ class SearchCategory extends Component {
               data-testid="cards-wrapper"
             >
               {
-                this.props.items.splice(0, 6).map((item, index) => {
-                  return (
-                    <SearchCard
-                      id={item._id}
-                      name=
-                      {
-                        (this.props.type === "artist" || this.props.type === "profile") ?
-                          item.displayName : item.name
-                      }
-                      type={item.type}
-                      image=
-                      {(this.props.type === "artist" || this.props.type === "profile")
-                        ? item.images[0] :
-                        (this.props.name === "Tracks") ?
-                          (item.album.image) : (item.image)
-                      }
-                      playBtn={true}
-                      key={index}
-                    />
-                  )
-                })
+                (this.props.items) ?
+                  (data.splice(0, 6).map((item, index) => {
+                    return (
+                      <SearchCard
+                        id={item._id}
+                        name=
+                        {
+                          (this.props.type === "artist" || this.props.type === "profile") ?
+                            item.displayName : item.name
+                        }
+                        type={(item.type === "User") ? "profile" : item.type}
+                        image=
+                        {(this.props.type === "artist" || this.props.type === "profile")
+                          ? item.images[0] :
+                          (this.props.name === "Tracks") ?
+                            (item.album.image) : (item.image)
+                        }
+                        playBtn={true}
+                        key={index}
+                      />
+                    )
+                  })) : null
               }
             </div>
           </div>

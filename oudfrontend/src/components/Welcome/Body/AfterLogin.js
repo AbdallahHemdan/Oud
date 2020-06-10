@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {CardList} from './../item/cardlist/cardlist';
-import adele from './../../../assets/images/adeleImg.png';
 import Back from './../../../assets/images/2685063.jpg';
 import oud from './../../../assets/images/oud.png';
 import axios from 'axios';
@@ -13,6 +12,9 @@ class AfterLogin extends Component {
     super(props);
     this.state = {tracks: [], artists: [], ids: []};
   }
+  /**
+   * handel store artist */
+
   handleStoringArtists = (artists) => {
     this.setState({artists});
     let ids = [];
@@ -21,6 +23,9 @@ class AfterLogin extends Component {
     });
     this.setState({ids});
   };
+  /**
+   * handel store tracks
+   */
   handleStoringTracks = (tracks) => {
     this.setState({tracks});
     let track = [];
@@ -30,6 +35,9 @@ class AfterLogin extends Component {
     });
     this.setState({track});
   };
+  /**
+   * request the artist and tracks
+   */
   componentDidMount() {
     axios
       .get(getArtistLink, config)
@@ -61,7 +69,7 @@ class AfterLogin extends Component {
         <div className="welcomeTextUser">
           <img src={oud} alt="oud" className="oudLogoBody" />
           <h1 data-testid="firstText">Music for everyone.</h1>
-          <h6 data-testid="secText">
+          <h6 data-testid="firstText">
             Millions of songs. No credit card needed.
           </h6>
           <Link className="LinkStyle" to="/premium">
