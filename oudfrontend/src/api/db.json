@@ -3938,14 +3938,7 @@
   "repeat": {},
   "volume": {},
   "play": {
-    "uris": [
-      "oud:track:2",
-      "oud:track:11",
-      "oud:track:3",
-      "oud:track:4",
-      "oud:track:5",
-      "oud:track:12"
-    ],
+    "contextUri": "oud:playlist:5e6dea511e17a305285ba616",
     "offset": {
       "position": 0
     }
