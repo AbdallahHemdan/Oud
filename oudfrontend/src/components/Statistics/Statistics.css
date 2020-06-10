@@ -1,0 +1,22 @@
+.statistics-header {
+  border-bottom: 1px solid #424242;
+  font-size: 2rem;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.item-name {
+  margin-left: 10px;
+}
+
+.statistics-data {
+  margin: 50px 0px 50px 10px;
+}
+
+.stat-number {
+  color: #f9b835;
+}
+
+.stat-card {
+  min-width: 300px;
+}
