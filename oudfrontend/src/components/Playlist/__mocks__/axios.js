@@ -10,6 +10,7 @@ export default {
           "public": true,
           "type": "trap",
           "name":"ahmed",
+          "displayName":"ajmed",
           "tracks": [
             {
               "id": "21",
@@ -57,5 +58,8 @@ export default {
             }
           ]
       })}),
-      post: jest.fn(()=>{return Promise.resolve({status: "204", message: "success" })})
+      post: jest.fn(()=>{return Promise.resolve({status: "204", message: "success" })}),
+      put: jest.fn(()=>{return Promise.resolve({status: "204", message: "success" })}),
+      delete: jest.fn(()=>{return Promise.resolve({status: "204", message: "success" })})
+
 };

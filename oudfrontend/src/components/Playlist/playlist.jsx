@@ -7,10 +7,11 @@ import SongList from "../commonComponents/songList";
 import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist";
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
-import PropTypes from "prop-types";
-import { resume, pause, addToQueue } from "../commonComponents/utils";
-import { base } from "./../../config/environment";
-import { config, isLoggedIn } from "../../utils/auth";
+import LoadingSnipper from "../LoadingSnipper/LoadingSnipper";
+import PropTypes from 'prop-types';
+import { base, subUrl, prodUrl } from "./../../config/environment"
+import { config, isLoggedIn } from "../../utils/auth"
+import {withRouter} from 'react-router-dom'
 import { deleteRequest } from "../../utils/requester";
 
 /**
@@ -57,61 +58,22 @@ class Playlist extends React.Component {
       playing: false,
       queued: false,
       clickID: "0",
-      displayAdd: false
+      displayAdd: false,
+      ownerName:'',
+      toBeAdded:[]
     };
-    this.addToQueue = this.addToQueue.bind(this);
-    this.resume = this.resume.bind(this);
-    this.pause = this.pause.bind(this);
     this.playButtonClicked = this.playButtonClicked.bind(this);
     this.likeButtonClicked = this.likeButtonClicked.bind(this);
+    this.addToPlaylist=this.addToPlaylist.bind(this)
   }
   /**
-   * add the tracks to queue and resume the player
-   * @param {Array.<track>} tracks
-   * @param {number} length
-   * @returns {void}
-   */
-  addToQueue(tracks, length) {
-    this.setState({ queued: true });
-    addToQueue(tracks, length);
-    this.resume();
-  }
-  /**
-   * Called Whenever the user clicked on the PLAY button and it adds all the songs of the playlist to the queue by a post request
+   * Called Whenever the user clicked on the PLAY button 
    * @func
    * @returns {void}
    */
   playButtonClicked() {
-    //all the three requests should be put requests
-    if (this.state.queued === false) {
-      const tracks = this.state.tracks;
-      const length = this.state.tracks.length;
-      this.addToQueue(tracks, length);
-    }
-    if (this.state.playing === true) {
-      this.pause();
-    } else {
-      this.resume();
-    }
+    this.setState({playing:!this.state.playing})
   }
-  /**
-   * pauses the player
-   * @returns {void}
-   */
-  pause() {
-    pause();
-    this.setState({ playing: false });
-  }
-  /**
-   * resumes the player
-   * @returns {void}
-   *
-   */
-  resume() {
-    resume();
-    this.setState({ playing: true });
-  }
-
   /**
    * Called Whenever the user clicked on the like button and it adds the playlist to the likedPlaylists
    * if it is not already there otherwise it removes it from there by a delete request
@@ -126,20 +88,17 @@ class Playlist extends React.Component {
 
       axios
         .delete(`${base}/me/playlists/${this.props.id.id}`, config)
-        .then(function(response) {
-          console.log(response);
+        .then(function (response) {
         })
-        .catch(function(error) {
-          console.log(error);
+        .catch(function (error) {
         });
     }
+    
     axios
       .post(`${base}/me/playlists/`, this.props.id.id, config)
-      .then(function(response) {
-        console.log(response);
+      .then(function (response) {
       })
-      .catch(function(error) {
-        console.log(error);
+      .catch(function (error) {
       });
   }
   /**
@@ -153,7 +112,6 @@ class Playlist extends React.Component {
       .then(response => {
         const playlist = response.data;
         this.setState({ tracks: playlist.tracks });
-        this.setState({ recieved: true });
         this.setState({ playlist: playlist });
       })
       .catch(error => {
@@ -168,9 +126,21 @@ class Playlist extends React.Component {
         const isFound = response.data;
         this.setState({ liked: isFound });
       })
-      .catch(error => {
-        console.log(error);
+      .catch((error) => {
       });
+  }
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.recieved === false){
+    axios.get(`${base}/users/`+this.state.playlist.owner, config)
+      .then((response) => {
+          this.setState({recieved:true})
+          const user = response.data;
+          this.setState({ownerName:user.displayName});     
+      })
+      .catch((error) => {
+          console.log(error);
+      });
+    }
   }
   /**
    * it changes the state so that all song will be marked as unclicked
@@ -179,25 +149,42 @@ class Playlist extends React.Component {
   markAllUnclicked() {
     this.setState({ clickID: "0" });
   }
-  addToPlaylist() {
-    this.setState({ displayAdd: true });
+  addToPlaylist(id, flag) {
+    let trackId = []
+    trackId.push(id)
+    console.log('addToPlaylist')
+    if(!flag){
+      this.setState({ displayAdd: true, toBeAdded:trackId });
+    }
+    else{
+      axios
+      .delete(`${base}/playlists/${this.state.playlist.id}/${trackId}`, config)
+      .then((response) => {
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    }
   }
   closeAddToPlaylist() {
     this.setState({ displayAdd: false });
   }
   render() {
+    const subPath = (base === prodUrl) ? subUrl : "";
     return (
-      <div>
-        {this.state.displayAdd ? (
+      <div data-testid='BigWrapper'>
+      {this.state.recieved?
+        this.state.displayAdd ? (
           <AddToPlaylist
+            track = {this.state.toBeAdded}
             display={this.state.displayAdd}
             close={this.closeAddToPlaylist.bind(this)}
+            data-testid='addTo'
           />
         ) : (
-          <div className="dummyParent">
-            <Navbar isLoggedIn={isLoggedIn()} />
-            <Sidebar />
-            {/* <Navbar isLoggedIn={true} /> */}
+          <div className="dummyParent"> 
+          <Sidebar data-testid="sidebar"/>
+              <Navbar isLoggedIn={isLoggedIn()} data-testid="navBar"/>
             <div className="profile-user">
               <div data-testid="playlist" className="playlist">
                 <div className="row">
@@ -212,7 +199,7 @@ class Playlist extends React.Component {
                     >
                       <img
                         data-testid="playlistIamge"
-                        src={this.state.playlist.image}
+                        src={`${subPath}${this.state.playlist.image}`}
                         className="playlistImage"
                         alt="playlist img"
                       />
@@ -224,7 +211,8 @@ class Playlist extends React.Component {
                       <HeaderBodyTop
                         data-testid="HeaderBodyTop"
                         title={this.state.playlist.name}
-                        owner={this.state.playlist.owner}
+                        owner={this.state.ownerName}
+                        ownerId = {this.state.playlist.owner}
                       />
                       <HeaderBodyBottom
                         data-testid="HeaderBodyBottom"
@@ -241,14 +229,12 @@ class Playlist extends React.Component {
                   </div>
                   <SongList
                     data-testid="songList"
-                    recieved={this.state.recieved}
+                    recieved={true}
+                    ownerId = {this.state.playlist.owner}
                     tracks={this.state.tracks}
-                    pause={this.pause}
-                    resume={this.resume}
-                    addToQueue={this.addToQueue}
                     clickedItemId={this.state.clickID}
                     className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
-                    addToPlaylist={this.addToPlaylist.bind(this)}
+                    addToPlaylist={this.addToPlaylist}
                     fetchContext={this.fetchPlaylistTracks}
                     contextId={this.props.id.id}
                     contextType="playlist"
@@ -258,6 +244,9 @@ class Playlist extends React.Component {
               </div>
             </div>
           </div>
+          
+        ): (
+          <LoadingSnipper data-testid='loading'/>
         )}
       </div>
     );
@@ -266,4 +255,4 @@ class Playlist extends React.Component {
 Playlist.propTypes = {
   id: PropTypes.objectOf(PropTypes.string)
 };
-export default Playlist;
+export default withRouter(Playlist);

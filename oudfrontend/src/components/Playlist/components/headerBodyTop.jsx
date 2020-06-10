@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
-import { useHistory } from "react-router-dom";
-import { base } from "../../../config/environment"
-import { config } from "../../../utils/auth"
+import { Redirect } from "react-router-dom";
 /**
  * this is a component that renders the Top of the body of playlists, albums, likedSongs
  * on clicking the name of the owner it takes you to his/her profile
@@ -22,35 +19,37 @@ import { config } from "../../../utils/auth"
  *          </Router>
  *          }
  */
-function HeaderBodyTop(props) {
+class HeaderBodyTop extends Component{
+    constructor(props){
+        super(props)
+        this.state={ 
+            redirect:null
+        }
+        this.redirect = this.redirect.bind(this)
+    }
     /**
      * ownerName is a state that carries the name of the owner of the playlist or album
      * @constant
      * @type {string}
      */
-    const [ownerName, setOwnerName] = useState('')
-    const { title, owner } = props;
-    /**
-     * fetching the owner name and setting state
-     */
-    axios.get(`${base}/users/${owner}`, config)
-        .then((response) => {
-            const user = response.data;
-            setOwnerName(user.displayName);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    let history = useHistory()
+    
+    redirect(route){
+        this.setState({redirect:route})
+    }
+render(){
+    if (this.state.redirect) {
+        return <Redirect to={this.state.redirect} />;
+      }
     return (
+        
         <div data-testid="HeaderBodyTop" className='playlistHeaderBodyTop'>
-            <h2 data-testid="title" className='gray-text'>{title}</h2>
-            <span data-testid="credits" className="whiteText">Created By </span>
-            <button data-testid="owner" className='playlistAnchor songButton' onClick={() => { history.push(`/profile/${owner}`) }}>{ownerName}</button>
+            <h2 data-testid="title" className='gray-text'>{this.props.title}</h2>
+            <span data-testid="credits" className="whiteText">By </span>
+            <button data-testid="owner" className='playlistAnchor songButton' onClick={()=>this.redirect(`/profile/${this.props.ownerId}`)}>{this.props.owner}</button>
         </div>
     );
 }
-
+}
 HeaderBodyTop.propTypes = {
     title: PropTypes.string,
     owner: PropTypes.string

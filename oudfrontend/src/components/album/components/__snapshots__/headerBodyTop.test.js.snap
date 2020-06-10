@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`album headerBodyTop Component snapshot test renders correctly 1`] = `
+<div
+  className="playlistHeaderBodyTop"
+  data-testid="HeaderBodyTop"
+>
+  <h2
+    className="gray-text"
+    data-testid="title"
+  >
+    album name
+  </h2>
+  <span
+    className="whiteText"
+    data-testid="credits"
+  >
+    By 
+  </span>
+</div>
+`;

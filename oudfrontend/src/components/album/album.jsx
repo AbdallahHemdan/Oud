@@ -5,18 +5,19 @@ import HeaderBodyTop from "./components/headerBodyTop";
 import SongList from "../commonComponents/songList";
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
-import { resume, pause, addToQueue } from "../commonComponents/utils";
-import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist";
-import PropTypes from "prop-types";
-import { base } from "../../config/environment";
-import { config } from "../../utils/auth";
 import CreateAlbum from "../CreateAlbum/CreateAlbum";
 import { deleteRequest } from "../../utils/requester";
 import Swal from "sweetalert2";
 import { isArtist } from "./../../utils/auth";
 import { createBrowserHistory } from "history";
 import SongInfo from "./../SongInfo/SongInfo";
+import AddToPlaylist from "../commonComponents/addToPlaylist/addToPlaylist"
+import PropTypes from 'prop-types';
+import { base, subUrl, prodUrl } from "./../../config/environment"
+import {config, isLoggedIn} from "../../utils/auth"
+import {withRouter} from 'react-router-dom'
 let history = createBrowserHistory();
+
 
 /**
  * @classdesc this is a component that renders album page
@@ -65,60 +66,24 @@ class Album extends React.Component {
       queued: false,
       clickID: "0",
       displayAdd: false,
+      toBeAdded:[],
       updateAlbum: false,
       isArtist: false,
       addSong: false
     };
-    this.addToQueue = this.addToQueue.bind(this);
-    this.resume = this.resume.bind(this);
-    this.pause = this.pause.bind(this);
     this.playButtonClicked = this.playButtonClicked.bind(this);
     this.likeButtonClicked = this.likeButtonClicked.bind(this);
+    this.addToPlaylist=this.addToPlaylist.bind(this)
   }
   /**
-   * add the tracks to queue and resume the player
-   * @param {Array.<track>} tracks
-   * @param {number} length
-   * @returns {void}
-   */
-  addToQueue(tracks, length) {
-    this.setState({ queued: true });
-    addToQueue(tracks, length);
-    this.resume();
-  }
-  /**
-   * Called Whenever the user clicked on the PLAY button and it adds all the songs of the playlist to the queue by a post request
+   * Called Whenever the user clicked on the PLAY button
    * @func
    * @returns {void}
    */
   playButtonClicked() {
     //all the three requests should be put requests
-    if (this.state.queued === false) {
-      const tracks = this.state.tracks;
-      const length = this.state.tracks.length;
-      this.addToQueue(tracks, length);
-    }
-    if (this.state.playing === true) {
-      this.pause();
-    } else {
-      this.resume();
-    }
-  }
-  /**
-   * pauses the player
-   * @returns {void}
-   */
-  pause() {
-    pause();
-    this.setState({ playing: false });
-  }
-  /**
-   * resume the player
-   * @returns {void}
-   */
-  resume() {
-    resume();
-    this.setState({ playing: true });
+    this.setState({ playing: !this.state.playing });
+    
   }
   /**
    * Called Whenever the user clicked on the like button and it adds the playlist to the likedPlaylists
@@ -126,28 +91,23 @@ class Album extends React.Component {
    * @func
    * @returns {void}
    */
-  likeButtonClicked() {
-    const likedAlbum = this.state.album;
+  likeButtonClicked(){
     if (this.state.liked === false) {
       this.setState({ liked: true });
       axios
-        .post(`${base}/me/albums/`, likedAlbum.id, config)
-        .then(function(response) {
-          console.log(response);
+        .put(`${base}/me/albums/${this.props.id}`, config)
+        .then(function (response) {
         })
         .catch(function(error) {
-          console.log(error);
         });
     } else {
       this.setState({ liked: false });
 
       axios
         .delete(`${base}/me/albums/${this.props.id}`, config)
-        .then(function(response) {
-          console.log(response);
+        .then(function (response) {
         })
         .catch(function(error) {
-          console.log(error);
         });
     }
   }
@@ -161,13 +121,14 @@ class Album extends React.Component {
       .get(`${base}/albums/${this.props.id}`, config)
       .then(response => {
         const album = response.data;
-        this.setState({ tracks: album.tracks.items });
-        this.setState({ artists: album.artists });
-        this.setState({ album: album });
-        this.setState({ recieved: true });
+        this.setState({ 
+          tracks: album.tracks.items,
+          artists: album.artists,
+          album: album,
+          recieved: true 
+        });
       })
       .catch(error => {
-        console.log(error);
       });
   };
   componentDidMount() {
@@ -178,8 +139,23 @@ class Album extends React.Component {
         const isFound = response.data;
         this.setState({ liked: isFound });
       })
-      .catch(error => {
-        console.log(error);
+      .catch((error) => {
+      });
+      if(this.props.songId !== null)
+        this.playOnLoading()
+  }
+  playOnLoading(){
+    let body ={
+      contextUri: `oud:album:${this.props.id}`,
+      offset: {"uri":`oud:track:${this.props.songId}`}
+    }
+    console.log('playing')
+    axios
+      .put(`${base}/me/player/play/`, body,config)
+      .then((response) => {
+      
+      })
+      .catch((error) => {
       });
     this.checkArtist();
   }
@@ -190,8 +166,22 @@ class Album extends React.Component {
   markAllUnclicked() {
     this.setState({ clickID: "0" });
   }
-  addToPlaylist() {
-    this.setState({ displayAdd: true });
+  addToPlaylist(id, flag) {
+    let trackId = []
+    trackId.push(id)
+    console.log('addToPlaylist')
+    if(!flag){
+      this.setState({ displayAdd: true, toBeAdded:trackId });
+    }
+    else{
+      axios
+      .delete(`${base}/playlists/${this.state.playlist.id}/${trackId}`, config)
+      .then((response) => {
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    }
   }
   closeAddToPlaylist() {
     this.setState({ displayAdd: false });
@@ -214,7 +204,6 @@ class Album extends React.Component {
         history.goBack();
       })
       .catch(error => {
-        console.log(error);
       });
   };
   checkArtist = () => {
@@ -223,7 +212,6 @@ class Album extends React.Component {
         this.setState({ isArtist: res });
       })
       .catch(error => {
-        console.log(error);
       });
   };
   addSong = () => {
@@ -237,12 +225,15 @@ class Album extends React.Component {
     });
   };
   render() {
+    const subPath = (base === prodUrl) ? subUrl : "";
     return (
-      <div>
+      <div data-testid="BigWrapper">
         {this.state.displayAdd ? (
           <AddToPlaylist
+            track = {this.state.toBeAdded}
             display={this.state.displayAdd}
             close={this.closeAddToPlaylist.bind(this)}
+            data-testid="addTo"
           />
         ) : this.state.updateAlbum ? (
           <CreateAlbum
@@ -259,8 +250,8 @@ class Album extends React.Component {
           />
         ) : (
           <div className="dummyParent">
-            <Sidebar />
-            <Navbar isLoggedIn={true} />
+            <Sidebar data-testid="sidebar"/>
+            <Navbar isLoggedIn={isLoggedIn()} data-testid="navBar"/>
             <div className="profile-user">
               <div data-testid="album" className="playlist">
                 <div className="row">
@@ -275,7 +266,7 @@ class Album extends React.Component {
                     >
                       <img
                         data-testid="playlistIamge"
-                        src={this.state.album.image}
+                        src={`${subPath}${this.state.album.image}`}
                         className="playlistImage"
                         alt="album img"
                       />
@@ -303,7 +294,6 @@ class Album extends React.Component {
                         isArtist={this.state.isArtist}
                         changeEditAlbumState={this.changeEditAlbumState}
                         delelteAlbum={this.delelteAlbum}
-                        addToPlaylist={this.addToPlaylist.bind(this)}
                         addSong={this.addSong}
                         contextId={this.props.id}
                         context={`oud:album:${this.props.id}`}
@@ -315,16 +305,15 @@ class Album extends React.Component {
                     data-testid="songList"
                     recieved={this.state.recieved}
                     tracks={this.state.tracks}
-                    pause={this.pause}
-                    resume={this.resume}
-                    addToQueue={this.addToQueue}
                     clickedItemId={this.state.clickID}
                     className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
-                    addToPlaylist={this.addToPlaylist.bind(this)}
+                    addToPlaylist={this.addToPlaylist}
                     fetchContext={this.fetchAlbumTracks}
                     contextId={this.props.id}
                     contextType="album"
                     webPlayer={this.props.webPlayer}
+                    album={true}
+                    albumId={this.props.id}
                   />
                 </div>
               </div>
@@ -338,4 +327,4 @@ class Album extends React.Component {
 Album.propTypes = {
   id: PropTypes.string
 };
-export default Album;
+export default withRouter(Album);

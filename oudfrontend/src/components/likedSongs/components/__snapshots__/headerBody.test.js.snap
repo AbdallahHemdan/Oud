@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`album headerBody Component snapshot test renders correctly 1`] = `
+<div
+  data-testid="HeaderBody"
+>
+  <h2
+    className="gray-text likedSongsTitle"
+    data-testid="title"
+  >
+    Liked Songs
+  </h2>
+  <button
+    className="playlistAnchor songButton block"
+    data-testid="owner"
+    onClick={[Function]}
+  >
+    
+  </button>
+  <button
+    className="playButton"
+    data-testid="playButton"
+    onClick={[Function]}
+    variant="outline-success"
+  >
+    PAUSE
+  </button>
+  <p
+    className="likedSongsTitle gray-text"
+  >
+    <span
+      data-testid="songsNumber"
+    >
+      10
+       
+    </span>
+    <span
+      data-testid="songsLiteral"
+    >
+      songs
+    </span>
+  </p>
+</div>
+`;
