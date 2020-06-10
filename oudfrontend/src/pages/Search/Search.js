@@ -15,7 +15,7 @@ import "./Search.css"
  * @type {string}
  */
 
-let fetchCategoriesUrl = `${base}/browse/categories`;
+const fetchCategoriesUrl = `${base}/browse/categories`;
 class Search extends Component {
   constructor(props) {
     super(props)
@@ -92,7 +92,6 @@ class Search extends Component {
    * @returns {void}
    */
   handleInput = (e) => {
-    console.log("Handle Input", e.target.value);
     let search = e.target.value;
     this.setState(prevState => {
       return { ...prevState, search }

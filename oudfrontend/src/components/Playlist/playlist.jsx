@@ -234,6 +234,8 @@ class Playlist extends React.Component {
                         liked={this.state.liked}
                         playing={this.state.playing}
                         album={false}
+                        context={`oud:playlist:${this.props.id.id}`}
+                        webPlayer={this.props.webPlayer}
                       />
                     </div>
                   </div>
@@ -248,6 +250,9 @@ class Playlist extends React.Component {
                     className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
                     addToPlaylist={this.addToPlaylist.bind(this)}
                     fetchContext={this.fetchPlaylistTracks}
+                    contextId={this.props.id.id}
+                    contextType="playlist"
+                    webPlayer={this.props.webPlayer}
                   />
                 </div>
               </div>

@@ -4,12 +4,17 @@ import axios from "axios";
 import Player from "./Player/Player";
 import Queue from "./Queue/Queue";
 import Swal from "sweetalert2";
-import { saveTrack, removeSavedTrack } from "../../utils/Actions/Player";
-import { base } from "./../../config/environment";
+import {
+  saveTrack,
+  removeSavedTrack,
+  setPlaying
+} from "../../utils/Actions/Player";
+import { base, mockUrl } from "./../../config/environment";
 // import { config } from "./../../utils/auth";
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU5MTIyNzczNiwiZXhwIjoxNTkzODE5NzM2fQ.7GCVh4FFBu69EEoVLSocqBXDkicgPzmYMSFgya3l_Kc`
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU5MTYyMTQxOSwiZXhwIjoxNTk0MjEzNDE5fQ.fj3N3Pc89Pf_xlt7fGmXw1SINTecUB4-y3pihAAPjC8`,
+    "Access-Control-Allow-Origin": "*"
   }
 };
 /**
@@ -29,7 +34,6 @@ class WebPlayer extends Component {
       trackIdx: 0,
       trackId: "",
       queue: [],
-      deviceId: "74ASZWbe4lXaubB36ztrGX",
       playing: false,
       loved: false
     };
@@ -189,8 +193,13 @@ class WebPlayer extends Component {
     uris = [],
     offset = 0,
     position = 0,
-    isTracksList = false
+    isTracksList = false,
+    resume = false
   ) => {
+    if (resume) {
+      this.playerElement.current.handlePlayPause();
+      return;
+    }
     const body = isTracksList
       ? {
           uris: uris,
@@ -200,7 +209,7 @@ class WebPlayer extends Component {
           contextUri: contextUri,
           offset: { position: offset }
         };
-    this.putRequest(`${base}/me/player/play`, body)
+    this.putRequest(`${base}/me/player/play?queueIndex=0`, body)
       .then(response => {
         // this.fetchQueue();
         let player = this.playerElement.current;
@@ -257,7 +266,6 @@ class WebPlayer extends Component {
     this.setState({
       playing: !this.state.playing
     });
-
     return this.state.playing;
   };
   changeLovedState = state => {
@@ -306,19 +314,23 @@ class WebPlayer extends Component {
     });
   };
   unlikeSong = (trackId, queue = false) => {
-    removeSavedTrack(trackId).then(done => {
-      if (done)
-        this.setState({
-          loved: queue ? this.state.loved : false
+    removeSavedTrack(trackId)
+      .then(done => {
+        if (done || base === mockUrl)
+          this.setState({
+            loved: queue ? this.state.loved : false
+          });
+        Swal.fire({
+          title: "Done!",
+          text: "Removed from your Liked Songs!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000
         });
-      Swal.fire({
-        title: "Done!",
-        text: "Removed from your Liked Songs!",
-        icon: "success",
-        showConfirmButton: false,
-        timer: 1000
+      })
+      .catch(error => {
+        console.log(error.response.data.message);
       });
-    });
   };
   render() {
     return (

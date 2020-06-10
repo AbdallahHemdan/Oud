@@ -1,6 +1,12 @@
 import React from "react";
 
-const BrowseAllHeader = (props) => {
+/**
+ * @author Abdallah Hemdan
+ *
+ *
+ * Functional component to display the header of the component
+ */
+const BrowseAllHeader = () => {
   return (
     <div className="row" data-testid="category-header">
       <div className="sub-header" data-testid="category-title">

@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import "./SearchCard.css";
 import { Link, withRouter } from "react-router-dom"
 import { base, subUrl, prodUrl } from "./../../config/environment"
+import { config } from "./../../utils/auth";
 import PropTypes from "prop-types";
+import axios from 'axios';
 
 /**
  * Music card component which render and display the playlist card of a specific category 
@@ -50,6 +52,20 @@ class SearchCard extends Component {
    * 
    */
   handlePlaylistClick = () => {
+    if (base === prodUrl) { // in production mode
+      console.log("Congratulations, All is done");
+      const requestUrl = `${base}/me/search/recent`;
+      const recentSearchedData = {
+        id: this.state.id,
+        type: this.state.type
+      };
+      axios.put(requestUrl, recentSearchedData, config)
+        .then((result) => {
+          console.log(result)
+        }).catch((err) => {
+          console.log(err);
+        });
+    }
     this.props.history.push(`${this.state.type}/${this.state.id}`);
   }
 

@@ -14,7 +14,7 @@ const setup = (props = {}) => {
 const item = {
   _id: 1,
   displayName: "Recently played",
-  type: "albums",
+  type: "Artist",
   images: [
     "https://previews.123rf.com/images/aratehortua/aratehortua2001/aratehortua200100022/138417489-vector-cartoon-low-poly-man-with-headphones-character.jpg"
   ]
@@ -67,7 +67,7 @@ describe('RecentSearch Card component', () => {
     it('renders component correctly', () => {
       const wrapper = mount(
         <MemoryRouter>
-          <RecentSearchCard {...item} />
+          <RecentSearchCard.WrappedComponent item={item} />
         </MemoryRouter >
       )
       expect(wrapper).toMatchSnapshot()

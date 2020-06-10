@@ -95,10 +95,12 @@ class MusicItem extends Component {
           name={this.state.name}
           _id={this.state._id}
           playlists={this.state.playlists}
+          data-testid="category-header"
         />
         <CategoryBody
           webPlayer={this.props.webPlayer}
           playlists={this.state.playlists}
+          data-testid="category-body"
         />
       </div>
     );

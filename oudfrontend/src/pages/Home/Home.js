@@ -112,18 +112,25 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Sidebar />
-        <Navbar isLoggedIn={isLoggedIn()} />
+        <Sidebar
+          data-testid="sidebar"
+        />
+        <Navbar isLoggedIn={isLoggedIn()}
+          data-testid="navbar"
+        />
         {this.state.isLoading ? (
-          <LoadingSnipper />
+          <LoadingSnipper
+            data-testid="loading"
+          />
         ) : (
-          <React.Fragment>
-            <MainContent
-              items={this.state.items}
-              webPlayer={this.props.webPlayer}
-            />
-          </React.Fragment>
-        )}
+            <React.Fragment>
+              <MainContent
+                items={this.state.items}
+                webPlayer={this.props.webPlayer}
+                data-testid="music-content"
+              />
+            </React.Fragment>
+          )}
       </div>
     );
   }

@@ -1,9 +1,7 @@
 import React from "react";
 import { shallow } from 'enzyme';
-import renderer from 'react-test-renderer'
 import { findByTestAttr } from "./../../utils/index"
 import Home from './Home';
-import checkPropTypes from 'check-prop-types'
 
 
 const setup = (props = {}) => {
@@ -29,14 +27,26 @@ describe('Home Page Component', () => {
     expect(wrapper.length).toBe(1);
   });
 
-  it('should loading in right way', () => {
-    component.setState({ isLoading: true })
+  it('Should render loading in case of loading data', () => {
+    component.setState({ isLoading: true });
     const wrapper = findByTestAttr(component, "loading");
+    expect(component.state().isLoading).toBeTruthy();
     expect(wrapper.length).toBe(1);
   });
+
   it('should music content in right way', () => {
-    component.setState({ isLoading: false })
+    component.setState({ isLoading: false });
     const wrapper = findByTestAttr(component, "music-content");
+    expect(component.state().isLoading).toBeFalsy();
     expect(wrapper.length).toBe(1);
+  });
+
+  describe('snapshot test of Home', () => {
+    it('renders component correctly', () => {
+      const wrapper = shallow(
+        <Home />
+      )
+      expect(wrapper).toMatchSnapshot()
+    });
   });
 });

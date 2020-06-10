@@ -141,52 +141,71 @@ class SearchAfterTyping extends Component {
     return (
       <React.Fragment>
         {
-          this.state.isLoading ?
-            <h1 data-testid="loading">Loading..</h1> :
-            <div
-              data-testid="search-results"
-            >
-              <SearchCategory
-                search={this.state.search}
-                propsSearch={this.props.search}
-                name={"Tracks"}
-                items={this.state.tracks}
-                type="albums"
-                data-testid="search-tracks"
-              />
-              <SearchCategory
-                search={this.state.search}
-                propsSearch={this.props.search}
-                name={"Artists"}
-                items={this.state.artists}
-                type="artist"
-                data-testid="search-artists"
-              />
-              <SearchCategory
-                search={this.state.search}
-                propsSearch={this.props.search}
-                name={"Albums"}
-                items={this.state.albums}
-                type="albums"
-                data-testid="search-albums"
-              />
-              <SearchCategory
-                search={this.state.search}
-                propsSearch={this.props.search}
-                name={"Playlists"}
-                items={this.state.playlists}
-                type="playlist"
-                data-testid="search-playlists"
-              />
-              <SearchCategory
-                search={this.state.search}
-                propsSearch={this.props.search}
-                name={"Users"}
-                items={this.state.users}
-                type="profile"
-                data-testid="search-users"
-              />
-            </div>
+          (this.state.isLoading) ?
+            (<h1 data-testid="loading">Loading..</h1>) :
+            (
+              <div
+                data-testid="search-results"
+              >
+                {
+                  (this.state.tracks.tracks.length) ?
+                    <SearchCategory
+                      search={this.state.search}
+                      propsSearch={this.props.search}
+                      name={"Tracks"}
+                      items={this.state.tracks}
+                      type="albums"
+                      data-testid="search-tracks"
+                    /> : null
+                }
+
+                {
+                  (this.state.artists.artists.length) ?
+                    <SearchCategory
+                      search={this.state.search}
+                      propsSearch={this.props.search}
+                      name={"Artists"}
+                      items={this.state.artists}
+                      type="artist"
+                      data-testid="search-artists"
+                    /> : null
+                }
+
+                {
+                  (this.state.albums.albums.length) ?
+                    <SearchCategory
+                      search={this.state.search}
+                      propsSearch={this.props.search}
+                      name={"Albums"}
+                      items={this.state.albums}
+                      type="albums"
+                      data-testid="search-albums"
+                    /> : null
+                }
+                {
+                  (this.state.playlists.playlists.length) ?
+                    < SearchCategory
+                      search={this.state.search}
+                      propsSearch={this.props.search}
+                      name={"Playlists"}
+                      items={this.state.playlists}
+                      type="playlist"
+                      data-testid="search-playlists"
+                    /> : null
+                }
+                {
+                  (this.state.users.users.length) ?
+                    <SearchCategory
+                      search={this.state.search}
+                      propsSearch={this.props.search}
+                      name={"Users"}
+                      items={this.state.users}
+                      type="profile"
+                      data-testid="search-users"
+                    /> : null
+                }
+              </div>
+            )
         }
       </React.Fragment>
     )

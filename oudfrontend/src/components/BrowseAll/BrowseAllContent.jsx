@@ -1,6 +1,12 @@
 import React from "react";
 import GenreCard from "./../GenreCard/GenreCard";
 
+/**
+ * @author AbdallahHemdan
+ * @param {Object} items List of genres of the songs
+ *
+ * Functional component to display all genres
+ */
 const BrowseAllContent = ({ items }) => {
   return (
     <div className="wrapper" data-testid="first-wrapper">

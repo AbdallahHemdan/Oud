@@ -11,7 +11,8 @@ import { base } from "../../../config/environment";
 // import { config } from "./../../../utils/auth";
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU5MTIyNzczNiwiZXhwIjoxNTkzODE5NzM2fQ.7GCVh4FFBu69EEoVLSocqBXDkicgPzmYMSFgya3l_Kc`
+    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU5MTYyMTQxOSwiZXhwIjoxNTk0MjEzNDE5fQ.fj3N3Pc89Pf_xlt7fGmXw1SINTecUB4-y3pihAAPjC8`,
+    "Access-Control-Allow-Origin": "*"
   }
 };
 const DragHandle = sortableHandle(() => (
@@ -32,7 +33,7 @@ class Track extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: "",
+      image: placeHolder,
       trackName: "",
       artistName: "",
       duration: "",
@@ -63,11 +64,11 @@ class Track extends Component {
       .then(response => {
         const track = response.data;
         this.setState({
-          image:
-            "https://oud-zerobase.me/api/" +
-            track["artists"][0]["images"][0]
-              .replace(/ /g, "%20")
-              .replace(/\\/g, "/"),
+          // image:
+          //   "https://oud-zerobase.me/api/" +
+          //   track["artists"][0]["images"][0]
+          //     .replace(/ /g, "%20")
+          //     .replace(/\\/g, "/"),
           trackName: track["name"],
           artistName: track["artists"][0]["displayName"],
           duration: Number(track["duration"] / 60000).toFixed(2)

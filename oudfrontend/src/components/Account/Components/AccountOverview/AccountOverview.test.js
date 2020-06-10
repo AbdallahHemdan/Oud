@@ -19,21 +19,21 @@ describe("AccountOverview", () => {
     expect(wrapper.length).toBe(1);
   });
 
-  it("Navbar should render without errors", () => {
+  it("Profile should render without errors", () => {
     const wrapper = findByTestAtrr(component, "Profile");
     expect(wrapper.length).toBe(1);
   });
 
-  it("MainContainer should render without errors", () => {
+  it("YourPlan should render without errors", () => {
     const wrapper = findByTestAtrr(component, "YourPlan");
     expect(wrapper.length).toBe(1);
   });
 
-  it("Footer should render without errors", () => {
+  it("UserExperienceForm should render without errors", () => {
     const wrapper = findByTestAtrr(component, "SignOutEverywhere");
     expect(wrapper.length).toBe(1);
   });
-  it("Footer should render without errors", () => {
+  it("UserExperienceForm should render without errors", () => {
     const wrapper = findByTestAtrr(component, "UserExperienceForm");
     expect(wrapper.length).toBe(1);
   });
