@@ -4,6 +4,7 @@ import axios from "axios";
 import Player from "./Player/Player";
 import Queue from "./Queue/Queue";
 import Swal from "sweetalert2";
+import { playback } from "./../../api/playback";
 import {
   saveTrack,
   removeSavedTrack,
@@ -196,6 +197,14 @@ class WebPlayer extends Component {
     isTracksList = false,
     resume = false
   ) => {
+    if (base === mockUrl)
+      this.putRequest(`${base}/player`, playback)
+        .then(res => {
+          console.log("done mocking");
+        })
+        .catch(err => {
+          console.log("fail mock");
+        });
     if (resume) {
       this.playerElement.current.handlePlayPause();
       return;

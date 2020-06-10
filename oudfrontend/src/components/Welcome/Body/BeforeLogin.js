@@ -16,7 +16,7 @@ class BeforeLogin extends Component {
         <div className="welcomeTextGeust">
           <img src={oud} alt="oud" className="oudLogoBody" />
           <h1 data-testid="firstText">Music for everyone.</h1>
-          <h6 data-testid="secText">
+          <h6 data-testid="firstText">
             Millions of songs. No credit card needed.
           </h6>
           <Link to="/SignUP">
