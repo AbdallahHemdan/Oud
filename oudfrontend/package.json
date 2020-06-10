@@ -35,6 +35,7 @@
     "qs": "^6.9.3",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0-beta.17",
+    "react-countup": "^4.3.3",
     "react-dom": "^16.13.0",
     "react-facebook-login": "^4.1.1",
     "react-player": "^1.15.2",

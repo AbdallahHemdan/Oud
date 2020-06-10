@@ -17,6 +17,10 @@
 [![GitHub forks](https://img.shields.io/github/forks/AbdallahHemdan/oudFrontend)](https://github.com/AbdallahHemdan/oudFrontend/network)
 [![GitHub stars](https://img.shields.io/github/stars/AbdallahHemdan/oudFrontend)](https://github.com/AbdallahHemdan/oudFrontend/stargazers)
 [![GitHub license](https://img.shields.io/github/license/AbdallahHemdan/oudFrontend)](https://github.com/AbdallahHemdan/oudFrontend/blob/master/LICENSE)
+<img src="https://img.shields.io/github/languages/count/abdallahHemdan/oudFrontend" />
+<img src="https://img.shields.io/github/languages/top/AbdallahHemdan/oudFrontend" />
+<img src="https://img.shields.io/github/languages/code-size/AbdallahHemdan/oudFrontend" />
+<img src="https://img.shields.io/github/issues-pr-raw/AbdallahHemdan/oudFrontend" />
 
 </div>
 
@@ -45,6 +49,7 @@
 ### Build with
 - [React JS](https://reactjs.org/)
 - [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+- [HowlerJS](https://github.com/goldfire/howler.js/)
 - [Bootstrap](https://getbootstrap.com/)
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://enzymejs.github.io/enzyme/)
@@ -158,8 +163,7 @@ $ npm run prod
         ├── build
         ├── public
         │   ├── favicon.ico	
-        │   ├── index.html
-        │   └── manifest.json	
+        │   └── index.html	
         └── src
             ├── assets
             │   ├── images
