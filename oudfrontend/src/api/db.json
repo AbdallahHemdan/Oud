@@ -748,8 +748,12 @@
     "Artist": {
       "_id": "string",
       "followersCount": 0,
-      "genres": ["string"],
-      "images": ["string"],
+      "genres": [
+        "string"
+      ],
+      "images": [
+        "string"
+      ],
       "name": "string",
       "bio": "string",
       "popularSongs": [
@@ -1048,7 +1052,9 @@
     }
   ],
   "ids": {
-    "ids": [true]
+    "ids": [
+      true
+    ]
   },
   "playlists2": [
     {
@@ -1058,7 +1064,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1069,7 +1077,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1080,7 +1090,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1091,7 +1103,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1102,7 +1116,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1113,7 +1129,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1132,7 +1150,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1143,7 +1163,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1154,7 +1176,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1165,7 +1189,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1176,7 +1202,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1187,7 +1215,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1206,7 +1236,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1217,7 +1249,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1228,7 +1262,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1239,7 +1275,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1250,7 +1288,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1261,7 +1301,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1280,7 +1322,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1291,7 +1335,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1302,7 +1348,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1313,7 +1361,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1324,7 +1374,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1335,7 +1387,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1354,7 +1408,9 @@
           "id": "1",
           "name": "PlayList1",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1365,7 +1421,9 @@
           "id": "2",
           "name": "PlayList2",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1376,7 +1434,9 @@
           "id": "3",
           "name": "PlayList3",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1387,7 +1447,9 @@
           "id": "4",
           "name": "PlayList4",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -1398,7 +1460,9 @@
           "id": "5",
           "name": "PlayList5",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": false,
@@ -1409,7 +1473,9 @@
           "id": "6",
           "name": "PlayList6",
           "owner": "string",
-          "tracks": ["string"],
+          "tracks": [
+            "string"
+          ],
           "collaborative": true,
           "description": "string",
           "public": true,
@@ -2612,7 +2678,9 @@
       "id": "1",
       "displayName": "Ahmed",
       "followersCount": 5,
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "verified": false,
       "type": "string"
     },
@@ -2620,7 +2688,9 @@
       "id": "2",
       "displayName": "Mido",
       "followersCount": 0,
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "verified": false,
       "type": "string"
     }
@@ -3546,7 +3616,9 @@
           "image": "string"
         }
       ],
-      "genres": ["shaaby"],
+      "genres": [
+        "shaaby"
+      ],
       "image": "https://i.scdn.co/image/ab67616d0000b273ef029742aa2f7342b3b5daaf",
       "name": "Insan",
       "release_date": "2020-03-07",
@@ -3875,18 +3947,18 @@
       "currentlyPlayingType": "unknown",
       "item": {
         "_id": "dkfjnc245",
-        "name": "أعمالنا أعمارنا",
+        "name": "انسان",
         "artists": [
           {
             "_id": "21",
-            "displayName": "ماهر زين",
+            "displayName": "حمزة نمرة",
             "type": "string",
             "image": "https://www.almrsal.com/wp-content/uploads/2016/02/Vocalist-Islamic-Maher-Zain.jpg"
           }
         ],
         "albumId": "50",
         "type": "track",
-        "audioUrl": "https://serv10.songatak.com/mp3/Songatak.Com_c1702de2cce9ed30199f0fe96a4ba58d.mp3",
+        "audioUrl": "https://www.dndnha.com/song_download_2785_1",
         "duartion": 205800,
         "views": 100000
       },
@@ -3916,13 +3988,18 @@
   "repeat": {},
   "volume": {},
   "play": {
-    "contextUri": "oud:playlist:5e6dea511e17a305285ba616",
     "offset": {
       "position": 0
     }
   },
   "queue1": {
-    "tracks": ["dkfjnc245", "dkfjnc246", "dkfjnc247", "dkfjnc248", "dkfjnc249"],
+    "tracks": [
+      "dkfjnc245",
+      "dkfjnc246",
+      "dkfjnc247",
+      "dkfjnc248",
+      "dkfjnc249"
+    ],
     "total": 5
   },
   "dkfjnc245": {
@@ -4026,44 +4103,62 @@
     "id": "1"
   },
   "likedkfjnc245": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc246": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc247": {},
   "likedkfjnc248": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "likedkfjnc249": {
-    "items": [{}],
+    "items": [
+      {}
+    ],
     "limit": 0,
     "offset": 0,
     "total": 0
   },
   "checkkfjnc245": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   },
   "checkkfjnc246": {
-    "IsFound": [false]
+    "IsFound": [
+      false
+    ]
   },
   "checkkfjnc247": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   },
   "checkkfjnc248": {
-    "IsFound": [false]
+    "IsFound": [
+      false
+    ]
   },
   "checkkfjnc249": {
-    "IsFound": [true]
+    "IsFound": [
+      true
+    ]
   },
   "myAlbums": {
     "items": [
@@ -4217,14 +4312,16 @@
       }
     ]
   },
-  "SuggestedArtist":[
+  "SuggestedArtist": [
     {
       "_id": "1",
       "displayName": "Hemdan el King",
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4232,7 +4329,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4240,7 +4339,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4248,7 +4349,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4256,7 +4359,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4264,7 +4369,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4272,7 +4379,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4280,7 +4389,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4288,7 +4399,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4296,7 +4409,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4304,7 +4419,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4312,7 +4429,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4320,7 +4439,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4328,7 +4449,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4336,7 +4459,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4344,7 +4469,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4352,7 +4479,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4360,7 +4489,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4368,7 +4499,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4376,7 +4509,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4384,7 +4519,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4392,7 +4529,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4400,7 +4539,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4408,7 +4549,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4416,7 +4559,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4424,7 +4569,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4432,7 +4579,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4440,7 +4589,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4448,7 +4599,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4456,7 +4609,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4464,7 +4619,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4472,7 +4629,9 @@
       "images": [
         "https://avatars0.githubusercontent.com/u/40190772?s=400&u=292f4666b670438f7e38da19371cfe4292bde577&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4480,7 +4639,9 @@
       "images": [
         "https://avatars3.githubusercontent.com/u/42722816?s=460&u=10a6db683dfe129001b5be9abbed7b7aa03b873c&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4488,7 +4649,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/42592954?s=400&u=db45870abcf338db379d987cf20a97df3918f740&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4496,7 +4659,9 @@
       "images": [
         "https://avatars2.githubusercontent.com/u/40968967?s=400&u=57314e735b91bedc69ec0808ab52ec6b07b39927&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     },
     {
       "_id": "1",
@@ -4504,7 +4669,9 @@
       "images": [
         "https://avatars1.githubusercontent.com/u/43186742?s=400&u=8db72a0b35d05541643bd85f2e2169742d1bcd00&v=4"
       ],
-      "genres": ["string"]
+      "genres": [
+        "string"
+      ]
     }
   ],
   "MusicCardAthome": [
@@ -5115,7 +5282,9 @@
     }
   ],
   "followArtist": {
-    "ids": ["1"]
+    "ids": [
+      "1"
+    ]
   },
   "unfollowArtist": {},
   "top-tracks": {
@@ -5238,7 +5407,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5254,7 +5425,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5270,7 +5443,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5286,7 +5461,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5302,7 +5479,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5318,7 +5497,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5334,7 +5515,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5350,7 +5533,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5366,7 +5551,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5382,7 +5569,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5398,7 +5587,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5414,7 +5605,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5430,7 +5623,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5446,7 +5641,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5462,7 +5659,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5478,7 +5677,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5494,7 +5695,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5510,7 +5713,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5526,7 +5731,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5542,7 +5749,9 @@
             "_id": "1",
             "displayName": "Michael",
             "type": "string",
-            "images": ["string"]
+            "images": [
+              "string"
+            ]
           }
         ],
         "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -5578,7 +5787,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5591,7 +5802,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5627,7 +5840,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5640,7 +5855,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5676,7 +5893,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5689,7 +5908,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5725,7 +5946,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5738,7 +5961,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5774,7 +5999,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5787,7 +6014,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5823,7 +6052,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5836,7 +6067,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5872,7 +6105,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5885,7 +6120,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5921,7 +6158,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5934,7 +6173,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -5970,7 +6211,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -5983,7 +6226,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6019,7 +6264,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6032,7 +6279,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6068,7 +6317,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6081,7 +6332,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6117,7 +6370,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6130,7 +6385,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6166,7 +6423,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6179,7 +6438,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6215,7 +6476,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6228,7 +6491,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6264,7 +6529,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6277,7 +6544,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6313,7 +6582,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6326,7 +6597,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6362,7 +6635,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6375,7 +6650,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6411,7 +6688,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6424,7 +6703,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6460,7 +6741,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6473,7 +6756,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6509,7 +6794,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "albumId": "string",
@@ -6522,7 +6809,9 @@
                   "_id": "string",
                   "displayName": "string",
                   "type": "string",
-                  "images": ["string"]
+                  "images": [
+                    "string"
+                  ]
                 }
               ],
               "image": "string",
@@ -6586,11 +6875,11 @@
     "total": 0
   },
   "addAlbum": {
-    "name": "Ahmed",
+    "name": "Album test",
     "artists": [],
-    "genres": "Sad",
+    "genres": "Very Sad",
     "album_type": "",
-    "release_date": "2020-04-26"
+    "release_date": "2022-07-07"
   },
   "editAlbum": {
     "name": "Ahmed",
@@ -6609,7 +6898,9 @@
           "name": "string"
         }
       ],
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "displayName": "Ahmed Ashraf",
       "bio": "string",
       "popularSongs": [
@@ -6621,7 +6912,9 @@
               "_id": "string",
               "displayName": "string",
               "type": "string",
-              "images": ["string"]
+              "images": [
+                "string"
+              ]
             }
           ],
           "albumId": "string",
@@ -6633,7 +6926,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "image": "string",
@@ -6656,7 +6951,9 @@
           "name": "string"
         }
       ],
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "displayName": "Ahmed Mahboub",
       "bio": "string",
       "popularSongs": [
@@ -6668,7 +6965,9 @@
               "_id": "string",
               "displayName": "string",
               "type": "string",
-              "images": ["string"]
+              "images": [
+                "string"
+              ]
             }
           ],
           "albumId": "string",
@@ -6680,7 +6979,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "image": "string",
@@ -6703,7 +7004,9 @@
           "name": "string"
         }
       ],
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "displayName": "Ahmed Walid",
       "bio": "string",
       "popularSongs": [
@@ -6715,7 +7018,9 @@
               "_id": "string",
               "displayName": "string",
               "type": "string",
-              "images": ["string"]
+              "images": [
+                "string"
+              ]
             }
           ],
           "albumId": "string",
@@ -6727,7 +7032,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "image": "string",
@@ -6750,7 +7057,9 @@
           "name": "string"
         }
       ],
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "displayName": "Abdullah Hemdan",
       "bio": "string",
       "popularSongs": [
@@ -6762,7 +7071,9 @@
               "_id": "string",
               "displayName": "string",
               "type": "string",
-              "images": ["string"]
+              "images": [
+                "string"
+              ]
             }
           ],
           "albumId": "string",
@@ -6774,7 +7085,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "image": "string",
@@ -6797,7 +7110,9 @@
           "name": "string"
         }
       ],
-      "images": ["string"],
+      "images": [
+        "string"
+      ],
       "displayName": "Abdullah Abu Sedo",
       "bio": "string",
       "popularSongs": [
@@ -6809,7 +7124,9 @@
               "_id": "string",
               "displayName": "string",
               "type": "string",
-              "images": ["string"]
+              "images": [
+                "string"
+              ]
             }
           ],
           "albumId": "string",
@@ -6821,7 +7138,9 @@
                 "_id": "string",
                 "displayName": "string",
                 "type": "string",
-                "images": ["string"]
+                "images": [
+                  "string"
+                ]
               }
             ],
             "image": "string",

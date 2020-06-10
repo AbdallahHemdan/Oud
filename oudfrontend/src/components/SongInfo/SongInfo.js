@@ -92,18 +92,18 @@ class SongInfo extends Component {
     };
     patchRequest(`${base}/tracks/${this.props.location.state.id}`, data)
       .then(response => {
-        Swal.fire({
-          title: "Done!",
-          text: "Song Updated Successfully!",
-          icon: "success",
-          showConfirmButton: false,
-          timer: 1000
-        });
         this.handleClose();
       })
       .catch(error => {
         console.log(error);
       });
+    Swal.fire({
+      title: "Done!",
+      text: "Song Updated Successfully!",
+      icon: "success",
+      showConfirmButton: false,
+      timer: 1000
+    });
   };
   handleAddSong = () => {
     const info = {
