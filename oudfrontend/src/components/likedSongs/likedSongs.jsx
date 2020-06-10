@@ -81,10 +81,9 @@ class LikedSongs extends React.Component {
   }
   destructuring(items) {
     var tracks = [];
-    items.map(item => {
-      tracks.push(item.track);
-    });
+    items.map(item => tracks.push(item.track));
     this.setState({ tracks: tracks });
+    this.setState({recieved:true})
   }
 
   /**

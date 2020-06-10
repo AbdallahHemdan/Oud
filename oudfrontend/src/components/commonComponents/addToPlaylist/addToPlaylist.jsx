@@ -33,7 +33,6 @@ class addToPlaylist extends Component {
       axios
           .get(`${base}/users/${id}/playlists`, config)
           .then((response) => {
-            console.log(response.date)
             this.setState({ playlists: response.data.items});
           })
           .catch((error) => {

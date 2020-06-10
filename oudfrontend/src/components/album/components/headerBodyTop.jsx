@@ -50,7 +50,7 @@ class HeaderBodyTop extends Component{
         return(<span> <button
             data-testid="artist2"
             className='playlistAnchor songButton'
-            onClick={()=>this.redirect(`/artists/${artist.id}`)}>{artist.displayName}</button></span>
+            onClick={()=>this.redirect(`/artist/${artist.id}`)}>{artist.displayName}</button></span>
         );}
     render(){   
         if (this.state.redirect) {

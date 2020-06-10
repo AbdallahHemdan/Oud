@@ -57,9 +57,9 @@ class HeaderBodyBottom extends Component {
           onClick={this.props.likeClicked}
         >
           {this.props.liked ? (
-            <i className="far fa-heart"></i>
+            <i className="fa fa-heart"></i>
           ) : (
-            <i class="fa fa-heart"></i>
+            <i class="far fa-heart"></i>
           )}
         </button>
         {this.props.album ? (

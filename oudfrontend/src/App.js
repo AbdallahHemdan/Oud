@@ -60,7 +60,7 @@ class App extends Component {
             <Route exact path="/search">
               <Search />
             </Route>
-            <Route exact path='/collection'>
+            <Route path='/collection'>
               <Library/>
             </Route>
             <Route exact path="/genre/:genreName">

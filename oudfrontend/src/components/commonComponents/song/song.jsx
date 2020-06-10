@@ -214,14 +214,20 @@ class Song extends Component {
     this.setState({ displayDropdown: !this.state.displayDropdown });
   }
   copyLink(){
-    let link = base+'/albums/'+this.state.track.albumId+'/'+this.state.track.id;
+    let albumId = this.props.album?this.props.albumId:this.state.track.albumId
+    let link = base+'/albums/'+albumId+'/'+this.state.track.id;
     this.toggleDropdown();
     this.setState({link:link})
     copy(link);
   }
   addToPlaylist(){
-    this.props.addToPlaylist(this.state.track.id,this.state.isMySong)
-    this.toggleDropdown()
+    if(Auth())
+    {
+      this.props.addToPlaylist(this.state.track.id,this.state.isMySong)
+      this.toggleDropdown()
+    }
+    else
+      window.location = '/login'
   }
   removeSong = () => {
     deleteRequest(`${base}/tracks/${this.props.track._id}`)

@@ -40,19 +40,18 @@ constructor(){
     }
 }
 componentDidMount(){
-    if(Auth())
+    if(Auth()){
     this.props.history.replace('/collection/albums')
+    }
     else
     window.location = '/login'
 }
 render(){
-    if (this.state.signedIn)
-    {
         return(
-            <div className=" myLibrary " data-testid='myLibrary'>
+            <div className="myLibrary" data-testid='myLibrary'>
                 <Sidebar />
                 <Navbar isLoggedIn={true} />
-                <div className=" upperContainer" >
+                <div className="upperContainer" >
                     <div  className = "library-links" data-testid='linkContainer'>
                         <Link to={'/collection/albums'} data-testid='albumLink'> ALBUMS </Link>
                         <Link to={'/collection/playlists'} data-testid='playlistLink'> PLAYLISTS </Link>
@@ -65,8 +64,6 @@ render(){
                     </Switch>
             </div>
         );
-    }
-    return (<div data-testid='empty'></div>)
     
 }
 }

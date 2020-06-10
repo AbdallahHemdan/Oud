@@ -313,6 +313,7 @@ class Album extends React.Component {
                     contextType="album"
                     webPlayer={this.props.webPlayer}
                     album={true}
+                    albumId={this.props.id}
                   />
                 </div>
               </div>
