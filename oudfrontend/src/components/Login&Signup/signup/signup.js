@@ -1,36 +1,103 @@
 import React, {Component} from 'react';
-import './signup.css';
 import {Redirect} from 'react-router-dom';
 import _ from 'lodash';
-import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
 import Validator from '../validate';
+import './signup.css';
 const countryList = require('iso-3166-country-list');
-
 /**
  * this class that have all function
+ * @author Abdallah Zaher abu sedo
  */
 class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      /**
+       * display Name of the new user
+       * @type {String}
+       */
       displayName: '',
+      /**
+       * User Name of the new user
+       * @type {String}
+       */
       name: '',
+      /**
+       * Email of the new user
+       * @type {String}
+       */
       email: '',
+      /**
+       * Gender of the new user
+       * @type {String}
+       */
       gender: '',
+      /**
+       * var the add the year + month + day vars
+       * @type {String}
+       */
       birthdata: '',
+      /**
+       * the year of the user
+       * @type {String}
+       */
       year: '',
+      /**
+       * the month of the user
+       * @type {String}
+       */
       month: '',
+      /**
+       * hte day birth day the user
+       * @type {String}
+       */
       day: '',
+      /**
+       * the type of the sign up if free or premium or artist
+       * by default free
+       * @type {String}
+       */
       roll: 'free',
+      /**
+       * var that control the password text box type if type password or text
+       * @type {String}
+       */
       PasswordType: 'Password',
+      /**
+       * show text button state
+       * @type {String}
+       */
       showText: 'show',
+      /**
+       * if the user verified the signup up in the website
+       * @type {String}
+       */
       isVerified: true,
-      agreeTerms: false,
+      /**
+       * the password of the user
+       * @type {String}
+       */
       Password: '',
+      /**
+       * confirm password of the user
+       * @type {String}
+       */
       ConfirmPassword: '',
+      /**
+       * country of the user
+       * @type {String}
+       */
       selectedCountry: '',
+      /**
+       * the type of the sign up if free or premium or artist
+       * @type {String}
+       */
       userType: '',
+      /**
+       * the error massages that appear
+       * @type {String}
+       */
       formErrors: {
         displayNameError: '',
         mainError: '',
@@ -46,11 +113,24 @@ class Signup extends Component {
       redirect: false,
     };
   }
+  /**
+   * UserName validation
+   * (check if the UserName is valid)
+   * @function
+   * @param {object} event -the entered UserName
+   * @returns {boolean} - return true if the UserName is valid
+   */
   userNameHandel = (event) => {
     this.setState({name: event.target.value});
     Validator.validateUserName(event.target.value, this);
   };
-
+  /**
+   * Displayname validation
+   * (check if the Displayname is valid)
+   * @function
+   * @param {object} event -the entered Displayname
+   * @returns {boolean} - return true if the Displayname is valid
+   */
   DisplaynameHandel = (event) => {
     this.setState({displayName: event.target.value});
     Validator.validateDisplayName(event.target.value, this);
@@ -94,18 +174,37 @@ class Signup extends Component {
     this.setState({ConfirmPassword: event.target.value});
     Validator.validateConfirmPassword(event.target.value, this);
   };
-
+  /**
+   * Gender validation
+   * (check if the Gender is valid)
+   * @function
+   * @param {object} event -the entered Gender
+   * @returns {boolean} - return true if the Gender is valid
+   */
   genderHandel = (event) => {
     this.setState({gender: event.target.value});
     Validator.validateGender(event.target.value, this);
   };
-
+  /**
+   * country validation
+   * (check if the country is valid)
+   * @function
+   * @param {object} event -the entered country
+   * @returns {boolean} - return true if the country is valid
+   */
   countryHandel = (event) => {
     this.setState({selectedCountry: event.target.value});
     Validator.validateCountry(event.target.value, this);
   };
-
+  /**
+   * birthdata validation
+   * (check if the birthdata is valid)
+   * @function
+   * @param {object} event -the entered birthdata
+   * @returns {boolean} - return true if the birthdata is valid
+   */
   birthdataHandel = (event) => {
+    this.setState({birthdata: event.target.value});
     Validator.validateBirthdata(
       this.state.year,
       this.state.month,
@@ -125,6 +224,11 @@ class Signup extends Component {
       return true;
     }
   };
+  /**
+   * validateAll function that have all the booleans from other validations function and chick if its true
+   * @function
+   * @returns {boolean}
+   */
   validateAll = () => {
     let value = true;
     value &= Validator.validateUserName(this.state.name, this);
@@ -170,13 +274,13 @@ class Signup extends Component {
     } else if (this.state.gender === '2') {
       gen = 'F';
     }
-    let usertype;
+    let usersType;
     if (this.state.userType === '01') {
-      usertype = 'free';
+      usersType = 'free';
     } else if (this.state.userType === '02') {
-      usertype = 'premium';
+      usersType = 'premium';
     } else if (this.state.userType === '03') {
-      usertype = 'artist';
+      usersType = 'artist';
     }
 
     let toSent = {
@@ -186,12 +290,12 @@ class Signup extends Component {
       password: this.state.Password,
       passwordConfirm: this.state.ConfirmPassword,
       displayName: this.state.displayName,
-      role: usertype,
+      role: usersType,
       country: countryList.code(this.state.selectedCountry),
       gender: gen,
     };
     console.log(toSent);
-    
+
     let errorMassage = '';
     if (
       this.state.isVerified &&
@@ -318,7 +422,10 @@ class Signup extends Component {
       </section>
     );
   }
-
+  /**
+   * country component
+   * @returns {JSX}
+   */
   country() {
     return (
       <div className="form-group">
@@ -402,10 +509,16 @@ class Signup extends Component {
       </React.Fragment>
     );
   }
+  /**
+   * user type function that select if the user want to be a free user or premium or artist
+   * @function
+   * @returns {JSX}
+   */
   UserType() {
     return (
       <div className="form-group">
         <select
+          data-testid="register-user-test"
           className="form-control FormElement  form-col custom-select"
           defaultValue="userType"
           name="userType"
@@ -622,15 +735,6 @@ class Signup extends Component {
             name="Password"
             value={this.setState.Password}
           />
-          {/* {
-            <button
-              className="btn btn-outline-dark"
-              data-testid="showPass"
-              onClick={this.handleShowPassword}
-            >
-              {this.state.showText}
-            </button>
-          } */}
         </div>
         {this.state.formErrors.PasswordError && (
           <span className="error" htmlFor="register-password">
@@ -699,6 +803,11 @@ class Signup extends Component {
       </div>
     );
   }
+  /**
+   * displayName text box
+   * @function
+   * @returns {JSX}
+   */
   displayName() {
     return (
       <div className="form-group sm-8">
