@@ -55,10 +55,6 @@ describe('Library Component', ()=>{
             const wrapper = findByTestAttr(component, "links");
             expect(wrapper.length).toBe(0);
         });
-        it('does not render links components', ()=>{
-            const wrapper = findByTestAttr(component, "empty");
-            expect(wrapper.length).toBe(1);
-        });
     });
     describe('testing Library renders when user is logged in', ()=>{
         let component;
@@ -113,14 +109,6 @@ describe('Library Component', ()=>{
         it('includes link to playlists', () => {                                       
             const wrapper = findByTestAttr(component, "playlistLink")
             expect(wrapper.props().to).toBe('/collection/playlists');
-        });
-    });
-    describe('snapshot test', ()=>{
-        it('renders correctly', () => {
-            const tree = renderer
-              .create(<Library.WrappedComponent/>)
-              .toJSON();
-            expect(tree).toMatchSnapshot();
         });
     });
     

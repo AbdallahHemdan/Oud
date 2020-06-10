@@ -47,7 +47,10 @@ componentDidMount(){
     window.location = '/login'
 }
 render(){
+    if(this.state.signedIn)
+        {
         return(
+            
             <div className="myLibrary" data-testid='myLibrary'>
                 <Sidebar />
                 <Navbar isLoggedIn={true} />
@@ -64,7 +67,7 @@ render(){
                     </Switch>
             </div>
         );
-    
+        }
 }
 }
 
