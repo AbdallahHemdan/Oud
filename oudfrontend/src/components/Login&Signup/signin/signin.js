@@ -4,18 +4,33 @@ import {Link} from 'react-router-dom';
 
 import axios from 'axios';
 import Validator from '../validate';
-/**the sign up section  */
+/**the sign up section
+ * @author abdallah abu sedo
+ */
 class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      islogin: false,
+      /**
+       * email var
+       */
       email: '',
+      /**
+       * password var
+       */
       password: '',
+      /**
+       * password type if i want ot show password as a text or as a *
+       */
       passwordType: 'password',
+      /**
+       * show password button state
+       */
       showText: 'show',
-      rememberMe: false,
       redirect: false,
+      /**
+       * error massage state
+       */
       formErrors: {
         mainError: '',
         EmailError: '',
@@ -49,7 +64,11 @@ class SignIn extends Component {
     });
     return false;
   };
-
+  /**
+   * validateAll function that have all the booleans from other validations function and chick if its true
+   * @function
+   * @returns {boolean}
+   */
   validateAll = () => {
     let valid = true;
     valid &= Validator.validateEmail(this.state.email, this);
