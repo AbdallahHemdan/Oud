@@ -1,0 +1,650 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Statistics page Component snapshot test renders correctly 1`] = `
+Array [
+  <div
+    className="song-statistics"
+    data-testid="statistics-songs"
+  >
+    <h1
+      className="statistics-header"
+      data-testid="statistics-header"
+    >
+      Songs
+    </h1>
+    <section
+      className="statistics-cards row"
+      data-testid="statistics-cards"
+    >
+      <div
+        className="col-2 stat-card"
+        data-testid="statistics-card"
+      >
+        <h5
+          className="item-name"
+          data-testid="item-name"
+        >
+          Mail
+        </h5>
+        <img
+          alt="song"
+          className="card"
+          data-testid="item-image"
+          src="https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg"
+        />
+        <div
+          className="statistics-data"
+          data-testid="statistics-data-container"
+        >
+          <h5
+            data-testid="listeners"
+          >
+            Listeners : 
+            <span
+              className="stat-number"
+            >
+              3500
+            </span>
+          </h5>
+          <h5
+            data-testid="likes"
+          >
+            Likes : 
+            <span
+              className="stat-number"
+            >
+              1200
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-day"
+          >
+            Listeners per day : 
+            <span
+              className="stat-number"
+            >
+              100
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-week"
+          >
+            Listeners per week : 
+            <span
+              className="stat-number"
+            >
+              750
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-month"
+          >
+            Listeners per month : 
+            <span
+              className="stat-number"
+            >
+              1230
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-day"
+          >
+            Likes per day : 
+            <span
+              className="stat-number"
+            >
+              17
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-week"
+          >
+            Likes per week : 
+            <span
+              className="stat-number"
+            >
+              23
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-month"
+          >
+            Likes per month : 
+            <span
+              className="stat-number"
+            >
+              515
+            </span>
+          </h5>
+        </div>
+      </div>
+      <div
+        className="col-2 stat-card"
+        data-testid="statistics-card"
+      >
+        <h5
+          className="item-name"
+          data-testid="item-name"
+        >
+          Segue o Baile
+        </h5>
+        <img
+          alt="song"
+          className="card"
+          data-testid="item-image"
+          src="https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg"
+        />
+        <div
+          className="statistics-data"
+          data-testid="statistics-data-container"
+        >
+          <h5
+            data-testid="listeners"
+          >
+            Listeners : 
+            <span
+              className="stat-number"
+            >
+              3500
+            </span>
+          </h5>
+          <h5
+            data-testid="likes"
+          >
+            Likes : 
+            <span
+              className="stat-number"
+            >
+              1200
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-day"
+          >
+            Listeners per day : 
+            <span
+              className="stat-number"
+            >
+              100
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-week"
+          >
+            Listeners per week : 
+            <span
+              className="stat-number"
+            >
+              750
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-month"
+          >
+            Listeners per month : 
+            <span
+              className="stat-number"
+            >
+              1230
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-day"
+          >
+            Likes per day : 
+            <span
+              className="stat-number"
+            >
+              17
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-week"
+          >
+            Likes per week : 
+            <span
+              className="stat-number"
+            >
+              23
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-month"
+          >
+            Likes per month : 
+            <span
+              className="stat-number"
+            >
+              515
+            </span>
+          </h5>
+        </div>
+      </div>
+      <div
+        className="col-2 stat-card"
+        data-testid="statistics-card"
+      >
+        <h5
+          className="item-name"
+          data-testid="item-name"
+        >
+          Arai songs
+        </h5>
+        <img
+          alt="song"
+          className="card"
+          data-testid="item-image"
+          src="https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg"
+        />
+        <div
+          className="statistics-data"
+          data-testid="statistics-data-container"
+        >
+          <h5
+            data-testid="listeners"
+          >
+            Listeners : 
+            <span
+              className="stat-number"
+            >
+              3500
+            </span>
+          </h5>
+          <h5
+            data-testid="likes"
+          >
+            Likes : 
+            <span
+              className="stat-number"
+            >
+              1200
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-day"
+          >
+            Listeners per day : 
+            <span
+              className="stat-number"
+            >
+              100
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-week"
+          >
+            Listeners per week : 
+            <span
+              className="stat-number"
+            >
+              750
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-month"
+          >
+            Listeners per month : 
+            <span
+              className="stat-number"
+            >
+              1230
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-day"
+          >
+            Likes per day : 
+            <span
+              className="stat-number"
+            >
+              17
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-week"
+          >
+            Likes per week : 
+            <span
+              className="stat-number"
+            >
+              23
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-month"
+          >
+            Likes per month : 
+            <span
+              className="stat-number"
+            >
+              515
+            </span>
+          </h5>
+        </div>
+      </div>
+    </section>
+  </div>,
+  <div
+    className="album-statistics"
+    data-testid="statistics-album"
+  >
+    <h1
+      className="statistics-header"
+      data-testid="statistics-header"
+    >
+      Albums
+    </h1>
+    <section
+      className="statistics-cards row"
+      data-testid="statistics-cards"
+    >
+      <div
+        className="col-2 stat-card"
+        data-testid="statistics-card"
+      >
+        <h5
+          className="item-name"
+          data-testid="item-name"
+        >
+          Mail
+        </h5>
+        <img
+          alt="song"
+          className="card"
+          data-testid="item-image"
+          src="https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg"
+        />
+        <div
+          className="statistics-data"
+          data-testid="statistics-data-container"
+        >
+          <h5
+            data-testid="listeners"
+          >
+            Listeners : 
+            <span
+              className="stat-number"
+            >
+              3500
+            </span>
+          </h5>
+          <h5
+            data-testid="likes"
+          >
+            Likes : 
+            <span
+              className="stat-number"
+            >
+              1200
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-day"
+          >
+            Listeners per day : 
+            <span
+              className="stat-number"
+            >
+              100
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-week"
+          >
+            Listeners per week : 
+            <span
+              className="stat-number"
+            >
+              750
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-month"
+          >
+            Listeners per month : 
+            <span
+              className="stat-number"
+            >
+              1230
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-day"
+          >
+            Likes per day : 
+            <span
+              className="stat-number"
+            >
+              17
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-week"
+          >
+            Likes per week : 
+            <span
+              className="stat-number"
+            >
+              23
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-month"
+          >
+            Likes per month : 
+            <span
+              className="stat-number"
+            >
+              515
+            </span>
+          </h5>
+        </div>
+      </div>
+      <div
+        className="col-2 stat-card"
+        data-testid="statistics-card"
+      >
+        <h5
+          className="item-name"
+          data-testid="item-name"
+        >
+          Segue o Baile
+        </h5>
+        <img
+          alt="song"
+          className="card"
+          data-testid="item-image"
+          src="https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg"
+        />
+        <div
+          className="statistics-data"
+          data-testid="statistics-data-container"
+        >
+          <h5
+            data-testid="listeners"
+          >
+            Listeners : 
+            <span
+              className="stat-number"
+            >
+              3500
+            </span>
+          </h5>
+          <h5
+            data-testid="likes"
+          >
+            Likes : 
+            <span
+              className="stat-number"
+            >
+              1200
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-day"
+          >
+            Listeners per day : 
+            <span
+              className="stat-number"
+            >
+              100
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-week"
+          >
+            Listeners per week : 
+            <span
+              className="stat-number"
+            >
+              750
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-month"
+          >
+            Listeners per month : 
+            <span
+              className="stat-number"
+            >
+              1230
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-day"
+          >
+            Likes per day : 
+            <span
+              className="stat-number"
+            >
+              17
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-week"
+          >
+            Likes per week : 
+            <span
+              className="stat-number"
+            >
+              23
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-month"
+          >
+            Likes per month : 
+            <span
+              className="stat-number"
+            >
+              515
+            </span>
+          </h5>
+        </div>
+      </div>
+      <div
+        className="col-2 stat-card"
+        data-testid="statistics-card"
+      >
+        <h5
+          className="item-name"
+          data-testid="item-name"
+        >
+          Arai songs
+        </h5>
+        <img
+          alt="song"
+          className="card"
+          data-testid="item-image"
+          src="https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg"
+        />
+        <div
+          className="statistics-data"
+          data-testid="statistics-data-container"
+        >
+          <h5
+            data-testid="listeners"
+          >
+            Listeners : 
+            <span
+              className="stat-number"
+            >
+              3500
+            </span>
+          </h5>
+          <h5
+            data-testid="likes"
+          >
+            Likes : 
+            <span
+              className="stat-number"
+            >
+              1200
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-day"
+          >
+            Listeners per day : 
+            <span
+              className="stat-number"
+            >
+              100
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-week"
+          >
+            Listeners per week : 
+            <span
+              className="stat-number"
+            >
+              750
+            </span>
+          </h5>
+          <h5
+            data-testid="listeners-per-month"
+          >
+            Listeners per month : 
+            <span
+              className="stat-number"
+            >
+              1230
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-day"
+          >
+            Likes per day : 
+            <span
+              className="stat-number"
+            >
+              17
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-week"
+          >
+            Likes per week : 
+            <span
+              className="stat-number"
+            >
+              23
+            </span>
+          </h5>
+          <h5
+            data-testid="likes-per-month"
+          >
+            Likes per month : 
+            <span
+              className="stat-number"
+            >
+              515
+            </span>
+          </h5>
+        </div>
+      </div>
+    </section>
+  </div>,
+]
+`;
