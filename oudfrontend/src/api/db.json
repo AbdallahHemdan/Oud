@@ -6735,5 +6735,13 @@
       ],
       "type": "string"
     }
+  ],
+  "Ativities": [
+    {
+      "message": "your friend Ali listens to AL-Hosary"
+    },
+    {
+      "message": "your friend Hassan Mohamed listens to abd-elbaset"
+    }
   ]
 }

@@ -26,7 +26,6 @@ import Welcome from "./pages/Welcome/welcome";
 import SuggestedArtist from "./pages/SuggestedArtistPage/SuggestedArtist";
 import SeeAllRecentSearches from "./components/SeeAllRecentSearches/SeeAllRecentSearches";
 import WebPlayer from "./components/WebPlayer/WebPlayer";
-
 import {
   BrowserRouter as Router,
   Route,

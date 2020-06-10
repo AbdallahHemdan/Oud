@@ -1,0 +1,9 @@
+.DummyActivityBar {
+  margin-top: 66px;
+  width: 18%;
+  z-index: 1;
+  height: 100vh;
+  position: fixed;
+  margin-left: 83%;
+  background-color: #000000;
+}
