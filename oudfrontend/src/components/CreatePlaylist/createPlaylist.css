@@ -20,21 +20,30 @@
   line-height: 56px;
   font-size: 48px;
 }
-#createPlaylistBigField {
-  width: 100%;
-  padding: 0 20%;
-  background-color: #282828;
-  min-height: 148px;
-  margin-bottom: 28px;
+#createPlaylistBigField{
+    width: 100%;
+    padding: 20px 20%;
+    background-color: #282828;
+    min-height: 148px;
+    margin-bottom: 28px;
 }
-#createPlaylistContainer {
-  padding: 32px;
-  text-align: left;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.015em;
-  font-weight: bold;
-  caret-color: #1db954;
+#wrapperId{
+    width:100%;
+}
+#second-wrapperId{
+    width:100%;
+}
+#cardsId{
+    width: 100%;
+}
+#createPlaylistContainer{
+    padding: 32px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: .015em;
+    font-weight: bold;
+    caret-color: #1db954
 }
 #cretePLaylistName {
   font-size: 48px;
@@ -68,4 +77,10 @@
     display: inline-block;
     padding: 5px 10px;
     height: 27px;
+}
+.invisibleButton{
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: none;
+    padding:0px;
 }

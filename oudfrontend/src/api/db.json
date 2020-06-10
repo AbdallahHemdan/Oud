@@ -2424,6 +2424,56 @@
       "description": "",
       "image/png": "",
       "id": "r0uX3DD"
+    },
+    {
+      "name": "",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "userId": "[object Promise]",
+      "id": "8s2y4KA"
+    },
+    {
+      "name": "",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "userId": "[object Promise]",
+      "id": "xhm3VEv"
+    },
+    {
+      "name": "",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "userId": "[object Promise]",
+      "id": "ILKh-tm"
+    },
+    {
+      "name": "",
+      "public": true,
+      "collaborative": false,
+      "description": "",
+      "image/png": "",
+      "userId": "[object Promise]",
+      "id": "JFS6S0M"
+    },
+    {
+      "name": "",
+      "public": true,
+      "description": "A new playlist",
+      "userId": "5ea1d86a624e045f61f3de44",
+      "id": "RvQTQGH"
+    },
+    {
+      "name": "",
+      "public": true,
+      "description": "A new playlist",
+      "userId": "5ea1d86a624e045f61f3de44",
+      "id": "3SdDffw"
     }
   ],
   "queue": {
@@ -4022,7 +4072,159 @@
   "checkkfjnc249": {
     "IsFound": [true]
   },
-  "SuggestedArtist": [
+  "myAlbums": {
+    "items": [
+      {
+        "album": {
+          "_id": "1",
+          "name": "Insan",
+          "owner": "Hemdan",
+          "collaborative": true,
+          "description": "Workout Mail music",
+          "public": true,
+          "image": "https://i.scdn.co/image/ab67616d0000b273ef029742aa2f7342b3b5daaf",
+          "type": "albums"
+        }
+      },
+      {
+        "album": {
+          "_id": "2",
+          "name": "The Wall",
+          "owner": "Hemdan",
+          "collaborative": true,
+          "description": "Workout Mail music",
+          "public": true,
+          "image": "https://townsquare.media/site/295/files/2019/11/Pink-Floyd-Capitol.jpg?w=980&q=75",
+          "type": "albums"
+        }
+      },
+      {
+        "album": {
+          "_id": "3",
+          "name": "The dark side of the moon",
+          "owner": "Hemdan",
+          "collaborative": true,
+          "description": "Workout Mail music",
+          "public": true,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfjpGl5NUgUZR0lcBQbWy9BsrHqv8nBAvaEfqxPCpAnrfRZyp9&s",
+          "type": "albums"
+        }
+      },
+      {
+        "album": {
+          "_id": "4",
+          "name": "Atom Heart Mother",
+          "owner": "Hemdan",
+          "collaborative": true,
+          "description": "Workout Mail music",
+          "public": true,
+          "image": "https://images-na.ssl-images-amazon.com/images/I/61QS4NRId-L._AC_.jpg",
+          "type": "albums"
+        }
+      },
+      {
+        "album": {
+          "_id": "5",
+          "name": "The Final Cut",
+          "owner": "Hemdan",
+          "collaborative": true,
+          "description": "Workout Mail music",
+          "public": true,
+          "image": "https://i.ebayimg.com/images/g/ORsAAOSw0tJdbuVQ/s-l300.jpg",
+          "type": "albums"
+        }
+      },
+      {
+        "album": {
+          "_id": "6",
+          "name": "The Final Cut",
+          "owner": "Hemdan",
+          "collaborative": true,
+          "description": "Workout Mail music",
+          "public": true,
+          "image": "https://i.ebayimg.com/images/g/ORsAAOSw0tJdbuVQ/s-l300.jpg",
+          "type": "albums"
+        }
+      },
+      {
+        "album": {
+          "_id": "7",
+          "name": "The Final Cut",
+          "owner": "Hemdan",
+          "collaborative": true,
+          "description": "Workout Mail music",
+          "public": true,
+          "image": "https://i.ebayimg.com/images/g/ORsAAOSw0tJdbuVQ/s-l300.jpg",
+          "type": "albums"
+        }
+      }
+    ]
+  },
+  "myPlaylists": {
+    "items": [
+      {
+        "_id": "1",
+        "name": "Mail Songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "Workout Mail music",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "_id": "2",
+        "name": "Segue o Baile",
+        "owner": "Mahboub",
+        "collaborative": true,
+        "description": "Chegou o grande dia, aperte o play",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/cf/74/03/cf74032199d378808402329b3765ac72--music-albums-in-color.jpg",
+        "type": "playlist"
+      },
+      {
+        "_id": "3",
+        "name": "Arai songs",
+        "owner": "Oud",
+        "collaborative": true,
+        "description": "list of best Arai songs",
+        "public": true,
+        "image": "https://media1.popsugar-assets.com/files/thumbor/L-VT9k0GKckWWnpo3n2YBq4f9tE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/08/03/846/n/37139775/2d0d134e5983773fe90560.65157921_edit_img_image_17921777_1501786115/i/Camila-Cabello-Havana-Song.jpg",
+        "type": "playlist"
+      },
+      {
+        "_id": "4",
+        "name": "Rap songs",
+        "owner": "Saied",
+        "collaborative": true,
+        "description": "list of best Rap songs",
+        "public": true,
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/4b/06/29/4b062955-ecce-e362-78f1-025f18eed20a/source/1200x1200bb.jpg",
+        "type": "playlist"
+      },
+      {
+        "_id": "5",
+        "name": "jazz songs",
+        "owner": "Hemdan",
+        "collaborative": true,
+        "description": "list of best jazz songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/02/b8/94/02b894f7ea6ad9f724648ee511ad018f--edm-music-house-music.jpg",
+        "type": "playlist"
+      },
+      {
+        "_id": "6",
+        "name": "Haly songs",
+        "owner": "Haly",
+        "collaborative": true,
+        "description": "list of best Haly songs",
+        "public": true,
+        "image": "https://i.pinimg.com/736x/ed/b1/10/edb1100257bb6d0ceee624696d9c9f1f--cover-art-album-covers.jpg",
+        "type": "playlist"
+      }
+    ]
+  },
+  "SuggestedArtist":[
     {
       "_id": "1",
       "displayName": "Hemdan el King",

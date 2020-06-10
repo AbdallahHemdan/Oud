@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/commonComponents/song/song.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/commonComponents/song/song.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from "react";
+import "./song.css";
+import { BrowserRouter as Router, Redirect } from "react-router-dom";
+import axios from "axios";
+import PropTypes from "prop-types";
+import play from "../../../assets/images/play.png";
+import musicIcon from "../../../assets/images/musicIcon.png";
+import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
+import {base} from "../../../config/environment"
+import {config} from "../../../utils/auth"
+
+
+/**
+ * @classdesc this is a component that renders playlist page
+ * @author Ahmed Walid &lt;ahmedwa1999@gmail.com>
+ * @class
+ * @param {string} key the Id of the playlist
+ * @param {string} clickedId the Id of the clicked song
+ * @param {func} handleClick  called when the user click on the song
+ * @param {func} handlePlay called when the user click on the play button
+ *
+ * @property {object} state carries the state of the component
+ * @param {object} track song object
+ * @property {boolean} state.hover true if the mouse is on the song false otherwise
+ * @property {string} state.albumName name of the album
+ * @property {object} state.playlist carries all the information of the playlist
+ * @property {Array.&lt;track>} state.tracks array of all the songs in the playlist
+ * @property {boolean} state.playing true when the song is playing. Otherwise, it is false
+ * @property {boolean} state.queued true when the song is added to queue. Otherwise, it is false
+ * @property {boolean} state.cliked true when the song is focused
+ * @property {boolean} state.displayDropdown true when the song optopns are visible
+ * @property {boolean} state.saved true when the song is saved to likedSongs
+ *
+ * @returns {
+ *              &lt;div>
+ *               &lt;div classname="playlistHeader">
+ *                  &lt;div classname="imageContainer">
+ *                      &lt;img/>
+ *                  &lt;/div>
+ *
+ *                  &lt;div classname="playlistHeaderBody">
+ *                      &lt;HeaderBodyTop/>
+ *                      &lt;HeaderBodyBottom/>
+ *                  &lt;/div>
+ *                  &lt;SongList/>
+ *               &lt;/div>
+ *              &lt;/div>
+ *
+ *          }
+ */
+class Song extends Component {
+  /**
+   *
+   * @constructor
+   */
+  constructor(props) {
+    super(props);
+    this.state = {
+      hover: false,
+      track: this.props.track,
+      playing: false,
+      displayDropdown: false,
+      saved: false,
+      queued: false,
+      clicked: false,
+      redirect: null,
+      duration:""
+    };
+  }
+  /**
+   * sets state.hover to true and called onMouseEnter
+   * @returns {void}
+   */
+  hover = () => this.setState({ hover: true });
+  /**
+   * sets state.hover to false and called onMouseLeave
+   * @returns {void}
+   */
+  notHover = () => this.setState({ hover: false });
+  /**
+   *gets the name of the album of the song
+   * @returns {void}
+   */
+  componentDidMount() {
+    axios
+      .get(
+        `${base}/me/tracks/contains/${this.props.track.id}/`, config
+      )
+      .then((response) => {
+        const isFound = response.data;
+        this.setState({ saved: isFound });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      const duration = this.convertTime(this.state.track.duration)
+      this.setState({duration:duration})
+  }
+  convertTime(timeString){
+    let timeInt = parseInt(timeString)/1000
+    let minutes = parseInt(timeInt/60);
+    let seconds = timeInt - 60*minutes
+    return `${minutes}:${seconds}`
+  }
+  /**
+   *if the recieved props is changed it sets state.clicked to true or
+   *false and calls hh()
+   * @param {object} nextProps
+   */
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.clickedId !== this.props.clickedId) {
+      this.setState({
+        clicked: nextProps.clickedId === this.props.track.id ? true : false,
+      });
+      this.hh();
+    }
+    if (nextProps.playingItemId !== this.props.playingItemId) {
+      this.setState({
+        playing: nextProps.playingItemId === this.props.track.id ? true : false,
+      });
+    }
+  }
+  /**
+   * called when the play button of the song is clicked and it calls the passed function from parent
+   * @param {void}
+   */
+  playSongClicked() {
+    this.props.handlePlay(this.state.track.id);
+    this.setState({ playing: !this.state.playing });
+  }
+  /**
+   * saves the song to liked songs
+   * @param {void}
+   */
+  handleSaving() {
+    this.toggleDropdown();
+    if (this.state.saved === false) {
+      addToLikedSongs(this.state.track.id);
+      this.setState({ saved: true });
+    } else {
+      removeLikedSong(this.state.track.id);
+      this.setState({ saved: false });
+    }
+  }
+  /**
+   * Adds the song to the queue
+   * @param {void}
+   */
+  handleQueue() {
+    this.toggleDropdown();
+    if (this.state.queued === false) {
+      //ashraf
+      axios
+        .post(`${base}/me/queue/`, this.state.track, config)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      this.setState({ queued: true });
+    } else {
+      axios
+        .delete(`${base}/me/queue/${this.state.track.id}`, config)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      this.setState({ queued: false });
+    }
+  }
+  redirect(route) {
+    this.setState({ redirect: route });
+  }
+  /**
+   * called when state.clicked changes
+   * it sets state.displayDropdown to false if clicked is true
+   * @param {void}
+   */
+  hh() {
+    if (this.state.clicked === true) {
+      this.setState({ displayDropdown: false });
+    }
+  }
+  /**
+   * called when the options button is clicked to toggle state.displayDropdown
+   * @param {void}
+   */
+  toggleDropdown() {
+    this.setState({ displayDropdown: !this.state.displayDropdown });
+  }
+  addToPlaylist() {
+    this.toggleDropdown();
+  }
+  render() {
+    if (this.state.redirect) {
+      return &lt;Redirect to={this.state.redirect} />;
+    }
+    return (
+      &lt;Router>
+        &lt;button
+          onClick={() => {
+            this.props.handleClick(this.state.track.id);
+          }}
+          data-testid="song"
+          className={this.state.playing ? "song row hovered" : "song row"}
+          id="song"
+          onMouseEnter={this.hover}
+          onMouseLeave={this.notHover}
+        >
+          &lt;div className="songIcon col-1">
+            &lt;button
+              data-testid="playButton"
+              className="songButton goldText"
+              onClick={this.playSongClicked.bind(this)}
+            >
+              &lt;img
+                data-testid="playButtonImage"
+                src={
+                  this.state.hover || this.state.clicked || this.state.playing
+                    ? play
+                    : musicIcon
+                }
+                width="18"
+                height="20"
+                alt="play music icon"
+              />
+            &lt;/button>
+          &lt;/div>
+
+          &lt;div className="songInfo col-8">
+            &lt;span
+              data-testid="songName"
+              className={this.state.playing ? "goldText" : "whiteText"}
+            >
+              {this.state.track.name}
+            &lt;/span>
+            &lt;p data-testid="aristsNames">
+              &lt;span>
+                {this.state.track.artists.map((artist) => {
+                  return (
+                    &lt;span>
+                      &lt;button
+                        data-testid="artistName"
+                        onClick={() => {
+                          this.redirect(`/artist/${artist.id}`);
+                        }}
+                        className="playlistAnchor songButton"
+                      >
+                        {artist.displayName}
+                      &lt;/button>
+                      {this.props.album?&lt;span>&lt;/span>:&lt;span data-testid="comma" className="gray-text">
+                        {" "}
+                        •{" "}
+                      &lt;/span>}
+                    &lt;/span>
+                  );
+                })}
+              &lt;/span>
+              {this.props.album?&lt;span>&lt;/span>:&lt;button
+                data-testid="albumName"
+                onClick={() => {
+                  this.redirect(`/albums/${this.state.track.albumId}`);
+                }}
+                className="playlistAnchor songButton"
+              >
+                {this.state.track.album.name}
+              &lt;/button>}
+            &lt;/p>
+          &lt;/div>
+
+          &lt;div className="col-1">
+            &lt;div data-testid="dropdown" className="dropdown">
+              &lt;button
+                data-testid="dropdownButton"
+                onClick={this.toggleDropdown.bind(this)}
+                className={
+                  this.state.hover || this.state.clicked
+                    ? "songButton block"
+                    : "songButton hide"
+                }
+                id="songDropdownButton"
+              >
+                &lt;h3 className={this.state.playing ? "goldText" : "whiteText"}>
+                  ...
+                &lt;/h3>
+              &lt;/button>
+
+              &lt;div
+                data-testid="dropdownList"
+                className={
+                  this.state.displayDropdown &amp;&amp; this.state.clicked
+                    ? "dropdownContent block"
+                    : "dropdownContent hide"
+                }
+                id="dropdownContent"
+              >
+                &lt;button
+                  data-testid="saveSong"
+                  onClick={this.handleSaving.bind(this)}
+                  className="SongDropdownItem songButton"
+                >
+                  {this.state.saved
+                    ? "Remove From Your Liked Songs"
+                    : "Save to your Liked Songs"}
+                &lt;/button>
+
+                &lt;button
+                  data-testid="addToQueue"
+                  onClick={this.handleQueue.bind(this)}
+                  className="SongDropdownItem songButton"
+                >
+                  {this.state.queued ? "Remove From Queue" : "Add to Queue"}
+                &lt;/button>
+
+                &lt;button
+                  data-testid="addToPlaylist"
+                  className="SongDropdownItem songButton"
+                  onClick={() => this.props.addToPlaylist()}
+                >
+                  Add to Playlist
+                &lt;/button>
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+
+          &lt;div className="col-2">
+            &lt;p
+              data-testid="songTime"
+              className={this.state.playing ? "goldText" : "whiteText"}
+            >
+              {this.state.duration}
+            &lt;/p>
+          &lt;/div>
+        &lt;/button>
+      &lt;/Router>
+    );
+  }
+}
+Song.propTypes = {
+  clickedId: PropTypes.string,
+  handleClick: PropTypes.func,
+  handlePlay: PropTypes.func,
+  track: PropTypes.object,
+};
+export default Song;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AccountOverview.html">AccountOverview</a></li><li><a href="addToPlaylist.html">addToPlaylist</a></li><li><a href="Album.html">Album</a></li><li><a href="Albums.html">Albums</a></li><li><a href="ChangePassword.html">ChangePassword</a></li><li><a href="CreatePlaylist.html">CreatePlaylist</a></li><li><a href="EditProfile.html">EditProfile</a></li><li><a href="Facebook.html">Facebook</a></li><li><a href="FollowCard.html">FollowCard</a></li><li><a href="Followers.html">Followers</a></li><li><a href="Following.html">Following</a></li><li><a href="ForgotPassword.html">ForgotPassword</a></li><li><a href="GenreCard.html">GenreCard</a></li><li><a href="HeaderBody.html">HeaderBody</a></li><li><a href="HeaderBodyTop.html">HeaderBodyTop</a></li><li><a href="Home.html">Home</a></li><li><a href="Library.html">Library</a></li><li><a href="LikedSongs.html">LikedSongs</a></li><li><a href="MainBrand.html">MainBrand</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="MusicCard.html">MusicCard</a></li><li><a href="MusicItem.html">MusicItem</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="Player.html">Player</a></li><li><a href="PlayingBarRight.html">PlayingBarRight</a></li><li><a href="Playlist.html">Playlist</a></li><li><a href="Playlists.html">Playlists</a></li><li><a href="PublicPlaylists.html">PublicPlaylists</a></li><li><a href="Queue.html">Queue</a></li><li><a href="ResetPassword.html">ResetPassword</a></li><li><a href="SideBar.html">SideBar</a></li><li><a href="Sidebar_.html">Sidebar</a></li><li><a href="SignIn.html">SignIn</a></li><li><a href="Signup.html">Signup</a></li><li><a href="SocialIcons.html">SocialIcons</a></li><li><a href="Song.html">Song</a></li><li><a href="SongList.html">SongList</a></li><li><a href="Track.html">Track</a></li><li><a href="UpperContainer.html">UpperContainer</a></li><li><a href="UserExperienceForm.html">UserExperienceForm</a></li><li><a href="WebPlayer.html">WebPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addToQueue">addToQueue</a></li><li><a href="global.html#BeforeLogin">BeforeLogin</a></li><li><a href="global.html#CardList">CardList</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#EditCountry">EditCountry</a></li><li><a href="global.html#EditGendr">EditGendr</a></li><li><a href="global.html#EditProfileTextElement">EditProfileTextElement</a></li><li><a href="global.html#FeedBack">FeedBack</a></li><li><a href="global.html#fetchCategoriesUrl">fetchCategoriesUrl</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#formValid">formValid</a></li><li><a href="global.html#HeaderBodyBottom">HeaderBodyBottom</a></li><li><a href="global.html#HelpUs">HelpUs</a></li><li><a href="global.html#HiddenSideBar">HiddenSideBar</a></li><li><a href="global.html#ImageContainer">ImageContainer</a></li><li><a href="global.html#LowerContainer">LowerContainer</a></li><li><a href="global.html#MainContainer">MainContainer</a></li><li><a href="global.html#Overview">Overview</a></li><li><a href="global.html#PageContainer">PageContainer</a></li><li><a href="global.html#pause">pause</a></li><li><a href="global.html#PlayingBarCenter">PlayingBarCenter</a></li><li><a href="global.html#PlayingBarLeft">PlayingBarLeft</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#ProfileElement">ProfileElement</a></li><li><a href="global.html#ProfileInfo">ProfileInfo</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#resume">resume</a></li><li><a href="global.html#SideBarElement">SideBarElement</a></li><li><a href="global.html#SignOutEverywhere">SignOutEverywhere</a></li><li><a href="global.html#SortableTrackContainer">SortableTrackContainer</a></li><li><a href="global.html#ThankYou">ThankYou</a></li><li><a href="global.html#TrackContainer">TrackContainer</a></li><li><a href="global.html#YourPlan">YourPlan</a></li><li>{JSX}</li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Wed Apr 22 2020 21:05:29 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

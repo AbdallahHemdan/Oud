@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`song component snapshot test renders correctly 1`] = `
+<button
+  className="song row"
+  data-testid="song"
+  id="song"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="songIcon col-1"
+  >
+    <button
+      className="songButton goldText"
+      data-testid="playButton"
+      onClick={[Function]}
+    >
+      <img
+        alt="play music icon"
+        data-testid="playButtonImage"
+        height="20"
+        src="musicIcon.png"
+        width="18"
+      />
+    </button>
+  </div>
+  <div
+    className="songInfo col-8"
+  >
+    <span
+      className="whiteText"
+      data-testid="songName"
+    >
+      إنسان
+    </span>
+    <p
+      data-testid="aristsNames"
+    >
+      <span>
+        <span>
+          <button
+            className="playlistAnchor songButton"
+            data-testid="artistName"
+            onClick={[Function]}
+          />
+          <span>
+              
+          </span>
+        </span>
+        <span>
+          <button
+            className="playlistAnchor songButton"
+            data-testid="artistName"
+            onClick={[Function]}
+          />
+          <span>
+              
+          </span>
+        </span>
+      </span>
+      <span />
+    </p>
+  </div>
+  <div
+    className="col-1"
+  >
+    <div
+      className="dropdowns"
+      data-testid="dropdown"
+    >
+      <button
+        className="songButton hide"
+        data-testid="dropdownButton"
+        id="songDropdownButton"
+        onClick={[Function]}
+      >
+        <h3
+          className="whiteText"
+        >
+          ...
+        </h3>
+      </button>
+      <div
+        className="dropdownContent hide"
+        data-testid="dropdownList"
+        id="dropdownContent"
+      >
+        <button
+          className="SongDropdownItem songButton"
+          data-testid="saveSong"
+          onClick={[Function]}
+        >
+          Save to your Liked Songs
+        </button>
+        <button
+          className="SongDropdownItem songButton"
+          data-testid="addToQueue"
+          onClick={[Function]}
+        >
+          Add to Queue
+        </button>
+        <button
+          className="SongDropdownItem songButton"
+          data-testid="addToPlaylist"
+          onClick={[Function]}
+        >
+          Add to Playlist
+        </button>
+        <button
+          className="SongDropdownItem songButton"
+          data-testid="copy"
+          onClick={[Function]}
+        >
+          Copy Song Link
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="col-2"
+  >
+    <p
+      className="whiteText"
+      data-testid="songTime"
+    >
+      NaN:NaN
+    </p>
+  </div>
+</button>
+`;

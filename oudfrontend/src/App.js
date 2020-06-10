@@ -1,14 +1,17 @@
+import "./App.css";
 import React, { Component } from "react";
 import Playlist from "./components/Playlist/playlist";
 import LikedSongs from "./components/likedSongs/likedSongs";
 import CreateAlbum from "./components/CreateAlbum/CreateAlbum";
 import Album from "./components/album/album";
-import Search from "./pages/Search/Search";
 import Account from "./pages/Account/Account";
 import RedirectPage from "./components/Account/General/RedirectPage";
+import CreatePlaylist from './components/CreatePlaylist/createPlaylist'
+import Search from "./pages/Search/Search";
 import Profile from "./pages/Profile/Profile";
 import Home from "./pages/Home/Home";
-import SeeAll from "./components/SeeAll/SeeAll";
+import SeeAll from './components/SeeAll/SeeAll';
+import Library from "./components/library/library";
 import Download from "./pages/RoutingPages/download";
 import Help from "./pages/RoutingPages/help";
 import Premium from "./pages/RoutingPages/premium";
@@ -57,6 +60,9 @@ class App extends Component {
             <Route exact path="/search">
               <Search />
             </Route>
+            <Route path='/collection'>
+              <Library/>
+            </Route>
             <Route exact path="/genre/:genreName">
               <SeeAll />
             </Route>
@@ -97,13 +103,19 @@ class App extends Component {
               <LikedSongs webPlayer={webPlayer} />
             </Route>
             <Route
-              path="/albums/:id"
+              exact path="/albums/:id"
               Component={<Album webPlayer={webPlayer} />}
             >
               <AlbumRender webPlayer={webPlayer} />
             </Route>
+            <Route exact path="/albums/:id/:songId" Component={<Album />}>
+            <AlbumRender2 webPlayer={webPlayer}/>
+          </Route>
             <Route exact path="/welcome">
               <Welcome />
+            </Route>
+            <Route exact path="/create-playlist">
+              <CreatePlaylist display={true}/>
             </Route>
             <Route exact path="/signin">
               <SignIn />
@@ -155,5 +167,10 @@ function PlaylistRender(props) {
 }
 function AlbumRender(props) {
   let id = useParams().id;
-  return <Album id={id} webPlayer={webPlayer} />;
+  return <Album id={id} webPlayer={webPlayer} songId = {null}/>;
+}
+function AlbumRender2() {
+  let id = useParams().id;
+  let songId = useParams().songId;
+  return <Album id={id} songId={songId} webPlayer={webPlayer}/>;
 }

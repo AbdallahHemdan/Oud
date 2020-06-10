@@ -6,8 +6,10 @@ import PropTypes from "prop-types";
 import play from "../../../assets/images/play.png";
 import musicIcon from "../../../assets/images/musicIcon.png";
 import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
+import { propTypes } from "react-recaptcha";
+import copy from "copy-to-clipboard";  
 import { base } from "../../../config/environment";
-import { config, isArtist } from "../../../utils/auth";
+import { config, isArtist,Auth } from "../../../utils/auth";
 import { deleteRequest } from "../../../utils/requester";
 
 /**
@@ -59,16 +61,18 @@ class Song extends Component {
     this.state = {
       hover: false,
       track: this.props.track,
-      albumName: "",
       playing: false,
       displayDropdown: false,
       saved: false,
       queued: false,
       clicked: false,
       redirect: null,
+      duration:"",
+      isMySong:false,
       update: false,
       isArtist: false,
-      songInfo: false
+      songInfo: false,
+      link:''
     };
   }
   /**
@@ -97,15 +101,27 @@ class Song extends Component {
       });
 
     axios
-      .get(`${base}/me/tracks/contains/${this.props.track.albumId}/`, config)
+      .get(`${base}/me/tracks/contains/${this.props.track.id}/`, config)
       .then(response => {
         const isFound = response.data;
         this.setState({ saved: isFound });
       })
       .catch(error => {
-        console.log(error);
       });
-    this.checkArtist();
+      this.checkArtist();
+      const duration = this.convertTime(this.state.track.duration)
+      this.setState({duration:duration})
+
+      if(Auth() === this.props.ownerId){
+        this.setState({isMySong : true})
+      }
+  }
+  
+  convertTime(timeString){
+    let timeInt = parseInt(timeString/1000)
+    let minutes = parseInt(timeInt/60);
+    let seconds = timeInt - 60*minutes
+    return `${minutes}:${parseInt(seconds)}`
   }
   checkArtist = () => {
     isArtist()
@@ -113,7 +129,6 @@ class Song extends Component {
         this.setState({ isArtist: res });
       })
       .catch(error => {
-        console.log(error);
       });
   };
   /**
@@ -163,23 +178,20 @@ class Song extends Component {
   handleQueue() {
     this.toggleDropdown();
     if (this.state.queued === false) {
+      //ashraf
       axios
         .post(`${base}/me/queue/`, this.state.track, config)
         .then(function(response) {
-          console.log(response);
         })
         .catch(function(error) {
-          console.log(error);
         });
       this.setState({ queued: true });
     } else {
       axios
         .delete(`${base}/me/queue/${this.state.track.id}`, config)
         .then(function(response) {
-          console.log(response);
         })
         .catch(function(error) {
-          console.log(error);
         });
       this.setState({ queued: false });
     }
@@ -197,54 +209,33 @@ class Song extends Component {
       this.setState({ displayDropdown: false });
     }
   }
-  /**
-   * called when the options button is clicked to toggle state.displayDropdown
-   * @param {void}
-   */
+
   toggleDropdown() {
     this.setState({ displayDropdown: !this.state.displayDropdown });
   }
-  addToPlaylist() {
+  copyLink(){
+    let albumId = this.props.album?this.props.albumId:this.state.track.albumId
+    let link = base+'/albums/'+albumId+'/'+this.state.track.id;
     this.toggleDropdown();
+    this.setState({link:link})
+    copy(link);
+  }
+  addToPlaylist(){
+    if(Auth())
+    {
+      this.props.addToPlaylist(this.state.track.id,this.state.isMySong)
+      this.toggleDropdown()
+    }
+    else
+      window.location = '/login'
   }
   removeSong = () => {
     deleteRequest(`${base}/tracks/${this.props.track._id}`)
       .then(() => {
-        console.log("success");
       })
       .catch(error => {
-        console.log(error.response);
       });
   };
-  // checkAuth = () => {
-  //   const authNotNull = Auth() === null ? false : true,
-  //     sameTrack = false,
-  //     artists = this.props.track.artists,
-  //     auth = Auth();
-  //   for (let i = 0; i < artists.length; i++) {
-  //     if (auth === artists[i]._id) {
-  //       sameTrack = true;
-  //       break;
-  //     }
-  //   }
-  //   this.setState({
-  //     update: !this.state.update
-  //   });
-
-  //   if (authNotNull && sameTrack) {
-  //     Swal.fire({
-  //       title: "Done!",
-  //       text: "Song Deleted Successfully!",
-  //       icon: "success",
-  //       showConfirmButton: false,
-  //       timer: 1000
-  //     });
-  //     this.removeSong();
-  //     this.props.fetchContext();
-  //     return true;
-  //   }
-  //   return true; //change it to false;
-  // };
   editSong = () => {
     this.setState({
       songInfo: true
@@ -314,30 +305,30 @@ class Song extends Component {
                         }}
                         className="playlistAnchor songButton"
                       >
-                        {artist.name}
+                        {artist.displayName}
                       </button>
-                      <span data-testid="comma" className="gray-text">
+                      {this.props.album?<span>  </span>:<span data-testid="comma" className="gray-text">
                         {" "}
                         •{" "}
-                      </span>
+                      </span>}
                     </span>
                   );
                 })}
               </span>
-              <button
+              {this.props.album?<span></span>:<button
                 data-testid="albumName"
                 onClick={() => {
                   this.redirect(`/albums/${this.state.track.albumId}`);
                 }}
                 className="playlistAnchor songButton"
               >
-                {this.state.albumName}
-              </button>
+                {this.state.track.album.name}
+              </button>}
             </p>
           </div>
 
           <div className="col-1">
-            <div data-testid="dropdown" className="dropdown">
+            <div data-testid="dropdown" className="dropdowns">
               <button
                 data-testid="dropdownButton"
                 onClick={this.toggleDropdown.bind(this)}
@@ -383,9 +374,16 @@ class Song extends Component {
                 <button
                   data-testid="addToPlaylist"
                   className="SongDropdownItem songButton"
-                  onClick={() => this.props.addToPlaylist()}
+                  onClick={this.addToPlaylist.bind(this)}
                 >
-                  Add to Playlist
+                  {this.state.isMySong?"Remove From Playlist":"Add to Playlist"}
+                </button>
+                <button
+                  data-testid="copy"
+                  className="SongDropdownItem songButton"
+                  onClick={() => this.copyLink()}
+                >
+                  Copy Song Link
                 </button>
                 {this.state.isArtist && (
                   <Fragment>
@@ -415,7 +413,7 @@ class Song extends Component {
               data-testid="songTime"
               className={this.state.playing ? "goldText" : "whiteText"}
             >
-              {this.state.track.songTime}3:34
+              {this.state.duration}
             </p>
           </div>
         </button>
@@ -427,6 +425,9 @@ Song.propTypes = {
   clickedId: PropTypes.string,
   handleClick: PropTypes.func,
   handlePlay: PropTypes.func,
-  track: PropTypes.object
+  track: PropTypes.object,
+  playingItemId:PropTypes.string,
+  addToPlaylist:PropTypes.func,
+  album:PropTypes.bool
 };
 export default Song;

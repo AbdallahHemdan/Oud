@@ -156,7 +156,8 @@ class MusicCard extends Component {
         <div className={cardClass} data-testid={cardClass}>
           <div
             className="overlayer"
-            onClick={this.handlePlaylistClick}
+            onClick={ this.props.handleClickOutside ?  this.props.handleClickOutside : this.handlePlaylistClick}
+          
             data-testid="overlay"
           >
             {this.state.playBtn ? (
