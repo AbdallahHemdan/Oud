@@ -5,22 +5,42 @@ import axios from 'axios';
 import {Redirect, withRouter, Link} from 'react-router-dom';
 import Validator from './../validate';
 
-/** the forget password section  */
+/** the forget password section  
+ * @auther abdallah abu sedo
+*/
 class ResetPassword extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      /**
+       * the new password var
+       */
       Password: '',
+      /**
+       * the new confirm password
+       */
       ConfirmPassword: '',
       showText: 'show',
-      formErrors: {
+      /**
+       * the error messages forms
+       */ formErrors: {
         PasswordError: '',
         ConfirmPasswordError: '',
       },
     };
   }
-
+  /**
+   * Password checker
+   * (here check if the entered password is correct under some restricts)
+   * 1)if it under 8 latter's
+   * 2)if it more than 30 latter's
+   * 3)if it is valid
+   * 4)then it is correct
+   * @function
+   * @param {object} event - the entered password
+   * @returns {string} -change the error massages
+   *  */
   PasswordHandel = (event) => {
     this.setState({Password: event.target.value});
     Validator.validatePassword(event.target.value, this);
@@ -80,7 +100,14 @@ class ResetPassword extends Component {
     });
     return false;
   };
-
+  /**
+   * this function activate when we click the submit button
+   * it's check if the password and the confirm password are the same
+   * then it send a request with all the data
+   * @function
+   * @param {object} e
+   * @returns {void}
+   */
   handelSubmit = (e) => {
     // It prevents a submit button from submitting a form
     e.preventDefault();
@@ -129,16 +156,7 @@ class ResetPassword extends Component {
       });
     }
   };
-  toLogin = () => {
-    if (this.state.redirect) {
-      return <Redirect to="/log-in" />;
-    }
-  };
-  setRedirect = () => {
-    this.setState({
-      redirect: true,
-    });
-  };
+
   /**
    * here i render the text box and the submit button
    * @function
@@ -189,7 +207,10 @@ class ResetPassword extends Component {
                 <h6 className="hint" data-testid="restPasswordText">
                   If you still need help, contact Oud team at
                   <button type="button" className="btn btn-outline-link">
-                    <a href={'mailto:oudteam.sup@gmail.com'} className="EmailtoHelp">
+                    <a
+                      href={'mailto:oudteam.sup@gmail.com'}
+                      className="EmailtoHelp"
+                    >
                       oudteam.sup@gmail.com
                     </a>
                   </button>

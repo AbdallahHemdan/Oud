@@ -1,46 +1,46 @@
-import "./App.css";
-import React, { Component } from "react";
-import Playlist from "./components/Playlist/playlist";
-import LikedSongs from "./components/likedSongs/likedSongs";
-import CreateAlbum from "./components/CreateAlbum/CreateAlbum";
-import Album from "./components/album/album";
-import Account from "./pages/Account/Account";
-import RedirectPage from "./components/Account/General/RedirectPage";
-import CreatePlaylist from './components/CreatePlaylist/createPlaylist'
-import Search from "./pages/Search/Search";
-import Profile from "./pages/Profile/Profile";
-import Home from "./pages/Home/Home";
+import './App.css';
+import React, {Component} from 'react';
+import Playlist from './components/Playlist/playlist';
+import LikedSongs from './components/likedSongs/likedSongs';
+import CreateAlbum from './components/CreateAlbum/CreateAlbum';
+import Album from './components/album/album';
+import Account from './pages/Account/Account';
+import RedirectPage from './components/Account/General/RedirectPage';
+import CreatePlaylist from './components/CreatePlaylist/createPlaylist';
+import Search from './pages/Search/Search';
+import Profile from './pages/Profile/Profile';
+import Home from './pages/Home/Home';
 import SeeAll from './components/SeeAll/SeeAll';
-import Library from "./components/library/library";
-import Download from "./pages/RoutingPages/download";
-import Help from "./pages/RoutingPages/help";
-import Premium from "./pages/RoutingPages/premium";
-import Overview from "./pages/RoutingPages/OverView";
-import SignUp from "./pages/Signup/index";
-import SignIn from "./pages/Login/loginPage";
-import ForgotPassword from "./components/Login&Signup/ForgetPassword/ForgotPassword";
-import ResetPassword from "./components/Login&Signup/ForgetPassword/resetPassword";
-import Entered from "./components/Login&Signup/logined/entered";
-import Islinked from "./components/Login&Signup/linkisSent";
-import WhyGoPremium from "./components/Premium/Component/WhyGoPremium/WhyGoPremium";
-import GetPremium from "./components/Premium/Component/GetPremium/GetPremium";
-import Ads from "./components/Premium/Component/Ads/Ads";
-import Welcome from "./pages/Welcome/welcome";
-import SuggestedArtist from "./pages/SuggestedArtistPage/SuggestedArtist";
-import SeeAllRecentSearches from "./components/SeeAllRecentSearches/SeeAllRecentSearches";
-import WebPlayer from "./components/WebPlayer/WebPlayer";
+import Library from './components/library/library';
+import Download from './pages/RoutingPages/download';
+import Help from './pages/RoutingPages/help';
+import Premium from './pages/RoutingPages/premium';
+import Overview from './pages/RoutingPages/OverView';
+import SignUp from './pages/Signup/index';
+import SignIn from './pages/Login/loginPage';
+import ForgotPassword from './components/Login&Signup/ForgetPassword/ForgotPassword';
+import ResetPassword from './components/Login&Signup/ForgetPassword/resetPassword';
+import Entered from './components/Login&Signup/logined/entered';
+import Islinked from './components/Login&Signup/linkisSent';
+import WhyGoPremium from './components/Premium/Component/WhyGoPremium/WhyGoPremium';
+import GetPremium from './components/Premium/Component/GetPremium/GetPremium';
+import Ads from './components/Premium/Component/Ads/Ads';
+import Welcome from './pages/Welcome/welcome';
+import SuggestedArtist from './pages/SuggestedArtistPage/SuggestedArtist';
+import SeeAllRecentSearches from './components/SeeAllRecentSearches/SeeAllRecentSearches';
+import WebPlayer from './components/WebPlayer/WebPlayer';
 
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  useParams
-} from "react-router-dom";
-import Artist from "./pages/Artist/Artist";
-import { base } from "./config/environment";
-import SongInfo from "./components/SongInfo/SongInfo";
-import { createBrowserHistory } from "history";
-import "./App.css";
+  useParams,
+} from 'react-router-dom';
+import Artist from './pages/Artist/Artist';
+import {base} from './config/environment';
+import SongInfo from './components/SongInfo/SongInfo';
+import {createBrowserHistory} from 'history';
+import './App.css';
 
 let history = createBrowserHistory();
 const webPlayer = React.createRef();
@@ -60,8 +60,8 @@ class App extends Component {
             <Route exact path="/search">
               <Search />
             </Route>
-            <Route path='/collection'>
-              <Library/>
+            <Route path="/collection">
+              <Library />
             </Route>
             <Route exact path="/genre/:genreName">
               <SeeAll />
@@ -91,7 +91,7 @@ class App extends Component {
             </Route>
             <Route
               path="/song-info/"
-              render={props => (
+              render={(props) => (
                 <SongInfo
                   {...props}
                   history={history}
@@ -103,19 +103,20 @@ class App extends Component {
               <LikedSongs webPlayer={webPlayer} />
             </Route>
             <Route
-              exact path="/albums/:id"
+              exact
+              path="/albums/:id"
               Component={<Album webPlayer={webPlayer} />}
             >
               <AlbumRender webPlayer={webPlayer} />
             </Route>
             <Route exact path="/albums/:id/:songId" Component={<Album />}>
-            <AlbumRender2 webPlayer={webPlayer}/>
-          </Route>
+              <AlbumRender2 webPlayer={webPlayer} />
+            </Route>
             <Route exact path="/welcome">
               <Welcome />
             </Route>
             <Route exact path="/create-playlist">
-              <CreatePlaylist display={true}/>
+              <CreatePlaylist display={true} />
             </Route>
             <Route exact path="/signin">
               <SignIn />
@@ -143,7 +144,7 @@ class App extends Component {
             </Route>
             <Route
               path="/verify/:token"
-              render={props => <Entered {...props} />}
+              render={(props) => <Entered {...props} />}
             />
             <Route exact path="/islanded">
               <Islinked />
@@ -167,10 +168,10 @@ function PlaylistRender(props) {
 }
 function AlbumRender(props) {
   let id = useParams().id;
-  return <Album id={id} webPlayer={webPlayer} songId = {null}/>;
+  return <Album id={id} webPlayer={webPlayer} songId={null} />;
 }
 function AlbumRender2() {
   let id = useParams().id;
   let songId = useParams().songId;
-  return <Album id={id} songId={songId} webPlayer={webPlayer}/>;
+  return <Album id={id} songId={songId} webPlayer={webPlayer} />;
 }
