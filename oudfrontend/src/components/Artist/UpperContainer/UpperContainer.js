@@ -179,7 +179,12 @@ class UpperContainer extends Component {
             >
               About
             </Link>
-            {/* </Router> */}
+            <Link
+              id="following-upperContainer"
+              to={`/artist/${this.props.artistId}/statistics`}
+            >
+              Statistics
+            </Link>
           </div>
         </div>
         {this.state.scrolled && <div style={{ height: "250px" }}></div>}
