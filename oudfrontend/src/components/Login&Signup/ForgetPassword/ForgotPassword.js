@@ -3,7 +3,9 @@ import MainBrand from '../MainBrand';
 import axios from 'axios';
 import validator from '../validate';
 import '../signup/signup.css';
-/** the forget password section  */
+/** the forget password section
+ * @author abdallah abu sedo
+ */
 class ForgotPassword extends Component {
   constructor(props) {
     super(props);
@@ -38,10 +40,9 @@ class ForgotPassword extends Component {
     let errorMassage = '';
     if (this.state.formErrors.EmailError === '' && this.validation()) {
       axios
-        .post(
-          'https://oud-zerobase.me/api/v1/users/forgotPassword',
-          {email:this.state.email}
-        )
+        .post('https://oud-zerobase.me/api/v1/users/forgotPassword', {
+          email: this.state.email,
+        })
         .then((response) => {
           if (response.status === 200) {
             window.location = '/welcome';
@@ -136,7 +137,7 @@ class ForgotPassword extends Component {
                   <span
                     className="error"
                     htmlFor="register-email"
-                    data-testid="forgetPasswordErrorMessage"
+                    
                   >
                     {this.state.formErrors.EmailError}
                   </span>
