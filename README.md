@@ -107,6 +107,19 @@ $ npm run prod
 
 <hr />
 
+![chrome_1JjJ8yfh7A](https://user-images.githubusercontent.com/40190772/84220765-e54be880-aad3-11ea-8b58-6e1d32654290.png)
+
+
+<hr />
+
+![image](https://user-images.githubusercontent.com/40190772/84220506-40311000-aad3-11ea-866e-06e33a1adbf3.png)
+
+<hr />
+
+![image](https://user-images.githubusercontent.com/40190772/84220551-563ed080-aad3-11ea-8e68-e85759a8f596.png)
+
+<hr />
+
 ![62](https://user-images.githubusercontent.com/40190772/80294147-a6054a80-8766-11ea-95c5-187fb180b2b8.png)
 
 <hr />
