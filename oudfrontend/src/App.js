@@ -36,108 +36,154 @@ import Artist from "./pages/Artist/Artist";
 import { base } from "./config/environment";
 import SongInfo from "./components/SongInfo/SongInfo";
 import { createBrowserHistory } from "history";
+import firebase from "./firebase";
+import axios from "axios";
+import { config } from "./utils/auth";
 import "./App.css";
 
 let history = createBrowserHistory();
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Ads />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/search">
-            <Search />
-          </Route>
-          <Route exact path="/genre/:genreName">
-            <SeeAll />
-          </Route>
-          <Route exact path="/recent-search">
-            <SeeAllRecentSearches />
-          </Route>
-          <Route path="/artist/:artistId" component={Artist} />
-          <Route path="/profile/:userId" component={Profile} />
-          <Route path="/account" component={Account} />
-          <Route path="/goPremium" component={WhyGoPremium} />
-          <Route path="/getPremium" component={GetPremium} />
+class App extends Component {
+  constructor(props) {
+    super(props);
 
-          <Route path="/RedirectPage">
-            <RedirectPage />
-          </Route>
-          <Route path={`/playlist/:id`} Component={<Playlist />}>
-            <PlaylistRender />
-          </Route>
-          <Route path="/create-album/">
-            <CreateAlbum
-              endpoint={`${base}/me/artists/albums`}
-              title="Create new Album"
-              update={false}
-            />
-          </Route>
-          <Route
-            path="/song-info/"
-            render={props => (
-              <SongInfo
-                {...props}
-                history={history}
-                songId={props.location.state.id}
+    this.state = {
+      notificationToken: ""
+    };
+  }
+
+  askForPermissioToReceiveNotifications = async () => {
+    try {
+      const messaging = firebase.messaging();
+      await messaging.requestPermission();
+      const token1 = await messaging.getToken();
+      console.log("Hmmmmmmmm Ok :", token1);
+      this.setState({ notificationToken: token1 });
+      axios
+        .put(
+          "https://oud-zerobase.me/api/v1/me/notifications",
+          {
+            token: token1
+          },
+          config
+        )
+        .then(response => {
+          /**
+           * here we store the message in the the statث
+           */
+          //this.setState({ message: response.data.message });
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error.message);
+        });
+
+      return token1;
+    } catch (error) {
+      console.error("No", error);
+    }
+  };
+  render() {
+    return (
+      <Router>
+        <div
+          className="App"
+          onClick={this.askForPermissioToReceiveNotifications}
+        >
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/search">
+              <Search />
+            </Route>
+            <Route exact path="/genre/:genreName">
+              <SeeAll />
+            </Route>
+            <Route exact path="/recent-search">
+              <SeeAllRecentSearches />
+            </Route>
+            <Route path="/artist/:artistId" component={Artist} />
+            <Route path="/profile/:userId" component={Profile} />
+            <Route path="/account" component={Account} />
+            <Route path="/goPremium" component={WhyGoPremium} />
+            <Route path="/getPremium" component={GetPremium} />
+
+            <Route path="/RedirectPage">
+              <RedirectPage />
+            </Route>
+            <Route path={`/playlist/:id`} Component={<Playlist />}>
+              <PlaylistRender />
+            </Route>
+            <Route path="/create-album/">
+              <CreateAlbum
+                endpoint={`${base}/me/artists/albums`}
+                title="Create new Album"
+                update={false}
               />
-            )}
-          />
-          <Route path="/likedSongs/">
-            <LikedSongs />
-          </Route>
-          {/* <Route path="/create-playlist/">
+            </Route>
+            <Route
+              path="/song-info/"
+              render={props => (
+                <SongInfo
+                  {...props}
+                  history={history}
+                  songId={props.location.state.id}
+                />
+              )}
+            />
+            <Route path="/likedSongs/">
+              <LikedSongs />
+            </Route>
+            {/* <Route path="/create-playlist/">
             <CreatePlaylist display={true} />
           </Route> */}
-          <Route path="/albums/:id" Component={<Album />}>
-            <AlbumRender />
-          </Route>
-          <Route exact path="/welcome">
-            <Welcome />
-          </Route>
-          <Route exact path="/signin">
-            <SignIn />
-          </Route>
-          <Route exact path="/signup">
-            <SignUp />
-          </Route>
-          <Route exact path="/download">
-            <Download />
-          </Route>
-          <Route exact path="/help">
-            <Help />
-          </Route>
-          <Route exact path="/premium">
-            <Premium />
-          </Route>
-          <Route exact path="/overview">
-            <Overview />
-          </Route>
-          <Route exact path="/forgot-password">
-            <ForgotPassword />
-          </Route>
-          <Route path="/resetpassword/:token">
-            <ResetPassword />
-          </Route>
-          <Route
-            path="/verify/:token"
-            render={props => <Entered {...props} />}
-          />
-          <Route exact path="/islanded">
-            <Islinked />
-          </Route>
-          <Route exact path="/SuggestedArtist">
-            <SuggestedArtist />
-          </Route>
-        </Switch>
-        <WebPlayer />
-      </div>
-    </Router>
-  );
+            <Route path="/albums/:id" Component={<Album />}>
+              <AlbumRender />
+            </Route>
+            <Route exact path="/welcome">
+              <Welcome />
+            </Route>
+            <Route exact path="/signin">
+              <SignIn />
+            </Route>
+            <Route exact path="/signup">
+              <SignUp />
+            </Route>
+            <Route exact path="/download">
+              <Download />
+            </Route>
+            <Route exact path="/help">
+              <Help />
+            </Route>
+            <Route exact path="/premium">
+              <Premium />
+            </Route>
+            <Route exact path="/overview">
+              <Overview />
+            </Route>
+            <Route exact path="/forgot-password">
+              <ForgotPassword />
+            </Route>
+            <Route path="/resetpassword/:token">
+              <ResetPassword />
+            </Route>
+            <Route
+              path="/verify/:token"
+              render={props => <Entered {...props} />}
+            />
+            <Route exact path="/islanded">
+              <Islinked />
+            </Route>
+            <Route exact path="/SuggestedArtist">
+              <SuggestedArtist />
+            </Route>
+          </Switch>
+          <WebPlayer />
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
