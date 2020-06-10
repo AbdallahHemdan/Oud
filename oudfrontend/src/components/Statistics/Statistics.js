@@ -5,6 +5,10 @@ import { base, mockUrl } from "./../../config/environment";
 import "./Statistics.css";
 
 
+/**
+ * @type {Array}
+ * @description Array of the songs of the current artist
+ */
 const songs = [
   {
     "img": "https://i.pinimg.com/736x/00/a1/3c/00a13cf897548091f4042cba761ef00d--cd-cover-dance-music.jpg",
@@ -79,39 +83,81 @@ const songs = [
     "likesPerMonth": 515
   }
 ];
+
+/**
+ * @author AbdallahHemdan
+ * @component
+ * @description Component to render the statistics of of the current artist songs and albums
+ */
 class Statistics extends Component {
+  /**
+   * @function
+   * @name render
+   * @description Render all the statistics of the current artist albums and songs
+   *
+   * @returns {JSX} Component for Home
+  */
   render() {
     return (
-      <div>
-        <div className="song-statistics">
-          <h1 className="statistics-header">Songs</h1>
-          <section className="statistics-cards row">
-            <div className="col-2 stat-card">
+      <>
+        <div
+          className="song-statistics"
+          data-testid="statistics-songs"
+        >
+          <h1
+            className="statistics-header"
+            data-testid="statistics-header"
+          >Songs</h1>
+          <section
+            className="statistics-cards row"
+            data-testid="statistics-cards"
+          >
+            <div
+              className="col-2 stat-card"
+              data-testid="statistics-card"
+            >
               <StatisticsCard data={songs[0]} />
             </div>
-            <div className="col-2 stat-card">
+            <div
+              className="col-2 stat-card"
+              data-testid="statistics-card">
               <StatisticsCard data={songs[1]} />
             </div>
-            <div className="col-2 stat-card">
+            <div
+              className="col-2 stat-card"
+              data-testid="statistics-card">
               <StatisticsCard data={songs[2]} />
             </div>
           </section>
         </div >
-        <div className="album-statistics">
-          <h1 className="statistics-header">Albums</h1>
-          <section className="statistics-cards row">
-            <div className="col-2 stat-card">
+        <div className="album-statistics"
+          data-testid="statistics-album">
+          <h1
+            className="statistics-header"
+            data-testid="statistics-header">
+            Albums
+          </h1>
+          <section
+            className="statistics-cards row"
+            data-testid="statistics-cards">
+            <div
+              className="col-2 stat-card"
+              data-testid="statistics-card">
               <StatisticsCard data={songs[0]} />
             </div>
-            <div className="col-2 stat-card">
+            <div
+              className="col-2 stat-card"
+              data-testid="statistics-card">
               <StatisticsCard data={songs[1]} />
             </div>
-            <div className="col-2 stat-card">
+            <div
+              className="col-2 stat-card"
+              data-testid="statistics-card">
               <StatisticsCard data={songs[2]} />
             </div>
           </section>
         </div>
-      </div >
+      </>
     )
   }
 }
