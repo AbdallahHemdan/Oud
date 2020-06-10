@@ -49,12 +49,12 @@ class CreatePlaylist extends Component {
     let playlist = {
       name: this.state.name,
       public: true,
-      description: "A new playlist"
+      description: "my playlist",
     };
     let id = Auth();
     axios
       .post(`${base}/users/${id}/playlists`, playlist, config)
-      .then(function (response) {
+      .then(function(response) {
         console.log(response);
       })
       .catch(function (error) {

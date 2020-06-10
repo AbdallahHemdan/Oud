@@ -1,9 +1,8 @@
 import React from 'React'
 import AddToPlaylist from './addToPlaylist';
-import Enzyme, {shallow, mount} from 'enzyme'
+import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer';
-import sinon from 'sinon'
 
 Enzyme.configure({adapter: new EnzymeAdapter()});
 const props={

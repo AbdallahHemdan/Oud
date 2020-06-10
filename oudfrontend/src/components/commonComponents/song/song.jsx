@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "./song.css";
 import { BrowserRouter as Router, Redirect } from "react-router-dom";
 import axios from "axios";
@@ -6,9 +6,11 @@ import PropTypes from "prop-types";
 import play from "../../../assets/images/play.png";
 import musicIcon from "../../../assets/images/musicIcon.png";
 import { addToLikedSongs, removeLikedSong } from "../../../utils/index";
-import {base} from "../../../config/environment"
-import {config, Auth} from "../../../utils/auth"
-
+import { propTypes } from "react-recaptcha";
+import copy from "copy-to-clipboard";  
+import { base } from "../../../config/environment";
+import { config, isArtist,Auth } from "../../../utils/auth";
+import { deleteRequest } from "../../../utils/requester";
 
 /**
  * @classdesc this is a component that renders playlist page
@@ -48,6 +50,7 @@ import {config, Auth} from "../../../utils/auth"
  *
  *          }
  */
+
 class Song extends Component {
   /**
    *
@@ -65,7 +68,11 @@ class Song extends Component {
       clicked: false,
       redirect: null,
       duration:"",
-      isMySong:false
+      isMySong:false,
+      update: false,
+      isArtist: false,
+      songInfo: false,
+      link:''
     };
   }
   /**
@@ -84,30 +91,46 @@ class Song extends Component {
    */
   componentDidMount() {
     axios
-      .get(
-        `${base}/me/tracks/contains/${this.props.track.id}/`, config
-      )
-      .then((response) => {
+      .get(`${base}/albums/${this.props.track.albumId}/`, config)
+      .then(response => {
+        const album = response.data;
+        this.setState({ albumName: album.name });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    axios
+      .get(`${base}/me/tracks/contains/${this.props.track.id}/`, config)
+      .then(response => {
         const isFound = response.data;
         this.setState({ saved: isFound });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(error => {
       });
+      this.checkArtist();
       const duration = this.convertTime(this.state.track.duration)
       this.setState({duration:duration})
 
-      if(Auth() == this.props.ownerId){
+      if(Auth() === this.props.ownerId){
         this.setState({isMySong : true})
       }
   }
   
   convertTime(timeString){
-    let timeInt = parseInt(timeString)/1000
+    let timeInt = parseInt(timeString/1000)
     let minutes = parseInt(timeInt/60);
     let seconds = timeInt - 60*minutes
-    return `${minutes}:${seconds}`
+    return `${minutes}:${parseInt(seconds)}`
   }
+  checkArtist = () => {
+    isArtist()
+      .then(res => {
+        this.setState({ isArtist: res });
+      })
+      .catch(error => {
+      });
+  };
   /**
    *if the recieved props is changed it sets state.clicked to true or
    *false and calls hh()
@@ -116,13 +139,13 @@ class Song extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.clickedId !== this.props.clickedId) {
       this.setState({
-        clicked: nextProps.clickedId === this.props.track.id ? true : false,
+        clicked: nextProps.clickedId === this.props.track.id ? true : false
       });
       this.hh();
     }
     if (nextProps.playingItemId !== this.props.playingItemId) {
       this.setState({
-        playing: nextProps.playingItemId === this.props.track.id ? true : false,
+        playing: nextProps.playingItemId === this.props.track.id ? true : false
       });
     }
   }
@@ -158,21 +181,17 @@ class Song extends Component {
       //ashraf
       axios
         .post(`${base}/me/queue/`, this.state.track, config)
-        .then(function (response) {
-          console.log(response);
+        .then(function(response) {
         })
-        .catch(function (error) {
-          console.log(error);
+        .catch(function(error) {
         });
       this.setState({ queued: true });
     } else {
       axios
         .delete(`${base}/me/queue/${this.state.track.id}`, config)
-        .then(function (response) {
-          console.log(response);
+        .then(function(response) {
         })
-        .catch(function (error) {
-          console.log(error);
+        .catch(function(error) {
         });
       this.setState({ queued: false });
     }
@@ -190,23 +209,45 @@ class Song extends Component {
       this.setState({ displayDropdown: false });
     }
   }
-  /**
-   * called when the options button is clicked to toggle state.displayDropdown
-   * @param {void}
-   */
+
   toggleDropdown() {
     this.setState({ displayDropdown: !this.state.displayDropdown });
   }
-  addToPlaylist() {
+  copyLink(){
+    let link = base+'/albums/'+this.state.track.albumId+'/'+this.state.track.id;
     this.toggleDropdown();
-    
-    this.props.addToPlaylist(this.state.track.id,this.state.isMySong)
-   
+    this.setState({link:link})
+    copy(link);
   }
+  addToPlaylist(){
+    this.props.addToPlaylist(this.state.track.id,this.state.isMySong)
+    this.toggleDropdown()
+  }
+  removeSong = () => {
+    deleteRequest(`${base}/tracks/${this.props.track._id}`)
+      .then(() => {
+      })
+      .catch(error => {
+      });
+  };
+  editSong = () => {
+    this.setState({
+      songInfo: true
+    });
+  };
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
+    if (this.state.songInfo)
+      return (
+        <Redirect
+          to={{
+            pathname: "/song-info",
+            state: { id: this.props.track.id }
+          }}
+        />
+      );
     return (
       <Router>
         <button
@@ -248,7 +289,7 @@ class Song extends Component {
             </span>
             <p data-testid="aristsNames">
               <span>
-                {this.state.track.artists.map((artist) => {
+                {this.state.track.artists.map(artist => {
                   return (
                     <span>
                       <button
@@ -260,7 +301,7 @@ class Song extends Component {
                       >
                         {artist.displayName}
                       </button>
-                      {this.props.album?<span></span>:<span data-testid="comma" className="gray-text">
+                      {this.props.album?<span>  </span>:<span data-testid="comma" className="gray-text">
                         {" "}
                         •{" "}
                       </span>}
@@ -331,6 +372,32 @@ class Song extends Component {
                 >
                   {this.state.isMySong?"Remove From Playlist":"Add to Playlist"}
                 </button>
+                <button
+                  data-testid="copy"
+                  className="SongDropdownItem songButton"
+                  onClick={() => this.copyLink()}
+                >
+                  Copy Song Link
+                </button>
+                {this.state.isArtist && (
+                  <Fragment>
+                    <button
+                      data-testid="edit-song"
+                      className="SongDropdownItem songButton"
+                      onClick={this.editSong}
+                    >
+                      Edit the Song
+                    </button>
+
+                    <button
+                      data-testid="remove-song"
+                      className="SongDropdownItem songButton"
+                      onClick={this.removeSong}
+                    >
+                      Remove the Song
+                    </button>
+                  </Fragment>
+                )}
               </div>
             </div>
           </div>
@@ -353,5 +420,8 @@ Song.propTypes = {
   handleClick: PropTypes.func,
   handlePlay: PropTypes.func,
   track: PropTypes.object,
+  playingItemId:PropTypes.string,
+  addToPlaylist:PropTypes.func,
+  album:PropTypes.bool
 };
 export default Song;

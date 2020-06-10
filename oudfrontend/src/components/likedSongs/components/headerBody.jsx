@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { Redirect, BrowserRouter} from "react-router-dom";
+import { createBrowserHistory } from "history";
 import PropTypes from "prop-types";
 import {config} from '../../../utils/auth'
 import {base} from '../../../config/environment'
@@ -17,14 +18,15 @@ import axios from 'axios'
  * <p></p>
  * </div>}
  */
-
+let history = createBrowserHistory();
 class HeaderBody extends Component{
   constructor(props){
     super(props);
     this.state = {
       redirect:null,
       displayName:'',
-      id:''
+      id:'',
+      start:false
     }
   }
   redirect(route){
@@ -35,12 +37,28 @@ class HeaderBody extends Component{
         .then((response) => {
             const user = response.data;
             this.setState({displayName:user.displayName, id:user.id});
-            console.log(user.displayName)
         })
         .catch((error) => {
             console.log(error);
         });
   }
+  handlePlayClick = e => {
+    e.stopPropagation();
+    if (!this.state.start) this.setState({ start: true });
+    let uris = [];
+    this.props.tracks.forEach(track => {
+      uris.push(`oud:track:${track.id}`);
+    });
+    this.props.webPlayer.current.playContext(
+      null,
+      uris,
+      this.props.clickedItemId,
+      0,
+      true,
+      this.state.start
+    );
+    this.props.playClicked();
+  };
   render(){
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
@@ -61,7 +79,7 @@ class HeaderBody extends Component{
       {this.state.displayName}
       </button>
       <button
-        onClick={()=>this.props.playClicked}
+        onClick={()=>this.handlePlayClick}
         data-testid="playButton"
         className="playButton"
         variant="outline-success"

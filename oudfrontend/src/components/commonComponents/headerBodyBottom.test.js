@@ -12,11 +12,12 @@ const fullProps = {
     playing : true,
     likeClicked : jest.fn(),
     playClicked : jest.fn(), 
-    releaseDate:'2011-05-06',
+    releaseDate:'05-06-2011',
     recieved: true,
-    album: true
+    album: true,
+    tracks:[{id:1}],
+    webPlayer:{current:{playContext:jest.fn()}}
 }
-
 const setup = (props={}) =>{
     return shallow(<HeaderBodyBottom {...props}/>);
 }
@@ -232,7 +233,11 @@ describe('HeaderBodyBottom component', ()=>{
             console.log(result);
             expect(result).toBeDefined();
         });
-
+        it('should throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {album:[]}, 'prop', HeaderBodyBottom.name);
+            console.log(result);
+            expect(result).toBeDefined();
+        });
         //testing the likeClicked prop
         it('should not throw a warning', ()=>{
             const result = checkPropTypes(HeaderBodyBottom.propTypes, {likeClicked:jest.fn()}, 'prop', HeaderBodyBottom.name);
@@ -240,6 +245,16 @@ describe('HeaderBodyBottom component', ()=>{
         });
         it('should throw a warning', ()=>{
             const result = checkPropTypes(HeaderBodyBottom.propTypes, {likeClicked:{}}, 'prop', HeaderBodyBottom.name);
+            console.log(result);
+            expect(result).toBeDefined();
+        });
+        it('should throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {likeClicked:1}, 'prop', HeaderBodyBottom.name);
+            console.log(result);
+            expect(result).toBeDefined();
+        });
+        it('should throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {likeClicked:true}, 'prop', HeaderBodyBottom.name);
             console.log(result);
             expect(result).toBeDefined();
         });
@@ -253,6 +268,28 @@ describe('HeaderBodyBottom component', ()=>{
             const result = checkPropTypes(HeaderBodyBottom.propTypes, {playClicked:{}}, 'prop', HeaderBodyBottom.name);
             console.log(result);
             expect(result).toBeDefined();
+        });
+        it('should throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {playClicked:1}, 'prop', HeaderBodyBottom.name);
+            console.log(result);
+            expect(result).toBeDefined();
+        });
+        it('should throw a warning', ()=>{
+            const result = checkPropTypes(HeaderBodyBottom.propTypes, {playClicked:true}, 'prop', HeaderBodyBottom.name);
+            console.log(result);
+            expect(result).toBeDefined();
+        });
+        
+    });
+    describe('calling functions', ()=>{
+        let component;
+        beforeEach(()=>{
+            component = setup(fullProps)
+        });
+        it('calling handlePlayClick ', ()=>{
+            component.setState({start:false})
+            component.instance().handlePlayClick({stopPropagation:jest.fn()});
+            expect(component.state().start).toBe(true);
         });
     });
     describe('snapshot test', ()=>{

@@ -3,6 +3,8 @@ import HeaderBodyTop from './headerBodyTop';
 import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import checkPropTypes from 'check-prop-types'
+import renderer from 'react-test-renderer';
+
 Enzyme.configure({adapter: new EnzymeAdapter()});
 
 
@@ -63,7 +65,32 @@ describe('HeaderBodyTop Component', ()=>{
             expect(wrapper.text()).toBe("By ")
         });
     });
-    
+    describe('testing buttons', ()=>{
+        let component;
+        let props = {title:"nice name", owner:"1"}
+        beforeEach (()=>{
+            component = setup(props);
+            let wrapp = findByTestAttr(component, "owner");
+            wrapp.simulate("click");
+        })
+        it("HeaderBodyTop shouldn't render", ()=>{
+            const wrapper = findByTestAttr(component, "HeaderBodyTop");
+            expect(wrapper.length).toBe(0);
+        });
+        it("title shouldn't render", ()=>{
+            const wrapper = findByTestAttr(component, "title");
+            expect(wrapper.length).toBe(0);
+        });
+        
+        it("owner shouldn't render", ()=>{
+            const wrapper = findByTestAttr(component, "owner");
+            expect(wrapper.length).toBe(0);
+        });
+        it("credits shouldn't render", ()=>{
+            const wrapper = findByTestAttr(component, "credits");
+            expect(wrapper.length).toBe(0);
+        });
+    });
     describe('checking propTypes', ()=>{
         const propsT = {title: 'string',owner: '1'}
         const propsF ={title: {} , owner: 1}
@@ -75,6 +102,14 @@ describe('HeaderBodyTop Component', ()=>{
             const result = checkPropTypes(HeaderBodyTop.propTypes, propsF, 'prop', HeaderBodyTop.name);
             console.log(result);
             expect(result).toBeDefined();
+        });
+    });
+    describe('snapshot test', ()=>{
+        it('renders correctly', () => {
+            const tree = renderer
+              .create(<HeaderBodyTop/>)
+              .toJSON();
+            expect(tree).toMatchSnapshot();
         });
     });
 });

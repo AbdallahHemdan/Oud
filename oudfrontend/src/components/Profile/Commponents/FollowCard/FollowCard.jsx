@@ -21,7 +21,8 @@ class FollowCard extends Component {
       photo: "",
       followStatus: "",
       mouseOn: "",
-      isMe: ""
+      isMe: "",
+      type: ""
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
@@ -34,13 +35,16 @@ class FollowCard extends Component {
       .then(response => {
         this.setState({
           name: response.data.displayName,
-          photo: response.data.images[0]
+          photo: response.data.images[0],
+          type: response.data.type
         });
         let ids = this.props.id;
         //you should use the type and ids as query prams in the real API as here you can't make it just get the data
         axios
           .get(
-            "https://oud-zerobase.me/api/v1/me/following/contains?type=user&ids=" +
+            "https://oud-zerobase.me/api/v1/me/following/contains?type=" +
+              this.state.type +
+              "&ids=" +
               this.props.id,
             config
           )
@@ -136,7 +140,7 @@ class FollowCard extends Component {
             className="folloewersCounter-followCard"
             data-test="followCardFollowers"
           >
-            USER
+            {this.state.type.toUpperCase()}
           </p>
         </div>
 

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Song from "./song/song";
 import PropTypes from "prop-types";
 import axios from "axios";
-import { base } from "../../config/environment"
-import { config } from "../../utils/auth"
+import { base } from "../../config/environment";
+import { config } from "../../utils/auth";
 import LoadingSnipper from "../LoadingSnipper/LoadingSnipper";
 
 /**
@@ -46,12 +46,10 @@ class SongList extends Component {
     this.state = {
       clickedItemId: "0",
       playing: false,
-      playingItemId: "0",
+      playingItemId: "0"
     };
     this.handleClick = this.handleClick.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
-    this.handleQueue = this.handleQueue.bind(this);
-    this.addToPlaylist = this.addToPlaylist.bind(this);
   }
   /**
    * it sets the state tothe new ID so it is sent to all the songs
@@ -71,49 +69,37 @@ class SongList extends Component {
     console.log(this.props.recieved)
   }
   /**
-   * it adds all the songs after the calling song to the queue
-   * @param {string} id the id of the calling song
-   */
-  handleQueue(id) {
-    let flag = false;
-    let queue = [];
-    for (let i = 0; i < this.props.tracks.length; i++) {
-      if (flag || this.props.tracks[i].id === id) {
-        flag = true;
-        queue.push(this.props.tracks[i]);
-      }
-    }
-    this.props.addToQueue(queue, queue.length);
-  }
-  /**
    * if the calling song is playing it pauses/resums the player
-   * otherwise, it calls handleQueue
    * @param {sttring} id the id of the calling song
    */
   handlePlay(id) {
-    let playingId;
-    this.setState({ playingItemId: id });
-    axios
-      .get(`${base}/me/player/currently-playing`, config)
-      .then((response) => {
-        playingId = response.data.item.id;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    if (id === playingId) {
-      this.setState({ playing: !this.state.playing });
-      if (this.state.playing === true) {
-        this.props.play();
-      } else {
-        this.props.pause();
-      }
+    if (
+      this.props.contextType === "album" ||
+      this.props.contextType === "playlist"
+    ) {
+      const contextUri = `oud:${this.props.contextType}:${this.props.contextId}`;
+      this.props.webPlayer.current.playContext(
+        contextUri,
+        [],
+        this.props.clickedItemId,
+        0
+      );
     } else {
-      this.handleQueue(id);
+      let uris = [];
+      this.props.tracks.forEach(track => {
+        uris.push(`oud:track:${track.id}`);
+      });
+      this.props.webPlayer.current.playContext(
+        null,
+        uris,
+        this.props.clickedItemId,
+        0,
+        true
+      );
     }
-  }
-  addToPlaylist(id){
-    this.props.addToPlaylist(id);
+    this.setState({
+      playing: !this.state.playing
+    });
   }
   render() {
     return (
@@ -121,25 +107,28 @@ class SongList extends Component {
         data-testid="songsList"
         className="col-xs-8 col-md-6 col-lg-8 col-xl-8"
       >
-        {this.props.recieved?this.props.tracks.map((track) => {
+        {this.props.recieved ? (
+          this.props.tracks.map((track, index) => {
             return (
               <Song
                 data-testid="songElement"
                 key={track.id}
                 ownerId = {this.props.ownerId}
                 track={track}
+                index={index}
                 clickedId={this.state.clickedItemId}
                 playingItemId={this.state.playingItemId}
-                handleClick={this.handleClick}
                 handlePlay={this.handlePlay}
-                addToPlaylist={this.addToPlaylist}
+                addToPlaylist={this.props.addToPlaylist}
                 album={this.props.album}
+                fetchContext={this.props.fetchContext}
+                handleClick={this.handleClick}
               />
             );
-          })
-         : (
-            <LoadingSnipper />
-          )}
+          }))
+        : (
+          <LoadingSnipper data-testid="loading"/>
+        )}
       </div>
     );
   }
@@ -150,6 +139,6 @@ SongList.propTypes = {
   pause: PropTypes.func,
   resume: PropTypes.func,
   addToQueue: PropTypes.func,
-  clickedItemId: PropTypes.string,
+  clickedItemId: PropTypes.string
 };
 export default SongList;

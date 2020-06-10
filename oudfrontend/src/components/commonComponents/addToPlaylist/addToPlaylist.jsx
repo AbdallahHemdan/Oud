@@ -31,7 +31,7 @@ class addToPlaylist extends Component {
   componentDidMount() {
     const id = Auth()
       axios
-          .get(`${base}/users/1/playlists`, config)
+          .get(`${base}/users/${id}/playlists`, config)
           .then((response) => {
             console.log(response.date)
             this.setState({ playlists: response.data.items});

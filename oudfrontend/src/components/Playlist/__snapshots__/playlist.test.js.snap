@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Playlist Component snapshot test renders correctly 1`] = `
+<div
+  data-testid="BigWrapper"
+>
+  <div
+    className="spinner"
+    data-testid="snipper"
+  >
+    <div
+      className="rect1"
+      data-testid="snipper-1"
+    />
+    <div
+      className="rect2"
+      data-testid="snipper-2"
+    />
+    <div
+      className="rect3"
+      data-testid="snipper-3"
+    />
+    <div
+      className="rect4"
+      data-testid="snipper-4"
+    />
+    <div
+      className="rect5"
+      data-testid="snipper-5"
+    />
+  </div>
+</div>
+`;
