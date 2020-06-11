@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment, Component } from "react";
 import PropTypes from "prop-types";
 /**
  * this is a component that renders the bottom of the body of playlists, albums, likedSongs
@@ -18,57 +18,89 @@ import PropTypes from "prop-types";
  * <p></p>
  * </div>}
  */
-
-function HeaderBodyBottom(props) {
-  const {
-    length,
-    playClicked,
-    likeClicked,
-    liked,
-    playing,
-    releaseDate,
-    recieved,
-    album,
-    addToPlaylist,
-  } = props;
-
-  return (
-    <div data-testid="HeaderBodyBottom" class="playlistHeaderBodyBottom">
-      <button
-        onClick={playClicked}
-        data-testid="playButton"
-        className="playButton"
-        variant="outline-success"
-      >
-        {playing ? "PAUSE" : "PLAY"}
-      </button>
-
-      <button data-testid="likeIcon" className="likeIcon" onClick={likeClicked}>
-        {liked ? <i className="far fa-heart"></i> : <i class="fa fa-heart"></i>}
-      </button>
-      {album ? (
-        <button className="likeIcon" onClick={addToPlaylist}>
-          <i class="fa fa-plus"></i>
+// function checkArtist(){
+//   isArtist().then(artist)
+// }
+class HeaderBodyBottom extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { start: false };
+  }
+  handlePlayClick = e => {
+    e.stopPropagation();
+    if (!this.state.start) this.setState({ start: true });
+    this.props.webPlayer.current.playContext(
+      this.props.context,
+      [],
+      0,
+      0,
+      false,
+      this.state.start
+    );
+    this.props.playClicked();
+  };
+  render() {
+    return (
+      <div data-testid="HeaderBodyBottom" class="playlistHeaderBodyBottom">
+        <button
+          onClick={this.handlePlayClick}
+          data-testid="playButton"
+          className="playButton"
+          variant="outline-success"
+        >
+          {this.props.playing ? "PAUSE" : "PLAY"}
         </button>
-      ) : (
-        <span></span>
-      )}
-      <p>
-        <span data-testid="releaseDate" className="gray-text">
-          {recieved ? releaseDate.slice(0, 4) : ""}
-          <h2 data-testid="separatingDot" className="inline">
-            {album ? "." : ""}
-          </h2>
-        </span>
-        <span data-testid="songsNumber" className="gray-text">
-          {length}{" "}
-        </span>
-        <span data-testid="songsLiteral" className="gray-text">
-          {length > 1 ? "songs" : "song"}
-        </span>
-      </p>
-    </div>
-  );
+
+        <button
+          data-testid="likeIcon"
+          className="likeIcon"
+          onClick={this.props.likeClicked}
+        >
+          {this.props.liked ? (
+            <i className="fa fa-heart"></i>
+          ) : (
+            <i class="far fa-heart"></i>
+          )}
+        </button>
+        {this.props.album ? (
+          <Fragment>
+            {this.props.isArtist && (
+              <Fragment>
+                <button className="likeIcon" onClick={this.props.addSong}>
+                  <i class="fa fa-plus"></i>
+                </button>
+                <button
+                  className="likeIcon"
+                  onClick={this.props.changeEditAlbumState}
+                >
+                  <i class="fa fa-pencil-square-o"></i>
+                </button>
+                <button className="likeIcon" onClick={this.props.delelteAlbum}>
+                  <i class="fa fa-trash-alt"></i>
+                </button>
+              </Fragment>
+            )}
+          </Fragment>
+        ) : (
+          <span></span>
+        )}
+        <p>
+          <span data-testid="releaseDate" className="gray-text">
+            {this.props.recieved ? this.props.releaseDate.slice(0, 4) : ""}
+            <h2 data-testid="separatingDot" className="inline">
+              {this.props.album ? "." : ""}
+            </h2>
+          </span>
+          <span data-testid="songsNumber" className="gray-text">
+            {this.props.length}{" "}
+          </span>
+          <span data-testid="songsLiteral" className="gray-text">
+            {this.props.length > 1 ? "songs" : "song"}
+          </span>
+        </p>
+      </div>
+    );
+  }
 }
 
 HeaderBodyBottom.propTypes = {
@@ -79,7 +111,7 @@ HeaderBodyBottom.propTypes = {
   playClicked: PropTypes.func,
   releaseDate: PropTypes.string,
   recieved: PropTypes.bool,
-  album: PropTypes.bool,
+  album: PropTypes.bool
 };
 
 export default HeaderBodyBottom;

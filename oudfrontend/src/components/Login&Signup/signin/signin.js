@@ -1,22 +1,36 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../signup/signup.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import axios from 'axios';
 import Validator from '../validate';
-import { token } from '../../../utils/auth';
-/**the sign up section  */
+/**the sign up section
+ * @author abdallah abu sedo
+ */
 class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      islogin: false,
+      /**
+       * email var
+       */
       email: '',
+      /**
+       * password var
+       */
       password: '',
+      /**
+       * password type if i want ot show password as a text or as a *
+       */
       passwordType: 'password',
+      /**
+       * show password button state
+       */
       showText: 'show',
-      rememberMe: false,
       redirect: false,
+      /**
+       * error massage state
+       */
       formErrors: {
         mainError: '',
         EmailError: '',
@@ -32,7 +46,7 @@ class SignIn extends Component {
    * @returns {boolean} - return true if the email is valid
    */
   EmailHandel = (event) => {
-    this.setState({ email: event.target.value });
+    this.setState({email: event.target.value});
     Validator.validateEmail(event.target.value, this);
   };
   /**
@@ -51,25 +65,13 @@ class SignIn extends Component {
     return false;
   };
   /**
-   * Password checker
-   * (here check if the entered password is correct under some restricts)
-   * 1)if it dose not enter any thing
-   * 2)if it under 8 latter's
-   * 3)if it more than 30 latter's
-   * 5)if it is valid
-   * 6)then it is correct
+   * validateAll function that have all the booleans from other validations function and chick if its true
    * @function
-   * @param {object} event - the entered password
-   * @returns {string} -change the error massages
-   *  */
-  PasswordHandel = (event) => {
-    this.setState({ password: event.target.value });
-    Validator.validatePassword(event.target.value, this);
-  };
+   * @returns {boolean}
+   */
   validateAll = () => {
     let valid = true;
     valid &= Validator.validateEmail(this.state.email, this);
-    valid &= Validator.validatePassword(this.state.password, this);
     return valid;
   };
   /**
@@ -119,7 +121,7 @@ class SignIn extends Component {
     let target = e.target;
     let value = target.type === 'checkbox' ? target.checked : target.value;
     let name = target.name;
-    this.setState({ [name]: value });
+    this.setState({[name]: value});
   };
   /**
    * here i render the page
@@ -134,7 +136,7 @@ class SignIn extends Component {
             <form onSubmit={this.handelSubmit} noValidate>
               <div className="form-group sm-8">
                 {this.state.formErrors.mainError && (
-                  <span className="error">
+                  <span className="error" data-testid="BackLoginErrorMessage">
                     {this.state.formErrors.mainError}
                   </span>
                 )}
@@ -161,7 +163,7 @@ class SignIn extends Component {
                     type={this.state.passwordType}
                     className="form-control FormElement"
                     placeholder={'password'}
-                    onChange={(this.handleChange, this.PasswordHandel)}
+                    onChange={this.handleChange}
                     data-testid="login-password"
                   />
 
@@ -179,21 +181,7 @@ class SignIn extends Component {
                   </span>
                 )}
               </div>
-              <div className="form-group">
-                <div className="custom-control custom-checkbox">
-                  <input
-                    style={{ display: 'inline', width: '20px' }}
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="customControlInline"
-                    name="rememberMe"
-                    onChange={this.handleChange}
-                  />
-                  <label class="custom-control-label" for="customControlInline">
-                    Remember me
-                  </label>
-                </div>
-              </div>
+              <div className="form-group"></div>
               <section className="container main-center forgetLink">
                 <h6 className="hint-text-forgot">
                   <button
@@ -222,15 +210,15 @@ class SignIn extends Component {
                     Don't have an account?
                     <br />
                   </h6>
-                  <button
-                    data-testid="SignUpBtn"
-                    type="button"
-                    className="btn SignUpSubmit btn-block"
-                  >
-                    <Link to="/SignUp" className="btn-style butt">
+                  <Link to="/SignUp" className="btn-style butt">
+                    <button
+                      data-testid="SignUpBtn"
+                      type="button"
+                      className="btn SignUpSubmit btn-block"
+                    >
                       SIGN UP
-                    </Link>
-                  </button>
+                    </button>
+                  </Link>
                 </span>
               </section>
             </form>

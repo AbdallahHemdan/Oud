@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Facebook from './signin/Facebook';
 import axios from 'axios';
 import '../../components/Login&Signup/signup/signup.css';
 
-/**the social button section */
+/**the social button section
+ * @author abdallah abu sedo
+ */
 class SocialIcons extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      access_token: '',
-    };
+    this.state = {};
   }
   /**
    * the request sender function
@@ -21,14 +21,14 @@ class SocialIcons extends Component {
       access_token: this.state.access_token,
     };
     axios
-      .post('http://oud-zerobase.me/api/v1/auth/facebook', toSent)
+      .post('https://oud-zerobase.me/api/v1/auth/facebook', toSent)
       .then((response) => {
-        const authToken = response.accessToken;
-        this.setState({ access_token: authToken });
-        window.location = '/home';
+        console.log(response);
+
+        window.location = '/';
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response);
       });
   };
   /**
@@ -40,19 +40,20 @@ class SocialIcons extends Component {
     return (
       <React.Fragment>
         <div className="SocialIconsPage container">
-          <h6 className="hint-text hint">
+          <h6 className="hint-text hint" data-testid="SocialText">
             Sign Up with your social media account
           </h6>
           <button className="google_button" href="#">
             <img
+              data-testid="GoogleButtonImage"
               alt=""
               src="http://pngimg.com/uploads/google/google_PNG19630.png"
               className="googlepic"
-            ></img>{' '}
+            ></img>
             continue with Google
           </button>
           <Facebook
-            data-testid="FacebookButton "
+            data-testid="FacebookButton"
             onClick={this.handelClickFace}
           />
 

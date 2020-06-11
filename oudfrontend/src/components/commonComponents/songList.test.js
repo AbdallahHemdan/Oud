@@ -4,7 +4,6 @@ import Enzyme, { shallow } from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import checkPropTypes from 'check-prop-types'
 import renderer from 'react-test-renderer';
-import Song from './song/song';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
@@ -28,6 +27,9 @@ const fullProps = {
                     "image": "string"
                 }
             ],
+            "album":{
+                "name":"ddd"
+            },
             "albumId": "1",
             "type": "Jazz",
             "audioUrl": "www.Facebook.com"
@@ -49,6 +51,9 @@ const fullProps = {
                     "image": "string"
                 }
             ],
+            "album":{
+                "name":"ddd"
+            },
             "albumId": "1",
             "type": "Trap",
             "audioUrl": "www.facebook.com"
@@ -56,7 +61,9 @@ const fullProps = {
     pause: jest.fn(),
     resume: jest.fn(),
     addToQueue: jest.fn(),
-    clickedItemId: '0'
+    clickedItemId: '0',
+    
+    webPlayer:{current:{playContext:jest.fn()}}
 }
 const setup = (props = {}) => {
     return shallow(<SongList {...props} />);
@@ -80,6 +87,10 @@ describe('SongList Component', () => {
             const wrapper = findByTestAttr(component, 'songElement');
             expect(wrapper.length).toBe(0);
         });
+        it("doesn't render songElement when recived = false", () => {
+            const wrapper = findByTestAttr(component, 'loading');
+            expect(wrapper.length).toBe(1);
+        });
     });
 
     describe('testing SongList Component without props', () => {
@@ -94,6 +105,10 @@ describe('SongList Component', () => {
         it("doesn't render songElement when without props", () => {
             const wrapper = findByTestAttr(component, 'songElement');
             expect(wrapper.length).toBe(0);
+        });
+        it("doesn't render songElement when without props", () => {
+            const wrapper = findByTestAttr(component, 'loading');
+            expect(wrapper.length).toBe(1);
         });
     });
 
@@ -110,7 +125,8 @@ describe('SongList Component', () => {
         it("doesn't render songElement when recived = true and tracks is empty", () => {
             const wrapper = findByTestAttr(component, 'songElement');
             expect(wrapper.length).toBe(0);
-        }); it('does not render loading when recived = true and tracks is empty', () => {
+        });
+        it("doesn't render songElement when without props", () => {
             const wrapper = findByTestAttr(component, 'loading');
             expect(wrapper.length).toBe(0);
         });
@@ -128,17 +144,17 @@ describe('SongList Component', () => {
         it("doesn't render songElement when recived = true and tracks is not empty", () => {
             const wrapper = findByTestAttr(component, 'songElement');
             expect(wrapper.length).toBe(2);
-        }); it('does not render loading when recived = true and tracks not empty', () => {
+        });
+        it("doesn't render songElement when without props", () => {
             const wrapper = findByTestAttr(component, 'loading');
             expect(wrapper.length).toBe(0);
         });
     });
-
-    describe('checking propTypes', () => {
-        const props10 = { recieved: true, tracks: {} }
-        const props11 = { recieved: true, tracks: [] }
-        const props01 = { recieved: 4, tracks: [] }
-        const props00 = { recieved: 4, tracks: {} }
+    describe('checking propTypes', ()=>{
+        const props10 ={recieved:true, tracks:{}}
+        const props11 ={recieved:true, tracks:[]}
+        const props01 ={recieved:4, tracks:[]}
+        const props00 ={recieved:4, tracks:{}}
         //testing with full props
         it('should not throw a warning', () => {
             const result = checkPropTypes(SongList.propTypes, { ...fullProps }, 'prop', SongList.name);
@@ -209,6 +225,44 @@ describe('SongList Component', () => {
         it('should throw a warning', () => {
             const result = checkPropTypes(SongList.propTypes, props00, 'prop', SongList.name);
             expect(result).toBeDefined();
+        });
+    });
+    describe('calling functions', ()=>{
+        let component;
+        beforeEach(()=>{
+            component = setup(fullProps)
+        });
+        it('calling handleClick ', ()=>{
+            component.setState({clickedItemId:'0'})
+            component.instance().handleClick('2');
+            expect(component.state().clickedItemId).toBe('2');
+        });
+        it('change the recieved props', () => {
+            component.setState({clickedItemId:'0'})
+            component.setProps({clickedItemId:'2'})
+            expect(component.state().clickedItemId).toBe('2');
+        })
+        it('change the recieved props', () => {
+            component.setState({clickedItemId:'0'})
+            component.setProps({clickedItemId:'0'})
+            expect(component.state().clickedItemId).toBe('0');
+        })
+        it('calling handlePlay ', ()=>{
+            const comp = setup({...fullProps, contextType:'album'})
+            comp.setState({playing:true})
+            comp.instance().handlePlay('19');
+            expect(comp.state().playing).toBe(false);
+        });
+        it('calling handlePlay ', ()=>{
+            component.setState({playing:true})
+            component.instance().handlePlay('19');
+            expect(component.state().playing).toBe(false);
+        });
+        it('calling handlePlay ', ()=>{
+            const comp = setup({...fullProps, contextType:'playlist'})
+            comp.setState({playing:false})
+            comp.instance().handlePlay('19');
+            expect(comp.state().playing).toBe(true);
         });
     });
     describe('snapshot test', () => {

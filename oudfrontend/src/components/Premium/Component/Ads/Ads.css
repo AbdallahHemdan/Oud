@@ -1,0 +1,12 @@
+.Ads {
+  width: 500px;
+  position: fixed;
+  z-index: 10;
+  margin-top: 400px;
+  margin-left: 740px;
+}
+
+.noAds {
+  width: 0px;
+  visibility: hidden;
+}

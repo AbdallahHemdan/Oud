@@ -155,6 +155,7 @@ input.empty {
   /* right: 200px !important; */
   top: 50px;
   background: #232327;
+  color:#f0a91a
 }
 .element {
   color: #fff;
@@ -173,4 +174,7 @@ input.empty {
 }
 .upgrade:hover a {
   color: #f0a91a;
+}
+#droppos{
+  position: static;
 }

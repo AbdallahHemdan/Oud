@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Oud from '../../assets/images/Logoc.png';
 import '../../components/Login&Signup/signup/signup.css';
-/** header class of the sign up */
+/** header class of the sign up 
+ * @author abdallah abu sedo
+*/
 class MainBrand extends Component {
   /**
    * here i render the logo and the name of my website
@@ -13,7 +15,7 @@ class MainBrand extends Component {
     return (
       <div className="NavBarStyle">
         <div className="main-brand mainBrand barsection">
-          <Link className="navbar navbar-dark bg-dark" to="/welcome-guest">
+          <Link className="navbar navbar-dark bg-dark" to="/welcome">
             <img
               id="OudImage"
               data-testid="OudImage"

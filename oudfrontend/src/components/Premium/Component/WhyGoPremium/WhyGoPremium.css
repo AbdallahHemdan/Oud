@@ -1,0 +1,115 @@
+.goPremiumContainer {
+  width: 100%;
+}
+.goPremiumUpperContainer {
+  padding-left: 12.5%;
+  padding-right: 12.5%;
+  padding-top: 120px;
+  padding-bottom: 10px;
+
+  background-image: linear-gradient(black, #916b49);
+}
+.goPremiumLowerContainer {
+  padding-left: 12.5%;
+  padding-right: 12.5%;
+  padding-top: 70px;
+  padding-bottom: 150px;
+  background-color: #282828;
+  text-align: Center;
+}
+.goPremium-title {
+  font-weight: 650;
+  font-size: 80px;
+  padding-bottom: 23px;
+}
+.goPremium-Price {
+  font-weight: 700;
+  font-size: 30px;
+  color: #ffffff;
+  display: inline;
+}
+.goPremium-getPremium {
+  display: block;
+  clear: both;
+  margin-top: 50px;
+}
+.goPremium-note {
+  color: white;
+  font-size: 12px;
+  margin-top: 30px;
+}
+.goPremium-featureCard {
+  padding: 0px 40px 40px 40px;
+  text-align: center;
+}
+.goPremium-featureContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 80px;
+}
+.goPremium-imageFeture {
+  width: 120px;
+}
+.goPremium-cardTitle {
+  margin-top: 25px;
+  font-size: 25px;
+  font-weight: 550;
+  color: #f9b835;
+}
+.goPremium-cardparagraph {
+  color: #916b49;
+}
+.goPremium-form {
+  width: 53%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 100px;
+  padding: 20px;
+  text-align: left;
+}
+.goPremium-formDiv {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.goPremium-formDiv ul {
+  margin-left: 15px;
+  padding-top: 20px;
+}
+.goPremium-formDiv li {
+  color: #916b49;
+  padding: 0 0 15px 0px;
+  list-style: none;
+  font-weight: 600;
+}
+.goPremium-getPremiumForm {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+.goPremium-footer {
+  padding-top: 40px;
+  height: 130px;
+  text-align: center;
+  color: black;
+}
+@media only screen and (max-width: 1500px) {
+  .goPremium-featureCard {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .goPremium-form {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 760px) {
+  .goPremium-form {
+    width: 90%;
+  }
+  .goPremium-featureCard {
+    width: 100%;
+  }
+}

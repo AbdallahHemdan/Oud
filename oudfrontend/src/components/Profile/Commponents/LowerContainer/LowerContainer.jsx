@@ -52,6 +52,7 @@ function LowerContainer(props) {
           path={`/profile/:userId/followers`}
           render={prop => <Followers {...prop} userId={props.userId} />}
         />
+
         <Route
           data-test="defualt-profile-page"
           exact

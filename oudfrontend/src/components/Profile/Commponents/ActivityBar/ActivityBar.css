@@ -1,0 +1,23 @@
+.DummyActivityBar {
+  margin-top: 66px;
+  width: 18%;
+  z-index: 1;
+  height: 100vh;
+  position: fixed;
+  margin-left: 83%;
+  background-color: #000000;
+}
+.activityBar-element {
+  width: 100%;
+
+  padding-top: 10px;
+  height: 100px;
+  border-bottom: 1px solid rgba(150, 150, 150, 0.2);
+  border-top: 1px solid hsla(0, 0%, 100%, 0.05);
+}
+.activityMessage {
+  color: gray;
+  text-align: left;
+  width: 80%;
+  margin: auto;
+}

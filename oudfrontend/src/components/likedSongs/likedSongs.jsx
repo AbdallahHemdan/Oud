@@ -1,14 +1,13 @@
-import React from 'react';
-import SongList from '../commonComponents/songList'
-import HeaderBody from './components/headerBody'
-import axios from 'axios';
-import './likedSongs.css'
+import React from "react";
+import SongList from "../commonComponents/songList";
+import HeaderBody from "./components/headerBody";
+import axios from "axios";
+import "./likedSongs.css";
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
-import { resume, pause, addToQueue } from '../commonComponents/utils'
 import { base } from "../../config/environment"
-import { config } from "../../utils/auth"
-
+import { config, isLoggedIn } from "../../utils/auth"
+import {withRouter} from 'react-router-dom'
 /**
  * @classdesc this is a component that renders likedSongs page
  * @author Ahmed Walid <ahmedwa1999@gmail.com>
@@ -47,61 +46,17 @@ class LikedSongs extends React.Component {
       items: [],
       playing: false,
       queued: false,
-      clickID: "0",
+      clickID: "0"
     };
-    this.addToQueue = this.addToQueue.bind(this);
-    this.resume = this.resume.bind(this);
-    this.pause = this.pause.bind(this);
     this.playButtonClicked = this.playButtonClicked.bind(this);
   }
   /**
-   * add the tracks to queue and resume the player
-   * @param {Array.<track>} tracks
-   * @param {number} length
-   * @returns {void}
-   *
-   */
-
-  addToQueue(tracks, length) {
-    this.setState({ queued: true });
-    addToQueue(tracks, length);
-    this.resume();
-  }
-  /**
-   * Called Whenever the user clicked on the PLAY button and it adds all the songs of the playlist to the queue by a post request
+   * Called Whenever the user clicked on the PLAY button
    * @func
    * @returns {void}
    */
   playButtonClicked() {
-    //all the three requests should be put requests
-    if (this.state.queued === false) {
-      const tracks = this.state.tracks;
-      const length = this.state.tracks.length;
-      this.addToQueue(tracks, length);
-    }
-    if (this.state.playing === true) {
-      this.pause();
-    } else {
-      this.resume();
-    }
-  }
-  /**
-   * pauses the player
-   * @returns {void}
-   *
-   */
-  pause() {
-    pause();
-    this.setState({ playing: false });
-  }
-  /**
-   * resums the player
-   * @returns {void}
-   *
-   */
-  resume() {
-    resume();
-    this.setState({ playing: true });
+    this.setState({ playing: !this.state.playing });
   }
 
   /**
@@ -109,25 +64,26 @@ class LikedSongs extends React.Component {
    * @func
    * @returns {void}
    */
-  componentDidMount() {
+  fetchItems = () => {
     axios
       .get(`${base}/me/tracks`, config)
       .then((response) => {
-        const items = response.data.items;
         this.setState({ recieved: true });
-        this.setState({ items: items });
+        const items = response.data.items;
         this.destructuring(items);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
+  };
+  componentDidMount() {
+    this.fetchItems();
   }
   destructuring(items) {
     var tracks = [];
-    items.map((item) => {
-      tracks.push(item.track);
-    });
+    items.map(item => tracks.push(item.track));
     this.setState({ tracks: tracks });
+    this.setState({recieved:true})
   }
 
   /**
@@ -140,9 +96,9 @@ class LikedSongs extends React.Component {
 
   render() {
     return (
-      <div className="dummyParent">
-        <Sidebar />
-        <Navbar isLoggedIn={true} />
+      <div className="dummyParent" data-testid='wrapper'>
+        <Sidebar data-testid="sidebar"/>
+        <Navbar isLoggedIn={isLoggedIn()} data-testid="navBar"/>
         <div className="profile-user">
           <div data-testid="likedSongs" className="playlist">
             <div className="row">
@@ -166,11 +122,14 @@ class LikedSongs extends React.Component {
                   data-testid="playlistHeaderBody"
                   className="playlistHeaderBody col col-lg-12 col-md-8 col-sm-8 col-xs-8"
                 >
+                
                   <HeaderBody
                     data-testid="headerBody"
                     length={this.state.tracks.length}
                     playClicked={this.playButtonClicked.bind(this)}
                     playing={this.state.playing}
+                    tracks={this.state.tracks}
+                    webPlayer={this.props.webPlayer}
                   />
                 </div>
               </div>
@@ -178,11 +137,12 @@ class LikedSongs extends React.Component {
                 data-testid="songList"
                 recieved={this.state.recieved}
                 tracks={this.state.tracks}
-                pause={this.pause}
-                resume={this.resume}
-                addToQueue={this.addToQueue}
                 clickedItemId={this.state.clickID}
+                fetchContext={this.fetchItems}
                 className="col-xs-12 col-md-12 col-lg-8 col-xl-8"
+                contextId={null}
+                contextType="LIKED"
+                webPlayer={this.props.webPlayer}
               />
             </div>
           </div>
@@ -191,4 +151,4 @@ class LikedSongs extends React.Component {
     );
   }
 }
-export default LikedSongs;
+export default withRouter(LikedSongs);

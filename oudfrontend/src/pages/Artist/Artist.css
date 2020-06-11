@@ -1,0 +1,135 @@
+.play-artist {
+  float: left;
+  background-color: #f9b835;
+  color: white;
+  border-radius: 28px;
+  font-weight: 700;
+  font-size: 14px;
+  width: 100px;
+  margin: 0;
+  padding: 5px;
+  align-self: flex-start;
+  transition: transform 0.2s;
+  align-self: flex-end;
+  margin-top: 8px;
+  margin-right: 10px;
+}
+
+.play-artist:hover {
+  transform: scale(1.05);
+  background-color: #f9b835;
+  color: white;
+}
+.play-artist:active,
+.play-artist:focus {
+  background-color: transparent;
+  color: #f9b835;
+}
+.artist-user .upperContainerFollowingButton {
+  float: left;
+  margin-right: 10px;
+}
+.artist-user .upperContainerFollowButton {
+  float: left;
+  margin-right: 10px;
+}
+.artist-user .upperContainerProfile {
+  -webkit-box-align: center;
+  position: relative;
+  align-items: center;
+  background-size: cover;
+  background-position: 50%;
+}
+/* .artist-user .upperContainerProfile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(-30%, transparent),
+    to(#121212)
+  );
+  background: linear-gradient(transparent -30%, #121212);
+  box-sizing: initial;
+} */
+.artist-user .upperContainerProfile h1 {
+  font-size: 50px;
+  font-weight: 1000;
+  transition: 0.25s;
+}
+.artist-ellipsis-container .ellipsis-icon {
+  visibility: visible;
+  margin-top: 8px;
+}
+.artist-user .ellipsis-img {
+  float: left;
+}
+.artist-bio {
+  color: #a9a1a1;
+  width: 70%;
+}
+.artist-pop {
+  /* width: 100%; */
+  min-width: 100% !important;
+}
+.artist-user .upperNav {
+  z-index: 1;
+}
+.artist-user .userName-profile-scrolled {
+  margin-left: 30px;
+}
+.artis-overview .SEE-ALL-Overview {
+  cursor: pointer;
+}
+.artist-appears-on,
+.artist-singles,
+.artist-compilation {
+  margin-top: 2%;
+}
+/* .artist-options-dropdown .dropdwon {
+  float: left;
+} */
+.artist-user .dropdown-menu {
+  background-color: black;
+}
+.artist-user .dropdown-item {
+  color: white;
+  cursor: pointer;
+}
+.artist-user .dropdown-item:hover {
+  background-color: #ffc107;
+}
+.swal2-icon.swal2-success {
+  border-color: #ffce00;
+  color: #ffce00;
+}
+.swal2-icon.swal2-success [class^="swal2-success-line"] {
+  background-color: #ffce00;
+}
+.artist-user-view-page .createPlaylist {
+  z-index: 4;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+}
+.artist-user-view-page {
+  width: 100%;
+}
+.artist-user-view-page .profile-user {
+  /* width: 87%; */
+}
+.artis-overview .col-xs-8,
+.artis-overview .col-md-6,
+.artis-overview .col-lg-8,
+.artis-overview .col-xl-8 {
+  width: 100%;
+  min-width: 100%;
+}

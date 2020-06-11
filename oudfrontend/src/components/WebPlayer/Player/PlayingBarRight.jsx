@@ -1,7 +1,8 @@
 import React, { Fragment, Component } from "react";
 import PropTypes from "prop-types";
-import repeat from "../../../assets/images/icons/repeat.png";
-import repeatEnabled from "../../../assets/images/icons/repeat-enable.png";
+import repeatOff from "../../../assets/images/icons/repaetOff.png";
+import repeatContext from "../../../assets/images/icons/repeatContext.png";
+import repeatTrack from "../../../assets/images/icons/repeatTrack.png";
 import shuffle from "../../../assets/images/icons/shuffle.png";
 import shuffleEnabled from "../../../assets/images/icons/shuffle-enable.png";
 import volume from "../../../assets/images/icons/volume.png";
@@ -10,6 +11,7 @@ import queue from "../../../assets/images/icons/queue.png";
 import queueActivated from "../../../assets/images/icons/queueActivated.png";
 import love from "../../../assets/images/icons/love.png";
 import loved from "../../../assets/images/icons/loved.png";
+
 /**
  * Component for controling the right part of the player: shuffle, repeat, and mute buttons and clicking on the volume bar
  * @author Ahmed Ashraf
@@ -21,16 +23,17 @@ class PlayingBarRight extends Component {
     this.state = {
       queueOpened: false,
       loved: false,
+      lovedState: true,
     };
   }
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   if (nextProps.loved !== prevState.loved) {
-  //     return {
-  //       loved: nextProps.loved,
-  //     };
-  //   }
-  //   return null;
-  // }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.loved !== prevState.loved) {
+      return {
+        loved: nextProps.loved,
+      };
+    }
+    return null;
+  }
 
   openQueue = () => {
     if (this.state.queueOpened) {
@@ -43,17 +46,12 @@ class PlayingBarRight extends Component {
     });
   };
   likeSong = () => {
-    this.setState({
-      loved: true,
-    });
-    this.props.addRemoveSavedSong(true);
+    this.props.likeSong(this.props.trackId);
   };
   unlikeSong = () => {
-    this.setState({
-      loved: false,
-    });
-    this.props.addRemoveSavedSong(false);
+    this.props.unlikeSong(this.props.trackId);
   };
+
   render() {
     return (
       <Fragment>
@@ -91,7 +89,7 @@ class PlayingBarRight extends Component {
             </button>
             <button
               className="control-button shuffle"
-              title="Shuffle"
+              title={this.props.shuffleState ? "Shuffle on" : "Shuffle off"}
               onClick={this.props.handleShuffleState}
               data-testid="shuffle-btn"
             >
@@ -102,13 +100,31 @@ class PlayingBarRight extends Component {
             </button>
             <button
               className="control-button repeat"
-              title="Repeat"
+              title={
+                this.props.repeatState === 0
+                  ? "Repeat Off"
+                  : this.props.repeatState === 1
+                  ? "Repeat Queue"
+                  : "Repeat Track"
+              }
               onClick={this.props.handleRepeatState}
               data-testid="repeat-btn"
             >
               <img
-                src={this.props.repeatState ? repeatEnabled : repeat}
-                alt="Repeat"
+                src={
+                  this.props.repeatState === 0
+                    ? repeatOff
+                    : this.props.repeatState === 1
+                    ? repeatContext
+                    : repeatTrack
+                }
+                alt={
+                  this.props.repeatState === 0
+                    ? "Repeat Off"
+                    : this.props.repeatState === 1
+                    ? "Repeat Queue"
+                    : "Repeat Track"
+                }
               />
             </button>
             <button
@@ -126,7 +142,7 @@ class PlayingBarRight extends Component {
             <div
               className="progress-bar"
               id="volume-width"
-              style={{ width: "125px" }}
+              // style={{ width: "125px" }}
               onMouseDown={this.props.setMouseDown}
               onMouseMove={this.props.onVolumeClick}
               onMouseUp={this.props.mouseUp}
@@ -158,7 +174,7 @@ PlayingBarRight.propTypes = {
   /**
    * Repeat button state, enabled and disabled
    */
-  repeatState: PropTypes.bool.isRequired,
+  repeatState: PropTypes.number.isRequired,
   /**
    * Volume button state, enabled and disabled
    */

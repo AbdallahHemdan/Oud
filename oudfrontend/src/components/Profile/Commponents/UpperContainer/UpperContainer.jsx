@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import userPlaceHolder from "../../../../assets/images/default-Profile.svg";
 import { Link } from "react-router-dom";
-import { config, getToken } from "./../../../../utils/auth";
+import { config } from "./../../../../utils/auth";
 import "./UpperContainer.css";
 
 /**
@@ -21,7 +21,8 @@ class UpperContainer extends Component {
       signInId: "",
       followStatus: false,
       mouseOn: "",
-      scrolled: false
+      scrolled: false,
+      type: ""
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
@@ -40,7 +41,9 @@ class UpperContainer extends Component {
     if (this.state.followStatus) {
       axios
         .delete(
-          "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
+          "https://oud-zerobase.me/api/v1/me/following?type=" +
+            this.state.type +
+            "&ids=" +
             this.props.userId,
           config
         )
@@ -51,7 +54,9 @@ class UpperContainer extends Component {
     } else {
       axios
         .put(
-          "https://oud-zerobase.me/api/v1/me/following?type=user&ids=" +
+          "https://oud-zerobase.me/api/v1/me/following?type=" +
+            this.state.type +
+            "&ids=" +
             this.props.userId,
           {
             ids: [this.props.userId]
@@ -82,15 +87,8 @@ class UpperContainer extends Component {
     if (event.target.files[0]) {
       fd.append("images", event.target.files[0], event.target.files[0].name);
 
-      axios({
-        url: `https://oud-zerobase.me/api/v1/me/profilePicture`,
-        method: "patch",
-        headers: {
-          authorization: config.headers.Authorization
-        },
-        data: fd
-      })
-        //.patch("https://oud-zerobase.me/api/v1/me/profilePicture", fd, config)
+      axios
+        .patch("https://oud-zerobase.me/api/v1/me/profilePicture", fd, config)
         .then(response => {
           console.log(response);
           window.location = window.location;
@@ -108,12 +106,16 @@ class UpperContainer extends Component {
         this.setState({
           id: response.data._id,
           username: response.data.displayName,
-          photo: response.data.images[0]
+          photo: response.data.images[0],
+          type: response.data.type
         });
 
+        //you should use the type and ids as query prams in the real API as here you can't make it just get the data
         axios
           .get(
-            "https://oud-zerobase.me/api/v1/me/following/contains?type=user&ids=" +
+            "https://oud-zerobase.me/api/v1/me/following/contains?type=" +
+              this.state.type +
+              "&ids=" +
               this.props.userId,
             config
           )
@@ -216,7 +218,9 @@ class UpperContainer extends Component {
             }
           >
             {!this.state.scrolled && (
-              <p className="userName-profile-padding">USER</p>
+              <p className="userName-profile-padding">
+                {this.state.type.toUpperCase()}
+              </p>
             )}
             <h1>{this.state.username}</h1>
           </div>

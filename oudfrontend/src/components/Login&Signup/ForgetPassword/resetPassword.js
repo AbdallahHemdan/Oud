@@ -1,103 +1,51 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../signup/signup.css';
 import MainBrand from '../MainBrand';
 import axios from 'axios';
-import { Redirect, withRouter } from 'react-router-dom';
-import ignoreQueryPrefix from 'qs';
-var qs = require('qs');
-/**
- * the password validation
- * (check if the password is valid)
- * @function
- * @param {String} Password -user password
- * @returns {boolean} - returns if the password is valid
- * */
-function checkPassword(Password) {
-  let [isUppercase, isLowercase, isSpecialChar, isNumber] = [
-    false,
-    false,
-    false,
-    false,
-  ];
-  let str = Password + '0';
-  let patt1 = /[0-9]/g;
-  isNumber = str.match(patt1).length > 1;
+import {Redirect, withRouter, Link} from 'react-router-dom';
+import Validator from './../validate';
 
-  patt1 = /[!@#$%^&*(),.?":{}_|<>]/g;
-  str = Password + '@';
-  isSpecialChar = str.match(patt1).length > 1;
-
-  for (let i = 0; i < Password.length; i++) {
-    if (Password[i] === Password[i].toUpperCase()) {
-      isUppercase = true;
-    } else if (Password[i] === Password[i].toLowerCase()) {
-      isLowercase = true;
-    }
-  }
-  return isSpecialChar && isNumber && isUppercase && isLowercase;
-}
-/** the forget password section  */
+/** the forget password section  
+ * @auther abdallah abu sedo
+*/
 class ResetPassword extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      /**
+       * the new password var
+       */
       Password: '',
+      /**
+       * the new confirm password
+       */
       ConfirmPassword: '',
       showText: 'show',
-      formErrors: {
+      /**
+       * the error messages forms
+       */ formErrors: {
         PasswordError: '',
         ConfirmPasswordError: '',
       },
     };
   }
-
   /**
    * Password checker
    * (here check if the entered password is correct under some restricts)
-   * 1)if it dose not enter any thing
-   * 2)if it under 8 latter's
-   * 3)if it more than 30 latter's
-   * 5)if it is valid
-   * 6)then it is correct
+   * 1)if it under 8 latter's
+   * 2)if it more than 30 latter's
+   * 3)if it is valid
+   * 4)then it is correct
    * @function
    * @param {object} event - the entered password
    * @returns {string} -change the error massages
    *  */
   PasswordHandel = (event) => {
-    this.setState({ Password: event.target.value });
-
-    if (this.state.Password.length < 8) {
-      this.setState({
-        formErrors: {
-          PasswordError: 'minimum 8 characters required',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-        },
-      });
-    } else if (this.state.Password.length > 30) {
-      this.setState({
-        formErrors: {
-          PasswordError: 'maximum 30 characters',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-        },
-      });
-    } else if (!checkPassword(this.state.Password)) {
-      this.setState({
-        formErrors: {
-          PasswordError:
-            'Password should contain uppercase,lowercase and a number ',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-        },
-      });
-    } else {
-      this.setState({
-        formErrors: {
-          PasswordError: '',
-          ConfirmPasswordError: this.state.formErrors.ConfirmPasswordError,
-        },
-      });
-    }
+    this.setState({Password: event.target.value});
+    Validator.validatePassword(event.target.value, this);
   };
+
   /**
    * Password Validation
    * its validate the input password to be a strong password
@@ -107,24 +55,10 @@ class ResetPassword extends Component {
    * @returns {string}
    */
   ConfirmPasswordHandel = (event) => {
-    this.setState({ ConfirmPassword: event.target.value });
-
-    if (event.target.value !== this.state.Password) {
-      this.setState({
-        formErrors: {
-          PasswordError: this.state.formErrors.PasswordError,
-          ConfirmPasswordError: 'Invalid  ,Password not matched',
-        },
-      });
-    } else {
-      this.setState({
-        formErrors: {
-          PasswordError: this.state.formErrors.PasswordError,
-          ConfirmPasswordError: '',
-        },
-      });
-    }
+    this.setState({ConfirmPassword: event.target.value});
+    Validator.validateConfirmPassword(event.target.value, this);
   };
+
   /**
    * check if the two passwords are the same
    * @function
@@ -166,7 +100,14 @@ class ResetPassword extends Component {
     });
     return false;
   };
-
+  /**
+   * this function activate when we click the submit button
+   * it's check if the password and the confirm password are the same
+   * then it send a request with all the data
+   * @function
+   * @param {object} e
+   * @returns {void}
+   */
   handelSubmit = (e) => {
     // It prevents a submit button from submitting a form
     e.preventDefault();
@@ -182,21 +123,18 @@ class ResetPassword extends Component {
           ConfirmPasswordError: '',
         },
       });
-      let restToken = qs.parse(this.props.location.search, {
-        ignoreQueryPrefix: true,
-      }).token;
+      let restToken = this.props.match.params.token;
+
       axios
         .patch(
           `https://oud-zerobase.me/api/v1/users/resetPassword/${restToken}`,
           toSent
         )
         .then((response) => {
-          if (response.status === 200) {
-            const authToken = response.data.token;
-            localStorage.setItem('accessToken', authToken);
-            console.log(response);
-            window.location = '/log-in';
-          }
+          const authToken = response.data.token;
+          localStorage.setItem('accessToken', authToken);
+          console.log(response);
+          window.location = '/signin';
         })
         .catch((error) => {
           errorMassage = error.response.data.message;
@@ -218,16 +156,7 @@ class ResetPassword extends Component {
       });
     }
   };
-  toLogin = () => {
-    if (this.state.redirect) {
-      return <Redirect to="/log-in" />;
-    }
-  };
-  setRedirect = () => {
-    this.setState({
-      redirect: true,
-    });
-  };
+
   /**
    * here i render the text box and the submit button
    * @function
@@ -238,39 +167,50 @@ class ResetPassword extends Component {
       <div className="container main-center forgetPage SignUpForm">
         <MainBrand />
         <section className="main-form container SignUpForm">
-          <h2 className="pass-reset">Password Reset</h2>
-          <h6 className="hint pass-massage">Enter your new password</h6>
+          <h2 className="pass-reset" data-testid="restPasswordText">
+            Password Reset
+          </h2>
+          <h6 className="hint pass-massage" data-testid="restPasswordText">
+            Enter your new password
+          </h6>
           <section className="main-form container">
             <form onSubmit={this.handelSubmit}>
               <div className="form-group sm-8">
                 {this.Password()}
-                <h6 className="hint pass-massage">Confirm your password</h6>
+                <h6
+                  className="hint pass-massage"
+                  data-testid="restPasswordText"
+                >
+                  Confirm your password
+                </h6>
                 {this.confirmPassword()}
-
                 <button
                   type="button"
-                  data-testid="registerpassword"
+                  data-testid="testIdOfButton"
                   className="btn SignUpSubmit btn-block"
                   onClick={this.handelSubmit}
                 >
                   Reset password
                 </button>
-                {this.toLogin()}
-                <button
-                  type="button"
-                  data-testid="backToLogin"
-                  className="btn SignUpSubmit btn-block"
-                  onClick={this.handelSubmit}
-                >
-                  Back to Login
-                </button>
+                <Link to="/signin">
+                  <button
+                    type="button"
+                    data-testid="testIdOfButton"
+                    className="btn SignUpSubmit btn-block"
+                  >
+                    Back to Login
+                  </button>
+                </Link>
               </div>
               <section className="or-seperator-2"></section>
               <section className="container main-center">
-                <h6 className="hint">
+                <h6 className="hint" data-testid="restPasswordText">
                   If you still need help, contact Oud team at
                   <button type="button" className="btn btn-outline-link">
-                    <a href={'mailto:oudteam.sup@gmail.com'}>
+                    <a
+                      href={'mailto:oudteam.sup@gmail.com'}
+                      className="EmailtoHelp"
+                    >
                       oudteam.sup@gmail.com
                     </a>
                   </button>
@@ -283,7 +223,7 @@ class ResetPassword extends Component {
     );
   }
   /**
-   * confirm password text box
+   * @description confirm password text box
    * @function
    * @returns {JSX}
    */
@@ -292,7 +232,7 @@ class ResetPassword extends Component {
       <div className="form-group">
         <div className="input-group">
           <input
-            data-testid="registerConfirmPassword"
+            data-testid="registerPassword"
             type={this.state.PasswordType}
             className="form-control FormElement"
             placeholder={'confirm Password'}
@@ -302,10 +242,10 @@ class ResetPassword extends Component {
         </div>
         {this.hasSamePassword() === false
           ? this.state.formErrors.ConfirmPasswordError.length > 0 && (
-            <span className="error" htmlFor="register-confirmPassword">
-              {this.state.formErrors.ConfirmPasswordError}
-            </span>
-          )
+              <span className="error" htmlFor="register-confirmPassword">
+                {this.state.formErrors.ConfirmPasswordError}
+              </span>
+            )
           : null}
       </div>
     );
@@ -320,7 +260,7 @@ class ResetPassword extends Component {
       <div className="form-group">
         <div className="input-group">
           <input
-            data-testid="registerpassword"
+            data-testid="registerPassword"
             type={this.state.PasswordType}
             className="form-control FormElement"
             placeholder={'Password'}
