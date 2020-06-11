@@ -99,20 +99,19 @@ $ npm run prod
 
 <hr />
 
-![image](https://user-images.githubusercontent.com/40190772/79008263-418a9e80-7b5d-11ea-9433-c8d7791a9b81.png)
-
-<hr />
-
 ![25](https://user-images.githubusercontent.com/40190772/80294151-aa316800-8766-11ea-89dd-07cfc32b27f6.png)
 
 <hr />
 
 ![chrome_1JjJ8yfh7A](https://user-images.githubusercontent.com/40190772/84220765-e54be880-aad3-11ea-8b58-6e1d32654290.png)
 
-
 <hr />
 
 ![image](https://user-images.githubusercontent.com/40190772/84220506-40311000-aad3-11ea-866e-06e33a1adbf3.png)
+
+<hr />
+
+![image](https://user-images.githubusercontent.com/40190772/79008263-418a9e80-7b5d-11ea-9433-c8d7791a9b81.png)
 
 <hr />
 
