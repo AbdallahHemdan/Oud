@@ -3,18 +3,11 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
 import UpperContainer from "../../components/Profile/Commponents/UpperContainer/UpperContainer";
 import LowerContainer from "../../components/Profile/Commponents/LowerContainer/LowerContainer";
+import ActivityBar from "../../components/Profile/Commponents/ActivityBar/ActivityBar";
+import Ads from "../../components/Premium/Component/Ads/Ads";
 import { isLoggedIn } from "../../utils/auth";
 import "./Profile.css";
 
-function ActivityBar() {
-  return (
-    <div className="DummyActivityBar">
-      <h5 style={{ textAlign: "center", padding: "10px 4px" }}>
-        Dummy ActivityBar
-      </h5>
-    </div>
-  );
-}
 /**
  *
  * @param {*} props
@@ -24,12 +17,12 @@ function ActivityBar() {
  */
 function Profile(props) {
   if (!isLoggedIn()) {
-    window.location = "/signin"
-    return (<div></div>)
-
+    window.location = "/signin";
+    return <div></div>;
   }
   return (
     <div className="dummyParent">
+      <Ads />
       <Sidebar />
       <Navbar isLoggedIn={isLoggedIn()} />
       <div className="profile-user" data-test="Profile">

@@ -1,39 +1,39 @@
-import React, {Component} from 'react';
-import {Link, Redirect} from 'react-router-dom';
-import {CardList} from './../item/cardlist/cardlist';
-import Back from './../../../assets/images/2685063.jpg';
-import oud from './../../../assets/images/oud.png';
-import axios from 'axios';
-import {base, subUrl, prodUrl} from './../../../config/environment';
-import {config} from './../../../utils/auth';
+import React, { Component } from "react";
+import { Link, Redirect } from "react-router-dom";
+import { CardList } from "./../item/cardlist/cardlist";
+import Back from "./../../../assets/images/2685063.jpg";
+import oud from "./../../../assets/images/oud.png";
+import axios from "axios";
+import { base, subUrl, prodUrl } from "./../../../config/environment";
+import { config } from "./../../../utils/auth";
 const getArtistLink = `${base}/artists/some`;
 class AfterLogin extends Component {
   constructor(props) {
     super(props);
-    this.state = {tracks: [], artists: [], ids: []};
+    this.state = { tracks: [], artists: [], ids: [] };
   }
   /**
    * handel store artist */
 
-  handleStoringArtists = (artists) => {
-    this.setState({artists});
+  handleStoringArtists = artists => {
+    this.setState({ artists });
     let ids = [];
-    this.state.artists.map((artist) => {
+    this.state.artists.map(artist => {
       ids.push(artist.id);
     });
-    this.setState({ids});
+    this.setState({ ids });
   };
   /**
    * handel store tracks
    */
-  handleStoringTracks = (tracks) => {
-    this.setState({tracks});
+  handleStoringTracks = tracks => {
+    this.setState({ tracks });
     let track = [];
-    this.state.tracks.map((tracks) => {
+    this.state.tracks.map(tracks => {
       track.push(tracks);
       console.log(this.state.tracks);
     });
-    this.setState({track});
+    this.setState({ track });
   };
   /**
    * request the artist and tracks
@@ -41,19 +41,19 @@ class AfterLogin extends Component {
   componentDidMount() {
     axios
       .get(getArtistLink, config)
-      .then((result) => {
+      .then(result => {
         this.handleStoringArtists(result.data);
       })
-      .catch((error) => {
-        console.log('error111', error.response);
+      .catch(error => {
+        console.log("error111", error.response);
       });
     axios
       .get(`${base}/artists/${this.state.id}/top-tracks`, config)
-      .then((response) => {
+      .then(response => {
         this.handleStoringTracks(response.data);
       })
-      .catch((error) => {
-        console.log('error', error.response);
+      .catch(error => {
+        console.log("error", error.response);
       });
   }
 
@@ -72,7 +72,7 @@ class AfterLogin extends Component {
           <h6 data-testid="firstText">
             Millions of songs. No credit card needed.
           </h6>
-          <Link className="LinkStyle" to="/premium">
+          <Link className="LinkStyle" to="/goPremium">
             <button className="getOudBtn" data-testid="getOudBtn">
               Get Oud Premium
             </button>
