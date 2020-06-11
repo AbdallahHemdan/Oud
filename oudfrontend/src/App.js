@@ -1,5 +1,5 @@
 import './App.css';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Playlist from './components/Playlist/playlist';
 import LikedSongs from './components/likedSongs/likedSongs';
 import CreateAlbum from './components/CreateAlbum/CreateAlbum';
@@ -12,9 +12,6 @@ import Profile from './pages/Profile/Profile';
 import Home from './pages/Home/Home';
 import SeeAll from './components/SeeAll/SeeAll';
 import Library from './components/library/library';
-import Download from './pages/RoutingPages/download';
-import Help from './pages/RoutingPages/help';
-import Premium from './pages/RoutingPages/premium';
 import Overview from './pages/RoutingPages/OverView';
 import SignUp from './pages/Signup/index';
 import SignIn from './pages/Login/loginPage';
@@ -29,7 +26,7 @@ import Welcome from './pages/Welcome/welcome';
 import SuggestedArtist from './pages/SuggestedArtistPage/SuggestedArtist';
 import SeeAllRecentSearches from './components/SeeAllRecentSearches/SeeAllRecentSearches';
 import WebPlayer from './components/WebPlayer/WebPlayer';
-
+import About from "./components/Welcome/Footer/About";
 import {
   BrowserRouter as Router,
   Route,
@@ -37,11 +34,15 @@ import {
   useParams,
 } from 'react-router-dom';
 import Artist from './pages/Artist/Artist';
-import {base} from './config/environment';
+import { base } from './config/environment';
 import SongInfo from './components/SongInfo/SongInfo';
-import {createBrowserHistory} from 'history';
+import { createBrowserHistory } from 'history';
 import './App.css';
 
+import Features from "./components/Welcome/Footer/Features"
+import Help from './components/Welcome/Footer/Help';
+import ForArtist from './components/Welcome/Footer/ForArtist';
+import ContactUs from './components/Welcome/Footer/contactUs';
 let history = createBrowserHistory();
 const webPlayer = React.createRef();
 class App extends Component {
@@ -102,6 +103,9 @@ class App extends Component {
             <Route path="/likedSongs/">
               <LikedSongs webPlayer={webPlayer} />
             </Route>
+            <Route exact path="/getPremium">
+              <GetPremium />
+            </Route>
             <Route
               exact
               path="/albums/:id"
@@ -115,6 +119,12 @@ class App extends Component {
             <Route exact path="/welcome">
               <Welcome />
             </Route>
+            <Route exact path="/forartists">
+              <ForArtist />
+            </Route>
+            <Route exact path="/contactus">
+              <ContactUs />
+            </Route>
             <Route exact path="/create-playlist">
               <CreatePlaylist display={true} />
             </Route>
@@ -124,14 +134,14 @@ class App extends Component {
             <Route exact path="/signup">
               <SignUp />
             </Route>
-            <Route exact path="/download">
-              <Download />
+            <Route exact path="/about">
+              <About />
+            </Route>
+            <Route exact path="/features">
+              <Features />
             </Route>
             <Route exact path="/help">
               <Help />
-            </Route>
-            <Route exact path="/premium">
-              <Premium />
             </Route>
             <Route exact path="/overview">
               <Overview />

@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import './../welcome.css';
 import Footer from './Footer';
 import Fimage from '../../../assets/images/Kota_Profile.webp';
 import Simage from './../../../assets/images/Kota_Artist_Pick.webp';
 import Timage from './../../../assets/images/Kota_Stat.webp';
-export default class ForArtist extends Component {
+class ForArtist extends Component {
   render() {
     return (
       <div>
@@ -69,3 +69,5 @@ export default class ForArtist extends Component {
     );
   }
 }
+
+export default ForArtist;
