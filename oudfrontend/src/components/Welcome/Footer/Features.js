@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import './../welcome.css';
-export default class Features extends Component {
+class Features extends Component {
   render() {
     return (
       <div>
@@ -38,6 +38,8 @@ export default class Features extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
+
+export default Features

@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import LogoOud from './../../../assets/images/logo2.png';
 import './../welcome.css';
-export default class Help extends Component {
+class Help extends Component {
   render() {
     return (
       <div>
@@ -14,8 +14,10 @@ export default class Help extends Component {
             ACCOUNT HELP <a href="/forgot-password">Reset your password</a>
           </div>
         </div>
-      
+
       </div>
     );
   }
 }
+
+export default Help;

@@ -1,12 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from './../../../assets/images/Logoc.png';
 import './../welcome.css';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faFacebook} from '@fortawesome/free-brands-svg-icons';
-import {faTwitter} from '@fortawesome/free-brands-svg-icons';
-import {faInstagram} from '@fortawesome/free-brands-svg-icons';
-import {faYoutube} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 /**
  * the footer function
  * @function
@@ -67,7 +67,7 @@ function Footer() {
 
                 <ul className="list-unstyled ListMain hovergold">
                   <li className="ListItem">
-                    <Link data-testid="Artists" to="/artists#gohere">
+                    <Link data-testid="Artists" to="/forartists">
                       For Artists
                     </Link>
                   </li>

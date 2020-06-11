@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import LogoOud from './../../../assets/images/logo2.png';
 import Hemdan from './../../../assets/images/Hemdan.jpg';
@@ -7,7 +7,7 @@ import Mahbob from './../../../assets/images/mahbob.jpg';
 import Sedo from './../../../assets/images/sedo.png';
 import Waled from './../../../assets/images/waled.jpg';
 import './../welcome.css';
-export default class ContactUs extends Component {
+class ContactUs extends Component {
   render() {
     return (
       <div>
@@ -110,3 +110,5 @@ export default class ContactUs extends Component {
     );
   }
 }
+
+export default ContactUs;

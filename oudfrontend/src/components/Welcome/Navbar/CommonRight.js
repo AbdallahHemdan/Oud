@@ -15,11 +15,6 @@ class CommonRight extends Component {
             Help
           </Link>
         </li>
-        <li className="nav-item">
-          <Link data-testid="Download" to="/download" className="nav-link">
-            Download
-          </Link>
-        </li>
       </React.Fragment>
     );
   }

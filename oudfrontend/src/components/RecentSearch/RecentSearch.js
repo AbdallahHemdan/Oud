@@ -88,6 +88,7 @@ class RecentSearch extends Component {
   componentDidMount() {
     axios.get(fetchRecentSearchesUrl, config)
       .then((result) => {
+        console.log("Data fetched on Recent search", result);
         this.handleStoringRecent(result.data);
       })
       .catch((err) => {
@@ -108,6 +109,7 @@ class RecentSearch extends Component {
    * @returns {JSX} Component for Home
   */
   render() {
+    console.log("Recent Search State", this.state.items);
     return (
       <React.Fragment>
         {
