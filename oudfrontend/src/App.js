@@ -18,7 +18,6 @@ import Entered from "./components/Login&Signup/logined/entered";
 import Islinked from "./components/Login&Signup/linkisSent";
 import WhyGoPremium from "./components/Premium/Component/WhyGoPremium/WhyGoPremium";
 import GetPremium from "./components/Premium/Component/GetPremium/GetPremium";
-import Ads from "./components/Premium/Component/Ads/Ads";
 import Welcome from "./pages/Welcome/welcome";
 import SuggestedArtist from "./pages/SuggestedArtistPage/SuggestedArtist";
 import SeeAllRecentSearches from "./components/SeeAllRecentSearches/SeeAllRecentSearches";
