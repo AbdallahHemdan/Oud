@@ -13,7 +13,7 @@
     "@types/jest": "^25.1.4",
     "array-move": "^2.2.1",
     "async-wait-until": "^1.2.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel7-jest": "^1.0.1",
     "better-docs": "^1.4.7",
     "bootstrap": "^4.4.1",
